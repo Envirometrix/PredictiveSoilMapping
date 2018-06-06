@@ -1,0 +1,13 @@
+Number,Texture class,Sand,Silt,Clay,Sand_sd,Silt_sd,Clay_sd
+1, clay (C) ,22,22,56,11.8,9.8,11.1
+2, clay loam (CL) ,32,34,33,7,7.7,3.5
+3, loam (L) ,41,39,20,6.8,6,5.1
+4, loamy sand (LS) ,83,11,7,3.8,5.8,3.2
+5, sand (S) ,92,4,3,3,3,2.2
+6, sandy clay (SC) ,51,9,40,4.3,4.4,3.9
+7, sandy clay loam (SCL) ,60,14,26,7.9,7.3,4.2
+8, silt (Si) ,7,85,9,3.9,3.2,3.1
+9, silty clay (SiC) ,7,47,46,4.5,4.7,4.4
+10, silty clay loam (SiCL) ,9,58,33,5.7,6.8,3.5
+11, silty loam (SiL) ,18,64,18,10.9,8.8,6.5
+12, sandy loam (SL) ,67,22,12,8.5,10.2,4.7

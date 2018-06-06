@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAGA_METADATA>
+  <HISTORY saga-version="2.2.7">
+    <MODULE library="ta_morphometry" id="0" name="Slope, Aspect, Curvature">
+      <OPTION type="grid_system" id="PARAMETERS_GRID_SYSTEM" name="Grid system">
+        <CELLSIZE>100</CELLSIZE>
+        <XMIN>3570050</XMIN>
+        <XMAX>3579950</XMAX>
+        <YMIN>5708050</YMIN>
+        <YMAX>5717950</YMAX>
+      </OPTION>
+      <OPTION type="choice" id="METHOD" name="Method" index="6">9 parameter 2nd order polynom (Zevenbergen &amp; Thorne 1987)</OPTION>
+      <OPTION type="choice" id="UNIT_SLOPE" name="Slope Units" index="0">radians</OPTION>
+      <OPTION type="choice" id="UNIT_ASPECT" name="Aspect Units" index="0">radians</OPTION>
+      <INPUT type="grid" id="ELEVATION" name="Elevation" system="PARAMETERS_GRID_SYSTEM">
+        <FILE>DEMSRT6.sgrd</FILE>
+      </INPUT>
+      <OUTPUT type="grid" id="SLOPE" name="Slope">Slope</OUTPUT>
+    </MODULE>
+  </HISTORY>
+  <SOURCE>
+    <FILE>DEMSRT6_slope.sgrd</FILE>
+    <DATABASE></DATABASE>
+    <PROJECTION>
+      <OGC_WKT>PROJCS["Transverse_Mercator",GEOGCS["GCS_DHDN",DATUM["D_Deutsches_Hauptdreiecksnetz",SPHEROID["Bessel_1841",6377397.155,299.1528128]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",9],PARAMETER["scale_factor",1],PARAMETER["false_easting",3500000],PARAMETER["false_northing",0],UNIT["Meter",1]]
+</OGC_WKT>
+      <PROJ4>+proj=tmerc +a=6377397.155000 +b=6356078.962818 +lat_0=0 +lon_0=9 +k_0=1 +x_0=3500000 +y_0=0 +no_defs</PROJ4>
+      <EPSG>-1</EPSG>
+    </PROJECTION>
+  </SOURCE>
+  <DESCRIPTION></DESCRIPTION>
+</SAGA_METADATA>

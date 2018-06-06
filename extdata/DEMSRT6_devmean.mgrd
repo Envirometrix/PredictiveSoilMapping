@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAGA_METADATA>
+  <HISTORY saga-version="2.2.7">
+    <MODULE library="statistics_grid" id="1" name="Residual Analysis (Grid)">
+      <OPTION type="grid_system" id="PARAMETERS_GRID_SYSTEM" name="Grid system">
+        <CELLSIZE>100</CELLSIZE>
+        <XMIN>3570050</XMIN>
+        <XMAX>3579950</XMAX>
+        <YMIN>5708050</YMIN>
+        <YMAX>5717950</YMAX>
+      </OPTION>
+      <OPTION type="choice" id="MODE" name="Search Mode" index="1">Circle</OPTION>
+      <OPTION type="integer" id="RADIUS" name="Radius (Cells)">11</OPTION>
+      <OPTION type="boolean" id="BCENTER" name="Include Center Cell">TRUE</OPTION>
+      <PARAMETERS name="Distance Weighting" id="WEIGHTING" type="parameters">
+        <OPTION type="choice" id="DW_WEIGHTING" name="Weighting Function" parms="DISTANCE_WEIGHTING" index="0">no distance weighting</OPTION>
+        <OPTION type="double" id="DW_IDW_POWER" name="Inverse Distance Weighting Power" parms="DISTANCE_WEIGHTING">1.000000</OPTION>
+        <OPTION type="boolean" id="DW_IDW_OFFSET" name="Inverse Distance Offset" parms="DISTANCE_WEIGHTING">TRUE</OPTION>
+        <OPTION type="double" id="DW_BANDWIDTH" name="Gaussian and Exponential Weighting Bandwidth" parms="DISTANCE_WEIGHTING">1.000000</OPTION>
+      </PARAMETERS>
+      <INPUT type="grid" id="GRID" name="Grid" system="PARAMETERS_GRID_SYSTEM">
+        <FILE>DEMSRT6.sgrd</FILE>
+      </INPUT>
+      <OUTPUT type="grid" id="DEVMEAN" name="Deviation from Mean Value">Deviation from Mean Value</OUTPUT>
+    </MODULE>
+  </HISTORY>
+  <SOURCE>
+    <FILE>DEMSRT6_devmean.sgrd</FILE>
+    <DATABASE></DATABASE>
+    <PROJECTION>
+      <OGC_WKT>PROJCS["Transverse_Mercator",GEOGCS["GCS_DHDN",DATUM["D_Deutsches_Hauptdreiecksnetz",SPHEROID["Bessel_1841",6377397.155,299.1528128]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",9],PARAMETER["scale_factor",1],PARAMETER["false_easting",3500000],PARAMETER["false_northing",0],UNIT["Meter",1]]
+</OGC_WKT>
+      <PROJ4>+proj=tmerc +a=6377397.155000 +b=6356078.962818 +lat_0=0 +lon_0=9 +k_0=1 +x_0=3500000 +y_0=0 +no_defs</PROJ4>
+      <EPSG>-1</EPSG>
+    </PROJECTION>
+  </SOURCE>
+  <DESCRIPTION></DESCRIPTION>
+</SAGA_METADATA>

@@ -1,0 +1,59 @@
+\usepackage{verbatim}
+\usepackage{helvet}
+\usepackage{courier}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{framed,color}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=red,
+        urlcolor=blue, bookmarks=true, bookmarksnumbered=true,
+        bookmarksopen=true, pdfview=FitH, pdfstartview=FitH,
+        pdftitle={Predictive Soil Mapping with R},
+        pdfauthor={Hengl, T. et al.}}
+\renewcommand{\ttdefault}{cmtt}
+\renewcommand{\sfdefault}{cmss}
+\usepackage{type1cm}
+\DeclareTextCommandDefault{\nobreakspace}{\leavevmode\nobreak\ } 
+%% Fix page layout:
+\usepackage[paper=b5paper, top=1.6cm, bottom=2cm, left=1.9cm, right=1.9cm]{geometry}
+%\usepackage{natbib} %Format for references
+
+\ifxetex
+  \usepackage{letltxmacro}
+  \setlength{\XeTeXLinkMargin}{1pt}
+  \LetLtxMacro\SavedIncludeGraphics\includegraphics
+  \def\includegraphics#1#{% #1 catches optional stuff (star/opt. arg.)
+    \IncludeGraphicsAux{#1}%
+  }%
+  \newcommand*{\IncludeGraphicsAux}[2]{%
+    \XeTeXLinkBox{%
+      \SavedIncludeGraphics#1{#2}%
+    }%
+  }%
+\fi
+
+\newenvironment{rmdblock}[1]
+  {\begin{shaded*}
+  \begin{itemize}
+  \renewcommand{\labelitemi}{
+    \raisebox{-.7\height}[0pt][0pt]{
+      {\setkeys{Gin}{width=3em,keepaspectratio}\includegraphics{images/#1}}
+    }
+  }
+  \item
+  }
+  {
+  \end{itemize}
+  \end{shaded*}
+  }
+\newenvironment{rmdnote}
+  {\begin{rmdblock}{note}}
+  {\end{rmdblock}}
+\newenvironment{rmdtip}
+  {\begin{rmdblock}{tip}}
+  {\end{rmdblock}}
+\newenvironment{rmdwarning}
+  {\begin{rmdblock}{warning}}
+  {\end{rmdblock}}

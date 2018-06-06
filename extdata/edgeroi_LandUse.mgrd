@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAGA_METADATA>
+  <HISTORY saga-version="2.3.1">
+    <MODULE library="grid_gridding" id="0" name="Shapes to Grid">
+      <OPTION type="table_field" id="FIELD" name="Attribute" index="19">LandUse</OPTION>
+      <OPTION type="choice" id="OUTPUT" name="Output Values" index="2">attribute</OPTION>
+      <OPTION type="choice" id="MULTIPLE" name="Method for Multiple Values" index="1">last</OPTION>
+      <OPTION type="choice" id="POLY_TYPE" name="Polygon" index="1">cell</OPTION>
+      <OPTION type="choice" id="GRID_TYPE" name="Preferred Target Grid Type" index="0">Integer (1 byte)</OPTION>
+      <OPTION type="choice" id="TARGET_DEFINITION" name="Target Grid System" index="0">user defined</OPTION>
+      <OPTION type="double" id="TARGET_USER_SIZE" name="Cellsize">250.000000</OPTION>
+      <OPTION type="double" id="TARGET_USER_XMIN" name="Left">741525.000000</OPTION>
+      <OPTION type="double" id="TARGET_USER_XMAX" name="Right">788775.000000</OPTION>
+      <OPTION type="double" id="TARGET_USER_YMIN" name="Bottom">6646225.000000</OPTION>
+      <OPTION type="double" id="TARGET_USER_YMAX" name="Top">6677975.000000</OPTION>
+      <OPTION type="choice" id="TARGET_USER_FITS" name="Fit" index="0">nodes</OPTION>
+      <INPUT type="shapes" id="INPUT" name="Shapes">
+        <FILE>/mnt/cartman/AU/NSW/LandUse_edgeroi_i.shp</FILE>
+      </INPUT>
+      <OUTPUT type="grid" id="GRID" name="Grid">LandUse_edgeroi_i [LandUse]</OUTPUT>
+    </MODULE>
+  </HISTORY>
+  <SOURCE>
+    <FILE>edgeroi_LandUse.sgrd</FILE>
+    <DATABASE></DATABASE>
+    <PROJECTION>
+      <OGC_WKT>PROJCS["UTM_Zone_55_Southern_Hemisphere",GEOGCS["GCS_GRS 1980(IUGG, 1980)",DATUM["D_unknown",SPHEROID["GRS80",6378137,298.257222101]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",147],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",10000000],UNIT["Meter",1]]</OGC_WKT>
+      <PROJ4>+proj=tmerc +a=6378137.000000 +b=6356752.314140 +lat_0=0 +lon_0=147 +k_0=0.9996 +x_0=500000 +y_0=10000000 +no_defs</PROJ4>
+      <EPSG>-1</EPSG>
+    </PROJECTION>
+  </SOURCE>
+  <DESCRIPTION></DESCRIPTION>
+</SAGA_METADATA>
