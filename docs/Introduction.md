@@ -720,7 +720,7 @@ Pedometric soil mapping typically follows six steps as outlined by
     geographical databases and reports (and provide support to users)*;
 
 <div class="rmdnote">
-<p>Differences among <em>conventional soil mapping</em>, <em>digital soil mapping</em> or <em>technology-driven or data-driven mapping</em> relate primarily to the degree of use of robust statistical methods in developing prediction models to support the mapping process (Fig. @ref(fig:pedometric-mapping-vs-dsm)).</p>
+<p>Differences among <em>conventional soil mapping</em>, <em>digital soil mapping</em> or <em>technology-driven or data-driven mapping</em> relate primarily to the degree of use of robust statistical methods in developing prediction models to support the mapping process.</p>
 </div>
 
 We here recognize four classes of soil mapping methods (B, C, D and E in

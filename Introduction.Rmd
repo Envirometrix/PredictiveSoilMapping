@@ -1,4 +1,3 @@
-
 # Soil resource inventories and soil maps
 
 *Edited by: Hengl T. & MacMillan R.A.*
@@ -37,7 +36,7 @@ defined by the presence of hard rock or the lower limit of biologic
 activity [@richter1995deep; @SSDS1993]. Although soils profiles up to tens
 of meters depths can be found in some tropical areas [@richter1995deep], for
 soil classification and mapping purposes, the lower limit soil is
-arbitrarily set to 2 m (http://soils.usda.gov/education/facts/soil.html). Soils are rarely described to depths beyond and
+arbitrarily set to 2m (http://soils.usda.gov/education/facts/soil.html). Soils are rarely described to depths beyond and
 many soil sampling projects put exponentially more focus on the upper
 depths.
 
@@ -730,8 +729,7 @@ Pedometric soil mapping typically follows six steps as outlined by
 Differences among *conventional soil mapping*, *digital soil mapping* or
 *technology-driven or data-driven mapping* relate primarily to the
 degree of use of robust statistical methods in developing prediction
-models to support the mapping process
-(Fig. \@ref(fig:pedometric-mapping-vs-dsm)).
+models to support the mapping process.
 ```
 
 We here recognize four classes of soil mapping methods (B, C, D and E in

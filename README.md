@@ -3,7 +3,7 @@
 
 ![alt text](figures/f0_front_scale.png)
 
-The text and code for the forthcoming Open Access book: [Predictive Soil Mapping with R](http://soilmapper.org). Pull requests and general comments are welcome.
+The text and code for the forthcoming Open Access book: [**Predictive Soil Mapping with R**](https://envirometrix.github.io/PredictiveSoilMapping/). Pull requests and general comments are welcome.
 
 <img alt="Under construction" style="border-width:0" src="images/under-construction_640.png" /><br />**This website is under construction**. For news and updates please refer to the [github issues](https://github.com/envirometrix/PredictiveSoilMapping/issues).
 
