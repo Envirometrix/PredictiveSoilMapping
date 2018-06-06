@@ -1,20 +1,13 @@
-Package: efficientR
+Package: PredictiveSoilMapping
 Type: Package
-Title: Efficient R Programming
+Title: Predictive Soil Mapping with R
 Version: 0.1.1
-Authors@R: c(person(given="Colin", family="Gillespie",
-    email="csgillespie@gmail.com", role = c("aut", "cre")),
-    person("Robin", "Lovelace", role = c("aut")))
-Maintainer: Colin Gillespie <csgillespie@gmail.com>
-Description: This is a dummy travis package used to build the forthcoming O'Reilly
-  book, Efficient R Programming. The description file is used to keep track
+Authors@R: c(person(given="Tom", family="Hengl",
+    email="tom.hengl@envirometrix.net", role = c("aut", "cre")))
+Maintainer: Tom Hengl <tom.hengl@envirometrix.net>
+Description: This is a dummy travis package used to build the book. The description file is used to keep track
   of the packages used within this book.
-Depends: assertive.reflection, benchmarkme, bookdown, cranlogs, data.table (>= 1.9.6), 
-  devtools (>= 1.12.0), DiagrammeR, dplyr, drat, efficient, formatR, fortunes, 
-  geosphere, ggmap, ggplot2 (>= 2.1.0), ggplot2movies, knitr, lubridate, 
-  microbenchmark, profvis (>= 0.3.2), pryr, readr, RSQLite, tibble (>= 1.1.0), tidyr, 
-  Rcpp (>= 0.12.7), swirl, dbplyr, reticulate
+Depends: bookdown, devtools (>= 1.12.0), plyr, rgdal, raster, GSIF, plotKML
 LazyData: TRUE
-LinkingTo: Rcpp
 Remotes:
-  csgillespie/efficient
+  envirometrix/PredictiveSoilMapping

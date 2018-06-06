@@ -1,5 +1,6 @@
 new_session: yes
 before_chapter_script: ["code/before_script.R"]
+output_dir: "docs"
 rmd_files:
   - "index.Rmd"
   - "Introduction.Rmd"

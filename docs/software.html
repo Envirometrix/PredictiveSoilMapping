@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Predictive Soil Mapping with R</title>
   <meta name="description" content="Predictive Soil Mapping aims at producing most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement various soil mapping procedures in R.">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.7.12 and GitBook 2.6.7">
 
   <meta property="og:title" content="Predictive Soil Mapping with R" />
   <meta property="og:type" content="book" />
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="preface.html">
+<link rel="prev" href="soil-resource-inventories-and-soil-maps.html">
+<link rel="next" href="soil-variables.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -303,20 +303,267 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Predictive Soil Mapping with R</h1>
-<h4 class="author"><em>Tomislav Hengl</em></h4>
-<h4 class="date"><em>2018-06-06</em></h4>
+<div id="software" class="section level1">
+<h1><span class="header-section-number">2</span> Software installation and first steps</h1>
+<p><em>Edited by: T. Hengl</em></p>
+<p>This section contains instruction on how to install and use software to run predictive soil mapping and export results to GIS or web applications. It has been written (as most of the book) for Linux users, but should not be too much of a problem to adopt to Microsoft Windows OS and/or Mac OS.</p>
+<div id="list-of-software-in-use" class="section level2">
+<h2><span class="header-section-number">2.1</span> List of software in use</h2>
+<div class="figure" style="text-align: center"><span id="fig:software-triangle"></span>
+<img src="figures/software_triangle.png" alt="Software combination used in this book." width="60%" />
+<p class="caption">
+Figure 2.1: Software combination used in this book.
+</p>
 </div>
-<div id="predictive-soil-mapping-for-advanced-r-users" class="section level1 unnumbered">
-<h1>Predictive Soil Mapping for advanced R users</h1>
-<p><img src="figures/f0_web.png" width="33%" style="display: block; margin: auto;" /></p>
-<p>This is the online version of the Open Access book: <strong>Predictive Soil Mapping with R</strong>. Pull requests and general comments are welcome. These materials are based on the technical tutorials developed within the ISRIC’s <a href="http://isric.org/index.php/explore/gsif">Global Soil Information Facilities (GSIF)</a> framework for automated soil mapping over the period 2014–2017.</p>
-<p><img alt="Under construction" style="border-width:0" src="images/under-construction_640.png" /><br /><strong>This website is under construction</strong>. For news and updates please refer to the <a href="https://github.com/envirometrix/PredictiveSoilMapping/issues">github issues</a>.</p>
-<p>Hard copies of this book from will be made available in the second half of 2018.</p>
-<div id="editors" class="section level2 unnumbered">
-<h2>Editors</h2>
-<p><a href="http://envirometrix.net/staff">Tom Hengl</a> is a Senior Researchers at Envirometrix Ltd. He has more than 20 years of experience as an environmental modeller, data scientist and spatial analyst. Tom is a passionate advocate for, and supporter of, open data, reproducable science and career development for young scientists. He has desiged and implemented the global <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0169748">SoilGrids</a> dataset, partially in response to other well known open data projects such as OpenStreetMap, GBIF, GlobalForestWatch and global climate mapping projects. He has been teaching predictive soil mapping at Wageningen University / ISRIC within the “Hands-on-GSIF” block courses. Video tutorials of the soil mapping with R can also be found on <a href="http://youtube.com/c/ISRICorg" class="uri">http://youtube.com/c/ISRICorg</a></p>
+<p>For processing the covariates we used a combination of Open Source GIS software, primarily SAGA GIS <span class="citation">(Conrad et al. <a href="references.html#ref-gmd-8-1991-2015">2015</a>)</span>, packages raster <span class="citation">(Hijmans and van Etten <a href="references.html#ref-raster">2017</a>)</span>, sp <span class="citation">(Pebesma and Bivand <a href="references.html#ref-pebesma2005classes">2005</a>)</span>, and GDAL <span class="citation">(Mitchell and GDAL Developers <a href="references.html#ref-mitchell2014geospatial">2014</a>)</span> for reprojecting, mosaicking and merging tiles. GDAL and parallel packages in R are highly suitable for processing large data.</p>
+<p>Software (required):</p>
+<ul>
+<li><p><a href="http://cran.r-project.org/bin/windows/base/">R</a> or <a href="https///mran.microsoft.com/download/">MRO</a>;</p></li>
+<li><p><a href="http://www.rstudio.com/products/RStudio/">RStudio</a>;</p></li>
+<li><p>R packages: GSIF, plotKML, landgis, aqp, ranger, caret, xgboost, plyr, raster, gstat, randomForest, ggplot2, e1071 (see: <a href="http://www.r-bloggers.com/installing-r-packages/">how to install R package</a>)</p></li>
+<li><p><a href="http://sourceforge.net/projects/saga-gis/">SAGA GIS</a> (on Windows machines run windows installer);</p></li>
+<li><p>Google Earth or Google Earth Pro;</p></li>
+<li><p><a href="https///trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries">GDAL v2.x</a> for Windows machines use e.g. <a href="http://download.gisinternals.com/sdk/downloads/release-1800-x64-gdal-2-1-3-mapserver-7-0-4/gdal-201-1800-x64-core.msi">“gdal-*-1800-x64-core.msi“</a>;</p></li>
+</ul>
+<p>R script used in this tutorial you can download from the <strong><a href="https://github.com/envirometrix/PredictiveSoilMapping">github</a></strong>. As a gentle introduction to R programming languange and soil classes in R we recommend the chapter on importing and using soil data. Some more example of SAGA GIS + R usage you can find in the soil covariates chapter. To visualize spatial predictions in a web-browser or Google Earth you could also consider following the soil web-maps tutorial. As a gentle introduction to R programming languange and spatial classes in R we recommend following <a href="https://geocompr.robinlovelace.net/">the Geocomputation with R book</a>. Obtaining also the <a href="https///cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf">R reference card</a> is highly recommended.</p>
+</div>
+<div id="installing-software-on-ubuntu-os" class="section level2">
+<h2><span class="header-section-number">2.2</span> Installing software on Ubuntu OS</h2>
+<p>On Ubuntu (often the recommended standard for GIS community) main software can be installed within 10–20 minutes. We start with installing GDAL, proj4 and some packages that you might need later on:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install libgdal-dev libproj-dev libjasper-dev
+<span class="fu">sudo</span> apt-get install gdal-bin python-gdal</code></pre></div>
+<p>Next, we can install R and RStudio. For R studio you can use the CRAN distribution or the optimized distribution provided by (the former REvolution company; now Microsoft):</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">wget</span> https://mran.blob.core.windows.net/install/mro/3.4.3/microsoft-r-open-3.4.3.tar.gz
+<span class="fu">tar</span> -xf microsoft-r-open-3.4.3.tar.gz
+<span class="bu">cd</span> microsoft-r-open/
+<span class="fu">sudo</span> ./install.sh</code></pre></div>
+<p>Note that the R versions are constantly being updated so you will need to replace the URL based on the information provided on the home page (<a href="http://mran.microsoft.com" class="uri">http://mran.microsoft.com</a>). Once you run <code>install.sh</code> you will have to accept the license terms two times before the installation can be completed. If everything went succesful, you can get the session info by:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sessionInfo</span>()
+<span class="co">#&gt; R version 3.4.3 (2017-11-30)</span>
+<span class="co">#&gt; Platform: x86_64-pc-linux-gnu (64-bit)</span>
+<span class="co">#&gt; Running under: Ubuntu 16.04.4 LTS</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Matrix products: default</span>
+<span class="co">#&gt; BLAS: /opt/microsoft/ropen/3.4.3/lib64/R/lib/libRblas.so</span>
+<span class="co">#&gt; LAPACK: /opt/microsoft/ropen/3.4.3/lib64/R/lib/libRlapack.so</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; locale:</span>
+<span class="co">#&gt;  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              </span>
+<span class="co">#&gt;  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    </span>
+<span class="co">#&gt;  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   </span>
+<span class="co">#&gt;  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 </span>
+<span class="co">#&gt;  [9] LC_ADDRESS=C               LC_TELEPHONE=C            </span>
+<span class="co">#&gt; [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; attached base packages:</span>
+<span class="co">#&gt; [1] methods   stats     graphics  grDevices utils     datasets  base     </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; other attached packages:</span>
+<span class="co">#&gt; [1] microbenchmark_1.4-2.1 RevoUtils_10.0.7       RevoUtilsMath_10.0.1  </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; loaded via a namespace (and not attached):</span>
+<span class="co">#&gt;  [1] Rcpp_0.12.14     knitr_1.18       magrittr_1.5     munsell_0.4.3   </span>
+<span class="co">#&gt;  [5] colorspace_1.3-2 rlang_0.1.6      stringr_1.2.0    highr_0.6       </span>
+<span class="co">#&gt;  [9] plyr_1.8.4       tools_3.4.3      grid_3.4.3       gtable_0.2.0    </span>
+<span class="co">#&gt; [13] htmltools_0.3.6  yaml_2.1.16      lazyeval_0.2.1   rprojroot_1.3-1 </span>
+<span class="co">#&gt; [17] digest_0.6.13    tibble_1.4.1     bookdown_0.5     ggplot2_2.2.1   </span>
+<span class="co">#&gt; [21] codetools_0.2-15 evaluate_0.10.1  rmarkdown_1.8    stringi_1.1.6   </span>
+<span class="co">#&gt; [25] compiler_3.4.3   pillar_1.0.1     scales_0.5.0     backports_1.1.2</span>
+<span class="kw">system</span>(<span class="st">&quot;gdalinfo --version&quot;</span>)</code></pre></div>
+<p>This shows for example that the this installation of R is based on the Ubuntu 16.* LTS and the version of GDAL is up to date. Using an optimized distribution of R (read more about <a href="https://mran.microsoft.com/documents/rro/multithread">“The Benefits of Multithreaded Performance with Microsoft R Open”</a>) is especially important if you plan to use R for production purposes i.e. to optimize computing and generation of soil maps for large amount of pixels.</p>
+<p>To install RStudio we can run:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install gdebi-core
+<span class="fu">wget</span> https://download1.rstudio.org/rstudio-1.1.447-amd64.deb 
+<span class="fu">sudo</span> gdebi rstudio-1.1.447-amd64.deb
+<span class="fu">sudo</span> rm rstudio-1.1.447-amd64.deb</code></pre></div>
+<p>Again, RStudio is constantly updated so you might have to adjust the rstudio version and distribution.</p>
+<p>Predictive soil mapping is about making maps, and maps require a GIS software so that one can open view overlay and analyze the maps. GIS software recommended for soil mapping in this book is SAGA GIS, QGIS, GRASS GIS and Google Earth. To install SAGA GIS on Ubuntu we can use:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> add-apt-repository ppa:ubuntugis/ubuntugis-unstable
+<span class="fu">sudo</span> apt-get update
+<span class="fu">sudo</span> apt-get install saga</code></pre></div>
+<p>If installation was succesful, you should be able to access SAGA command line also from R by using:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">system</span>(<span class="st">&quot;saga_cmd --version&quot;</span>)</code></pre></div>
+<p>To install QGIS (<a href="https://download.qgis.org/" class="uri">https://download.qgis.org/</a>) you might first have to add the location of the debian libraries:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> sh -c <span class="st">&#39;echo &quot;deb http://qgis.org/debian xenial main&quot; &gt;&gt; /etc/apt/sources.list&#39;</span>  
+<span class="fu">sudo</span> sh -c <span class="st">&#39;echo &quot;deb-src http://qgis.org/debian xenial main &quot; &gt;&gt; /etc/apt/sources.list&#39;</span>  
+<span class="fu">sudo</span> apt-get update 
+<span class="fu">sudo</span> apt-get install qgis python-qgis qgis-plugin-grass</code></pre></div>
+<p>Other utility software that you might need include <code>htop</code> that allows you to track processing progress:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install htop iotop</code></pre></div>
+<p>and some additional libraries used be devtools, geoR and similar can be installed via:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install build-essential automake<span class="kw">;</span> 
+        <span class="ex">libcurl4-openssl-dev</span> pkg-config libxml2-dev<span class="kw">;</span>
+        <span class="ex">libfuse-dev</span> mtools libpng-dev libudunits2-dev</code></pre></div>
+<p>You might also need the 7z software for easier compression and pigz for parallelized compression:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install pigz zip unzip p7zip-full </code></pre></div>
+</div>
+<div id="Rstudio" class="section level2">
+<h2><span class="header-section-number">2.3</span> RStudio</h2>
+<p>RStudio is, in principle, the main R scripting environment and can be used to control all other software used in the course. A more detailed RStudio tutorial is available at: <a href="http://www.rstudio.com/resources/training/online-learning/">RStudio — Online Learning</a>. Consider also following some spatial data tutorials e.g. by James Cheshire (<a href="http://spatial.ly/r/" class="uri">http://spatial.ly/r/</a>). Below is an example of RStudio session with R editor on right and R console on left.</p>
+<div class="figure" style="text-align: center"><span id="fig:rstudio-example"></span>
+<img src="figures/rstudio_example.png" alt="RStudio is a commonly used R editor written in C++." width="100%" />
+<p class="caption">
+Figure 2.2: RStudio is a commonly used R editor written in C++.
+</p>
+</div>
+<p>To install all required R packages used in some script at once, you can use:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ls &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;rgdal&quot;</span>, <span class="st">&quot;raster&quot;</span>, <span class="st">&quot;GSIF&quot;</span>, <span class="st">&quot;plotKML&quot;</span>, 
+        <span class="st">&quot;nnet&quot;</span>, <span class="st">&quot;plyr&quot;</span>, <span class="st">&quot;ROCR&quot;</span>, <span class="st">&quot;randomForest&quot;</span>, 
+        <span class="st">&quot;psych&quot;</span>, <span class="st">&quot;mda&quot;</span>, <span class="st">&quot;h2o&quot;</span>, <span class="st">&quot;dismo&quot;</span>, <span class="st">&quot;grDevices&quot;</span>, 
+        <span class="st">&quot;snowfall&quot;</span>, <span class="st">&quot;hexbin&quot;</span>, <span class="st">&quot;lattice&quot;</span>, <span class="st">&quot;ranger&quot;</span>, 
+        <span class="st">&quot;soiltexture&quot;</span>, <span class="st">&quot;aqp&quot;</span>, <span class="st">&quot;colorspace&quot;</span>,
+        <span class="st">&quot;randomForestSRC&quot;</span>, <span class="st">&quot;ggRandomForests&quot;</span>, <span class="st">&quot;scales&quot;</span>,
+        <span class="st">&quot;xgboost&quot;</span>, <span class="st">&quot;parallel&quot;</span>, <span class="st">&quot;doParallel&quot;</span>, <span class="st">&quot;caret&quot;</span>)
+new.packages &lt;-<span class="st"> </span>ls[<span class="op">!</span>(ls <span class="op">%in%</span><span class="st"> </span><span class="kw">installed.packages</span>()[,<span class="st">&quot;Package&quot;</span>])]
+<span class="cf">if</span>(<span class="kw">length</span>(new.packages)) <span class="kw">install.packages</span>(new.packages)</code></pre></div>
+<p>This will basically check if some package is installed already, then install it if it is missing only. You can put this line at top of each R script that you share so that anybody using that script will automatically get all missing packages.</p>
+<p>The h2o package requires Java libraries, so you should first install Java by using e.g.:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> add-apt-repository ppa:webupd8team/java
+<span class="fu">sudo</span> apt-get update
+<span class="fu">sudo</span> apt-get install oracle-java8-installer
+<span class="ex">java</span> -version</code></pre></div>
+</div>
+<div id="plotkml-and-gsif-packages" class="section level2">
+<h2><span class="header-section-number">2.4</span> plotKML and GSIF packages</h2>
+<p>Many examples in the GSIF course rely on the top 5 most commonly used packages for spatial data: (1) <a href="https///cran.r-project.org/web/views/Spatial.html">sp and rgdal</a>, (2) <a href="https///cran.r-project.org/web/packages/raster/">raster</a>, (3) <a href="http://plotkml.r-forge.r-project.org/">plotKML</a> and (4) <a href="http://gsif.r-forge.r-project.org/">GSIF</a>. To install most up-to-date version of plotKML/GSIF, you can also use the R-Forge versions of the package:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(GSIF)){
+  <span class="kw">install.packages</span>(<span class="st">&quot;GSIF&quot;</span>, <span class="dt">repos=</span><span class="kw">c</span>(<span class="st">&quot;http://R-Forge.R-project.org&quot;</span>), 
+                 <span class="dt">type =</span> <span class="st">&quot;source&quot;</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)
+}
+<span class="co">#&gt; Loading required package: GSIF</span>
+<span class="co">#&gt; GSIF version 0.5-4 (2017-04-25)</span>
+<span class="co">#&gt; URL: http://gsif.r-forge.r-project.org/</span></code></pre></div>
+<p>A copy of the most-up-to-date stable versions of plotKML and GSIF is also available on <a href="https///github.com/cran/GSIF">github</a>. To run only some specific function from GSIF package you could do for example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">source_https &lt;-<span class="st"> </span><span class="cf">function</span>(url, ...) {
+   <span class="co"># load package</span>
+   <span class="kw">require</span>(RCurl)
+   <span class="co"># download:</span>
+   <span class="kw">cat</span>(<span class="kw">getURL</span>(url, <span class="dt">followlocation =</span> <span class="ot">TRUE</span>, 
+       <span class="dt">cainfo =</span> <span class="kw">system.file</span>(<span class="st">&quot;CurlSSL&quot;</span>, <span class="st">&quot;cacert.pem&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;RCurl&quot;</span>)), 
+       <span class="dt">file =</span> <span class="kw">basename</span>(url))
+   <span class="kw">source</span>(<span class="kw">basename</span>(url))
+}
+<span class="kw">source_https</span>(<span class="st">&quot;https://raw.githubusercontent.com/cran/GSIF/master/R/OCSKGM.R&quot;</span>)</code></pre></div>
+<p>To test if these packages work properly create soil maps and visualize them in Google Earth by running the following lines of code (see also function: <a href="http://gsif.r-forge.r-project.org/fit.gstatModel.html">fit.gstatModel</a>):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(GSIF)
+<span class="kw">library</span>(sp)
+<span class="kw">library</span>(boot)
+<span class="kw">library</span>(aqp)
+<span class="co">#&gt; This is aqp 1.15</span>
+<span class="kw">library</span>(plyr)
+<span class="kw">library</span>(rpart)
+<span class="kw">library</span>(splines)
+<span class="kw">library</span>(gstat)
+<span class="kw">library</span>(quantregForest)
+<span class="co">#&gt; Loading required package: randomForest</span>
+<span class="co">#&gt; randomForest 4.6-12</span>
+<span class="co">#&gt; Type rfNews() to see new features/changes/bug fixes.</span>
+<span class="co">#&gt; Loading required package: RColorBrewer</span>
+<span class="kw">library</span>(plotKML)
+<span class="co">#&gt; plotKML version 0.5-9 (2017-05-15)</span>
+<span class="co">#&gt; URL: http://plotkml.r-forge.r-project.org/</span>
+<span class="kw">demo</span>(meuse, <span class="dt">echo=</span><span class="ot">FALSE</span>)
+omm &lt;-<span class="st"> </span><span class="kw">fit.gstatModel</span>(meuse, om<span class="op">~</span>dist<span class="op">+</span>ffreq, meuse.grid, <span class="dt">method=</span><span class="st">&quot;quantregForest&quot;</span>)
+<span class="co">#&gt; Fitting a Quantile Regression Forest model...</span>
+<span class="co">#&gt; Fitting a 2D variogram...</span>
+<span class="co">#&gt; Saving an object of class &#39;gstatModel&#39;...</span>
+om.rk &lt;-<span class="st"> </span><span class="kw">predict</span>(omm, meuse.grid)
+<span class="co">#&gt; Subsetting observations to fit the prediction domain in 2D...</span>
+<span class="co">#&gt; Prediction error for &#39;randomForest&#39; model estimated using the &#39;quantreg&#39; package.</span>
+<span class="co">#&gt; Generating predictions using the trend model (RK method)...</span>
+<span class="co">#&gt; [using ordinary kriging]</span>
+<span class="co">#&gt; </span>
+<span class="dv">100</span>% done
+<span class="co">#&gt; Running 5-fold cross validation using &#39;krige.cv&#39;...</span>
+<span class="co">#&gt; Creating an object of class &quot;SpatialPredictions&quot;</span>
+om.rk
+<span class="co">#&gt;   Variable           : om </span>
+<span class="co">#&gt;   Minium value       : 1 </span>
+<span class="co">#&gt;   Maximum value      : 17 </span>
+<span class="co">#&gt;   Size               : 153 </span>
+<span class="co">#&gt;   Total area         : 4964800 </span>
+<span class="co">#&gt;   Total area (units) : square-m </span>
+<span class="co">#&gt;   Resolution (x)     : 40 </span>
+<span class="co">#&gt;   Resolution (y)     : 40 </span>
+<span class="co">#&gt;   Resolution (units) : m </span>
+<span class="co">#&gt;   Vgm model          : Exp </span>
+<span class="co">#&gt;   Nugget (residual)  : 2.34 </span>
+<span class="co">#&gt;   Sill (residual)    : 8.32 </span>
+<span class="co">#&gt;   Range (residual)   : 5760 </span>
+<span class="co">#&gt;   RMSE (validation)  : 1.7 </span>
+<span class="co">#&gt;   Var explained      : 75.2% </span>
+<span class="co">#&gt;   Effective bytes    : 1226 </span>
+<span class="co">#&gt;   Compression method : gzip</span>
+<span class="co">#plotKML(om.rk)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ge-preview"></span>
+<img src="figures/ge_preview.jpg" alt="Example of plotKML output." width="90%" />
+<p class="caption">
+Figure 2.3: Example of plotKML output.
+</p>
+</div>
+</div>
+<div id="connecting-r-and-saga-gis" class="section level2">
+<h2><span class="header-section-number">2.5</span> Connecting R and SAGA GIS</h2>
+<p>SAGA GIS is an extensive GIS geoprocessor software with over <a href="http://www.saga-gis.org/saga_tool_doc/index.html">600 functions</a>. SAGA GIS can not be installed from RStudio (it is not a package for R). Instead, you need to install SAGA GIS using the installation instructions from the <a href="https///sourceforge.net/projects/saga-gis/">software homepage</a>. After you have installed SAGA GIS, you can send processes from R to SAGA GIS by using the <code>saga_cmd</code> command line interface:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span>(<span class="op">!</span><span class="kw">Sys.info</span>()[<span class="st">&#39;sysname&#39;</span>]<span class="op">==</span><span class="st">&quot;Linux&quot;</span>){
+  saga_cmd =<span class="st"> &quot;C:/Progra~1/SAGA-GIS/saga_cmd.exe&quot;</span>
+} <span class="cf">else</span> {
+  saga_cmd =<span class="st"> &quot;saga_cmd&quot;</span>
+}
+<span class="kw">system</span>(<span class="kw">paste</span>(saga_cmd, <span class="st">&quot;-v&quot;</span>))</code></pre></div>
+<p>To use some SAGA GIS function you need to carefully follow the <a href="http://www.saga-gis.org/saga_tool_doc/index.html">SAGA GIS command line arguments</a>. For example,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(plotKML)
+<span class="kw">library</span>(rgdal)
+<span class="co">#&gt; rgdal: version: 1.2-16, (SVN revision 701)</span>
+<span class="co">#&gt;  Geospatial Data Abstraction Library extensions to R successfully loaded</span>
+<span class="co">#&gt;  Loaded GDAL runtime: GDAL 2.2.2, released 2017/09/15</span>
+<span class="co">#&gt;  Path to GDAL shared files: /usr/share/gdal/2.2</span>
+<span class="co">#&gt;  GDAL binary built with GEOS: TRUE </span>
+<span class="co">#&gt;  Loaded PROJ.4 runtime: Rel. 4.9.2, 08 September 2015, [PJ_VERSION: 492]</span>
+<span class="co">#&gt;  Path to PROJ.4 shared files: (autodetected)</span>
+<span class="co">#&gt;  Linking to sp version: 1.2-5</span>
+<span class="kw">library</span>(raster)
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Attaching package: &#39;raster&#39;</span>
+<span class="co">#&gt; The following objects are masked from &#39;package:aqp&#39;:</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     metadata, metadata&lt;-</span>
+<span class="kw">data</span>(<span class="st">&quot;eberg_grid&quot;</span>)
+<span class="kw">gridded</span>(eberg_grid) &lt;-<span class="st"> </span><span class="er">~</span>x<span class="op">+</span>y
+<span class="kw">proj4string</span>(eberg_grid) &lt;-<span class="st"> </span><span class="kw">CRS</span>(<span class="st">&quot;+init=epsg:31467&quot;</span>)
+<span class="kw">writeGDAL</span>(eberg_grid[<span class="st">&quot;DEMSRT6&quot;</span>], <span class="st">&quot;./extdata/DEMSRT6.sdat&quot;</span>, <span class="st">&quot;SAGA&quot;</span>)
+<span class="kw">system</span>(<span class="kw">paste</span>(saga_cmd, <span class="st">&#39;ta_lighting 0 -ELEVATION &quot;./extdata/DEMSRT6.sgrd&quot; </span>
+<span class="st">             -SHADE &quot;./extdata/hillshade.sgrd&quot; -EXAGGERATION 2&#39;</span>))</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:rstudio-saga-gis"></span>
+<img src="figures/rstudio_saga_gis.png" alt="Deriving hillshading using SAGA GIS and then visualizing the result in R." width="100%" />
+<p class="caption">
+Figure 2.4: Deriving hillshading using SAGA GIS and then visualizing the result in R.
+</p>
+</div>
+</div>
+<div id="connecting-r-and-gdal" class="section level2">
+<h2><span class="header-section-number">2.6</span> Connecting R and GDAL</h2>
+<p>Another very important software for handling spatial data (and especially for exchanging / converting spatial data) is GDAL. GDAL also needs to be installed separately (for Windows machines use e.g. <a href="http://download.gisinternals.com/sdk/downloads/release-1800-x64-gdal-2-1-3-mapserver-7-0-4/gdal-201-1800-x64-core.msi">“gdal-201-1800-x64-core.msi”</a>) and then can be called from command line:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span>(.Platform<span class="op">$</span>OS.type <span class="op">==</span><span class="st"> &quot;windows&quot;</span>){
+  gdal.dir &lt;-<span class="st"> </span><span class="kw">shortPathName</span>(<span class="st">&quot;C:/Program files/GDAL&quot;</span>)
+  gdal_translate &lt;-<span class="st"> </span><span class="kw">paste0</span>(gdal.dir, <span class="st">&quot;/gdal_translate.exe&quot;</span>)
+  gdalwarp &lt;-<span class="st"> </span><span class="kw">paste0</span>(gdal.dir, <span class="st">&quot;/gdalwarp.exe&quot;</span>) 
+} <span class="cf">else</span> {
+  gdal_translate =<span class="st"> &quot;gdal_translate&quot;</span>
+  gdalwarp =<span class="st"> &quot;gdalwarp&quot;</span>
+}
+<span class="kw">system</span>(<span class="kw">paste</span>(gdalwarp, <span class="st">&quot;--help&quot;</span>))</code></pre></div>
+<p>We can use GDAL to reproject grid from the previous example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">system</span>(<span class="st">&#39;gdalwarp ./extdata/DEMSRT6.sdat ./extdata/DEMSRT6_ll.tif -t_srs </span><span class="ch">\&quot;</span><span class="st">+proj=longlat +datum=WGS84</span><span class="ch">\&quot;</span><span class="st">&#39;</span>)
+<span class="kw">library</span>(raster)
+<span class="kw">plot</span>(<span class="kw">raster</span>(<span class="st">&quot;./extdata/DEMSRT6_ll.tif&quot;</span>))</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:plot-eberg-ll"></span>
+<img src="Software_files/figure-html/plot-eberg-ll-1.png" alt="Ebergotzen DEM reprojected in geographical coordinates." width="672" />
+<p class="caption">
+Figure 2.5: Ebergotzen DEM reprojected in geographical coordinates.
+</p>
+</div>
+
 </div>
 </div>
             </section>
@@ -324,8 +571,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-
-<a href="preface.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="soil-resource-inventories-and-soil-maps.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="soil-variables.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -343,10 +590,11 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
+"linkedin": false,
 "weibo": false,
 "instapper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -354,7 +602,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/envirometrix/PredictiveSoilMapping/edit/master/index.Rmd",
+"link": "https://github.com/envirometrix/PredictiveSoilMapping/edit/master/Software.Rmd",
 "text": "Edit"
 },
 "download": null,
@@ -370,9 +618,11 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
