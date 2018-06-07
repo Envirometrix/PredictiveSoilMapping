@@ -1,3 +1,4 @@
+
 # Statistical theory for predictive soil mapping {#statistical-theory}
 
 *Edited by: Hengl T. and Heuvelink G.B.M.*
@@ -83,12 +84,9 @@ probably first introduced by @Matheron1969PhD, and has been used as a
 general framework for spatial prediction of quantities in various
 environmental research disciplines.
 
-```{block, type="rmdnote"}
-The *universal model of soil variation* assumes that there are three
-major components of soil variation: (1) the deterministic component
-(function of covariates), (2) spatially correlated component (treated as
-stochastic) and (3) pure noise.
-```
+<div class="rmdnote">
+<p>The <em>universal model of soil variation</em> assumes that there are three major components of soil variation: (1) the deterministic component (function of covariates), (2) spatially correlated component (treated as stochastic) and (3) pure noise.</p>
+</div>
 
 The universal model of soil variation model (Eq. \@ref(eq:ukm)) can be
 further generalised to three-dimensional space and the spatio-temporal
@@ -110,9 +108,10 @@ In this chapter, we mainly focus on purely 2D models but also present
 some theory for 3D models, while 2D+T and 3D+T models of soil variation
 are significantly more complex (Fig. \@ref(fig:scheme-2D-3D-maps)).
 
-```{r scheme-2D-3D-maps, echo=FALSE, fig.cap="Number of variogram parameters assuming an exponential model, minimum number of samples and corresponding increase in number of prediction locations for 2D, 3D, 2D+T and 3D+T models of soil variation. Here *“altitude”* refers to vertical distance from the land surface, which is in case of soil mapping often expressed as negative vertical distance from the land surface.", out.width="60%"}
-knitr::include_graphics("figures/Fig_2D_3DT_maps.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_2D_3DT_maps.png" alt="Number of variogram parameters assuming an exponential model, minimum number of samples and corresponding increase in number of prediction locations for 2D, 3D, 2D+T and 3D+T models of soil variation. Here *“altitude”* refers to vertical distance from the land surface, which is in case of soil mapping often expressed as negative vertical distance from the land surface." width="60%" />
+<p class="caption">(\#fig:scheme-2D-3D-maps)Number of variogram parameters assuming an exponential model, minimum number of samples and corresponding increase in number of prediction locations for 2D, 3D, 2D+T and 3D+T models of soil variation. Here *“altitude”* refers to vertical distance from the land surface, which is in case of soil mapping often expressed as negative vertical distance from the land surface.</p>
+</div>
 
 One of the reasons why 2D+T and 3D+T models of soil variations are rare
 is because there are very few point data sets that satisfy the
@@ -209,7 +208,8 @@ predict concentrations for any depth interval.
 
 Consider for example this sample profile from Nigeria:
 
-```{r}
+
+```r
 lon = 3.90; lat = 7.50; id = "ISRIC:NG0017"; FAO1988 = "LXp" 
 top = c(0, 18, 36, 65, 87, 127) 
 bottom = c(18, 36, 65, 87, 127, 181)
@@ -218,15 +218,19 @@ munsell = c("7.5YR3/2", "7.5YR4/4", "2.5YR5/6", "5YR5/8", "5YR5/4", "10YR7/3")
 ## prepare a SoilProfileCollection:
 prof1 <- plyr::join(data.frame(id, top, bottom, ORCDRC, munsell), 
          data.frame(id, lon, lat, FAO1988), type='inner') 
+#> Joining by: id
 prof1$mdepth <- prof1$top+(prof1$bottom-prof1$top)/2
 ```
 
 we can fit a log-log model by using e.g.:
 
-```{r}
+
+```r
 d.lm <- glm(ORCDRC ~ log(mdepth), data=prof1, family=gaussian(log))
 options(list(scipen=3, digits=2))
 d.lm$fitted.values
+#>    1    2    3    4    5    6 
+#> 18.1  6.3  3.5  2.4  1.7  1.2
 ```
 
 which shows that the log-log fit comes relatively close to the actual values. 
@@ -246,11 +250,9 @@ cultivation practices or holocene drift sand. The model given by
 Eq. \@ref(eq:loglog) illustrated in Fig. \@ref(fig:soil-depth-examples)
 (left) will not be able to represent such abrupt changes.
 
-```{block, type="rmdnote"}
-Before fitting a 2D spatial prediction model to soil profile data, it is
-important to standardize values to standard depths, otherwise soil
-observation depth can be an additional source of uncertainty.
-```
+<div class="rmdnote">
+<p>Before fitting a 2D spatial prediction model to soil profile data, it is important to standardize values to standard depths, otherwise soil observation depth can be an additional source of uncertainty.</p>
+</div>
 
 Non-parametric soil-depth functions are more flexible and can represent
 observations of soil property averages for sampling layers or horizons
@@ -266,24 +268,48 @@ near the surface. Also, mass-preserving splines cannot accommodate
 discontinuities unless, of course, separate spline functions are fitted
 above and below the discontinuity.
 
-```{r soil-depth-examples, echo=FALSE, fig.cap="Vertical variation in soil carbon modelled using a logarithmic function (left) and a mass-preserving spline (right) with abrupt changes by horizon ilustrated with solid lines.", out.width="100%"}
-knitr::include_graphics("figures/Fig_soil_depth_examples.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_soil_depth_examples.png" alt="Vertical variation in soil carbon modelled using a logarithmic function (left) and a mass-preserving spline (right) with abrupt changes by horizon ilustrated with solid lines." width="100%" />
+<p class="caption">(\#fig:soil-depth-examples)Vertical variation in soil carbon modelled using a logarithmic function (left) and a mass-preserving spline (right) with abrupt changes by horizon ilustrated with solid lines.</p>
+</div>
 
 To fit mass preserving splines we can use:
 
-```{r}
+
+```r
 library(aqp)
+#> This is aqp 1.15
 library(rgdal)
+#> Loading required package: sp
+#> rgdal: version: 1.2-16, (SVN revision 701)
+#>  Geospatial Data Abstraction Library extensions to R successfully loaded
+#>  Loaded GDAL runtime: GDAL 2.2.2, released 2017/09/15
+#>  Path to GDAL shared files: /usr/share/gdal/2.2
+#>  GDAL binary built with GEOS: TRUE 
+#>  Loaded PROJ.4 runtime: Rel. 4.9.2, 08 September 2015, [PJ_VERSION: 492]
+#>  Path to PROJ.4 shared files: (autodetected)
+#>  Linking to sp version: 1.2-5
 library(GSIF)
+#> GSIF version 0.5-4 (2017-04-25)
+#> URL: http://gsif.r-forge.r-project.org/
+#> 
+#> Attaching package: 'GSIF'
+#> The following object is masked _by_ '.GlobalEnv':
+#> 
+#>     munsell
 prof1.spc <- prof1
 depths(prof1.spc) <- id ~ top + bottom
+#> Warning: converting IDs from factor to character
 site(prof1.spc) <- ~ lon + lat + FAO1988 
 coordinates(prof1.spc) <- ~ lon + lat
 proj4string(prof1.spc) <- CRS("+proj=longlat +datum=WGS84")
 ## fit a spline:
 ORCDRC.s <- mpspline(prof1.spc, var.name="ORCDRC")
+#> Fitting mass preserving splines per profile...
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 ORCDRC.s$var.std
+#>   0-5 cm 5-15 cm 15-30 cm 30-60 cm 60-100 cm 100-200 cm soil depth
+#> 1     21      17      7.3      3.3       3.6        1.8        181
 ```
 
 where `var.std` shows average fitted values for standard depth intervals
@@ -307,16 +333,9 @@ differences in vertical support between measurements are taken into
 account also). We will address this also in later sections of this
 chapter, among others in Section \@ref(prediction-3D).
 
-```{block, type="rmdnote"}
-Soil property-depth relationships are commonly modelled using various
-types of mathematical functions. Mass-preserving splines, which ensure
-that the average of the spline function equals the measured value for
-each sampling layer or horizon, can be used to convert measurements per
-layer to point values along the profile. Because soils can show both
-abrupt and continuous transitions within the same profile, no simple
-spline model is universally valid and case-dependent adjustments often
-need to be made.
-```
+<div class="rmdnote">
+<p>Soil property-depth relationships are commonly modelled using various types of mathematical functions. Mass-preserving splines, which ensure that the average of the spline function equals the measured value for each sampling layer or horizon, can be used to convert measurements per layer to point values along the profile. Because soils can show both abrupt and continuous transitions within the same profile, no simple spline model is universally valid and case-dependent adjustments often need to be made.</p>
+</div>
 
 ### Vertical aggregation of soil properties {#vertical-aggregation}
 
@@ -366,14 +385,9 @@ because soil observations at *point* locations are not the same as
 average or *bulk soil samples* taken by averaging a large number of
 point observations on a site or plot [@Webster2001Wiley].
 
-```{block, type="rmdnote"}
-Soil variables can refer to a specific depth interval or to the whole
-profile. The differences in spatial patterns between variables
-representing fundamentally the same feature (e.g. soil organic carbon in
-of a specific soil horizon or soil layer and total organic carbon stock
-in of the whole profile), but at different spatial and vertical support,
-can be significant.
-```
+<div class="rmdnote">
+<p>Soil variables can refer to a specific depth interval or to the whole profile. The differences in spatial patterns between variables representing fundamentally the same feature (e.g. soil organic carbon in of a specific soil horizon or soil layer and total organic carbon stock in of the whole profile), but at different spatial and vertical support, can be significant.</p>
+</div>
 
 In order to avoid misinterpretation of the results of mapping, we
 recommend that any delivered map of soil properties should specify the
@@ -413,9 +427,10 @@ spatial prediction consists of the following seven steps
 7.  *Use the outputs of the spatial prediction process for decision
     making and scenario testing*.
 
-```{r general-sp-process, echo=FALSE, fig.cap="From data to knowledge and back: the general spatial prediction scheme applicable to many environmental sciences.", out.width="85%"}
-knitr::include_graphics("figures/Fig_general_SP_process.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_general_SP_process.png" alt="From data to knowledge and back: the general spatial prediction scheme applicable to many environmental sciences." width="85%" />
+<p class="caption">(\#fig:general-sp-process)From data to knowledge and back: the general spatial prediction scheme applicable to many environmental sciences.</p>
+</div>
 
 The spatial prediction process is repeated at all nodes of a grid
 covering $D$ (or a space-time domain in case of spatiotemporal
@@ -525,9 +540,10 @@ occurs. Thus the population of available soil point observations may not
 be representative of the true population of soils, with some soils being
 either over or under-represented.
 
-```{r eberg-sampling-locs, echo=FALSE, fig.cap="Occurrence probabilities derived for the actual sampling locations (left), and for a purely random sample design with exactly the same number of points (right). Probabilities derived using the `spsample.prob` function from the package. The shaded area on the left indicates which areas (in the environmental space) have been systematically represented, while the white colour indicates areas which have been systematically omitted (and which is not by chance).", out.width="100%"}
-knitr::include_graphics("figures/Fig_eberg_sampling_locs.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_eberg_sampling_locs.png" alt="Occurrence probabilities derived for the actual sampling locations (left), and for a purely random sample design with exactly the same number of points (right). Probabilities derived using the `spsample.prob` function from the package. The shaded area on the left indicates which areas (in the environmental space) have been systematically represented, while the white colour indicates areas which have been systematically omitted (and which is not by chance)." width="100%" />
+<p class="caption">(\#fig:eberg-sampling-locs)Occurrence probabilities derived for the actual sampling locations (left), and for a purely random sample design with exactly the same number of points (right). Probabilities derived using the `spsample.prob` function from the package. The shaded area on the left indicates which areas (in the environmental space) have been systematically represented, while the white colour indicates areas which have been systematically omitted (and which is not by chance).</p>
+</div>
 
 Fig. \@ref(fig:eberg-sampling-locs) (the Ebergötzen study area)
 illustrates a problem of dealing with clustered samples and omission of
@@ -591,9 +607,10 @@ locations as *homosoils*. The homosoils concept is based on the
 assumption that locations that share similar soil-forming factors are
 likely to exhibit similar soils and soil properties also.
 
-```{r cross-section-catena, echo=FALSE, fig.cap="Landform positions and location of a prediction point for the Maungawhau data set.", out.width="100%"}
-knitr::include_graphics("figures/Fig_cross_section_catena.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_cross_section_catena.png" alt="Landform positions and location of a prediction point for the Maungawhau data set." width="100%" />
+<p class="caption">(\#fig:cross-section-catena)Landform positions and location of a prediction point for the Maungawhau data set.</p>
+</div>
 
 Expert-based systems also rely on using standard mapping paradigms such
 as the concept of soil series and the catena concept.
@@ -605,13 +622,15 @@ knowledge can be further converted to a mapping system, provided that it
 is representative of the area, that it can be formalized through
 repeatable procedures and that it can be tested using real observations.
 
-```{r catena-maungawhau-3d, echo=FALSE, fig.cap="A cross-section for the Maungawhau volcano dataset commonly used in R to illustrate DEM and image analysis techniques.", out.width="80%"}
-knitr::include_graphics("figures/Fig_catena_Maungawhau_A.jpg")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_catena_Maungawhau_A.jpg" alt="A cross-section for the Maungawhau volcano dataset commonly used in R to illustrate DEM and image analysis techniques." width="80%" />
+<p class="caption">(\#fig:catena-maungawhau-3d)A cross-section for the Maungawhau volcano dataset commonly used in R to illustrate DEM and image analysis techniques.</p>
+</div>
 
-```{r catena-maungawhau, echo=FALSE, fig.cap="Associated values of DEM-based covariates: TWI — Topographic Wetness Index and Valley depth for the cross-section from the previous figure.", out.width="100%"}
-knitr::include_graphics("figures/Fig_catena_Maungawhau_B.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_catena_Maungawhau_B.png" alt="Associated values of DEM-based covariates: TWI — Topographic Wetness Index and Valley depth for the cross-section from the previous figure." width="100%" />
+<p class="caption">(\#fig:catena-maungawhau)Associated values of DEM-based covariates: TWI — Topographic Wetness Index and Valley depth for the cross-section from the previous figure.</p>
+</div>
 
 If some auxiliary information such as a Digital Elevation Model (DEM) is
 available for the study area, one can derive a number of DEM parameters
@@ -912,15 +931,9 @@ techniques to estimate their parameters, although they might also need
 to rely on more complex parameter estimation methods such as genetic
 algorithms and *simulated annealing* [@lark2003fitting].
 
-```{block, type="rmdnote"}
-Spatial prediction under the linear Gaussian model with a trend boils
-down to *regression-kriging* when the trend coefficients are determined
-prior to kriging i.e. to *universal kriging* or *kriging with external drift* when they are estimated together with kriging weights. Both
-computational approaches — regression-kriging, kriging with external
-drift or universal kriging — yield exactly the same predictions if run
-using the same inputs and assuming the same (global) geostatistical
-model [@hengl2007regression].
-```
+<div class="rmdnote">
+<p>Spatial prediction under the linear Gaussian model with a trend boils down to <em>regression-kriging</em> when the trend coefficients are determined prior to kriging i.e. to <em>universal kriging</em> or <em>kriging with external drift</em> when they are estimated together with kriging weights. Both computational approaches — regression-kriging, kriging with external drift or universal kriging — yield exactly the same predictions if run using the same inputs and assuming the same (global) geostatistical model <span class="citation">[@hengl2007regression]</span>.</p>
+</div>
 
 The optimal spatial prediction in the case of a model
 Eq. \@ref(eq:ukm-gstat) with a linear trend Eq. \@ref(eq:MRK2D) and a
@@ -1127,34 +1140,69 @@ The type of regression-kriging model explained in the previous section
 can be implemented in by combining the and packages. Consider for
 example the Meuse case study:
 
-```{r}
+
+```r
 library(gstat)
 demo(meuse, echo=FALSE)
 ```
 
 We can overlay the points and grids to create the regression matrix by:
 
-```{r}
+
+```r
 meuse.ov <- over(meuse, meuse.grid)
 meuse.ov <- cbind(as.data.frame(meuse), meuse.ov)
 head(meuse.ov[,c("x","y","dist","soil","om")])
+#>        x      y   dist soil   om
+#> 1 181072 333611 0.0014    1 13.6
+#> 2 181025 333558 0.0122    1 14.0
+#> 3 181165 333537 0.1030    1 13.0
+#> 4 181298 333484 0.1901    2  8.0
+#> 5 181307 333330 0.2771    2  8.7
+#> 6 181390 333260 0.3641    2  7.8
 ```
 
 which allows us to fit a linear model for organic carbon as a function
 of distance to river and soil type:
 
-```{r}
+
+```r
 m <- lm(log1p(om)~dist+soil, meuse.ov)
 summary(m)
+#> 
+#> Call:
+#> lm(formula = log1p(om) ~ dist + soil, data = meuse.ov)
+#> 
+#> Residuals:
+#>     Min      1Q  Median      3Q     Max 
+#> -1.0831 -0.1504  0.0104  0.2098  0.5913 
+#> 
+#> Coefficients:
+#>             Estimate Std. Error t value  Pr(>|t|)    
+#> (Intercept)   2.3421     0.0425   55.05   < 2e-16 ***
+#> dist         -0.8009     0.1787   -4.48 0.0000147 ***
+#> soil2        -0.3358     0.0702   -4.78 0.0000041 ***
+#> soil3         0.0366     0.1247    0.29      0.77    
+#> ---
+#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> 
+#> Residual standard error: 0.33 on 149 degrees of freedom
+#>   (2 observations deleted due to missingness)
+#> Multiple R-squared:  0.384,	Adjusted R-squared:  0.371 
+#> F-statistic: 30.9 on 3 and 149 DF,  p-value: 1.32e-15
 ```
 
 Next, we can derive the regression residuals and fit a variogram:
 
-```{r}
+
+```r
 meuse.s <- meuse[-m$na.action,]
 meuse.s$om.res <- resid(m)
 vr.fit <- fit.variogram(variogram(om.res~1, meuse.s), vgm(1, "Exp", 300, 1))
 vr.fit
+#>   model psill range
+#> 1   Nug 0.048     0
+#> 2   Exp 0.065   285
 ```
 
 With this, all model parameters (four regression coefficients and three
@@ -1169,27 +1217,50 @@ kriging can be combined by running universal kriging or kriging with
 external drift [@hengl2007regression]. First the variogram of the
 residuals is calculated:
 
-```{r}
+
+```r
 v.s <- variogram(log1p(om)~dist+soil, meuse.s)
 vr.fit <- fit.variogram(v.s, vgm(1, "Exp", 300, 1))
 vr.fit
+#>   model psill range
+#> 1   Nug 0.048     0
+#> 2   Exp 0.065   285
 ```
 
 which gives almost the same model parameter values as the
 regression-kriging above. Next, the kriging can be executed in with a
 single call to the generic `krige` function:
 
-```{r}
+
+```r
 om.rk <- krige(log1p(om)~dist+soil, meuse.s, meuse.grid, vr.fit)
+#> [using universal kriging]
 ```
 
 The package nlme fits the regression model and the variogram of the residuals
 all at once [@pinheiro2009mixed]:
 
-```{r}
+
+```r
 library(nlme)
 m.gls <- gls(log1p(om)~dist+soil, meuse.s, correlation=corExp(nugget=TRUE))
 m.gls
+#> Generalized least squares fit by REML
+#>   Model: log1p(om) ~ dist + soil 
+#>   Data: meuse.s 
+#>   Log-restricted-likelihood: -26
+#> 
+#> Coefficients:
+#> (Intercept)        dist       soil2       soil3 
+#>       2.281      -0.623      -0.244      -0.057 
+#> 
+#> Correlation Structure: Exponential spatial correlation
+#>  Formula: ~1 
+#>  Parameter estimate(s):
+#>  range nugget 
+#>   2.00   0.07 
+#> Degrees of freedom: 153 total; 149 residual
+#> Residual standard error: 0.34
 ```
 
 In this case the regression coefficients have been estimated using
@@ -1225,45 +1296,134 @@ and variogram modelling) used to fit regression-kriging models are
 wrapped into generic functions. A regression-kriging model can be fitted
 in one step by running:
 
-```{r}
+
+```r
 omm <- fit.gstatModel(meuse, log1p(om)~dist+soil, meuse.grid)
+#> Fitting a linear model...
+#> Fitting a 2D variogram...
+#> Saving an object of class 'gstatModel'...
 str(omm, max.level = 2)
+#> Formal class 'gstatModel' [package "GSIF"] with 4 slots
+#>   ..@ regModel :List of 32
+#>   .. ..- attr(*, "class")= chr [1:2] "glm" "lm"
+#>   ..@ vgmModel :'data.frame':	2 obs. of  9 variables:
+#>   .. ..- attr(*, "singular")= logi FALSE
+#>   .. ..- attr(*, "SSErr")= num 0.00000107
+#>   .. ..- attr(*, "call")= language gstat::fit.variogram(object = svgm, model = ivgm)
+#>   ..@ svgmModel:'data.frame':	15 obs. of  6 variables:
+#>   .. ..- attr(*, "direct")='data.frame':	1 obs. of  2 variables:
+#>   .. ..- attr(*, "boundaries")= num [1:16] 0 106 213 319 426 ...
+#>   .. ..- attr(*, "pseudo")= num 0
+#>   .. ..- attr(*, "what")= chr "semivariance"
+#>   ..@ sp       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
 ```
 
 the resulting `gstatModel` class object consists of a (1) regression
 component, (2) variogram model for residual, and (3) sample variogram 
 for plotting, (4) spatial locations of observations used to fit the model. To predict values of organic carbon using this model, we can run:
 
-```{r}
+
+```r
 om.rk <- predict(omm, meuse.grid)
+#> Subsetting observations to fit the prediction domain in 2D...
+#> Generating predictions using the trend model (RK method)...
+#> [using ordinary kriging]
+#> 100% done
+#> Running 5-fold cross validation using 'krige.cv'...
+#> Creating an object of class "SpatialPredictions"
 om.rk
+#>   Variable           : om 
+#>   Minium value       : 1 
+#>   Maximum value      : 17 
+#>   Size               : 153 
+#>   Total area         : 4964800 
+#>   Total area (units) : square-m 
+#>   Resolution (x)     : 40 
+#>   Resolution (y)     : 40 
+#>   Resolution (units) : m 
+#>   GLM call formula   : log1p(om) ~ dist + soil 
+#>   Family             : gaussian 
+#>   Link function      : identity 
+#>   Vgm model          : Exp 
+#>   Nugget (residual)  : 0.048 
+#>   Sill (residual)    : 0.065 
+#>   Range (residual)   : 285 
+#>   RMSE (validation)  : 2.4 
+#>   Var explained      : 49.4% 
+#>   Effective bytes    : 295 
+#>   Compression method : gzip
 ## back-transformation:
 meuse.grid$om.rk <- expm1(om.rk@predicted$om + om.rk@predicted$var1.var/2)
 ```
 
-```{r meuse-om-rk-glm, echo=FALSE, fig.cap="Predictions of organic carbon in percent (top soil) for the Meuse data set derived using regression-kriging with transformed values, GLM-kriging, regression tress (rpart) and random forest models combined with kriging. The percentages in brackets indicates amount of variation explained by the models.", out.width="85%"}
-knitr::include_graphics("figures/Fig_meuse_om_RK_vs_GLMK.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_meuse_om_RK_vs_GLMK.png" alt="Predictions of organic carbon in percent (top soil) for the Meuse data set derived using regression-kriging with transformed values, GLM-kriging, regression tress (rpart) and random forest models combined with kriging. The percentages in brackets indicates amount of variation explained by the models." width="85%" />
+<p class="caption">(\#fig:meuse-om-rk-glm)Predictions of organic carbon in percent (top soil) for the Meuse data set derived using regression-kriging with transformed values, GLM-kriging, regression tress (rpart) and random forest models combined with kriging. The percentages in brackets indicates amount of variation explained by the models.</p>
+</div>
 
 We could also have opted for fitting a GLM with a link function, which
 would look like this:
 
-```{r}
+
+```r
 omm2 <- fit.gstatModel(meuse, om~dist+soil, meuse.grid, family=gaussian(link=log))
+#> Fitting a linear model...
+#> Fitting a 2D variogram...
+#> Saving an object of class 'gstatModel'...
 summary(omm2@regModel)
+#> 
+#> Call:
+#> glm(formula = om ~ dist + soil, family = fit.family, data = rmatrix)
+#> 
+#> Deviance Residuals: 
+#>    Min      1Q  Median      3Q     Max  
+#> -7.066  -1.492  -0.281   1.635   7.401  
+#> 
+#> Coefficients:
+#>             Estimate Std. Error t value Pr(>|t|)    
+#> (Intercept)   10.054      0.348   28.88  < 2e-16 ***
+#> dist          -8.465      1.461   -5.79    4e-08 ***
+#> soil2         -2.079      0.575   -3.62  0.00041 ***
+#> soil3          0.708      1.021    0.69  0.48913    
+#> ---
+#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> 
+#> (Dispersion parameter for gaussian family taken to be 7.2)
+#> 
+#>     Null deviance: 1791.4  on 152  degrees of freedom
+#> Residual deviance: 1075.5  on 149  degrees of freedom
+#>   (2 observations deleted due to missingness)
+#> AIC: 742.6
+#> 
+#> Number of Fisher Scoring iterations: 2
 om.rk2 <- predict(omm2, meuse.grid)
+#> Subsetting observations to fit the prediction domain in 2D...
+#> Generating predictions using the trend model (RK method)...
+#> [using ordinary kriging]
+#> 100% done
+#> Running 5-fold cross validation using 'krige.cv'...
+#> Creating an object of class "SpatialPredictions"
 ```
 
 or fitting a regression tree:
 
-```{r}
+
+```r
 omm3 <- fit.gstatModel(meuse, log1p(om)~dist+soil, meuse.grid, method="rpart")
+#> Fitting a regression tree model...
+#> Estimated Complexity Parameter (for prunning): 0.09396
+#> Fitting a 2D variogram...
+#> Saving an object of class 'gstatModel'...
 ```
 
 or a random forest model:
 
-```{r}
+
+```r
 omm4 <- fit.gstatModel(meuse, om~dist+soil, meuse.grid, method="quantregForest")
+#> Fitting a Quantile Regression Forest model...
+#> Fitting a 2D variogram...
+#> Saving an object of class 'gstatModel'...
 ```
 
 All regression-kriging models listed above are valid and the differences
@@ -1275,9 +1435,10 @@ prediction methods is in fact not large ($\pm5$% of variance explained).
 It is important to run such comparisons nevertheless, as they allow us
 to objectively select the most efficient method.
 
-```{r rk-vs-rf-meuse, echo=FALSE, fig.cap="Predictions of the organic carbon (log-transformed values) using random forest vs linear regression-kriging. The random forest-kriging variance has been derived using the quantregForest package [@meinshausen2006quantile].", out.width="100%"}
-knitr::include_graphics("figures/Fig_RK_vs_randomForestK_Meuse.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_RK_vs_randomForestK_Meuse.png" alt="Predictions of the organic carbon (log-transformed values) using random forest vs linear regression-kriging. The random forest-kriging variance has been derived using the quantregForest package [@meinshausen2006quantile]." width="100%" />
+<p class="caption">(\#fig:rk-vs-rf-meuse)Predictions of the organic carbon (log-transformed values) using random forest vs linear regression-kriging. The random forest-kriging variance has been derived using the quantregForest package [@meinshausen2006quantile].</p>
+</div>
 
 Fig. \@ref(fig:rk-vs-rf-meuse) shows the RK variance derived
 for the random forest model using the package [@meinshausen2006quantile]
@@ -1334,16 +1495,49 @@ categorical variables.
 Going back to the Meuse data set, we can fit a regression model for
 organic matter using soil types as predictors, which gives:
 
-```{r}
+
+```r
 omm <- fit.gstatModel(meuse, log1p(om)~soil-1, meuse.grid)
+#> Fitting a linear model...
+#> Fitting a 2D variogram...
+#> Saving an object of class 'gstatModel'...
 summary(omm@regModel)
+#> 
+#> Call:
+#> glm(formula = log1p(om) ~ soil - 1, family = fit.family, data = rmatrix)
+#> 
+#> Deviance Residuals: 
+#>     Min       1Q   Median       3Q      Max  
+#> -1.0297  -0.2087  -0.0044   0.2098   0.6668  
+#> 
+#> Coefficients:
+#>       Estimate Std. Error t value Pr(>|t|)    
+#> soil1   2.2236     0.0354    62.9   <2e-16 ***
+#> soil2   1.7217     0.0525    32.8   <2e-16 ***
+#> soil3   1.9293     0.1006    19.2   <2e-16 ***
+#> ---
+#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> 
+#> (Dispersion parameter for gaussian family taken to be 0.12)
+#> 
+#>     Null deviance: 672.901  on 153  degrees of freedom
+#> Residual deviance:  18.214  on 150  degrees of freedom
+#>   (2 observations deleted due to missingness)
+#> AIC: 116.6
+#> 
+#> Number of Fisher Scoring iterations: 2
 ```
 
 and these regression coefficients for soil classes `1`, `2`, `3` are
 equal to the mean values per class:
 
-```{r}
+
+```r
 aggregate(log1p(om) ~ soil, meuse, mean) 
+#>   soil log1p(om)
+#> 1    1       2.2
+#> 2    2       1.7
+#> 3    3       1.9
 ```
 
 Note that this equality can be observed only if we remove the intercept
@@ -1414,9 +1608,10 @@ support, e.g. when model inputs require a different support than the
 support of the observations, scaling (aggregation or disaggregation)
 becomes necessary [@Heuvelink1999Geoderma].
 
-```{r confidence-limits-block, echo=FALSE, fig.cap="Scheme with predictions on point (above) and block support (below). In the case of various versions of kriging, both point and block predictions smooth the original measurements proportionally to the nugget variation. After @Goovaerts1997Oxford.", out.width="100%"}
-knitr::include_graphics("figures/Fig_confidence_limits.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_confidence_limits.png" alt="Scheme with predictions on point (above) and block support (below). In the case of various versions of kriging, both point and block predictions smooth the original measurements proportionally to the nugget variation. After @Goovaerts1997Oxford." width="100%" />
+<p class="caption">(\#fig:confidence-limits-block)Scheme with predictions on point (above) and block support (below). In the case of various versions of kriging, both point and block predictions smooth the original measurements proportionally to the nugget variation. After @Goovaerts1997Oxford.</p>
+</div>
 
 Depending on how significant the nugget variation is, prediction
 variance estimated by a model can be significantly reduced by increasing
@@ -1432,32 +1627,65 @@ predictions might lead to practically the same predictions (see some
 examples by @Goovaerts1997Oxford [p.158], @Heuvelink1999Geoderma and/or
 @Hengl2006CG).
 
-```{block, type="rmdnote"}
-The spatial support is the integration volume or size of the blocks
-being sampled and/or predicted. By increasing the support size from
-point to block support we decrease the prediction error variance. The
-decrease in the prediction error variance is approximately equal to the
-nugget variance.
-```
+<div class="rmdnote">
+<p>The spatial support is the integration volume or size of the blocks being sampled and/or predicted. By increasing the support size from point to block support we decrease the prediction error variance. The decrease in the prediction error variance is approximately equal to the nugget variance.</p>
+</div>
 
 Consider for example point and block predictions and simulations using
 the estimates of organic matter content in the topsoil (in dg/kg) for the
 Meuse case study. We first generate predictions and simulations on point
 support:
 
-```{r}
+
+```r
 omm <- fit.gstatModel(meuse, log1p(om)~dist+soil, meuse.grid)
+#> Fitting a linear model...
+#> Fitting a 2D variogram...
+#> Saving an object of class 'gstatModel'...
 om.rk.p <- predict(omm, meuse.grid, block=c(0,0))
+#> Subsetting observations to fit the prediction domain in 2D...
+#> Generating predictions using the trend model (RK method)...
+#> [using ordinary kriging]
+#> 100% done
+#> Running 5-fold cross validation using 'krige.cv'...
+#> Creating an object of class "SpatialPredictions"
 om.rksim.p <- predict(omm, meuse.grid, nsim=20, block=c(0,0))
+#> Subsetting observations to fit the prediction domain in 2D...
+#> Generating 20 conditional simulations using the trend model (RK method)...
+#> drawing 20 GLS realisations of beta...
+#> [using conditional Gaussian simulation]
+#>  73% done100% done
+#> Creating an object of class "RasterBrickSimulations"
+#> Loading required package: raster
+#> 
+#> Attaching package: 'raster'
+#> The following object is masked from 'package:nlme':
+#> 
+#>     getData
+#> The following objects are masked from 'package:aqp':
+#> 
+#>     metadata, metadata<-
 ```
 
 where the argument `block` defines the support size for the predictions
 (in this case points). To produce predictions on block support for
 square blocks of by we run:
 
-```{r}
+
+```r
 om.rk.b <- predict(omm, meuse.grid, block=c(40,40), nfold=0)
+#> Subsetting observations to fit the prediction domain in 2D...
+#> Generating predictions using the trend model (RK method)...
+#> [using ordinary kriging]
+#> 100% done
+#> Creating an object of class "SpatialPredictions"
 om.rksim.b <- predict(omm, meuse.grid, nsim=2, block=c(40,40))
+#> Subsetting observations to fit the prediction domain in 2D...
+#> Generating 2 conditional simulations using the trend model (RK method)...
+#> drawing 2 GLS realisations of beta...
+#> [using conditional Gaussian simulation]
+#>   9% done 19% done 27% done 34% done 41% done 48% done 56% done 62% done 69% done 76% done 83% done 89% done 96% done100% done
+#> Creating an object of class "RasterBrickSimulations"
 ## computationally intensive
 ```
 
@@ -1478,13 +1706,35 @@ via one can estimate the cross-validation error using the `krige.cv`
 function. The package reports automatically the cross-validation error
 [@Hengl2013JAG]:
 
-```{r}
+
+```r
 om.rk.p
+#>   Variable           : om 
+#>   Minium value       : 1 
+#>   Maximum value      : 17 
+#>   Size               : 153 
+#>   Total area         : 4964800 
+#>   Total area (units) : square-m 
+#>   Resolution (x)     : 40 
+#>   Resolution (y)     : 40 
+#>   Resolution (units) : m 
+#>   GLM call formula   : log1p(om) ~ dist + soil 
+#>   Family             : gaussian 
+#>   Link function      : identity 
+#>   Vgm model          : Exp 
+#>   Nugget (residual)  : 0.048 
+#>   Sill (residual)    : 0.065 
+#>   Range (residual)   : 285 
+#>   RMSE (validation)  : 2.4 
+#>   Var explained      : 50.2% 
+#>   Effective bytes    : 306 
+#>   Compression method : gzip
 ```
 
-```{r meuse-block-predictions, echo=FALSE, fig.cap="Predictions and simulations (2) at point (above) and block (below) support using the Meuse dataset. Note that prediction values produced by point and block methods are quite similar. Simulations on block support produce *smoother* maps than the point-support simulations.", out.width="100%"}
-knitr::include_graphics("figures/Fig_meuse_block_predictions.jpg")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_meuse_block_predictions.jpg" alt="Predictions and simulations (2) at point (above) and block (below) support using the Meuse dataset. Note that prediction values produced by point and block methods are quite similar. Simulations on block support produce *smoother* maps than the point-support simulations." width="100%" />
+<p class="caption">(\#fig:meuse-block-predictions)Predictions and simulations (2) at point (above) and block (below) support using the Meuse dataset. Note that prediction values produced by point and block methods are quite similar. Simulations on block support produce *smoother* maps than the point-support simulations.</p>
+</div>
 
 which shows that the mapping accuracy at point support is ca. 53% of the
 original variance (see further Eq. \@ref(eq:normvar)).
@@ -1512,13 +1762,15 @@ intensive, yields large prediction uncertainties, and is hampered by the
 fact that it requires the point support variogram which cannot uniquely
 be derived from only block observations.
 
-```{r meuse-block-support-plots1, echo=FALSE, fig.cap="Correlation plots for predictions and prediction variance: point vs block support.", out.width="100%"}
-knitr::include_graphics("figures/Fig_meuse_block_support_plots1.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_meuse_block_support_plots1.png" alt="Correlation plots for predictions and prediction variance: point vs block support." width="100%" />
+<p class="caption">(\#fig:meuse-block-support-plots1)Correlation plots for predictions and prediction variance: point vs block support.</p>
+</div>
 
-```{r meuse-block-support-plots2, echo=FALSE, fig.cap="Difference in variograms sampled from the simulated maps: point vs block support.", out.width="100%"}
-knitr::include_graphics("figures/Fig_meuse_block_support_plots2.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_meuse_block_support_plots2.png" alt="Difference in variograms sampled from the simulated maps: point vs block support." width="100%" />
+<p class="caption">(\#fig:meuse-block-support-plots2)Difference in variograms sampled from the simulated maps: point vs block support.</p>
+</div>
 
 What confuses non-geostatisticians is that both point and block
 predictions are normally visualized using raster GIS models, hence one
@@ -1562,14 +1814,9 @@ values at coarser resolution blocks (250, 500, 1000 m etc). In any case,
 understanding consequences of aggregating spatial data and converting
 from point to block support is important.
 
-```{block, type="rmdnote"}
-In geostatistics, one needs to consider that any input / output spatial
-layer refers to some support. In soil mapping, there are three main
-support sizes: support size of the soil samples (sampling support; can
-refer to point locations or blocks of land), support size of the
-covariates (often equivalent to the grid cell size), and support size of
-predictions (again point locations or blocks of land).
-```
+<div class="rmdnote">
+<p>In geostatistics, one needs to consider that any input / output spatial layer refers to some support. In soil mapping, there are three main support sizes: support size of the soil samples (sampling support; can refer to point locations or blocks of land), support size of the covariates (often equivalent to the grid cell size), and support size of predictions (again point locations or blocks of land).</p>
+</div>
 
 ### Geostatistical simulations {#gstat-sims}
 
@@ -1603,9 +1850,10 @@ realistic image of the spatial correlation structure or spatial pattern
 of the target variable because, unlike kriging, they do not smooth out
 the values.
 
-```{r sims-cross-section, echo=FALSE, fig.cap="20 simulations (at block support) of the soil organic carbon for the Meuse study area (cross-section from West to East at Y=330348). Bold line indicates the median value and broken lines indicate upper and lower quantiles (95% probability).", out.width="100%"}
-knitr::include_graphics("figures/Fig_20_sims_cross_section.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_20_sims_cross_section.png" alt="20 simulations (at block support) of the soil organic carbon for the Meuse study area (cross-section from West to East at Y=330348). Bold line indicates the median value and broken lines indicate upper and lower quantiles (95% probability)." width="100%" />
+<p class="caption">(\#fig:sims-cross-section)20 simulations (at block support) of the soil organic carbon for the Meuse study area (cross-section from West to East at Y=330348). Bold line indicates the median value and broken lines indicate upper and lower quantiles (95% probability).</p>
+</div>
 
 Estimates of the model accuracy are also provided by the geostatistical
 model, i.e. the kriging variance. It is useful to note that the variance
@@ -1613,9 +1861,10 @@ of a large number of geostatistical simulations will approximate the
 kriging variance (and likewise will the average of a large number of
 simulations approximate the kriging prediction map).
 
-```{r hist-om-predicted-simulated, echo=FALSE, fig.cap="Histogram for the target variable (Meuse data set; log of organic matter) based on the actual observations (left), predictions at all grid nodes (middle) and simulations (right). Note that the histogram for predicted values will always show somewhat narrower distribution (smoothed), depending on the strength of the model, while the simulations should be able to reproduce the original range (see also @Yamamoto2008).", out.width="100%"}
-knitr::include_graphics("figures/Fig_hist_om_predicted_vs_simulated.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_hist_om_predicted_vs_simulated.png" alt="Histogram for the target variable (Meuse data set; log of organic matter) based on the actual observations (left), predictions at all grid nodes (middle) and simulations (right). Note that the histogram for predicted values will always show somewhat narrower distribution (smoothed), depending on the strength of the model, while the simulations should be able to reproduce the original range (see also @Yamamoto2008)." width="100%" />
+<p class="caption">(\#fig:hist-om-predicted-simulated)Histogram for the target variable (Meuse data set; log of organic matter) based on the actual observations (left), predictions at all grid nodes (middle) and simulations (right). Note that the histogram for predicted values will always show somewhat narrower distribution (smoothed), depending on the strength of the model, while the simulations should be able to reproduce the original range (see also @Yamamoto2008).</p>
+</div>
 
 The differences among an ensemble of realizations produced using
 geostatistical simulations capture the uncertainty associated with the
@@ -1637,11 +1886,25 @@ For the regression-kriging model fitted for organic carbon of the Meuse
 data set, we can produce 20 simulations by switching the `nsim`
 argument:
 
-```{r}
+
+```r
 om.rksim.p <- predict(omm, meuse.grid, block=c(0,0), nsim=20)
+#> Subsetting observations to fit the prediction domain in 2D...
+#> Generating 20 conditional simulations using the trend model (RK method)...
+#> drawing 20 GLS realisations of beta...
+#> [using conditional Gaussian simulation]
+#>  18% done100% done
+#> Creating an object of class "RasterBrickSimulations"
 log1p(meuse@data[1,"om"])
+#> [1] 2.7
 extract(raster(om.rk.p@predicted), meuse[1,])
+#>     
+#> 2.7
 extract(om.rksim.p@realizations, meuse[1,])
+#>      sim1 sim2 sim3 sim4 sim5 sim6 sim7 sim8 sim9 sim10 sim11 sim12 sim13
+#> [1,]  2.2  2.8  2.6  3.1  2.6  2.4  2.7  3.1  2.9     3   3.1   2.4   2.6
+#>      sim14 sim15 sim16 sim17 sim18 sim19 sim20
+#> [1,]   2.8   2.8   2.3   2.1   2.4     3   3.1
 ```
 
 which shows the difference between sampled value (2.681022), predicted
@@ -1649,8 +1912,10 @@ value (2.677931) and simulated values for about the same location i.e. a
 PDF (see also histograms in Fig. \@ref(fig:hist-om-predicted-vs-simulated)). 
 If we average the 20 simulations we obtain an alternative estimate of the mean:
 
-```{r}
+
+```r
 mean(extract(om.rksim.p@realizations, meuse[1,]))
+#> [1] 2.7
 ```
 
 In this case there remains a small difference between the two results,
@@ -1666,19 +1931,100 @@ predictions for a given input observations and prediction locations
 [@Pebesma2011CompGeoSci]. Consider the following example for predicting
 organic matter content using the Meuse case study:
 
-```{r}
+
+```r
 library(intamap)
+#> 
+#> Attaching package: 'intamap'
+#> The following object is masked from 'package:raster':
+#> 
+#>     interpolate
 demo(meuse, echo=FALSE)
 meuse$value = meuse$zinc
 output <- interpolate(meuse, meuse.grid, list(mean=TRUE, variance=TRUE))
+#> R 2018-06-06 16:28:51 interpolating 155 observations, 3103 prediction locations
+#> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : 
+#>  using standard model for estimating time. For better 
+#>  platform spesific predictions, please run 
+#>  timeModels <- generateTimeModels()
+#>   and save the workspace
+#> [1] "estimated time for  copula 133.535601771229"
+#> Checking object ... OK
 ```
 
 which gives the (presumably) best interpolation method for the problem
 at hand (`value` column), given the time available set with
 `maximumTime` [@Pebesma2011CompGeoSci]: 
 
-```{r}
+
+```r
 str(output, max.level = 2)
+#> List of 16
+#>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
+#>  $ formulaString      :Class 'formula'  language value ~ 1
+#>   .. ..- attr(*, ".Environment")=<environment: 0x109fe488> 
+#>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
+#>  $ params             :List of 15
+#>   ..$ doAnisotropy     : logi TRUE
+#>   ..$ testMean         : logi FALSE
+#>   ..$ removeBias       : logi NA
+#>   ..$ addBias          : logi NA
+#>   ..$ biasRemovalMethod: chr "LM"
+#>   ..$ nmax             : num 50
+#>   ..$ ngrid            : num 100
+#>   ..$ nsim             : num 100
+#>   ..$ sMin             : num 4
+#>   ..$ block            : num(0) 
+#>   ..$ processType      : chr "gaussian"
+#>   ..$ confProj         : logi TRUE
+#>   ..$ debug.level      : num 0
+#>   ..$ nclus            : num 1
+#>   ..$ significant      : logi TRUE
+#>   ..- attr(*, "class")= chr "IntamapParams"
+#>  $ outputWhat         :List of 2
+#>   ..$ mean    : logi TRUE
+#>   ..$ variance: logi TRUE
+#>  $ blockWhat          : chr "none"
+#>  $ intCRS             : chr "+init=epsg:28992 +proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=46"| __truncated__
+#>  $ lambda             : num -0.27
+#>  $ anisPar            :List of 4
+#>   ..$ ratio     : num 1.48
+#>   ..$ direction : num 56.1
+#>   ..$ Q         : num [1, 1:3] 3.05e-07 2.29e-07 -9.28e-08
+#>   .. ..- attr(*, "dimnames")=List of 2
+#>   ..$ doRotation: logi TRUE
+#>  $ variogramModel     :Classes 'variogramModel' and 'data.frame':	2 obs. of  9 variables:
+#>   ..$ model: Factor w/ 20 levels "Nug","Exp","Sph",..: 1 3
+#>   ..$ psill: num [1:2] 0.00141 0.02527
+#>   ..$ range: num [1:2] 0 1282
+#>   ..$ kappa: num [1:2] 0 0
+#>   ..$ ang1 : num [1:2] 0 33.9
+#>   ..$ ang2 : num [1:2] 0 0
+#>   ..$ ang3 : num [1:2] 0 0
+#>   ..$ anis1: num [1:2] 1 0.674
+#>   ..$ anis2: num [1:2] 1 1
+#>   ..- attr(*, "singular")= logi FALSE
+#>   ..- attr(*, "SSErr")= num 2.84e-08
+#>   ..- attr(*, "call")= language fit.variogram(object = experimental_variogram, model = vgm(psill = psill,      model = model, range = range, nugg| __truncated__ ...
+#>  $ sampleVariogram    :Classes 'gstatVariogram' and 'data.frame':	11 obs. of  6 variables:
+#>   ..$ np     : num [1:11] 7 31 94 132 147 ...
+#>   ..$ dist   : num [1:11] 67.2 94.2 142.9 193.5 248.9 ...
+#>   ..$ gamma  : num [1:11] 0.000891 0.005635 0.005537 0.006056 0.010289 ...
+#>   ..$ dir.hor: num [1:11] 0 0 0 0 0 0 0 0 0 0 ...
+#>   ..$ dir.ver: num [1:11] 0 0 0 0 0 0 0 0 0 0 ...
+#>   ..$ id     : Factor w/ 1 level "var1": 1 1 1 1 1 1 1 1 1 1 ...
+#>   ..- attr(*, "direct")='data.frame':	1 obs. of  2 variables:
+#>   ..- attr(*, "boundaries")= num [1:12] 36.8 73.5 110.3 165.5 220.6 ...
+#>   ..- attr(*, "pseudo")= num 0
+#>   ..- attr(*, "what")= chr "semivariance"
+#>  $ methodParameters   : chr "  vmodel = data.frame(matrix(0,nrow =  2 ,ncol =  9 ))\nnames(vmodel) = c(\"model\",\"psill\",\"range\",\"kappa"| __truncated__
+#>  $ predictions        :Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
+#>  $ outputTable        : num [1:4, 1:3103] 181180 333740 842 44785 181140 ...
+#>   ..- attr(*, "dimnames")=List of 2
+#>   ..- attr(*, "transposed")= logi TRUE
+#>  $ processPlot        : chr ""
+#>  $ processDescription : chr "Spatial prediction using the method  transGaussian"
+#>  - attr(*, "class")= chr "transGaussian"
 ```
 
 The interpolate function automatically chooses between: (1) kriging, 
@@ -1686,21 +2032,19 @@ The interpolate function automatically chooses between: (1) kriging,
 projected spatial gaussian process methods in the
 package, (4) transGaussian kriging or Yamamoto interpolation.
 
-```{block, type="rmdnote"}
-Automated mapping is the computer-aided generation of (meaningful) maps
-from measurements. In the context of geostatistical mapping, automated
-mapping implies that the model fitting, prediction and visualization can
-be run with little or no human interaction / intervention.
-```
+<div class="rmdnote">
+<p>Automated mapping is the computer-aided generation of (meaningful) maps from measurements. In the context of geostatistical mapping, automated mapping implies that the model fitting, prediction and visualization can be run with little or no human interaction / intervention.</p>
+</div>
 
 The same idea of automated model fitting and prediction has been
 implemented in the package for , which extends simple point-based models
 to 2D, 3D, 2D+T regression-kriging models. Some examples of automated
 soil mapping have been already shown previously.
 
-```{r scheme-statmodels, echo=FALSE, fig.cap="A modern workflow of predictive soil mapping. This often includes state-of-the-art Machine Learning Algorithms.", out.width="60%"}
-knitr::include_graphics("figures/Fig_statmodels.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_statmodels.png" alt="A modern workflow of predictive soil mapping. This often includes state-of-the-art Machine Learning Algorithms." width="60%" />
+<p class="caption">(\#fig:scheme-statmodels)A modern workflow of predictive soil mapping. This often includes state-of-the-art Machine Learning Algorithms.</p>
+</div>
 
 Automated mapping, as long as it is not a *black-box* system, is
 beneficial for soil mapping applications for several reasons: (1) it
@@ -1743,8 +2087,16 @@ and then implement this model via an automated mapping system.
 
 The purpose of spatial prediction is to (a) produce a map showing spatial distribution of the variable of interest for the area of interest, and (b) to do this in an unbiased way. A comprehensive path to evaluating spatial predictions is the [caret](http://topepo.github.io/caret/index.html) approach [@kuhn2013applied], which wraps up many of the standard processes such as model training and validation, method comparison and visualization. Consider for example the organic matter % in topsoil in the meuse data set: 
 
-```{r}
+
+```r
 library(caret); library(rgdal)
+#> Loading required package: lattice
+#> Loading required package: ggplot2
+#> 
+#> Attaching package: 'caret'
+#> The following object is masked from 'package:intamap':
+#> 
+#>     preProcess
 demo(meuse, echo=FALSE)
 meuse.ov <- cbind(over(meuse, meuse.grid), meuse@data)
 meuse.ov$x0 = 1
@@ -1752,11 +2104,25 @@ meuse.ov$x0 = 1
 
 We can quickly compare performance of using GLM vs random forest vs no model for predicting organic matter (om) by using the caret package functionality:
 
-```{r}
+
+```r
 fitControl <- trainControl(method="repeatedcv", number=2, repeats=2)
 mFit0 <- caret::train(om~x0, data=meuse.ov, method="glm", 
                family=gaussian(link=log), trControl=fitControl, 
                na.action=na.omit)
+#> Warning in predict.lm(object, newdata, se.fit, scale = 1, type =
+#> ifelse(type == : prediction from a rank-deficient fit may be misleading
+
+#> Warning in predict.lm(object, newdata, se.fit, scale = 1, type =
+#> ifelse(type == : prediction from a rank-deficient fit may be misleading
+
+#> Warning in predict.lm(object, newdata, se.fit, scale = 1, type =
+#> ifelse(type == : prediction from a rank-deficient fit may be misleading
+
+#> Warning in predict.lm(object, newdata, se.fit, scale = 1, type =
+#> ifelse(type == : prediction from a rank-deficient fit may be misleading
+#> Warning in nominalTrainWorkflow(x = x, y = y, wts = weights, info =
+#> trainInfo, : There were missing values in resampled performance measures.
 mFit1 <- caret::train(om~soil, data=meuse.ov, method="glm", 
                family=gaussian(link=log), trControl=fitControl, 
                na.action=na.omit)
@@ -1770,16 +2136,24 @@ mFit3 <- caret::train(om~dist+soil+ffreq, data=meuse.ov, method="ranger",
 This will run repeated Cross-validation with 50% : 50% splits training and validation, 
 which means that in each iteration models will be refitted from scratch. Next we can compare performance of the three models by using:
 
-```{r bwplot-meuse, fig.width=6, fig.cap="Comparison of spatial prediction accuracy (RMSE at cross-validation points) for simple averaging (Mean), GLM with only soil map as covariate (Soilmap), GLM and random forest (RF) models with all possible covariates. Error bars indicate range of RMSE values for repeated CV."}
+
+```r
 resamps <- resamples(list(Mean=mFit0, Soilmap=mFit1, GLM=mFit2, RF=mFit3))
 bwplot(resamps, layout = c(2, 1), metric=c("RMSE","Rsquared"), 
        fill="grey", scales = list(relation = "free"))
 ```
 
+<div class="figure" style="text-align: center">
+<img src="Statistical_theory_files/figure-html/bwplot-meuse-1.png" alt="Comparison of spatial prediction accuracy (RMSE at cross-validation points) for simple averaging (Mean), GLM with only soil map as covariate (Soilmap), GLM and random forest (RF) models with all possible covariates. Error bars indicate range of RMSE values for repeated CV." width="576" />
+<p class="caption">(\#fig:bwplot-meuse)Comparison of spatial prediction accuracy (RMSE at cross-validation points) for simple averaging (Mean), GLM with only soil map as covariate (Soilmap), GLM and random forest (RF) models with all possible covariates. Error bars indicate range of RMSE values for repeated CV.</p>
+</div>
+
 In the case above, it seems that random forest ([ranger package](https///github.com/imbs-hl/ranger)) helps decrease mean RMSE of predicting organic matter for about 32%: 
 
-```{r}
+
+```r
 round((1-min(mFit3$results$RMSE)/min(mFit0$results$RMSE))*100)
+#> [1] 31
 ```
 
 There is certainly added value in using spatial covariates (in the case above: distance to water and flooding frequency maps) and in using machine learning for spatial prediction, even with smaller data sets. 
@@ -1835,16 +2209,14 @@ reasons:
     vertical (depth) dimensions, so that it makes sense to treat them
     using 3D geostatistics whenever we have enough 3D soil observations.
 
-```{block, type="rmdnote"}
-Because soil variables are auto-correlated in both horizontal and
-vertical (depth) dimensions it makes sense to treat them using 3D
-geostatistics, as long as there are enough measurements in all spatial
-dimensions.
-```
+<div class="rmdnote">
+<p>Because soil variables are auto-correlated in both horizontal and vertical (depth) dimensions it makes sense to treat them using 3D geostatistics, as long as there are enough measurements in all spatial dimensions.</p>
+</div>
 
-```{r voxel-scheme, echo=FALSE, fig.cap="Spatial 3D prediction locations in a gridded system (voxels). In soil mapping, we often predict for larger blocks of land e.g. 100 to 1000 m, but then for vertical depths of few tens of centimeters, so the output voxels might appear in reality as being somewhat disproportional.", out.width="60%"}
-knitr::include_graphics("figures/Fig_voxel_scheme.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_voxel_scheme.png" alt="Spatial 3D prediction locations in a gridded system (voxels). In soil mapping, we often predict for larger blocks of land e.g. 100 to 1000 m, but then for vertical depths of few tens of centimeters, so the output voxels might appear in reality as being somewhat disproportional." width="60%" />
+<p class="caption">(\#fig:voxel-scheme)Spatial 3D prediction locations in a gridded system (voxels). In soil mapping, we often predict for larger blocks of land e.g. 100 to 1000 m, but then for vertical depths of few tens of centimeters, so the output voxels might appear in reality as being somewhat disproportional.</p>
+</div>
 
 The fact that there are almost always $<10$ soil observations over the
 total depth of a soil profile, so that the estimates of the range in the
@@ -1954,9 +2326,10 @@ GIS perspective, and assuming a democratic right to independently
 develop and apply spatial prediction models, merging of the multiscale
 and multisource data is likely to be inevitable.
 
-```{r multiscale-vs-multisource, echo=FALSE, fig.cap="A general scheme for generating spatial predictions using multiscale and multisource data.", out.width="90%"}
-knitr::include_graphics("figures/Fig_multiscale_vs_multisource.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_multiscale_vs_multisource.png" alt="A general scheme for generating spatial predictions using multiscale and multisource data." width="90%" />
+<p class="caption">(\#fig:multiscale-vs-multisource)A general scheme for generating spatial predictions using multiscale and multisource data.</p>
+</div>
 
 As a general strategy, for multi-scale data we propose fitting a single
 model to combined covariates downscaled or upscaled to the same
@@ -1976,13 +2349,9 @@ pan-continental and global projects, because for most of the countries
 in the world, both soil and covariate data are available at different
 effective scales.
 
-```{block, type="rmdnote"}
-A sensible approach to merging multiple predictions
-(usually at multiple resolutions) is to derive a weighted average of two
-or more predictions / use the per-pixel accuracy to assign the
-weights, so that more accurate predictions receive more weight
-[@Heuvelink19921].
-```
+<div class="rmdnote">
+<p>A sensible approach to merging multiple predictions (usually at multiple resolutions) is to derive a weighted average of two or more predictions / use the per-pixel accuracy to assign the weights, so that more accurate predictions receive more weight <span class="citation">[@Heuvelink19921]</span>.</p>
+</div>
 
 It is important to emphasize however that, in order to combine various
 predictors, we do need to have an estimate of the prediction uncertainty
@@ -2116,9 +2485,10 @@ There are three possibilities for estimating the $\it{RMSE}$
     areas produced at much higher accuracy, usually also at much finer
     level of detail*.
 
-```{r cross-validation-types, echo=FALSE, fig.cap="General types of validation procedures for evaluating accuracy of spatial prediction models.", out.width="70%"}
-knitr::include_graphics("figures/Fig_cross_validation_types.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_cross_validation_types.png" alt="General types of validation procedures for evaluating accuracy of spatial prediction models." width="70%" />
+<p class="caption">(\#fig:cross-validation-types)General types of validation procedures for evaluating accuracy of spatial prediction models.</p>
+</div>
 
 Although the prediction variance already indicates what the potential
 accuracy of the maps is, only by independent validation can we determine
@@ -2147,16 +2517,14 @@ analysis. There are several types of cross-validation methods
 -   *Jackknifing* — similar to LOO, but aims at estimating the bias of
     statistical analysis and not of predictions;
 
-```{r cross-validation-repetitions, echo=FALSE, fig.cap="Left: confidence limits for the amount of variation explained (0–100%) for two spatial prediction methods: inverse distance interpolation (IDW) and regression-kriging (RK) for mapping organic carbon content (Meuse data set). Right: the average amount of variation explained for two realizations (5-fold cross-validation) as a function of number of cross-validation runs (repetitions). In this case the RK method is distinctly better than method IDW, but the cross-validation score seems to stabilize only after 10 runs.", out.width="85%"}
-knitr::include_graphics("figures/Fig_cross_validation_repetitions.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_cross_validation_repetitions.png" alt="Left: confidence limits for the amount of variation explained (0–100%) for two spatial prediction methods: inverse distance interpolation (IDW) and regression-kriging (RK) for mapping organic carbon content (Meuse data set). Right: the average amount of variation explained for two realizations (5-fold cross-validation) as a function of number of cross-validation runs (repetitions). In this case the RK method is distinctly better than method IDW, but the cross-validation score seems to stabilize only after 10 runs." width="85%" />
+<p class="caption">(\#fig:cross-validation-repetitions)Left: confidence limits for the amount of variation explained (0–100%) for two spatial prediction methods: inverse distance interpolation (IDW) and regression-kriging (RK) for mapping organic carbon content (Meuse data set). Right: the average amount of variation explained for two realizations (5-fold cross-validation) as a function of number of cross-validation runs (repetitions). In this case the RK method is distinctly better than method IDW, but the cross-validation score seems to stabilize only after 10 runs.</p>
+</div>
 
-```{block, type="rmdnote"}
-Cross-validation is a cost-efficient way to get an objective estimate of
-the mapping accuracy. Under assumption that the input samples are
-representative of the study area (ideally collected using objective /
-probability sampling to avoid any kind of bias).
-```
+<div class="rmdnote">
+<p>Cross-validation is a cost-efficient way to get an objective estimate of the mapping accuracy. Under assumption that the input samples are representative of the study area (ideally collected using objective / probability sampling to avoid any kind of bias).</p>
+</div>
 
 Both $k$–fold and the leave-one-out cross validation are implemented in
 the e.g. package (`krige.cv` methods), which makes this type of
@@ -2194,11 +2562,17 @@ of the mean value. It might sound confusing but, in geostatistics, one
 can also validate the *uncertainty of uncertainty* i.e. derive the 
 *error of the estimation error*. In the case of the Meuse data set:
 
-```{r z-scores-histogram, fig.width=6, fig.cap="Z-scores for the cross-validation of the soil organic carbon model."}
+
+```r
 om.rk.cv <- krige.cv(log1p(om)~dist+soil, meuse.s, vr.fit)
 hist(om.rk.cv$zscore, main="Z-scores histogram", 
        xlab="z-score value", col="grey", breaks=25)
 ```
+
+<div class="figure" style="text-align: center">
+<img src="Statistical_theory_files/figure-html/z-scores-histogram-1.png" alt="Z-scores for the cross-validation of the soil organic carbon model." width="576" />
+<p class="caption">(\#fig:z-scores-histogram)Z-scores for the cross-validation of the soil organic carbon model.</p>
+</div>
 
 Here the cross-validation function `krige.cv` reports errors at
 validation points (5–fold cross-validation by default), but it also
@@ -2229,9 +2603,10 @@ that are both accurate and realistic or at least realistic. For a review of meth
 for assessment of uncertainty in soil maps refer
 to @goovaerts2001geostatistical [pp.3–26] and/or @Brus2011EJSS.
 
-```{r difference-accuracy-reliability, echo=FALSE, fig.cap="Mapping accuracy and model reliability (accuracy of the prediction intervals vs actual intervals). Although a method can be accurate in predicting the mean values, it could fail in predicting the prediction intervals i.e. the associated uncertainty.", out.width="85%"}
-knitr::include_graphics("figures/Fig_difference_accuracy_reliability.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_difference_accuracy_reliability.png" alt="Mapping accuracy and model reliability (accuracy of the prediction intervals vs actual intervals). Although a method can be accurate in predicting the mean values, it could fail in predicting the prediction intervals i.e. the associated uncertainty." width="85%" />
+<p class="caption">(\#fig:difference-accuracy-reliability)Mapping accuracy and model reliability (accuracy of the prediction intervals vs actual intervals). Although a method can be accurate in predicting the mean values, it could fail in predicting the prediction intervals i.e. the associated uncertainty.</p>
+</div>
 
 In the case discussed above (Fig. \@ref(fig:z-scores-histogram)) it
 appears that the error estimated by the model is often different from
@@ -2240,8 +2615,10 @@ values are often lower than actual measured values (under-estimation),
 so that the whole histogram shifts toward 0 value. Because variance of the 
 $z$-scores is $<1$: 
 
-```{r}
+
+```r
 var(om.rk.cv$zscore, na.rm=TRUE)
+#> [1] 0.95
 ```
 
 we can also say that the regression-kriging variance
@@ -2261,37 +2638,55 @@ users as the easiest way to communicate uncertainty
 [@brodlie2012review]. For example, organic carbon in Meuse study area
 (based on 153 samples of organic matter) has a 95% interval of 2–16%:
 
-```{r}
+
+```r
 signif(quantile(meuse$om, c(.025, .975), na.rm=TRUE), 2)
+#> 2.5%  98% 
+#>    2   16
 ```
 
 We have previously fitted a geostatistical model using two covariates,
 which can now be used to generate predictions:
 
-```{r}
+
+```r
 om.rk <- predict(omm, meuse.grid)
+#> Subsetting observations to fit the prediction domain in 2D...
+#> Generating predictions using the trend model (RK method)...
+#> [using ordinary kriging]
+#> 100% done
+#> Running 5-fold cross validation using 'krige.cv'...
+#> Creating an object of class "SpatialPredictions"
 ```
 
 and which allows us to estimate confidence limits for organic matter
 (assuming normal distribution) at any location within the study area
 e.g.:
 
-```{r}
+
+```r
 pt1 <- data.frame(x=179390, y=330820)
 coordinates(pt1) <- ~x+y
 proj4string(pt1) = proj4string(meuse.grid)
 pt1.om <- over(pt1, om.rk@predicted["om"])
 pt1.om.sd <- over(pt1, om.rk@predicted["var1.var"])
 signif(expm1(pt1.om-1.645*sqrt(pt1.om.sd)), 2)
+#>    om
+#> 1 4.6
 signif(expm1(pt1.om+1.645*sqrt(pt1.om.sd)), 2)
+#>    om
+#> 1 8.9
 ```
 
 where 4.6–8.9 are the upper and lower confidence limits. This interval can 
 also be expressed as:
 
-```{r}
+
+```r
 signif((expm1(pt1.om+1.645*sqrt(pt1.om.sd)) -
        expm1(pt1.om-1.645*sqrt(pt1.om.sd)))/2, 2)
+#>    om
+#> 1 2.1
 ```
 
 or $6.3\pm 2.1$ where half the error of estimating organic matter 
@@ -2302,8 +2697,15 @@ To visualize the range of values within different strata, we can use
 simulations that we can generate using the geostatistical model (which
 can be time-consuming to compute!):
 
-```{r confidence-limits-boxplot, fig.cap="Prediction intervals for three flooding frequency classes for sampled and predicted soil organic matter. The grey boxes show 1st and 3rd quantiles i.e. range where of data falls.", out.width="90%"}
+
+```r
 om.rksim <- predict(omm, meuse.grid, nsim=5)
+#> Subsetting observations to fit the prediction domain in 2D...
+#> Generating 5 conditional simulations using the trend model (RK method)...
+#> drawing 5 GLS realisations of beta...
+#> [using conditional Gaussian simulation]
+#>   0% done 12% done 20% done 27% done 33% done 39% done 46% done 51% done 57% done 63% done 69% done 74% done 80% done 85% done 91% done 97% done100% done
+#> Creating an object of class "RasterBrickSimulations"
 ov <- as(om.rksim@realizations, "SpatialGridDataFrame")
 meuse.grid$om.sim1 <- expm1(ov@data[,1][meuse.grid@grid.index])
 meuse.grid$om.rk <- expm1(om.rk@predicted$om)
@@ -2317,6 +2719,11 @@ boxplot(om.sim1~ffreq, meuse.grid, col="grey",
     ylab="Organic matter in %",
     main="Predicted (spatial simulations)", ylim=c(0,20))
 ```
+
+<div class="figure" style="text-align: center">
+<img src="Statistical_theory_files/figure-html/confidence-limits-boxplot-1.png" alt="Prediction intervals for three flooding frequency classes for sampled and predicted soil organic matter. The grey boxes show 1st and 3rd quantiles i.e. range where of data falls." width="90%" />
+<p class="caption">(\#fig:confidence-limits-boxplot)Prediction intervals for three flooding frequency classes for sampled and predicted soil organic matter. The grey boxes show 1st and 3rd quantiles i.e. range where of data falls.</p>
+</div>
 
 Fig. \@ref(fig:confidence-limits-boxplot) shows that the confidence
 limits for samples and based on the geostatistical model are about the
@@ -2337,10 +2744,12 @@ estimating the mean value i.e. *standard error of the mean*
 
 or in R:
 
-```{r}
+
+```r
 sd.om <- qt(0.975, df=length(meuse$om)-1) *
     sd(meuse$om, na.rm=TRUE)/sqrt(length(meuse$om))
 sd.om
+#> [1] 0.54
 ```
 
 Note that this is (only) error of estimating the population mean, which
@@ -2356,11 +2765,23 @@ individual locations, then the confidence limits are about $7.48\pm 3.4$
 
 The actual variation within the units based on simulations is:
 
-```{r}
+
+```r
 lapply(levels(meuse.grid$ffreq), function(x){
     sapply(subset(meuse.grid@data, ffreq==x,
            select=om.sim1), sd, na.rm=TRUE)
 })
+#> [[1]]
+#> om.sim1 
+#>       3 
+#> 
+#> [[2]]
+#> om.sim1 
+#>     2.7 
+#> 
+#> [[3]]
+#> om.sim1 
+#>     1.7
 ```
 
 This can be confusing especially if the soil data producer does not
@@ -2375,11 +2796,13 @@ regression problem in fact. It can be easily shown that, by fitting a
 regression model on strata, we automatically get an estimate of
 confidence limits for the study area:
 
-```{r}
+
+```r
 omm0 <- lm(om~ffreq-1, omm@regModel$data)
 om.r <- predict(omm0, meuse.grid, se.fit=TRUE)
 meuse.grid$se.fit <- om.r$se.fit
 signif(mean(meuse.grid$se.fit, na.rm=TRUE), 3)
+#> [1] 0.48
 ```
 
 This number is similar to 0.54 we derived directly from simulations. The
@@ -2390,28 +2813,34 @@ than previously derived 0.54 because we use `ffreq` stratification as a
 covariate, so that, as long as the strata is relatively homogenous, the
 confidence limits get narrower.
 
-```{block, type="rmdnote"}
-Prediction intervals (upper and lower ranges of expected values with some
-high probability) are possibly the most accepted way to communicate
-uncertainty. Users are commonly interested in what are the probability
-confidence limits of measuring some value at individual location, or the
-high probability prediction range.
-```
+<div class="rmdnote">
+<p>Prediction intervals (upper and lower ranges of expected values with some high probability) are possibly the most accepted way to communicate uncertainty. Users are commonly interested in what are the probability confidence limits of measuring some value at individual location, or the high probability prediction range.</p>
+</div>
 
 To estimate the actual prediction intervals of estimating individual values
 (estimation error) we need to add the residual scale value which is a
 constant number:
 
-```{r}
+
+```r
 aggregate(sqrt(meuse.grid$se.fit^2+om.r$residual.scale^2),
      by=list(meuse.grid$ffreq), mean, na.rm=TRUE)
+#>   Group.1   x
+#> 1       1 3.3
+#> 2       2 3.3
+#> 3       3 3.3
 ```
 
 and if we compare these limits to the confidence bands for the values
 predicted the geostatistical model fitted above:
 
-```{r}
+
+```r
 aggregate(meuse.grid$om.sim1, by=list(meuse.grid$ffreq), sd, na.rm=TRUE)
+#>   Group.1   x
+#> 1       1 3.0
+#> 2       2 2.7
+#> 3       3 1.7
 ```
 
 we can clearly see that the geostatistical model has helped us narrow
@@ -2437,9 +2866,10 @@ observed data deviate from the line of perfect concordance (1:1 line in
 Fig. \@ref(fig:validation-scheme)). It is usually equal to or somewhat
 lower than R–square, depending on the amount of bias in predictions.
 
-```{r validation-scheme, echo=FALSE, fig.cap="Universal plots of predictive performance: (a) 1:1 predicted vs observed plot, (b) CCC vs standard deviation of the z-scores plot, (c) nominal vs coverage probabilities, and (d) variogram of cross-validation residuals. For more detail see: @Hengl2018RFsp.", out.width="80%"}
-knitr::include_graphics("figures/Fig_validation_plots.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_validation_plots.png" alt="Universal plots of predictive performance: (a) 1:1 predicted vs observed plot, (b) CCC vs standard deviation of the z-scores plot, (c) nominal vs coverage probabilities, and (d) variogram of cross-validation residuals. For more detail see: @Hengl2018RFsp." width="80%" />
+<p class="caption">(\#fig:validation-scheme)Universal plots of predictive performance: (a) 1:1 predicted vs observed plot, (b) CCC vs standard deviation of the z-scores plot, (c) nominal vs coverage probabilities, and (d) variogram of cross-validation residuals. For more detail see: @Hengl2018RFsp.</p>
+</div>
 
 CCC and variance or standard deviation of the z-scores are two universal / 
 scale-free parameters that can be used to put multiple spatial prediction 
@@ -2506,9 +2936,10 @@ square-km); to map soil at 1:20 would costs about 25 EUR per ha. These
 are the all-inclusive costs that include salaries and time in the office
 needed for the work of synthesis and editing.
 
-```{r scale-costs-ratio, echo=FALSE, fig.cap="Some basic concepts of soil survey: (a) relationship between cartographic scale and pixel size [@Hengl2006CG], (b) soil survey costs and scale relationship based on the empirical data of @Legros2006SP.", out.width="100%"}
-knitr::include_graphics("figures/Fig_scale_costs_ratio.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_scale_costs_ratio.png" alt="Some basic concepts of soil survey: (a) relationship between cartographic scale and pixel size [@Hengl2006CG], (b) soil survey costs and scale relationship based on the empirical data of @Legros2006SP." width="100%" />
+<p class="caption">(\#fig:scale-costs-ratio)Some basic concepts of soil survey: (a) relationship between cartographic scale and pixel size [@Hengl2006CG], (b) soil survey costs and scale relationship based on the empirical data of @Legros2006SP.</p>
+</div>
 
 Estimated standard soil survey costs per area differ from country to
 country. The USDA estimates that the total costs of soil mapping at
@@ -2565,9 +2996,10 @@ spatial prediction model (Eq. \@ref(eq:normvar)). In other words, soil
 mapping efficiency is total cost of explaining each percent of variation
 in target soil variables for a given area of interest.
 
-```{r costs-RMSE-scheme, echo=FALSE, fig.cap="General relationship between the sampling intensity (i.e. survey costs) and amount of variation in the target variable explained by a spatial prediction model. After @Hengl2013JAG.", out.width="80%"}
-knitr::include_graphics("figures/Fig_costs_RMSE_scheme.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_costs_RMSE_scheme.png" alt="General relationship between the sampling intensity (i.e. survey costs) and amount of variation in the target variable explained by a spatial prediction model. After @Hengl2013JAG." width="80%" />
+<p class="caption">(\#fig:costs-RMSE-scheme)General relationship between the sampling intensity (i.e. survey costs) and amount of variation in the target variable explained by a spatial prediction model. After @Hengl2013JAG.</p>
+</div>
 
 Even more universal measure of mapping efficiency is the Information Production Efficiency (IPE) [@@Hengl2013JAG]:
 
@@ -2582,12 +3014,9 @@ and after recoding the values to match the effective precision
 the area is not included in the equation and hence can be used to compare efficiency 
 of various soil mapping projects.
 
-```{block, type="rmdnote"}
-Soil mapping efficiency can be expressed as the cost of producing bytes 
-of information about the target soil variables for a given area
-of interest. This allows for an objective comparison of prediction
-efficiency for different soil variables for different study areas.
-```
+<div class="rmdnote">
+<p>Soil mapping efficiency can be expressed as the cost of producing bytes of information about the target soil variables for a given area of interest. This allows for an objective comparison of prediction efficiency for different soil variables for different study areas.</p>
+</div>
 
 ### Summary points
 
@@ -2650,9 +3079,10 @@ studies allow us to determine the best performing, and most cost
 effective, pedometric method for an area of interest and a list of
 target variables.
 
-```{r cost-methods-scheme, echo=FALSE, fig.cap="An schematic example of a performance plot (*‘predictogram’*) for comparing spatial prediction models. For more details see: @Hengl2013JAG.", out.width="80%"}
-knitr::include_graphics("figures/Fig_costs_RMSE_scheme-2.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_costs_RMSE_scheme-2.png" alt="An schematic example of a performance plot (*‘predictogram’*) for comparing spatial prediction models. For more details see: @Hengl2013JAG." width="80%" />
+<p class="caption">(\#fig:cost-methods-scheme)An schematic example of a performance plot (*‘predictogram’*) for comparing spatial prediction models. For more details see: @Hengl2013JAG.</p>
+</div>
 
 In summary, gauging the success of soil mapping basically boils down to
 the amount of variation explained by the spatial prediction model 
@@ -2666,12 +3096,9 @@ list of target variables an optimal (most efficient) prediction method
 can be determined by deriving the mapping efficiency described in
 Eq. \@ref(eq:efficiency) or even better Eq. \@ref(eq:data-efficiency).
 
-```{block, type="rmdnote"}
-Modern soil mapping is driven by the objective assessment of
-accuracy — emphasis is put on using methods and covariate
-layers that can produce the most accurate soil information given
-available resources, and much less on expert opinion or preference.
-```
+<div class="rmdnote">
+<p>Modern soil mapping is driven by the objective assessment of accuracy — emphasis is put on using methods and covariate layers that can produce the most accurate soil information given available resources, and much less on expert opinion or preference.</p>
+</div>
 
 By reporting on the RMSE, effective precision, information production efficiency,
 and by plotting the prediction variance estimated by the model, one gets
