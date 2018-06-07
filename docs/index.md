@@ -26,7 +26,7 @@ url: 'http\://soilmapper.org'
 
 <img src="figures/f0_web.png" width="33%" style="display: block; margin: auto;" />
 
-This is the online version of the Open Access book: [**Predictive Soil Mapping with R**](https://envirometrix.github.io/PredictiveSoilMapping/). Pull requests and general comments are welcome. These materials are based on the technical tutorials developed within the [ISRIC’s]](http://isric.org/) Global Soil Information Facilities (GSIF) framework for automated soil mapping over the period 2014–2017.
+This is the online version of the Open Access book: [**Predictive Soil Mapping with R**](https://envirometrix.github.io/PredictiveSoilMapping/). Pull requests and general comments are welcome. These materials are based on the technical tutorials developed within the [ISRIC’s](http://isric.org/) Global Soil Information Facilities (GSIF) framework for automated soil mapping over the period 2014–2017.
 
 <img alt="Under construction" style="border-width:0" src="images/under-construction_640.png" /><br />**This website is under construction**. For news and updates please refer to the [github issues](https://github.com/envirometrix/PredictiveSoilMapping/issues).
 

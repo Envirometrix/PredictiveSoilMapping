@@ -2,7 +2,7 @@
 
 # Preparation of soil covariates for soil mapping {#soil-covs-chapter}
 
-Edited by:  T. Hengl
+*Edited by: T. Hengl*
 
 ## Soil covariate data sources
 
