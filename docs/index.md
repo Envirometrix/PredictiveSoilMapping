@@ -3,7 +3,7 @@
 knit: "bookdown::render_book"
 title: "Predictive Soil Mapping with R"
 author: ["Tomislav Hengl"]
-date: "2018-06-06"
+date: "2018-06-07"
 site: bookdown::bookdown_site
 documentclass: svmono
 classoption: 11pt,graybox,envcountchap,symmetric,sectrefs,UStrade
@@ -26,7 +26,7 @@ url: 'http\://soilmapper.org'
 
 <img src="figures/f0_web.png" width="33%" style="display: block; margin: auto;" />
 
-This is the online version of the Open Access book: **Predictive Soil Mapping with R**. Pull requests and general comments are welcome. These materials are based on the technical tutorials developed within the ISRIC’s [Global Soil Information Facilities (GSIF)](http://isric.org/index.php/explore/gsif) framework for automated soil mapping over the period 2014–2017.
+This is the online version of the Open Access book: [**Predictive Soil Mapping with R**](https://envirometrix.github.io/PredictiveSoilMapping/). Pull requests and general comments are welcome. These materials are based on the technical tutorials developed within the [ISRIC’s]](http://isric.org/) Global Soil Information Facilities (GSIF) framework for automated soil mapping over the period 2014–2017.
 
 <img alt="Under construction" style="border-width:0" src="images/under-construction_640.png" /><br />**This website is under construction**. For news and updates please refer to the [github issues](https://github.com/envirometrix/PredictiveSoilMapping/issues).
 
@@ -34,13 +34,21 @@ Hard copies of this book from will be made available in the second half of 2018.
 
 ## Editors {-}
 
-[Tom Hengl](http://envirometrix.net/staff) is a Senior Researchers at Envirometrix Ltd. He has more than 20 years of experience as an environmental modeller, data scientist and spatial analyst. Tom is a passionate advocate for, and supporter of, open data, reproducable science and career development for young scientists. He has desiged and implemented the global [SoilGrids](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0169748) dataset, partially in response to other well known open data projects such as OpenStreetMap, GBIF, GlobalForestWatch and global climate mapping projects. He has been teaching predictive soil mapping at Wageningen University / ISRIC within the “Hands-on-GSIF” block courses. Video tutorials of the soil mapping with R can also be found on http://youtube.com/c/ISRICorg
+[Tom Hengl](http://envirometrix.net/staff) is a Senior Researchers / technical director at Envirometrix Ltd. 
+He has more than 20 years of experience as an environmental modeller, data scientist and spatial analyst. 
+Tom is a passionate advocate for, and supporter of, open data, reproducable science and career development 
+for young scientists. He has desiged and implemented the global [SoilGrids](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0169748) dataset, 
+partially in response to other well known open data projects such as OpenStreetMap, GBIF, GlobalForestWatch 
+and global climate mapping projects. He has been teaching predictive soil mapping at Wageningen University / 
+ISRIC within the “Hands-on-GSIF” block courses. Video tutorials of the soil mapping with R can also be 
+found at http://youtube.com/c/ISRICorg
 
 # Preface {-}
 
 Predictive Soil Mapping (PSM) is based on applying statistical and/or machine learning techniques to fit models for the purpose of producing spatial and/or spatiotemporal predictions of soil variables i.e. maps of soil properties and classes at different resolutions. It is a multidisciplinary field combining statistics, data science, soil science, physical geography, remote sensing, geoinformation science and number of other sciences. *Predictive Soil Mapping with R* is about understanding the main concepts behind soil mapping, mastering R packages that can be used to produce high quality soil maps, and about optimizing all processes involved so that also the production costs can be reduced.
 
-The main idea behind Predictive vs traditional expert-based soil mapping is that production of maps: (a) is based on using state-of-the-art statistical models to ensure objectivity of maps (including objective uncertainty assessment) vs expert judgment, and (b) is driven by automation of the processes so that overall soil data production costs can be reduced and updates of the maps implemented without a need for large investments. R in that sense is a logical platform to develop PSM workflows and applications, especially thanks to the vibrant and productive R spatial interest group activities and also thanks to the increasingly professional soil data packages such as the soiltexture, aqp, soilDB and similar.
+The main idea behind Predictive vs traditional expert-based soil mapping is that production of maps: (a) 
+is based on using state-of-the-art statistical models to ensure objectivity of maps (including objective uncertainty assessment) vs expert judgment, and (b) is driven by automation of the processes so that overall soil data production costs can be reduced and updates of the maps implemented without a need for large investments. R in that sense is a logical platform to develop PSM workflows and applications, especially thanks to the vibrant and productive R spatial interest group activities and also thanks to the increasingly professional soil data packages such as the soiltexture, aqp, soilprofile, soilDB and similar.
 
 Book is divided into sections covering theoretical concepts, preparation of covariates, model selection and evaluation, prediction and visualization and distribution of final maps. Most of chapters contain R code examples that try to illustrate main processing steps and give practical instructions to developers and applied users.
 
@@ -48,7 +56,7 @@ Book is divided into sections covering theoretical concepts, preparation of cova
 
 Most of methods described in this book are based on the following publications:
 
-* Hengl, T., Nussbaum, M., Wright, M. N., Heuvelink, G. B., & Gr&auml;ler, B. (2018) [Random Forest as a generic framework for predictive modeling of spatial and spatio-temporal variables](https://peerj.com/preprints/26693/). PeerJ Preprints.
+* Hengl, T., Nussbaum, M., Wright, M. N., Heuvelink, G. B., and Gr&auml;ler, B. (2018) [Random Forest as a generic framework for predictive modeling of spatial and spatio-temporal variables](https://peerj.com/preprints/26693/). PeerJ Preprints.
 
 * Sanderman, J., Hengl, T., Fiske, G., (2017) [The soil carbon debt of 12,000 years of human land use](http://www.pnas.org/content/early/2017/08/15/1706103114.full). PNAS, doi:10.1073/pnas.1706103114
 
@@ -141,9 +149,10 @@ profiles [@VanEngelen2012], SPADE [@hollis2006spade], Unified State Register
 of soil resources RUSSIA (Version 1.0. Moscow — 2014), National Database
 of Iran provided by the Tehran University, points from the Dutch Soil
 Information System (BIS) prepared by Wageningen Environmental Research,
-and others. We are also grateful to USA’s NASA, USGS and USDA agencies
-for distributing vast amounts of remote sensing data (especially MODIS
-land products and SRTM DEM), and to the Open Source software developers
+and others. We are also grateful to USA’s NASA, USGS and USDA agencies,
+European Space Agency Copernicus projects, JAXA (Japan Aerospace Exploration Agency)
+for distributing vast amounts of remote sensing data (especially MODIS, Landsat, Copernicus
+land products and elevation data), and to the Open Source software developers
 of the packages rgdal, sp, raster, caret, mlr, ranger, h2o and similar, 
 and without which predictive soil mapping would most likely not be possible.
 

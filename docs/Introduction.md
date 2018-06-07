@@ -1,5 +1,4 @@
 
-
 # Soil resource inventories and soil maps
 
 *Edited by: Hengl T. & MacMillan R.A.*
@@ -38,7 +37,7 @@ defined by the presence of hard rock or the lower limit of biologic
 activity [@richter1995deep; @SSDS1993]. Although soils profiles up to tens
 of meters depths can be found in some tropical areas [@richter1995deep], for
 soil classification and mapping purposes, the lower limit soil is
-arbitrarily set to 2 m (http://soils.usda.gov/education/facts/soil.html). Soils are rarely described to depths beyond and
+arbitrarily set to 2m (http://soils.usda.gov/education/facts/soil.html). Soils are rarely described to depths beyond and
 many soil sampling projects put exponentially more focus on the upper
 depths.
 
