@@ -88,6 +88,8 @@ ISBN: 9783319443270, 262 pages.
 * McBratney, A.B., Minasny, B., Stockmann, U. (Eds) (2018) [Pedometrics](https://www.springer.com/gp/book/9783319634371). Progress in Soil Science
 ISBN: 9783319634395, 720 pages.
 
+* FAO, (2018) [Soil Organic Carbon Mapping Cookbook](https://github.com/FAO-GSP/SOC-Mapping-Cookbook). 2nd edt. ISBN: 9789251304402
+
 Readers are also encouraged to obtain and study the following R books before following some of the more complex exercises in this book:
 
 * Bivand, R., Pebesma, E., Rubio, V., (2013) [Applied Spatial Data Analysis with R](http://www.asdar-book.org/). Use R Series, Springer, Heidelberg, 2nd Ed. 400 pages.
@@ -110,6 +112,8 @@ This book is constantly updated and contributions are welcome (through pull requ
 4. Theoretical basis for methods and interpretation of results should be based on peer-review publications. This book is not intended to host primary research / experimental results, but only to supplement existing research publications.
 5. Chapter should consist of at least 1500 words and at most 3500 words.
 6. The topic of the chapter must be closely connected to theme of soil mapping, soil geographical databases, methods for processing spatial soil data and similar.
+
+In principle, all submitted chapters should also follow closely the [five pillars of Wikipedia](https://en.wikipedia.org/wiki/Wikipedia:Five_pillars), especially: Verifiability, Reproducibility, No original research, Neutral point of view, Good faith, No conflict of interest, and no personal attacks.
 
 ## Reproducibility {-}
 
