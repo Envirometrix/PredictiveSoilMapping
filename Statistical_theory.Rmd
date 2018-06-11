@@ -1271,7 +1271,7 @@ between their respective results are not likely to be large
 (Fig. \@ref(fig:meuse-om-rk-glm)). Regression tree combined with
 kriging (rpart-kriging) seems to produce slightly better results i.e.
 smallest cross-validation error, although the difference between four
-prediction methods is in fact not large ($\pm5$% of variance explained).
+prediction methods is in fact not large (±5% of variance explained).
 It is important to run such comparisons nevertheless, as they allow us
 to objectively select the most efficient method.
 
@@ -2294,7 +2294,7 @@ signif((expm1(pt1.om+1.645*sqrt(pt1.om.sd)) -
        expm1(pt1.om-1.645*sqrt(pt1.om.sd)))/2, 2)
 ```
 
-or $6.3\pm 2.1$ where half the error of estimating organic matter 
+or 6.3 ± 2.1 where half the error of estimating organic matter 
 at that location is about 1 s.d. Note that these are location 
 specific prediction intervals and need to be computed for each location.
 
@@ -2346,12 +2346,12 @@ sd.om
 Note that this is (only) error of estimating the population mean, which
 is way narrower than the actual variation inside the units. This number
 does not mean that we can estimate organic matter at any location with
-precision of $\pm0.54$! This number means that, if we would like to
+precision of ±0.54! This number means that, if we would like to
 estimate (aggregated) mean value for the whole population then the
-standard error of that mean would be $\pm0.54$. In other words the
+standard error of that mean would be ±0.54. In other words the
 population mean for organic matter based on 153 samples is
-$7.48\pm 0.54$, but if we would know the values of organic matter at
-individual locations, then the confidence limits are about $7.48\pm 3.4$
+7.48 ± 0.54, but if we would know the values of organic matter at
+individual locations, then the confidence limits are about 7.48 ± 3.4
 (where 3.4 is the standard error).
 
 The actual variation within the units based on simulations is:
@@ -2677,7 +2677,7 @@ By reporting on the RMSE, effective precision, information production efficiency
 and by plotting the prediction variance estimated by the model, one gets
 a fairly good idea about the overall added information value in a given
 map. In order words, by assessing the accuracy of a map we can recommend
-both: ways to improve the predictions (i.e. collect additional samples),
+both: ways to improve the predictions (i.e. collect additional samples),
 and estimate the resources needed to reach some target accuracy. By
 assessing how the accuracy of various methods changes for various
 sampling intensities (Fig. \@ref(fig:cost-methods-scheme)), we can

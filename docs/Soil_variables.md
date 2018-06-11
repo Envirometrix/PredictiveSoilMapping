@@ -1,5 +1,4 @@
 
-
 # Soil observations and variables {#soil-variables}
 
 *Edited by: Hengl T., MacMillan R.A. and Leenaars J.G.B.*
@@ -93,7 +92,7 @@ observed values for certain soil properties to values comparable to
 those measured by analytical methods (albeit with unknown precision) by
 using various calibration models or *conversion functions*. For example,
 *manual texturing* analysis [@FAO1990; @SSDS1993] permits determination
-of soil texture fractions with a precision of $\pm$5 m with an order of
+of soil texture fractions with a precision of ±5m with an order of
 magnitude lower cost to obtain than laboratory analysis.
 
 Soils are usually sampled per depth interval or layer, generally using a
@@ -416,16 +415,16 @@ identified as an `O` horizon is considered the soil surface.
 </div>
 
 The *depth to bedrock* i.e. depth to the `R` horizon is measured from
-the soil surface downwards and is expressed in cm with a precision of $\pm$1 cm.
-Depth to bedrock deeper than e.g. 2–3 m is most often not recorded. Bedrock
+the soil surface downwards and is expressed in cm with a precision of ±1cm.
+Depth to bedrock deeper than e.g. 2–3m is most often not recorded. Bedrock
 is consolidated hard rock, with only few cracks, underlying the soil. It
 is not necessarily parent material. We imagine it often as something
 distinct and easy to recognize in the field. In practice, depth to
 bedrock can be difficult to determine, and is often confused with
 stoniness or depth to parent material (which can be unconsolidated
 material). Another issue is that, for most of the soils in the world
-hard bedrock is $>$2 m deep so that we actually don’t know the correct
-depth to enter, other than $>$2 m. Rootability is physically restricted by
+hard bedrock is >2m deep so that we actually don’t know the correct
+depth to enter, other than >2m. Rootability is physically restricted by
 the bedrock, whether hard or soft (see Fig. \@ref(fig:scheme-depth-to-bedrock)).
 
 <div class="rmdnote">
@@ -497,9 +496,9 @@ combination of structure and consistence which together suggest that the
 resistance of the soil fabric to root entry is high and that vertical
 cracks and planes of weakness for root entry are absent or widely
 spaced. Root restriction is inferred for a continuously cemented zone of
-any thickness; or a zone $>$ thick that when very moist or wet is
+any thickness; or a zone >10cm thick that when very moist or wet is
 massive, platy, or has weak structure of any type for a vertical repeat
-distance of $>$ and while very moist or wet is very firm (firm, if
+distance of >10cm and while very moist or wet is very firm (firm, if
 sandy), extremely firm, or has a large penetration resistance. Chemical
 restrictions, such as high extractable aluminum, manganese and/or low
 extractable calcium, can also be considered but are plant-specific.
@@ -596,17 +595,17 @@ x
 
 where `UHDICM` and `LHDICM` are the upper and lower horizon depth in cm,
 `SNDPPT`, `SLTPPT` and `CLYPPT` are the sand, silt and clay content in
-percent, `CRFVOL` is the volume percentage of coarse fragments ($>$),
-`BLD` is the bulk density in , `ORCDRC` is the soil organic carbon
-concentration in permille or , `ECN` is the electrical conductivity in ,
-`CEC` is the Cation Exchange Capacity in , `ENA` is the exchangable Na
-in , `EACKCL` is the exchangeable acidity in , `EXB` is the exchangeable
-bases in , `PHIHOX` is the soil pH in water suspension, `CRB` is the
-CaCO$_3$ (carbonates) in , `GYP` is the CaSO$_4$ (gypsum) in and `tetaS`
+percent, `CRFVOL` is the volume percentage of coarse fragments (>2mm),
+`BLD` is the bulk density in t/m$^3$, `ORCDRC` is the soil organic carbon
+concentration in permille or g/kg, `ECN` is the electrical conductivity in dS/m,
+`CEC` is the Cation Exchange Capacity in cmol/kg (centi-mol per kilogram), `ENA` is the exchangable Na
+in cmol/kg, `EACKCL` is the exchangeable acidity in cmol/kg, `EXB` is the exchangeable
+bases in cmol/kg, `PHIHOX` is the soil pH in water suspension, `CRB` is the
+CaCO$_3$ (carbonates) in g/kg, `GYP` is the CaSO$_4$ (gypsum) in and `tetaS`
 is the volumetric percentage of water.
 
 For this specific profile, most limiting soil properties is `tetaS`, but
-because none of the soil properties got $<$20 points, we can conclude
+because none of the soil properties got <20 points, we can conclude
 that the maximum rooting depth is . Note that the threshold values in
 the `LRI` function used to derive Limiting Rootability scores are set
 based on common soil agricultural productivity tresholds (e.g. for
@@ -778,7 +777,7 @@ ph_h2o = 7.2
 This model fitted explains 94% of variation in the values of pH CaCl$_2$ (R-square=0.9401).
 
 <div class="rmdnote">
-<p>Soil pH is negative decimal logarithm of the hydrogen ion activity in a soil suspension. Soil pH values are usually in the range 3–11 and are recorded with a precision of <span class="math inline">±0.1</span> pH in the range of 5.5 to 7.5 is optimal for growing crops.</p>
+<p>Soil pH is negative decimal logarithm of the hydrogen ion activity in a soil suspension. Soil pH values are usually in the range 3–11 and are recorded with a precision of ±0.1 pH in the range of 5.5 to 7.5 is optimal for growing crops.</p>
 </div>
 
 Soil pH varies with season and soil moisture content, with higher pH
@@ -786,11 +785,11 @@ values associated with wetter soils and winter conditions and lower pH
 values with drier soils and summer conditions [@Miller2010SSSAJ]. The
 effects of both temporal variation in pH and variation due to different
 analytical methods means that differences in pH of less than some
-specified range (e.g. $\pm 0.3$ units) may not be meaningful in the
+specified range (e.g. ±0.3 units) may not be meaningful in the
 context of predictions made using noisy legacy soils data analyzed using
 a variety of different analytical methods. Consequently, it is not
 necessary or beneficial to report pH with a precision greater than
-$\pm 0.1$ unit. Natural variation of pH in soils is over a range of 2 to
+±0.1 unit. Natural variation of pH in soils is over a range of 2 to
 11 with a standard deviation of 1.4. Note also that pH follows
 close-to-normal distribution, although it is often argued that, locally,
 it can show bimodal or even trimodal peaks
@@ -861,17 +860,17 @@ Soil texture is connected with soil granulometry or the composition of
 the particle sizes, typically measured as volume percentages. The most
 common subdivision of soil granulometry is [@Shirazi2001SSSAJ]:
 
-1.  Fine earth ($<2$ m)
+1.  Fine earth (<2m)
 
     1.  sand (coarser particles in the fine earth),
 
     2.  silt (medium size particles),
 
-    3.  clay (fine particles $<2$ $\mu$m),
+    3.  clay (fine particles <2$\mu$m),
 
-2.  Coarse fragments ($>2$ mm)
+2.  Coarse fragments (>2mm)
 
-    1.  gravel (2 mm to 8 cm)
+    1.  gravel (2mm to 8cm)
 
     2.  stones or boulders ($>8$ cm)
 
@@ -947,17 +946,17 @@ through it. Texture is the fundamental physical and mechanical property
 of soils and, as such, it is one of the most widely analysed and
 reported soil properties.
 
-The size of particles in the soil varies strongly from less than a $\mu$m to
+The size of particles in the soil varies strongly from less than a 2$\mu$m to
 several cm’s and occasionally even meters (boulders); which represents a
-range from to 1$\mu$m to 1 million $\mu$m. Generally, particle size distribution has been
+range from to 1$\mu$m to 1 million $\mu$m. Generally, particle size distribution has been
 simplified through aggregation or classification. The fine earth
-fraction ($<$2 mm) is the soil considered for laboratory analyses. This fine
+fraction (<2mm) is the soil considered for laboratory analyses. This fine
 earth is further subdivided into particle size classes including,
 depending on the guidelines or laboratory concerned, fine and coarse
 clay, fine and coarse silt and very fine, fine, medium, coarse and very
 coarse sand. The three major particle size classes of the fine earth
 fraction though are sand, silt and clay. They are generally reported in
-units of percent by weight with a precision of $\pm$1%.
+units of percent by weight with a precision of ±1%.
 
 Soil texture represents the relative composition of sand, silt, and clay
 in soil. The *particle-size class distribution* is usually represented
@@ -1010,7 +1009,7 @@ or the reported particle size classes
 (Fig. \@ref(fig:texture-limits)).
 
 <div class="rmdnote">
-<p>The most commonly used standard for designation of fine earth texture fractions, used by the <em>GlobalSoilMap</em> project, is the USDA system (sand: 50–2000 <span class="math inline"><em>μ</em></span>m, silt: 2–50 <span class="math inline"><em>μ</em></span>m, clay: $&lt;$2 <span class="math inline"><em>μ</em></span>m).</p>
+<p>The most commonly used standard for designation of fine earth texture fractions, used by the <em>GlobalSoilMap</em> project, is the USDA system (sand: 50–2000<span class="math inline"><em>μ</em></span>m, silt: 2–50<span class="math inline"><em>μ</em></span>m, clay: &lt;2<span class="math inline"><em>μ</em></span>m).</p>
 </div>
 
 @Minasny2001AJSR identified two major textural classifications in the
@@ -1019,9 +1018,9 @@ The significant difference between these two was the choice of a
 threshold value for differentiating silt from sand of 20 $\mu$m for the
 International and 50 $\mu$m for the USDA/FAO systems. The new ISO/FAO standard
 adds an additional difference by changing the threshold value between
-silt and sand from 50 $\mu$m to 63 $\mu$m. Another very important difference in attribute
+silt and sand from 50 $\mu$m to 63$\mu$m. Another very important difference in attribute
 definition concerns the Russian system which defines the clay fraction
-as $<$1 $\mu$m and the fine earth fraction, or the upper limit of the sand
+as <1$\mu$m and the fine earth fraction, or the upper limit of the sand
 fraction, at 1 cm instead of 2 cm.
 
 
@@ -1101,7 +1100,7 @@ nutrients.
 
 In practice, we need to be able to make estimates of two different types
 of bulk density, namely the bulk density of the whole soil and the *bulk
-density of the fine earth fraction* (particles $<$2 mm) only. Calculations
+density of the fine earth fraction* (particles <2mm) only. Calculations
 such as those for total stocks of carbon are first applied using the
 bulk density of the fine earth fraction only but this value is then
 reduced in accordance with the volume proportion of the soil that is
@@ -1489,8 +1488,8 @@ A =& 1.996 + 0.136 \cdot \ln({\mathtt{clay}}) - 0.00007 \cdot {\mathtt{fsand}} +
 B = -0.192 + 0.0946\cdot \ln({\mathtt{TEXMHT}}) - 0.00151\cdot \mathtt{fsand}
 \end{equation}
 
-where $\mathtt{clay}$ ($<$0.002 mm), $\mathtt{fsilt}$ (0.02–0.20 mm), and
-$\mathtt{sand}$ (0.002–0.02 mm) are expressed in %; $\mathtt{TEXMHT}$ is
+where $\mathtt{clay}$ (<0.002mm), $\mathtt{fsilt}$ (0.02–0.20mm), and
+$\mathtt{sand}$ (0.002–0.02mm) are expressed in %; $\mathtt{TEXMHT}$ is
 texture group from 1–6 as defined by Northcote in @peverill1999soil.
 
 @Cresswell2006SUM demonstrated applicability of the @Williams1992 method
@@ -1499,7 +1498,7 @@ SWC model and empirically predicting the slope and air entry potential
 has merit. They concluded that the empirical regression equations of
 Campbell appeared transferable to different data sets from very
 different geographical locations. They provided regression equations for
-all samples and stratified by horizon type that had $R^2$ values ranging
+all samples and stratified by horizon type that had R-square values ranging
 from 0.81 to 0.91.
 
 @Cresswell2006SUM further suggested a strategy for achieving adequate
@@ -1937,7 +1936,7 @@ sd(sim.Cl$SAND); sd(sim.Cl$SILT); sd(sim.Cl$CLAY)
 #> [1] 0.142
 ```
 
-which means that we should not expect better precision of estimating the clay content based on class `Cl` than $\pm$15%.
+which means that we should not expect better precision of estimating the clay content based on class `Cl` than ±15%.
 
 For some real soil profile data set we could also plot all texture fractions in the texture triangle to see how frequently one should expect some soil classes to appear:
 
@@ -2228,7 +2227,7 @@ rfsrc_BD
 #>                           Error rate: 46373
 ```
 
-which shows that model explains about 40% with an RMSE of $\pm$200 kg/m$^3$. Although the MSE is relatively high, it least can be used to fill in the missing values for BD which can be significant. We can plot the partial plots between the target variable and all covariates by using:
+which shows that model explains about 40% with an RMSE of ±200 kg/m$^3$. Although the MSE is relatively high, it least can be used to fill in the missing values for BD which can be significant. We can plot the partial plots between the target variable and all covariates by using:
 
 <div class="figure" style="text-align: center">
 <img src="figures/bulk_density_ptf_plots.png" alt="Bulk density as a function of organic carbon, pH, sand and clay content coarse fragments and depth." width="100%" />

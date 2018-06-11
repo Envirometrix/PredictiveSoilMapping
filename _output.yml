@@ -1,5 +1,5 @@
 bookdown::gitbook:
-  css: [css/style.css,style.css]
+  css: css/style.css
   split_bib: no
   config:
     toc:
@@ -11,6 +11,8 @@ bookdown::gitbook:
     edit:
       link: https://github.com/envirometrix/PredictiveSoilMapping/edit/master/%s
       text: "Edit"
+  includes:
+    in_header: ga.html
 bookdown::html_chapters:
   css: [css/style.css, css/toc.css]
   split_bib: no

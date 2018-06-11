@@ -1,5 +1,3 @@
-new_session: yes
-before_chapter_script: ["code/before_script.R"]
 output_dir: "docs"
 rmd_files:
   - "index.Rmd"
@@ -11,3 +9,5 @@ rmd_files:
   - "Soilmapping_using_mla.Rmd"
   - "Soil_organic_carbon.Rmd"
   - "references.Rmd"
+new_session: yes
+before_chapter_script: ["code/before_script.R"]

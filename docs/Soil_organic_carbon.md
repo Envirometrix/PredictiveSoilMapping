@@ -329,7 +329,7 @@ This gives about 30% lower value than the random forest-based PTF from above. Ov
 <p class="caption">(\#fig:plot-bld-soc)Correlation plot between soil organic carbon density and bulk density (fine earth), created using the [global compilations of soil profile data](http://www.isric.org/content/wosis-data-sets). Black line indicates fitted [loess polynomial surface](https///stat.ethz.ch/R-manual/R-devel/library/stats/html/loess.html). There is still quite some scatter around the fitted line: many combinations of BLD and ORC, that do not fall close to the correlation line, can still be observed.</p>
 </div>
 
-To fill-in missing values for BLD, a combination of the two global Pedo-Transfer functions can be used for example: (1) PTF fitted using random forest model that locally predicts BLD as a function of organic carbon content, clay and sand content, pH and coarse fragments, and (2) simpler model that predicts BLD just based on ORC. The average RMSE of these PTFs for BLD is about $\pm 150$ kg/m$^3$.
+To fill-in missing values for BLD, a combination of the two global Pedo-Transfer functions can be used for example: (1) PTF fitted using random forest model that locally predicts BLD as a function of organic carbon content, clay and sand content, pH and coarse fragments, and (2) simpler model that predicts BLD just based on ORC. The average RMSE of these PTFs for BLD is about ±150kg/m$^3$.
 
 For mineral soils relationship between soil organic carbon and soil depth follows a log-log relationship which can be also approximated with the following (global) model (R-square: 0.36; see Fig. \@ref(fig:soc-depth-plot)):
 

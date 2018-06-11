@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl">
 
 
-<meta name="date" content="2018-06-07">
+<meta name="date" content="2018-06-11">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,6 +47,16 @@
 
 
 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-120633517-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 
 
 <style type="text/css">
@@ -88,7 +98,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
-<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -669,7 +678,7 @@ Soil Bulk density (BLD) is an important soil property that is required to estima
 Figure 7.4: Correlation plot between soil organic carbon density and bulk density (fine earth), created using the <a href="http://www.isric.org/content/wosis-data-sets">global compilations of soil profile data</a>. Black line indicates fitted <a href="https///stat.ethz.ch/R-manual/R-devel/library/stats/html/loess.html">loess polynomial surface</a>. There is still quite some scatter around the fitted line: many combinations of BLD and ORC, that do not fall close to the correlation line, can still be observed.
 </p>
 </div>
-<p>To fill-in missing values for BLD, a combination of the two global Pedo-Transfer functions can be used for example: (1) PTF fitted using random forest model that locally predicts BLD as a function of organic carbon content, clay and sand content, pH and coarse fragments, and (2) simpler model that predicts BLD just based on ORC. The average RMSE of these PTFs for BLD is about <span class="math inline">\(\pm 150\)</span> kg/m<span class="math inline">\(^3\)</span>.</p>
+<p>To fill-in missing values for BLD, a combination of the two global Pedo-Transfer functions can be used for example: (1) PTF fitted using random forest model that locally predicts BLD as a function of organic carbon content, clay and sand content, pH and coarse fragments, and (2) simpler model that predicts BLD just based on ORC. The average RMSE of these PTFs for BLD is about ±150kg/m<span class="math inline">\(^3\)</span>.</p>
 <p>For mineral soils relationship between soil organic carbon and soil depth follows a log-log relationship which can be also approximated with the following (global) model (R-square: 0.36; see Fig. <a href="SOC-chapter.html#fig:soc-depth-plot">7.5</a>):</p>
 <span class="math display" id="eq:orc-depth">\[\begin{equation}
 ORC (depth) = exp[ 4.1517 −0.60934 \cdot log(depth) ]

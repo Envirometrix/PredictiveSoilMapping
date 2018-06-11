@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl">
 
 
-<meta name="date" content="2018-06-07">
+<meta name="date" content="2018-06-11">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,6 +47,16 @@
 
 
 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-120633517-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 
 
 <style type="text/css">
@@ -88,7 +98,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
-<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -908,7 +917,7 @@ om.rk2 &lt;-<span class="st"> </span><span class="kw">predict</span>(omm2, meuse
 <span class="co">#&gt; Fitting a Quantile Regression Forest model...</span>
 <span class="co">#&gt; Fitting a 2D variogram...</span>
 <span class="co">#&gt; Saving an object of class &#39;gstatModel&#39;...</span></code></pre></div>
-<p>All regression-kriging models listed above are valid and the differences between their respective results are not likely to be large (Fig. <a href="statistical-theory.html#fig:meuse-om-rk-glm">5.8</a>). Regression tree combined with kriging (rpart-kriging) seems to produce slightly better results i.e. smallest cross-validation error, although the difference between four prediction methods is in fact not large (<span class="math inline">\(\pm5\)</span>% of variance explained). It is important to run such comparisons nevertheless, as they allow us to objectively select the most efficient method.</p>
+<p>All regression-kriging models listed above are valid and the differences between their respective results are not likely to be large (Fig. <a href="statistical-theory.html#fig:meuse-om-rk-glm">5.8</a>). Regression tree combined with kriging (rpart-kriging) seems to produce slightly better results i.e. smallest cross-validation error, although the difference between four prediction methods is in fact not large (±5% of variance explained). It is important to run such comparisons nevertheless, as they allow us to objectively select the most efficient method.</p>
 <div class="figure" style="text-align: center"><span id="fig:rk-vs-rf-meuse"></span>
 <img src="figures/Fig_RK_vs_randomForestK_Meuse.png" alt="Predictions of the organic carbon (log-transformed values) using random forest vs linear regression-kriging. The random forest-kriging variance has been derived using the quantregForest package [@meinshausen2006quantile]." width="100%" />
 <p class="caption">
@@ -1546,7 +1555,7 @@ pt1.om.sd &lt;-<span class="st"> </span><span class="kw">over</span>(pt1, om.rk<
 <span class="st">       </span><span class="kw">expm1</span>(pt1.om<span class="op">-</span><span class="fl">1.645</span><span class="op">*</span><span class="kw">sqrt</span>(pt1.om.sd)))<span class="op">/</span><span class="dv">2</span>, <span class="dv">2</span>)
 <span class="co">#&gt;    om</span>
 <span class="co">#&gt; 1 2.1</span></code></pre></div>
-<p>or <span class="math inline">\(6.3\pm 2.1\)</span> where half the error of estimating organic matter at that location is about 1 s.d. Note that these are location specific prediction intervals and need to be computed for each location.</p>
+<p>or 6.3 ± 2.1 where half the error of estimating organic matter at that location is about 1 s.d. Note that these are location specific prediction intervals and need to be computed for each location.</p>
 <p>To visualize the range of values within different strata, we can use simulations that we can generate using the geostatistical model (which can be time-consuming to compute!):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">om.rksim &lt;-<span class="st"> </span><span class="kw">predict</span>(omm, meuse.grid, <span class="dt">nsim=</span><span class="dv">5</span>)
 <span class="co">#&gt; Subsetting observations to fit the prediction domain in 2D...</span>
@@ -1601,7 +1610,7 @@ Figure 5.24: Prediction intervals for three flooding frequency classes for sampl
 <span class="st">    </span><span class="kw">sd</span>(meuse<span class="op">$</span>om, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)<span class="op">/</span><span class="kw">sqrt</span>(<span class="kw">length</span>(meuse<span class="op">$</span>om))
 sd.om
 <span class="co">#&gt; [1] 0.54</span></code></pre></div>
-<p>Note that this is (only) error of estimating the population mean, which is way narrower than the actual variation inside the units. This number does not mean that we can estimate organic matter at any location with precision of <span class="math inline">\(\pm0.54\)</span>! This number means that, if we would like to estimate (aggregated) mean value for the whole population then the standard error of that mean would be <span class="math inline">\(\pm0.54\)</span>. In other words the population mean for organic matter based on 153 samples is <span class="math inline">\(7.48\pm 0.54\)</span>, but if we would know the values of organic matter at individual locations, then the confidence limits are about <span class="math inline">\(7.48\pm 3.4\)</span> (where 3.4 is the standard error).</p>
+<p>Note that this is (only) error of estimating the population mean, which is way narrower than the actual variation inside the units. This number does not mean that we can estimate organic matter at any location with precision of ±0.54! This number means that, if we would like to estimate (aggregated) mean value for the whole population then the standard error of that mean would be ±0.54. In other words the population mean for organic matter based on 153 samples is 7.48 ± 0.54, but if we would know the values of organic matter at individual locations, then the confidence limits are about 7.48 ± 3.4 (where 3.4 is the standard error).</p>
 <p>The actual variation within the units based on simulations is:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lapply</span>(<span class="kw">levels</span>(meuse.grid<span class="op">$</span>ffreq), <span class="cf">function</span>(x){
     <span class="kw">sapply</span>(<span class="kw">subset</span>(meuse.grid<span class="op">@</span>data, ffreq<span class="op">==</span>x,
@@ -1709,7 +1718,7 @@ Figure 5.26: Some basic concepts of soil survey: (a) relationship between cartog
 Figure 5.27: General relationship between the sampling intensity (i.e. survey costs) and amount of variation in the target variable explained by a spatial prediction model. After <span class="citation">Hengl, Nikolić, and MacMillan (<a href="references.html#ref-Hengl2013JAG">2013</a>)</span>.
 </p>
 </div>
-<p>Even more universal measure of mapping efficiency is the Information Production Efficiency (IPE):</p>
+<p>Even more universal measure of mapping efficiency is the Information Production Efficiency (IPE) <span class="citation">(@ Hengl, Nikolić, and MacMillan <a href="references.html#ref-Hengl2013JAG">2013</a>)</span>:</p>
 <span class="math display" id="eq:data-efficiency">\[\begin{equation}
 \Upsilon = \frac{{\rm X}}{{\rm gzip}} \qquad [{\rm EUR} \; {\rm B}^{-1}]
 \tag{5.35}
