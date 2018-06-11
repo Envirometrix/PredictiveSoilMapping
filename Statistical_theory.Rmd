@@ -1660,7 +1660,7 @@ which is probably due to the small number of simulations (20) used.
 
 Applications of geostatistics today suggest that we will be increasingly
 using *automated mapping* algorithms for mapping environmental
-variables. The authors of the [^3] package for , for example, have
+variables. The authors of the [intamap](https://cran.r-project.org/package=intamap) package for R, for example, have
 produced a wrapper function `interpolate` that automatically generates
 predictions for a given input observations and prediction locations
 [@Pebesma2011CompGeoSci]. Consider the following example for predicting

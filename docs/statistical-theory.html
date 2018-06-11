@@ -1152,7 +1152,7 @@ Figure 5.15: Histogram for the target variable (Meuse data set; log of organic m
 </div>
 <div id="automated-mapping" class="section level3">
 <h3><span class="header-section-number">5.2.13</span> Automated mapping</h3>
-<p>Applications of geostatistics today suggest that we will be increasingly using <em>automated mapping</em> algorithms for mapping environmental variables. The authors of the [^3] package for , for example, have produced a wrapper function <code>interpolate</code> that automatically generates predictions for a given input observations and prediction locations <span class="citation">(Pebesma et al. <a href="references.html#ref-Pebesma2011CompGeoSci">2011</a>)</span>. Consider the following example for predicting organic matter content using the Meuse case study:</p>
+<p>Applications of geostatistics today suggest that we will be increasingly using <em>automated mapping</em> algorithms for mapping environmental variables. The authors of the <a href="https://cran.r-project.org/package=intamap">intamap</a> package for R, for example, have produced a wrapper function <code>interpolate</code> that automatically generates predictions for a given input observations and prediction locations <span class="citation">(Pebesma et al. <a href="references.html#ref-Pebesma2011CompGeoSci">2011</a>)</span>. Consider the following example for predicting organic matter content using the Meuse case study:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(intamap)
 <span class="kw">demo</span>(meuse, <span class="dt">echo=</span><span class="ot">FALSE</span>)
 meuse<span class="op">$</span>value =<span class="st"> </span>meuse<span class="op">$</span>zinc
@@ -1763,7 +1763,7 @@ gitbook.start({
 "link": "https://github.com/envirometrix/PredictiveSoilMapping/edit/master/Statistical_theory.Rmd",
 "text": "Edit"
 },
-"download": ["_main.pdf"],
+"download": null,
 "toc": {
 "collapse": "section"
 }

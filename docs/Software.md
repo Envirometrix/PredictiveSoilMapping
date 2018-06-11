@@ -8,14 +8,10 @@ This section contains instruction on how to install and use software to run pred
 
 ## List of software in use
 
-\begin{figure}[t]
-
-{\centering \includegraphics[width=0.6\linewidth]{figures/software_triangle} 
-
-}
-
-\caption{Software combination used in this book.}(\#fig:software-triangle)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figures/software_triangle.png" alt="Software combination used in this book." width="60%" />
+<p class="caption">(\#fig:software-triangle)Software combination used in this book.</p>
+</div>
 
 For processing the covariates we used a combination of Open Source GIS
 software, primarily SAGA GIS [@gmd-8-1991-2015], packages raster [@raster],
@@ -84,16 +80,35 @@ sessionInfo()
 #> [1] methods   stats     graphics  grDevices utils     datasets  base     
 #> 
 #> other attached packages:
-#> [1] microbenchmark_1.4-2.1 RevoUtils_10.0.7       RevoUtilsMath_10.0.1  
+#>  [1] raster_2.6-7           rgdal_1.2-16           plotKML_0.5-9         
+#>  [4] quantregForest_1.3-7   RColorBrewer_1.1-2     randomForest_4.6-12   
+#>  [7] gstat_1.1-5            rpart_4.1-11           plyr_1.8.4            
+#> [10] aqp_1.15               boot_1.3-20            sp_1.2-5              
+#> [13] GSIF_0.5-4             microbenchmark_1.4-2.1 RevoUtils_10.0.7      
+#> [16] RevoUtilsMath_10.0.1  
 #> 
 #> loaded via a namespace (and not attached):
-#>  [1] Rcpp_0.12.14     knitr_1.18       magrittr_1.5     munsell_0.4.3   
-#>  [5] colorspace_1.3-2 rlang_0.1.6      stringr_1.2.0    plyr_1.8.4      
-#>  [9] tools_3.4.3      grid_3.4.3       gtable_0.2.0     xfun_0.1        
-#> [13] htmltools_0.3.6  yaml_2.1.16      lazyeval_0.2.1   rprojroot_1.3-1 
-#> [17] digest_0.6.13    tibble_1.4.1     bookdown_0.7.12  ggplot2_2.2.1   
-#> [21] codetools_0.2-15 evaluate_0.10.1  rmarkdown_1.8    stringi_1.1.6   
-#> [25] compiler_3.4.3   pillar_1.0.1     scales_0.5.0     backports_1.1.2
+#>  [1] splines_3.4.3       Formula_1.2-2       highr_0.6          
+#>  [4] latticeExtra_0.6-28 pixmap_0.4-11       yaml_2.1.16        
+#>  [7] pillar_1.0.1        backports_1.1.2     lattice_0.20-35    
+#> [10] digest_0.6.13       checkmate_1.8.5     colorspace_1.3-2   
+#> [13] htmltools_0.3.6     Matrix_1.2-12       XML_3.98-1.9       
+#> [16] bookdown_0.7.12     scales_0.5.0        intervals_0.15.1   
+#> [19] htmlTable_1.11.1    tibble_1.4.1        ggplot2_2.2.1      
+#> [22] RSAGA_0.94-5        nnet_7.3-12         lazyeval_0.2.1     
+#> [25] survival_2.41-3     magrittr_1.5        evaluate_0.10.1    
+#> [28] MASS_7.3-47         xts_0.10-1          foreign_0.8-69     
+#> [31] class_7.3-14        FNN_1.1             tools_3.4.3        
+#> [34] dismo_1.1-4         shapefiles_0.7      data.table_1.10.4-3
+#> [37] stringr_1.2.0       munsell_0.4.3       cluster_2.0.6      
+#> [40] plotrix_3.7         colorRamps_2.3      compiler_3.4.3     
+#> [43] e1071_1.6-8         spacetime_1.2-1     rlang_0.1.6        
+#> [46] classInt_0.1-24     grid_3.4.3          rstudioapi_0.7     
+#> [49] htmlwidgets_0.9     base64enc_0.1-3     rmarkdown_1.8      
+#> [52] gtable_0.2.0        codetools_0.2-15    reshape_0.8.7      
+#> [55] gridExtra_2.3       zoo_1.8-0           knitr_1.18         
+#> [58] Hmisc_4.0-3         rprojroot_1.3-1     stringi_1.1.6      
+#> [61] Rcpp_0.12.14        acepack_1.4.1       xfun_0.1
 system("gdalinfo --version")
 ```
 
@@ -164,14 +179,10 @@ sudo apt-get install pigz zip unzip p7zip-full
 
 RStudio is, in principle, the main R scripting environment and can be used to control all other software used in the course. A more detailed RStudio tutorial is available at: [RStudio — Online Learning](http://www.rstudio.com/resources/training/online-learning/). Consider also following some spatial data tutorials e.g. by James Cheshire (http://spatial.ly/r/). Below is an example of RStudio session with R editor on right and R console on left.
 
-\begin{figure}[t]
-
-{\centering \includegraphics[width=1\linewidth]{figures/rstudio_example} 
-
-}
-
-\caption{RStudio is a commonly used R editor written in C++.}(\#fig:rstudio-example)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figures/rstudio_example.png" alt="RStudio is a commonly used R editor written in C++." width="100%" />
+<p class="caption">(\#fig:rstudio-example)RStudio is a commonly used R editor written in C++.</p>
+</div>
 
 To install all required R packages used in some script at once, you can use:
 
@@ -210,9 +221,6 @@ if(!require(GSIF)){
   install.packages("GSIF", repos=c("http://R-Forge.R-project.org"), 
                  type = "source", dependencies = TRUE)
 }
-#> Loading required package: GSIF
-#> GSIF version 0.5-4 (2017-04-25)
-#> URL: http://gsif.r-forge.r-project.org/
 ```
 
 A copy of the most-up-to-date stable versions of plotKML and GSIF is also available on [github](https///github.com/cran/GSIF). To run only some specific function from GSIF package you could do for example:
@@ -239,19 +247,12 @@ library(GSIF)
 library(sp)
 library(boot)
 library(aqp)
-#> This is aqp 1.15
 library(plyr)
 library(rpart)
 library(splines)
 library(gstat)
 library(quantregForest)
-#> Loading required package: randomForest
-#> randomForest 4.6-12
-#> Type rfNews() to see new features/changes/bug fixes.
-#> Loading required package: RColorBrewer
 library(plotKML)
-#> plotKML version 0.5-9 (2017-05-15)
-#> URL: http://plotkml.r-forge.r-project.org/
 demo(meuse, echo=FALSE)
 omm <- fit.gstatModel(meuse, om~dist+ffreq, meuse.grid, method="quantregForest")
 #> Fitting a Quantile Regression Forest model...
@@ -262,7 +263,7 @@ om.rk <- predict(omm, meuse.grid)
 #> Prediction error for 'randomForest' model estimated using the 'quantreg' package.
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
-#>  11% done100% done
+#> 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
 om.rk
@@ -286,14 +287,10 @@ om.rk
 #plotKML(om.rk)
 ```
 
-\begin{figure}[t]
-
-{\centering \includegraphics[width=0.9\linewidth]{figures/ge_preview} 
-
-}
-
-\caption{Example of plotKML output.}(\#fig:ge-preview)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figures/ge_preview.jpg" alt="Example of plotKML output." width="90%" />
+<p class="caption">(\#fig:ge-preview)Example of plotKML output.</p>
+</div>
 
 ## Connecting R and SAGA GIS
 
@@ -320,20 +317,7 @@ the [SAGA GIS command line arguments](http://www.saga-gis.org/saga_tool_doc/inde
 ```r
 library(plotKML)
 library(rgdal)
-#> rgdal: version: 1.2-16, (SVN revision 701)
-#>  Geospatial Data Abstraction Library extensions to R successfully loaded
-#>  Loaded GDAL runtime: GDAL 2.2.2, released 2017/09/15
-#>  Path to GDAL shared files: /usr/share/gdal/2.2
-#>  GDAL binary built with GEOS: TRUE 
-#>  Loaded PROJ.4 runtime: Rel. 4.9.2, 08 September 2015, [PJ_VERSION: 492]
-#>  Path to PROJ.4 shared files: (autodetected)
-#>  Linking to sp version: 1.2-5
 library(raster)
-#> 
-#> Attaching package: 'raster'
-#> The following objects are masked from 'package:aqp':
-#> 
-#>     metadata, metadata<-
 data("eberg_grid")
 gridded(eberg_grid) <- ~x+y
 proj4string(eberg_grid) <- CRS("+init=epsg:31467")
@@ -342,14 +326,10 @@ system(paste(saga_cmd, 'ta_lighting 0 -ELEVATION "./extdata/DEMSRT6.sgrd"
              -SHADE "./extdata/hillshade.sgrd" -EXAGGERATION 2'))
 ```
 
-\begin{figure}[t]
-
-{\centering \includegraphics[width=1\linewidth]{figures/rstudio_saga_gis} 
-
-}
-
-\caption{Deriving hillshading using SAGA GIS and then visualizing the result in R.}(\#fig:rstudio-saga-gis)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figures/rstudio_saga_gis.png" alt="Deriving hillshading using SAGA GIS and then visualizing the result in R." width="100%" />
+<p class="caption">(\#fig:rstudio-saga-gis)Deriving hillshading using SAGA GIS and then visualizing the result in R.</p>
+</div>
 
 ## Connecting R and GDAL
 
@@ -377,11 +357,7 @@ library(raster)
 plot(raster("./extdata/DEMSRT6_ll.tif"))
 ```
 
-\begin{figure}[t]
-
-{\centering \includegraphics{Software_files/figure-latex/plot-eberg-ll-1} 
-
-}
-
-\caption{Ebergotzen DEM reprojected in geographical coordinates.}(\#fig:plot-eberg-ll)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="Software_files/figure-html/plot-eberg-ll-1.png" alt="Ebergotzen DEM reprojected in geographical coordinates." width="672" />
+<p class="caption">(\#fig:plot-eberg-ll)Ebergotzen DEM reprojected in geographical coordinates.</p>
+</div>
