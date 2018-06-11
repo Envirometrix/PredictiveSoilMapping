@@ -129,7 +129,7 @@ OCSKGM(ORC.s$var.std$`30-100 cm`,
        CRF.s$var.std$`30-100 cm`, HSIZE=70)
 ```
 
-Note that the OCSKGM function requires soil organic carbon content in g/kg. If one has contents measured in % then first multiply the values by 10. Bulk density data should be provided in kg/m3, gravel content in %, and layer depth in cm. Running the OCSKGM function for the Edgeroi profile gives the following estimates of OCS for standard depth intervals (Fig.\@ref(fig:scheme-soc-prof1)):
+Note that the OCSKGM function requires soil organic carbon content in g/kg. If one has contents measured in % then first multiply the values by 10. Bulk density data should be provided in kg/m3, gravel content in %, and layer depth in cm. Running the OCSKGM function for the Edgeroi profile gives the following estimates of OCS for standard depth intervals (Fig. \@ref(fig:scheme-soc-prof1)):
 
 *  0–30 cm: 2.9 kg / m-square
 
@@ -174,7 +174,7 @@ BLD = -0.32 * log({\rm ORC}[\%]) + 1.38
 
 which gives slightly lower bulk density values. Another useful source for PTFs for organic soils is work by @hossain2015bulk. For illustrative purposes, we have here used only one PTF for all soil layers. 
 
-We can again fit mass-preserving splines and determine OCS for standard depth intervals by using the functions applied to the profile 1. This finally gives the following estimates (Fig.\@ref(fig:scheme-soc-prof2)):
+We can again fit mass-preserving splines and determine OCS for standard depth intervals by using the functions applied to the profile 1. This finally gives the following estimates (Fig. \@ref(fig:scheme-soc-prof2)):
 
 *  0–30 cm: 24.8 kg / m-square
 
@@ -193,7 +193,7 @@ A somewhat more straightforward way to estimate OCS for list of soil profiles vs
 1. Fillig in bulk densities using some PTF or global data,
 2. Use information about the depth to bedrock to correct for shallow soils,
 3. Use information on CRF to correct stocks for stony / skeletoidal component,
-4. Aggregate non-standard horizon depth values using some simple rules (Fig.\@ref(fig:scheme-profiles-ocs)).
+4. Aggregate non-standard horizon depth values using some simple rules (Fig. \@ref(fig:scheme-profiles-ocs)).
 
 ```{r scheme-profiles-ocs, echo=FALSE, fig.cap="Estimation of OCS values 0–30 cm using some typical soil profile data without fitting splines.", out.width="95%"}
 knitr::include_graphics("figures/Fig_standard_soil_profiles_SOC_calc.png")
@@ -251,7 +251,7 @@ Soil Bulk density (BLD) is an important soil property that is required to estima
 knitr::include_graphics("figures/rplot_bulk_dens_function_of_soc.png")
 ```
 
-To fill-in missing values for BLD, a combination of the two global Pedo-Transfer functions can be used for example: (1) PTF fitted using random forest model that locally predicts BLD as a function of organic carbon content, clay and sand content, pH and coarse fragments, and (2) simpler model that predicts BLD just based on ORC. The average RMSE of these PTFs for BLD is about ±150kg/m$^3$.
+To fill-in missing values for BLD, a combination of the two global Pedo-Transfer functions can be used for example: (1) PTF fitted using random forest model that locally predicts BLD as a function of organic carbon content, clay and sand content, pH and coarse fragments, and (2) simpler model that predicts BLD just based on ORC. The average RMSE of these PTFs for BLD is about ±150 kg/m$^3$.
 
 For mineral soils relationship between soil organic carbon and soil depth follows a log-log relationship which can be also approximated with the following (global) model (R-square: 0.36; see Fig. \@ref(fig:soc-depth-plot)):
 
@@ -263,7 +263,7 @@ ORC (depth) = exp[ 4.1517 −0.60934 \cdot log(depth) ]
 This also illustrates that any organic carbon spatial prediction model can significantly profit from including depth into the statistical modelling.
 
 ```{r soc-depth-plot, echo=FALSE, fig.cap=" Globally fitted regression model for predicting soil organic carbon using depth only (log-log regression) and (a) individual soil profile from the ISRIC soil monolith collection. Image source: @Hengl2014SoilGrids1km.", out.width="90%"}
-knitr::include_graphics("figures/journal.pone.0105992.g005.png")
+knitr::include_graphics("figures/journal_pone_0105992_g005.png")
 ```
 
 In summary, PTFs can be efficiently used to fill in gaps in BLD values (BLD is usually highly correlated with organic carbon content and depth, texture fractions, soil classification and soil pH can also help improve accuracy of the PTFs), however, for organic soils there is in general less calibration data and hence the errors are potentially higher. Mistakes in estimating BLD can result in systematic and significant over/under-estimations of the actual stock; on the other hand, removing all soil horizons from OCS assessment that do not have BLD measurements leads also to poorer accuracy as less points are included in training of the spatial prediction models. Especially for organic soils (>12% organic carbon), there is no easy solution for filling-in missing values for BLD and collecting additional (local) calibration points might unavoidable. @lobsey2016sensing have recently proposed a method that combines gamma-ray attenuation and visible–near infrared (vis–NIR) spectroscopy to measure ex situ the bulk density using samples that are sampled freshly, wet and under field conditions. Hopefully BLD measurements (or their complete lack of) will be less and less problem in the future.
@@ -272,7 +272,7 @@ In summary, PTFs can be efficiently used to fill in gaps in BLD values (BLD is u
 
 Most of projects focused on monitoring OCS require that an estimate of OCS is provided for the whole area of interest so that the user can also visually explore spatial patterns of OCS. In this tutorial we demonstrate how to generate maps of OCS using point samples and RS based covariates. The output of this process is usually a gridded map (`SpatialPixelsDataFrame`) covering the area of interest (plot, farm, administrative unit or similar). Once OCS is mapped, we can multiply OCS densities with area of each pixel and sum up all numbers we can compute the total OCS in total tonnes using the formula from above. Predicted OCS values can also be aggregated per land cover group or similar. If series of OCS maps are produced for the same area of interest (time-series of OCS), these can be used to derive OCS change per pixel.
 
-In principle, there are three main approaches to estimating total OCS for an area of interest (Fig.\@ref(fig:ocs-three-approaches)):
+In principle, there are three main approaches to estimating total OCS for an area of interest (Fig. \@ref(fig:ocs-three-approaches)):
 
 *  By directly predicting OCS, here called the **the 2D approach to OCS mapping** (this often requires vertical aggregation / modeling of soil variable depth curves as indicated above),
 
@@ -608,11 +608,11 @@ which shows that the far the most important soil covariate is soil depth, follow
 Finally, based on this model, we can generate predictions for 3–4 specific time periods and for some arbitrary depth e.g. 10 cm. The maps below clearly show that ca 8% of the soil organic carbon has been lost in the last 90 years, most likely due to the increase of grazing and croplands. The maps also show, however, that some areas in the northern latitudes are experiencing an increase in SOC possibly due to higher rainfall i.e. based on the CRU data set.
 
 ```{r usa48-ocd-2014, echo=FALSE, fig.cap="Predicted OCD (in kg/m$^3$) at 10 cm depth for the year 2014. Blue colors indicate low values, red high values.", out.width="100%"}
-knitr::include_graphics("figures/usa48.ocd_10cm_year2014.png")
+knitr::include_graphics("figures/usa48_ocd_10cm_year2014.png")
 ```
 
 ```{r usa48-ocd-1925, echo=FALSE, fig.cap="Predicted OCD (in kg/m$^3$) at 10 cm depth for the year 1925.", out.width="100%"}
-knitr::include_graphics("figures/usa48.ocd_10cm_year1925.png")
+knitr::include_graphics("figures/usa48_ocd_10cm_year1925.png")
 ```
 
 This demonstrates that, as long as there is enough training data spread through time, and as long as covariates are available for corresponding time range, machine learning can also be used to fit full 3D+T spatiotemporal prediction models [@Gasch2015SPASTA]. Once we produce a time-series of images for some target soil variable of interest, the next step would be to implement time-series analysis methods to e.g. detect temporal trends and areas of highest soil degradation. An R package that is fairly useful for such analysis is the [greenbrown](http://greenbrown.r-forge.r-project.org/) package, primarily used to map and quantify degradation of land cover [@forkel2015codominant].

@@ -202,10 +202,14 @@ summary(ch)
 
 To plot the result we can use the raster package (Fig. \@ref(fig:plot-eberg-soiltype)):
 
-<div class="figure" style="text-align: center">
-<img src="Soilmapping_using_mla_files/figure-html/plot-eberg-soiltype-1.png" alt="Predicted soil types for the Ebergotzen case study." width="864" />
-<p class="caption">(\#fig:plot-eberg-soiltype)Predicted soil types for the Ebergotzen case study.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics{Soilmapping_using_mla_files/figure-latex/plot-eberg-soiltype-1} 
+
+}
+
+\caption{Predicted soil types for the Ebergotzen case study.}(\#fig:plot-eberg-soiltype)
+\end{figure}
 
 By using the produced predictions we can further derive Confusion Index (to map thematic uncertainty) and see if some classes could be aggregated. We can also generate factor-type map by selecting for each pixel class which is most probable, by using e.g.:
 
@@ -229,16 +233,42 @@ In the following example we look at mapping sand content for top horizons. To in
 
 ```r
 library(h2o)
+#> 
+#> ----------------------------------------------------------------------
+#> 
+#> Your next step is to start H2O:
+#>     > h2o.init()
+#> 
+#> For H2O package documentation, ask for help:
+#>     > ??h2o
+#> 
+#> After starting H2O, you can use the Web UI at http://localhost:54321
+#> For more information visit http://docs.h2o.ai
+#> 
+#> ----------------------------------------------------------------------
+#> 
+#> Attaching package: 'h2o'
+#> The following objects are masked from 'package:raster':
+#> 
+#>     %in%, as.factor, is.factor
+#> The following objects are masked from 'package:stats':
+#> 
+#>     cor, sd, var
+#> The following objects are masked from 'package:base':
+#> 
+#>     &&, %*%, %in%, ||, apply, as.factor, as.numeric, colnames,
+#>     colnames<-, ifelse, is.character, is.factor, is.numeric, log,
+#>     log10, log1p, log2, round, signif, trunc
 localH2O = h2o.init(startH2O=FALSE)
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         4 hours 14 minutes 
+#>     H2O cluster uptime:         4 days 17 hours 
 #>     H2O cluster version:        3.16.0.2 
-#>     H2O cluster version age:    6 months and 6 days !!! 
-#>     H2O cluster name:           H2O_started_from_R_root_baf962 
+#>     H2O cluster version age:    6 months and 11 days !!! 
+#>     H2O cluster name:           H2O_started_from_R_root_qyi132 
 #>     H2O cluster total nodes:    1 
-#>     H2O cluster total memory:   3.11 GB 
+#>     H2O cluster total memory:   3.09 GB 
 #>     H2O cluster total cores:    8 
 #>     H2O cluster allowed cores:  8 
 #>     H2O cluster healthy:        TRUE 
@@ -249,7 +279,7 @@ localH2O = h2o.init(startH2O=FALSE)
 #>     H2O API Extensions:         XGBoost, Algos, AutoML, Core V3, Core V4 
 #>     R Version:                  R version 3.4.3 (2017-11-30)
 #> Warning in h2o.clusterInfo(): 
-#> Your H2O cluster version is too old (6 months and 6 days)!
+#> Your H2O cluster version is too old (6 months and 11 days)!
 #> Please download and install the latest version from http://h2o.ai/download/
 ```
 
@@ -270,29 +300,29 @@ We can now fit a random forest model by using all computing power we have:
 RF.m <- h2o.randomForest(y = which(names(m)=="SNDMHT_A"), 
                         x = which(names(m) %in% paste0("PC",1:10)), 
                         training_frame = eberg.hex, ntree = 50)
-#>   |                                                                         |                                                                 |   0%  |                                                                         |===                                                              |   4%  |                                                                         |=================================================================| 100%
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=====                                                            |   8%  |                                                                         |=================================================================| 100%
 RF.m
 #> Model Details:
 #> ==============
 #> 
 #> H2ORegressionModel: drf
-#> Model ID:  DRF_model_R_1528283394277_4 
+#> Model ID:  DRF_model_R_1528304531889_11 
 #> Model Summary: 
 #>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#> 1              50                       50              643906        20
+#> 1              50                       50              645308        20
 #>   max_depth mean_depth min_leaves max_leaves mean_leaves
-#> 1        20   20.00000        901       1073  1021.30000
+#> 1        20   20.00000        968       1075  1023.58000
 #> 
 #> 
 #> H2ORegressionMetrics: drf
 #> ** Reported on training data. **
 #> ** Metrics reported on Out-Of-Bag training samples **
 #> 
-#> MSE:  217
-#> RMSE:  14.7
-#> MAE:  10
-#> RMSLE:  0.428
-#> Mean Residual Deviance :  217
+#> MSE:  223
+#> RMSE:  14.9
+#> MAE:  10.1
+#> RMSLE:  0.432
+#> Mean Residual Deviance :  223
 ```
 
 This shows that the model fitting R-square is about 50%. This is also visible from the predicted vs observed plot:
@@ -311,10 +341,14 @@ plt1 <- xyplot(m$SNDMHT_A ~ SDN.pred, asp=1,
 plt1
 ```
 
-<div class="figure" style="text-align: center">
-<img src="Soilmapping_using_mla_files/figure-html/obs-pred-snd-1.png" alt="Measured vs predicted SAND content based on the Random Forest model." width="672" />
-<p class="caption">(\#fig:obs-pred-snd)Measured vs predicted SAND content based on the Random Forest model.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics{Soilmapping_using_mla_files/figure-latex/obs-pred-snd-1} 
+
+}
+
+\caption{Measured vs predicted SAND content based on the Random Forest model.}(\#fig:obs-pred-snd)
+\end{figure}
 
 To produce a map based on predictions we use:
 
@@ -324,10 +358,14 @@ eberg_grid$RFx <- as.data.frame(h2o.predict(RF.m, eberg.grid, na.action=na.pass)
 #>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 ```
 
-<div class="figure" style="text-align: center">
-<img src="Soilmapping_using_mla_files/figure-html/map-snd-1.png" alt="Predicted sand content based on random forest." width="768" />
-<p class="caption">(\#fig:map-snd)Predicted sand content based on random forest.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics{Soilmapping_using_mla_files/figure-latex/map-snd-1} 
+
+}
+
+\caption{Predicted sand content based on random forest.}(\#fig:map-snd)
+\end{figure}
 
 h2o has another MLA of interest to soil mapping called *deep learning* (a feed-forward multilayer artificial neural network). Fitting the model is equivalent to using random forest:
 
@@ -336,35 +374,35 @@ h2o has another MLA of interest to soil mapping called *deep learning* (a feed-f
 DL.m <- h2o.deeplearning(y = which(names(m)=="SNDMHT_A"), 
                          x = which(names(m) %in% paste0("PC",1:10)), 
                          training_frame = eberg.hex)
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=============                                                    |  20%  |                                                                         |==========================================================       |  90%  |                                                                         |=================================================================| 100%
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=============                                                    |  20%  |                                                                         |=======================================                          |  60%  |                                                                         |=================================================================| 100%
 DL.m
 #> Model Details:
 #> ==============
 #> 
 #> H2ORegressionModel: deeplearning
-#> Model ID:  DeepLearning_model_R_1528283394277_5 
+#> Model ID:  DeepLearning_model_R_1528304531889_12 
 #> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1
 #>   layer units      type dropout       l1       l2 mean_rate rate_rms
 #> 1     1    10     Input  0.00 %                                     
-#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.015031 0.011310
-#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.127455 0.174916
-#> 4     4     1    Linear         0.000000 0.000000  0.001320 0.000966
+#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.012589 0.009289
+#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.152904 0.198864
+#> 4     4     1    Linear         0.000000 0.000000  0.001386 0.001090
 #>   momentum mean_weight weight_rms mean_bias bias_rms
 #> 1                                                   
-#> 2 0.000000    0.007715   0.105052  0.359862 0.057063
-#> 3 0.000000   -0.018960   0.071143  0.954458 0.017925
-#> 4 0.000000    0.003088   0.052899  0.082360 0.000000
+#> 2 0.000000    0.005854   0.103639  0.374099 0.061531
+#> 3 0.000000   -0.017420   0.070703  0.958282 0.017539
+#> 4 0.000000    0.001062   0.052653  0.091353 0.000000
 #> 
 #> 
 #> H2ORegressionMetrics: deeplearning
 #> ** Reported on training data. **
 #> ** Metrics reported on full training frame **
 #> 
-#> MSE:  218
-#> RMSE:  14.8
-#> MAE:  10.3
-#> RMSLE:  0.427
-#> Mean Residual Deviance :  218
+#> MSE:  239
+#> RMSE:  15.4
+#> MAE:  11.7
+#> RMSLE:  0.477
+#> Mean Residual Deviance :  239
 ```
 
 Which shows a performance comparable to random forest model. The output predictions (map) does show somewhat different pattern from the random forest predictions (compare Fig. \@ref(fig:map-snd) and Fig. \@ref(fig:map-snd-dl)).
@@ -376,10 +414,14 @@ eberg_grid$DLx <- as.data.frame(h2o.predict(DL.m, eberg.grid, na.action=na.pass)
 #>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 ```
 
-<div class="figure" style="text-align: center">
-<img src="Soilmapping_using_mla_files/figure-html/map-snd-dl-1.png" alt="Predicted SAND content based on deep learning." width="768" />
-<p class="caption">(\#fig:map-snd-dl)Predicted SAND content based on deep learning.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics{Soilmapping_using_mla_files/figure-latex/map-snd-dl-1} 
+
+}
+
+\caption{Predicted SAND content based on deep learning.}(\#fig:map-snd-dl)
+\end{figure}
 
 Which of the two methods should we use? Since they both have comparable performance, the most logical option is to generate ensemble (merged) predictions i.e. to produce a map that shows patterns between the two methods  (note: many sophisticated MLA such as random forest, neural nets, SVM and similar will often produce comparable results i.e. they are often equally applicable and there is no clear *winner*). We can use weighted average i.e. R-square as a simple approach to produce merged predictions:
 
@@ -391,10 +433,14 @@ eberg_grid$SNDMHT_A <- rowSums(cbind(eberg_grid$RFx*rf.R2,
                          eberg_grid$DLx*dl.R2), na.rm=TRUE)/(rf.R2+dl.R2)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="Soilmapping_using_mla_files/figure-html/map-snd-ensemble-1.png" alt="Predicted SAND content based on ensemble predictions." width="768" />
-<p class="caption">(\#fig:map-snd-ensemble)Predicted SAND content based on ensemble predictions.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics{Soilmapping_using_mla_files/figure-latex/map-snd-ensemble-1} 
+
+}
+
+\caption{Predicted SAND content based on ensemble predictions.}(\#fig:map-snd-ensemble)
+\end{figure}
 
 Indeed, the output map now shows patterns of both methods and is more likely slightly more accurate than any of the individual MLA's [@krogh1996learning].
 
@@ -450,10 +496,14 @@ hor2xyd <- function(x, U="UHDICM", L="LHDICM", treshold.T=15){
 }
 ```
 
-<div class="figure" style="text-align: center">
-<img src="figures/horizon_depths_for_3d_modeling_scheme.png" alt="Training points assigned to a soil profile with 3 horizons. Using the function from above, we assign a total of 7 training points i.e. about 2 times more training points than there are horizons." width="75%" />
-<p class="caption">(\#fig:hor-3d-scheme)Training points assigned to a soil profile with 3 horizons. Using the function from above, we assign a total of 7 training points i.e. about 2 times more training points than there are horizons.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics[width=0.75\linewidth]{figures/horizon_depths_for_3d_modeling_scheme} 
+
+}
+
+\caption{Training points assigned to a soil profile with 3 horizons. Using the function from above, we assign a total of 7 training points i.e. about 2 times more training points than there are horizons.}(\#fig:hor-3d-scheme)
+\end{figure}
 
 
 ```r
@@ -508,10 +558,14 @@ w1 <- 100*max(tr.ORCDRC.rf$results$Rsquared)
 
 Variable importance plot shows that DEPTH is far the most important predictor:
 
-<div class="figure" style="text-align: center">
-<img src="Soilmapping_using_mla_files/figure-html/varimp-plot-edgeroi-1.png" alt="Variable importance plot for predicting soil organic carbon content (ORC) in 3D." width="70%" />
-<p class="caption">(\#fig:varimp-plot-edgeroi)Variable importance plot for predicting soil organic carbon content (ORC) in 3D.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics[width=0.7\linewidth]{Soilmapping_using_mla_files/figure-latex/varimp-plot-edgeroi-1} 
+
+}
+
+\caption{Variable importance plot for predicting soil organic carbon content (ORC) in 3D.}(\#fig:varimp-plot-edgeroi)
+\end{figure}
 
 We can also try fitting models using the xgboost package and the cubist packages: 
 
@@ -544,10 +598,14 @@ edgeroi.grids$ORCDRC_5cm <- (edgeroi.grids$Random_forest*w1 +
                                edgeroi.grids$XGBoost*w3)/(w1+w2+w3)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="Soilmapping_using_mla_files/figure-html/maps-soc-edgeroi-1.png" alt="Comparison of three MLA's and final ensemble prediction (ORCDRC 5cm) of soil organic carbon content for 2.5 cm depth." width="672" />
-<p class="caption">(\#fig:maps-soc-edgeroi)Comparison of three MLA's and final ensemble prediction (ORCDRC 5cm) of soil organic carbon content for 2.5 cm depth.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics{Soilmapping_using_mla_files/figure-latex/maps-soc-edgeroi-1} 
+
+}
+
+\caption{Comparison of three MLA's and final ensemble prediction (ORCDRC 5cm) of soil organic carbon content for 2.5 cm depth.}(\#fig:maps-soc-edgeroi)
+\end{figure}
 
 The final plot shows that xgboost possibly overpredicts and that cubist possibly underpredicts values of `ORCDRC`, while random forest is somewhere in-between the two. Again, merged predictions are probably the safest option considering that all three MLA's have a similar performances.
 
@@ -598,24 +656,28 @@ str(test.ORC)
 #> List of 2
 #>  $ CV_residuals:'data.frame':	4972 obs. of  4 variables:
 #>   ..$ Observed : num [1:4972] 10.9 5.4 5.4 3.7 1.2 ...
-#>   ..$ Predicted: num [1:4972] 12.18 8.33 6.29 4.5 2.24 ...
+#>   ..$ Predicted: num [1:4972] 11.46 8.57 6.55 4.5 2.34 ...
 #>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed012_1" "399_EDGEROI_ed012_1" "399_EDGEROI_ed012_1" "399_EDGEROI_ed012_1" ...
 #>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ Summary     :'data.frame':	1 obs. of  6 variables:
-#>   ..$ ME          : num -0.131
-#>   ..$ MAE         : num 2.12
-#>   ..$ RMSE        : num 3.62
-#>   ..$ R.squared   : num 0.573
-#>   ..$ logRMSE     : num 0.483
-#>   ..$ logR.squared: num 0.653
+#>   ..$ ME          : num -0.141
+#>   ..$ MAE         : num 2.14
+#>   ..$ RMSE        : num 3.64
+#>   ..$ R.squared   : num 0.567
+#>   ..$ logRMSE     : num 0.486
+#>   ..$ logR.squared: num 0.649
 ```
 
 Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about $\pm 4$ g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:
 
-<div class="figure" style="text-align: center">
-<img src="Soilmapping_using_mla_files/figure-html/plot-measured-predicted-1.png" alt="Predicted vs observed plot for soil organic carbon ML-based model (Edgeroi data set)." width="672" />
-<p class="caption">(\#fig:plot-measured-predicted)Predicted vs observed plot for soil organic carbon ML-based model (Edgeroi data set).</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics{Soilmapping_using_mla_files/figure-latex/plot-measured-predicted-1} 
+
+}
+
+\caption{Predicted vs observed plot for soil organic carbon ML-based model (Edgeroi data set).}(\#fig:plot-measured-predicted)
+\end{figure}
 
 ### Ensemble predictions using h2oEnsemble
 
@@ -837,10 +899,14 @@ and DEM-derivatives, such as slope (Fig. \@ref(fig:distances-examples)b).
 SAGA GIS [@gmd-8-1991-2015] offers a wide diversity of DEM derivatives
 that can be derived per location of interest.
 
-<div class="figure" style="text-align: center">
-<img src="figures/Fig_distances_examples.png" alt="Examples of distance maps to some location in space (yellow dot) based on different derivation algorithms: (a) simple Euclidean distances, (b) complex speed-based distances based on the package and Digital Elevation Model (DEM) [@vanEtten2017r], and (c) upslope area derived based on the DEM in SAGA GIS [@gmd-8-1991-2015]. Case study: Ebergötzen [@bohner2006saga]." width="100%" />
-<p class="caption">(\#fig:distances-examples)Examples of distance maps to some location in space (yellow dot) based on different derivation algorithms: (a) simple Euclidean distances, (b) complex speed-based distances based on the package and Digital Elevation Model (DEM) [@vanEtten2017r], and (c) upslope area derived based on the DEM in SAGA GIS [@gmd-8-1991-2015]. Case study: Ebergötzen [@bohner2006saga].</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics[width=1\linewidth]{figures/Fig_distances_examples} 
+
+}
+
+\caption{Examples of distance maps to some location in space (yellow dot) based on different derivation algorithms: (a) simple Euclidean distances, (b) complex speed-based distances based on the package and Digital Elevation Model (DEM) [@vanEtten2017r], and (c) upslope area derived based on the DEM in SAGA GIS [@gmd-8-1991-2015]. Case study: Ebergötzen [@bohner2006saga].}(\#fig:distances-examples)
+\end{figure}
 
 Here we only show predictive performance with Eucledean buffer distances 
 (to all sampling points), but the code could be adopted to
@@ -1048,10 +1114,14 @@ meuse.grid$zinc_ok_range <- sqrt(zinc.ok$krige.var)
 
 in this case geoR automatically back-transforms values to the original scale, which is a recommended feature. Comparison of predictions and prediction error maps produced using geoR (ordinary kriging) and RFsp (with buffer distances and by just using coordinates) is given in Fig. \@ref(fig:comparison-OK-RF-zinc-meuse).
 
-<div class="figure" style="text-align: center">
-<img src="figures/Fig_comparison_OK_RF_zinc_meuse.png" alt="Comparison of predictions based on ordinary kriging as implemented in the geoR package (left) and random forest (right) for Zinc concentrations, Meuse data set: (first row) predicted concentrations in log-scale and (second row) standard deviation of the prediction errors for OK and RF methods. After @Hengl2018RFsp." width="100%" />
-<p class="caption">(\#fig:comparison-OK-RF-zinc-meuse)Comparison of predictions based on ordinary kriging as implemented in the geoR package (left) and random forest (right) for Zinc concentrations, Meuse data set: (first row) predicted concentrations in log-scale and (second row) standard deviation of the prediction errors for OK and RF methods. After @Hengl2018RFsp.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics[width=1\linewidth]{figures/Fig_comparison_OK_RF_zinc_meuse} 
+
+}
+
+\caption{Comparison of predictions based on ordinary kriging as implemented in the geoR package (left) and random forest (right) for Zinc concentrations, Meuse data set: (first row) predicted concentrations in log-scale and (second row) standard deviation of the prediction errors for OK and RF methods. After @Hengl2018RFsp.}(\#fig:comparison-OK-RF-zinc-meuse)
+\end{figure}
 
 From the plot above, it can be concluded that RFsp gives very similar results as ordinary kriging via geoR. The differences between geoR and RFsp, however, are:
 
@@ -1162,10 +1232,14 @@ points(vv, 1:10)
 axis(2, 1:10, labels = dimnames(vv)[[1]], las = 2)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="Soilmapping_using_mla_files/figure-html/rf-variableImportance-1.png" alt="Variable importance plot for mapping zinc content based on the Meuse data set." width="672" />
-<p class="caption">(\#fig:rf-variableImportance)Variable importance plot for mapping zinc content based on the Meuse data set.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics{Soilmapping_using_mla_files/figure-latex/rf-variableImportance-1} 
+
+}
+
+\caption{Variable importance plot for mapping zinc content based on the Meuse data set.}(\#fig:rf-variableImportance)
+\end{figure}
 
 which shows, for example, that point 54, 59 and 53 are most influential points, 
 and these are almost equally important as covariates (PC2–PC4).
@@ -1216,12 +1290,16 @@ zinc.uk <- krige.conv(zinc.geo, locations=locs, krige=KC)
 meuse.grid$zinc_UK = zinc.uk$predict
 ```
 
-<div class="figure" style="text-align: center">
-<img src="figures/Fig_RF_covs_bufferdist_zinc_meuse.png" alt="Comparison of predictions (median values) produced using random forest and covariates only (left), and random forest with combined covariates and buffer distances (right)." width="100%" />
-<p class="caption">(\#fig:RF-covs-bufferdist-zinc-meuse)Comparison of predictions (median values) produced using random forest and covariates only (left), and random forest with combined covariates and buffer distances (right).</p>
-</div>
+\begin{figure}[t]
 
-again, overall predictions (spatial patterns) look fairly similar (Fig.\@ref(fig:RF-covs-bufferdist-zinc-meuse)). 
+{\centering \includegraphics[width=1\linewidth]{figures/Fig_RF_covs_bufferdist_zinc_meuse} 
+
+}
+
+\caption{Comparison of predictions (median values) produced using random forest and covariates only (left), and random forest with combined covariates and buffer distances (right).}(\#fig:RF-covs-bufferdist-zinc-meuse)
+\end{figure}
+
+again, overall predictions (spatial patterns) look fairly similar (Fig. \@ref(fig:RF-covs-bufferdist-zinc-meuse)). 
 The difference between using geoR and RFsp is that, in the case of RFsp there are less choices 
 and less assumptions to be made. Also, RFsp allows that relationship with covariates 
 and geographical distances is fitted all at once. This makes RFsp in general less 
@@ -1318,10 +1396,14 @@ pred.clas <- predict(m2.s1, cbind(meuse.grid@data, grid.dist0@data), type="se")
 
 in principle, the two options to predicting distribution of binomial variable are mathematically equivalent and should lead to same predictions (also shown in the map below). In practice there can be some smaller differences in numbers due to rounding effect or random start effects. 
 
-<div class="figure" style="text-align: center">
-<img src="figures/Fig_comparison_uncertainty_Binomial_variables_meuse.png" alt="Comparison of predictions for soil class “1” produced using (left) regression and prediction of the median value, (middle) regression and prediction of response value, and (right) classification with probabilities." width="90%" />
-<p class="caption">(\#fig:comparison-uncertainty-Binomial)Comparison of predictions for soil class “1” produced using (left) regression and prediction of the median value, (middle) regression and prediction of response value, and (right) classification with probabilities.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics[width=0.9\linewidth]{figures/Fig_comparison_uncertainty_Binomial_variables_meuse} 
+
+}
+
+\caption{Comparison of predictions for soil class “1” produced using (left) regression and prediction of the median value, (middle) regression and prediction of response value, and (right) classification with probabilities.}(\#fig:comparison-uncertainty-Binomial)
+\end{figure}
 
 This shows that predicting binomial variables using RFsp can be implemented both as a classification and regression problems and both are possible via the ranger package and should lead to same results.
 
@@ -1433,10 +1515,14 @@ str(pred.grids@data)
 
 where `pred_soil1` is the probability of occurrence of class 1 and `se_soil1` is the standard error of prediction for the `pred_soil1` based on the Jackknife-after-Bootstrap method [@wager2014confidence]. The first column in `pred.grids` contains existing map of `soil` with hard classes only.
 
-<div class="figure" style="text-align: center">
-<img src="figures/Fig_comparison_uncertainty_Factor_variables_meuse.png" alt="Predictions of soil types for the meuse data set based on the RFsp: (above) probability for three soil classes, and (below) derived standard errors per class." width="90%" />
-<p class="caption">(\#fig:comparison-uncertainty-Factor)Predictions of soil types for the meuse data set based on the RFsp: (above) probability for three soil classes, and (below) derived standard errors per class.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics[width=0.9\linewidth]{figures/Fig_comparison_uncertainty_Factor_variables_meuse} 
+
+}
+
+\caption{Predictions of soil types for the meuse data set based on the RFsp: (above) probability for three soil classes, and (below) derived standard errors per class.}(\#fig:comparison-uncertainty-Factor)
+\end{figure}
 
 Spatial prediction of binomial and factor-type variables is straight forward with ranger / RFsp: buffer distance and spatial-autocorrelation can be incorporated at once. Compare with geostatistical packages where link functions and/or indicator kriging would need to be used, and which requires that variograms are fitted per class.
 
@@ -1467,7 +1553,7 @@ Also combining MLA's into ensemble predictions might not be beneficial at all.
 Less is better sometimes.
 
 The RFsp method seems to be suitable for generating spatial and spatiotemporal predictions. 
-Computing time, however, can be a cumbersome and working with data sets with $\gg 1000$ 
+Computing time, however, can be a cumbersome and working with data sets with >1000 
 point locations (hence 1000+ buffer distance maps) is problably not yet recommended. 
 Also cross-validation of accuracy of predictions produced using RFsp needs to be 
 implemented using leave-location-out CV to account for spatial autocorrelation in data. 

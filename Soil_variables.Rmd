@@ -24,7 +24,7 @@ measurements of the characteristics of soil properties and/or feature
 attributes as *soil observations* (see also the [Observation and Measurements
 OGC standard](http://www.opengeospatial.org/standards/om); ISO/DIS 19156). From the perspective of the technology
 used, soil observations can be grouped as follows (see also
-Fig. \@ref(fig:soil-vars)):
+Fig. \@ref(fig:soil-vars)):
 
 1.  *Direct measurements obtained using analytical instruments and
     procedures in a laboratory or in the field* — the results of
@@ -82,7 +82,7 @@ determination methods.
 Soil analytical data obtained in a laboratory are typically an order of
 magnitude more expensive than descriptive field observations
 [@Burrough1971; @GehlRice2005; @Kempen2011PhDthesis]. To reduce these
-high costs, surveyors collect descriptive soil observations (Fig. \@ref(fig:soil-vars)), 
+high costs, surveyors collect descriptive soil observations (Fig. \@ref(fig:soil-vars)), 
 which can subsequently be interpreted and linked to soil types and soil classes,
 which are assumed to be characterised by a limited and definable range
 of soil properties [@bouma1998exploring]. It is also possible to convert
@@ -90,7 +90,7 @@ observed values for certain soil properties to values comparable to
 those measured by analytical methods (albeit with unknown precision) by
 using various calibration models or *conversion functions*. For example,
 *manual texturing* analysis [@FAO1990; @SSDS1993] permits determination
-of soil texture fractions with a precision of ±5m with an order of
+of soil texture fractions with a precision of ±5 m with an order of
 magnitude lower cost to obtain than laboratory analysis.
 
 Soils are usually sampled per depth interval or layer, generally using a
@@ -99,7 +99,7 @@ relatively homogeneous layer of soil (with upper and lower depth) that
 is *“distinctly different from other layers and informative for the
 soil’s nature”* [@harpstead2001soil]. The actual soil samples are either
 taken from the centre of the soil horizon or are mixed samples of the
-material from the whole horizon (Fig. \@ref(fig:soi-var-depth)). Decades
+material from the whole horizon (Fig. \@ref(fig:soi-var-depth)). Decades
 of soil survey have shown that soil horizons can be fuzzy objects, and
 they may be difficult to distinguish and delineate consistently by
 different surveyors [@Burrough1989JSS; @DeGruijter1997Geoderma]. Soil
@@ -156,7 +156,7 @@ attributes which are calculated from the primary soil properties
 (Tbl. \@ref(tab:globalsoilmap)). These attributes are being mapped (as and
 where possible) at a fine resolution of six depth intervals in the
 vertical and, 3–arcseconds in the horizontal dimension (ca. 100 m)
-(Fig. \@ref(fig:scheme-solum)).
+(Fig. \@ref(fig:scheme-solum)).
 
 ```{r scheme-solum, echo=FALSE, fig.cap="Standard soil horizons, solum thickness and depth to bedrock (left), six standard depths used in the *GlobalSoilMap* project (right).", out.width="75%"}
 knitr::include_graphics("figures/Fig_scheme_solum.png")
@@ -335,17 +335,17 @@ knitr::include_graphics("figures/Fig_depth_2_bedrock.png")
 ```
 
 The *depth to bedrock* i.e. depth to the `R` horizon is measured from
-the soil surface downwards and is expressed in cm with a precision of ±1cm.
-Depth to bedrock deeper than e.g. 2–3m is most often not recorded. Bedrock
+the soil surface downwards and is expressed in cm with a precision of ±1 cm.
+Depth to bedrock deeper than e.g. 2–3 m is most often not recorded. Bedrock
 is consolidated hard rock, with only few cracks, underlying the soil. It
 is not necessarily parent material. We imagine it often as something
 distinct and easy to recognize in the field. In practice, depth to
 bedrock can be difficult to determine, and is often confused with
 stoniness or depth to parent material (which can be unconsolidated
 material). Another issue is that, for most of the soils in the world
-hard bedrock is >2m deep so that we actually don’t know the correct
-depth to enter, other than >2m. Rootability is physically restricted by
-the bedrock, whether hard or soft (see Fig. \@ref(fig:scheme-depth-to-bedrock)).
+hard bedrock is >2 m deep so that we actually don’t know the correct
+depth to enter, other than >2 m. Rootability is physically restricted by
+the bedrock, whether hard or soft (see Fig. \@ref(fig:scheme-depth-to-bedrock)).
 
 ```{block, type="rmdnote"}
 Depth to bedrock is the mean distance to `R` horizon which is the layer
@@ -409,9 +409,9 @@ combination of structure and consistence which together suggest that the
 resistance of the soil fabric to root entry is high and that vertical
 cracks and planes of weakness for root entry are absent or widely
 spaced. Root restriction is inferred for a continuously cemented zone of
-any thickness; or a zone >10cm thick that when very moist or wet is
+any thickness; or a zone >10 cm thick that when very moist or wet is
 massive, platy, or has weak structure of any type for a vertical repeat
-distance of >10cm and while very moist or wet is very firm (firm, if
+distance of >10 cm and while very moist or wet is very firm (firm, if
 sandy), extremely firm, or has a large penetration resistance. Chemical
 restrictions, such as high extractable aluminum, manganese and/or low
 extractable calcium, can also be considered but are plant-specific.
@@ -481,7 +481,7 @@ x
 
 where `UHDICM` and `LHDICM` are the upper and lower horizon depth in cm,
 `SNDPPT`, `SLTPPT` and `CLYPPT` are the sand, silt and clay content in
-percent, `CRFVOL` is the volume percentage of coarse fragments (>2mm),
+percent, `CRFVOL` is the volume percentage of coarse fragments (>2 mm),
 `BLD` is the bulk density in t/m$^3$, `ORCDRC` is the soil organic carbon
 concentration in permille or g/kg, `ECN` is the electrical conductivity in dS/m,
 `CEC` is the Cation Exchange Capacity in cmol/kg (centi-mol per kilogram), `ENA` is the exchangable Na
@@ -495,7 +495,7 @@ because none of the soil properties got <20 points, we can conclude
 that the maximum rooting depth is . Note that the threshold values in
 the `LRI` function used to derive Limiting Rootability scores are set
 based on common soil agricultural productivity tresholds (e.g. for
-maize; see also Fig. \@ref(fig:lri-scheme)), and can be adjusted via the
+maize; see also Fig. \@ref(fig:lri-scheme)), and can be adjusted via the
 `thresholds` argument. The computation is done per list of soil layers
 (minimum three) to account for textural changes i.e. sudden changes in
 sand and clay content and for the limiting layers such as layer
@@ -551,7 +551,7 @@ all ORC and is considered an accurate method which has been used in many
 studies as a reference method against which to calibrate other methods
 [@Grewal1991JSS; @Meersmans2009SUM; @Bisutti2004TAC]. A global estimate
 of distribution of soil organic carbon is shown in
-Fig. \@ref(fig:sprofs-soil-carbon).
+Fig. \@ref(fig:sprofs-soil-carbon).
 
 ```{r sprofs-soil-carbon, echo=FALSE, fig.cap="Histogram and soil-depth density distribution for a global compilation of measurements of soil organic carbon content in permilles. Based on the records from WOSIS [@Batjes2017ESSD]. The log-transformation is used to ensure close-to-normal distribution in the histogram.", out.width="100%"}
 knitr::include_graphics("figures/Fig_sprofs_ORCDRC.png")
@@ -680,15 +680,15 @@ necessary or beneficial to report pH with a precision greater than
 11 with a standard deviation of 1.4. Note also that pH follows
 close-to-normal distribution, although it is often argued that, locally,
 it can show bimodal or even trimodal peaks
-(Fig. \@ref(fig:color-legend-phi)).
+(Fig. \@ref(fig:color-legend-phi)).
 
 ### Soil nutrients
 
 Nutrients are chemical elements or substances essential for the growth
 of plants. The most essential elements important for the growth of
 plants are in fact carbon, hydrogen and oxygen. Other essential elements
-can be separated into macro-nutrients ($\gg$100 $\mu$g or 100 ppm) and micro-nutrients
-($\ll$100 ppm), although there is no strict border between the two
+can be separated into macro-nutrients (>100 $\mu$g or >100 ppm) and micro-nutrients
+(<100 ppm), although there is no strict border between the two
 [@harpstead2001soil; @hengl2017soil]. Some macro-nutrients of global importance for soil
 management and protection are (http://en.wikipedia.org/wiki/Plant_nutrition):
 
@@ -752,17 +752,17 @@ Soil texture is connected with soil granulometry or the composition of
 the particle sizes, typically measured as volume percentages. The most
 common subdivision of soil granulometry is [@Shirazi2001SSSAJ]:
 
-1.  Fine earth (<2m)
+1.  Fine earth (<2 m)
 
     1.  sand (coarser particles in the fine earth),
 
     2.  silt (medium size particles),
 
-    3.  clay (fine particles <2$\mu$m),
+    3.  clay (fine particles <2 $\mu$m),
 
-2.  Coarse fragments (>2mm)
+2.  Coarse fragments (>2 mm)
 
-    1.  gravel (2mm to 8cm)
+    1.  gravel (2 mm to 8 cm)
 
     2.  stones or boulders ($>8$ cm)
 
@@ -816,7 +816,7 @@ Where the coarse fragment content is dominant ($>80\%$), approaching 100%,
 rootability is near nil which is determinant for the rooting or
 effective soil depth and generally also for depth to bedrock. An
 estimated global distribution of coarse fragments and soil textures is
-given in Fig. \@ref(fig:sprofs-crfvol).
+given in Fig. \@ref(fig:sprofs-crfvol).
 
 ```{r sprofs-crfvol, echo=FALSE, fig.cap="Histogram and soil-depth density distribution for a global compilation of measurements of coarse fragments in percent. Based on the records from WOSIS [@Batjes2017ESSD]. This variable in principle follows a zero inflated distribution.", out.width="100%"}
 knitr::include_graphics("figures/Fig_sprofs_CRFVOL.png")
@@ -837,11 +837,11 @@ through it. Texture is the fundamental physical and mechanical property
 of soils and, as such, it is one of the most widely analysed and
 reported soil properties.
 
-The size of particles in the soil varies strongly from less than a 2$\mu$m to
+The size of particles in the soil varies strongly from less than a 2 $\mu$m to
 several cm’s and occasionally even meters (boulders); which represents a
-range from to 1$\mu$m to 1 million $\mu$m. Generally, particle size distribution has been
+range from to 1 $\mu$m to 1 million $\mu$m. Generally, particle size distribution has been
 simplified through aggregation or classification. The fine earth
-fraction (<2mm) is the soil considered for laboratory analyses. This fine
+fraction (<2 mm) is the soil considered for laboratory analyses. This fine
 earth is further subdivided into particle size classes including,
 depending on the guidelines or laboratory concerned, fine and coarse
 clay, fine and coarse silt and very fine, fine, medium, coarse and very
@@ -857,7 +857,7 @@ Particle size distribution has been defined using a number of systems.
 One of the most widely used systems is the USDA Soil Survey Laboratory
 Methods Manual [@Burt2004SSIR]. The USDA definition of particle size
 classes has also been recommended by FAO for use in the Soil Map of the
-World (Fig. \@ref(fig:texture-limits)). The standard reference method adopted by
+World (Fig. \@ref(fig:texture-limits)). The standard reference method adopted by
 GSIF for reporting particle size classes of sand, silt and clay, is as
 per the USDA Soil Survey Laboratory Methods Manual [@Burt2004SSIR
 p.347]. An estimated global distribution of sand, silt, and clay is
@@ -893,12 +893,12 @@ because of differences in method of analysis (e.g. hygrometer, pipette,
 laser diffraction, dispersion etc). Most literature on harmonization of soil
 texture data deals with harmonizing differences in attribute definitions
 or the reported particle size classes
-(Fig. \@ref(fig:texture-limits)).
+(Fig. \@ref(fig:texture-limits)).
 
 ```{block, type="rmdnote"}
 The most commonly used standard for designation of fine earth texture
 fractions, used by the *GlobalSoilMap* project, is the USDA
-system (sand: 50–2000$\mu$m, silt: 2–50$\mu$m, clay: <2$\mu$m).
+system (sand: 50–2000 $\mu$m, silt: 2–50 $\mu$m, clay: <2 $\mu$m).
 ```
 
 @Minasny2001AJSR identified two major textural classifications in the
@@ -907,9 +907,9 @@ The significant difference between these two was the choice of a
 threshold value for differentiating silt from sand of 20 $\mu$m for the
 International and 50 $\mu$m for the USDA/FAO systems. The new ISO/FAO standard
 adds an additional difference by changing the threshold value between
-silt and sand from 50 $\mu$m to 63$\mu$m. Another very important difference in attribute
+silt and sand from 50 $\mu$m to 63 $\mu$m. Another very important difference in attribute
 definition concerns the Russian system which defines the clay fraction
-as <1$\mu$m and the fine earth fraction, or the upper limit of the sand
+as <1 $\mu$m and the fine earth fraction, or the upper limit of the sand
 fraction, at 1 cm instead of 2 cm.
 
 ```{r usdafaotexture, echo=FALSE}
@@ -987,7 +987,7 @@ nutrients.
 
 In practice, we need to be able to make estimates of two different types
 of bulk density, namely the bulk density of the whole soil and the *bulk
-density of the fine earth fraction* (particles <2mm) only. Calculations
+density of the fine earth fraction* (particles <2 mm) only. Calculations
 such as those for total stocks of carbon are first applied using the
 bulk density of the fine earth fraction only but this value is then
 reduced in accordance with the volume proportion of the soil that is
@@ -1071,7 +1071,7 @@ properties. Such values as are reported are most often based on field
 measurements of in-situ bulk density using the core method. Bulk density
 of the fine earth fraction alone is measured and reported even less
 frequently than bulk density for the whole soil
-(Fig. \@ref(fig:sprofs-bld)).
+(Fig. \@ref(fig:sprofs-bld)).
 
 ```{r sprofs-bld, echo=FALSE, fig.cap="Histogram and soil-depth density distribution for a global compilation of measurements of bulk density (tonnes per cubic metre). Based on the records from WOSIS [@Batjes2017ESSD].", out.width="100%"}
 knitr::include_graphics("figures/Fig_sprofs_BLD.png")
@@ -1131,7 +1131,7 @@ properties which are typically not measured directly in the field and
 need to be derived from primary soil properties. For instance, consider
 estimation of the global carbon stock (in permille). This secondary soil
 property can be derived from a number of primary soil properties
-[@Nelson1982; @sanderman2018soil] (see Fig. \@ref(fig:ocs-calculus-scheme)):
+[@Nelson1982; @sanderman2018soil] (see Fig. \@ref(fig:ocs-calculus-scheme)):
 
 \begin{equation}
     \mathtt{OCS} \; [\mathrm{kg \; m^{-2}}] = \frac{{\mathtt{ORC}}}{{1000}} \; [\mathrm{kg \; kg^{-1}}] \cdot \frac{{\mathtt{HOT}}}{{100}} \; [\mathrm{m}] \cdot \mathtt{BLD} \; [\mathrm{kg \; m^{-3}}] \cdot \frac{{100-\mathtt{CRF} \; [\mathrm{\%}]}}{{100}}
@@ -1151,7 +1151,7 @@ The propagated error of the soil organic carbon stock (Eq.\@ref(eq:ocs-calc)) ca
 be estimated using the Taylor series method [@Heuvelink1998a] i.e. by
 using the standard deviations of the predicted soil organic carbon
 content, bulk density and coarse fragments, respectively
-(Fig. \@ref(fig:ocs-calculus-scheme)). `OCS` values can be derived for
+(Fig. \@ref(fig:ocs-calculus-scheme)). `OCS` values can be derived for
 all depths / horizons, then aggregated to estimate the total stock for
 the whole profile (e.g. 0–2 m).
 
@@ -1174,7 +1174,7 @@ x[[1]] * Area / 1000 ## in tonnes per ha:
 
 A more robust way to estimate the propagated uncertainty of deriving
 `OCS` would be to use geostatistical simulations e.g. derive standard
-error from a large number of realizations $\gg$100 that incorporate
+error from a large number of realizations (e.g. >100) that incorporate
 spatial and vertical correlations. Because, in the case of soil mapping,
 we are often dealing with massive data sets, running geostatistical
 simulations for millions of pixels is probably not yet an option.
@@ -1376,8 +1376,8 @@ A =& 1.996 + 0.136 \cdot \ln({\mathtt{clay}}) - 0.00007 \cdot {\mathtt{fsand}} +
 B = -0.192 + 0.0946\cdot \ln({\mathtt{TEXMHT}}) - 0.00151\cdot \mathtt{fsand}
 \end{equation}
 
-where $\mathtt{clay}$ (<0.002mm), $\mathtt{fsilt}$ (0.02–0.20mm), and
-$\mathtt{sand}$ (0.002–0.02mm) are expressed in %; $\mathtt{TEXMHT}$ is
+where $\mathtt{clay}$ (<0.002 mm), $\mathtt{fsilt}$ (0.02–0.20 mm), and
+$\mathtt{sand}$ (0.002–0.02 mm) are expressed in %; $\mathtt{TEXMHT}$ is
 texture group from 1–6 as defined by Northcote in @peverill1999soil.
 
 @Cresswell2006SUM demonstrated applicability of the @Williams1992 method
@@ -1484,7 +1484,7 @@ fractions different from the reference method will also have to be
 converted to the standard particle size definitions adopted for some
 international specifications. For example, classes in the texture
 triangle represent fractions for sand, silt and clay which can be
-assessed using the gravity point for the class (Tbl. \@ref(tab:usdatexturec); see also further Fig. \@ref(fig:plot-tt-triangle)).
+assessed using the gravity point for the class (Tbl. \@ref(tab:usdatexturec); see also further Fig. \@ref(fig:plot-tt-triangle)).
 
 ```{r usdatexturec, echo=FALSE}
 knitr::kable(
@@ -1580,7 +1580,7 @@ USDA's Soil Taxonomy is probably the most developed soil classification system i
 knitr::include_graphics("figures/Fig_worldmap_suborders.png")
 ```
 
-(ref:barplot-suborders) Distribution of the USDA suborders shown in Fig. \@ref(fig:worldmap-suborders).
+(ref:barplot-suborders) Distribution of the USDA suborders shown in Fig. \@ref(fig:worldmap-suborders).
 
 ```{r barplot-suborders, echo=FALSE, fig.cap="(ref:barplot-suborders)", out.width="100%"}
 knitr::include_graphics("figures/Fig_barplot_suborders.png")
@@ -1598,7 +1598,7 @@ lower taxonomic levels with hundreds of unique taxonomic entities.
 knitr::include_graphics("figures/Fig_USDA_categories.png")
 ```
 
-The map in Fig. \@ref(fig:worldmap-suborders) shows the global
+The map in Fig. \@ref(fig:worldmap-suborders) shows the global
 distribution of Keys to Soil Taxonomy soil suborders according to 
 [USDA-NRCS World Soil Index](https://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/use/worldsoils/?cid=nrcs142p2_054010). 
 Assuming a rule of thumb that we need at least 5 and, if
@@ -1607,7 +1607,7 @@ combination of predictor variables and observations,
 [@harrell2001regression], it is possible to estimate that the amount of
 field observations required to e.g. predict the global distribution of
 USDA soil series would be in the order of few millions of soil profiles
-(Fig. \@ref(fig:usda-categories)).
+(Fig. \@ref(fig:usda-categories)).
 
 ### Other factor-type variables
 
@@ -1908,7 +1908,7 @@ which shows that model explains about 40% with an RMSE of ±200 kg/m$^3$. Althou
 knitr::include_graphics("figures/bulk_density_ptf_plots.png")
 ```
 
-Obviously the key to explaining bulk density is soil organic carbon, while depth and pH are #2 and #3 most important covariates. Using this MLA-based model we can predict bulk density for various combinations of soil properties:
+Obviously the key to explaining bulk density is soil organic carbon, while depth and pH are 2nd and 3rd most important covariates. Using this MLA-based model we can predict bulk density for various combinations of soil properties:
 
 ```{r}
 predict(rfsrc_BD, data.frame(ORCDRC=1.2, PHIHOX=7.6, 

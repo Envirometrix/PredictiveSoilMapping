@@ -92,7 +92,7 @@ soil mapping for areas with dynamic vegetation, i.e. with strong
 seasonal changes in vegetation cover. To account for seasonal
 fluctuation and for inter-annual variations in surface reflectance, 
 long-term temporal signatures of the soil surface derived
-as monthly averages from long-term MODIS imagery (15 years of data) 
+as monthly averages from long-term MODIS imagery (15 years of data) 
 can be used [@Hengl2017SoilGrids250m]. 
 Long-term average seasonal signatures of surface reflectance or vegetation 
 index provide a better indication of soil characteristics than only a single snapshot of
@@ -151,10 +151,14 @@ data(eberg_zones)
 spplot(eberg_zones[1])
 ```
 
-<div class="figure" style="text-align: center">
-<img src="Soil_covariates_files/figure-html/eberg-zones-spplot-1.png" alt="Ebergotzen parent material polygon map with legend." width="70%" />
-<p class="caption">(\#fig:eberg-zones-spplot)Ebergotzen parent material polygon map with legend.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics[width=0.7\linewidth]{Soil_covariates_files/figure-latex/eberg-zones-spplot-1} 
+
+}
+
+\caption{Ebergotzen parent material polygon map with legend.}(\#fig:eberg-zones-spplot)
+\end{figure}
 
 We can convert this object to a raster by using the [raster package](https///cran.r-project.org/web/packages/raster/). Note that before we can run the operation, we need to know the target grid system i.e. extent of the grid and spatial resolution. We can use this from an existing layer:
 
@@ -190,10 +194,14 @@ eberg_zones_r <- rasterize(eberg_zones, r, field="ZONES")
 plot(eberg_zones_r)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="Soil_covariates_files/figure-html/eberg-zones-grid-1.png" alt="Ebergotzen parent material polygon map rasterized." width="70%" />
-<p class="caption">(\#fig:eberg-zones-grid)Ebergotzen parent material polygon map rasterized.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics[width=0.7\linewidth]{Soil_covariates_files/figure-latex/eberg-zones-grid-1} 
+
+}
+
+\caption{Ebergotzen parent material polygon map rasterized.}(\#fig:eberg-zones-grid)
+\end{figure}
 
 Converting large polygons in R using the raster package could be very time-consuming, hence often a more efficient approach is to use SAGA GIS which can handle large data and is easy to run in parallel. First, you need to export the polygon map to shapefile format that can be done with commands of the [rgdal package](https///cran.r-project.org/web/packages/rgdal/) package:
 
@@ -250,10 +258,14 @@ summary(eberg_zones_r2$ZONES)
 #>           28667           35992           21971           73370
 ```
 
-<div class="figure" style="text-align: center">
-<img src="figures/eberg_zones_rasterized.png" alt="Eberg zones rasterized to 25 m resolution." width="70%" />
-<p class="caption">(\#fig:eberg-zones-rasterized)Eberg zones rasterized to 25 m resolution.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics[width=0.7\linewidth]{figures/eberg_zones_rasterized} 
+
+}
+
+\caption{Eberg zones rasterized to 25 m resolution.}(\#fig:eberg-zones-rasterized)
+\end{figure}
 
 ### Downscaling or upscaling (aggregating) rasters {#downscaling-upscaling}
 
@@ -292,10 +304,14 @@ We can compare the two maps (the original and the downscaled) next to each other
 
 
 
-<div class="figure" style="text-align: center">
-<img src="figures/eberg_original_vs_downscaled.png" alt="Original TWI vs downscaled map from 100 m to 25 m." width="100%" />
-<p class="caption">(\#fig:eberg-original-vs-downscaled)Original TWI vs downscaled map from 100 m to 25 m.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics[width=1\linewidth]{figures/eberg_original_vs_downscaled} 
+
+}
+
+\caption{Original TWI vs downscaled map from 100 m to 25 m.}(\#fig:eberg-original-vs-downscaled)
+\end{figure}
 
 The map on the right looks much smoother of course (assuming that this variable varies continuously in space, this could very well be an accurate picture), but it is important to realize that downscaling can only be implemented up to certain target resolution i.e. only for certain features. For example, downscaling TWI from 100 to 25 m is not much of problem, but to go beyond 10 m would probably result in large differences from a TWI calculated at 10 m resolution (in other words: be careful with downscaling because it is often not trivial).
 
@@ -309,10 +325,14 @@ system(paste0('gdalwarp extdata/eberg_grid_TWISRT6.tif',
               ' -tr 250 250 -overwrite'))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="figures/eberg_original_vs_aggregated.png" alt="Original TWI vs aggregated map from 100 m to 250 m." width="100%" />
-<p class="caption">(\#fig:eberg-original-vs-aggregated)Original TWI vs aggregated map from 100 m to 250 m.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics[width=1\linewidth]{figures/eberg_original_vs_aggregated} 
+
+}
+
+\caption{Original TWI vs aggregated map from 100 m to 250 m.}(\#fig:eberg-original-vs-aggregated)
+\end{figure}
 
 ### Deriving DEM parameters using SAGA GIS
 
@@ -397,10 +417,14 @@ dem.lst <- list.files(pattern=glob2rx("^DEMSRT6_*.sdat"))
 plot(stack(dem.lst), col=SAGA_pal[[1]])
 ```
 
-<div class="figure" style="text-align: center">
-<img src="figures/dem_derivatives_plot.png" alt="Some standard DEM derivatives calculated using SAGA GIS." width="90%" />
-<p class="caption">(\#fig:dem-derivatives-plot)Some standard DEM derivatives calculated using SAGA GIS.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics[width=0.9\linewidth]{figures/dem_derivatives_plot} 
+
+}
+
+\caption{Some standard DEM derivatives calculated using SAGA GIS.}(\#fig:dem-derivatives-plot)
+\end{figure}
 
 This function can now be used with any DEM to derive the standard 7-8 DEM parameters such as slope and curvature, TWI and MrVBF, positive and negative openess, valley depth and deviation from mean value. You could easily add more parameters to this function and then test if some of the other DEM derivatives can help improve mapping soil properties and classes. Note that SAGA GIS will by default optimize computing of DEM derivatives by using most of available cores to compute (parallelization is turned on automatically).
 
@@ -439,10 +463,14 @@ names(eberg_spc@predicted) # 11 components on the end;
 
 
 
-<div class="figure" style="text-align: center">
-<img src="figures/eberg_spc_11_plot.png" alt="11 PCs derived using eberg covariates." width="100%" />
-<p class="caption">(\#fig:eberg-spc-11-plot)11 PCs derived using eberg covariates.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics[width=1\linewidth]{figures/eberg_spc_11_plot} 
+
+}
+
+\caption{11 PCs derived using eberg covariates.}(\#fig:eberg-spc-11-plot)
+\end{figure}
 
 The advantages of using the [''spc''](http://www.rdocumentation.org/packages/GSIF/functions/spc) function are:
 
@@ -528,10 +556,14 @@ plot(raster(fn), col=bpy.colors(20))
 lines(tile.pol, lwd=2)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="figures/rplot_large_raster_tiles.png" alt="Example of a tiling system derived using the `GSIF::getSpatialTiles` function." width="80%" />
-<p class="caption">(\#fig:rplot-large-raster-tiles)Example of a tiling system derived using the `GSIF::getSpatialTiles` function.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/rplot_large_raster_tiles} 
+
+}
+
+\caption{Example of a tiling system derived using the `GSIF::getSpatialTiles` function.}(\#fig:rplot-large-raster-tiles)
+\end{figure}
 
 rgdal further allows us to read only a single tile of the GeoTiff by using the ```offset``` and ```region.dim``` arguments:
 
@@ -543,10 +575,14 @@ x = readGDAL(fn, offset=unlist(tiles[1,c("offset.y","offset.x")]),
 spplot(x)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="figures/sp27gtif_tile.png" alt="A tile produced for a satellite image in the example above." width="60%" />
-<p class="caption">(\#fig:sp27gtif-tile)A tile produced for a satellite image in the example above.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics[width=0.6\linewidth]{figures/sp27gtif_tile} 
+
+}
+
+\caption{A tile produced for a satellite image in the example above.}(\#fig:sp27gtif-tile)
+\end{figure}
 
 We would like to run a function on this raster in parallel, for example a simple function that converts values to 0/1 values based on a threshold:
 
@@ -582,10 +618,14 @@ system('gdalwarp SP27GTIF.vrt SP27GTIF_mask.tif -ot \"Byte\"',
 
 Note we use few important settings here for GDAL e.g. `-overwrite -co "COMPRESS=DEFLATE"` to overwrite the GeoTiff and internally compress it to save space and `-r "near"` basically no resampling just binding tiles together. Also, if the output GeoTiff is HUGE, you will most likely have to turn on `-co "BIGTIFF=YES"` otherwise gdalwarp would not run through. The output mosaic looks like this:
 
-<div class="figure" style="text-align: center">
-<img src="figures/sp27gtif_mask.png" alt="Final processed output." width="80%" />
-<p class="caption">(\#fig:sp27gtif-mask)Final processed output.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics[width=0.8\linewidth]{figures/sp27gtif_mask} 
+
+}
+
+\caption{Final processed output.}(\#fig:sp27gtif-mask)
+\end{figure}
 
 This shows that R can be used to compute with large rasters provided that these operations can be parallelized. Suggested best practice for this is to: (1) design a tiling system that optimizes use of RAM and read/write spead of a disk, (2) prepare and test a function that can be then run in parallel, and (3) stitch back all tiles to a large raster using `gdalwarp`. 
 Note that Tiling and and stitching can not be applied universally to all problems e.g. functions that require global geographical search or all data in the raster, in which cases tiling should be applied with overlap (to minimize boundary effects) or to irregular tiling systems (e.g. per watershed). Once an optimal tiling system and function is prepared, R is not any more limit to running efficient computing, but only how much RAM and cores you have available i.e. it becomes more a hardware than a software problem.

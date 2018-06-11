@@ -9,7 +9,7 @@ knitr::opts_chunk$set(
   cache = TRUE, 
   fig.align="center",
   fig.pos="t",
-  auto_pdf = TRUE
+  auto_pdf = FALSE
 )
 set.seed(2016)
 options(digits = 3)

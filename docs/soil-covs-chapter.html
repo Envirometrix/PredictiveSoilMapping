@@ -348,7 +348,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><p>Landsat-based estimated distribution of Mangroves <span class="citation">(Giri et al. <a href="references.html#ref-giri2011status">2011</a>)</span>,</p></li>
 <li><p>Average soil and sedimentary-deposit thickness in meters <span class="citation">(Pelletier et al. <a href="references.html#ref-Pelletier2016">2016</a>)</span>.</p></li>
 </ul>
-<p>These covariates were selected to represent factors of soil formation according to <span class="citation">Jenny (<a href="references.html#ref-jenny1994factors">1994</a>)</span>: climate, relief, living organisms, water dynamics and parent material. Out of the five main factors, water dynamics and living organisms (especially vegetation dynamics) are not trivial to represent as these operate over long periods of time and often exhibit chaotic behaviour. Using reflectance bands such as the mid-infrared MODIS bands from a single day, would have little use to soil mapping for areas with dynamic vegetation, i.e. with strong seasonal changes in vegetation cover. To account for seasonal fluctuation and for inter-annual variations in surface reflectance, long-term temporal signatures of the soil surface derived as monthly averages from long-term MODIS imagery (15 years of data) can be used <span class="citation">(Hengl, Mendes de Jesus, et al. <a href="references.html#ref-Hengl2017SoilGrids250m">2017</a>)</span>. Long-term average seasonal signatures of surface reflectance or vegetation index provide a better indication of soil characteristics than only a single snapshot of surface reflectance. Computing temporal signatures of the land surface requires a considerable investment of time (comparable to the generation of climatic images vs temporary weather maps), but it is possibly the only way to represent the cumulative influence of living organisms on soil formation.</p>
+<p>These covariates were selected to represent factors of soil formation according to <span class="citation">Jenny (<a href="references.html#ref-jenny1994factors">1994</a>)</span>: climate, relief, living organisms, water dynamics and parent material. Out of the five main factors, water dynamics and living organisms (especially vegetation dynamics) are not trivial to represent as these operate over long periods of time and often exhibit chaotic behaviour. Using reflectance bands such as the mid-infrared MODIS bands from a single day, would have little use to soil mapping for areas with dynamic vegetation, i.e. with strong seasonal changes in vegetation cover. To account for seasonal fluctuation and for inter-annual variations in surface reflectance, long-term temporal signatures of the soil surface derived as monthly averages from long-term MODIS imagery (15 years of data) can be used <span class="citation">(Hengl, Mendes de Jesus, et al. <a href="references.html#ref-Hengl2017SoilGrids250m">2017</a>)</span>. Long-term average seasonal signatures of surface reflectance or vegetation index provide a better indication of soil characteristics than only a single snapshot of surface reflectance. Computing temporal signatures of the land surface requires a considerable investment of time (comparable to the generation of climatic images vs temporary weather maps), but it is possibly the only way to represent the cumulative influence of living organisms on soil formation.</p>
 <p><span class="citation">Behrens et al. (<a href="references.html#ref-Behrens2018128">2018</a>)</span> have recently discovered that, for example, DEM derivatives correlate derived at coarser scales correlate more with some targeted soil properties than the derivatives derived as fine scales; in this case, scale was represented through various DEM aggregation levels and filter sizes. Some physical and chemical processes of soil formation or vegetation distribution might not be visible at finer aggregation levels, but then become very visible at coarser aggregation levels. In fact, it seems that spatial dependencies and interactions of the covariates can be explained simply by aggregating DEM and the derivatives.</p>
 </div>
 </div>
@@ -366,19 +366,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3><span class="header-section-number">4.2.1</span> Converting polygon maps to rasters</h3>
 <p>Before we can attach a polygon map to other stacks of covariates, this needs to be rasterized i.e. converted to a raster layer defined with its bounding box (extent) and spatial resolution. Consider for example the <a href="http://plotkml.r-forge.r-project.org/eberg.html">Ebergötzen data set</a> polygon map from the plotKML package (Fig. <a href="soil-covs-chapter.html#fig:eberg-zones-spplot">4.1</a>):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rgdal)
-<span class="co">#&gt; Loading required package: sp</span>
-<span class="co">#&gt; rgdal: version: 1.2-16, (SVN revision 701)</span>
-<span class="co">#&gt;  Geospatial Data Abstraction Library extensions to R successfully loaded</span>
-<span class="co">#&gt;  Loaded GDAL runtime: GDAL 2.2.2, released 2017/09/15</span>
-<span class="co">#&gt;  Path to GDAL shared files: /usr/share/gdal/2.2</span>
-<span class="co">#&gt;  GDAL binary built with GEOS: TRUE </span>
-<span class="co">#&gt;  Loaded PROJ.4 runtime: Rel. 4.9.2, 08 September 2015, [PJ_VERSION: 492]</span>
-<span class="co">#&gt;  Path to PROJ.4 shared files: (autodetected)</span>
-<span class="co">#&gt;  Linking to sp version: 1.2-5</span>
 <span class="kw">library</span>(raster)
 <span class="kw">library</span>(plotKML)
-<span class="co">#&gt; plotKML version 0.5-9 (2017-05-15)</span>
-<span class="co">#&gt; URL: http://plotkml.r-forge.r-project.org/</span>
 <span class="kw">data</span>(eberg_zones)
 <span class="kw">spplot</span>(eberg_zones[<span class="dv">1</span>])</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:eberg-zones-spplot"></span>
@@ -734,7 +723,7 @@ gitbook.start({
 "link": "https://github.com/envirometrix/PredictiveSoilMapping/edit/master/Soil_covariates.Rmd",
 "text": "Edit"
 },
-"download": null,
+"download": ["_main.pdf"],
 "toc": {
 "collapse": "section"
 }

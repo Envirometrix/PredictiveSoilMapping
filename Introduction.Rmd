@@ -36,7 +36,7 @@ defined by the presence of hard rock or the lower limit of biologic
 activity [@richter1995deep; @SSDS1993]. Although soils profiles up to tens
 of meters depths can be found in some tropical areas [@richter1995deep], for
 soil classification and mapping purposes, the lower limit soil is
-arbitrarily set to 2m (http://soils.usda.gov/education/facts/soil.html). Soils are rarely described to depths beyond 2m and
+arbitrarily set to 2 m (http://soils.usda.gov/education/facts/soil.html). Soils are rarely described to depths beyond 2 m and
 many soil sampling projects put exponentially more focus on the upper
 depths.
 
@@ -236,8 +236,8 @@ They are meant to help answer the questions *“what is here”* and *“where i
 
 Any map is an abstraction and generalization of reality. The only
 perfect one-to-one representation of reality is reality itself. To fully
-describe reality one would need a model at 1:1 scale at which 1$m^2$ of reality
-was represented by 1$m^2$ of the model. Since this is not feasible, we condense
+describe reality one would need a model at 1:1 scale at which 1 m$^2$ of reality
+was represented by 1 m$^2$ of the model. Since this is not feasible, we condense
 and abstract reality in such a way that we hope to describe the major
 differences in true space at a much reduced scale in model (map) space.
 When this is done for soil maps, it needs to be understood that the map
@@ -384,6 +384,23 @@ where $S$ stands for soil (properties and classes), $cl$ for climate,
 $o$ for organisms (including humans), $r$ is relief, $p$ is parent
 material or geology and $t$ is time. The Eq. \@ref(eq:clorpt) is the
 CLORPT model originally presented by Jenny [-@jenny1994factors].
+
+@MCBRATNEY20033 have further conceptualized the so-called
+*“scorpan”* model in which soil property is modeled as a function of:
+
+-   (auxiliary) **s**oil properties,
+
+-   **c**limate,
+
+-   **o**organisms, vegetation or fauna or human activity,
+
+-   **r**elief,
+
+-   **p**arent material,
+
+-   **a**ge i.e. the time factor,
+
+-   **n** space, spatial position,
 
 The pedometric models are quantitative in that they capture
 relationships between observed soils, or soil properties, and
@@ -656,7 +673,7 @@ a *soil map* produced for African continent [@Hengl2015AfSoilGrids250m]:
 -   *prediction method*: 3D regression-kriging;
 
 -   *prediction depths*: 6 standard layers (0–5, 5–15, 15–30, 30–60,
-    60–100, 100–200 cm);
+    60–100, 100–200 cm);
 
 -   *temporal domain (period)*: 1950–2005;
 
@@ -1039,12 +1056,12 @@ either or both.
 
 The object of observation and description of a soil is almost always a
 soil profile or *pedon*. Officially, a soil pedon is defined as a body
-of soil having a limited horizonal extent of no more than 1–2m in
+of soil having a limited horizonal extent of no more than 1–2 m in
 horizontal and a vertical dimension ($d$) that typically extends to only
-1–2m but may occasionally extend to greater depths. In practice, the vast
+1–2 m but may occasionally extend to greater depths. In practice, the vast
 majority of soil profile data pertain to soil observations and samples
-collected over very limited horizontal dimensions (10–50cm) and down to
-depths of maximum 1–2m.
+collected over very limited horizontal dimensions (10–50 cm) and down to
+depths of maximum 1–2 m.
 
 In geostatistical terms, soil observations more commonly collected at
 point support, meaning that they are representative of a point in space
@@ -1053,7 +1070,7 @@ legacy soil profile data collected over larger horizontal extents and
 bulked to create a sample representative of a larger volume of soil that
 can be treated as providing block support for statistical purposes. On
 the other hand, there is an increasing interest in soil predictions at
-varying support sizes e.g. 1ha for which composite sampling can be used.
+varying support sizes e.g. 1 ha for which composite sampling can be used.
 
 In the vertical dimension, soil profiles are usually described and
 sampled with respect to *genetic soil horizons*, which are identifiable
@@ -1073,7 +1090,7 @@ sampling support size (volume of soil body).
 Soil profile descriptions in the vertical dimension are usually
 accompanied by additional soil site descriptions that describe
 attributes of the site in the horizontal dimension for distances of a
-few meters to up 10m to surrounding the location where the vertical profile
+few meters to up 10 m to surrounding the location where the vertical profile
 was sampled and described. Site attributes described typically
 characterize the immediately surrounding landscape, including slope
 gradient, aspect, slope position, surface shape, drainage condition,
@@ -1167,8 +1184,8 @@ sampling points were obtained and described in terms of estimated
 distances and directions from some known local reference point
 (Fig. \@ref(fig:gps-evolution)). Even the best located of such older
 (prior to 1990’s) sampling points cannot be expected to be located with
-an accuracy of better than 50–100m. Some widely used profile data from
-developing countries cannot be reliably located to within 1km [@Leenaars2012].
+an accuracy of better than 50–100 m. Some widely used profile data from
+developing countries cannot be reliably located to within 1 km [@Leenaars2012].
 
 ```{r gps-evolution, echo=FALSE, fig.cap="Evolution of the Open Access Navigation and positioning technologies (left) and the open access remote sensing monitoring systems (right). API — Aerial photo-interpretation; S.A. --- Selective Availability; L.R.S.P.A. — Land Remote Sensing Policy Act (made Landsat digital data and images available at the lowest possible cost).", out.width="100%"}
 knitr::include_graphics("figures/Fig_GPS_evolution.png")
@@ -1183,8 +1200,8 @@ over short horizontal distances. Consider, for example, topography, in
 which the largest portion of significant variation is often local and is
 related to individual hill slopes from ridge line to channel. Many hill
 slopes, especially in agricultural landscapes, have total lengths of
-from 50–100m. If the location of a point soil profile is only known
-with an accuracy of 100m, then, when overlaid on topographic data, that
+from 50–100 m. If the location of a point soil profile is only known
+with an accuracy of 100 m, then, when overlaid on topographic data, that
 point may fall at almost any point on a typical hill slope from channel
 bottom to ridge top.
 
@@ -1193,7 +1210,7 @@ relationship between soil properties and slope position will reveal
 anything meaningful. Even if a strong relationship does exist in
 reality, it will not be apparent in the poorly geo-referenced data. The
 likelihood of establishing a meaningful relationship becomes even
-smaller when the accuracy of the point location is ±1km. In such cases,
+smaller when the accuracy of the point location is ±1 km. In such cases,
 subjective information on the conceptual location of the soil in the
 landscape (e.g. manually observed slope position) may be more useful for
 establishing rules and patterns than intersection of the actual point
@@ -2195,7 +2212,7 @@ Even small errors can compound and propagate to much larger errors, so
 that predictions can exceed realistic limits. In some cases, even though
 we spend significant amounts of money to collect field data, we can
 still produce statistically insignificant predictions. For example,
-imagine if the location accuracy for soil profiles is ±5km or poorer.
+imagine if the location accuracy for soil profiles is ±5 km or poorer.
 Even if all other data collection techniques are highly accurate, the
 end result of mapping will be relatively poor because we are simply not
 able to match the environmental conditions with the actual soil
@@ -2228,13 +2245,13 @@ knitr::include_graphics("figures/Fig_Lagacherie1992.png")
 Soil mapping is not a trivial task. Validation results for soil maps can
 often be discouraging. @Kempen2011Geoderma for example use the highest
 quality soil (17 complete profiles per square-km) and auxiliary data (high
-quantity of 25m resolution maps) to map the distribution of soil organic
+quantity of 25 m resolution maps) to map the distribution of soil organic
 matter in a province of the Netherlands. The validation results showed
 that, even with such high quality and density of input data and
 extensive modeling, they were able to explain only an average of 50% of the
 variability in soil organic carbon (at 3D prediction locations). This
 means that commonly, at the site level, we might encounter a significant
-short-range variability, which is unmappable at 100m resolution, that we will
+short-range variability, which is unmappable at 100 m resolution, that we will
 not be able to model even with the most sophisticated methods.
 
 ```{r sigma-rmse-relationship, echo=FALSE, fig.cap="Relationship between the numeric resolution (visualized using a histogram plot on the left) and amount of variation explained by the model for soil pH.", out.width="100%"}

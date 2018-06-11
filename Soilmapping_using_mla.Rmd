@@ -748,7 +748,7 @@ meuse.grid$zinc_UK = zinc.uk$predict
 knitr::include_graphics("figures/Fig_RF_covs_bufferdist_zinc_meuse.png")
 ```
 
-again, overall predictions (spatial patterns) look fairly similar (Fig.\@ref(fig:RF-covs-bufferdist-zinc-meuse)). 
+again, overall predictions (spatial patterns) look fairly similar (Fig. \@ref(fig:RF-covs-bufferdist-zinc-meuse)). 
 The difference between using geoR and RFsp is that, in the case of RFsp there are less choices 
 and less assumptions to be made. Also, RFsp allows that relationship with covariates 
 and geographical distances is fitted all at once. This makes RFsp in general less 
@@ -892,7 +892,7 @@ Also combining MLA's into ensemble predictions might not be beneficial at all.
 Less is better sometimes.
 
 The RFsp method seems to be suitable for generating spatial and spatiotemporal predictions. 
-Computing time, however, can be a cumbersome and working with data sets with $\gg 1000$ 
+Computing time, however, can be a cumbersome and working with data sets with >1000 
 point locations (hence 1000+ buffer distance maps) is problably not yet recommended. 
 Also cross-validation of accuracy of predictions produced using RFsp needs to be 
 implemented using leave-location-out CV to account for spatial autocorrelation in data. 

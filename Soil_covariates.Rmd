@@ -91,7 +91,7 @@ soil mapping for areas with dynamic vegetation, i.e. with strong
 seasonal changes in vegetation cover. To account for seasonal
 fluctuation and for inter-annual variations in surface reflectance, 
 long-term temporal signatures of the soil surface derived
-as monthly averages from long-term MODIS imagery (15 years of data) 
+as monthly averages from long-term MODIS imagery (15 years of data) 
 can be used [@Hengl2017SoilGrids250m]. 
 Long-term average seasonal signatures of surface reflectance or vegetation 
 index provide a better indication of soil characteristics than only a single snapshot of

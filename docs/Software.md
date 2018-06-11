@@ -8,10 +8,14 @@ This section contains instruction on how to install and use software to run pred
 
 ## List of software in use
 
-<div class="figure" style="text-align: center">
-<img src="figures/software_triangle.png" alt="Software combination used in this book." width="60%" />
-<p class="caption">(\#fig:software-triangle)Software combination used in this book.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics[width=0.6\linewidth]{figures/software_triangle} 
+
+}
+
+\caption{Software combination used in this book.}(\#fig:software-triangle)
+\end{figure}
 
 For processing the covariates we used a combination of Open Source GIS
 software, primarily SAGA GIS [@gmd-8-1991-2015], packages raster [@raster],
@@ -84,10 +88,10 @@ sessionInfo()
 #> 
 #> loaded via a namespace (and not attached):
 #>  [1] Rcpp_0.12.14     knitr_1.18       magrittr_1.5     munsell_0.4.3   
-#>  [5] colorspace_1.3-2 rlang_0.1.6      stringr_1.2.0    highr_0.6       
-#>  [9] plyr_1.8.4       tools_3.4.3      grid_3.4.3       gtable_0.2.0    
+#>  [5] colorspace_1.3-2 rlang_0.1.6      stringr_1.2.0    plyr_1.8.4      
+#>  [9] tools_3.4.3      grid_3.4.3       gtable_0.2.0     xfun_0.1        
 #> [13] htmltools_0.3.6  yaml_2.1.16      lazyeval_0.2.1   rprojroot_1.3-1 
-#> [17] digest_0.6.13    tibble_1.4.1     bookdown_0.5     ggplot2_2.2.1   
+#> [17] digest_0.6.13    tibble_1.4.1     bookdown_0.7.12  ggplot2_2.2.1   
 #> [21] codetools_0.2-15 evaluate_0.10.1  rmarkdown_1.8    stringi_1.1.6   
 #> [25] compiler_3.4.3   pillar_1.0.1     scales_0.5.0     backports_1.1.2
 system("gdalinfo --version")
@@ -160,10 +164,14 @@ sudo apt-get install pigz zip unzip p7zip-full
 
 RStudio is, in principle, the main R scripting environment and can be used to control all other software used in the course. A more detailed RStudio tutorial is available at: [RStudio — Online Learning](http://www.rstudio.com/resources/training/online-learning/). Consider also following some spatial data tutorials e.g. by James Cheshire (http://spatial.ly/r/). Below is an example of RStudio session with R editor on right and R console on left.
 
-<div class="figure" style="text-align: center">
-<img src="figures/rstudio_example.png" alt="RStudio is a commonly used R editor written in C++." width="100%" />
-<p class="caption">(\#fig:rstudio-example)RStudio is a commonly used R editor written in C++.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics[width=1\linewidth]{figures/rstudio_example} 
+
+}
+
+\caption{RStudio is a commonly used R editor written in C++.}(\#fig:rstudio-example)
+\end{figure}
 
 To install all required R packages used in some script at once, you can use:
 
@@ -254,7 +262,7 @@ om.rk <- predict(omm, meuse.grid)
 #> Prediction error for 'randomForest' model estimated using the 'quantreg' package.
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
-#> 100% done
+#>  11% done100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
 om.rk
@@ -278,10 +286,14 @@ om.rk
 #plotKML(om.rk)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="figures/ge_preview.jpg" alt="Example of plotKML output." width="90%" />
-<p class="caption">(\#fig:ge-preview)Example of plotKML output.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics[width=0.9\linewidth]{figures/ge_preview} 
+
+}
+
+\caption{Example of plotKML output.}(\#fig:ge-preview)
+\end{figure}
 
 ## Connecting R and SAGA GIS
 
@@ -330,10 +342,14 @@ system(paste(saga_cmd, 'ta_lighting 0 -ELEVATION "./extdata/DEMSRT6.sgrd"
              -SHADE "./extdata/hillshade.sgrd" -EXAGGERATION 2'))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="figures/rstudio_saga_gis.png" alt="Deriving hillshading using SAGA GIS and then visualizing the result in R." width="100%" />
-<p class="caption">(\#fig:rstudio-saga-gis)Deriving hillshading using SAGA GIS and then visualizing the result in R.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics[width=1\linewidth]{figures/rstudio_saga_gis} 
+
+}
+
+\caption{Deriving hillshading using SAGA GIS and then visualizing the result in R.}(\#fig:rstudio-saga-gis)
+\end{figure}
 
 ## Connecting R and GDAL
 
@@ -361,7 +377,11 @@ library(raster)
 plot(raster("./extdata/DEMSRT6_ll.tif"))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="Software_files/figure-html/plot-eberg-ll-1.png" alt="Ebergotzen DEM reprojected in geographical coordinates." width="672" />
-<p class="caption">(\#fig:plot-eberg-ll)Ebergotzen DEM reprojected in geographical coordinates.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics{Software_files/figure-latex/plot-eberg-ll-1} 
+
+}
+
+\caption{Ebergotzen DEM reprojected in geographical coordinates.}(\#fig:plot-eberg-ll)
+\end{figure}
