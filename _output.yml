@@ -13,9 +13,12 @@ bookdown::gitbook:
       text: "Edit"
   includes:
     in_header: ga.html
+    after_body: disqus.html
 bookdown::html_chapters:
   css: [css/style.css, css/toc.css]
   split_bib: no
+  includes:
+    after_body: disqus.html
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex

@@ -5,7 +5,7 @@
 ## Introduction
 
 This chapter presents a description and discussion of soils and
-conventional soil inventories framed within the context of Predictive Soil Mapping [@Scul01]. Soils,
+conventional soil inventories framed within the context of Predictive Soil Mapping (PSM). Soils,
 their associated properties, and their spatial distribution are the
 central focus of the PSM. We discuss how the products and
 methods associated with conventional soil mapping relate to new, and

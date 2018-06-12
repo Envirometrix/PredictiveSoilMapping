@@ -1,5 +1,4 @@
 
-
 # Software installation and first steps {#software}
 
 *Edited by: T. Hengl*

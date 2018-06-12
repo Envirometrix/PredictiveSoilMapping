@@ -1,5 +1,4 @@
 
-
 # Preparation of soil covariates for soil mapping {#soil-covs-chapter}
 
 *Edited by: T. Hengl*
