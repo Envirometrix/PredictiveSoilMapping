@@ -130,9 +130,9 @@ form of maps. Soil variables can be roughly grouped into:
     qualitative soil attributes or objects ($y \in [0,1]$);
 
 5.  *categories* (i.e. factors) such as soil classes
-    ($z \in [a,b,\ldots,x]$);
+    ($y \in [a,b,\ldots,x]$);
     
-6.  *probabilities* e.g. probabilities of occurrence of some class or object ($p_y \in [0 \rightarrow 1]$).
+6.  *probabilities* e.g. probabilities of occurrence of some class or object ($p(y) \in [0 \rightarrow 1]$).
     
 7.  *censored values* e.g. depth to bedrock which is often observed only up to 2 m.
 
@@ -158,7 +158,7 @@ qualitative attributes or objects, and/or soil categories.
 
 ### Primary and secondary soil variables
 
-Soil properties can be *primary* or *inferred* (see further section \@ref(soil-variables)).
+Soil properties can be *primary* or *inferred* (see further section \@ref(soil-variables-chapter)).
 Primary properties are properties that can be measured directly in the
 field or in the laboratory. Inferred properties are properties that
 cannot be measured directly (or are difficult or too expensive to

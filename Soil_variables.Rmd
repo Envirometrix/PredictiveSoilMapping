@@ -1,4 +1,4 @@
-# Soil observations and variables {#soil-variables}
+# Soil observations and variables {#soil-variables-chapter}
 
 *Edited by: Hengl T., MacMillan R.A. and Leenaars J.G.B.*
 
@@ -9,11 +9,13 @@ mapping. The purpose of this chapter is to serve as a reference to other
 chapters where the focus is put on generating soil maps, interpreting
 accuracy results and similar.
 
-The R tutorial on the end of this chaper reviews soil data classes and 
+The R tutorial on the end of the chaper reviews soil data classes and 
 functions for R: how to organize and reformat soil data in R for spatial analysis, 
 how to import soil data to R, how to export data and plot it in Google Earth. 
 To learn more about the Global Soil Information Facilities (GSIF) package, 
 visit the main [documentation page](http://gsif.r-forge.r-project.org/00Index.html).
+
+## Basic concepts
 
 ### Types of soil observations
 
@@ -51,6 +53,7 @@ Fig. \@ref(fig:soil-vars)):
 knitr::include_graphics("figures/Fig_types_observations.png")
 ```
 
+```{block, type="rmdnote"}
 Soil can be assessed quantitatively based on direct or indirect
 measurements using analytical techniques (in a laboratory or in the
 field) and qualitatively or descriptively based on observations in the
@@ -58,6 +61,7 @@ field and following some soil description guidelines. Examples of
 subjective observations are: diagnostic soil materials and horizons,
 soil classes, Munsell color classes, manual texture assessment
 (texture-by-hand), structure, compaction, root abundance and similar.
+```
 
 Field campaigns are the most costly part of soil surveys. Large numbers
 of soil observations are made in the field to assess the spatial
@@ -76,7 +80,7 @@ separately, as given by numerous national and international manuals and
 guidelines for analytical procedures and soil description: e.g. in
 @Burt2004SSIR [@carter2007soil; @food2006guidelines], and/or
 @VanReeuwijk2002. Also in this chapter we make a distinction between the
-*‘target’* (i.e. targeted soil properties) and *‘paths’* i.e.
+*‘target variable’* (i.e. target soil properties) and *‘paths’* i.e.
 determination methods.
 
 Soil analytical data obtained in a laboratory are typically an order of
@@ -443,7 +447,7 @@ In-field expert interpretation explicitly summarising observations into
 a single expression for rooting depth is likely the most effective and
 reliable source of information. The genetically determined maximum
 rooting depth of vegetation isn’t always a reliable indicator of actual
-observed effective rooting depth of a given soil at a given site.
+observed effective rooting depth of a given soil at a given site (Fig. \@ref(fig:lri-scheme)).
 Possibly a more robust way to determine the effective rooting depth is
 to map all limiting soil properties with high accuracy, and then derive
 rooting index per layer.
@@ -454,7 +458,7 @@ knitr::include_graphics("figures/Fig_LRI_scheme.png")
 
 By using the package, one can determine Limiting Rooting Index, which
 can be a good indicator of the effective rooting depth. Consider the
-following soil profile from Nigeria [@leenaars2012africa]:
+following soil profile from Nigeria [@Leenaars2012]:
 
 ```{r}
 ## sample profile from Nigeria (ISRIC:NG0017):
@@ -764,7 +768,7 @@ common subdivision of soil granulometry is [@Shirazi2001SSSAJ]:
 
     1.  gravel (2 mm to 8 cm)
 
-    2.  stones or boulders ($>8$ cm)
+    2.  stones or boulders (>8 cm)
 
 Coarse fragments occupy volume in the soil matrix reducing water and
 nutrient availability as well as influencing rooting depth and
@@ -812,7 +816,7 @@ density, total volume and volume of the fine earth fraction alone.
 The possible nature (and size) of coarse fragments is highly variable
 (quartz, carbonate, iron, basalt) with thus variable manageability and
 variable characteristics as breakability, solubility, bulk density, etc.
-Where the coarse fragment content is dominant ($>80\%$), approaching 100%,
+Where the coarse fragment content is dominant (>80%), approaching 100%,
 rootability is near nil which is determinant for the rooting or
 effective soil depth and generally also for depth to bedrock. An
 estimated global distribution of coarse fragments and soil textures is
@@ -1193,7 +1197,7 @@ vegetative land cover.
 The water available for root uptake also depends on the pressure head
 that the vegetative land cover can generate or bridge between the
 pressure in the atmosphere and the pressure in the soil matrix. E.g.
-cotton can still extract water at (pF 4.4) while pepper wilts at (pF
+cotton can still extract water at -2500 kPa (pF 4.4) while pepper wilts at -350 kPa (pF
 3.5). The ability of a soil to accept and store water has implications
 beyond simply the capacity to support plant growth. It also affects how
 a soil responds to hydrological events such as rainfall, snowmelt and
@@ -1373,6 +1377,9 @@ size distribution, field texture and bulk density inputs as follows:
 A =& 1.996 + 0.136 \cdot \ln({\mathtt{clay}}) - 0.00007 \cdot {\mathtt{fsand}} + \\
   & + 0.145\cdot \ln({\mathtt{silt}}) + 0.382 \cdot \ln({\mathtt{TEXMHT}})
 \end{split}
+\end{equation}
+
+\begin{equation}
 B = -0.192 + 0.0946\cdot \ln({\mathtt{TEXMHT}}) - 0.00151\cdot \mathtt{fsand}
 \end{equation}
 

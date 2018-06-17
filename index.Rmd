@@ -133,7 +133,7 @@ To build the book locally, clone or [download](https://github.com/envirometrix/P
 
 ```{r, eval=FALSE}
 bookdown::render_book("index.Rmd") # to build the book
-browseURL("_book/index.html") # to view it
+browseURL("docs/index.html") # to view it
 ```
 
 ## Acknowledgements {-}
