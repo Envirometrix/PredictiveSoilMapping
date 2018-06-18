@@ -1646,7 +1646,7 @@ extract(om.rksim.p@realizations, meuse[1,])
 
 which shows the difference between sampled value (2.681022), predicted
 value (2.677931) and simulated values for about the same location i.e. a
-PDF (see also histograms in Fig. \@ref(fig:hist-om-predicted-vs-simulated)). 
+PDF (see also histograms in Fig. \@ref(fig:hist-om-predicted-simulated)). 
 If we average the 20 simulations we obtain an alternative estimate of the mean:
 
 ```{r}
