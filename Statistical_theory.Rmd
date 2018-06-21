@@ -573,7 +573,7 @@ locations, then there is no need to sample the soil again at additional,
 similar, locations and, consequently, soil survey field costs can be
 reduced. This sounds like an attractive approach because one can
 minimize the survey costs by focusing on delineating the distribution of
-soil series only. The problem is that there are $>$15,000 soil series in the
+soil series only. The problem is that there are >15,000 soil series in the
 USA [@Smith1986SMSS], which obviously means that it is not easy to
 recognize the same soil series just by doing rapid field observations.
 In addition, the accuracy with which one can recognize a soil series may
@@ -782,7 +782,8 @@ In the simplest case it would be a constant but usually it is taken as
 some function of known, exhaustively available covariates. This is where
 soil mapping can benefit from other sources of information and can
 implement Jenny’s *State Factor Model of soil formation*
-[@Jenny1968; @jenny1994factors; @Heuvelink2001Geoderma; @McBratney2011HSS].
+[@Jenny1968; @jenny1994factors; @Heuvelink2001Geoderma; @McBratney2011HSS], 
+which is already known from the time of Dokuchaev [@Florinsky2012Dokuchaev].
 The covariates are often maps of environmental properties that are known
 to be related to the soil property of interest (e.g. elevation, land
 cover, geology) but could also be the outcome of a mechanistic soil
@@ -854,7 +855,7 @@ reprint from that book is also available). @McBratney2003Geoderma
 further formulated an extension of the CLORPT model 
 known as the *“SCORPAN”* model.
 
-The CLORPT model may be written as:
+The CLORPT model may be written as [@jenny1994factors; @Florinsky2012Dokuchaev]:
 
 \begin{equation}
 S = f (cl, o, r, p, t)
@@ -1807,7 +1808,7 @@ Application of 3D kriging to soil measurements is cumbersome for several
 reasons:
 
 1.  The differences between sampling intervals and spatial correlation
-    in the horizontal and vertical dimensions are very large ($<10$ in the
+    in the horizontal and vertical dimensions are very large (<10 in the
     vertical v.s. 100’s to 1000’s of in the horizontal). The resulting
     strong anisotropy must be accounted for when the geostatisitcal
     model is derived. Estimation of the anisotropy may be hampered by
@@ -1846,7 +1847,7 @@ dimensions.
 knitr::include_graphics("figures/Fig_voxel_scheme.png")
 ```
 
-The fact that there are almost always $<10$ soil observations over the
+The fact that there are almost always <10 soil observations over the
 total depth of a soil profile, so that the estimates of the range in the
 vertical dimension will be relatively poor, is something that cannot be
 improved. The fact that soil samples taken by horizon refer to block
@@ -2238,7 +2239,7 @@ appears that the error estimated by the model is often different from
 the actual regression-kriging variance: in this case the estimated
 values are often lower than actual measured values (under-estimation),
 so that the whole histogram shifts toward 0 value. Because variance of the 
-$z$-scores is $<1$: 
+$z$-scores is <1: 
 
 ```{r}
 var(om.rk.cv$zscore, na.rm=TRUE)
@@ -2489,7 +2490,7 @@ benefits: accurate soil information is a key to good decision making,
 increased crop and livestock production, it helps reducing investments
 risk and planning environmental conservation.
 
-This model typically explains $>75$% of the survey costs
+This model typically explains >75% of the survey costs
 [@Burrough1971]. Further more, for the given target scale, *standard soil survey costs* 
 can be commonly expressed as:
 

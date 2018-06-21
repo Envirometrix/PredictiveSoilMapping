@@ -6,3 +6,4 @@ sp
 rgdal
 raster
 plotKML
+bindrcpp

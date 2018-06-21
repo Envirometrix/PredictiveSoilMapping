@@ -7,7 +7,7 @@
 
 ### Soil covariate data sources (30–100 m resolution) {#soil-covs-30m}
 
-Adding relevant covariates that can explain distribution of soil properties increases accuracy of spatial predictions. Hence prior to generating predictions of soil properties, it is a good idea to invest into preparing a list of Remote Sensing (RS), geomorphological/lithologic and DEM-based covariates that could potentially help explain spatial distribution of OCS. Since 2016, there are many high resolution (30–250 m) covariates with global coverage, and that are publicly available without restrictions. Both spatial detail, accessibility and accuracy of RS-based products has been growing exponentially and there is now evidence that that trend is going to slow down in the coming decades [@Herold2016]. 
+Adding relevant covariates that can explain distribution of soil properties increases accuracy of spatial predictions. Hence prior to generating predictions of soil properties, it is a good idea to invest into preparing a list of Remote Sensing (RS), geomorphological/lithologic and DEM-based covariates that could potentially help explain spatial distribution of soil properties and classes. There are now many high resolution (30–250 m) covariates with global coverage, and that are publicly available without restrictions. Both spatial detail, accessibility and accuracy of RS-based products has been growing exponentially and there is now evidence that that trend is going to slow down in the coming decades [@Herold2016]. 
 
 The most relevant publicly available remote sensing-based covariates that can be downloaded and used to improve predictive soil mapping at high spatial resolutions are, for example:
 
@@ -391,6 +391,34 @@ plot(stack(dem.lst), col=SAGA_pal[[1]])
 </div>
 
 This function can now be used with any DEM to derive the standard 7-8 DEM parameters such as slope and curvature, TWI and MrVBF, positive and negative openess, valley depth and deviation from mean value. You could easily add more parameters to this function and then test if some of the other DEM derivatives can help improve mapping soil properties and classes. Note that SAGA GIS will by default optimize computing of DEM derivatives by using most of available cores to compute (parallelization is turned on automatically).
+
+### Deriving DEM parameters using LITAP
+
+To derive unique hydrological parameters that can potentially help soil mapping we can also use the LITAP (Landscape Integrated Terrain Analysis Package) package originally implemented as FlowMapR program [@macmillan2003landmapr], and compiled for R users by Stefanie LaZerte and Li Sheng from the Agriculture and Agri-Food Canada. We can install this package from github by using:
+
+
+```r
+if(!require("LITAP")){ devtools::install_github("steffilazerte/LITAP") }
+```
+
+A suite of hydrological flow DEM derivatives can be derived by using the generic command:
+
+
+```r
+library(LITAP)
+library(rgdal)
+writeGDAL(eberg_grid["DEMSRT6"], "extdata/DEMSRT6.tif", type="Int16", mvFlag=-32768)
+LITAP::complete_run(file = "extdata/DEMSRT6.tif", folder_out = "extdata/", report = FALSE)
+```
+
+This will derive number of hydrological parameters that are maybe not available in other packages and that can be used to quantify soil deposition / accumulation processes. To plot for example watersheds by flow paths we can run:
+
+<div class="figure" style="text-align: center">
+<img src="Soil_covariates_files/figure-html/watersheds-by-flow-paths-1.png" alt="Watersheds by flow paths dervied using the [LITAP](https://steffilazerte.github.io/LITAP/) package." width="768" />
+<p class="caption">(\#fig:watersheds-by-flow-paths)Watersheds by flow paths dervied using the [LITAP](https://steffilazerte.github.io/LITAP/) package.</p>
+</div>
+
+Which shows all watersheds and individual streams derived using the filled DEM (after pit removal).
 
 ### Filtering out missing pixels and artifacts
 
