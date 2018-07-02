@@ -1777,7 +1777,7 @@ bwplot(resamps, layout = c(2, 1), metric=c("RMSE","Rsquared"),
        fill="grey", scales = list(relation = "free"))
 ```
 
-In the case above, it seems that random forest ([ranger package](https///github.com/imbs-hl/ranger)) helps decrease mean RMSE of predicting organic matter for about 32%: 
+In the case above, it seems that random forest ([ranger package](https://github.com/imbs-hl/ranger)) helps decrease mean RMSE of predicting organic matter for about 32%: 
 
 ```{r}
 round((1-min(mFit3$results$RMSE)/min(mFit0$results$RMSE))*100)
@@ -2570,7 +2570,7 @@ in target soil variables for a given area of interest.
 knitr::include_graphics("figures/Fig_costs_RMSE_scheme.png")
 ```
 
-Even more universal measure of mapping efficiency is the Information Production Efficiency (IPE) [@@Hengl2013JAG]:
+Even more universal measure of mapping efficiency is the Information Production Efficiency (IPE) [@Hengl2013JAG]:
 
 \begin{equation}
 \Upsilon = \frac{{\rm X}}{{\rm gzip}} \qquad [{\rm EUR} \; {\rm B}^{-1}]

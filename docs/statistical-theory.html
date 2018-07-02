@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl">
 
 
-<meta name="date" content="2018-06-21">
+<meta name="date" content="2018-07-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -1301,7 +1301,7 @@ mFit3 &lt;-<span class="st"> </span>caret<span class="op">::</span><span class="
 Figure 5.17: Comparison of spatial prediction accuracy (RMSE at cross-validation points) for simple averaging (Mean), GLM with only soil map as covariate (Soilmap), GLM and random forest (RF) models with all possible covariates. Error bars indicate range of RMSE values for repeated CV.
 </p>
 </div>
-<p>In the case above, it seems that random forest (<a href="https///github.com/imbs-hl/ranger">ranger package</a>) helps decrease mean RMSE of predicting organic matter for about 32%:</p>
+<p>In the case above, it seems that random forest (<a href="https://github.com/imbs-hl/ranger">ranger package</a>) helps decrease mean RMSE of predicting organic matter for about 32%:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>((<span class="dv">1</span><span class="op">-</span><span class="kw">min</span>(mFit3<span class="op">$</span>results<span class="op">$</span>RMSE)<span class="op">/</span><span class="kw">min</span>(mFit0<span class="op">$</span>results<span class="op">$</span>RMSE))<span class="op">*</span><span class="dv">100</span>)
 <span class="co">#&gt; [1] 31</span></code></pre></div>
 <p>There is certainly added value in using spatial covariates (in the case above: distance to water and flooding frequency maps) and in using machine learning for spatial prediction, even with smaller data sets.</p>
@@ -1686,7 +1686,7 @@ Figure 5.26: Some basic concepts of soil survey: (a) relationship between cartog
 Figure 5.27: General relationship between the sampling intensity (i.e. survey costs) and amount of variation in the target variable explained by a spatial prediction model. After <span class="citation">Hengl, Nikolić, and MacMillan (<a href="references.html#ref-Hengl2013JAG">2013</a>)</span>.
 </p>
 </div>
-<p>Even more universal measure of mapping efficiency is the Information Production Efficiency (IPE) <span class="citation">(@ Hengl, Nikolić, and MacMillan <a href="references.html#ref-Hengl2013JAG">2013</a>)</span>:</p>
+<p>Even more universal measure of mapping efficiency is the Information Production Efficiency (IPE) <span class="citation">(Hengl, Nikolić, and MacMillan <a href="references.html#ref-Hengl2013JAG">2013</a>)</span>:</p>
 <span class="math display" id="eq:data-efficiency">\[\begin{equation}
 \Upsilon = \frac{{\rm X}}{{\rm gzip}} \qquad [{\rm EUR} \; {\rm B}^{-1}]
 \tag{5.35}

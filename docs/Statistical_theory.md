@@ -2111,7 +2111,7 @@ bwplot(resamps, layout = c(2, 1), metric=c("RMSE","Rsquared"),
 <p class="caption">(\#fig:bwplot-meuse)Comparison of spatial prediction accuracy (RMSE at cross-validation points) for simple averaging (Mean), GLM with only soil map as covariate (Soilmap), GLM and random forest (RF) models with all possible covariates. Error bars indicate range of RMSE values for repeated CV.</p>
 </div>
 
-In the case above, it seems that random forest ([ranger package](https///github.com/imbs-hl/ranger)) helps decrease mean RMSE of predicting organic matter for about 32%: 
+In the case above, it seems that random forest ([ranger package](https://github.com/imbs-hl/ranger)) helps decrease mean RMSE of predicting organic matter for about 32%: 
 
 
 ```r
@@ -2964,7 +2964,7 @@ in target soil variables for a given area of interest.
 <p class="caption">(\#fig:costs-RMSE-scheme)General relationship between the sampling intensity (i.e. survey costs) and amount of variation in the target variable explained by a spatial prediction model. After @Hengl2013JAG.</p>
 </div>
 
-Even more universal measure of mapping efficiency is the Information Production Efficiency (IPE) [@@Hengl2013JAG]:
+Even more universal measure of mapping efficiency is the Information Production Efficiency (IPE) [@Hengl2013JAG]:
 
 \begin{equation}
 \Upsilon = \frac{{\rm X}}{{\rm gzip}} \qquad [{\rm EUR} \; {\rm B}^{-1}]

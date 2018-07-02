@@ -8,19 +8,21 @@
 
 Adding relevant covariates that can explain distribution of soil properties increases accuracy of spatial predictions. Hence prior to generating predictions of soil properties, it is a good idea to invest into preparing a list of Remote Sensing (RS), geomorphological/lithologic and DEM-based covariates that could potentially help explain spatial distribution of soil properties and classes. There are now many high resolution (30–250 m) covariates with global coverage, and that are publicly available without restrictions. Both spatial detail, accessibility and accuracy of RS-based products has been growing exponentially and there is now evidence that that trend is going to slow down in the coming decades [@Herold2016]. 
 
-The most relevant publicly available remote sensing-based covariates that can be downloaded and used to improve predictive soil mapping at high spatial resolutions are, for example:
+The most relevant (global publicly available remote sensing-based covariates that can be downloaded and used to improve predictive soil mapping at high spatial resolutions are, for example:
 
-*  [SRTM](https///lta.cr.usgs.gov/SRTM1Arc) and/or [ALOS W3D](http://www.eorc.jaxa.jp/ALOS/en/aw3d/index_e.htm) Digital Elevation Model (DEM) at 30 m and [MERIT DEM](http://hydro.iis.u-tokyo.ac.jp/~yamadai/MERIT_DEM/) at 100 m (these can be used to derive some 8–12 DEM derivatives from which some could be crucial for mapping of soil chemical and hydrological properties);
+*  [SRTM](https://lta.cr.usgs.gov/SRTM1Arc) and/or [ALOS W3D](http://www.eorc.jaxa.jp/ALOS/en/aw3d/index_e.htm) Digital Elevation Model (DEM) at 30 m and [MERIT DEM](http://hydro.iis.u-tokyo.ac.jp/~yamadai/MERIT_DEM/) at 100 m (these can be used to derive some 8–12 DEM derivatives from which some could be crucial for mapping of soil chemical and hydrological properties);
 
-*  Landsat 7, 8 satellite images, either available from USGS's [GloVis](http://glovis.usgs.gov/) / [EarthExplorer](http://earthexplorer.usgs.gov/), or from the [GlobalForestChange project](https///earthenginepartners.appspot.com/science-2013-global-forest/download_v1.2.html) repository [@hansen2013high];
+*  Landsat 7, 8 satellite images, either available from USGS's [GloVis](http://glovis.usgs.gov/) / [EarthExplorer](http://earthexplorer.usgs.gov/), or from the [GlobalForestChange project](https://earthenginepartners.appspot.com/science-2013-global-forest/download_v1.2.html) repository [@hansen2013high];
 
-*  [Landsat-based Global Surface Water (GSW) dynamics images](https///global-surface-water.appspot.com/download) at 30 m resolution for period 1985–2016 [@pekel2016high];
+*  [Landsat-based Global Surface Water (GSW) dynamics images](https://global-surface-water.appspot.com/download) at 30 m resolution for period 1985–2016 [@pekel2016high];
 
 *  Global Land Cover (GLC) maps based on the [GLC30 project](http://www.globallandcover.com) at 30 m resolution for 2000 and 2010 [@Chen2014] and similar land cover projects [@Herold2016];
 
-*  USGS's [global bare surface images](https///landcover.usgs.gov/glc/) at 30 m resolution;
+*  USGS's [global bare surface images](https://landcover.usgs.gov/glc/) at 30 m resolution;
 
-Note that the download time for 30 m global RS data could be significant if the data is needed for a larger area (hence you might consider using some RS data processing hub such as [Sentinel hub](http://www.sentinel-hub.com/), [Google Earth Engine](https///earthengine.google.com/) and/or [Amazon Web Services](https///aws.amazon.com/public-datasets/) instead of trying to download large mosaics yourself).
+*  [JAXA's ALOS](http://www.eorc.jaxa.jp/ALOS/en/dataset/dataset_index.htm) (PALSAR/PALSAR-2) radar images at 20 m resolution [@shimada2014new]; radar images, bands HH: -27.7 (5.3) dB and HV: -35.8 (3.0) dB, from the JAXA's ALOS project are especially interesting for mapping rock outcrops and exposed bedrock but also to distinguish between bare soil and dense vegation;
+
+Note that the download time for 30 m global RS data could be significant if the data is needed for a larger area (hence you might consider using some RS data processing hub such as [Sentinel hub](http://www.sentinel-hub.com/), [Google Earth Engine](https://earthengine.google.com/) and/or [Amazon Web Services](https://aws.amazon.com/public-datasets/) instead of trying to download large mosaics yourself). 
 
 ### Soil covariate data sources (250 m resolution or coarser) {#soil-covs-250m}
 
@@ -31,7 +33,7 @@ SoilGrids250m predictions, most of which were based on remote sensing data:
     Index of Valley Bottom Flatness (VBF), deviation from Mean Value,
     valley depth, negative and positive Topographic Openness and SAGA
     Wetness Index — all based on the global merge of SRTMGL3 DEM and
-    GMTED2010 @Danielson2011GMTED. All DEM derivatives were computed
+    GMTED2010 [@Danielson2011GMTED]. All DEM derivatives were computed
     using SAGA GIS [@gmd-8-1991-2015],
 
 -   Long-term averaged monthly mean and standard deviation of the MODIS
@@ -123,7 +125,7 @@ Before we are able to fit spatial prediction models and generate soil maps, a si
 
 *  Overlaying and subsetting raster stacks and points,
 
-The following examples should give you some ideas about how to program those steps using the shortest possible syntax running the fastest and most robust algorithms. Raster data can often be very large (e.g. millions of pixels) so processing large stacks of remote sensing scenes in R needs to be planned carefully. The complete R tutorial you can download from the **[github repository](https///github.com/envirometrix/PredictiveSoilMapping)**. Instructions on how to install and set-up all software used in this example you can find in the software installation chapter \@ref(software).
+The following examples should give you some ideas about how to program those steps using the shortest possible syntax running the fastest and most robust algorithms. Raster data can often be very large (e.g. millions of pixels) so processing large stacks of remote sensing scenes in R needs to be planned carefully. The complete R tutorial you can download from the **[github repository](https://github.com/envirometrix/PredictiveSoilMapping)**. Instructions on how to install and set-up all software used in this example you can find in the software installation chapter \@ref(software).
 
 ### Converting polygon maps to rasters
 
@@ -137,7 +139,7 @@ data(eberg_zones)
 spplot(eberg_zones[1])
 ```
 
-We can convert this object to a raster by using the [raster package](https///cran.r-project.org/web/packages/raster/). Note that before we can run the operation, we need to know the target grid system i.e. extent of the grid and spatial resolution. We can use this from an existing layer:
+We can convert this object to a raster by using the [raster package](https://cran.r-project.org/web/packages/raster/). Note that before we can run the operation, we need to know the target grid system i.e. extent of the grid and spatial resolution. We can use this from an existing layer:
 
 ```{r}
 library(plotKML)
@@ -148,7 +150,7 @@ r <- raster(eberg_grid25)
 r
 ```
 
-The `eberg_grids25` object is a `SpatialPixelsDataFrame`, which is a spatial gridded data structure of the [sp package](https///cran.r-project.org/web/packages/sp/) package. The raster package also offers data structures for spatial (gridded) data, and stores such data as `RasterLayer` class. Gridded data can be converted from class `SpatialPixelsDataFrame` to Raster layer with the [`raster`](http://www.rdocumentation.org/packages/raster/functions/raster) command. The 
+The `eberg_grids25` object is a `SpatialPixelsDataFrame`, which is a spatial gridded data structure of the [sp package](https://cran.r-project.org/web/packages/sp/) package. The raster package also offers data structures for spatial (gridded) data, and stores such data as `RasterLayer` class. Gridded data can be converted from class `SpatialPixelsDataFrame` to Raster layer with the [`raster`](http://www.rdocumentation.org/packages/raster/functions/raster) command. The 
 [`CRS`](http://www.inside-r.org/packages/cran/sp/docs/CRS) command of the sp package can be used to set a spatial projection. 
 [EPSG projection 31467](http://spatialreference.org/ref/epsg/31467/) is the German coordinate system (each coordinate system has an associated EPSG number that can be obtained from http://spatialreference.org/.
 
@@ -160,7 +162,7 @@ eberg_zones_r <- rasterize(eberg_zones, r, field="ZONES")
 plot(eberg_zones_r)
 ```
 
-Converting large polygons in R using the raster package could be very time-consuming, hence often a more efficient approach is to use SAGA GIS which can handle large data and is easy to run in parallel. First, you need to export the polygon map to shapefile format that can be done with commands of the [rgdal package](https///cran.r-project.org/web/packages/rgdal/) package:
+Converting large polygons in R using the raster package could be very time-consuming, hence often a more efficient approach is to use SAGA GIS which can handle large data and is easy to run in parallel. First, you need to export the polygon map to shapefile format that can be done with commands of the [rgdal package](https://cran.r-project.org/web/packages/rgdal/) package:
 
 ```{r}
 eberg_zones$ZONES_int <- as.integer(eberg_zones$ZONES)
@@ -366,10 +368,14 @@ A suite of hydrological flow DEM derivatives can be derived by using the generic
 library(LITAP)
 library(rgdal)
 writeGDAL(eberg_grid["DEMSRT6"], "extdata/DEMSRT6.tif", type="Int16", mvFlag=-32768)
-LITAP::complete_run(file = "extdata/DEMSRT6.tif", folder_out = "extdata/", report = FALSE)
+LITAP::complete_run(file = "extdata/DEMSRT6.tif", folder_out = "extdata/", 
+                    report = FALSE)
 ```
 
-This will derive number of hydrological parameters that are maybe not available in other packages and that can be used to quantify soil deposition / accumulation processes. To plot for example watersheds by flow paths we can run:
+which will fill in  derive number of hydrological parameters 
+and that are maybe not available in other packages and that can be used 
+to quantify soil deposition / accumulation processes. To plot for example 
+watersheds by flow paths we can run:
 
 ```{r watersheds-by-flow-paths, echo=FALSE, fig.width=8, fig.cap="Watersheds by flow paths dervied using the [LITAP](https://steffilazerte.github.io/LITAP/) package."}
 initial_dem <- readRDS(list.files("extdata/final", 
@@ -479,7 +485,7 @@ In similar way one could also make wrapper functions that downscale/upscale grid
 
 ### Working with large(r) rasters
 
-As R is often inefficient in handling large objects in memory (such as large raster images), a good strategy to run raster processing in R is to consider using for example the ```clusterR``` function from the [raster](https///cran.r-project.org/package=raster) package, which automatically parallelizes use of raster functions. To have full control over parallelization, you can alternatively tile large rasters using the ```getSpatialTiles``` function from the GSIF package and process them as separate objects in parallel. The following examples shows how to run a simple function in parallel on tiles and then mosaic those after all processing has been completed. Consider for example the GeoTiff from the rgdal package:
+As R is often inefficient in handling large objects in memory (such as large raster images), a good strategy to run raster processing in R is to consider using for example the ```clusterR``` function from the [raster](https://cran.r-project.org/package=raster) package, which automatically parallelizes use of raster functions. To have full control over parallelization, you can alternatively tile large rasters using the ```getSpatialTiles``` function from the GSIF package and process them as separate objects in parallel. The following examples shows how to run a simple function in parallel on tiles and then mosaic those after all processing has been completed. Consider for example the GeoTiff from the rgdal package:
 
 ```{r}
 fn = system.file("pictures/SP27GTIF.TIF", package = "rgdal")

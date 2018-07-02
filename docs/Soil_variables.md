@@ -2007,7 +2007,7 @@ grDevices::col2rgb("#003A7CFF")
 #> blue   124
 ```
 
-The hex triplet format is also very similar to the color format used in the [KML reference](https///developers.google.com/kml/documentation/kmlreference):
+The hex triplet format is also very similar to the color format used in the [KML reference](https://developers.google.com/kml/documentation/kmlreference):
 
 
 ```r
@@ -2195,7 +2195,7 @@ str(SPROPS.WISE)
 #>  $ SOURCEDB: chr  "WISE" "WISE" "WISE" "WISE" ...
 ```
 
-For model fitting we will use the [randomForestSRC](https///cran.r-project.org/package=randomForestSRC) package, which is a robust implementation of random forest algorithm with options for parallelization and visualization of model outputs:
+For model fitting we will use the [randomForestSRC](https://cran.r-project.org/package=randomForestSRC) package, which is a robust implementation of random forest algorithm with options for parallelization and visualization of model outputs:
 
 
 ```r

@@ -1797,7 +1797,7 @@ Now the colors are coded in the [hexadecimal format](http://en.wikipedia.org/wik
 grDevices::col2rgb("#003A7CFF")
 ```
 
-The hex triplet format is also very similar to the color format used in the [KML reference](https///developers.google.com/kml/documentation/kmlreference):
+The hex triplet format is also very similar to the color format used in the [KML reference](https://developers.google.com/kml/documentation/kmlreference):
 
 ```{r}
 plotKML::col2kml("#003A7CFF")
@@ -1901,7 +1901,7 @@ load("extdata/sprops.wise.rda")
 str(SPROPS.WISE)
 ```
 
-For model fitting we will use the [randomForestSRC](https///cran.r-project.org/package=randomForestSRC) package, which is a robust implementation of random forest algorithm with options for parallelization and visualization of model outputs:
+For model fitting we will use the [randomForestSRC](https://cran.r-project.org/package=randomForestSRC) package, which is a robust implementation of random forest algorithm with options for parallelization and visualization of model outputs:
 
 ```{r}
 bd.fm = as.formula("BLD ~ ORCDRC + PHIHOX + SNDPPT + CLYPPT + CRFVOL + DEPTH")

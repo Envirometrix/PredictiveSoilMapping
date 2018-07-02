@@ -1,33 +1,8 @@
 Run options:
   Dimensions: nrows = ; ncols = 
 
-Run started: 2018-06-21 10:06:56
+Run started: 2018-06-21 11:21:07
 
   Dimensions detected: nrows = 100; ncols = 100
 
-Started calculating directions at: 2018-06-21 10:06:57
-  Total time: 0.04
-
-Started calculating watersheds at: 2018-06-21 10:06:59
-  Total time: 0.07
-
-Started removing initial pits at: 2018-06-21 10:07:03
-  Total time: 0.22
-
-Started calculating pond watersheds at: 2018-06-21 10:07:17
-  Total time: 0.05
-
-Started calculating fill watersheds at: 2018-06-21 10:07:20
-  Total time: 0.08
-
-Started calculating inverted directions at: 2018-06-21 10:07:26
-  Total time: 0.08
-
-Started calculating inverted watersheds at: 2018-06-21 10:07:31
-  Total time: 0.06
-
-Started inverted pit removal at: 2018-06-21 10:07:35
-  Total time: 0.3
-
-Total run time: 0.95 min
-
+Started calculating directions at: 2018-06-21 11:21:08

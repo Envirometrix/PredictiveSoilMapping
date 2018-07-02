@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl">
 
 
-<meta name="date" content="2018-06-21">
+<meta name="date" content="2018-07-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -673,9 +673,9 @@ Soil Bulk density (BLD) is an important soil property that is required to estima
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:plot-bld-soc"></span>
-<img src="figures/rplot_bulk_dens_function_of_soc.png" alt="Correlation plot between soil organic carbon density and bulk density (fine earth), created using the [global compilations of soil profile data](http://www.isric.org/content/wosis-data-sets). Black line indicates fitted [loess polynomial surface](https///stat.ethz.ch/R-manual/R-devel/library/stats/html/loess.html). There is still quite some scatter around the fitted line: many combinations of BLD and ORC, that do not fall close to the correlation line, can still be observed." width="60%" />
+<img src="figures/rplot_bulk_dens_function_of_soc.png" alt="Correlation plot between soil organic carbon density and bulk density (fine earth), created using the [global compilations of soil profile data](http://www.isric.org/content/wosis-data-sets). Black line indicates fitted [loess polynomial surface](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/loess.html). There is still quite some scatter around the fitted line: many combinations of BLD and ORC, that do not fall close to the correlation line, can still be observed." width="60%" />
 <p class="caption">
-Figure 7.4: Correlation plot between soil organic carbon density and bulk density (fine earth), created using the <a href="http://www.isric.org/content/wosis-data-sets">global compilations of soil profile data</a>. Black line indicates fitted <a href="https///stat.ethz.ch/R-manual/R-devel/library/stats/html/loess.html">loess polynomial surface</a>. There is still quite some scatter around the fitted line: many combinations of BLD and ORC, that do not fall close to the correlation line, can still be observed.
+Figure 7.4: Correlation plot between soil organic carbon density and bulk density (fine earth), created using the <a href="http://www.isric.org/content/wosis-data-sets">global compilations of soil profile data</a>. Black line indicates fitted <a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/loess.html">loess polynomial surface</a>. There is still quite some scatter around the fitted line: many combinations of BLD and ORC, that do not fall close to the correlation line, can still be observed.
 </p>
 </div>
 <p>To fill-in missing values for BLD, a combination of the two global Pedo-Transfer functions can be used for example: (1) PTF fitted using random forest model that locally predicts BLD as a function of organic carbon content, clay and sand content, pH and coarse fragments, and (2) simpler model that predicts BLD just based on ORC. The average RMSE of these PTFs for BLD is about ±150 kg/m<span class="math inline">\(^3\)</span>.</p>
@@ -723,7 +723,7 @@ Figure 7.6: Three main computational paths (2D and 3D) to producing maps of orga
 </div>
 <div id="predicting-ocs-from-point-data-the-2d-approach" class="section level2">
 <h2><span class="header-section-number">7.6</span> Predicting OCS from point data (the 2D approach)</h2>
-<p>The <a href="https///cran.r-project.org/package=geospt">geospt package</a> contains 125 samples of OCS from Colombia already at standard depth intervals, hence this data set is ready for 2D mapping of OCS. The data sets consists of tabular values for points and a raster map containing the borders of the study area:</p>
+<p>The <a href="https://cran.r-project.org/package=geospt">geospt package</a> contains 125 samples of OCS from Colombia already at standard depth intervals, hence this data set is ready for 2D mapping of OCS. The data sets consists of tabular values for points and a raster map containing the borders of the study area:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">load</span>(<span class="st">&quot;extdata/COSha10.rda&quot;</span>)
 <span class="kw">load</span>(<span class="st">&quot;extdata/COSha30.rda&quot;</span>)
 <span class="kw">str</span>(COSha30)
@@ -747,9 +747,9 @@ Figure 7.6: Three main computational paths (2D and 3D) to producing maps of orga
 <span class="co">#&gt;  $ var1.var : num  1.91e-05 6.39e-05 1.05e-04 1.39e-04 1.66e-04 ...</span></code></pre></div>
 <p>which shows predictions and kriging variances for <code>COSha30</code>.</p>
 <div class="figure" style="text-align: center"><span id="fig:libertad-soc"></span>
-<img src="figures/fig_la_libertad_research_center_socs.jpg" alt="Example of a data set with OCS samples (for 2D prediction). Case study available via the [geospt package](https///cran.r-project.org/package=geospt) (Colombia)." width="75%" />
+<img src="figures/fig_la_libertad_research_center_socs.jpg" alt="Example of a data set with OCS samples (for 2D prediction). Case study available via the [geospt package](https://cran.r-project.org/package=geospt) (Colombia)." width="75%" />
 <p class="caption">
-Figure 7.7: Example of a data set with OCS samples (for 2D prediction). Case study available via the <a href="https///cran.r-project.org/package=geospt">geospt package</a> (Colombia).
+Figure 7.7: Example of a data set with OCS samples (for 2D prediction). Case study available via the <a href="https://cran.r-project.org/package=geospt">geospt package</a> (Colombia).
 </p>
 </div>
 <p>We can import a number of RS-based covariates to R by (these were derived from the global 30 m layers listed previously):</p>
@@ -788,7 +788,7 @@ fm.spc =<span class="st"> </span><span class="kw">as.formula</span>(<span class=
 covs30m.spc =<span class="st"> </span>GSIF<span class="op">::</span><span class="kw">spc</span>(covs30m, fm.spc)
 <span class="co">#&gt; Converting covariates to principal components...</span>
 ov.COSha30 =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">as.data.frame</span>(COSha30), <span class="kw">over</span>(COSha30, covs30m.spc<span class="op">@</span>predicted))</code></pre></div>
-<p>By using the above listed of covariates, we can fit a spatial prediction 2D model using some available models such as <a href="https///cran.r-project.org/package=ranger">ranger</a> <span class="citation">(Wright and Ziegler <a href="references.html#ref-wright2017ranger">2017</a>)</span>, <a href="https///cran.r-project.org/package=xgboost">xgboost</a> and/or <a href="https///cran.r-project.org/package=GAMBoost">gamboost</a>:</p>
+<p>By using the above listed of covariates, we can fit a spatial prediction 2D model using some available models such as <a href="https://cran.r-project.org/package=ranger">ranger</a> <span class="citation">(Wright and Ziegler <a href="references.html#ref-wright2017ranger">2017</a>)</span>, <a href="https://cran.r-project.org/package=xgboost">xgboost</a> and/or <a href="https://cran.r-project.org/package=GAMBoost">gamboost</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(caret)
 <span class="kw">library</span>(ranger)
 fm.COSha30 =<span class="st"> </span><span class="kw">as.formula</span>(<span class="kw">paste</span>(<span class="st">&quot;COSha30 ~ &quot;</span>, <span class="kw">paste</span>(<span class="kw">names</span>(covs30m.spc<span class="op">@</span>predicted), <span class="dt">collapse =</span> <span class="st">&quot;+&quot;</span>)))
@@ -895,7 +895,7 @@ mFit2
 <span class="co">#&gt;  eta = 0.4, gamma = 0, colsample_bytree = 0.8, min_child_weight = 1</span>
 <span class="co">#&gt;  and subsample = 1.</span></code></pre></div>
 <p>Which shows that no significant spatial prediction models can be fitted using this data with R-square not exceeding 10%. It is very common for soil mapping projects that the amount of variation that models explain are low and hence the average error of prediction and/or prediction intervals are wide. This could happen because the measurement errors were high, and/or because there are missing covariates, but it could also happen because natural complexity of soils in the area is simply high.</p>
-<p>Note that our predictions of OCS are somewhat different from the predictions produced by the <a href="https///cran.r-project.org/package=geospt">geospt package</a> authors, although the main patterns are comparable.</p>
+<p>Note that our predictions of OCS are somewhat different from the predictions produced by the <a href="https://cran.r-project.org/package=geospt">geospt package</a> authors, although the main patterns are comparable.</p>
 <div class="figure" style="text-align: center"><span id="fig:plot-cosha30map-rf"></span>
 <img src="Soil_organic_carbon_files/figure-html/plot-cosha30map-rf-1.png" alt="Comparison of predictions generated using ordinary kriging (left) and machine learning with the help of 30 m resolution covariates and buffer distances (right)." width="672" />
 <p class="caption">
@@ -937,7 +937,7 @@ edgeroi.sp &lt;-<span class="st"> </span><span class="kw">spTransform</span>(edg
 Figure 7.9: Edgeroi data set: locations of soil profiles and Australian soil classification codes. For more details see <span class="citation">Malone et al. (<a href="references.html#ref-Malone2009Geoderma">2009</a>)</span>.
 </p>
 </div>
-<p>Note that Edgeroi completely misses BLD values, hence before we can compute OCD values, we need to estimate BLD values for each corresponding horizon. Here the easiest option is probably to use the BLD values from the SoilGrids250m predictions (and which you can dowload from the <a href="ftp///ftp.soilgrids.org/data/recent/">SoilGrids FTP</a>). Matching between the irregularly distributed soil horizons and SoilGrids BLD at standard depths can be implemented in three steps. First, we overlay the points and SoilGrids250m GeoTIFFs to get the BLD values at standard depths:</p>
+<p>Note that Edgeroi completely misses BLD values, hence before we can compute OCD values, we need to estimate BLD values for each corresponding horizon. Here the easiest option is probably to use the BLD values from the SoilGrids250m predictions (and which you can dowload from the <a href="ftp://ftp.soilgrids.org/data/recent/">SoilGrids FTP</a>). Matching between the irregularly distributed soil horizons and SoilGrids BLD at standard depths can be implemented in three steps. First, we overlay the points and SoilGrids250m GeoTIFFs to get the BLD values at standard depths:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sg &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;/mnt/nas/ftp.soilgrids.org/data/recent/BLDFIE_M_sl&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">7</span>,<span class="st">&quot;_250m_ll.tif&quot;</span>)
 ov.edgeroi.BLD &lt;-<span class="st"> </span>raster<span class="op">::</span><span class="kw">extract</span>(<span class="kw">stack</span>(sg), 
                           <span class="kw">spTransform</span>(edgeroi.sp, <span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat +datum=WGS84&quot;</span>)))
@@ -1079,7 +1079,7 @@ Figure 7.11: Distribution of soil observations based on sampling year
 \end{equation}\]</span>
 <p>where <span class="math inline">\(d\)</span> is the depth, <span class="math inline">\(X_k (xy)\)</span> are static covariates i.e. the covariates that do not change in time, and <span class="math inline">\(X_p (xyt)\)</span> are spatiotemporal covariates i.e. covariates that change with time. Here we can assume that static covariates are mainly landform and lithology: these have probably not changed much in the last 100 years. Land cover, land use and climate, on the other hand, have probably changed drastically in the last 100 years and have to be represented with time-series of images. There are, indeed, several time-series data sets now available that can be used to represent land cover dynamics:</p>
 <ul>
-<li><p><a href="ftp///ftp.pbl.nl/hyde/hyde3.2/">HYDE 3.2 Historic land use data set</a> <span class="citation">(Klein Goldewijk et al. <a href="references.html#ref-klein2011hyde">2011</a>)</span>: contains the distribution of main agricultural systems from 10,000 BC (pre-historic no landuse condition) to present time. 10 categories of land use have been represented: total cropping, total grazing, pasture (improved grazingland), rangeland (unimproved grazingland), total rainfed cropping, total irrigated cropping with further subdivisions for rice and non-rice cropping systems for both rainfed and irrigated cropping.</p></li>
+<li><p><a href="ftp://ftp.pbl.nl/hyde/hyde3.2/">HYDE 3.2 Historic land use data set</a> <span class="citation">(Klein Goldewijk et al. <a href="references.html#ref-klein2011hyde">2011</a>)</span>: contains the distribution of main agricultural systems from 10,000 BC (pre-historic no landuse condition) to present time. 10 categories of land use have been represented: total cropping, total grazing, pasture (improved grazingland), rangeland (unimproved grazingland), total rainfed cropping, total irrigated cropping with further subdivisions for rice and non-rice cropping systems for both rainfed and irrigated cropping.</p></li>
 <li><p><a href="http://www.ipcc-data.org/observ/clim/">CRU TS2.1 climatic surfaces</a> for period 1960–1990 <span class="citation">(Harris et al. <a href="references.html#ref-harris2014updated">2014</a>)</span>.</p></li>
 <li><p><a href="http://www.unep-wcmc.org/resources-and-data/generalised-original-and-current-forest">UNEP-WCMC Generalised Original and Current Forest cover map</a> showing global dynamics of forest cover.</p></li>
 </ul>
@@ -1093,7 +1093,7 @@ rf0.OCD_st &lt;-<span class="st"> </span><span class="kw">ranger</span>(fm0.st, 
 <p>the most important covariates being:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xl &lt;-<span class="st"> </span><span class="kw">as.list</span>(ranger<span class="op">::</span><span class="kw">importance</span>(rf0.OCD_st))
 <span class="kw">print</span>(<span class="kw">t</span>(<span class="kw">data.frame</span>(xl[<span class="kw">order</span>(<span class="kw">unlist</span>(xl), <span class="dt">decreasing=</span><span class="ot">TRUE</span>)[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]])))</code></pre></div>
-<p>which shows that the far the most important soil covariate is soil depth, followed by elevation, grazing, MODIS cloud fraction images, cropland and similar. For full description of codes please refer to <span class="citation">Sanderman, Hengl, and Fiske (<a href="references.html#ref-sanderman2018soil">2018</a>)</span> (also available in <a href="https///github.com/whrc/Soil-Carbon-Debt/blob/master/SOCS/WHRC_soilcarbon_list_of_covariates.csv">this table</a>).</p>
+<p>which shows that the far the most important soil covariate is soil depth, followed by elevation, grazing, MODIS cloud fraction images, cropland and similar. For full description of codes please refer to <span class="citation">Sanderman, Hengl, and Fiske (<a href="references.html#ref-sanderman2018soil">2018</a>)</span> (also available in <a href="https://github.com/whrc/Soil-Carbon-Debt/blob/master/SOCS/WHRC_soilcarbon_list_of_covariates.csv">this table</a>).</p>
 <p>Finally, based on this model, we can generate predictions for 3–4 specific time periods and for some arbitrary depth e.g. 10 cm. The maps below clearly show that ca 8% of the soil organic carbon has been lost in the last 90 years, most likely due to the increase of grazing and croplands. The maps also show, however, that some areas in the northern latitudes are experiencing an increase in SOC possibly due to higher rainfall i.e. based on the CRU data set.</p>
 <div class="figure" style="text-align: center"><span id="fig:usa48-ocd-2014"></span>
 <img src="figures/usa48_ocd_10cm_year2014.png" alt="Predicted OCD (in kg/m$^3$) at 10 cm depth for the year 2014. Blue colors indicate low values, red high values." width="100%" />

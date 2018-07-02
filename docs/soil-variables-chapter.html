@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl">
 
 
-<meta name="date" content="2018-06-21">
+<meta name="date" content="2018-07-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -1403,7 +1403,7 @@ munsell.rgb[<span class="kw">round</span>(<span class="kw">runif</span>(<span cl
 <span class="co">#&gt; red      0</span>
 <span class="co">#&gt; green   58</span>
 <span class="co">#&gt; blue   124</span></code></pre></div>
-<p>The hex triplet format is also very similar to the color format used in the <a href="https///developers.google.com/kml/documentation/kmlreference">KML reference</a>:</p>
+<p>The hex triplet format is also very similar to the color format used in the <a href="https://developers.google.com/kml/documentation/kmlreference">KML reference</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plotKML<span class="op">::</span><span class="kw">col2kml</span>(<span class="st">&quot;#003A7CFF&quot;</span>)
 <span class="co">#&gt; [1] &quot;#ff7c3a00&quot;</span></code></pre></div>
 <p>To plot the actual colors based on actual soil profile data base we often need to prepare the color codes before we can run the conversion <span class="citation">(Rossel et al. <a href="references.html#ref-VISCARRAROSSEL2006320">2006</a>)</span>. In the case of the <a href="http://gsif.r-forge.r-project.org/afsp.html">Africa Soil Profile Database</a>:</p>
@@ -1550,7 +1550,7 @@ Figure 3.23: Soil profile from Nigeria plotted in Google Earth with actual obser
 <span class="co">#&gt;  $ LONWGS84: num  69.2 69.2 69.2 69.2 69.2 ...</span>
 <span class="co">#&gt;  $ LATWGS84: num  34.5 34.5 34.5 34.5 34.5 34.5 34.5 34.5 34.5 34.5 ...</span>
 <span class="co">#&gt;  $ SOURCEDB: chr  &quot;WISE&quot; &quot;WISE&quot; &quot;WISE&quot; &quot;WISE&quot; ...</span></code></pre></div>
-<p>For model fitting we will use the <a href="https///cran.r-project.org/package=randomForestSRC">randomForestSRC</a> package, which is a robust implementation of random forest algorithm with options for parallelization and visualization of model outputs:</p>
+<p>For model fitting we will use the <a href="https://cran.r-project.org/package=randomForestSRC">randomForestSRC</a> package, which is a robust implementation of random forest algorithm with options for parallelization and visualization of model outputs:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bd.fm =<span class="st"> </span><span class="kw">as.formula</span>(<span class="st">&quot;BLD ~ ORCDRC + PHIHOX + SNDPPT + CLYPPT + CRFVOL + DEPTH&quot;</span>)
 rfsrc_BD &lt;-<span class="st"> </span><span class="kw">rfsrc</span>(bd.fm, <span class="dt">data=</span>SPROPS.WISE)
 rfsrc_BD
