@@ -455,7 +455,7 @@ One could now save a the prepared covariates stored in SpatialGridDataFrame as a
 saveRDS(grid25m, file = "extdata/covariates25m.rds")
 ```
 
-To overlay rasters and points and prepare a regression matrix, we can either use the [''over''](http://www.rdocumentation.org/packages/sp/functions/over) function from the sp package, or [''extract''](http://www.rdocumentation.org/packages/raster/functions/extract) function from the raster package. By using raster package, one can run overlay even without reading the rasters to memory:
+To overlay rasters and points and prepare a regression matrix, we can either use the [`over`](http://www.rdocumentation.org/packages/sp/functions/over) function from the sp package, or [`extract`](http://www.rdocumentation.org/packages/raster/functions/extract) function from the raster package. By using raster package, one can run overlay even without reading the rasters to memory:
 
 ```{r, eval=FALSE}
 library(sp)

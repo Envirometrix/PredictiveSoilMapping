@@ -3,7 +3,7 @@
 knit: "bookdown::render_book"
 title: "Predictive Soil Mapping with R"
 author: ["Tomislav Hengl"]
-date: "2018-07-02"
+date: "2018-07-04"
 layout: default
 comments: true
 site: bookdown::bookdown_site
@@ -65,6 +65,8 @@ Most of methods described in this book are based on the following publications:
 * Hengl, T., Nussbaum, M., Wright, M. N., Heuvelink, G. B., and Gr&auml;ler, B. (2018) [Random Forest as a generic framework for predictive modeling of spatial and spatio-temporal variables](https://peerj.com/preprints/26693/). PeerJ Preprints.
 
 * Sanderman, J., Hengl, T., Fiske, G., (2017) [The soil carbon debt of 12,000 years of human land use](http://www.pnas.org/content/early/2017/08/15/1706103114.full). PNAS, doi:10.1073/pnas.1706103114
+
+* Ramcharan, A., Hengl, T., Nauman, T., Brungard, C., Waltman, S., Wills, S., & Thompson, J. (2018). [Soil Property and Class Maps of the Conterminous United States at 100-Meter Spatial Resolution](https://dl.sciencesocieties.org/publications/sssaj/abstracts/82/1/186). Soil Science Society of America Journal, 82(1), 186-201.
 
 * Hengl, T., Leenaars, J. G., Shepherd, K. D., Walsh, M. G., Heuvelink, G. B., Mamo, T., et al. (2017) [Soil nutrient maps of Sub-Saharan Africa: assessment of soil nutrient content at 250 m spatial resolution using machine learning](https://link.springer.com/article/10.1007/s10705-017-9870-x). Nutrient Cycling in Agroecosystems, 109(1), 77–102.
 

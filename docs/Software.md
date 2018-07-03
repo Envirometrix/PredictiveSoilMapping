@@ -20,7 +20,7 @@ processing large data.
 
 Software (required):
 
-*  [R](http://cran.r-project.org/bin/windows/base/) or [MRO](https///mran.microsoft.com/download/);
+*  [R](http://cran.r-project.org/bin/windows/base/) or [MRO](https://mran.microsoft.com/download/);
 
 *  [RStudio](http://www.rstudio.com/products/RStudio/);
 
@@ -30,9 +30,9 @@ Software (required):
 
 *  Google Earth or Google Earth Pro; 
 
-*  [GDAL v2.x](https///trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries) for Windows machines use e.g. ["gdal-*-1800-x64-core.msi"](http://download.gisinternals.com/sdk/downloads/release-1800-x64-gdal-2-1-3-mapserver-7-0-4/gdal-201-1800-x64-core.msi);
+*  [GDAL v2.x](https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries) for Windows machines use e.g. ["gdal-*-1800-x64-core.msi"](http://download.gisinternals.com/sdk/downloads/release-1800-x64-gdal-2-1-3-mapserver-7-0-4/gdal-201-1800-x64-core.msi);
 
-R script used in this tutorial you can download from the **[github](https://github.com/envirometrix/PredictiveSoilMapping)**. As a gentle introduction to R programming languange and soil classes in R we recommend the chapter on importing and using soil data. Some more example of SAGA GIS + R usage you can find in the soil covariates chapter. To visualize spatial predictions in a web-browser or Google Earth you could also consider following the soil web-maps tutorial. As a gentle introduction to R programming languange and spatial classes in R we recommend following [the Geocomputation with R book](https://geocompr.robinlovelace.net/). Obtaining also the [R reference card](https///cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf) is highly recommended.
+R script used in this tutorial you can download from the **[github](https://github.com/envirometrix/PredictiveSoilMapping)**. As a gentle introduction to R programming languange and soil classes in R we recommend the chapter on importing and using soil data. Some more example of SAGA GIS + R usage you can find in the soil covariates chapter. To visualize spatial predictions in a web-browser or Google Earth you could also consider following the soil web-maps tutorial. As a gentle introduction to R programming languange and spatial classes in R we recommend following [the Geocomputation with R book](https://geocompr.robinlovelace.net/). Obtaining also the [R reference card](https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf) is highly recommended.
 
 ## Installing software on Ubuntu OS
 
@@ -212,7 +212,7 @@ java -version
 
 ## plotKML and GSIF packages
 
-Many examples in the GSIF course rely on the top 5 most commonly used packages for spatial data: (1) [sp and rgdal](https///cran.r-project.org/web/views/Spatial.html), (2) [raster](https///cran.r-project.org/web/packages/raster/), (3) [plotKML](http://plotkml.r-forge.r-project.org/) and (4) [GSIF](http://gsif.r-forge.r-project.org/). To install most up-to-date version of plotKML/GSIF, you can also use the R-Forge versions of the package:
+Many examples in the GSIF course rely on the top 5 most commonly used packages for spatial data: (1) [sp and rgdal](https://cran.r-project.org/web/views/Spatial.html), (2) [raster](https://cran.r-project.org/web/packages/raster/), (3) [plotKML](http://plotkml.r-forge.r-project.org/) and (4) [GSIF](http://gsif.r-forge.r-project.org/). To install most up-to-date version of plotKML/GSIF, you can also use the R-Forge versions of the package:
 
 
 ```r
@@ -222,7 +222,7 @@ if(!require(GSIF)){
 }
 ```
 
-A copy of the most-up-to-date stable versions of plotKML and GSIF is also available on [github](https///github.com/cran/GSIF). To run only some specific function from GSIF package you could do for example:
+A copy of the most-up-to-date stable versions of plotKML and GSIF is also available on [github](https://github.com/cran/GSIF). To run only some specific function from GSIF package you could do for example:
 
 
 ```r
@@ -295,7 +295,7 @@ om.rk
 
 SAGA GIS is an extensive GIS geoprocessor software with over [600 functions](http://www.saga-gis.org/saga_tool_doc/index.html). 
 SAGA GIS can not be installed from RStudio (it is not a package for R). 
-Instead, you need to install SAGA GIS using the installation instructions from the [software homepage](https///sourceforge.net/projects/saga-gis/). 
+Instead, you need to install SAGA GIS using the installation instructions from the [software homepage](https://sourceforge.net/projects/saga-gis/). 
 After you have installed SAGA GIS, you can send processes from 
 R to SAGA GIS by using the ```saga_cmd``` command line interface:
 

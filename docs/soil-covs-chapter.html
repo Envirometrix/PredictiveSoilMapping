@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl">
 
 
-<meta name="date" content="2018-07-02">
+<meta name="date" content="2018-07-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -625,7 +625,7 @@ grid25m &lt;-<span class="st"> </span><span class="kw">as</span>(grid25m, <span 
 <span class="kw">str</span>(grid25m)</code></pre></div>
 <p>One could now save a the prepared covariates stored in SpatialGridDataFrame as an RDS data object for future use.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">saveRDS</span>(grid25m, <span class="dt">file =</span> <span class="st">&quot;extdata/covariates25m.rds&quot;</span>)</code></pre></div>
-<p>To overlay rasters and points and prepare a regression matrix, we can either use the <a href="http://www.rdocumentation.org/packages/sp/functions/over">‘’over’’</a> function from the sp package, or <a href="http://www.rdocumentation.org/packages/raster/functions/extract">‘’extract’’</a> function from the raster package. By using raster package, one can run overlay even without reading the rasters to memory:</p>
+<p>To overlay rasters and points and prepare a regression matrix, we can either use the <a href="http://www.rdocumentation.org/packages/sp/functions/over"><code>over</code></a> function from the sp package, or <a href="http://www.rdocumentation.org/packages/raster/functions/extract"><code>extract</code></a> function from the raster package. By using raster package, one can run overlay even without reading the rasters to memory:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(sp)
 <span class="kw">data</span>(eberg)
 <span class="kw">coordinates</span>(eberg) &lt;-<span class="st"> </span><span class="er">~</span>X<span class="op">+</span>Y
