@@ -2169,6 +2169,19 @@ all these are quite precise, if we ignore harmonization of this data we
 introduce intrinsic uncertainty which is practically invisible but
 possibly significant.
 
+@kuhn2013applied lists four most common reasons why a predictive model fails:
+
+1. inadequate pre-processing of the input data,
+
+2. inadequate model validation,
+
+3. unjustified extrapolation (application of the model to data that reside in a space unknown to the model),,
+
+4. over-fitting of the model to the existing data,
+
+Each of these is addressed in further chapters and can often be tracked back 
+with repeated modeling and testing.
+
 ### Quantifying the uncertainty in soil data products
 
 To quantify the uncertainty we must derive probability distributions.
@@ -2218,7 +2231,6 @@ end result of mapping will be relatively poor because we are simply not
 able to match the environmental conditions with the actual soil
 measurements.
 
-
 Already at that site level, soil survey can result in significant
 uncertainty. @Pleijsier1986ISRIC sent the same soil sample to a large
 number of soil labs in the world and then compared results they got
@@ -2240,7 +2252,6 @@ significant portion of uncertainty. A map can never be 100% valid
 ```{r lagacherie1992, echo=FALSE, fig.cap="Reduction of prediction error as a function of sampling intensity (for three control areas). Based on @Lagacherie1992PhD.", out.width="85%"}
 knitr::include_graphics("figures/Fig_Lagacherie1992.png")
 ```
-
 
 Soil mapping is not a trivial task. Validation results for soil maps can
 often be discouraging. @Kempen2011Geoderma for example use the highest

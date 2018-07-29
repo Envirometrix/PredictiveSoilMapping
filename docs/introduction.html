@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl">
 
 
-<meta name="date" content="2018-07-04">
+<meta name="date" content="2018-07-29">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -222,10 +222,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.2.1" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#converting-polygon-maps-to-rasters"><i class="fa fa-check"></i><b>4.2.1</b> Converting polygon maps to rasters</a></li>
 <li class="chapter" data-level="4.2.2" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#downscaling-upscaling"><i class="fa fa-check"></i><b>4.2.2</b> Downscaling or upscaling (aggregating) rasters</a></li>
 <li class="chapter" data-level="4.2.3" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#deriving-dem-parameters-using-saga-gis"><i class="fa fa-check"></i><b>4.2.3</b> Deriving DEM parameters using SAGA GIS</a></li>
-<li class="chapter" data-level="4.2.4" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#deriving-dem-parameters-using-litap"><i class="fa fa-check"></i><b>4.2.4</b> Deriving DEM parameters using LITAP</a></li>
-<li class="chapter" data-level="4.2.5" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#filtering-out-missing-pixels-and-artifacts"><i class="fa fa-check"></i><b>4.2.5</b> Filtering out missing pixels and artifacts</a></li>
-<li class="chapter" data-level="4.2.6" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#overlaying-and-subsetting-raster-stacks-and-points"><i class="fa fa-check"></i><b>4.2.6</b> Overlaying and subsetting raster stacks and points</a></li>
-<li class="chapter" data-level="4.2.7" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#working-with-larger-rasters"><i class="fa fa-check"></i><b>4.2.7</b> Working with large(r) rasters</a></li>
+<li class="chapter" data-level="4.2.4" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#filtering-out-missing-pixels-and-artifacts"><i class="fa fa-check"></i><b>4.2.4</b> Filtering out missing pixels and artifacts</a></li>
+<li class="chapter" data-level="4.2.5" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#overlaying-and-subsetting-raster-stacks-and-points"><i class="fa fa-check"></i><b>4.2.5</b> Overlaying and subsetting raster stacks and points</a></li>
+<li class="chapter" data-level="4.2.6" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#working-with-larger-rasters"><i class="fa fa-check"></i><b>4.2.6</b> Working with large(r) rasters</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#summary-points-1"><i class="fa fa-check"></i><b>4.3</b> Summary points</a></li>
 </ul></li>
@@ -941,6 +940,14 @@ Figure 1.14: 20 photo-interpretations done independently using the same aerial p
 <li><p><em>polygonization (mapping unit assignment) error</em>;</p></li>
 </ol>
 <p>Another important source of uncertainty is the diversity of laboratory methods (see further chapter <a href="statistical-theory.html#statistical-theory">5</a>). Many columns in the soil profile databases in pan-continental projects where produced by merging the data that has been collected using a diversity of methods for data collection and analysis (see e.g. <span class="citation">Panagos et al. (<a href="references.html#ref-Panagos2013439">2013</a>)</span>). So even if all these are quite precise, if we ignore harmonization of this data we introduce intrinsic uncertainty which is practically invisible but possibly significant.</p>
+<p><span class="citation">Kuhn and Johnson (<a href="references.html#ref-kuhn2013applied">2013</a>)</span> lists four most common reasons why a predictive model fails:</p>
+<ol style="list-style-type: decimal">
+<li><p>inadequate pre-processing of the input data,</p></li>
+<li><p>inadequate model validation,</p></li>
+<li><p>unjustified extrapolation (application of the model to data that reside in a space unknown to the model),,</p></li>
+<li><p>over-fitting of the model to the existing data,</p></li>
+</ol>
+<p>Each of these is addressed in further chapters and can often be tracked back with repeated modeling and testing.</p>
 </div>
 <div id="quantifying-the-uncertainty-in-soil-data-products" class="section level3">
 <h3><span class="header-section-number">1.6.3</span> Quantifying the uncertainty in soil data products</h3>

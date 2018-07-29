@@ -162,7 +162,18 @@ eberg_zones_r <- rasterize(eberg_zones, r, field="ZONES")
 plot(eberg_zones_r)
 ```
 
-Converting large polygons in R using the raster package could be very time-consuming, hence often a more efficient approach is to use SAGA GIS which can handle large data and is easy to run in parallel. First, you need to export the polygon map to shapefile format that can be done with commands of the [rgdal package](https://cran.r-project.org/web/packages/rgdal/) package:
+Converting large polygons in R using the raster package could be very time-consuming. To speed up the rasterization of polygons we highly recommend using instead the `fasterize` function:
+
+```{r}
+library(sf)
+if(!require(fasterize)){ devtools::install_github("ecohealthalliance/fasterize") }
+eberg_zones_sf <- as(eberg_zones, "sf")
+eberg_zones_r <- fasterize(eberg_zones_sf, r, field="ZONES")
+```
+
+`fasterize` function is a the order of magnitude faster and hence more suitable for operational work. Note also that it only works with Simple Feature (sf) objects.
+
+Another efficient approach to rasterize polygons is to use SAGA GIS as this can handle large data and is easy to run in parallel. First, you need to export the polygon map to shapefile format that can be done with commands of the [rgdal package](https://cran.r-project.org/web/packages/rgdal/) package:
 
 ```{r}
 eberg_zones$ZONES_int <- as.integer(eberg_zones$ZONES)
@@ -354,6 +365,7 @@ knitr::include_graphics("figures/dem_derivatives_plot.png")
 
 This function can now be used with any DEM to derive the standard 7-8 DEM parameters such as slope and curvature, TWI and MrVBF, positive and negative openess, valley depth and deviation from mean value. You could easily add more parameters to this function and then test if some of the other DEM derivatives can help improve mapping soil properties and classes. Note that SAGA GIS will by default optimize computing of DEM derivatives by using most of available cores to compute (parallelization is turned on automatically).
 
+<!-- 
 ### Deriving DEM parameters using LITAP
 
 To derive unique hydrological parameters that can potentially help soil mapping we can also use the LITAP (Landscape Integrated Terrain Analysis Package) package originally implemented as FlowMapR program [@macmillan2003landmapr], and compiled for R users by Stefanie LaZerte and Li Sheng from the Agriculture and Agri-Food Canada. We can install this package from github by using:
@@ -385,6 +397,7 @@ LITAP::flow_plot(db = initial_dem, type = "elevation", shed = TRUE,
 ```
 
 Which shows all watersheds and individual streams derived using the filled DEM (after pit removal).
+ -->
 
 ### Filtering out missing pixels and artifacts
 

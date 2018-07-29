@@ -7,3 +7,5 @@ rgdal
 raster
 plotKML
 bindrcpp
+sf
+fasterize

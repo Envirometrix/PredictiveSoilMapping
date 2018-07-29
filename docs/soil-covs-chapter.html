@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl">
 
 
-<meta name="date" content="2018-07-04">
+<meta name="date" content="2018-07-29">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -222,10 +222,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.2.1" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#converting-polygon-maps-to-rasters"><i class="fa fa-check"></i><b>4.2.1</b> Converting polygon maps to rasters</a></li>
 <li class="chapter" data-level="4.2.2" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#downscaling-upscaling"><i class="fa fa-check"></i><b>4.2.2</b> Downscaling or upscaling (aggregating) rasters</a></li>
 <li class="chapter" data-level="4.2.3" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#deriving-dem-parameters-using-saga-gis"><i class="fa fa-check"></i><b>4.2.3</b> Deriving DEM parameters using SAGA GIS</a></li>
-<li class="chapter" data-level="4.2.4" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#deriving-dem-parameters-using-litap"><i class="fa fa-check"></i><b>4.2.4</b> Deriving DEM parameters using LITAP</a></li>
-<li class="chapter" data-level="4.2.5" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#filtering-out-missing-pixels-and-artifacts"><i class="fa fa-check"></i><b>4.2.5</b> Filtering out missing pixels and artifacts</a></li>
-<li class="chapter" data-level="4.2.6" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#overlaying-and-subsetting-raster-stacks-and-points"><i class="fa fa-check"></i><b>4.2.6</b> Overlaying and subsetting raster stacks and points</a></li>
-<li class="chapter" data-level="4.2.7" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#working-with-larger-rasters"><i class="fa fa-check"></i><b>4.2.7</b> Working with large(r) rasters</a></li>
+<li class="chapter" data-level="4.2.4" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#filtering-out-missing-pixels-and-artifacts"><i class="fa fa-check"></i><b>4.2.4</b> Filtering out missing pixels and artifacts</a></li>
+<li class="chapter" data-level="4.2.5" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#overlaying-and-subsetting-raster-stacks-and-points"><i class="fa fa-check"></i><b>4.2.5</b> Overlaying and subsetting raster stacks and points</a></li>
+<li class="chapter" data-level="4.2.6" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#working-with-larger-rasters"><i class="fa fa-check"></i><b>4.2.6</b> Working with large(r) rasters</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#summary-points-1"><i class="fa fa-check"></i><b>4.3</b> Summary points</a></li>
 </ul></li>
@@ -407,7 +406,20 @@ eberg_zones_r &lt;-<span class="st"> </span><span class="kw">rasterize</span>(eb
 Figure 4.2: Ebergotzen parent material polygon map rasterized.
 </p>
 </div>
-<p>Converting large polygons in R using the raster package could be very time-consuming, hence often a more efficient approach is to use SAGA GIS which can handle large data and is easy to run in parallel. First, you need to export the polygon map to shapefile format that can be done with commands of the <a href="https://cran.r-project.org/web/packages/rgdal/">rgdal package</a> package:</p>
+<p>Converting large polygons in R using the raster package could be very time-consuming. To speed up the rasterization of polygons we highly recommend using instead the <code>fasterize</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(sf)
+<span class="co">#&gt; Linking to GEOS 3.5.1, GDAL 2.3.1, proj.4 4.9.2</span>
+<span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(fasterize)){ devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;ecohealthalliance/fasterize&quot;</span>) }
+<span class="co">#&gt; Loading required package: fasterize</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Attaching package: &#39;fasterize&#39;</span>
+<span class="co">#&gt; The following object is masked from &#39;package:graphics&#39;:</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     plot</span>
+eberg_zones_sf &lt;-<span class="st"> </span><span class="kw">as</span>(eberg_zones, <span class="st">&quot;sf&quot;</span>)
+eberg_zones_r &lt;-<span class="st"> </span><span class="kw">fasterize</span>(eberg_zones_sf, r, <span class="dt">field=</span><span class="st">&quot;ZONES&quot;</span>)</code></pre></div>
+<p><code>fasterize</code> function is a the order of magnitude faster and hence more suitable for operational work. Note also that it only works with Simple Feature (sf) objects.</p>
+<p>Another efficient approach to rasterize polygons is to use SAGA GIS as this can handle large data and is easy to run in parallel. First, you need to export the polygon map to shapefile format that can be done with commands of the <a href="https://cran.r-project.org/web/packages/rgdal/">rgdal package</a> package:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">eberg_zones<span class="op">$</span>ZONES_int &lt;-<span class="st"> </span><span class="kw">as.integer</span>(eberg_zones<span class="op">$</span>ZONES)
 <span class="kw">writeOGR</span>(eberg_zones[<span class="st">&quot;ZONES_int&quot;</span>], <span class="st">&quot;extdata/eberg_zones.shp&quot;</span>, <span class="st">&quot;.&quot;</span>, <span class="st">&quot;ESRI Shapefile&quot;</span>)</code></pre></div>
 <p>The <code>writeOGR()</code> command writes a SpatialPolygonsDataFrame (the data structure for polygon data in R) to an ESRI shapefile. Here we only writing the attribute <code>&quot;ZONES_int&quot;</code> to the shapefile. It is, however, also possible to write all attributes of the SpatialPolygonsDataFrame to a shapefile.</p>
@@ -560,28 +572,42 @@ Figure 4.6: Some standard DEM derivatives calculated using SAGA GIS.
 </p>
 </div>
 <p>This function can now be used with any DEM to derive the standard 7-8 DEM parameters such as slope and curvature, TWI and MrVBF, positive and negative openess, valley depth and deviation from mean value. You could easily add more parameters to this function and then test if some of the other DEM derivatives can help improve mapping soil properties and classes. Note that SAGA GIS will by default optimize computing of DEM derivatives by using most of available cores to compute (parallelization is turned on automatically).</p>
-</div>
-<div id="deriving-dem-parameters-using-litap" class="section level3">
-<h3><span class="header-section-number">4.2.4</span> Deriving DEM parameters using LITAP</h3>
-<p>To derive unique hydrological parameters that can potentially help soil mapping we can also use the LITAP (Landscape Integrated Terrain Analysis Package) package originally implemented as FlowMapR program <span class="citation">(MacMillan <a href="references.html#ref-macmillan2003landmapr">2003</a>)</span>, and compiled for R users by Stefanie LaZerte and Li Sheng from the Agriculture and Agri-Food Canada. We can install this package from github by using:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(<span class="st">&quot;LITAP&quot;</span>)){ devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;steffilazerte/LITAP&quot;</span>) }</code></pre></div>
-<p>A suite of hydrological flow DEM derivatives can be derived by using the generic command:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(LITAP)
-<span class="kw">library</span>(rgdal)
-<span class="kw">writeGDAL</span>(eberg_grid[<span class="st">&quot;DEMSRT6&quot;</span>], <span class="st">&quot;extdata/DEMSRT6.tif&quot;</span>, <span class="dt">type=</span><span class="st">&quot;Int16&quot;</span>, <span class="dt">mvFlag=</span><span class="op">-</span><span class="dv">32768</span>)
-LITAP<span class="op">::</span><span class="kw">complete_run</span>(<span class="dt">file =</span> <span class="st">&quot;extdata/DEMSRT6.tif&quot;</span>, <span class="dt">folder_out =</span> <span class="st">&quot;extdata/&quot;</span>, 
-                    <span class="dt">report =</span> <span class="ot">FALSE</span>)</code></pre></div>
-<p>which will fill in derive number of hydrological parameters and that are maybe not available in other packages and that can be used to quantify soil deposition / accumulation processes. To plot for example watersheds by flow paths we can run:</p>
-<div class="figure" style="text-align: center"><span id="fig:watersheds-by-flow-paths"></span>
+<!-- 
+### Deriving DEM parameters using LITAP
+
+To derive unique hydrological parameters that can potentially help soil mapping we can also use the LITAP (Landscape Integrated Terrain Analysis Package) package originally implemented as FlowMapR program [@macmillan2003landmapr], and compiled for R users by Stefanie LaZerte and Li Sheng from the Agriculture and Agri-Food Canada. We can install this package from github by using:
+
+
+```r
+if(!require("LITAP")){ devtools::install_github("steffilazerte/LITAP") }
+```
+
+A suite of hydrological flow DEM derivatives can be derived by using the generic command:
+
+
+```r
+library(LITAP)
+library(rgdal)
+writeGDAL(eberg_grid["DEMSRT6"], "extdata/DEMSRT6.tif", type="Int16", mvFlag=-32768)
+LITAP::complete_run(file = "extdata/DEMSRT6.tif", folder_out = "extdata/", 
+                    report = FALSE)
+```
+
+which will fill in  derive number of hydrological parameters 
+and that are maybe not available in other packages and that can be used 
+to quantify soil deposition / accumulation processes. To plot for example 
+watersheds by flow paths we can run:
+
+<div class="figure" style="text-align: center">
 <img src="Soil_covariates_files/figure-html/watersheds-by-flow-paths-1.png" alt="Watersheds by flow paths dervied using the [LITAP](https://steffilazerte.github.io/LITAP/) package." width="768" />
-<p class="caption">
-Figure 4.7: Watersheds by flow paths dervied using the <a href="https://steffilazerte.github.io/LITAP/">LITAP</a> package.
-</p>
+<p class="caption">(\#fig:watersheds-by-flow-paths)Watersheds by flow paths dervied using the [LITAP](https://steffilazerte.github.io/LITAP/) package.</p>
 </div>
-<p>Which shows all watersheds and individual streams derived using the filled DEM (after pit removal).</p>
+
+Which shows all watersheds and individual streams derived using the filled DEM (after pit removal).
+ -->
 </div>
 <div id="filtering-out-missing-pixels-and-artifacts" class="section level3">
-<h3><span class="header-section-number">4.2.5</span> Filtering out missing pixels and artifacts</h3>
+<h3><span class="header-section-number">4.2.4</span> Filtering out missing pixels and artifacts</h3>
 <p>After we have brought all covariates to the same grid definition, what can still represent a problem for using covariates in spatial modelling are:</p>
 <ul>
 <li><p>Missing pixels,</p></li>
@@ -603,7 +629,7 @@ eberg_spc &lt;-<span class="st"> </span>GSIF<span class="op">::</span><span clas
 <div class="figure" style="text-align: center"><span id="fig:eberg-spc-11-plot"></span>
 <img src="figures/eberg_spc_11_plot.png" alt="11 PCs derived using eberg covariates." width="100%" />
 <p class="caption">
-Figure 4.8: 11 PCs derived using eberg covariates.
+Figure 4.7: 11 PCs derived using eberg covariates.
 </p>
 </div>
 <p>The advantages of using the <a href="http://www.rdocumentation.org/packages/GSIF/functions/spc">‘’spc’’</a> function are:</p>
@@ -615,7 +641,7 @@ Figure 4.8: 11 PCs derived using eberg covariates.
 <p>A disadvantage of using SPCs (spatial predictive components) is that the components are often abstract so that interpretation of correlations can become cumbersome. Also, if one of the layers contains many factor levels, then the number of output covariates might blow up, which become impractical as we should then have at least 10 observations per covariate to avoid overfitting.</p>
 </div>
 <div id="overlaying-and-subsetting-raster-stacks-and-points" class="section level3">
-<h3><span class="header-section-number">4.2.6</span> Overlaying and subsetting raster stacks and points</h3>
+<h3><span class="header-section-number">4.2.5</span> Overlaying and subsetting raster stacks and points</h3>
 <p>Now that we have prepared all covariates (resampled them to the same grid and filtered out all problems), we can proceed with running overlays and fitting statistical models. Assuming that we deal with large number of files, an elegant way to read all those to R is by using the raster package, especially the <a href="http://www.rdocumentation.org/packages/raster/functions/stack">‘’stack’’</a> and <a href="http://www.rdocumentation.org/packages/raster/functions/stack">‘’raster’’</a> commands. In the following example we can list all files of interest, and then read them all at once:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(raster)
 grd.lst &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="dt">pattern=</span><span class="st">&quot;25m&quot;</span>)
@@ -642,7 +668,7 @@ ov =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="
 <p>In similar way one could also make wrapper functions that downscale/upscale grids, then filter missing values and stack all data together so that it become available in the working memory (sp grid or pixels object). Overlay and model fitting is also implemented directly in the GSIF package, so any attempt to fit models will automatically perform overlay.</p>
 </div>
 <div id="working-with-larger-rasters" class="section level3">
-<h3><span class="header-section-number">4.2.7</span> Working with large(r) rasters</h3>
+<h3><span class="header-section-number">4.2.6</span> Working with large(r) rasters</h3>
 <p>As R is often inefficient in handling large objects in memory (such as large raster images), a good strategy to run raster processing in R is to consider using for example the <code>clusterR</code> function from the <a href="https://cran.r-project.org/package=raster">raster</a> package, which automatically parallelizes use of raster functions. To have full control over parallelization, you can alternatively tile large rasters using the <code>getSpatialTiles</code> function from the GSIF package and process them as separate objects in parallel. The following examples shows how to run a simple function in parallel on tiles and then mosaic those after all processing has been completed. Consider for example the GeoTiff from the rgdal package:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fn =<span class="st"> </span><span class="kw">system.file</span>(<span class="st">&quot;pictures/SP27GTIF.TIF&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;rgdal&quot;</span>)
 obj &lt;-<span class="st"> </span>rgdal<span class="op">::</span><span class="kw">GDALinfo</span>(fn)
@@ -656,7 +682,7 @@ tile.pol  &lt;-<span class="st"> </span><span class="kw">SpatialPolygonsDataFram
 <div class="figure" style="text-align: center"><span id="fig:rplot-large-raster-tiles"></span>
 <img src="figures/rplot_large_raster_tiles.png" alt="Example of a tiling system derived using the `GSIF::getSpatialTiles` function." width="80%" />
 <p class="caption">
-Figure 4.9: Example of a tiling system derived using the <code>GSIF::getSpatialTiles</code> function.
+Figure 4.8: Example of a tiling system derived using the <code>GSIF::getSpatialTiles</code> function.
 </p>
 </div>
 <p>rgdal further allows us to read only a single tile of the GeoTiff by using the <code>offset</code> and <code>region.dim</code> arguments:</p>
@@ -667,7 +693,7 @@ Figure 4.9: Example of a tiling system derived using the <code>GSIF::getSpatialT
 <div class="figure" style="text-align: center"><span id="fig:sp27gtif-tile"></span>
 <img src="figures/sp27gtif_tile.png" alt="A tile produced for a satellite image in the example above." width="60%" />
 <p class="caption">
-Figure 4.10: A tile produced for a satellite image in the example above.
+Figure 4.9: A tile produced for a satellite image in the example above.
 </p>
 </div>
 <p>We would like to run a function on this raster in parallel, for example a simple function that converts values to 0/1 values based on a threshold:</p>
@@ -691,7 +717,7 @@ Figure 4.10: A tile produced for a satellite image in the example above.
 <div class="figure" style="text-align: center"><span id="fig:sp27gtif-mask"></span>
 <img src="figures/sp27gtif_mask.png" alt="Final processed output." width="80%" />
 <p class="caption">
-Figure 4.11: Final processed output.
+Figure 4.10: Final processed output.
 </p>
 </div>
 <p>This shows that R can be used to compute with large rasters provided that these operations can be parallelized. Suggested best practice for this is to: (1) design a tiling system that optimizes use of RAM and read/write spead of a disk, (2) prepare and test a function that can be then run in parallel, and (3) stitch back all tiles to a large raster using <code>gdalwarp</code>. Note that Tiling and and stitching can not be applied universally to all problems e.g. functions that require global geographical search or all data in the raster, in which cases tiling should be applied with overlap (to minimize boundary effects) or to irregular tiling systems (e.g. per watershed). Once an optimal tiling system and function is prepared, R is not any more limit to running efficient computing, but only how much RAM and cores you have available i.e. it becomes more a hardware than a software problem.</p>
