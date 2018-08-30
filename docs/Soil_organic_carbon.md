@@ -81,15 +81,6 @@ As mentioned previously, OCS stock is most commonly derived from measurements of
 Consider, for example, the following two real life examples of soil profile data for a standard agricultural soil and an organic soil. In the first example, [profile from Australia](http://www.asris.csiro.au/mapping/hyperdocs/NatSoil/399%5EEDGEROI%5Eed079.pdf), the soil profile data shows:
 
 
-```r
-knitr::kable(
-  head(read.csv("extdata/profile_399_EDGEROI_ed079.csv", header = TRUE, stringsAsFactors = FALSE), 10), booktabs = TRUE,
-  caption = 'Laboratory data for a profile *399 EDGEROI ed079* from Australia [@Karssies2011CSIRO].'
-)
-```
-
-
-
 Table: (\#tab:profile-edgeroi)Laboratory data for a profile *399 EDGEROI ed079* from Australia [@Karssies2011CSIRO].
 
  upper_limit   lower_limit   carbon_content   bulk_density   CF   SOCS
@@ -187,15 +178,6 @@ Note that the measurement error is computed from default uncertainty values (exp
 </div>
 
 In the second example we look at a profile from Canada (a histosol with >40% of organic carbon):
-
-
-```r
-knitr::kable(
-  head(read.csv("extdata/profile_CAN_organic.csv", header = TRUE, stringsAsFactors = FALSE), 10), booktabs = TRUE,
-  caption = 'Laboratory data for an organic soil profile from Canada [@shaw2005ecosystem].'
-)
-```
-
 
 
 Table: (\#tab:profile-can)Laboratory data for an organic soil profile from Canada [@shaw2005ecosystem].

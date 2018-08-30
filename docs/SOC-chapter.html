@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl">
 
 
-<meta name="date" content="2018-07-29">
+<meta name="date" content="2018-08-30">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -384,10 +384,6 @@ The average Organic Carbon Stock for 0–100 cm depth interval for the land mask
 <h2><span class="header-section-number">7.3</span> Derivation of OCS and OCD using soil profile data</h2>
 <p>As mentioned previously, OCS stock is most commonly derived from measurements of the organic carbon (ORC) content, soil bulk density (BLD) and the volume fraction of gravel (CRF). These are usually sampled either per soil layers or soil <strong>horizons</strong> (a sequence of horizons makes a soil profile), which can refer to variable soil depth intervals i.e. are non-standard. That means that, before one can determine OCS for standard fixed depth intervals (e.g. 0–30 cm or 0–100 cm), values of ORC, BLD and CRF need to be standardized so they refer to common depth intervals.</p>
 <p>Consider, for example, the following two real life examples of soil profile data for a standard agricultural soil and an organic soil. In the first example, <a href="http://www.asris.csiro.au/mapping/hyperdocs/NatSoil/399%5EEDGEROI%5Eed079.pdf">profile from Australia</a>, the soil profile data shows:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">kable</span>(
-  <span class="kw">head</span>(<span class="kw">read.csv</span>(<span class="st">&quot;extdata/profile_399_EDGEROI_ed079.csv&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>), <span class="dv">10</span>), <span class="dt">booktabs =</span> <span class="ot">TRUE</span>,
-  <span class="dt">caption =</span> <span class="st">&#39;Laboratory data for a profile *399 EDGEROI ed079* from Australia [@Karssies2011CSIRO].&#39;</span>
-)</code></pre></div>
 <table>
 <caption><span id="tab:profile-edgeroi">Table 7.1: </span>Laboratory data for a profile <em>399 EDGEROI ed079</em> from Australia <span class="citation">(Karssies <a href="references.html#ref-Karssies2011CSIRO">2011</a>)</span>.</caption>
 <thead>
@@ -524,10 +520,6 @@ Figure 7.1: Determination of soil organic carbon density and stock for standard 
 </p>
 </div>
 <p>In the second example we look at a profile from Canada (a histosol with &gt;40% of organic carbon):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">kable</span>(
-  <span class="kw">head</span>(<span class="kw">read.csv</span>(<span class="st">&quot;extdata/profile_CAN_organic.csv&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>), <span class="dv">10</span>), <span class="dt">booktabs =</span> <span class="ot">TRUE</span>,
-  <span class="dt">caption =</span> <span class="st">&#39;Laboratory data for an organic soil profile from Canada [@shaw2005ecosystem].&#39;</span>
-)</code></pre></div>
 <table>
 <caption><span id="tab:profile-can">Table 7.2: </span>Laboratory data for an organic soil profile from Canada <span class="citation">(Shaw, Bhatti, and Sabourin <a href="references.html#ref-shaw2005ecosystem">2005</a>)</span>.</caption>
 <thead>

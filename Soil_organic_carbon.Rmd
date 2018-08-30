@@ -78,7 +78,7 @@ As mentioned previously, OCS stock is most commonly derived from measurements of
 
 Consider, for example, the following two real life examples of soil profile data for a standard agricultural soil and an organic soil. In the first example, [profile from Australia](http://www.asris.csiro.au/mapping/hyperdocs/NatSoil/399%5EEDGEROI%5Eed079.pdf), the soil profile data shows:
 
-```{r profile-edgeroi, echo=TRUE}
+```{r profile-edgeroi, echo=FALSE}
 knitr::kable(
   head(read.csv("extdata/profile_399_EDGEROI_ed079.csv", header = TRUE, stringsAsFactors = FALSE), 10), booktabs = TRUE,
   caption = 'Laboratory data for a profile *399 EDGEROI ed079* from Australia [@Karssies2011CSIRO].'
@@ -151,7 +151,7 @@ knitr::include_graphics("figures/fig_2_profiles_ocs_edgeroi.png")
 
 In the second example we look at a profile from Canada (a histosol with >40% of organic carbon):
 
-```{r profile-can, echo=TRUE}
+```{r profile-can, echo=FALSE}
 knitr::kable(
   head(read.csv("extdata/profile_CAN_organic.csv", header = TRUE, stringsAsFactors = FALSE), 10), booktabs = TRUE,
   caption = 'Laboratory data for an organic soil profile from Canada [@shaw2005ecosystem].'

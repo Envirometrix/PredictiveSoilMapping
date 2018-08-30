@@ -3,7 +3,7 @@
 knit: "bookdown::render_book"
 title: "Predictive Soil Mapping with R"
 author: ["Tomislav Hengl"]
-date: "2018-07-29"
+date: "2018-08-30"
 layout: default
 comments: true
 site: bookdown::bookdown_site
