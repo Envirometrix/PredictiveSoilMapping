@@ -27,3 +27,10 @@ rgdal
 geoR
 gstat
 gridExtra
+nnls
+SuperLearner
+Matrix
+foreach
+glmnet
+kernlab
+matrixStats

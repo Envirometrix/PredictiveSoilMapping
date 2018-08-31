@@ -14,7 +14,7 @@ differences, strengths and weaknesses of conventional soil mapping (and
 its inputs and products) relative to PSM.
 
 The universal model of soil variation presented in detail in
-Chapter \@ref(statistical-theory) is adoped as a framework for comparison of
+Chapter \@ref(statistical-theory) is adopted as a framework for comparison of
 conventional and PSM. Our aim is to show how the products
 and methods of conventional soil mapping can complement, and strengthen,
 PSM and equally, how the theories and methods of
@@ -99,7 +99,7 @@ organic carbon [@Lal2004Science].
 
 ### Soil variables
 
-Knowledge about soil is often assembled and catalogued through *soil
+Knowledge about soil is often assembled and cataloged through *soil
 resource inventories*. Conventional soil resource inventories describe
 the geographic distribution of *soil bodies* i.e. *polypedons*
 [@Wysocki2005Geoderma]. The spatial distribution of soil properties is
@@ -136,14 +136,14 @@ form of maps. Soil variables can be roughly grouped into:
     
 7.  *censored values* e.g. depth to bedrock which is often observed only up to 2 m.
 
-The nature of the soil variable determines how the attribute is modelled
+The nature of the soil variable determines how the attribute is modeled
 and presented on the map in PSM. Some soil variables are
 normally described as discrete entities (or classes), but can be
 depicted as a continuous quantities on a map in the form of
 probabilities or memberships
 [@DeGruijter1997Geoderma; @McBratney2003Geoderma; @Kempen2009Geoderma; @Odgers201130].
 For example, a binary soil variable (e.g. the presence/absence of a
-specific layer or horizon) can be modelled as a binomial random variable
+specific layer or horizon) can be modeled as a binomial random variable
 with a logistic regression model. Spatial prediction (mapping) with this
 model gives a map depicting (continuous) probabilities in the range of
 0–1. These probabilities can be used to determine the presence/absence
@@ -311,7 +311,7 @@ is to accurately predict soil properties and their response to possible
 or actual management practices
 (Fig. \@ref(fig:soil-crop-model-scheme)). In other words, if the soil
 mapping system is efficient, we should be able to accurately predict
-behaviour of soil-plant soil-hydrology or similar ecosystems to various
+behavior of soil-plant soil-hydrology or similar ecosystems to various
 soil management strategies, and hence provide optimal advice to
 agronomists, engineers, environmental modelers, ecologists and similar.
 
@@ -429,7 +429,7 @@ The spatially correlated part of the observed variation is that part
 that shows spatial structure that lends itself to prediction through
 interpolation but that is not explainable, or easily explained, through
 use of a deterministic model that relates observed values to controlling
-factors. This part of the variation is typically modelled in pedometric
+factors. This part of the variation is typically modeled in pedometric
 mapping using geostatistics and kriging to interpolate, in an optimal
 manner, between point locations with known values
 [@goovaerts2001geostatistical; @McBratney2003Geoderma].
@@ -481,7 +481,7 @@ that conventional methods would do well to emulate.
 Neither conventional soil mapping nor PSM can do more
 than simply describe and quantify the amount of variation that is not
 predictable and has to be treated as pure noise. Conventional soil maps
-can be criticised for ignoring this component of the total variation and
+can be criticized for ignoring this component of the total variation and
 typically treating it as if it did not exist. For many soil properties,
 short range, local variation in soil properties that cannot be explained
 by either the deterministic or stochastic components of the universal
@@ -608,7 +608,7 @@ survey maps have only been subjected to qualitative assessments of map
 accuracy through visual inspection and subjective correlation exercises.
 In the very few examples of quantitative evaluation
 [@Marsman1986ALTERRA; @Finke2006Elsevier], the assessments have
-typically focussed on measuring the degree with which predictions of
+typically focused on measuring the degree with which predictions of
 soil classes at specific locations on a map, or within polygonal areas
 on a map, agreed with on-the-ground assessments of the soil class at
 these same locations or within these same polygons. Measurement error
@@ -679,7 +679,7 @@ a *soil map* produced for African continent [@Hengl2015AfSoilGrids250m]:
 
 -   *spatial support (resolution) of covariate layers*: 250 m;
 
--   *spatial support of predictions*: point support (centre of a grid
+-   *spatial support of predictions*: point support (center of a grid
     cell);
 
 -   *amount of variation explained by the spatial prediction model*: 45%;
@@ -701,7 +701,7 @@ statistical methods and technology
 Emergence of new soil mapping methods is undoubtedly a reflection of new
 emerging technologies and newly available global data layers, especially
 those that are free and publicly distributed such as MODIS products,
-SRTM DEM and similar (Fig. \@ref(fig:new-technologies)). PSM can be compared to / shares similar concepts as other applications of statistics in physical geography, for example the Predictive Vegetation Mapping [@Fran01].
+SRTM DEM and similar (Fig. \@ref(fig:new-technologies)). PSM can be compared to / shares similar concepts as other applications of statistics in physical geography, for example the Predictive Vegetation Mapping [@Fran01; @Hengl2018PNV].
 
 ```{r new-technologies, echo=FALSE, fig.cap="Evolution of digital soil mapping parallels the emergence of new technologies and global, publicly available data sources.", out.width="100%"}
 knitr::include_graphics("figures/Fig_new_technologies.png")
@@ -974,7 +974,7 @@ includes information about soil characteristics and classification, soil
 use and management, soil fertility, soil bio-chemistry, soil formation,
 soil geography and many other subdisciplines.
 
-In the more focussed context of PSM, we are primarily interested in
+In the more focused context of PSM, we are primarily interested in
 four main kinds of legacy soil data:
 
 -   *Soil field observations and measurements* — Observations and
@@ -993,7 +993,7 @@ four main kinds of legacy soil data:
     pits (relatively accurate) or auger bores (less accurate). Soil
     attributes can be determined in the laboratory (relatively accurate)
     or by hand-estimation in the field (less accurate). Legacy point
-    data is characterised by great variation in precision, accuracy,
+    data is characterized by great variation in precision, accuracy,
     completeness, relevance and age. It needs to be used with caution
     and with understanding of how these issues affect its potential use.
 
@@ -1056,7 +1056,7 @@ either or both.
 
 The object of observation and description of a soil is almost always a
 soil profile or *pedon*. Officially, a soil pedon is defined as a body
-of soil having a limited horizonal extent of no more than 1–2 m in
+of soil having a limited horizontal extent of no more than 1–2 m in
 horizontal and a vertical dimension ($d$) that typically extends to only
 1–2 m but may occasionally extend to greater depths. In practice, the vast
 majority of soil profile data pertain to soil observations and samples
@@ -1307,7 +1307,7 @@ knitr::include_graphics("figures/Fig_DEM_evolution.png")
 ```{block, type="rmdnote"}
 Most common soil covariates used in soil mapping
 are: (1) Raw spectral and multi-spectral images of the land surface, (2)
-DEM-derivates, (3) Climatic images, (4) Vegetation and land-cover based
+DEM-derivatives, (3) Climatic images, (4) Vegetation and land-cover based
 covariates, (5) Land survey and land use information, and (6)
 Expert-based covariates e.g. soil delineations.
 ```
@@ -1391,7 +1391,7 @@ variation may be described in conceptual terms relative to how different
 soils may be more likely to occupy specific landscape positions or occur
 on specific parent materials or under different drainage conditions. For
 example the USDA’s Soil Survey Manual distinguishes between
-*consociations* (relatively homogenous polypedons), *associations*
+*consociations* (relatively homogeneous polypedons), *associations*
 (heterogeneous unit with two or more similar polypedons), and
 *complexes* (mix of two or more contrasting polypedons), but in most
 cases none of the described components is actually mapped separately.
@@ -1490,7 +1490,7 @@ environmental conditions (slope position, drainage, parent material)
 each listed soil is most likely to occur, can provide a foundation for
 heuristic (or expert-based) modeling of the more detailed and shorter
 range variation in soil types that lies at the heart of DSM methods of
-*soil polygon disaggregation*. Disaggregation of conventional soil
+*soil polygon disaggregation*. Dis-aggregation of conventional soil
 polygon maps into more detailed representations of the most likely finer
 scale spatial pattern of variation of the named component soils is an
 attractive and feasible method of producing more detailed estimates of
@@ -1682,7 +1682,7 @@ as to permit creation of initial prediction rules that can subsequently
 be modified and improved upon.
 
 As with much legacy soils data, one of the main limitations of legacy
-soil tacit knowledge is — its accessability. By definition, tacit
+soil tacit knowledge is — its accessibility. By definition, tacit
 knowledge has not been formalized and has often not even been written
 down. So, a challenge exists to simply locate legacy soil expert
 knowledge. Once located, a second challenge is how to best capture and
@@ -1725,7 +1725,7 @@ harmonization procedures.
 When applying Statistical or Machine Learning methods to larger areas, 
 what often limits the success of mapping is the fast that large areas that have extreme
 climatic conditions and/or have very restricted access, are
-significantly undersampled. This occurs largely in the following five
+significantly under-sampled. This occurs largely in the following five
 types of areas [@Hengl2017SoilGrids250m]:
 
 1.  Semi-arid and arid lands, deserts and sand dunes,

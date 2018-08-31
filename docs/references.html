@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl">
 
 
-<meta name="date" content="2018-08-30">
+<meta name="date" content="2018-08-31">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -167,10 +167,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2" data-path="software.html"><a href="software.html"><i class="fa fa-check"></i><b>2</b> Software installation and first steps</a><ul>
 <li class="chapter" data-level="2.1" data-path="software.html"><a href="software.html#list-of-software-in-use"><i class="fa fa-check"></i><b>2.1</b> List of software in use</a></li>
 <li class="chapter" data-level="2.2" data-path="software.html"><a href="software.html#installing-software-on-ubuntu-os"><i class="fa fa-check"></i><b>2.2</b> Installing software on Ubuntu OS</a></li>
-<li class="chapter" data-level="2.3" data-path="software.html"><a href="software.html#Rstudio"><i class="fa fa-check"></i><b>2.3</b> RStudio</a></li>
-<li class="chapter" data-level="2.4" data-path="software.html"><a href="software.html#plotkml-and-gsif-packages"><i class="fa fa-check"></i><b>2.4</b> plotKML and GSIF packages</a></li>
-<li class="chapter" data-level="2.5" data-path="software.html"><a href="software.html#connecting-r-and-saga-gis"><i class="fa fa-check"></i><b>2.5</b> Connecting R and SAGA GIS</a></li>
-<li class="chapter" data-level="2.6" data-path="software.html"><a href="software.html#connecting-r-and-gdal"><i class="fa fa-check"></i><b>2.6</b> Connecting R and GDAL</a></li>
+<li class="chapter" data-level="2.3" data-path="software.html"><a href="software.html#Whitebox"><i class="fa fa-check"></i><b>2.3</b> WhiteboxTools</a></li>
+<li class="chapter" data-level="2.4" data-path="software.html"><a href="software.html#Rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a></li>
+<li class="chapter" data-level="2.5" data-path="software.html"><a href="software.html#plotkml-and-gsif-packages"><i class="fa fa-check"></i><b>2.5</b> plotKML and GSIF packages</a></li>
+<li class="chapter" data-level="2.6" data-path="software.html"><a href="software.html#connecting-r-and-saga-gis"><i class="fa fa-check"></i><b>2.6</b> Connecting R and SAGA GIS</a></li>
+<li class="chapter" data-level="2.7" data-path="software.html"><a href="software.html#connecting-r-and-gdal"><i class="fa fa-check"></i><b>2.7</b> Connecting R and GDAL</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html"><i class="fa fa-check"></i><b>3</b> Soil observations and variables</a><ul>
 <li class="chapter" data-level="3.1" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#basic-concepts-1"><i class="fa fa-check"></i><b>3.1</b> Basic concepts</a><ul>
@@ -271,6 +272,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.1.3" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#modelling-numeric-soil-properties-using-h2o"><i class="fa fa-check"></i><b>6.1.3</b> Modelling numeric soil properties using h2o</a></li>
 <li class="chapter" data-level="6.1.4" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#prediction-3D"><i class="fa fa-check"></i><b>6.1.4</b> Spatial prediction of 3D (numeric) variables</a></li>
 <li class="chapter" data-level="6.1.5" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#ensemble-predictions-using-h2oensemble"><i class="fa fa-check"></i><b>6.1.5</b> Ensemble predictions using h2oEnsemble</a></li>
+<li class="chapter" data-level="6.1.6" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#ensemble-predictions-using-superlearner-package"><i class="fa fa-check"></i><b>6.1.6</b> Ensemble predictions using SuperLearner package</a></li>
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#a-generic-framework-for-spatial-prediction-using-random-forest"><i class="fa fa-check"></i><b>6.2</b> A generic framework for spatial prediction using Random Forest</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#general-principle-of-rfsp"><i class="fa fa-check"></i><b>6.2.1</b> General principle of RFsp</a></li>
@@ -682,10 +684,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Hengl, Tomislav, Gerard Heuvelink, and David G Rossiter. 2007. “About Regression-Kriging: From Equations to Case Studies.” <em>Computers &amp; Geosciences</em> 33 (10). Elsevier: 1301–15.</p>
 </div>
 <div id="ref-Hengl2018RFsp">
-<p>Hengl, Tomislav, Madlene Nussbaum, Marvin N Wright, Gerard B.M. Heuvelink, and Benedikt Gräler. 2018. “Random Forest as a Generic Framework for Predictive Modeling of Spatial and Spatio-Temporal Variables.” <em>PeerJ Preprints</em> 6 (May): e26693v2. doi:<a href="https://doi.org/10.7287/peerj.preprints.26693v2">10.7287/peerj.preprints.26693v2</a>.</p>
+<p>Hengl, Tomislav, Madlene Nussbaum, Marvin N Wright, Gerard B.M. Heuvelink, and Benedikt Gräler. 2018. “Random Forest as a Generic Framework for Predictive Modeling of Spatial and Spatio-Temporal Variables.” <em>PeerJ</em> 6 (August): e5518. doi:<a href="https://doi.org/10.7717/peerj.5518">10.7717/peerj.5518</a>.</p>
 </div>
 <div id="ref-Hengl2007Geoderma">
 <p>Hengl, Tomislav, Norair Toomanian, Hannes I. Reuter, and Mohammad J. Malakouti. 2007. “Methods to Interpolate Soil Categorical Variables from Profile Observations: Lessons from Iran.” <em>Geoderma</em> 140 (4). Elsevier: 417–27. doi:<a href="https://doi.org/10.1016/j.geoderma.2007.04.022">10.1016/j.geoderma.2007.04.022</a>.</p>
+</div>
+<div id="ref-Hengl2018PNV">
+<p>Hengl, Tomislav, Markus G. Walsh, Jonathan Sanderman, Ichsani Wheeler, Sandy P. Harrison, and Iain C. Prentice. 2018. “Global Mapping of Potential Natural Vegetation: An Assessment of Machine Learning Algorithms for Estimating Land Potential.” <em>PeerJ</em> 6 (August): e5457. doi:<a href="https://doi.org/10.7717/peerj.5457">10.7717/peerj.5457</a>.</p>
 </div>
 <div id="ref-Herold2016">
 <p>Herold, Martin, Linda See, Nandin-Erdene Tsendbazar, and Steffen Fritz. 2016. “Towards an Integrated Global Land Cover Monitoring and Mapping System.” <em>Remote Sensing</em> 8 (12). doi:<a href="https://doi.org/10.3390/rs8121036">10.3390/rs8121036</a>.</p>
@@ -857,6 +862,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="ref-LiHeap2010EI">
 <p>Li, Jin, and Andrew D. Heap. 2010. “A Review of Comparative Studies of Spatial Interpolation Methods in Environmental Sciences: Performance and Impact Factors.” <em>Ecological Informatics</em> 6 (3, 3-4). Elsevier: 228–41. doi:<a href="https://doi.org/10.1016/j.ecoinf.2010.12.003">10.1016/j.ecoinf.2010.12.003</a>.</p>
+</div>
+<div id="ref-lindsay2016whitebox">
+<p>Lindsay, John B. 2016. “Whitebox GAT: A case study in geomorphometric analysis.” <em>Computers &amp; Geosciences</em> 95. Elsevier: 75–84.</p>
 </div>
 <div id="ref-Liu2009">
 <p>Liu, Jian, and A-Xing Zhu. 2009. “Mapping with Words: A New Approach to Automated Digital Soil Survey.” <em>International Journal of Intelligent Systems</em> 24 (3). Wiley Subscription Services, Inc., A Wiley Company: 293–311. doi:<a href="https://doi.org/10.1002/int.20337">10.1002/int.20337</a>.</p>
@@ -1046,6 +1054,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="ref-poggio2014national">
 <p>Poggio, Laura, and Alessandro Gimona. 2014. “National scale 3D modelling of soil organic carbon stocks with uncertainty propagation — An example from Scotland.” <em>Geoderma</em> 232. Elsevier: 284–99.</p>
+</div>
+<div id="ref-polley2010super">
+<p>Polley, Eric C, and Mark J Van Der Laan. 2010. <em>Super Learner in Prediction</em>. Working Paper Series. U.C. Berkeley Division of Biostatistics.</p>
 </div>
 <div id="ref-Qi2006Geoderma">
 <p>Qi, Feng, A-Xing Zhu, Mark Harrower, and James E. Burt. 2006. “Fuzzy Soil Mapping Based on Prototype Category Theory.” <em>Geoderma</em> 136 (3-4): 774–87. doi:<a href="https://doi.org/10.1016/j.geoderma.2006.06.001">10.1016/j.geoderma.2006.06.001</a>.</p>

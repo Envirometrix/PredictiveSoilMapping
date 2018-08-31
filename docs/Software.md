@@ -24,7 +24,7 @@ Software (required):
 
 *  [RStudio](http://www.rstudio.com/products/RStudio/);
 
-*  R packages: GSIF, plotKML, landgis, aqp, ranger, caret, xgboost, plyr, raster, gstat, randomForest, ggplot2, e1071 (see: [how to install R package](http://www.r-bloggers.com/installing-r-packages/))
+*  R packages: GSIF, plotKML, aqp, ranger, caret, xgboost, plyr, raster, gstat, randomForest, ggplot2, e1071 (see: [how to install R package](http://www.r-bloggers.com/installing-r-packages/))
 
 *  [SAGA GIS](http://sourceforge.net/projects/saga-gis/) (on Windows machines run windows installer);
 
@@ -32,7 +32,7 @@ Software (required):
 
 *  [GDAL v2.x](https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries) for Windows machines use e.g. ["gdal-*-1800-x64-core.msi"](http://download.gisinternals.com/sdk/downloads/release-1800-x64-gdal-2-1-3-mapserver-7-0-4/gdal-201-1800-x64-core.msi);
 
-R script used in this tutorial you can download from the **[github](https://github.com/envirometrix/PredictiveSoilMapping)**. As a gentle introduction to R programming languange and soil classes in R we recommend the chapter on importing and using soil data. Some more example of SAGA GIS + R usage you can find in the soil covariates chapter. To visualize spatial predictions in a web-browser or Google Earth you could also consider following the soil web-maps tutorial. As a gentle introduction to R programming languange and spatial classes in R we recommend following [the Geocomputation with R book](https://geocompr.robinlovelace.net/). Obtaining also the [R reference card](https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf) is highly recommended.
+R script used in this tutorial you can download from the **[github](https://github.com/envirometrix/PredictiveSoilMapping)**. As a gentle introduction to R programming language and soil classes in R we recommend the chapter on importing and using soil data. Some more example of SAGA GIS + R usage you can find in the soil covariates chapter. To visualize spatial predictions in a web-browser or Google Earth you could also consider following the soil web-maps tutorial. As a gentle introduction to R programming language and spatial classes in R we recommend following [the Geocomputation with R book](https://geocompr.robinlovelace.net/). Obtaining also the [R reference card](https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf) is highly recommended.
 
 ## Installing software on Ubuntu OS
 
@@ -54,7 +54,7 @@ cd microsoft-r-open/
 sudo ./install.sh
 ```
 
-Note that the R versions are constantly being updated so you will need to replace the URL based on the information provided on the home page (http://mran.microsoft.com). Once you run ```install.sh``` you will have to accept the license terms two times before the installation can be completed. If everything went succesful, you can get the session info by:
+Note that the R versions are constantly being updated so you will need to replace the URL based on the information provided on the home page (http://mran.microsoft.com). Once you run ```install.sh``` you will have to accept the license terms two times before the installation can be completed. If everything went successful, you can get the session info by:
 
 
 ```r
@@ -134,7 +134,7 @@ sudo apt-get update
 sudo apt-get install saga
 ```
 
-If installation was succesful, you should be able to access SAGA command line also from R by using:
+If installation was successful, you should be able to access SAGA command line also from R by using:
 
 
 ```r
@@ -151,14 +151,14 @@ sudo apt-get update
 sudo apt-get install qgis python-qgis qgis-plugin-grass
 ```
 
-Other utility software that you might need include ```htop``` that allows you to track processing progress:
+Other utility software that you might need include `htop` that allows you to track processing progress:
 
 
 ```bash
 sudo apt-get install htop iotop
 ```
 
-and some additional libraries used be devtools, geoR and similar can be installed via:
+and some additional libraries used be `devtools`, `geoR` and similar can be installed via:
 
 
 ```bash
@@ -167,12 +167,32 @@ sudo apt-get install build-essential automake;
         libfuse-dev mtools libpng-dev libudunits2-dev
 ```
 
-You might also need the 7z software for easier compression and pigz for parallelized compression:
+You might also need the `7z` software for easier compression and `pigz` for parallelized compression:
 
 
 ```bash
 sudo apt-get install pigz zip unzip p7zip-full 
 ```
+
+## WhiteboxTools {#Whitebox}
+
+WhiteboxTools (http://www.uoguelph.ca/~hydrogeo/WhiteboxTools/), contributed by John Lindsay, is an extensive suite of functions and tools for DEM analysis and can be used to supplement especially hydrological and morphometric analysis available in SAGA GIS and GRASS GIS [@lindsay2016whitebox]. Probably the easiest way to use WhiteboxTools is to install a QGIS plugin (kindly maintained by Alexander Bruy: https://plugins.bruy.me/) and then learn and extend the WhiteboxTools scripting language by testing things out in QGIS (see below).
+
+<div class="figure" style="text-align: center">
+<img src="figures/whiteboxtools-preview.jpg" alt="Calling WhiteboxTools from QGIS via the WhiteboxTools plugin." width="100%" />
+<p class="caption">(\#fig:whiteboxtools-preview)Calling WhiteboxTools from QGIS via the WhiteboxTools plugin.</p>
+</div>
+
+The function `FlowAccumulationFullWorkflow` is for example a wrapper function to filter out all spurious sinks and derive hydrological flow accumulation map all at once. To run it from command line we can use:
+
+
+
+<div class="figure" style="text-align: center">
+<img src="figures/eberg_hydroflow_preview_3d.jpg" alt="Hydrological flow accummulation map based on the Ebergotzen DEM derived using WhiteboxTools." width="100%" />
+<p class="caption">(\#fig:eberg-hydroflow-preview-3d)Hydrological flow accummulation map based on the Ebergotzen DEM derived using WhiteboxTools.</p>
+</div>
+
+This produces number of maps, from which usually the hydrological flow accumulation map is potentially most useful. It is highly recommended that, before you start running analysis on large DEM's using WhiteboxTools and/or SAGA GIS, is that you test functionality using smaller data sets i.e. either a subset of the original data or using DEM at very coarse resolutions (so that width and height of a DEM is only few hundred pixels). Also note that WhiteboxTools do not work with GeoTIFFs produced using the `COMPRESS=DEFLATE` creation options.
 
 ## RStudio {#Rstudio}
 
@@ -191,9 +211,10 @@ ls <- c("rgdal", "raster", "GSIF", "plotKML",
         "nnet", "plyr", "ROCR", "randomForest", 
         "psych", "mda", "h2o", "dismo", "grDevices", 
         "snowfall", "hexbin", "lattice", "ranger", 
-        "soiltexture", "aqp", "colorspace",
+        "soiltexture", "aqp", "colorspace", "Cubist",
         "randomForestSRC", "ggRandomForests", "scales",
-        "xgboost", "parallel", "doParallel", "caret")
+        "xgboost", "parallel", "doParallel", "caret", 
+        "gam", "glmnet", "matrixStats", "SuperLearner")
 new.packages <- ls[!(ls %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
 ```

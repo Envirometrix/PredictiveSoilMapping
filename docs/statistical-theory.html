@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl">
 
 
-<meta name="date" content="2018-08-30">
+<meta name="date" content="2018-08-31">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -167,10 +167,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2" data-path="software.html"><a href="software.html"><i class="fa fa-check"></i><b>2</b> Software installation and first steps</a><ul>
 <li class="chapter" data-level="2.1" data-path="software.html"><a href="software.html#list-of-software-in-use"><i class="fa fa-check"></i><b>2.1</b> List of software in use</a></li>
 <li class="chapter" data-level="2.2" data-path="software.html"><a href="software.html#installing-software-on-ubuntu-os"><i class="fa fa-check"></i><b>2.2</b> Installing software on Ubuntu OS</a></li>
-<li class="chapter" data-level="2.3" data-path="software.html"><a href="software.html#Rstudio"><i class="fa fa-check"></i><b>2.3</b> RStudio</a></li>
-<li class="chapter" data-level="2.4" data-path="software.html"><a href="software.html#plotkml-and-gsif-packages"><i class="fa fa-check"></i><b>2.4</b> plotKML and GSIF packages</a></li>
-<li class="chapter" data-level="2.5" data-path="software.html"><a href="software.html#connecting-r-and-saga-gis"><i class="fa fa-check"></i><b>2.5</b> Connecting R and SAGA GIS</a></li>
-<li class="chapter" data-level="2.6" data-path="software.html"><a href="software.html#connecting-r-and-gdal"><i class="fa fa-check"></i><b>2.6</b> Connecting R and GDAL</a></li>
+<li class="chapter" data-level="2.3" data-path="software.html"><a href="software.html#Whitebox"><i class="fa fa-check"></i><b>2.3</b> WhiteboxTools</a></li>
+<li class="chapter" data-level="2.4" data-path="software.html"><a href="software.html#Rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a></li>
+<li class="chapter" data-level="2.5" data-path="software.html"><a href="software.html#plotkml-and-gsif-packages"><i class="fa fa-check"></i><b>2.5</b> plotKML and GSIF packages</a></li>
+<li class="chapter" data-level="2.6" data-path="software.html"><a href="software.html#connecting-r-and-saga-gis"><i class="fa fa-check"></i><b>2.6</b> Connecting R and SAGA GIS</a></li>
+<li class="chapter" data-level="2.7" data-path="software.html"><a href="software.html#connecting-r-and-gdal"><i class="fa fa-check"></i><b>2.7</b> Connecting R and GDAL</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html"><i class="fa fa-check"></i><b>3</b> Soil observations and variables</a><ul>
 <li class="chapter" data-level="3.1" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#basic-concepts-1"><i class="fa fa-check"></i><b>3.1</b> Basic concepts</a><ul>
@@ -271,6 +272,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.1.3" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#modelling-numeric-soil-properties-using-h2o"><i class="fa fa-check"></i><b>6.1.3</b> Modelling numeric soil properties using h2o</a></li>
 <li class="chapter" data-level="6.1.4" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#prediction-3D"><i class="fa fa-check"></i><b>6.1.4</b> Spatial prediction of 3D (numeric) variables</a></li>
 <li class="chapter" data-level="6.1.5" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#ensemble-predictions-using-h2oensemble"><i class="fa fa-check"></i><b>6.1.5</b> Ensemble predictions using h2oEnsemble</a></li>
+<li class="chapter" data-level="6.1.6" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#ensemble-predictions-using-superlearner-package"><i class="fa fa-check"></i><b>6.1.6</b> Ensemble predictions using SuperLearner package</a></li>
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#a-generic-framework-for-spatial-prediction-using-random-forest"><i class="fa fa-check"></i><b>6.2</b> A generic framework for spatial prediction using Random Forest</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#general-principle-of-rfsp"><i class="fa fa-check"></i><b>6.2.1</b> General principle of RFsp</a></li>
@@ -320,7 +322,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="aspects-variability" class="section level2">
 <h2><span class="header-section-number">5.1</span> Aspects of spatial variability of soil variables</h2>
 <p>In this chapter we review the statistical theory for soil mapping. We focus on models that are most suitable for practical implementation and use with soil profile data and gridded covariates, and we provide the mathematical-statistical details of the selected models. We start by revisiting some basic statistical aspects of soil mapping, and finally illustrate the proposed framework for reproducible, semi-automated mapping of soil variables using simple, real-world examples.</p>
-<p>To code examples are only shown for illustration. More complex predictive modeling is described in section <a href="soilmapping-using-mla.html#soilmapping-using-mla">6</a>. To install and optimize packages used in this chapter please refer to section <a href="software.html#Rstudio">2.3</a>.</p>
+<p>To code examples are only shown for illustration. More complex predictive modeling is described in section <a href="soilmapping-using-mla.html#soilmapping-using-mla">6</a>. To install and optimize packages used in this chapter please refer to section <a href="software.html#Rstudio">2.4</a>.</p>
 <div id="modelling-soil-variability" class="section level3">
 <h3><span class="header-section-number">5.1.1</span> Modelling soil variability</h3>
 <p>Soils vary spatially in a way that is often only partially understood. The main (deterministic) causes of soil spatial variation are the well-known causal factors — climate, organisms, relief and parent material — but how these factors jointly shape the soil over time is a very complex process that is (still) extremely difficult to model mechanistically. Moreover, mechanistic modelling approaches require large sets of input data that are not available in practice. Some initial steps have been made, notably for mechanistic modelling of vertical soil variation (see e.g. <span class="citation">Finke and Hutson (<a href="references.html#ref-Finke2008462">2008</a>)</span>, <span class="citation">Sommer, Gerke, and Deumlich (<a href="references.html#ref-Sommer2008480">2008</a>)</span>, <span class="citation">Minasny, McBratney, and Salvador-Blanes (<a href="references.html#ref-Minasny2008140">2008</a>)</span>, and <span class="citation">Vanwalleghem et al. (<a href="references.html#ref-vanwalleghem2010spatial">2010</a>)</span>), but existing approaches are still rudimentary and cannot be used for operational soil mapping. Mainstream soil mapping therefore takes an empirical approach in which the relationship between the soil variable of interest and causal factors (or their proxies) is modelled statistically, using various types of regression models. The explanatory variables used in regression are also known as <em>covariates</em> (a list of common covariates used in soil mapping is provided in chapter <a href="soil-covs-chapter.html#soil-covs-chapter">4</a>).</p>
@@ -1633,11 +1635,11 @@ Prediction intervals (upper and lower ranges of expected values with some high p
 <div class="figure" style="text-align: center"><span id="fig:validation-scheme"></span>
 <img src="figures/Fig_validation_plots.png" alt="Universal plots of predictive performance: (a) 1:1 predicted vs observed plot, (b) CCC vs standard deviation of the z-scores plot, (c) nominal vs coverage probabilities, and (d) variogram of cross-validation residuals. For more detail see: @Hengl2018RFsp." width="80%" />
 <p class="caption">
-Figure 5.25: Universal plots of predictive performance: (a) 1:1 predicted vs observed plot, (b) CCC vs standard deviation of the z-scores plot, (c) nominal vs coverage probabilities, and (d) variogram of cross-validation residuals. For more detail see: <span class="citation">Hengl et al. (<a href="references.html#ref-Hengl2018RFsp">2018</a>)</span>.
+Figure 5.25: Universal plots of predictive performance: (a) 1:1 predicted vs observed plot, (b) CCC vs standard deviation of the z-scores plot, (c) nominal vs coverage probabilities, and (d) variogram of cross-validation residuals. For more detail see: <span class="citation">T. Hengl, Nussbaum, et al. (<a href="references.html#ref-Hengl2018RFsp">2018</a>)</span>.
 </p>
 </div>
 <p>CCC and variance or standard deviation of the z-scores are two universal / scale-free parameters that can be used to put multiple spatial prediction algorithms working on multiple soil variables. Two additional measures of the predictive performance of a mapping algoritm are the spatial dependence structure in the cross-validation residuals and so called <em>“accuracy plots”</em> i.e. <span class="citation">(Goovaerts <a href="references.html#ref-goovaerts1999geostatistics">1999</a>)</span> (Fig. <a href="statistical-theory.html#fig:validation-scheme">5.25</a>). Ideally, variogram of residuals should show no spatial dependence (i.e. pure nugget effect), which is a proof that there is no spatial bias in predictions. Likewise, nominal vs coverage probabilities in the target variable should also ideally be on a 1:1 line.</p>
-<p>So in summary, four universal measures to access predicitive success of any spatial prediction method are <span class="citation">(Hengl et al. <a href="references.html#ref-Hengl2018RFsp">2018</a>)</span>:</p>
+<p>So in summary, four universal measures to access predicitive success of any spatial prediction method are <span class="citation">(T. Hengl, Nussbaum, et al. <a href="references.html#ref-Hengl2018RFsp">2018</a>)</span>:</p>
 <ul>
 <li><strong>Concordance Correlation Coefficient</strong> (0–1): showing predictive success of a method on a 1:1 predictions vs observations plot,</li>
 <li><strong>Variance of the z-scores</strong> (0–<span class="math inline">\(\infty\)</span>): showing how reliable is the modeled estimate of the prediction errors,</li>

@@ -1,3 +1,26 @@
+```{r include=FALSE, cache=FALSE}
+## Needed for Rscript
+library("methods")
+library("microbenchmark")
+## load data sets
+
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  cache = TRUE, 
+  fig.align="center",
+  fig.pos="t",
+  auto_pdf = FALSE
+)
+set.seed(2016)
+options(digits = 3)
+options(dplyr.print_min = 4, dplyr.print_max = 4)
+options(knitr.graphics.auto_pdf = TRUE)
+
+figs.lst = list.files("figures", pattern=glob2rx("*.pdf$"), full.names = TRUE)
+for(i in 1:length(figs.lst)){ if(!file.exists(gsub(".pdf", ".png", figs.lst[i]))) system(paste0("convert -density 200 ", figs.lst[i], " -quality 90 ", gsub(".pdf", ".png", figs.lst[i]))) }
+#for(i in 1:length(figs.lst)){ if(!file.exists(gsub(".pdf", ".png", figs.lst[i]))) system(paste0('inkscape \"', figs.lst[i], '\" -z --export-dpi=200 --export-area-drawing --export-png="', gsub(".pdf", ".png", figs.lst[i]), '"')) }
+```
 # Machine Learning Algorithms for soil mapping {#soilmapping-using-mla}
 
 *Edited by: T. Hengl*
@@ -300,7 +323,7 @@ tr.ORCDRC.rf <- train(formulaStringP2, data=mP2[sel,],
 tr.ORCDRC.rf
 ```
 
-In this case mtry = 12 seems to achieve best performance. Note that we sub-set the initial matrix to speed up fine-tuning of the parameters (otherwise the computing time could easily blow up). Next, we can fit the final model by using all data (this time we also turn cross-validation off):
+In this case `mtry = 12` seems to achieve best performance. Note that we sub-set the initial matrix to speed up fine-tuning of the parameters (otherwise the computing time could easily blow up). Next, we can fit the final model by using all data (this time we also turn cross-validation off):
 
 ```{r}
 ORCDRC.rf <- train(formulaStringP2, data=mP2, 
@@ -347,7 +370,7 @@ edgeroi.grids$ORCDRC_5cm <- (edgeroi.grids$Random_forest*w1 +
 plot(stack(edgeroi.grids[c("Random_forest","Cubist","XGBoost","ORCDRC_5cm")]), col=SAGA_pal[[1]], zlim=c(5,65))
 ```
 
-The final plot shows that xgboost possibly overpredicts and that cubist possibly underpredicts values of `ORCDRC`, while random forest is somewhere in-between the two. Again, merged predictions are probably the safest option considering that all three MLA's have a similar performances.
+The final plot shows that xgboost possibly over-predicts and that cubist possibly under-predicts values of `ORCDRC`, while random forest is somewhere in-between the two. Again, merged predictions are probably the safest option considering that all three MLA's have a similar performances.
 
 We can quickly test the overall performance using a script on github prepared for testing performance of merged predictions:
 
@@ -384,9 +407,11 @@ plt0
 Ensemble models often outperform single models. There is certainly opportunity for increasing the mapping accuracy by combining power of 3–4 MLA's. The h2o environment for ML offers automation of ensemble models fitting and predictions [@ledell2015scalable].
 
 ```{r}
+## download from: http://h2o-release.s3.amazonaws.com/h2o/latest_stable.html
 library(h2o)
 #devtools::install_github("h2oai/h2o-3/h2o-r/ensemble/h2oEnsemble-package")
 library(h2oEnsemble)
+h2o.init()
 ```
 
 we first specify all learners of interest:
@@ -406,7 +431,7 @@ perf <- h2o.ensemble_performance(fit, newdata = edgeroi_v.hex)
 perf
 ```
 
-which shows that, in this specific case, ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain what the accuracy gain is.
+which shows that, in this specific case, ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain what is the actual gain in accuracy.
 
 We can also test ensemble predictions using the cookfarm data set [@Gasch2015SPASTA]. This data set consists of 183 profiles, each consisting of multiple soil horizons (1050 in total). To create a regression matrix we use:
 
@@ -415,8 +440,9 @@ data(cookfarm)
 cookfarm.hor <- cookfarm$profiles
 str(cookfarm.hor)
 cookfarm.hor$depth <- cookfarm.hor$UHDICM + (cookfarm.hor$LHDICM - cookfarm.hor$UHDICM)/2
-sel.id <- unique(cookfarm.hor$SOURCEID)
+sel.id <- !duplicated(cookfarm.hor$SOURCEID)
 cookfarm.xy <- cookfarm.hor[sel.id,c("SOURCEID","Easting","Northing")]
+str(cookfarm.xy)
 coordinates(cookfarm.xy) <- ~ Easting + Northing
 grid10m <- cookfarm$grids
 coordinates(grid10m) <- ~ x + y
@@ -428,8 +454,9 @@ rm.cookfarm <- plyr::join(cookfarm.hor, cbind(cookfarm.xy@data, ov.cf))
 Here, we are interested in predicting soil pH in 3D, hence we will use a model of form:
 
 ```{r}
-fm.PHI <- PHIHOX~DEM+TWI+MUSYM+Cook_fall_ECa+Cook_spr_ECa+depth
-mP3 <- rm.cookfarm[complete.cases(rm.cookfarm[,all.vars(fm.PHI)]),all.vars(fm.PHI)]
+fm.PHI <- PHIHOX~DEM+TWI+NDRE.M+Cook_fall_ECa+Cook_spr_ECa+depth
+rc <- complete.cases(rm.cookfarm[,all.vars(fm.PHI)])
+mP3 <- rm.cookfarm[rc,all.vars(fm.PHI)]
 str(mP3)
 ```
 
@@ -438,8 +465,8 @@ We can again test fitting an ensemble model using two MLA's:
 ```{r, message=FALSE, results='hide'}
 k.f3 <- dismo::kfold(mP3, k=4)
 ## split data into training and validation:
-cookfarm_v.hex <- as.h2o(mP3[k.f==1,], destination_frame = "cookfarm_v.hex")
-cookfarm_t.hex <- as.h2o(mP3[!k.f==1,], destination_frame = "cookfarm_t.hex")
+cookfarm_v.hex <- as.h2o(mP3[k.f3==1,], destination_frame = "cookfarm_v.hex")
+cookfarm_t.hex <- as.h2o(mP3[!k.f3==1,], destination_frame = "cookfarm_t.hex")
 learner3 = c("h2o.glm.wrapper", "h2o.randomForest.wrapper",
             "h2o.gbm.wrapper", "h2o.deeplearning.wrapper")
 fit3 <- h2o.ensemble(x = which(names(mP3) %in% all.vars(fm.PHI)[-1]), 
@@ -450,10 +477,114 @@ perf3 <- h2o.ensemble_performance(fit3, newdata = cookfarm_v.hex)
 perf3
 ```
 
-In this case Ensemble performance (MSE) seems to be worse then the single best spatial predictor (random forest in this case). This could be because we are basically *forcing* using learners that have problems to map this feature. This illustrates that ensemble predictions should be taken with care.
+In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not necessary.
 
-```{r, eval=FALSE, message=FALSE}
+```{r, message=FALSE}
 h2o.shutdown()
+```
+
+### Ensemble predictions using SuperLearner package
+
+Another interesting package to generate ensemble predictions of soil properties and classes is the SuperLearner package [@polley2010super]. This package has a much more options than `h2o.ensemble` considering the number of methods available for consideration:
+
+```{r}
+library(SuperLearner)
+# List available models:
+listWrappers()
+```
+
+where `SL.` refers to imported method from a package e.g. `"SL.ranger"` is the SuperLearner method from the package ranger.
+
+A useful functionality of the SuperLearner package is that it displays how are the model average weights estimated and which methods can be excluded from predictions. When using SuperLearner, however, it is highly recommended to use the parallelized / multicore version otherwise the computing time might be quite extensive. For example to prepare an ensemble predictions using five standard prediction techniques used in this tutorial we would run:
+
+```{r}
+## detach snowfall package otherwise possible conflicts
+#detach("package:snowfall", unload=TRUE)
+library(parallel)
+sl.l = c("SL.mean", "SL.xgboost", "SL.ksvm", "SL.glmnet", "SL.ranger")
+cl <- parallel::makeCluster(detectCores())
+x <- parallel::clusterEvalQ(cl, library(SuperLearner))
+sl <- snowSuperLearner(Y = mP3$PHIHOX, 
+                       X = mP3[,all.vars(fm.PHI)[-1]],
+                       cluster = cl, 
+                       SL.library = sl.l)
+sl
+```
+
+This shows that `SL.xgboost_All` beats competition by a large margin. Since this is a relatively small data set, RMSE produced by `SL.xgboost_All` is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:
+
+```{r}
+sl.l2 = c("SL.xgboost", "SL.ranger", "SL.ksvm")
+sl2 <- snowSuperLearner(Y = mP3$PHIHOX, 
+                       X = mP3[,all.vars(fm.PHI)[-1]],
+                       cluster = cl, 
+                       SL.library = sl.l2)
+sl2
+```
+
+again `SL.xgboost` dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where whole profiles are taken out of training:
+
+```{r}
+str(rm.cookfarm$SOURCEID)
+cv_sl <- CV.SuperLearner(Y = mP3$PHIHOX, 
+                       X = mP3[,all.vars(fm.PHI)[-1]],
+                       parallel = cl, 
+                       SL.library = sl.l2, 
+                       V=5, id=rm.cookfarm$SOURCEID[rc], 
+                       verbose=TRUE)
+summary(cv_sl)
+```
+
+where `V=5` specifies number of folds, and `id=rm.cookfarm$SOURCEID` forces that total profiles are taken out from training and cross-validation. This gives a more realistic RMSE of about ±0.35. Note that this time `SL.xgboost_All` is even somewhat worse than the random forest model, and the ensemble model (`Super Learner`) is slightly better than each individual model. This matches our previous results with `h20.ensemble`. 
+
+To produce predictions of soil pH at 10 cm depth we can finally use:
+
+```{r}
+sl2 <- snowSuperLearner(Y = mP3$PHIHOX, 
+                       X = mP3[,all.vars(fm.PHI)[-1]],
+                       cluster = cl, 
+                       SL.library = sl.l2,
+                       id=rm.cookfarm$SOURCEID[rc],
+                       cvControl=list(V=5))
+sl2
+new.data <- grid10m@data
+pred.PHI <- list(NULL)
+depths = c(10,30,50,70,90)
+for(j in 1:length(depths)){
+  new.data$depth = depths[j]
+  pred.PHI[[j]] <- predict(sl2, new.data[,sl2$varNames])
+}
+str(pred.PHI[[1]])
+```
+
+this gives two outputs:
+
+* ensemble prediction in the `pred` matrix,
+* list of individual predictions in the `library.predict` matrix,
+
+To visualize predictions (at six depths) we can run:
+
+```{r ph-cookfarm, echo=TRUE, fig.width=8, fig.cap="Predicted soil pH using 3D ensemble model."}
+for(j in 1:length(depths)){
+  grid10m@data[,paste0("PHI.", depths[j],"cm")] <- pred.PHI[[j]]$pred[,1]
+}
+spplot(grid10m, paste0("PHI.", depths,"cm"), 
+       col.regions=R_pal[["pH_pal"]], as.table=TRUE)
+```
+
+The second prediction matrix can be used to determine *model uncertainty*:
+
+```{r ph-cookfarm-var, echo=TRUE, fig.width=7, fig.cap="Example of variance of prediction models for soil pH."}
+library(matrixStats)
+grid10m$PHI.10cm.sd <- rowSds(pred.PHI[[1]]$library.predict, na.rm=TRUE)
+pts = list("sp.points", cookfarm.xy, pch="+", col="black", cex=1.4)
+spplot(grid10m, "PHI.10cm.sd", sp.layout = list(pts), col.regions=rev(bpy.colors()))
+```
+
+which shows the especially problematic areas, in this case most likely correlated with the extrapolation in feature space. Before we stop computing we need to close the cluster session by using:
+
+```{r}
+stopCluster(cl)
 ```
 
 ## A generic framework for spatial prediction using Random Forest
@@ -463,7 +594,7 @@ map soil properties and classes. Most of currently used MLA's, however, ignore t
 locations of the observations and hence any spatial autocorrelation in
 the data not accounted for by the covariates. Spatial auto-correlation, 
 especially if still existent in the cross-validation residuals, indicates 
-that the predictions are maybe biased, and this is suboptimal. 
+that the predictions are maybe biased, and this is sub-optimal. 
 To account for this, @Hengl2018RFsp describe a framework for using Random Forest 
 (as implemented in the ranger package) in combination with geographical 
 distances to sampling locations to fit models and predict values (RFsp).
@@ -519,7 +650,7 @@ making RF applicable to spatial statistics problems hence lies also in
 preparing geographical measures of proximity and connectivity between
 observations, so that spatial autocorrelation is accounted for. There
 are multiple options for quantifying proximity and geographical
-connection (Fig. \@ref(fig:distances-examples)):
+connection (Fig. \@ref(fig:distances-examples)):
 
 1.  Geographical coordinates $s_1$ and $s_2$, i.e., easting
     and northing.
@@ -545,7 +676,7 @@ connection (Fig. \@ref(fig:distances-examples)):
 The package , for example, provides a framework to derive complex
 distances based on terrain complexity [@vanEtten2017r]. Here additional
 input to compute complex distances are the Digital Elevation Model (DEM)
-and DEM-derivatives, such as slope (Fig. \@ref(fig:distances-examples)b).
+and DEM-derivatives, such as slope (Fig. \@ref(fig:distances-examples)b).
 SAGA GIS [@gmd-8-1991-2015] offers a wide diversity of DEM derivatives
 that can be derived per location of interest.
 
@@ -553,10 +684,10 @@ that can be derived per location of interest.
 knitr::include_graphics("figures/Fig_distances_examples.png")
 ```
 
-Here we only show predictive performance with Eucledean buffer distances 
+Here we only show predictive performance with Euclidean buffer distances 
 (to all sampling points), but the code could be adopted to
 include other families of geographical covariates (as shown in
-Fig. \@ref(fig:distances-examples)). Note also that RF tolerates high
+Fig. \@ref(fig:distances-examples)). Note also that RF tolerates high
 number of covariates and multicolinearity [@Biau2016], hence multiple
 types of geographical covariates (Euclidean buffer distances, upslope
 and downslope areas) can be used at the same time.
@@ -659,7 +790,7 @@ meuse.grid$zinc_ok <- zinc.ok$predict
 meuse.grid$zinc_ok_range <- sqrt(zinc.ok$krige.var)
 ```
 
-in this case geoR automatically back-transforms values to the original scale, which is a recommended feature. Comparison of predictions and prediction error maps produced using geoR (ordinary kriging) and RFsp (with buffer distances and by just using coordinates) is given in Fig. \@ref(fig:comparison-OK-RF-zinc-meuse).
+in this case geoR automatically back-transforms values to the original scale, which is a recommended feature. Comparison of predictions and prediction error maps produced using geoR (ordinary kriging) and RFsp (with buffer distances and by just using coordinates) is given in Fig. \@ref(fig:comparison-OK-RF-zinc-meuse).
 
 ```{r comparison-OK-RF-zinc-meuse, echo=FALSE, fig.cap="Comparison of predictions based on ordinary kriging as implemented in the geoR package (left) and random forest (right) for Zinc concentrations, Meuse data set: (first row) predicted concentrations in log-scale and (second row) standard deviation of the prediction errors for OK and RF methods. After @Hengl2018RFsp.", out.width="100%"}
 knitr::include_graphics("figures/Fig_comparison_OK_RF_zinc_meuse.png")
@@ -838,7 +969,7 @@ m.s <- ranger(fm.s, rm.s, mtry=22, num.trees=150, seed=1, probability=TRUE, keep
 m.s
 ```
 
-this shows that the model is succesful with the OOB prediction error of about 0.09. This number is rather abstract so we can also check what is the actual classification accuracy using hard classes:
+this shows that the model is successful with the OOB prediction error of about 0.09. This number is rather abstract so we can also check what is the actual classification accuracy using hard classes:
 
 ```{r}
 m.s0 <- ranger(fm.s, rm.s, mtry=22, num.trees=150, seed=1)
@@ -867,7 +998,7 @@ Spatial prediction of binomial and factor-type variables is straight forward wit
 
 ## Summary points
 
-In summary, MLA's are fairly attractive for soil mapping and soil modelling problems in general as they often perform better than standard linear models (already recognized by @moran2002spatial and @Henderson2004Geoderma; some recent comparisons of MLA's performance for operational soil mapping can be found in @nussbaum2018evaluation). MLA's often perform better than linear techniques for soil mapping possibily due to the following three reasons:
+In summary, MLA's are fairly attractive for soil mapping and soil modelling problems in general as they often perform better than standard linear models (already recognized by @moran2002spatial and @Henderson2004Geoderma; some recent comparisons of MLA's performance for operational soil mapping can be found in @nussbaum2018evaluation). MLA's often perform better than linear techniques for soil mapping possibly due to the following three reasons:
 
  1. Non-linear relationships between soil forming factors and soil properties can be efficiently modeled using MLA's,
  2. Tree-based MLA's (random forest, gradient boosting, cubist) are suitable for representing *local* soil-landscape relationships, which is often important for accuracy of spatial prediction models,
@@ -882,7 +1013,7 @@ the additional costs including only higher computation loads
 [@michailidis2017investigating]. In the example above, the extensive
 computational load from derivation of models and product predictions had
 already obtained improved accuracies, making increasing computing loads
-further a matter of diminishing returns. Some interesting Machine Learning Algortims for soil mapping based on regression include: Random Forest [@Biau2016], 
+further a matter of diminishing returns. Some interesting Machine Learning Algorithms for soil mapping based on regression include: Random Forest [@Biau2016], 
 Gradient Boosting Machine (GBM) [@hastie2009elements], Cubist [@kuhn2014cubist], 
 Generalized Boosted Regression Models [@ridgeway2010gbm], Support Vector Machines [@chang2011libsvm],
 and the Extreme Gradient Boosting approach available via the xgboost package [@2016arXiv160302754C].
@@ -893,10 +1024,10 @@ Less is better sometimes.
 
 The RFsp method seems to be suitable for generating spatial and spatiotemporal predictions. 
 Computing time, however, can be a cumbersome and working with data sets with >1000 
-point locations (hence 1000+ buffer distance maps) is problably not yet recommended. 
+point locations (hence 1000+ buffer distance maps) is probably not yet recommended. 
 Also cross-validation of accuracy of predictions produced using RFsp needs to be 
 implemented using leave-location-out CV to account for spatial autocorrelation in data. 
 The key to the success of the RFsp framework might be the training data quality — 
 especially quality of spatial sampling (to minimize extrapolation problems and any 
 type of bias in data), and quality of model validation (to ensure that accuracy is 
-not effected by overfitting). For all other details about RFsp refer to @Hengl2018RFsp.
+not effected by over-fitting). For all other details about RFsp refer to @Hengl2018RFsp.
