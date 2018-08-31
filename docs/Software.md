@@ -186,6 +186,14 @@ WhiteboxTools (http://www.uoguelph.ca/~hydrogeo/WhiteboxTools/), contributed by 
 The function `FlowAccumulationFullWorkflow` is for example a wrapper function to filter out all spurious sinks and derive hydrological flow accumulation map all at once. To run it from command line we can use:
 
 
+```r
+system(paste0('"/home/tomislav/software/WBT/whitebox_tools" ',
+  '--run=FlowAccumulationFullWorkflow --dem="./extdata/DEMTOPx.tif" ',
+  '--out_type="Specific Contributing Area" --log="False" --clip="False" --esri_pntr="False" ',
+  '--out_dem="./extdata/DEMTOPx_out.tif" ',
+  '--out_pntr="./extdata/DEMTOPx_pntr.tif" ',
+  '--out_accum="./extdata/DEMTOPx_accum.tif" -v'))
+```
 
 <div class="figure" style="text-align: center">
 <img src="figures/eberg_hydroflow_preview_3d.jpg" alt="Hydrological flow accummulation map based on the Ebergotzen DEM derived using WhiteboxTools." width="100%" />

@@ -123,7 +123,7 @@ knitr::include_graphics("figures/whiteboxtools-preview.jpg")
 
 The function `FlowAccumulationFullWorkflow` is for example a wrapper function to filter out all spurious sinks and derive hydrological flow accumulation map all at once. To run it from command line we can use:
 
-```{r, echo=FALSE}
+```{r}
 system(paste0('"/home/tomislav/software/WBT/whitebox_tools" ',
   '--run=FlowAccumulationFullWorkflow --dem="./extdata/DEMTOPx.tif" ',
   '--out_type="Specific Contributing Area" --log="False" --clip="False" --esri_pntr="False" ',

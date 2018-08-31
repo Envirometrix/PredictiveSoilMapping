@@ -6,20 +6,20 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Predictive Soil Mapping with R</title>
-  <meta name="description" content="Predictive Soil Mapping aims at producing most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement various soil mapping procedures in R.">
+  <meta name="description" content="Predictive Soil Mapping aims at producing most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement various soil mapping procedures with R programming language.">
   <meta name="generator" content="bookdown 0.7.12 and GitBook 2.6.7">
 
   <meta property="og:title" content="Predictive Soil Mapping with R" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://soilmapper.org" />
   <meta property="og:image" content="http://soilmapper.orgfigures/f0_web.png" />
-  <meta property="og:description" content="Predictive Soil Mapping aims at producing most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement various soil mapping procedures in R." />
+  <meta property="og:description" content="Predictive Soil Mapping aims at producing most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement various soil mapping procedures with R programming language." />
   <meta name="github-repo" content="envirometrix/PredictiveSoilMapping" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Predictive Soil Mapping with R" />
   <meta name="twitter:site" content="@tom_hengl" />
-  <meta name="twitter:description" content="Predictive Soil Mapping aims at producing most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement various soil mapping procedures in R." />
+  <meta name="twitter:description" content="Predictive Soil Mapping aims at producing most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement various soil mapping procedures with R programming language." />
   <meta name="twitter:image" content="http://soilmapper.orgfigures/f0_web.png" />
 
 <meta name="author" content="Tomislav Hengl">
@@ -790,52 +790,113 @@ Figure 6.9: Predicted vs observed plot for soil organic carbon ML-based model (E
 <div id="ensemble-predictions-using-h2oensemble" class="section level3">
 <h3><span class="header-section-number">6.1.5</span> Ensemble predictions using h2oEnsemble</h3>
 <p>Ensemble models often outperform single models. There is certainly opportunity for increasing the mapping accuracy by combining power of 3–4 MLA’s. The h2o environment for ML offers automation of ensemble models fitting and predictions <span class="citation">(LeDell <a href="references.html#ref-ledell2015scalable">2015</a>)</span>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## download from: http://h2o-release.s3.amazonaws.com/h2o/latest_stable.html
-<span class="kw">library</span>(h2o)
-<span class="co">#devtools::install_github(&quot;h2oai/h2o-3/h2o-r/ensemble/h2oEnsemble-package&quot;)</span>
-<span class="kw">library</span>(h2oEnsemble)
-<span class="kw">h2o.init</span>()
-<span class="co">#&gt;  Connection successful!</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; R is connected to the H2O cluster: </span>
-<span class="co">#&gt;     H2O cluster uptime:         27 minutes 9 seconds </span>
-<span class="co">#&gt;     H2O cluster version:        3.16.0.2 </span>
-<span class="co">#&gt;     H2O cluster version age:    9 months !!! </span>
-<span class="co">#&gt;     H2O cluster name:           H2O_started_from_R_tomislav_cqe222 </span>
-<span class="co">#&gt;     H2O cluster total nodes:    1 </span>
-<span class="co">#&gt;     H2O cluster total memory:   3.22 GB </span>
-<span class="co">#&gt;     H2O cluster total cores:    8 </span>
-<span class="co">#&gt;     H2O cluster allowed cores:  8 </span>
-<span class="co">#&gt;     H2O cluster healthy:        TRUE </span>
-<span class="co">#&gt;     H2O Connection ip:          localhost </span>
-<span class="co">#&gt;     H2O Connection port:        54321 </span>
-<span class="co">#&gt;     H2O Connection proxy:       NA </span>
-<span class="co">#&gt;     H2O Internal Security:      FALSE </span>
-<span class="co">#&gt;     H2O API Extensions:         XGBoost, Algos, AutoML, Core V3, Core V4 </span>
-<span class="co">#&gt;     R Version:                  R version 3.4.3 (2017-11-30)</span>
-<span class="co">#&gt; Warning in h2o.clusterInfo(): </span>
-<span class="co">#&gt; Your H2O cluster version is too old (9 months)!</span>
-<span class="co">#&gt; Please download and install the latest version from http://h2o.ai/download/</span></code></pre></div>
+<pre><code>#&gt;  Connection successful!
+#&gt; 
+#&gt; R is connected to the H2O cluster: 
+#&gt;     H2O cluster uptime:         2 hours 4 minutes 
+#&gt;     H2O cluster version:        3.16.0.2 
+#&gt;     H2O cluster version age:    9 months !!! 
+#&gt;     H2O cluster name:           H2O_started_from_R_tomislav_cqe222 
+#&gt;     H2O cluster total nodes:    1 
+#&gt;     H2O cluster total memory:   3.09 GB 
+#&gt;     H2O cluster total cores:    8 
+#&gt;     H2O cluster allowed cores:  8 
+#&gt;     H2O cluster healthy:        TRUE 
+#&gt;     H2O Connection ip:          localhost 
+#&gt;     H2O Connection port:        54321 
+#&gt;     H2O Connection proxy:       NA 
+#&gt;     H2O Internal Security:      FALSE 
+#&gt;     H2O API Extensions:         XGBoost, Algos, AutoML, Core V3, Core V4 
+#&gt;     R Version:                  R version 3.4.3 (2017-11-30)
+#&gt; Warning in h2o.clusterInfo(): 
+#&gt; Your H2O cluster version is too old (9 months)!
+#&gt; Please download and install the latest version from http://h2o.ai/download/</code></pre>
 <p>we first specify all learners of interest:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">k.f =<span class="st"> </span>dismo<span class="op">::</span><span class="kw">kfold</span>(mP2, <span class="dt">k=</span><span class="dv">4</span>)
 <span class="kw">summary</span>(<span class="kw">as.factor</span>(k.f))
+<span class="co">#&gt;    1    2    3    4 </span>
+<span class="co">#&gt; 1243 1243 1243 1243</span>
 ## split data into training and validation:
 edgeroi_v.hex =<span class="st"> </span><span class="kw">as.h2o</span>(mP2[k.f<span class="op">==</span><span class="dv">1</span>,], <span class="dt">destination_frame =</span> <span class="st">&quot;eberg_v.hex&quot;</span>)
+<span class="co">#&gt; </span>
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|</span><span class="st">                                                                 </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|=================================================================|</span><span class="st"> </span><span class="dv">100</span>%
 edgeroi_t.hex =<span class="st"> </span><span class="kw">as.h2o</span>(mP2[<span class="op">!</span>k.f<span class="op">==</span><span class="dv">1</span>,], <span class="dt">destination_frame =</span> <span class="st">&quot;eberg_t.hex&quot;</span>)
+<span class="co">#&gt; </span>
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|</span><span class="st">                                                                 </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|=================================================================|</span><span class="st"> </span><span class="dv">100</span>%
 learner &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;h2o.randomForest.wrapper&quot;</span>, <span class="st">&quot;h2o.gbm.wrapper&quot;</span>)
 fit &lt;-<span class="st"> </span><span class="kw">h2o.ensemble</span>(<span class="dt">x =</span> <span class="kw">which</span>(<span class="kw">names</span>(m2) <span class="op">%in%</span><span class="st"> </span><span class="kw">all.vars</span>(formulaStringP2)[<span class="op">-</span><span class="dv">1</span>]), 
                     <span class="dt">y =</span> <span class="kw">which</span>(<span class="kw">names</span>(m2)<span class="op">==</span><span class="st">&quot;ORCDRC&quot;</span>), 
                     <span class="dt">training_frame =</span> edgeroi_t.hex, <span class="dt">learner =</span> learner, 
                     <span class="dt">cvControl =</span> <span class="kw">list</span>(<span class="dt">V =</span> <span class="dv">5</span>))
+<span class="co">#&gt; </span>
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|</span><span class="st">                                                                 </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|=================================================================|</span><span class="st"> </span><span class="dv">100</span>%
+<span class="co">#&gt; [1] &quot;Cross-validating and training base learner 1: h2o.randomForest.wrapper&quot;</span>
+<span class="co">#&gt; </span>
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|</span><span class="st">                                                                 </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|</span><span class="st">                                                                 </span><span class="er">|</span><span class="st">   </span><span class="dv">1</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|========================</span><span class="st">                                         </span><span class="er">|</span><span class="st">  </span><span class="dv">37</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|==============================================</span><span class="st">                   </span><span class="er">|</span><span class="st">  </span><span class="dv">70</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|============================================================</span><span class="st">     </span><span class="er">|</span><span class="st">  </span><span class="dv">92</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|=================================================================|</span><span class="st"> </span><span class="dv">100</span>%
+<span class="co">#&gt; [1] &quot;Cross-validating and training base learner 2: h2o.gbm.wrapper&quot;</span>
+<span class="co">#&gt; </span>
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|</span><span class="st">                                                                 </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|===</span><span class="st">                                                              </span><span class="er">|</span><span class="st">   </span><span class="dv">5</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|=================================================================|</span><span class="st"> </span><span class="dv">100</span>%
+<span class="co">#&gt; [1] &quot;Metalearning&quot;</span>
+<span class="co">#&gt; </span>
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|</span><span class="st">                                                                 </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|=================================================================|</span><span class="st"> </span><span class="dv">100</span>%
 perf &lt;-<span class="st"> </span><span class="kw">h2o.ensemble_performance</span>(fit, <span class="dt">newdata =</span> edgeroi_v.hex)
+<span class="co">#&gt; </span>
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|</span><span class="st">                                                                 </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|=================================================================|</span><span class="st"> </span><span class="dv">100</span>%
 <span class="co">#&gt; Warning in doTryCatch(return(expr), name, parentenv, handler): Test/</span>
 <span class="co">#&gt; Validation dataset is missing column &#39;fold_id&#39;: substituting in a column of</span>
 <span class="co">#&gt; 0.0</span>
-
+<span class="co">#&gt; </span>
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|</span><span class="st">                                                                 </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|=================================================================|</span><span class="st"> </span><span class="dv">100</span>%
 <span class="co">#&gt; Warning in doTryCatch(return(expr), name, parentenv, handler): Test/</span>
 <span class="co">#&gt; Validation dataset is missing column &#39;fold_id&#39;: substituting in a column of</span>
 <span class="co">#&gt; 0.0</span>
-perf</code></pre></div>
+perf
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Base learner performance, sorted by specified metric:</span>
+<span class="co">#&gt;                    learner  MSE</span>
+<span class="co">#&gt; 2          h2o.gbm.wrapper 8.73</span>
+<span class="co">#&gt; 1 h2o.randomForest.wrapper 7.32</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; H2O Ensemble Performance on &lt;newdata&gt;:</span>
+<span class="co">#&gt; ----------------</span>
+<span class="co">#&gt; Family: gaussian</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Ensemble performance (MSE): 7.21647878283577</span></code></pre></div>
 <p>which shows that, in this specific case, ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain what is the actual gain in accuracy.</p>
 <p>We can also test ensemble predictions using the cookfarm data set <span class="citation">(Gasch et al. <a href="references.html#ref-Gasch2015SPASTA">2015</a>)</span>. This data set consists of 183 profiles, each consisting of multiple soil horizons (1050 in total). To create a regression matrix we use:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(cookfarm)
@@ -883,30 +944,122 @@ mP3 &lt;-<span class="st"> </span>rm.cookfarm[rc,<span class="kw">all.vars</span
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">k.f3 &lt;-<span class="st"> </span>dismo<span class="op">::</span><span class="kw">kfold</span>(mP3, <span class="dt">k=</span><span class="dv">4</span>)
 ## split data into training and validation:
 cookfarm_v.hex &lt;-<span class="st"> </span><span class="kw">as.h2o</span>(mP3[k.f3<span class="op">==</span><span class="dv">1</span>,], <span class="dt">destination_frame =</span> <span class="st">&quot;cookfarm_v.hex&quot;</span>)
+<span class="co">#&gt; </span>
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|</span><span class="st">                                                                 </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|=================================================================|</span><span class="st"> </span><span class="dv">100</span>%
 cookfarm_t.hex &lt;-<span class="st"> </span><span class="kw">as.h2o</span>(mP3[<span class="op">!</span>k.f3<span class="op">==</span><span class="dv">1</span>,], <span class="dt">destination_frame =</span> <span class="st">&quot;cookfarm_t.hex&quot;</span>)
+<span class="co">#&gt; </span>
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|</span><span class="st">                                                                 </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|=================================================================|</span><span class="st"> </span><span class="dv">100</span>%
 learner3 =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;h2o.glm.wrapper&quot;</span>, <span class="st">&quot;h2o.randomForest.wrapper&quot;</span>,
             <span class="st">&quot;h2o.gbm.wrapper&quot;</span>, <span class="st">&quot;h2o.deeplearning.wrapper&quot;</span>)
 fit3 &lt;-<span class="st"> </span><span class="kw">h2o.ensemble</span>(<span class="dt">x =</span> <span class="kw">which</span>(<span class="kw">names</span>(mP3) <span class="op">%in%</span><span class="st"> </span><span class="kw">all.vars</span>(fm.PHI)[<span class="op">-</span><span class="dv">1</span>]), 
                     <span class="dt">y =</span> <span class="kw">which</span>(<span class="kw">names</span>(mP3)<span class="op">==</span><span class="st">&quot;PHIHOX&quot;</span>), 
                     <span class="dt">training_frame =</span> cookfarm_t.hex, <span class="dt">learner =</span> learner3, 
                     <span class="dt">cvControl =</span> <span class="kw">list</span>(<span class="dt">V =</span> <span class="dv">5</span>))
+<span class="co">#&gt; </span>
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|</span><span class="st">                                                                 </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|=================================================================|</span><span class="st"> </span><span class="dv">100</span>%
+<span class="co">#&gt; [1] &quot;Cross-validating and training base learner 1: h2o.glm.wrapper&quot;</span>
+<span class="co">#&gt; </span>
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|</span><span class="st">                                                                 </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|=================================================================|</span><span class="st"> </span><span class="dv">100</span>%
+<span class="co">#&gt; [1] &quot;Cross-validating and training base learner 2: h2o.randomForest.wrapper&quot;</span>
+<span class="co">#&gt; </span>
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|</span><span class="st">                                                                 </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|=========</span><span class="st">                                                        </span><span class="er">|</span><span class="st">  </span><span class="dv">13</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|=================================================================|</span><span class="st"> </span><span class="dv">100</span>%
+<span class="co">#&gt; [1] &quot;Cross-validating and training base learner 3: h2o.gbm.wrapper&quot;</span>
+<span class="co">#&gt; </span>
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|</span><span class="st">                                                                 </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|=================</span><span class="st">                                                </span><span class="er">|</span><span class="st">  </span><span class="dv">26</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|=================================================================|</span><span class="st"> </span><span class="dv">100</span>%
+<span class="co">#&gt; [1] &quot;Cross-validating and training base learner 4: h2o.deeplearning.wrapper&quot;</span>
+<span class="co">#&gt; </span>
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|</span><span class="st">                                                                 </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|=========</span><span class="st">                                                        </span><span class="er">|</span><span class="st">  </span><span class="dv">13</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|====================</span><span class="st">                                             </span><span class="er">|</span><span class="st">  </span><span class="dv">31</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|=============================</span><span class="st">                                    </span><span class="er">|</span><span class="st">  </span><span class="dv">45</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|==========================================</span><span class="st">                       </span><span class="er">|</span><span class="st">  </span><span class="dv">64</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|======================================================</span><span class="st">           </span><span class="er">|</span><span class="st">  </span><span class="dv">83</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|=============================================================</span><span class="st">    </span><span class="er">|</span><span class="st">  </span><span class="dv">94</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|=================================================================|</span><span class="st"> </span><span class="dv">100</span>%
+<span class="co">#&gt; [1] &quot;Metalearning&quot;</span>
+<span class="co">#&gt; </span>
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|</span><span class="st">                                                                 </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|=================================================================|</span><span class="st"> </span><span class="dv">100</span>%
 perf3 &lt;-<span class="st"> </span><span class="kw">h2o.ensemble_performance</span>(fit3, <span class="dt">newdata =</span> cookfarm_v.hex)
+<span class="co">#&gt; </span>
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|</span><span class="st">                                                                 </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|=================================================================|</span><span class="st"> </span><span class="dv">100</span>%
 <span class="co">#&gt; Warning in doTryCatch(return(expr), name, parentenv, handler): Test/</span>
 <span class="co">#&gt; Validation dataset is missing column &#39;fold_id&#39;: substituting in a column of</span>
 <span class="co">#&gt; 0.0</span>
-
+<span class="co">#&gt; </span>
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|</span><span class="st">                                                                 </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|=================================================================|</span><span class="st"> </span><span class="dv">100</span>%
 <span class="co">#&gt; Warning in doTryCatch(return(expr), name, parentenv, handler): Test/</span>
 <span class="co">#&gt; Validation dataset is missing column &#39;fold_id&#39;: substituting in a column of</span>
 <span class="co">#&gt; 0.0</span>
-
+<span class="co">#&gt; </span>
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|</span><span class="st">                                                                 </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|=================================================================|</span><span class="st"> </span><span class="dv">100</span>%
 <span class="co">#&gt; Warning in doTryCatch(return(expr), name, parentenv, handler): Test/</span>
 <span class="co">#&gt; Validation dataset is missing column &#39;fold_id&#39;: substituting in a column of</span>
 <span class="co">#&gt; 0.0</span>
-
+<span class="co">#&gt; </span>
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|</span><span class="st">                                                                 </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|=================================================================|</span><span class="st"> </span><span class="dv">100</span>%
 <span class="co">#&gt; Warning in doTryCatch(return(expr), name, parentenv, handler): Test/</span>
 <span class="co">#&gt; Validation dataset is missing column &#39;fold_id&#39;: substituting in a column of</span>
 <span class="co">#&gt; 0.0</span>
-perf3</code></pre></div>
+perf3
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Base learner performance, sorted by specified metric:</span>
+<span class="co">#&gt;                    learner    MSE</span>
+<span class="co">#&gt; 1          h2o.glm.wrapper 0.2827</span>
+<span class="co">#&gt; 4 h2o.deeplearning.wrapper 0.1796</span>
+<span class="co">#&gt; 3          h2o.gbm.wrapper 0.0971</span>
+<span class="co">#&gt; 2 h2o.randomForest.wrapper 0.0774</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; H2O Ensemble Performance on &lt;newdata&gt;:</span>
+<span class="co">#&gt; ----------------</span>
+<span class="co">#&gt; Family: gaussian</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Ensemble performance (MSE): 0.0760444534559628</span></code></pre></div>
 <p>In this case Ensemble performance (MSE) seems to be <em>as bad</em> as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not necessary.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">h2o.shutdown</span>()
 <span class="co">#&gt; Are you sure you want to shutdown the H2O instance running at http://localhost:54321/ (Y/N)?</span></code></pre></div>

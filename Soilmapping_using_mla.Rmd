@@ -406,7 +406,7 @@ plt0
 
 Ensemble models often outperform single models. There is certainly opportunity for increasing the mapping accuracy by combining power of 3–4 MLA's. The h2o environment for ML offers automation of ensemble models fitting and predictions [@ledell2015scalable].
 
-```{r}
+```{r, echo=FALSE}
 ## download from: http://h2o-release.s3.amazonaws.com/h2o/latest_stable.html
 library(h2o)
 #devtools::install_github("h2oai/h2o-3/h2o-r/ensemble/h2oEnsemble-package")
@@ -416,7 +416,7 @@ h2o.init()
 
 we first specify all learners of interest:
 
-```{r, message=FALSE, results='hide'}
+```{r, message=FALSE}
 k.f = dismo::kfold(mP2, k=4)
 summary(as.factor(k.f))
 ## split data into training and validation:
@@ -462,7 +462,7 @@ str(mP3)
 
 We can again test fitting an ensemble model using two MLA's:
 
-```{r, message=FALSE, results='hide'}
+```{r, message=FALSE}
 k.f3 <- dismo::kfold(mP3, k=4)
 ## split data into training and validation:
 cookfarm_v.hex <- as.h2o(mP3[k.f3==1,], destination_frame = "cookfarm_v.hex")

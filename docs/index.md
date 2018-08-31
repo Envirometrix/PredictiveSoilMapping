@@ -21,7 +21,7 @@ link-citations: true
 colorlinks: yes
 twitter-handle: tom_hengl
 cover-image: figures/f0_web.png
-description: "Predictive Soil Mapping aims at producing most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement various soil mapping procedures in R."
+description: "Predictive Soil Mapping aims at producing most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement various soil mapping procedures with R programming language."
 github-repo: envirometrix/PredictiveSoilMapping
 url: 'http\://soilmapper.org'
 ---
@@ -41,9 +41,9 @@ Hard copies of this book from will be made available in the second half of 2018.
 ## Editors {-}
 
 [Tom Hengl](http://envirometrix.net/staff) is a Senior Researchers / technical director at Envirometrix Ltd. 
-He has more than 20 years of experience as an environmental modeller, data scientist and spatial analyst. 
-Tom is a passionate advocate for, and supporter of, open data, reproducable science and career development 
-for young scientists. He has desiged and implemented the global [SoilGrids](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0169748) dataset, 
+He has more than 20 years of experience as an environmental modeler, data scientist and spatial analyst. 
+Tom is a passionate advocate for, and supporter of, open data, reproducible science and career development 
+for young scientists. He has designed and implemented the global [SoilGrids](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0169748) dataset, 
 partially in response to other well known open data projects such as OpenStreetMap, GBIF, GlobalForestWatch 
 and global climate mapping projects. He has been teaching predictive soil mapping at Wageningen University / 
 ISRIC within the “Hands-on-GSIF” block courses. Video tutorials of the soil mapping with R can also be 
@@ -142,7 +142,7 @@ browseURL("docs/index.html") # to view it
 
 ## Acknowledgements {-}
 
-The authors are grateful to numerous contributions from colleagues around the world, especially for the contributions by the current and former ISRIC — World Soil Information colleages: Robert MacMillan, Gerard Heuvelink, Johan Leenaars, Jorge Mendes de Jesus, Wei Shangguan, David G. Rossiter, and many others. ISRIC is a research foundation funded primarily by the Dutch Goverment. The authors also grateful to the support received via the [AfSIS project](http://africasoils.net), which has been funded by the Bill and Melinda Gates Foundation (BMGF) and the Alliance for a Green Revolution in Africa (AGRA). Many soil data processing examples in the book are based on the R code developed by Dylan Beuadette, Pierre Roudier, Julian Moeys, Brandad Malone and many other developers. Author is also grateful to comments and suggestions to the methods explained in the book by Travis Nauman, Amanda Ramcharan, David G. Rossiter and [Julian Moeys](http://julienmoeys.info/). 
+The authors are grateful to numerous contributions from colleagues around the world, especially for the contributions by the current and former ISRIC — World Soil Information colleagues: Robert MacMillan, Gerard Heuvelink, Johan Leenaars, Jorge Mendes de Jesus, Wei Shangguan, David G. Rossiter, and many others. ISRIC is a research foundation funded primarily by the Dutch Government. The authors also grateful to the support received via the [AfSIS project](http://africasoils.net), which has been funded by the Bill and Melinda Gates Foundation (BMGF) and the Alliance for a Green Revolution in Africa (AGRA). Many soil data processing examples in the book are based on the R code developed by Dylan Beuadette, Pierre Roudier, Julian Moeys, Brandad Malone and many other developers. Author is also grateful to comments and suggestions to the methods explained in the book by Travis Nauman, Amanda Ramcharan, David G. Rossiter and [Julian Moeys](http://julienmoeys.info/). 
 
 SoilGrids are based on numerous soil profile data sets that have been
 kindly contributed by various national and international agencies: the

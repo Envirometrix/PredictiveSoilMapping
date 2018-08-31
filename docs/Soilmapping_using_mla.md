@@ -596,21 +596,16 @@ Which shows that the R-squared based on cross-validation is about 65% i.e. the a
 Ensemble models often outperform single models. There is certainly opportunity for increasing the mapping accuracy by combining power of 3–4 MLA's. The h2o environment for ML offers automation of ensemble models fitting and predictions [@ledell2015scalable].
 
 
-```r
-## download from: http://h2o-release.s3.amazonaws.com/h2o/latest_stable.html
-library(h2o)
-#devtools::install_github("h2oai/h2o-3/h2o-r/ensemble/h2oEnsemble-package")
-library(h2oEnsemble)
-h2o.init()
+```
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         27 minutes 9 seconds 
+#>     H2O cluster uptime:         2 hours 4 minutes 
 #>     H2O cluster version:        3.16.0.2 
 #>     H2O cluster version age:    9 months !!! 
 #>     H2O cluster name:           H2O_started_from_R_tomislav_cqe222 
 #>     H2O cluster total nodes:    1 
-#>     H2O cluster total memory:   3.22 GB 
+#>     H2O cluster total memory:   3.09 GB 
 #>     H2O cluster total cores:    8 
 #>     H2O cluster allowed cores:  8 
 #>     H2O cluster healthy:        TRUE 
@@ -631,23 +626,47 @@ we first specify all learners of interest:
 ```r
 k.f = dismo::kfold(mP2, k=4)
 summary(as.factor(k.f))
+#>    1    2    3    4 
+#> 1243 1243 1243 1243
 ## split data into training and validation:
 edgeroi_v.hex = as.h2o(mP2[k.f==1,], destination_frame = "eberg_v.hex")
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 edgeroi_t.hex = as.h2o(mP2[!k.f==1,], destination_frame = "eberg_t.hex")
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 learner <- c("h2o.randomForest.wrapper", "h2o.gbm.wrapper")
 fit <- h2o.ensemble(x = which(names(m2) %in% all.vars(formulaStringP2)[-1]), 
                     y = which(names(m2)=="ORCDRC"), 
                     training_frame = edgeroi_t.hex, learner = learner, 
                     cvControl = list(V = 5))
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
+#> [1] "Cross-validating and training base learner 1: h2o.randomForest.wrapper"
+#>   |                                                                         |                                                                 |   0%  |                                                                         |                                                                 |   1%  |                                                                         |========================                                         |  37%  |                                                                         |==============================================                   |  70%  |                                                                         |============================================================     |  92%  |                                                                         |=================================================================| 100%
+#> [1] "Cross-validating and training base learner 2: h2o.gbm.wrapper"
+#>   |                                                                         |                                                                 |   0%  |                                                                         |===                                                              |   5%  |                                                                         |=================================================================| 100%
+#> [1] "Metalearning"
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 perf <- h2o.ensemble_performance(fit, newdata = edgeroi_v.hex)
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 #> Warning in doTryCatch(return(expr), name, parentenv, handler): Test/
 #> Validation dataset is missing column 'fold_id': substituting in a column of
 #> 0.0
-
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 #> Warning in doTryCatch(return(expr), name, parentenv, handler): Test/
 #> Validation dataset is missing column 'fold_id': substituting in a column of
 #> 0.0
 perf
+#> 
+#> Base learner performance, sorted by specified metric:
+#>                    learner  MSE
+#> 2          h2o.gbm.wrapper 8.73
+#> 1 h2o.randomForest.wrapper 7.32
+#> 
+#> 
+#> H2O Ensemble Performance on <newdata>:
+#> ----------------
+#> Family: gaussian
+#> 
+#> Ensemble performance (MSE): 7.21647878283577
 ```
 
 which shows that, in this specific case, ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain what is the actual gain in accuracy.
@@ -711,30 +730,58 @@ We can again test fitting an ensemble model using two MLA's:
 k.f3 <- dismo::kfold(mP3, k=4)
 ## split data into training and validation:
 cookfarm_v.hex <- as.h2o(mP3[k.f3==1,], destination_frame = "cookfarm_v.hex")
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 cookfarm_t.hex <- as.h2o(mP3[!k.f3==1,], destination_frame = "cookfarm_t.hex")
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 learner3 = c("h2o.glm.wrapper", "h2o.randomForest.wrapper",
             "h2o.gbm.wrapper", "h2o.deeplearning.wrapper")
 fit3 <- h2o.ensemble(x = which(names(mP3) %in% all.vars(fm.PHI)[-1]), 
                     y = which(names(mP3)=="PHIHOX"), 
                     training_frame = cookfarm_t.hex, learner = learner3, 
                     cvControl = list(V = 5))
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
+#> [1] "Cross-validating and training base learner 1: h2o.glm.wrapper"
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
+#> [1] "Cross-validating and training base learner 2: h2o.randomForest.wrapper"
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=========                                                        |  13%  |                                                                         |=================================================================| 100%
+#> [1] "Cross-validating and training base learner 3: h2o.gbm.wrapper"
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=================                                                |  26%  |                                                                         |=================================================================| 100%
+#> [1] "Cross-validating and training base learner 4: h2o.deeplearning.wrapper"
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=========                                                        |  13%  |                                                                         |====================                                             |  31%  |                                                                         |=============================                                    |  45%  |                                                                         |==========================================                       |  64%  |                                                                         |======================================================           |  83%  |                                                                         |=============================================================    |  94%  |                                                                         |=================================================================| 100%
+#> [1] "Metalearning"
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 perf3 <- h2o.ensemble_performance(fit3, newdata = cookfarm_v.hex)
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 #> Warning in doTryCatch(return(expr), name, parentenv, handler): Test/
 #> Validation dataset is missing column 'fold_id': substituting in a column of
 #> 0.0
-
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 #> Warning in doTryCatch(return(expr), name, parentenv, handler): Test/
 #> Validation dataset is missing column 'fold_id': substituting in a column of
 #> 0.0
-
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 #> Warning in doTryCatch(return(expr), name, parentenv, handler): Test/
 #> Validation dataset is missing column 'fold_id': substituting in a column of
 #> 0.0
-
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 #> Warning in doTryCatch(return(expr), name, parentenv, handler): Test/
 #> Validation dataset is missing column 'fold_id': substituting in a column of
 #> 0.0
 perf3
+#> 
+#> Base learner performance, sorted by specified metric:
+#>                    learner    MSE
+#> 1          h2o.glm.wrapper 0.2827
+#> 4 h2o.deeplearning.wrapper 0.1796
+#> 3          h2o.gbm.wrapper 0.0971
+#> 2 h2o.randomForest.wrapper 0.0774
+#> 
+#> 
+#> H2O Ensemble Performance on <newdata>:
+#> ----------------
+#> Family: gaussian
+#> 
+#> Ensemble performance (MSE): 0.0760444534559628
 ```
 
 In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not necessary.
