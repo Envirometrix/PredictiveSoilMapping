@@ -7,7 +7,7 @@
 This chapter presents a description and discussion of soils and
 conventional soil inventories framed within the context of Predictive Soil Mapping (PSM). Soils,
 their associated properties, and their spatial distribution are the
-central focus of the PSM. We discuss how the products and
+central focus of PSM. We discuss how the products and
 methods associated with conventional soil mapping relate to new, and
 emerging, methods of PSM and automated soil mapping. We discuss similarities and
 differences, strengths and weaknesses of conventional soil mapping (and
@@ -16,10 +16,10 @@ its inputs and products) relative to PSM.
 The universal model of soil variation presented in detail in
 Chapter \@ref(statistical-theory) is adopted as a framework for comparison of
 conventional and PSM. Our aim is to show how the products
-and methods of conventional soil mapping can complement, and strengthen,
+and methods of conventional soil mapping can complement, and contribute to,
 PSM and equally, how the theories and methods of
 PSM can enhance and strengthen conventional soil mapping.
-PSM aims to implement tools and methods that will be supportive of
+PSM aims to implement tools and methods that can be supportive of
 growth, change and improvement in soil mapping and that can stimulate a
 rebirth and reinvigoration of soil inventory activity globally.
 
@@ -28,23 +28,23 @@ rebirth and reinvigoration of soil inventory activity globally.
 ### Soil: a definition
 
 Soil is a natural body composed of biota and air, water and minerals,
-developed from unconsolidated or consolidated material that forms the
+developed from unconsolidated or semi-consolidated material that forms the
 topmost layer of the Earth’s surface [@chesworth2008encyclopedia]. The
 upper limit of the soil is either air, shallow water, live plants or
 plant materials that have not begun to decompose. The lower limit is
 defined by the presence of hard rock or the lower limit of biologic
-activity [@richter1995deep; @SSDS1993]. Although soils profiles up to tens
+activity [@richter1995deep; @SSDS1993]. Although soil profiles up to tens
 of meters depths can be found in some tropical areas [@richter1995deep], for
-soil classification and mapping purposes, the lower limit soil is
+soil classification and mapping purposes, the lower limit soil is often
 arbitrarily set to 2 m (http://soils.usda.gov/education/facts/soil.html). Soils are rarely described to depths beyond 2 m and
-many soil sampling projects put exponentially more focus on the upper
+many soil sampling projects put primary focus on the upper
 depths.
 
 The chemical, physical and biological properties of the soil differ from
 those of unaltered (unconsolidated) parent material from which the soil
 is derived over a period of time under influence of climate, organisms
 and relief effects. Soil should show a capacity to support life,
-otherwise we are dealing with unconsolidated parent material. Hence, for
+otherwise we are dealing with inert unconsolidated parent material. Hence, for
 purposes of developing statistically based models to predict soil
 properties using PSM, it proves useful to distinguish between *actual*
 and *potential* soil areas (see further section \@ref(soil-covariates)).
@@ -55,7 +55,7 @@ seen as a *natural body* that merits study, description,
 body* a soil is viewed as an object that occupies space, has defined
 physical dimensions and that is more than the sum of its individual
 properties or attributes. This concept requires that all properties of
-soils be considered collectively in terms of a completely integrated
+soils be considered collectively and simultaneously in terms of a completely integrated
 natural body [@SSDS1993]. A consequence of this, is that one must
 generally assume that all soil properties covary in space in lockstep
 with specific named soils and that different soil properties do not
@@ -113,10 +113,9 @@ productivity or erodibility; and maps of soil-forming factors, such as
 climate, topography, vegetation, or geologic material”* [@SSDS1993].
 
 In contrast to conventional soil mapping, PSM is primarily interested 
-in portraying the spatial distribution of *soil variables* — measurable 
+in portraying, in the form of maps, the spatial distribution of *soil variables* — measurable 
 or descriptive attributes commonly collected through field sampling 
-and then either measured *in-situ* or *a posteriori* in laboratory — in the 
-form of maps. Soil variables can be roughly grouped into:
+and then either measured *in-situ* or *a posteriori* in laboratory. Soil variables can be roughly grouped into:
 
 1.  *quantities of some material* ($y \in [0 \rightarrow +\infty]$);
 
