@@ -18,7 +18,7 @@ Chapter \@ref(statistical-theory) is adopted as a framework for comparison of
 conventional and PSM. Our aim is to show how the products
 and methods of conventional soil mapping can complement, and contribute to,
 PSM and equally, how the theories and methods of
-PSM can enhance and strengthen conventional soil mapping.
+PSM can extend and strengthen conventional soil mapping.
 PSM aims to implement tools and methods that can be supportive of
 growth, change and improvement in soil mapping and that can stimulate a
 rebirth and reinvigoration of soil inventory activity globally.
@@ -38,7 +38,7 @@ of meters depths can be found in some tropical areas [@richter1995deep], for
 soil classification and mapping purposes, the lower limit soil is often
 arbitrarily set to 2 m (http://soils.usda.gov/education/facts/soil.html). Soils are rarely described to depths beyond 2 m and
 many soil sampling projects put primary focus on the upper
-depths.
+(0-100 cm) depths.
 
 The chemical, physical and biological properties of the soil differ from
 those of unaltered (unconsolidated) parent material from which the soil
@@ -310,8 +310,8 @@ is to accurately predict soil properties and their response to possible
 or actual management practices
 (Fig. \@ref(fig:soil-crop-model-scheme)). In other words, if the soil
 mapping system is efficient, we should be able to accurately predict
-the behavior of soil-plant soil-hydrology or similar ecosystems to various
-soil management strategies, and hence provide optimal advice to
+the behavior of soil-plant, soil-hydrology or similar ecosystems to various
+soil management strategies, and hence provide useful advice to
 agronomists, engineers, environmental modelers, ecologists and similar.
 
 We elect here to recognize two main variants of soil mapping which we
@@ -338,8 +338,8 @@ of the location of many different kinds of soil”* [@SSDS1993].
 @Hudson2000SSSAJ considers that this *soil-landscape paradigm* provides
 the fundamental scientific basis for soil survey.
 
-In the most general sense, both conventional and PSM
-represent a specific application of the universal model of spatial
+In the most general sense, both conventional soil mapping and PSM
+represent ways of applying the *soil-landscape paradigm* via the universal model of spatial
 variation, which is explained in greater detail in
 Chapter \@ref(statistical-theory). @Burrough1998OUP [p.133] described the
 universal model of soil variation as a special case of the universal
@@ -370,7 +370,7 @@ reference to some model that relates observed and measured variation to
 readily observable and interpretable factors that control or influence
 this spatial variation. In conventional soil mapping, this model is the
 empirical and knowledge-based *soil-landscape paradygm*
-[@Hudson2000SSSAJ]. In PSM, a wide variety of statistical
+[@Hudson2000SSSAJ]. In PSM, a wide variety of statistical, and machine learning,
 models have been used to capture and apply the soil-landscape paradigm
 in a quantitative and optimal fashion:
 
@@ -387,7 +387,7 @@ CLORPT model originally presented by Jenny [-@jenny1994factors].
 @MCBRATNEY20033 have further conceptualized the so-called
 *“scorpan”* model in which soil property is modeled as a function of:
 
--   (auxiliary) **s**oil properties,
+-   (auxiliary) **s**oil classes or properties,
 
 -   **c**limate,
 
@@ -399,9 +399,9 @@ CLORPT model originally presented by Jenny [-@jenny1994factors].
 
 -   **a**ge i.e. the time factor,
 
--   **n** space, spatial position,
+-   **n** space, spatial conntext or spatial position,
 
-The pedometric models are quantitative in that they capture
+Pedometric models are quantitative in that they capture
 relationships between observed soils, or soil properties, and
 controlling environmental influences (as represented by environmental
 co-variates) using statistically-formulated expressions. Pedometric
@@ -451,7 +451,7 @@ soil-landscape model.
 
 ```{block, type="rmdnote"}
 In its essence, the objective
-of PSM is to produce optimal unbiased predictions of mean value at some new location along with the uncertainty associated with the prediction, at the finest possible resolution.
+of PSM is to produce optimal unbiased predictions of a mean value at some new location along with the uncertainty associated with the prediction, at the finest possible resolution.
 ```
 
 There is one way in which PSM differs significantly from
@@ -464,11 +464,11 @@ mechanism for correcting an initial set of predicted values by computing
 the difference between predicted and observed values at sampled
 locations and then correcting initial values at all locations in
 response to these observed differences. PSM uses
-statistics to determine if the differences between predicted and
+geostatistics to determine (via the semi-variogram) if the differences between predicted and
 observed values (the residuals) exhibit spatial structure (e.g. are
 predictable). If they do exhibit spatial structure, then it is useful
 and reasonable to interpolate the computed error at known locations to
-predict the likely error of predictions at all locations
+predict the likely magnitude of error of predictions at all locations
 [@hengl2007regression]. This interpolated prediction error can then be
 systematically subtracted from (or added to) the original predicted
 value to correct for errors in the initial predictions that are
@@ -484,7 +484,7 @@ can be criticized for ignoring this component of the total variation and
 typically treating it as if it did not exist. For many soil properties,
 short range, local variation in soil properties that cannot be explained
 by either the deterministic or stochastic components of the universal
-model of soil variation can often approach, or even exceed, 30–40% of the
+model of soil variation can often approach, or even exceed, a significant proportion (e.g. 30–40%) of the
 total observed range of variation in any given soil property. Such
 variation is simply not mappable but it exists and should be identified
 and quantified. We do our users and clients a disservice when we fail to
@@ -501,7 +501,7 @@ paradigm [@Burrough1971; @Hudson2000SSSAJ]. In this approach, soil
 surveyors develop and apply conceptual models of where and how soils
 vary in the landscape through a combination of field inspections to
 establish spatial patterns and photo-interpretation to extrapolate the
-patterns to specific portions of the landscape
+patterns to similar portions of the landscape
 (Fig. \@ref(fig:soilsurvey-scheme)). Traditional soil mapping
 procedures mainly address the deterministic part of the universal model
 of soil variation.
@@ -558,18 +558,18 @@ Expert knowledge about soil-landform patterns is generally used to
 produce manually drawn polygon maps that outline areas of different
 dominant soils or combinations of soils — *soil map units* (see
 Figs. \@ref(fig:smu-aggregation) and \@ref(fig:from-photointerpretation-to-soilmap)). Soil
-map units (polygons of different type) are described in terms of
+map units (polygons of different soil types) are described in terms of the
 composition of soil classes (and often also landscape attributes) within
-each unit with various soil physical and chemical variables attached to
+each unit, with various soil physical and chemical variables attached to
 each class. Most commonly, the objective of conventional soil mapping is
 to delineate recognizable portions of a landscape (soil–landform units)
 as polygons in which the variation of soils and soil properties is
-describable and usually more limited than between polygons. Because most
+describable and usually (but not always) more limited than between polygons. Because most
 soil mapping projects have limited resources and time, soil surveyors
 can not typically afford to survey areas in great detail (e.g. 1:5000)
 so as to map actual *polypedons*. As a compromise, the survey team
 generally has to choose some best achievable target scale (e.g.
-1:50,000). Maps produced at some initial scale can be further
+1:10,000 - 1:50,000). Maps produced at some initial scale can be further
 generalized, depending on the application and users demands
 [@Wysocki2005Geoderma].
 
@@ -579,14 +579,14 @@ knitr::include_graphics("figures/Fig_SMU_aggregation.png")
 
 Where variation within a polygon is systematic and predictable, the
 pattern of variation in soils within any given polygon is often
-described in terms of the most common position, or positionsm in the
+described in terms of the most common position, or positions, in the
 landscape occupied by each named soil class. In other cases, soil
 patterns are not clearly related to systematic variations in observable
 landscape attributes and it is not possible to describe where each named
 soil type is most likely to occur within any polygon or why.
 
 Conventional soil mapping has some limitations related to the fact that
-is often not consistently applied by different mappers, it is largely
+mapping concepts (mental models) are not always applied consistently by different mappers. Application of conceptual models is largely
 manual and it is difficult to automate. In addition, conventional soil
 survey methods differ from country to country, and even within a single
 region, depending largely on the scope and level-of-detail of the
@@ -594,9 +594,9 @@ inventory [@Schelling1970Geoderma; @SSS1983USDA; @Rossiter2001]. The key
 advantages of conventional soil maps, on the other hand, are that:
 
 -   *they portray the spatial distribution of stable, recognizable and
-    repeating patterns of soils in the landscape*, and
+    repeating patterns of soils that occupy identifiable portions of the landscape*, and
 
--   *these patterns can be extracted from legends and maps to model the
+-   *these patterns can be extracted from legends and maps to model (predict) the
     most likely soil at any location in the landscape using expert
     knowledge alone* [@Zhu2001].
 
@@ -661,9 +661,9 @@ vector-based polygon maps can be converted to gridded maps and *vice
 versa*, so in practical terms there is really no meaningful difference
 between the two models. In this book, to avoid any ambiguity, when
 mentioning soil maps we will often refer to the spatio-temporal
-reference and support size of the maps at the highest possible level of
+reference and support size of the maps at the finest possible level of
 detail. Below, for example, is a full list of specifications attached to
-a *soil map* produced for African continent [@Hengl2015AfSoilGrids250m]:
+a *soil map* produced for the African continent [@Hengl2015AfSoilGrids250m]:
 
 -   *target variable*: soil organic carbon in permille;
 
@@ -684,7 +684,7 @@ a *soil map* produced for African continent [@Hengl2015AfSoilGrids250m]:
 -   *amount of variation explained by the spatial prediction model*: 45%;
 
 Until recently, maps of individual soil properties, or of soil functions
-or soil interpretations were not considered to be true soil maps, but
+or soil interpretations, were not considered to be true soil maps, but
 rather, to be single-factor derivative maps or interpretive maps. This
 is beginning to change and maps of the spatial pattern of distribution
 of individual soil properties are increasingly being viewed as a
@@ -693,14 +693,14 @@ legitimate form of soil mapping.
 ### Predictive and Automated soil mapping {#pedometric-mapping}
 
 In contrast to traditional soil mapping, which is primarily based on
-applying expert knowledge, the emerging, *‘predictive’* approach to soil
-mapping is generally more data-driven and based on the use of
+applying qualitative expert knowledge, the emerging, *‘predictive’* approach to soil
+mapping is generally more quantitative and data-driven and based on the use of
 statistical methods and technology
 [@grunwald2005environmental; @Lagacherie2006Elsevier; @Hartemink2008Springer; @Boettinger2010Springer].
-Emergence of new soil mapping methods is undoubtedly a reflection of new
-emerging technologies and newly available global data layers, especially
+The emergence of new soil mapping methods is undoubtedly a reflection of new
+developing technologies and newly available global data layers, especially
 those that are free and publicly distributed such as MODIS products,
-SRTM DEM and similar (Fig. \@ref(fig:new-technologies)). PSM can be compared to / shares similar concepts as other applications of statistics in physical geography, for example the Predictive Vegetation Mapping [@Fran01; @Hengl2018PNV].
+SRTM DEM and similar (Fig. \@ref(fig:new-technologies)). PSM can be compared to, and shares similar concepts with, other applications of statistics and machine learning in physical geography, for example Predictive Vegetation Mapping [@Fran01; @Hengl2018PNV].
 
 ```{r new-technologies, echo=FALSE, fig.cap="Evolution of digital soil mapping parallels the emergence of new technologies and global, publicly available data sources.", out.width="100%"}
 knitr::include_graphics("figures/Fig_new_technologies.png")
@@ -726,15 +726,15 @@ Pedometric soil mapping typically follows six steps as outlined by
 1.  *Select soil variables (or classes) of interest and suitable
     measurement techniques (decide what to map and describe)*;
 
-2.  *Prepare a sampling design (define spatial location of sampling
-    points and sampling intensity)*;
+2.  *Prepare a sampling design (select the spatial locations of sampling
+    points and define a sampling intensity)*;
 
-3.  *Collect samples in the field and estimate values of the target soil
+3.  *Collect samples in the field and then estimate values of the target soil
     variables at unknown locations to test and refine prediction
     models*;
 
-4.  *Select and implement the spatial prediction (or extrapolation)
-    models and generate soil maps*;
+4.  *Select and implement the most effective spatial prediction (or extrapolation)
+    models and use these to generate soil maps*;
 
 5.  *Select the most representative data model and distribution system*;
 
@@ -769,13 +769,13 @@ still require improvement. Firstly, the number of accurately
 georeferenced locations of reliable soil observations (particularly with
 analytical data) is often not sufficient to completely capture and
 describe all significant patterns of soil variation in an area. There
-may be too few sampled points and the exact location of recorded point
+may be too few sampled points and the exact location of available point
 data may not be well recorded. In short, data-driven soil mapping is
 field-data demanding and collecting field data can require significant
 expenditures of time, effort and money.
 
-With legacy soil point data the sampling designs or rationale used to
-decide where to locate soil profile observation or sampling points are
+With legacy soil point data the sampling design, or rationale, used to
+decide where to locate soil profile observation or sampling points is
 often not clear and may vary from project to project or point to point.
 Therefore there is no guarantee that available point data are actually
 representative of the dominant patterns and soil forming conditions in
@@ -799,10 +799,10 @@ variables (sampled in the field and geolocated) and covariate layers,
 primarily coming from remote sensing data.
 ```
 
-A second key limitation of the Automated approach to soil
+A second key limitation of the automated approach to soil
 mapping is that there may be no obvious relationship between observed
 patterns of soil variation and the available environmental covariates.
-This may occur when a soil property of interest does strongly covary
+This may occur when a soil property of interest does, indeed, strongly covary
 with some mappable environmental covariate (e.g. soil clay content with
 airborne radiometric data) but data for that environmental covariate are
 not available for an area. It may also transpire that the pattern of
@@ -837,7 +837,7 @@ environmental covariates. So, these relationships were, of necessity,
 developed empirically and expressed conceptually as expert knowledge.
 
 More recently, it has become increasingly possible to obtain both
-environmental covariate data and field soil observations in
+environmental covariate data and field point soil observations in
 georegistered and digital format and to analyze and express
 relationships objectively and optimally, using statistical methods
 [@Pebesma2006TiG; @McBratney2011HSS]. Where the relationship between
@@ -851,10 +851,10 @@ procedures, but here too the two methods are quite analogous. Hard facts
 soft data (expert knowledge).
 
 In summary, we suggest that next generation soil surveyors will
-increasingly require a solid background in statistics and computer
-science, especially in Machine Learning and A.I. Nevertheless, effective selection and application of
-statistical sampling and analysis techniques should also benefit from
-consideration of expert knowledge wherever possible.
+increasingly benefit from having a solid background in statistics and computer
+science, especially in Machine Learning and A.I. However, effective selection and application of
+appropriate statistical sampling and analysis techniques can also benefit from
+consideration of expert knowledge.
 
 ### Top-down versus bottom-up approaches: subdivision versus agglomeration {#top-down}
 
@@ -887,7 +887,7 @@ the US national cooperative soil survey (NCSS) primarily adopt this
 bottom-up approach. Other smaller countries with significant resources
 for field surveys have also adopted this approach (e.g. Netherlands,
 Denmark, Cuba). The bottom-up approach was, for example, used in the
-development and elaboration of the US soil taxonomy system of
+development and elaboration of the US Soil Taxonomy system of
 classification and of the US SSURGO (1:20,000) and STATSGO (1:250,000)
 soil maps [@ZHONG2011491].
 
@@ -911,7 +911,7 @@ interest. These conditions are then interpreted to impose a hierarchical
 subdivision of the whole area into smaller, and more homogeneous
 subareas. This hierarchical subdivision approach owes its origins to
 early Russian efforts to explain soil patterns in terms of the
-geographical distribution of observed soils. The top-down approach tends
+geographical distribution of observed soils and vegetation. The top-down approach tends
 to be applied preferentially by countries and agencies that need to
 produce maps for very large areas but that lack the people and resources
 to conduct detailed field programs everywhere (see e.g.
@@ -923,11 +923,11 @@ Australia).
 
 As observed by @Rossiter2001 *“neither approach is usually applied in
 its pure form”* and most approaches to soil mapping use both approaches
-to varying degrees. Similarly, it can be argued that PSM provides
+simultaneously, to varying degrees. Similarly, it can be argued that PSM provides
 support for both approaches to soil mapping. PSM implements two
 activities that bear similarities to bottom-up mapping. Firstly, PSM
 uses *all* available soil profile data globally as input to initial
-global predictions at coarse resolution (*“top-down”* mapping).
+global predictions at coarser resolutions (*“top-down”* mapping).
 Secondly, PSM is set up to ingest finer resolution maps produced via
 detailed *“bottom-up”* mapping methods and to merge these more detailed
 maps with initial, coarser-resolution predictions [@ramcharan2018soil].
@@ -945,7 +945,7 @@ advantages and limitations of the main kinds of legacy soil data?
 In its most general sense, a legacy is something of value bequeathed
 from one generation to the next. It can be said that global soil legacy
 data consists of the sum of soil data and knowledge accumulated since
-the first soil investigations 80 or more years ago. More specifically,
+the first soil investigations 100 or more years ago. More specifically,
 the concept of a legacy is usually accompanied by an understanding that
 there is an obligation and duty of the recipient generation to not
 simply protect the legacy but to make positive and constructive use of
@@ -954,9 +954,9 @@ it.
 The idea is that a legacy is not a priceless artifact, to be hidden away
 somewhere for static preservation and protection, but a living resource
 to be invested, improved upon, and grown for the sake of successive
-generations. The intention of the PSM framework is therefore not simply
+generations. The intention of any PSM framework is therefore not simply
 to rescue and protect the existing accumulation of legacy soil data, but
-to put it to new and beneficial uses so that its value is increased and
+to put it to new and beneficial use,s so that its value is increased and
 not just preserved.
 
 ```{block, type="rmdnote"}
@@ -1002,8 +1002,8 @@ four main kinds of legacy soil data:
     to users. Soil maps provide lists, or inventories, of soils that
     occur in mapped regions, illustrate the dominant spatial patterns
     displayed by these listed soils and provide information to
-    characterize the main properties of these soils. Soil maps can also
-    be used as evidence to develop knowledge and rules about how soils,
+    characterize the main properties of these soils. Soil maps can themselves
+    be used as sources of evidence to develop knowledge and quantitative rules about how soils,
     or individual soil properties, vary across the landscape. On the
     other hand, similar to soil observations, soil maps also can exhibit
     significant errors with respect to measurement, classification,
@@ -1060,9 +1060,9 @@ horizontal and a vertical dimension ($d$) that typically extends to only
 1–2 m but may occasionally extend to greater depths. In practice, the vast
 majority of soil profile data pertain to soil observations and samples
 collected over very limited horizontal dimensions (10–50 cm) and down to
-depths of maximum 1–2 m.
+maximum depths of 1–2 m.
 
-In geostatistical terms, soil observations more commonly collected at
+In geostatistical terms, soil observations are most commonly collected at
 point support, meaning that they are representative of a point in space
 with very limited horizontal extent. It is relatively rare to encounter
 legacy soil profile data collected over larger horizontal extents and
@@ -1156,7 +1156,7 @@ at known point locations. In the first instance, knowing the location of
 a point at which a soil property has been described or measured permits
 that location to be overlaid onto other spatially referenced digital
 data layers to produce data sets of related environmental values that
-occur at the same site.
+all occur at the same site.
 
 The known point values of soil properties (or classes) can be analyzed
 relative to the known values of environmental covariates at
@@ -1171,7 +1171,7 @@ A second main advantage of point profile data is that the data values
 are, more or less, objective assessments of a soil property or
 characteristic at a location. Objective values are more amenable to
 exploration using statistical techniques than subjective observations
-and classifications.
+and classifications. They typically (but not always) exhibit less measurement error.
 
 As important and useful as soil point data are, they also possess
 limitations and problems that must be recognized and addressed. One
@@ -1216,10 +1216,10 @@ establishing rules and patterns than intersection of the actual point
 data with fine resolution covariates.
 
 Another common limitation of legacy soil point data is that the criteria
-used to select locations at which to sample soils are not consistent and
+used to select locations at which to sample soils have not always been consistent. This
 can lead to bias in which soils and which parts of the landscape get
 sampled in any given area. So, available information on soil classes or
-soil properties at known points in the landscape may or may not be
+soil properties at known points in the landscape may, or may not, be
 representative of the dominant or actual landscape conditions. Sometimes
 soils are sampled because they are believed to be representative of the
 dominant conditions in a landscape. At other times, soils are sampled
@@ -1266,7 +1266,7 @@ field data.
 
 What needs to be emphasized is that much of the legacy soils profile
 data in the world is under used. It tends to be fragmented, non-standard
-between countries and often even within countries. Much of the original
+between countries and often even within countries. Many original
 field observations are still not converted into digital format and these
 data are in considerable danger of being lost to effective use forever
 (!) as government sponsored soil institutions lose support and close and
@@ -1292,31 +1292,31 @@ interest for pedometric soil mapping:
 4.  *Vegetation and land-cover* based covariates,
 
 5.  *Land survey and land use information* — human-made objects,
-    fertilization and tillage practice maps etc,
+    manageemnt, fertilization and tillage practice maps etc,
 
 6.  *Expert-based covariates* — soil delineations or delineations of
     soil parent material or geology (manually or semi-automatically
     prepared); empirical maps of soil processes and features (e.g.
     catena sequences etc).
 
-```{r dem-evolution, echo=FALSE, fig.cap="Evolution of global DEM data sources: (right) SRTM DEM released in 2002, as compared to (left) WorldDEM released in 2014 [@Baade2014IEE]. Sample data set for city of Quorn in South Australia. As with many digital technologies, level of detail and accuracy of the GIS and remote sensing data is following an exponential growth.", out.width="100%"}
+```{r dem-evolution, echo=FALSE, fig.cap="Evolution of global DEM data sources: (right) SRTM DEM released in 2002, as compared to (left) WorldDEM released in 2014 [@Baade2014IEE]. Sample data set for city of Quorn in South Australia. As with many digital technologies, the level of detail and accuracy of GIS and remote sensing data is exhibiting exponential growth.", out.width="100%"}
 knitr::include_graphics("figures/Fig_DEM_evolution.png")
 ```
 
 ```{block, type="rmdnote"}
-Most common soil covariates used in soil mapping
+The most common environmental covariates typically used in soil mapping
 are: (1) Raw spectral and multi-spectral images of the land surface, (2)
-DEM-derivatives, (3) Climatic images, (4) Vegetation and land-cover based
+DEM-derivatives, (3) Climatic maps, (4) Vegetation and land-cover based
 covariates, (5) Land survey and land use information, and (6)
-Expert-based covariates e.g. soil delineations.
+Expert-based covariates e.g. soil or surficial geology maps.
 ```
 
-Different soil covariates will be dominant spatial predictors of
-targeted soil properties and this relationship is often scale dependent. Often, only a few covariates can
+Different environmental covariates will be the dominant spatial predictors of
+targeted soil properties and this relationship is often scale dependent. Often, only a few key covariates can
 explain over 50% of the fitted model, but these are unknown until we fit the
-actual models. The only way to make sure that most relevant soil
+actual models. The only way to ensure that the most relevant environmental
 covariates are included in the modelling process is to start with the
-most extensive list of all possible soil covariates, then subset and
+most extensive list of all possible environmental covariates, then subset and
 prioritize.
 
 ### Soil delineations
@@ -1338,11 +1338,11 @@ bodies and are, in a way, irreplaceable [@SSS1983USDA]. However, in many
 parts of the world, soil delineations have been produced using
 relatively weak source materials and these can be of variable accuracy.
 
-```{r from-photointerpretation-to-soilmap, echo=FALSE, fig.cap="In conventional soil mapping, soil delineations are usually manually drawn polygons representing (assumed) bodies of homogenous soil materials (often geomorphological units). These are first validated on the field until the final area-class map is produced, which can then be generalized and used to extract soil property maps. After @SSS1983USDA.", out.width="95%"}
+```{r from-photointerpretation-to-soilmap, echo=FALSE, fig.cap="In conventional soil mapping, soil delineations are usually manually drawn polygons representing (assumed) bodies of homogenous soil materials (often geomorphological units). These are first validated in the field before a final area-class map is produced, which can then be generalized and used to extract soil property maps. After @SSS1983USDA.", out.width="95%"}
 knitr::include_graphics("figures/Fig_from_photointerpretation_to_soilmap.png")
 ```
 
-In soil mapping terms, soil delineations can be considered to be
+In soil mapping terms, soil map delineations can be considered to be
 expert-based covariates. They can be used as input to spatial prediction
 in the same way as DEM-derived predictors or remote sensing indices.
 This is assuming that a standardized legend is attached to the soil
@@ -1356,7 +1356,7 @@ to be significant predictors. In practice, expert-based predictors can
 sometimes perform better than alternatives such as DEM-derived
 predictors or remote sensing indices. *“Perform better”* in this case
 indicates that the predictors will be more distinctly correlated with
-target soil properties. In all applications of DSM methods, it is
+target soil properties. In all applications of PSM methods, it is
 advisable to obtain and assess the utility of available soil polygon
 maps.
 
@@ -1489,7 +1489,7 @@ environmental conditions (slope position, drainage, parent material)
 each listed soil is most likely to occur, can provide a foundation for
 heuristic (or expert-based) modeling of the more detailed and shorter
 range variation in soil types that lies at the heart of DSM methods of
-*soil polygon disaggregation*. Dis-aggregation of conventional soil
+*soil polygon disaggregation*. Disaggregation of conventional soil
 polygon maps into more detailed representations of the most likely finer
 scale spatial pattern of variation of the named component soils is an
 attractive and feasible method of producing more detailed estimates of
@@ -1590,7 +1590,7 @@ map, even when the original polygon boundaries were significant and
 reflected legitimate changes in soil properties at locations of likely
 change in soils. There are also numerous instances where boundaries on
 conventional soil polygons maps do not define locations of significant
-real change in soils or soil properties and simply reflect arbitrary
+real change in soils or soil properties and simply reflect an arbitrary
 subdivision of the landscape.
 
 Several soil survey cross-validation studies
@@ -1600,7 +1600,7 @@ are created using irreproducible methods and hence difficult to update.
 Second, at broader scales, polygon maps produced by different teams are
 often incompatible and can not be merged without harmonization. A
 non-soil scientist introduced to a continental-scale soil map where soil
-boundaries follow country boundaries will likely lose confidence and
+boundaries follow country boundaries will potentially lose confidence and
 look for another source of information [@DAvello1998SSH]. Consider for
 example the Harmonized World Soil Database product. On the HWSD-derived
 maps one can still notice numerous soil borders that match country
@@ -1618,7 +1618,7 @@ corrected with respect to positional accuracy.
 So, conventional soil polygon maps suffer from issues related to
 completeness, consistency and accuracy of thematic content as well as
 from issues related to positional accuracy and relevance of soil polygon
-boundaries. If these issues are not dealt with and corrections are not
+boundaries. If these issues are not dealt with, and corrections are not
 implemented, the likelihood of extracting meaningful and consistent
 patterns and rules for use in soil mapping is considerably compromised.
 
@@ -1705,12 +1705,12 @@ soil classes with conceptual landform positions [@MacMillan2005CJSS].
 Expert tacit knowledge is often inexact and incomplete but it can
 express and reveal widely recognized general patterns and can provide a
 reasonable first approximation of soil-landscape patterns. In order to
-be used effectively, for projects such as the PSM, platforms and 
-agreed upon and put in place to support knowledge capture and
+be used effectively, for activities such as PSM, platforms and procudures need to be
+agreed upon, and put in place, to support knowledge capture and
 application. Agreement on such platforms and procedures is not yet
 widespread.
 
-To integrate all available tacit knowledge systems into a one big
+To integrate all available tacit knowledge systems into a one, all encompassing,
 prediction algorithm is probably beyond human capacities, but it could
 well be assisted using e.g. web crawling applications for legacy soils
 data i.e. by scanning documents, soil survey reports and books and then
@@ -1721,9 +1721,9 @@ harmonization procedures.
 
 ### Pseudo-observations
 
-When applying Statistical or Machine Learning methods to larger areas, 
-what often limits the success of mapping is the fast that large areas that have extreme
-climatic conditions and/or have very restricted access, are
+When applying Statistical or Machine Learning methods to larger (global to continental sized) areas, 
+one thing that often limits the success of predictions is the existance of very extensive areas with extreme
+climatic conditions and/or very restricted access, that are consequently
 significantly under-sampled. This occurs largely in the following five
 types of areas [@Hengl2017SoilGrids250m]:
 
@@ -1740,22 +1740,21 @@ types of areas [@Hengl2017SoilGrids250m]:
     conflicts or war.
 
 It might seem obvious to soil surveyors that there is no soil organic
-carbon in the top of the active sand dunes of the Sahara, but any model
-fitted without observations in the Sahara could result in dubious
+carbon on the top of the active sand dunes in the Sahara, but any model
+fitted without observations from the Sahara could result in dubious
 extrapolation and questionable predictions. In addition, relationships
 across transitional areas — from semi-arid zones to deserts — can be
 difficult to represent without enough points at both edges of the
 feature space. Some sand dunes in the USA have been actually sampled and
 analyzed in the laboratory. For example, @Lei1998 has shown that
-sand dunes in the Mojave desert have an average pH of 8.1, sand and
-organic carbon. Again, although it might seem obvious that deserts
+sand dunes in the Mojave desert have an average pH of 8.1. Again, although it might seem obvious that deserts
 consist mainly of sand, and that steep slopes without vegetation are
 either very shallow or show bedrock at the surface, the model is not
 aware of such expert knowledge and hence such features need to be
 ‘numerically represented’ in the calibration dataset. 
 
 Instead of masking out all such areas from soil mapping, one can also generate 
-number of pseudo-observations and fill gaps in the feature space. Pseudo-observations 
+a number of pseudo-observations to fill sampling gaps in the feature space. Pseudo-observations 
 can be generated by photo-interpretation of high resolution imagery or by using very 
 detailed land cover or similar maps. @Hengl2017SoilGrids250m use the following data 
 sources to delineate sand dunes, bare rock and glaciers:
