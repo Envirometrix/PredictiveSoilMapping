@@ -135,9 +135,9 @@ and then either measured *in-situ* or *a posteriori* in laboratory. Soil variabl
     
 7.  *censored values* e.g. depth to bedrock which is often observed only up to 2 m.
 
-The nature of the soil variable determines how the attribute is modeled
-and presented on the map in PSM. Some soil variables are
-normally described as discrete entities (or classes), but can be
+The nature of a soil variable determines how the attribute is modeled
+and presented on a map in PSM. Some soil variables are
+normally described as discrete entities (or classes), but classes can also be
 depicted as a continuous quantities on a map in the form of
 probabilities or memberships
 [@DeGruijter1997Geoderma; @McBratney2003Geoderma; @Kempen2009Geoderma; @Odgers201130].
@@ -145,11 +145,11 @@ For example, a binary soil variable (e.g. the presence/absence of a
 specific layer or horizon) can be modeled as a binomial random variable
 with a logistic regression model. Spatial prediction (mapping) with this
 model gives a map depicting (continuous) probabilities in the range of
-0–1. These probabilities can be used to determine the presence/absence
+0–1. These probabilities can be used to determine the most likely presence/absence
 of a class at each prediction location, resulting in a discrete
 representation of the soil attribute variation.
 
-In that context, the aims of soil resource inventories are
+In that context, the aims of most soil resource inventories consist of the
 identification, measurement, modelling, mapping and interpretation of
 soil variables that represent transformed or standardized quantities of
 some material, relative percentages, occurrence and/or non-occurrence of
@@ -161,7 +161,7 @@ Soil properties can be *primary* or *inferred* (see further section \@ref(soil-v
 Primary properties are properties that can be measured directly in the
 field or in the laboratory. Inferred properties are properties that
 cannot be measured directly (or are difficult or too expensive to
-measure) but are inferred from primary properties, for example through
+measure) but can be inferred from primary properties, for example through
 pedotransfer functions [@Wosten2001JH; @wosten2013soil].
 @Dobos2006digital also distinguish between primary and secondary soil
 properties and *‘functional’* soil properties representing *soil
@@ -177,7 +177,7 @@ area per year is a *functional* soil property.
 
 Soil resource inventories describe the types, attributes and geographic
 distributions of soils in a given area. They can consist of spatially
-explicit maps of or non-spatial lists. Lists simply itemize the kinds
+explicit maps or of non-spatial lists. Lists simply itemize the kinds
 and amounts of different soils that occupy an area to address questions
 about what soils and soil properties occur in an area. The resulting
 answer is often not highly specific in space but rather presents a
@@ -221,14 +221,14 @@ pattern of spatial distribution of that property (over some depth
 interval) independently from consideration of the spatial distribution
 of soil individuals or other soil properties.
 
-Soil maps give answers on three basic questions: (1) what is mapped?,
+Soil maps give answers to three basic questions: (1) what is mapped?,
 (2) what is the predicted value?, and (3) where is it? Thematic accuracy
 of a map tells us how accurate predictions of targeted soil properties
 are overall, while the spatial resolution helps us locate features
-precisely.
+with some specified level of spatial precision.
 
 ```{block, type="rmdnote"}
-The most common output of soil resource inventories are *soil maps*. Soil maps convey information
+The most common output of a soil resource inventory is a *soil map*. Soil maps convey information
 about the geographic distribution of named soil types in a given area.
 They are meant to help answer the questions *“what is here”* and *“where is what”* [@Burrough1998OUP].
 ```
@@ -292,7 +292,7 @@ In statistical terms, the main objective of
 soil mapping is to describe the spatial complexity of soils, then
 represent this complexity using maps, summary measures, mathematical
 models and simulations. From the application point of view, the main
-objective of soil mapping is to accurately predict response of a
+application objective of soil mapping is to accurately predict response of a
 soil(-plant) ecosystem to various soil management strategies.
 ```
 
@@ -310,7 +310,7 @@ is to accurately predict soil properties and their response to possible
 or actual management practices
 (Fig. \@ref(fig:soil-crop-model-scheme)). In other words, if the soil
 mapping system is efficient, we should be able to accurately predict
-behavior of soil-plant soil-hydrology or similar ecosystems to various
+the behavior of soil-plant soil-hydrology or similar ecosystems to various
 soil management strategies, and hence provide optimal advice to
 agronomists, engineers, environmental modelers, ecologists and similar.
 
