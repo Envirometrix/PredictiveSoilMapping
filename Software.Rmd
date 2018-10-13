@@ -2,7 +2,7 @@
 
 *Edited by: T. Hengl*
 
-This section contains instruction on how to install and use software to run predictive soil mapping and export results to GIS or web applications. It has been written (as most of the book) for Linux users, but should not be too much of a problem to adopt to Microsoft Windows OS and/or Mac OS. 
+This section contains instructions on how to install and use software to run predictive soil mapping and export results to GIS or web applications. It has been written (as has most of the book) for Linux users, but should not be too much of a problem to adoat to Microsoft Windows OS and/or Mac OS. 
 
 ## List of software in use
 
@@ -30,11 +30,11 @@ Software (required):
 
 *  [GDAL v2.x](https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries) for Windows machines use e.g. ["gdal-*-1800-x64-core.msi"](http://download.gisinternals.com/sdk/downloads/release-1800-x64-gdal-2-1-3-mapserver-7-0-4/gdal-201-1800-x64-core.msi);
 
-R script used in this tutorial you can download from the **[github](https://github.com/envirometrix/PredictiveSoilMapping)**. As a gentle introduction to R programming language and soil classes in R we recommend the chapter on importing and using soil data. Some more example of SAGA GIS + R usage you can find in the soil covariates chapter. To visualize spatial predictions in a web-browser or Google Earth you could also consider following the soil web-maps tutorial. As a gentle introduction to R programming language and spatial classes in R we recommend following [the Geocomputation with R book](https://geocompr.robinlovelace.net/). Obtaining also the [R reference card](https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf) is highly recommended.
+R script used in this tutorial can be downloaded from the **[github](https://github.com/envirometrix/PredictiveSoilMapping)**. As a gentle introduction to the R programming language and to soil classes in R we recommend the chapter on importing and using soil data. Some more examples of SAGA GIS + R usage can be found in the soil covariates chapter. To visualize spatial predictions in a web-browser or Google Earth you could also consider following the soil web-maps tutorial. As a gentle introduction to the R programming language and spatial classes in R we recommend following [the Geocomputation with R book](https://geocompr.robinlovelace.net/). Obtaining also the [R reference card](https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf) is highly recommended.
 
 ## Installing software on Ubuntu OS
 
-On Ubuntu (often the recommended standard for GIS community) main software can be installed within 10--20 minutes. We start with installing GDAL, proj4 and some packages that you might need later on:
+On Ubuntu (often the recommended standard for the GIS community) the main required software can be installed within 10--20 minutes. We start with installing GDAL, proj4 and some packages that you might need later on:
 
 ```{bash, eval=FALSE}
 sudo apt-get install libgdal-dev libproj-dev libjasper-dev
@@ -50,7 +50,7 @@ cd microsoft-r-open/
 sudo ./install.sh
 ```
 
-Note that the R versions are constantly being updated so you will need to replace the URL based on the information provided on the home page (http://mran.microsoft.com). Once you run ```install.sh``` you will have to accept the license terms two times before the installation can be completed. If everything went successful, you can get the session info by:
+Note that R versions are constantly being updated so you will need to replace the URL above based on information provided on the home page (http://mran.microsoft.com). Once you run ```install.sh``` you will have to accept the license terms two times before the installation can be completed. If everything completes successfully, you can get the session info by:
 
 ```{r}
 sessionInfo()
