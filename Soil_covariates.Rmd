@@ -6,23 +6,23 @@
 
 ### Soil covariate data sources (30–100 m resolution) {#soil-covs-30m}
 
-Adding relevant covariates that can explain distribution of soil properties increases accuracy of spatial predictions. Hence prior to generating predictions of soil properties, it is a good idea to invest into preparing a list of Remote Sensing (RS), geomorphological/lithologic and DEM-based covariates that could potentially help explain spatial distribution of soil properties and classes. There are now many high resolution (30–250 m) covariates with global coverage, and that are publicly available without restrictions. Both spatial detail, accessibility and accuracy of RS-based products has been growing exponentially and there is now evidence that that trend is going to slow down in the coming decades [@Herold2016]. 
+Adding relevant covariates that can help explain the distribution of soil properties increases the accuracy of spatial predictions. Hence, prior to generating predictions of soil properties, it is a good idea to invest in preparing a list of Remote Sensing (RS), geomorphological/lithologic and DEM-based covariates that can potentially help explain the spatial distribution of soil properties and classes. There are now many finer resolution (30–250 m) covariates with global coverage that are publicly available without restrictions. The spatial detail, accessibility and accuracy of RS-based products has been growing exponentially and there is no evidence that this trend is going to slow down in the coming decades [@Herold2016]. 
 
 The most relevant (global publicly available remote sensing-based covariates that can be downloaded and used to improve predictive soil mapping at high spatial resolutions are, for example:
 
-*  [SRTM](https://lta.cr.usgs.gov/SRTM1Arc) and/or [ALOS W3D](http://www.eorc.jaxa.jp/ALOS/en/aw3d/index_e.htm) Digital Elevation Model (DEM) at 30 m and [MERIT DEM](http://hydro.iis.u-tokyo.ac.jp/~yamadai/MERIT_DEM/) at 100 m (these can be used to derive some 8–12 DEM derivatives from which some could be crucial for mapping of soil chemical and hydrological properties);
+*  [SRTM](https://lta.cr.usgs.gov/SRTM1Arc) and/or [ALOS W3D](http://www.eorc.jaxa.jp/ALOS/en/aw3d/index_e.htm) Digital Elevation Model (DEM) at 30 m and [MERIT DEM](http://hydro.iis.u-tokyo.ac.jp/~yamadai/MERIT_DEM/) at 100 m (these can be used to derive at least 8–12 DEM derivatives of which some generally prove to be beneficial for mapping of soil chemical and hydrological properties);
 
 *  Landsat 7, 8 satellite images, either available from USGS's [GloVis](http://glovis.usgs.gov/) / [EarthExplorer](http://earthexplorer.usgs.gov/), or from the [GlobalForestChange project](https://earthenginepartners.appspot.com/science-2013-global-forest/download_v1.2.html) repository [@hansen2013high];
 
-*  [Landsat-based Global Surface Water (GSW) dynamics images](https://global-surface-water.appspot.com/download) at 30 m resolution for period 1985–2016 [@pekel2016high];
+*  [Landsat-based Global Surface Water (GSW) dynamics images](https://global-surface-water.appspot.com/download) at 30 m resolution for the period 1985–2016 [@pekel2016high];
 
 *  Global Land Cover (GLC) maps based on the [GLC30 project](http://www.globallandcover.com) at 30 m resolution for 2000 and 2010 [@Chen2014] and similar land cover projects [@Herold2016];
 
 *  USGS's [global bare surface images](https://landcover.usgs.gov/glc/) at 30 m resolution;
 
-*  [JAXA's ALOS](http://www.eorc.jaxa.jp/ALOS/en/dataset/dataset_index.htm) (PALSAR/PALSAR-2) radar images at 20 m resolution [@shimada2014new]; radar images, bands HH: -27.7 (5.3) dB and HV: -35.8 (3.0) dB, from the JAXA's ALOS project are especially interesting for mapping rock outcrops and exposed bedrock but also to distinguish between bare soil and dense vegation;
+*  [JAXA's ALOS](http://www.eorc.jaxa.jp/ALOS/en/dataset/dataset_index.htm) (PALSAR/PALSAR-2) radar images at 20 m resolution [@shimada2014new]; radar images, bands HH: -27.7 (5.3) dB and HV: -35.8 (3.0) dB, from the JAXA's ALOS project are especially interesting for mapping rock outcrops and exposed bedrock but are also to distinguish between bare soil and dense vegation;
 
-Note that the download time for 30 m global RS data could be significant if the data is needed for a larger area (hence you might consider using some RS data processing hub such as [Sentinel hub](http://www.sentinel-hub.com/), [Google Earth Engine](https://earthengine.google.com/) and/or [Amazon Web Services](https://aws.amazon.com/public-datasets/) instead of trying to download large mosaics yourself). 
+Note that the download time for 30 m global RS data can be significant if the data are needed for a larger area (hence you might consider using some RS data processing hub such as [Sentinel hub](http://www.sentinel-hub.com/), [Google Earth Engine](https://earthengine.google.com/) and/or [Amazon Web Services](https://aws.amazon.com/public-datasets/) instead of trying to download large mosaics yourself). 
 
 ### Soil covariate data sources (250 m resolution or coarser) {#soil-covs-250m}
 
@@ -32,7 +32,7 @@ SoilGrids250m predictions, most of which were based on remote sensing data:
 -   DEM-derived surfaces — slope, profile curvature, Multiresolution
     Index of Valley Bottom Flatness (VBF), deviation from Mean Value,
     valley depth, negative and positive Topographic Openness and SAGA
-    Wetness Index — all based on the global merge of SRTMGL3 DEM and
+    Wetness Index — all based on a global merge of SRTMGL3 DEM and
     GMTED2010 [@Danielson2011GMTED]. All DEM derivatives were computed
     using SAGA GIS [@gmd-8-1991-2015],
 
@@ -55,7 +55,7 @@ SoilGrids250m predictions, most of which were based on remote sensing data:
     shrublands, wetlands, tundra, artificial surfaces and
     bareland cover) for the year 2010 based on the GlobCover30 product
     by the National Geomatics Center of China [@Chen2014]. Upscaled to
-    resolution and expressed in percent of pixel coverage,
+    250 m resolution and expressed as percent of pixel coverage,
 
 -   Monthly precipitation images derived as the weighted average between
     the WorldClim monthly precipitation [@Hijmans2005IJC] and GPCP Version
@@ -68,7 +68,7 @@ SoilGrids250m predictions, most of which were based on remote sensing data:
     basic volcanics, carbonate sedimentary rocks, evaporite, ice and
     glaciers, intermediate plutonics, intermediate volcanics,
     metamorphics, mixed sedimentary rocks, pyroclastics, siliciclastic
-    sedimentary rocks, unconsolidated sediment) based on Global
+    sedimentary rocks, unconsolidated sediment) based on a Global
     Lithological Map GLiM [@GGGE:GGGE2352],
 
 -   Landform classes (breaks/foothills, flat plains, high mountains/deep
@@ -87,7 +87,7 @@ water dynamics and parent material. Out of the five main factors, water
 dynamics and living organisms (especially vegetation dynamics) are not
 trivial to represent as these operate over long periods of time and
 often exhibit chaotic behaviour. Using reflectance bands such as the
-mid-infrared MODIS bands from a single day, would have little use to
+mid-infrared MODIS bands from a single day, would be of little use for
 soil mapping for areas with dynamic vegetation, i.e. with strong
 seasonal changes in vegetation cover. To account for seasonal
 fluctuation and for inter-annual variations in surface reflectance, 
@@ -102,20 +102,20 @@ of climatic images vs temporary weather maps), but it is possibly the
 only way to represent the cumulative influence of living organisms on
 soil formation.
 
-@Behrens2018128 have recently discovered that, for example, DEM
-derivatives correlate derived at coarser scales correlate more with some
-targeted soil properties than the derivatives derived as fine scales; in
-this case, scale was represented through various DEM aggregation levels
+@Behrens2018128 recently reported that, for example, DEM
+derivatives derived at coarser resolutions correlated better with some
+targeted soil properties than the derivatives derived at finer resolutions. In
+this case, resolution (or scale) was represented through various DEM aggregation levels
 and filter sizes. Some physical and chemical processes of soil formation
-or vegetation distribution might not be visible at finer aggregation
-levels, but then become very visible at coarser aggregation levels. In
+or vegetation distribution might not be effecive or obvious at finer aggregation
+levels, but these can become very visible at coarser aggregation levels. In
 fact, it seems that spatial dependencies and interactions of the
-covariates can be explained simply by aggregating DEM and the
+covariates can often be explained better simply by a aggregating DEM and its
 derivatives.
 
 ## Preparing soil covariate layers
 
-Before we are able to fit spatial prediction models and generate soil maps, a significant amount of time is also spent on preparing covariate “layers” that can be used as independent variables (i.e. “predictor variables”) in the statistical modelling. Typical operations used to generate soil covariate layers include:
+Before we are able to fit spatial prediction models and generate soil maps, a significant amount of effort is also spent on preparing covariate “layers” that can be used as independent variables (i.e. “predictor variables”) in the statistical modelling. Typical operations used to generate soil covariate layers include:
 
 *  Converting polygon maps to rasters,
 
@@ -125,11 +125,11 @@ Before we are able to fit spatial prediction models and generate soil maps, a si
 
 *  Overlaying and subsetting raster stacks and points,
 
-The following examples should give you some ideas about how to program those steps using the shortest possible syntax running the fastest and most robust algorithms. Raster data can often be very large (e.g. millions of pixels) so processing large stacks of remote sensing scenes in R needs to be planned carefully. The complete R tutorial you can download from the **[github repository](https://github.com/envirometrix/PredictiveSoilMapping)**. Instructions on how to install and set-up all software used in this example you can find in the software installation chapter \@ref(software).
+The following examples should provide some ideas about how to program these steps using the shortest possible syntax running the fastest and most robust algorithms. Raster data can often be very large (e.g. millions of pixels) so processing large stacks of remote sensing scenes in R needs to be planned carefully. The complete R tutorial you can download from the **[github repository](https://github.com/envirometrix/PredictiveSoilMapping)**. Instructions on how to install and set-up all software used in this example can be found in the software installation chapter \@ref(software).
 
 ### Converting polygon maps to rasters
 
-Before we can attach a polygon map to other stacks of covariates, this needs to be rasterized i.e. converted to a raster layer defined with its bounding box (extent) and spatial resolution. Consider for example the [Ebergötzen data set](http://plotkml.r-forge.r-project.org/eberg.html) polygon map from the plotKML package (Fig. \@ref(fig:eberg-zones-spplot)):
+Before we can attach a polygon map to other stacks of covariates, it needs to be rasterized i.e. converted to a raster layer defined with its bounding box (extent) and spatial resolution. Consider for example the [Ebergötzen data set](http://plotkml.r-forge.r-project.org/eberg.html) polygon map from the plotKML package (Fig. \@ref(fig:eberg-zones-spplot)):
 
 ```{r eberg-zones-spplot, fig.cap="Ebergotzen parent material polygon map with legend.", out.width="70%"}
 library(rgdal)
@@ -139,7 +139,7 @@ data(eberg_zones)
 spplot(eberg_zones[1])
 ```
 
-We can convert this object to a raster by using the [raster package](https://cran.r-project.org/web/packages/raster/). Note that before we can run the operation, we need to know the target grid system i.e. extent of the grid and spatial resolution. We can use this from an existing layer:
+We can convert this object to a raster by using the [raster package](https://cran.r-project.org/web/packages/raster/). Note that before we can run the operation, we need to know the target grid system i.e. the extent of the grid and its spatial resolution. We can use this from an existing layer:
 
 ```{r}
 library(plotKML)
@@ -162,7 +162,7 @@ eberg_zones_r <- rasterize(eberg_zones, r, field="ZONES")
 plot(eberg_zones_r)
 ```
 
-Converting large polygons in R using the raster package could be very time-consuming. To speed up the rasterization of polygons we highly recommend using instead the `fasterize` function:
+Converting large polygons in R using the raster package can be very time-consuming. To speed up the rasterization of polygons we highly recommend using instead the `fasterize` function:
 
 ```{r}
 library(sf)
@@ -171,16 +171,16 @@ eberg_zones_sf <- as(eberg_zones, "sf")
 eberg_zones_r <- fasterize(eberg_zones_sf, r, field="ZONES")
 ```
 
-`fasterize` function is a the order of magnitude faster and hence more suitable for operational work. Note also that it only works with Simple Feature (sf) objects.
+`fasterize` function is an order of magnitude faster and hence more suitable for operational work. Note also that it only works with Simple Feature (sf) objects.
 
-Another efficient approach to rasterize polygons is to use SAGA GIS as this can handle large data and is easy to run in parallel. First, you need to export the polygon map to shapefile format that can be done with commands of the [rgdal package](https://cran.r-project.org/web/packages/rgdal/) package:
+Another efficient approach to rasterize polygons is to use SAGA GIS as this can handle large data and is easy to run in parallel. First, you need to export the polygon map to shapefile format which can be done with commands of the [rgdal package](https://cran.r-project.org/web/packages/rgdal/) package:
 
 ```{r}
 eberg_zones$ZONES_int <- as.integer(eberg_zones$ZONES)
 writeOGR(eberg_zones["ZONES_int"], "extdata/eberg_zones.shp", ".", "ESRI Shapefile")
 ```
 
-The `writeOGR()` command writes a SpatialPolygonsDataFrame (the data structure for polygon data in R) to an ESRI shapefile. Here we only writing the attribute `"ZONES_int"` to the shapefile. It is, however, also possible to write all attributes of the SpatialPolygonsDataFrame to a shapefile.
+The `writeOGR()` command writes a SpatialPolygonsDataFrame (the data structure for polygon data in R) to an ESRI shapefile. Here we only write the attribute `"ZONES_int"` to the shapefile. It is, however, also possible to write all attributes of the SpatialPolygonsDataFrame to a shapefile.
 
 Next, you can locate the (previously installed) SAGA GIS command line program (on Microsoft Windows OS or Linux system):
 
@@ -224,7 +224,7 @@ knitr::include_graphics("figures/eberg_zones_rasterized.png")
 
 ### Downscaling or upscaling (aggregating) rasters {#downscaling-upscaling}
 
-In order for all covariates to perfectly *stack*, we also need to adjust resolution of some covariates that have either too coarse or too fine resolution than the target resolution. Process of bringing raster layers to target grid is also known as **resampling**. Consider the following example from the Ebergotzen case study:
+In order for all covariates to perfectly *stack*, we also need to adjust the resolution of some covariates that have either too coarse or too fine a resolution compared to the target resolution. The process of bringing raster layers to a target grid resolution is also known as **resampling**. Consider the following example from the Ebergotzen case study:
 
 ```{r}
 data(eberg_grid)
@@ -233,7 +233,7 @@ proj4string(eberg_grid) <- CRS("+init=epsg:31467")
 names(eberg_grid)
 ```
 
-In this case we have few layers that we would like to use for spatial prediction in combination with the maps produced in the previous sections, but their resolution is 100 m i.e. about 16 times coarser. Probably the most robust way to resample rasters is to use the [`gdalwarp`](http://www.gdal.org/gdalwarp.html) function from the GDAL software. Assuming that you have already installed GDAL, you only need to locate the program on your system, and then you can again run [`gdalwarp`](http://www.gdal.org/gdalwarp.html) via the system command:
+In this case we have a few layers that we would like to use for spatial prediction in combination with the maps produced in the previous sections, but their resolution is 100 m i.e. about 16 times coarser. Probably the most robust way to resample rasters is to use the [`gdalwarp`](http://www.gdal.org/gdalwarp.html) function from the GDAL software. Assuming that you have already installed GDAL, you only need to locate the program on your system, and then you can again run [`gdalwarp`](http://www.gdal.org/gdalwarp.html) via the system command:
 
 ```{r}
 writeGDAL(eberg_grid["TWISRT6"], "extdata/eberg_grid_TWISRT6.tif")
@@ -243,7 +243,7 @@ system(paste0('gdalwarp extdata/eberg_grid_TWISRT6.tif',
               ' -tr ', pix, ' ', pix, ' -overwrite'))
 ```
 
-The writeGDAL commands writes the TWISRT6 grid, that is stored in the eberg_grid grid stack, to a TIFF file. This TIFF is subsequently read by the gdalwarp function and resampled to a 25m TIFF file using `cubicspline`, which will fill in values between original grid using smooth surfaces. Note that the paste0 function in the `system()` command pastes together the following string: 
+The writeGDAL command writes the TWISRT6 grid, that is stored in the eberg_grid grid stack, to a TIFF file. This TIFF is subsequently read by the gdalwarp function and resampled to a 25m TIFF file using `cubicspline`, which will fill in values between original grid nodes using smooth surfaces. Note that the paste0 function in the `system()` command pastes together the following string: 
 
 ```{bash, eval=FALSE}
 "C:/Progra~1/GDAL/gdalwarp.exe eberg_grid_TWISRT6.tif 
@@ -266,7 +266,7 @@ knitr::include_graphics("figures/eberg_original_vs_downscaled.png")
 
 The map on the right looks much smoother of course (assuming that this variable varies continuously in space, this could very well be an accurate picture), but it is important to realize that downscaling can only be implemented up to certain target resolution i.e. only for certain features. For example, downscaling TWI from 100 to 25 m is not much of problem, but to go beyond 10 m would probably result in large differences from a TWI calculated at 10 m resolution (in other words: be careful with downscaling because it is often not trivial).
 
-The opposite process from downscaling is upscaling or aggregation. Although this one can also potentially be tricky, it is much more straight process than downscaling. We recommend using the `average` method in GDAL for aggregating values e.g.:
+The opposite process to downscaling is upscaling or aggregation. Although this one can also potentially be tricky, it is a much more straightforward process than downscaling. We recommend using the `average` method in GDAL for aggregating values e.g.:
 
 ```{r}
 system(paste0('gdalwarp extdata/eberg_grid_TWISRT6.tif',
@@ -281,7 +281,7 @@ knitr::include_graphics("figures/eberg_original_vs_aggregated.png")
 
 ### Deriving DEM parameters using SAGA GIS
 
-Now that we have established connection between R and SAGA GIS, we can also use SAGA GIS to derive some standard DEM parameters of interest to soil mapping. To automate further processing, we make the following function:
+Now that we have established a connection between R and SAGA GIS, we can also use SAGA GIS to derive some standard DEM parameters of interest to soil mapping. To automate further processing, we make the following function:
 
 ```{r}
 saga_DEM_derivatives <- function(INPUT, MASK=NULL, sel=c("SLP","TWI","CRV","VBF","VDP","OPN","DVM")){
@@ -352,7 +352,7 @@ writeGDAL(eberg_grid["DEMSRT6"], "extdata/DEMSRT6.sdat", "SAGA")
 saga_DEM_derivatives("DEMSRT6.sgrd")
 ```
 
-which derives all DEM derivatives at once:
+which derives all DEM derivatives in a single operation:
 
 ```{r, eval=FALSE}
 dem.lst <- list.files(pattern=glob2rx("^DEMSRT6_*.sdat"))
@@ -363,7 +363,7 @@ plot(stack(dem.lst), col=SAGA_pal[[1]])
 knitr::include_graphics("figures/dem_derivatives_plot.png")
 ```
 
-This function can now be used with any DEM to derive the standard 7-8 DEM parameters such as slope and curvature, TWI and MrVBF, positive and negative openess, valley depth and deviation from mean value. You could easily add more parameters to this function and then test if some of the other DEM derivatives can help improve mapping soil properties and classes. Note that SAGA GIS will by default optimize computing of DEM derivatives by using most of available cores to compute (parallelization is turned on automatically).
+This function can now be used with any DEM to derive a standard set of 7-8 DEM parameters consisting of slope and curvature, TWI and MrVBF, positive and negative openess, valley depth and deviation from mean value. You could easily add more parameters to this function and then test if some of the other DEM derivatives can help improve mapping soil properties and classes. Note that SAGA GIS will by default optimize computing of DEM derivatives by using most of the available cores to compute (parallelization is turned on automatically).
 
 <!-- 
 ### Deriving DEM parameters using LITAP
@@ -384,7 +384,7 @@ LITAP::complete_run(file = "extdata/DEMSRT6.tif", folder_out = "extdata/",
                     report = FALSE)
 ```
 
-which will fill in  derive number of hydrological parameters 
+which will unblock a DEM and then derive a number of hydrological parameters 
 and that are maybe not available in other packages and that can be used 
 to quantify soil deposition / accumulation processes. To plot for example 
 watersheds by flow paths we can run:
@@ -396,12 +396,12 @@ LITAP::flow_plot(db = initial_dem, type = "elevation", shed = TRUE,
           shed_type = "fill", dir = TRUE)
 ```
 
-Which shows all watersheds and individual streams derived using the filled DEM (after pit removal).
+Which shows all watersheds and individual streams derived using the unblocked DEM (after pit removal).
  -->
 
 ### Filtering out missing pixels and artifacts
 
-After we have brought all covariates to the same grid definition, what can still represent a problem for using covariates in spatial modelling are:
+After bringing all covariates to the same grid definition, remaining problems for using covariates in spatial modelling may include:
 
 *  Missing pixels,
 
@@ -409,7 +409,7 @@ After we have brought all covariates to the same grid definition, what can still
 
 *  Multicolinearity (i.e. data overlap),
 
-In a stack with tens of rasters, the *weakest layer* (i.e. the layer with highest number of missing pixels or highest amount of artifacts) could cause serious problems for producing soil maps as the missing pixels and artifacts would propagate to predictions: if only one layer in the raster stack misses values than predictive models might drop whole rows in the predictions even though data is available for 95% of rows. Missing pixels happen due to various reasons: in the case of remote sensing, missing pixels can be due to clouds or similar; noise is often due to atmospheric conditions. Missing pixels (as long as we are dealing with few patches of missing pixels) can be efficiently filtered by using for example the [gap filling functionality](http://saga-gis.org/saga_module_doc/2.2.7/grid_tools_7.html) available in the SAGA GIS e.g.:
+In a stack with tens of rasters, the *weakest layer* (i.e. the layer with greatest number of missing pixels or largest number of artifacts) could cause serious problems for producing soil maps as the missing pixels and artifacts would propagate to predictions: if only one layer in the raster stack misses values then predictive models might drop whole rows in the predictions even though data is available for 95% of rows. Missing pixels occur for various reasons: in the case of remote sensing, missing pixels can be due to clouds or similar; noise is often due to atmospheric conditions. Missing pixels (as long as we are dealing with only a few patches of missing pixels) can be efficiently filtered by using for example the [gap filling functionality](http://saga-gis.org/saga_module_doc/2.2.7/grid_tools_7.html) available in the SAGA GIS e.g.:
 
 ```{r, eval=FALSE}
 par(mfrow=c(1,2))
@@ -419,7 +419,7 @@ image(raster("test.sdat"), col=SAGA_pal[[1]], zlim=zlim, main="Filtered", asp=1)
 
 In this example we use the same input and output file for filling in gaps. There are several other gap filling possibilities in SAGA GIS including Close Gaps with Spline, Close Gaps with Stepwise Resampling and Close One Cell Gaps. Note all of these are equally applicable to all missing pixel problems, but having <10% of missing pixels is often not much of a problem for soil mapping.
 
-Another elegant way to filter the missing pixels, reduce noise and reduce data overlap is to use [Principal Components](http://www.rdocumentation.org/packages/stats/functions/prcomp) transformation of original data. This is available also via the GSIF function [''spc''](http://www.rdocumentation.org/packages/GSIF/functions/spc):
+Another elegant way to filter the missing pixels, to reduce noise and to reduce data overlap is to use [Principal Components](http://www.rdocumentation.org/packages/stats/functions/prcomp) transformation of original data. This is available also via the GSIF function [''spc''](http://www.rdocumentation.org/packages/GSIF/functions/spc):
 
 ```{r, eval=FALSE}
 data(eberg_grid)
@@ -443,15 +443,15 @@ The advantages of using the [''spc''](http://www.rdocumentation.org/packages/GSI
 
 *  All output soil covariates are numeric (and not a mixture of factors and numeric),
 
-*  Last 1-2 PCs often contain signal noise and could be excluded from modelling,
+*  The last 1-2 PCs often contain signal noise and could be excluded from modelling,
 
-*  In further analysis it becomes easier to remove covariates that do not help in modelling (e.g. by using step-wise selection and similar),
+*  In subsequent analysis it becomes easier to remove covariates that do not help in modelling (e.g. by using step-wise selection and similar),
 
-A disadvantage of using SPCs (spatial predictive components) is that the components are often abstract so that interpretation of correlations can become cumbersome. Also, if one of the layers contains many factor levels, then the number of output covariates might blow up, which become impractical as we should then have at least 10 observations per covariate to avoid overfitting.
+A disadvantage of using SPCs (spatial predictive components) is that these components are often abstract so that interpretation of correlations can become difficult. Also, if one of the layers contains many factor levels, then the number of output covariates might explode, which becomes impractical as we should then have at least 10 observations per covariate to avoid overfitting.
 
 ### Overlaying and subsetting raster stacks and points
 
-Now that we have prepared all covariates (resampled them to the same grid and filtered out all problems), we can proceed with running overlays and fitting statistical models. Assuming that we deal with large number of files, an elegant way to read all those to R is by using the raster package, especially the [''stack''](http://www.rdocumentation.org/packages/raster/functions/stack) and [''raster''](http://www.rdocumentation.org/packages/raster/functions/stack) commands. In the following example we can list all files of interest, and then read them all at once:
+Now that we have prepared all covariates (resampled them to the same grid and filtered out all problems), we can proceed with running overlays and fitting statistical models. Assuming that we deal with a large number of files, an elegant way to read all those into R is by using the raster package, especially the [''stack''](http://www.rdocumentation.org/packages/raster/functions/stack) and [''raster''](http://www.rdocumentation.org/packages/raster/functions/stack) commands. In the following example we can list all files of interest, and then read them all at once:
 
 ```{r, eval=FALSE}
 library(raster)
@@ -462,13 +462,13 @@ grid25m <- as(grid25m, "SpatialGridDataFrame")
 str(grid25m)
 ```
 
-One could now save a the prepared covariates stored in SpatialGridDataFrame as an RDS data object for future use.
+One could now save all the prepared covariates stored in SpatialGridDataFrame as an RDS data object for future use.
 
 ```{r, eval=FALSE}
 saveRDS(grid25m, file = "extdata/covariates25m.rds")
 ```
 
-To overlay rasters and points and prepare a regression matrix, we can either use the [`over`](http://www.rdocumentation.org/packages/sp/functions/over) function from the sp package, or [`extract`](http://www.rdocumentation.org/packages/raster/functions/extract) function from the raster package. By using raster package, one can run overlay even without reading the rasters to memory:
+To overlay rasters and points and prepare a regression matrix, we can either use the [`over`](http://www.rdocumentation.org/packages/sp/functions/over) function from the sp package, or [`extract`](http://www.rdocumentation.org/packages/raster/functions/extract) function from the raster package. By using the raster package, one can run overlay even without reading the rasters into memory:
 
 ```{r, eval=FALSE}
 library(sp)
@@ -494,11 +494,11 @@ ov = data.frame(mclapply(grd.lst, FUN=overlay.fun, y=eberg))
 names(ov) = basename(grd.lst)
 ```
 
-In similar way one could also make wrapper functions that downscale/upscale grids, then filter missing values and stack all data together so that it become available in the working memory (sp grid or pixels object). Overlay and model fitting is also implemented directly in the GSIF package, so any attempt to fit models will automatically perform overlay.
+In a similar way, one could also make wrapper functions that downscale/upscale grids, then filter missing values and stack all data together so that it becomes available in the working memory (sp grid or pixels object). Overlay and model fitting is also implemented directly in the GSIF package, so any attempt to fit models will automatically perform overlay.
 
 ### Working with large(r) rasters
 
-As R is often inefficient in handling large objects in memory (such as large raster images), a good strategy to run raster processing in R is to consider using for example the ```clusterR``` function from the [raster](https://cran.r-project.org/package=raster) package, which automatically parallelizes use of raster functions. To have full control over parallelization, you can alternatively tile large rasters using the ```getSpatialTiles``` function from the GSIF package and process them as separate objects in parallel. The following examples shows how to run a simple function in parallel on tiles and then mosaic those after all processing has been completed. Consider for example the GeoTiff from the rgdal package:
+As R is often inefficient in handling large objects in memory (such as large raster images), a good strategy to run raster processing in R is to consider using for example the ```clusterR``` function from the [raster](https://cran.r-project.org/package=raster) package, which automatically parallelizes use of raster functions. To have full control over parallelization, you can alternatively tile large rasters using the ```getSpatialTiles``` function from the GSIF package and process them as separate objects in parallel. The following examples shows how to run a simple function in parallel on tiles and then mosaic these tiles after all processing has been completed. Consider for example the GeoTiff from the rgdal package:
 
 ```{r}
 fn = system.file("pictures/SP27GTIF.TIF", package = "rgdal")
@@ -551,7 +551,7 @@ This can now be run through `mclapply` function from the parallel package (which
 x0 <- mclapply(1:nrow(tiles), FUN=fun_mask, tiles=tiles)
 ```
 
-We can look in the the tiles folder, and this should shows 35 produced GeoTiffs. These can be further used to construct a virtual mosaic by using:
+We can look in the the tiles folder, and this should show 35 produced GeoTiffs. These can be further used to construct a virtual mosaic by using:
 
 ```{r, eval=FALSE}
 t.lst <- list.files(path="extdata/tiled", pattern=glob2rx("^T*.tif$"), full.names=TRUE, recursive=TRUE)
@@ -561,20 +561,20 @@ system('gdalwarp SP27GTIF.vrt SP27GTIF_mask.tif -ot \"Byte\"',
   ' -dstnodata 255 -co \"BIGTIFF=YES\" -r \"near\" -overwrite -co \"COMPRESS=DEFLATE\"')
 ```
 
-Note we use few important settings here for GDAL e.g. `-overwrite -co "COMPRESS=DEFLATE"` to overwrite the GeoTiff and internally compress it to save space and `-r "near"` basically no resampling just binding tiles together. Also, if the output GeoTiff is HUGE, you will most likely have to turn on `-co "BIGTIFF=YES"` otherwise gdalwarp would not run through. The output mosaic looks like this:
+Note we use a few important settings here for GDAL e.g. `-overwrite -co "COMPRESS=DEFLATE"` to overwrite the GeoTiff and internally compress it to save space and `-r "near"` basically no resampling just binding tiles together. Also, if the output GeoTiff is HUGE, you will most likely have to turn on `-co "BIGTIFF=YES"` otherwise gdalwarp would not run through. The output mosaic looks like this:
 
 ```{r sp27gtif-mask, echo=FALSE, fig.cap="Final processed output.", out.width="80%"}
 knitr::include_graphics("figures/sp27gtif_mask.png")
 ```
 
-This shows that R can be used to compute with large rasters provided that these operations can be parallelized. Suggested best practice for this is to: (1) design a tiling system that optimizes use of RAM and read/write spead of a disk, (2) prepare and test a function that can be then run in parallel, and (3) stitch back all tiles to a large raster using `gdalwarp`. 
-Note that Tiling and and stitching can not be applied universally to all problems e.g. functions that require global geographical search or all data in the raster, in which cases tiling should be applied with overlap (to minimize boundary effects) or to irregular tiling systems (e.g. per watershed). Once an optimal tiling system and function is prepared, R is not any more limit to running efficient computing, but only how much RAM and cores you have available i.e. it becomes more a hardware than a software problem.
+This demonstrates that R can be used to compute with large rasters provided that these operations can be parallelized. Suggested best practice for this is to: (1) design a tiling system that optimizes use of RAM and read/write spead of a disk, (2) prepare and test a function that can be then run in parallel, and (3) stitch back all tiles to a large raster using `gdalwarp`. 
+Note that Tiling and and stitching can not be applied universally to all problems e.g. functions that require global geographical search or all data in the raster, in such cases tiling should be applied with overlap (to minimize boundary effects) or to irregular tiling systems (e.g. per watershed). Once an optimal tiling system and function is prepared, R is no longer limited to running efficient computing, but only dependant on how much RAM and cores you have available i.e. it becomes more a hardware than a software problem.
 
 ## Summary points
 
 Soil covariate layers are one of the key inputs to predictive soil mapping.
 Before any spatial layer can be used for modeling, it typically needs to be 
-preprocessed to remove artifacts, resample to standard resolution, fill in the 
+preprocessed to remove artifacts, resample to a standard resolution, fill in the 
 missing values etc. All these operations can be succesfully run by combining R 
 and Open Source GIS software and by careful programming and optimization.
 
@@ -582,11 +582,11 @@ Preparing soil covariates can often be time and resources consuming so careful
 preparation and prioritisation of processing is highly recommended.
 @Hengl2017SoilGrids250m show that, for soil types and soil textures, DEM-parameters,
 i.e. soil forming factors of relief, especially flow-based DEM-indices,
-emerge as second-most dominant covariates. These results largely
+emerge as the second-most dominant covariates. These results largely
 correspond with conventional soil survey knowledge (surveyors have been
 using relief as a key guideline to delineate soil bodies for decades).
 
-Although lithology is not in the list of top 15 most important
+Although lithology is not in the list of the top 15 most important
 predictors, spatial patterns of lithologic classes can often be
 distinctly recognized in the output predictions. This is especially true
 for soil texture fractions and coarse fragments. In general, for
@@ -597,7 +597,7 @@ of relief, vegetation dynamics and parent material. Investing extra time
 in preparing a better map of soil parent material is often a good idea.
 
 Other potentially useful covariates for predicting soil properties and
-classes could be maps of paleolithic i.e. pre-historic climatic
+classes could be maps of paleo i.e. pre-historic climatic
 conditions of soil formation, e.g. glacial landscapes and processes,
 past climate conditions and similar. These could likely become
 significant predictors of many current soil characteristics. Information
