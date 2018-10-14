@@ -15,7 +15,7 @@ Carbon below ground can be organic or non-organic/ mineral (usually carbonates a
     * Microbial biomass [@xu2013global],
  2.  Plant and animal residues at various stages of decomposition (organic matter).
 
-@xu2013global estimated that total global microbial biomass is about 17 Pg C, which is only about 2% of the total organic matter. Therefore, the amounts of C in microbial biomass can reasonanly be neglected, in comparison to the total stock. However, if one includes all living organisms, and especially tree roots, then the portion of total C fouind in living organisms could be more significant, especially in areas under dense forests.
+@xu2013global estimated that total global microbial biomass is about 17 Pg C, which is only about 2% of the total for organic matter. Therefore, the amounts of C in microbial biomass can reasonably be considered negligible, in comparison to the total C stock. However, if one includes all living organisms, and especially tree roots, then the portion of total C fouind in living organisms could be more significant, especially in areas under dense forests.
 
 Soil Organic Carbon Stock (**OCS**) is the mass of soil organic carbon per standard area and for a specific depth interval, usually expressed in kg/m$^2$ or t/ha. It can be derived using (laboratory and/or field) measurement of soil organic carbon content (ORC; expressed in % or g/kg of <2mm mineral earth), then taking into account bulk density (BLD), thickness of the soil layer, and volume percentage of coarse fragments (CRF) [@Nelson1982; @poeplau2017soil]:
 
