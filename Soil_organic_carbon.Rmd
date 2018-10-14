@@ -557,7 +557,7 @@ Which shows that, for the `Cropping - continuous or rotation`, which is the domi
 
 ## Deriving OCS using spatiotemporal models
 
-Assuming that measurements of ORC have also been referenced temporally (at least the year of sampling), points can be used to build spatiotemporal models of soil organic carbon. Consider, for example, the soil profile data available for the conterminous USA:
+Assuming that measurements of ORC have also been referenced temporally (at least to the year of sampling), point data can be used to build spatiotemporal models of soil organic carbon. Consider, for example, the soil profile data available for the conterminous USA:
 
 ```{r}
 OCD_stN <- readRDS("extdata/usa48.OCD_spacetime_matrix.rds")
@@ -577,7 +577,7 @@ In fact, because the data set above represents values of OCD at variable depths,
 (\#eq:stmodel)
 \end{equation}
 
-where $d$ is the depth, $X_k (xy)$ are static covariates i.e. the covariates that do not change in time, and $X_p (xyt)$ are spatiotemporal covariates i.e. covariates that change with time. Here we can assume that static covariates are mainly landform and lithology: these have probably not changed significantly in the last 100 years. Land cover, land use and climate, on the other hand, have probably changed drastically in the last 100 years and have to be represented with time-series of images. There are, indeed, several time-series data sets now available that can be used to represent land cover dynamics:
+where $d$ is the depth, $X_k (xy)$ are static covariates i.e. the covariates that do not change in time, and $X_p (xyt)$ are spatiotemporal covariates i.e. covariates that change with time. Here we can assume that the static covariates are mainly landform and lithology: these have probably not changed significantly in the last 100 years. Land cover, land use and climate, on the other hand, have probably changed drastically in the last 100 years and have to be represented with a time-series of images. There are, indeed, several time-series data sets now available that can be used to represent land cover dynamics:
 
 *  [HYDE 3.2 Historic land use data set](ftp://ftp.pbl.nl/hyde/hyde3.2/) [@klein2011hyde]: portrays the distribution of major agricultural systems from 10,000 BC (pre-historic no landuse condition) to the present time. 10 categories of land use have been represented: total cropping, total grazing, pasture (improved grazingland), rangeland (unimproved grazingland), total rainfed cropping, total irrigated cropping, with further subdivisions for rice and non-rice cropping systems for both rainfed and irrigated cropping.
 
@@ -585,7 +585,7 @@ where $d$ is the depth, $X_k (xy)$ are static covariates i.e. the covariates tha
 
 *  [UNEP-WCMC Generalised Original and Current Forest cover map](http://www.unep-wcmc.org/resources-and-data/generalised-original-and-current-forest) showing global dynamics of forest cover.
 
-All these layers are available only at a relatively coarse resolution of 10 km, but then cover longer spana of time. Note also that, since these are time-series of images, spatiotemporal overlay can take time as spatial overlay must be repeated for each time period. The spatiotemporal matrix file already contains the results of overlay, so that we can focus directly on building spatiotemporal models of OCD e.g.: 
+All these layers are available only at a relatively coarse resolution of 10 km, but then cover longer time spans. Note also that, since these are time-series of images, spatiotemporal overlay can take time as spatial overlay must be repeated for each time period. The spatiotemporal matrix file already contains the results of overlay, so that we can focus directly on building spatiotemporal models of OCD e.g.: 
 
 ```{r, eval=FALSE}
 pr.lst <- names(OCD_stN)[-which(names(OCD_stN) %in% c("SOURCEID", "DEPTH.f", "OCDENS", "YEAR", "YEAR_c", "LONWGS84", "LATWGS84"))]
