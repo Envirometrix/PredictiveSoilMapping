@@ -1143,7 +1143,7 @@ knowledge for predicting soil bulk density from other, more regularly
 measured, properties. The model considers soil bulk density to be a
 function of soil mineral packing structures ($\rho_m$) and soil
 structure ($\Delta \rho$). Bulk-density maxima were found for soils with
-approximately sand. Bulk densities were also observed to increase with
+approximately (****MISSING NUMBER****) sand. Bulk densities were also observed to increase with
 depth, suggesting the influence of over-burden pressure. Residuals from
 the $\rho_m$ model, referred to as $\Delta \rho$, correlated with
 organic carbon.
@@ -1157,14 +1157,14 @@ are a function only of organic matter i.e. organic carbon content.
 Although studies conducted by @Saini1966N and @Jeffrey1970JE have shown
 that organic matter has a dominating effect on soil bulk density and
 that it can be used alone as a good predictor of soil bulk density, it
-has been observed (e.g. @Alexander1980SSSAJ and @Manrique1991SSSAJ) that
-soil texture plays a major role in controlling bulk density where
-organic matter is a minor component.
+has been observed (e.g. @Alexander1980SSSAJ and @Manrique1991SSSAJ) that,
+where organic matter is a minor component, soil texture plays a major 
+role in controlling bulk density .
 
 ### Soil organic carbon stock
 
 Primary soil properties such as organic carbon content, bulk density and
-coarse fragments can be further used for estimation of secondary soil
+coarse fragments can be further used as inputs for estimation of secondary soil
 properties which are typically not measured directly in the field and
 need to be derived from primary soil properties. For instance, consider
 estimation of the global carbon stock (in permille). This secondary soil
@@ -1181,7 +1181,7 @@ mass fraction in permilles, `HOT` is horizon thickness in , `BLD` is
 soil bulk density in and `CRF` is volumetric fraction of coarse
 fragments ($>$ 2 mm) in percent.
 
-```{r ocs-calculus-scheme, echo=FALSE, fig.cap="Soil organic carbon stock calculus scheme. Example of how total soil organic carbon stock (OCS) and its propagated error can be estimated for a given volume of soil using organic carbon content (ORC), bulk density (BLD), thickness of horizon (HOT), and percentage of coarse fragments (CRF). Image source: @Hengl2014SoilGrids1km. OCSKGM function also available via the [GSIF package](http://gsif.r-forge.r-project.org/OCSKGM.html).", out.width="100%"}
+```{r ocs-calculus-scheme, echo=FALSE, fig.cap="Soil organic carbon stock calculus scheme. Example of how total soil organic carbon stock (OCS), and its propagated error, can be estimated for a given volume of soil using organic carbon content (ORC), bulk density (BLD), thickness of horizon (HOT), and percentage of coarse fragments (CRF). Image source: @Hengl2014SoilGrids1km. OCSKGM function also available via the [GSIF package](http://gsif.r-forge.r-project.org/OCSKGM.html).", out.width="100%"}
 knitr::include_graphics("figures/Fig_OCS_calculus_scheme.png")
 ```
 
@@ -1194,7 +1194,7 @@ all depths / horizons, then aggregated to estimate the total stock for
 the whole profile (e.g. 0–2 m).
 
 The formulas to derive soil organic carbon stock and the propagated
-uncertainty are implemented in the package e.g.:
+uncertainty are implemented in the GSIF package e.g.:
 
 ```{r}
 Area <- 1E4  ## 1 ha
@@ -1215,7 +1215,7 @@ A more robust way to estimate the propagated uncertainty of deriving
 error from a large number of realizations (e.g. >100) that incorporate
 spatial and vertical correlations. Because, in the case of soil mapping,
 we are often dealing with massive data sets, running geostatistical
-simulations for millions of pixels is probably not yet an option.
+simulations for millions of pixels is current not yet a feasible option.
 
 ### Available Water Capacity
 
@@ -1223,7 +1223,7 @@ The available water holding capacity (AWC) is a complex soil property.
 It is basically a soil or land quality [@food1977framework], that
 provides valuable information about the capacity of the soil to hold
 water, particularly water that is potentially available for root uptake
-and vegetative transpiration. In practice, AWC is land cover specific.
+by plants and vegetative transpiration. In practice, AWC is land cover specific.
 The water available for root uptake depends on the soil properties that
 determine rootability or rooting depth as genetically required by the
 vegetative land cover.
@@ -1300,7 +1300,7 @@ the methods were universally good. The best method in the comparison of
 @Rawls1982JIDDASCE.
 
 Alterra institute in collaboration with ISRIC validated the PTF
-developed by @hodnett2002marked on the basis of the data available in
+developed by @hodnett2002marked on the basis of the data present in
 the Africa Soil Profiles database [@Leenaars2012] to predict tension
 specific volumetric water content [@wosten2013soil] to assess WRD.
 @Jagtap2004TASAE developed an approach that does not fit a mathematical
@@ -1347,7 +1347,7 @@ the WRD from more easily available parameters as:
 @Zacharias2007SSSAJ concluded that approach (1) has the disadvantage
 that it uses a large number of regression parameters depending on the
 number of WRD sampling points, which makes its use in the mathematical
-modeling more difficult while for approach 2 very detailed information
+modeling more difficult; while for approach 2 very detailed information
 about the particle size distribution is required. They therefore
 preferred use of (3) the parameter estimation methods.
 
@@ -1434,7 +1434,7 @@ from 0.81 to 0.91.
 coverage of soil hydraulic property data for France that included an
 efficient sampling strategy based on the use of functional horizons
 [@Bouma1989S], and a series of reference sites where soil hydraulic
-properties could be measured comprehensively. They argued that
+properties could be measured comprehensively. They argued that the
 functional horizon method recognizes the soil texture class of the
 horizon rather than the profile as the individual or building block for
 prediction [@Wosten1985SSSAJ; @Wosten1992]. A significant feature of
@@ -1452,7 +1452,7 @@ general form of:
 where the total profile available water ($\mathtt{AWAIMM}$) can be
 summed over the effective depth.
 
-By using the GSIF package, one can determine $\mathtt{AWAIMM}$ using the
+By using the GSIF package, one can estimate $\mathtt{AWAIMM}$ using the
 pedo-transfer function described by @hodnett2002marked and
 @wosten2013soil:
 
@@ -1491,7 +1491,7 @@ or method-groups, and possibly the need to harmonize values produced
 using different methods in order to make them roughly equivalent and
 comparable. The process of conversion of values measured according to an
 original method to values roughly equivalent to those measured according
-to an agreed-upon standard method is referred to as *data
+to an agreed-upon standard reference method is referred to as *data
 harmonization*.
 
 Note that differences in methods are not necessarily reflected in
@@ -1609,8 +1609,8 @@ classification systems, but with increasingly more analytical data
 required to reach a specific, more refined, class. Mapping soil types,
 using WRB or KST or both, has been of interest for global soil mapping
 projects since the first development of the global classification
-systems. As a matter of fact, term *“World soil map”* has been
-exclusively used for cartographic presentation of the global
+systems. As a matter of interest, the term *“World soil map”* has been
+used exclusively for cartographic presentation of the global
 distribution of KST soil orders (12) and/or FAO WRB soil groups (32).
 
 ```{block, type="rmdnote"}
@@ -1640,12 +1640,12 @@ knitr::include_graphics("figures/Fig_USDA_categories.png")
 ```
 
 The map in Fig. \@ref(fig:worldmap-suborders) shows the global
-distribution of Keys to Soil Taxonomy soil suborders according to 
+distribution of Soil Taxonomy soil suborders according to 
 [USDA-NRCS World Soil Index](https://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/use/worldsoils/?cid=nrcs142p2_054010). 
 Assuming a rule of thumb that we need at least 5 and, if
 possible, 10 observations of a specific soil taxonomic entity per unique
 combination of predictor variables and observations,
-[@harrell2001regression], it is possible to estimate that the amount of
+[@harrell2001regression], it is possible to estimate that the optimum number of
 field observations required to e.g. predict the global distribution of
 USDA soil series would be in the order of few millions of soil profiles
 (Fig. \@ref(fig:usda-categories)).
@@ -1665,7 +1665,7 @@ variables:
     formation processes. They are much easier to detect in the field
     than soil types but are rarely mapped over entire areas. Diagnostic
     soil horizons can theoretically be mapped as 3D soil polygons or
-    probabilities (rasters) attached to specific depth.
+    probabilities (rasters) attached to specific depths.
 
 -   *Soil material classes* — Soil horizons or whole profiles can be
     dominated by minerals or their combinations e.g. organic material in
@@ -1687,7 +1687,7 @@ variables:
 As with any map, categorical, factor-type soil variables can be mapped
 globally (together with the uncertainty) as long as there is sufficient
 training field data to properly support application of the prediction
-algorithm. The other technical problem is storage required to save and
+algorithm. The other technical problem is the amount of storage required to save and
 share all the produced predictions. Each category of a soil categorical
 variable can be mapped separately, which can lead to hundreds of grids.
 The global land cover map for example contains only some 35 categories,
@@ -1770,7 +1770,7 @@ USDA.TT.cnt[,c("SAND","SILT","CLAY")] <- signif(USDA.TT.cnt[,c("SAND","SILT","CL
 USDA.TT.cnt[,c("name","SAND","SILT","CLAY")]
 ```
 
-Now that we have created a function that creates values in the texture triangle to texture fractions, we can go further and even estimate what is the uncertainty of estimating each texture fraction based on the class. For this we can use simulations i.e. randomly sample 100 points within some texture class and then derive standard deviations for each texture fraction. Note that, although this sounds as a complicated operation, we can run this in two lines of code. For example to estimate uncertainty of converting the class ''Cl'' (clay) to texture fractions we can simulate 100 random points the class polygon using the ''spsample'' function from the sp package [@Bivand2013Springer]:
+Now that we have created a function that converts values in the texture triangle to texture fractions, we can go further and even estimate the uncertainty of estimating each texture fraction based on the class. For this we can use simulations i.e. randomly sample 100 points within some texture class and then derive standard deviations for each texture fraction. Note that, although this sounds like a complicated operation, we can run this in two lines of code. For example to estimate uncertainty of converting the class ''Cl'' (clay) to texture fractions we can simulate 100 random points the class polygon using the ''spsample'' function from the sp package [@Bivand2013Springer]:
 
 ```{r}
 sim.Cl <- data.frame(spsample(poly.USDA.TT[poly.USDA.TT$ID=="clay",], 
@@ -1799,7 +1799,7 @@ TT.plot(class.sys = "USDA.TT", tri.data = tdf,
         grid.show = FALSE, pch="+", cex=.4, col="red")
 ```
 
-This shows that not all positions in the triangle have the same prior probability. So probably a more sensitive way to estimate uncertainty of converting soil texture classes to fractions would be to run simulations using a density image showing the actual distribution of classes and then, by using the `rpoint` function in the [spatstat package](http://spatstat.org), we could also derive an even more realistic conversions from texture-by-hand classes to texture fractions.
+This shows that not all positions in the triangle have the same prior probability. So probably a more sensitive way to estimate uncertainty of converting soil texture classes to fractions would be to run simulations using a density image showing the actual distribution of classes and then, by using the `rpoint` function in the [spatstat package](http://spatstat.org), we could also derive even more realistic conversions from texture-by-hand classes to texture fractions.
 
 ## Converting Munsell color codes to other color systems
 
@@ -1837,7 +1837,7 @@ The hex triplet format is also very similar to the color format used in the [KML
 plotKML::col2kml("#003A7CFF")
 ```
 
-To plot the actual colors based on actual soil profile data base we often need to prepare the color codes before we can run the conversion [@VISCARRAROSSEL2006320]. In the case of the [Africa Soil Profile Database](http://gsif.r-forge.r-project.org/afsp.html):
+To plot the actual colors based on an actual soil profile data base we often need to prepare the color codes before we can run the conversion [@VISCARRAROSSEL2006320]. In the case of the [Africa Soil Profile Database](http://gsif.r-forge.r-project.org/afsp.html):
 
 ```{r}
 data(afsp)
@@ -1853,7 +1853,7 @@ mcol <- mcol[!is.na(mcol$MCOMNS),]
 str(mcol)
 ```
 
-Next we need to format all Munsell color codes to ''Hue_Saturation_Intensity'' format. We can slowly replace the existing codes until all codes can be matched with the RGB table:
+Next we need to format all Munsell color codes to ''Hue_Saturation_Intensity'' format. We can incrementally replace the existing codes until all codes can be matched with the RGB table:
 
 ```{r}
 mcol$Munsell <- sub(" ", "", sub("/", "_", mcol$MCOMNS))
@@ -1924,7 +1924,7 @@ knitr::include_graphics("figures/soil_profile_plot.png")
 
 ### PTF for Bulk Density
 
-In the following examples we look at possibilities of using [Machine Learning](wiki/soilmapping_using_mla) to predict soil properties and classes from other soil properties and classes. In the first example, we try to build a Pedo-Transfer-Function (PTF) to predict bulk density using soil properties such as organic carbon content, soil texture and coarse fragments. Bulk density is often available only for a part of soil profiles, so if we could use a PTF to fill in all gaps in bulk density, then most likely we would not need to drop BD from further analysis. For testing PTFs to predict bulk density from other soil properties we will use a subset of the ISRIC WISE soil profile data set [@Batjes2009SUM], which can be loaded from:
+In the following examples we look at possibilities of using [Machine Learning](wiki/soilmapping_using_mla) to predict soil properties and classes from other soil properties and classes. In the first example, we try to build a Pedo-Transfer-Function (PTF) to predict bulk density using soil properties such as organic carbon content, soil texture and coarse fragments. Bulk density is often available only for a part of soil profiles, so if we could use a PTF to fill in all gaps in bulk density, then most likely we would not need to omit BD from further analysis. For testing PTFs to predict bulk density from other soil properties we will use a subset of the ISRIC WISE soil profile data set [@Batjes2009SUM], which can be loaded from:
 
 ```{r}
 library(randomForestSRC)
@@ -1943,13 +1943,13 @@ rfsrc_BD <- rfsrc(bd.fm, data=SPROPS.WISE)
 rfsrc_BD
 ```
 
-which shows that model explains about 40% with an RMSE of ±200 kg/m$^3$. Although the MSE is relatively high, it least can be used to fill in the missing values for BD which can be significant. We can plot the partial plots between the target variable and all covariates by using:
+which shows that the model explains about 40% with an RMSE of ±200 kg/m$^3$. Although the MSE is relatively high, it least can be used to fill in the missing values for BD which can be significant. We can plot the partial plots between the target variable and all covariates by using:
 
 ```{r bulk-density-ptf, echo=FALSE, fig.cap="Bulk density as a function of organic carbon, pH, sand and clay content coarse fragments and depth.", out.width="100%"}
 knitr::include_graphics("figures/bulk_density_ptf_plots.png")
 ```
 
-Obviously the key to explaining bulk density is soil organic carbon, while depth and pH are 2nd and 3rd most important covariates. Using this MLA-based model we can predict bulk density for various combinations of soil properties:
+Obviously the key to explaining bulk density is soil organic carbon, while depth and pH are the 2nd and 3rd most important covariates. Using this MLA-based model we can predict bulk density for various combinations of soil properties:
 
 ```{r}
 predict(rfsrc_BD, data.frame(ORCDRC=1.2, PHIHOX=7.6, 
@@ -1979,7 +1979,7 @@ leg <- read.csv("extdata/taxousda_greatgroups.csv")
 str(leg)
 ```
 
-Our objective is to develop a function to translate WRB classed into USDA classes with a help of some soil properties. We can try to add soil pH and clay content to increase accuracy of the model:
+Our objective is to develop a function to translate WRB classes into USDA classes with help of some soil properties. We can try to add soil pH and clay content to increase the accuracy of the model:
 
 ```{r}
 x.PHIHOX <- aggregate(SPROPS.WISE$PHIHOX, 
@@ -2023,12 +2023,12 @@ x <- data.frame(predict(TAXNUSDA.rf, newdata, type="prob")$predicted)
 x[,order(1/x)[1:2]]
 ```
 
-so for example, the two most likely classes to convert Calcaric Cambisols seem to be Ochrepts and Orthids, which is not that much different from correlation classes reported in @Krasilnikov2009handbook in fact.
+so for example, the two most likely classes to equate to Calcaric Cambisols seem to be Ochrepts and Orthids, which is not that much different from correlation classes reported in @Krasilnikov2009handbook in fact.
 
 ## Summary points
 
 In this chapter, we have endeavoured to provide precise and explicit
-descriptions of the soil properties and soil classes of interest to PSM.
+descriptions of the soil properties and soil classes of interest to current PSM activities.
 For each soil property (or class) we have provided an explanation for
 why that property (or class) is of interest to users and why it has been
 selected to be mapped. In many cases, the most
