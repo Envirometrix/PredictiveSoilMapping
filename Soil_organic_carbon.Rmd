@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This chapter was prepared as supplementary material for the @sanderman2018soil article. It explains how to map Soil Organic Carbon Stocks (OCS) using soil samples (point data). It demonstrate derivation of values at both the site level (per profile) and by using raster calculus (per pixel). We also illustrate how to estimate total OCS for any area of interest (which can be a field plot, farm and/or administrative region). For an introduction to soil mapping using Machine Learning Algorithms refer to section \@ref(soilmapping-using-mla). To access ISRIC's global compilation of soil profiles please refer to: [http://www.isric.org/explore/wosis](http://www.isric.org/explore/wosis).
+This chapter was prepared as supplementary material for the @sanderman2018soil article. It explains how to map Soil Organic Carbon Stocks (OCS) using soil samples (point data). It also demonstrates derivation of values at both the site level (per profile) and by using raster calculus (per pixel). We then illustrate how to estimate total OCS for any area of interest (which can be a field plot, farm and/or administrative region). For an introduction to soil mapping using Machine Learning Algorithms refer to section \@ref(soilmapping-using-mla). To access ISRIC's global compilation of soil profiles please refer to: [http://www.isric.org/explore/wosis](http://www.isric.org/explore/wosis).
 
 ## Measurement and derivation of soil organic carbon
 
