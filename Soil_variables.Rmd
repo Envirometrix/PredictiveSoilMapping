@@ -159,20 +159,32 @@ mapping.
 
 This choice to emphasize relatively stable soil properties and
 attributes was a logical consequence of the fact that it could take years
-to produce a single soil map and decades to complete mapping for entire 
-areas of interest. Consequently, for maps to be relavant, and to remain
-relevant and useful for their anticipated period of use, they had to
+to produce a single soil map and decades to complete mapping for an entire 
+area of interest. Consequently, for maps to be relavant, and to remain
+relevant and useful for their anticipated lifetime of use, they had to
 restrict themselves to trying to describe the variation in space only (not time)
 of properties that could be considered stable and static.
 
+The idea that soil properties could be assumed to remain relatively stable
+through time was partially based on an assumption that most soils had
+achieved a relatively stable condition that was in equilibruim with their
+current environment. If a soil is in equilibruim with its enviromment, it
+can be assumed that it will retain its present attributes, since there are
+no strong drivers for change. This may well apply to undisturbed soils in
+their natural environment, but it is not valid for disturbed or managed soils.
+It is well established that human management practices can, and do, significantly
+alter some key soil properties, such as pH, organic matter and topsoil thickness.
+Most conventional soil maps recognized, and reported on, differences in
+soil properties, such as pH or organic matter, between natural soils and
+managed soils. However, it was never a common practice to name, map and
+characterize managed soils seperately from natural soils. 
+
 Local or national soil survey projects are of direct
 relevance to global soil mapping initiatives if the range of data
-collected includes the minimum data set as specified for global
-initiatives.
-
-For example, completion of an update to the SOTER database for the World
+collected encompasses the minimum data set as specified for global
+initiatives. For example, completion of an update to the SOTER database for the World
 requires an extensive range of soil property data as specified in the
-procedures manual [@VanEngelen2012]. The update of the Harmonised World
+procedures manual [@VanEngelen2012]. An update of the Harmonised World
 Soil Database [@FAO2012HWSD] requires a smaller range of attributes. The
 *GlobalSoilMap* project [@Arrouays201493] selected a list of only
 *twelve soil properties* considered relevant for global analyses and
@@ -197,10 +209,10 @@ knitr::kable(
 
 ### Reference methods
 
-A pragmatic solution to ensuring efficient exchange of global soil data
-is to set reference soil measurement and description methods. The
-*GlobalSoilMap* project agreed that the target soil properties would be
-assessed and reported relative to specific designated *reference
+A pragmatic solution to ensuring efficient exchange, sharing and interpretation of global soil data
+is to establish reference methods for soil measurement and description. The
+*GlobalSoilMap* project agreed that their target soil properties would be
+assessed and reported relative to specific, designated *reference
 methods*. For example, soil organic carbon content of the fine earth
 fraction is to be assessed and reported according to ISO10694 dry
 combustion method [@Sleutel2007CSSPA]. Values for pH are to be be
@@ -227,7 +239,7 @@ methods to assess those soil properties, through `ISO TC-190` and
 required for purposes as such as multi-partner global soil mapping.
 
 In the following sections we focus our discussion on the soil properties
-that have been mapped within the [www.soilgrids.org](www.soilgrids.org) project: 
+that have been mapped for the [www.soilgrids.org](www.soilgrids.org) project: 
 depth to bedrock, occurrence of the `R` horizon, organic carbon content of the fine earth
 fraction, pH of the fine earth fraction, particle size class contents
 (sand, silt, clay) of the fine earth fraction, gravel content of the
@@ -246,7 +258,7 @@ following will be discussed:
 -   *Definition of the reference method to assess the soil property
     value*;
 
--   *Definition of the convention to express the soil property value
+-   *Definition of the convention used to express the soil property value
     (units, precision, range)*;
 
 -   *Review of the variation in soil property definitions and in methods
@@ -254,8 +266,8 @@ following will be discussed:
     widely used conversion functions cited from literature and with
     emphasis on harmonisation or conversion to the reference method*.
 
-We also identify and review a number of other widely used measurement
-methods in addition to our selected standard methods. We describe if and
+We also identify, and review, a number of other widely used measurement
+methods, in addition to our selected standard methods. We describe if and
 how these other methods relate to the selected reference methods and
 discuss issues related to harmonization and standardization for
 attributes of current interest for global mapping.
@@ -263,7 +275,7 @@ attributes of current interest for global mapping.
 ### Standard soil variables of interest for soil mapping
 
 Some standard soil legends for listed soil properties are embedded
-within the package for and can be loaded by:
+within the GSIF package and can be loaded by:
 
 ```{r, tidy=TRUE}
 library(GSIF)
@@ -271,17 +283,17 @@ data(soil.legends)
 str(soil.legends)
 ```
 
-which shows the referent cumulative probabilities (`CPROB`) and
+which illustrates the referent cumulative probabilities (`CPROB`) and
 appropriate color legend (`COLOR`; coded as a six-digit, three-byte
 hexadecimal number) for the values of the target soil variables. The cumulative
 probabilities were derived using the collection of records in the World
-Soil Profiles repository and can be considered a global prior
+Soil Profiles repository and can be considered as an estimate of global prior
 probabilities for soil pH (see further for example
 Fig. ).
 
-A general intention of ISRIC is to maintain a *Global Soil Data
+A general intention is to maintain a *Global Soil Data
 Registry* so that a short variable name (in further text *“GSIF code”*)
-can be linked to unique set of metadata which should include:
+can be linked to a unique set of metadata which should include:
 
 -   Full description;
 
@@ -312,7 +324,7 @@ $\mathtt{C}$,$\ldots$ $\mathtt{Z}$. Another option is to simply use
 the US Goverment National Cooperative Soil Characterization Database column names (http://ncsslabdatamart.sc.egov.usda.gov/).
 
 Also note that the metadata can be easily separated from the code so
-that the short GSIF code (variable name) could be used as a replacement
+that the short GSIF code (variable name) could be used as a shorthand (replacement)
 for the long description of the complete metadata. Using short GSIF
 codes is also important for programming because unique code names are
 used consistently in all scripts / functions.
@@ -339,7 +351,7 @@ standard (via the `altitudeMode` tag) allow one to specify if the
 vertical dimension refers to actual altitude (vertical distance from the
 land surface) or to distance from the sea level (`absolute`). In this
 case soil depths can be represented using `clampToGround` and negative
-values. For example, depth of can be expressed as [@OGCKML2008]:
+values. For example, depth of 30 cm can be expressed as [@OGCKML2008]:
 
 ```{bash, eval=FALSE}
 <Placemark> <Point>
@@ -363,12 +375,12 @@ knitr::include_graphics("figures/Fig_depth_2_bedrock.png")
 The *depth to bedrock* i.e. depth to the `R` horizon is measured from
 the soil surface downwards and is expressed in cm with a precision of ±1 cm.
 Depth to bedrock deeper than e.g. 2–3 m is most often not recorded. Bedrock
-is consolidated hard rock, with only few cracks, underlying the soil. It
+is consolidated hard rock, with only a few cracks, underlying the soil. It
 is not necessarily parent material. We imagine it often as something
 distinct and easy to recognize in the field. In practice, depth to
 bedrock can be difficult to determine, and is often confused with
 stoniness or depth to parent material (which can be unconsolidated
-material). Another issue is that, for most of the soils in the world
+material). Another issue is that, for most of the soils in the world,
 hard bedrock is >2 m deep so that we actually don’t know the correct
 depth to enter, other than >2 m. Rootability is physically restricted by
 the bedrock, whether hard or soft (see Fig. \@ref(fig:scheme-depth-to-bedrock)).
@@ -376,11 +388,11 @@ the bedrock, whether hard or soft (see Fig. \@ref(fig:scheme-depth-to-bedrock)).
 ```{block, type="rmdnote"}
 Depth to bedrock is the mean distance to `R` horizon which is the layer
 impenetrable by roots or agricultural machinery. Depth to bedrock deeper
-than 2 m is most often not recorded.
+than 2 m is most often not recorded in field survey descriptions.
 ```
 
 In traditional soil characterisation, the total depth of the `O`,
-`A`,`E`, and `B` horizons is referred to as *solum*
+`A`,`E`, and `B` horizons is referred to as the *solum*
 [@harpstead2001soil], while the underlaying layer is referred to as
 parent material or substratum [@SSDS1993]. Parent material can be coarse
 or fine unconsolidated deposits of e.g. alluvial, colluvial or windblown
