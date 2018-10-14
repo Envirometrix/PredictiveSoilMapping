@@ -85,7 +85,7 @@ knitr::kable(
 )
 ```
 
-Note that BLD variable was not available for the described horizons (the original soil profile description / laboratory data indicates that no BLD has been observed for this profile). In the absence of measured field BLD we substitute BLD estimated using SoilGrids250m data. It (unfortunately) commonly happens that soil profile observations lack BLD measurements, and consequently BLD needs to be generated using a Pedo-Transfer function or estimated from soil maps.
+Note that BLD data were not given for the described horizons (the original soil profile description / laboratory data indicates that no BLD were recorded for this profile). In the absence of measured field BLD we can substitute BLD estimated using SoilGrids250m data. It (unfortunately) commonly happens that soil profile observations lack BLD measurements, and consequently BLD needs to be generated using a Pedo-Transfer function or estimated from soil maps.
 
 To determine OCS for standard depth intervals 0–30, 0–100 and 0–200 cm, we first fit a mass-preserving spline [@Malone2009Geoderma]:
 
