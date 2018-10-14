@@ -160,7 +160,7 @@ mapping.
 This choice to emphasize relatively stable soil properties and
 attributes was a logical consequence of the fact that it could take years
 to produce a single soil map and decades to complete mapping for an entire 
-area of interest. Consequently, for maps to be relavant, and to remain
+area of interest. Consequently, for maps to be relevant, and to remain
 relevant and useful for their anticipated lifetime of use, they had to
 restrict themselves to trying to describe the variation in space only (not time)
 of properties that could be considered stable and static.
@@ -431,7 +431,7 @@ hydrological characteristics [@SSDS1993 p.60]. Restriction means the
 inability to support more than a very few fine or few very fine roots if
 depth from the soil surface and water state, other than the occurrence
 of frozen water, are not limiting. For some crops like cotton plants or
-soybeans and possibly other crops with less abundant roots than the
+soybeans, and possibly other crops with less abundant roots than the
 grasses, the very few class is used instead of the few class. The
 restriction may be below where plant roots normally occur because of
 limitations in water state, temperatures, or depth from the surface.
@@ -439,7 +439,7 @@ This evaluation can be based on the specific plants that are important
 to the use of the soil, as indicated in Tbl. \@ref(tab:rootingdepths); see
 also @SSDS1993 [p.60].
 
-Root restriction can be also inferred by certain pedogenic horizons,
+Root restriction can be also influenced by certain pedogenic horizons,
 such as *fragipans*. A change in particle size distribution alone, as
 for example loamy sand over gravel, is not always a basis for physical
 root restriction. A common indication of physical root restriction is a
@@ -457,14 +457,14 @@ Root-depth observations preferably should be used to make the
 generalization. If these are not available then inferences may be made
 from morphology.
 
-As a general recommendation it is advisable to focus first on mapping soil properties that
+As a general recommendation, it is advisable to focus first on mapping soil properties that
 limit rooting, including content of coarse fragments and the depth to
 bedrock, and then define effective soil depth *a posteriori* using
 distinct analytical rules. A similar approach has also been promoted by
 @rijsberman1985effect and @driessen1992land who refer to it as the
 *Soil-productivity Index* — a product of soil-water sufficiency, soil pH
 sufficiency and soil bulk density sufficiency. Here we consider somewhat
-wider range of soil properties that affect rooting depth, such as:
+wider range of soil properties that can affect rooting depth, such as:
 
 -   coarse fragments,
 
@@ -490,7 +490,7 @@ rooting index per layer.
 knitr::include_graphics("figures/Fig_LRI_scheme.png")
 ```
 
-By using the package, one can determine Limiting Rooting Index, which
+By using the GSIF package, one can determine Limiting Rooting Index, which
 can be a good indicator of the effective rooting depth. Consider the
 following soil profile from Nigeria [@Leenaars2012]:
 
@@ -528,9 +528,9 @@ bases in cmol/kg, `PHIHOX` is the soil pH in water suspension, `CRB` is the
 CaCO$_3$ (carbonates) in g/kg, `GYP` is the CaSO$_4$ (gypsum) in and `tetaS`
 is the volumetric percentage of water.
 
-For this specific profile, most limiting soil properties is `tetaS`, but
+For this specific profile, the most limiting soil property is `tetaS`, but
 because none of the soil properties got <20 points, we can conclude
-that the maximum rooting depth is . Note that the threshold values in
+that the maximum rooting depth is (MISSING VALUE HERE!). Note that the threshold values in
 the `LRI` function used to derive Limiting Rootability scores are set
 based on common soil agricultural productivity tresholds (e.g. for
 maize; see also Fig. \@ref(fig:lri-scheme)), and can be adjusted via the
@@ -570,7 +570,7 @@ mitigating the adverse effects of increases in green house gasses in the
 atmosphere [@Smith2004SUM; @Conant2010; @Scharlemann2014CM].
 Consequently, soil organic carbon is probably the soil property of
 greatest current interest and utility from the point of view of global
-mapping of soil properties.
+mapping, and interpretation, of soil properties.
 
 ```{block, type="rmdnote"}
 Soil Organic Carbon is one the key measures of soil health.
@@ -588,7 +588,7 @@ high temperature. Dry combustion is considered to ensure oxidation of
 all ORC and is considered an accurate method which has been used in many
 studies as a reference method against which to calibrate other methods
 [@Grewal1991JSS; @Meersmans2009SUM; @Bisutti2004TAC]. A global estimate
-of distribution of soil organic carbon is shown in
+of the distribution of soil organic carbon is shown in
 Fig. \@ref(fig:sprofs-soil-carbon).
 
 ```{r sprofs-soil-carbon, echo=FALSE, fig.cap="Histogram and soil-depth density distribution for a global compilation of measurements of soil organic carbon content in permilles. Based on the records from WOSIS [@Batjes2017ESSD]. The log-transformation is used to ensure close-to-normal distribution in the histogram.", out.width="100%"}
@@ -603,12 +603,12 @@ content is by dry combustion method (Leco at 1000&deg;C).
 ```
 
 In the dry combustion method, all carbon present in the soil is oxidized
-to carbon dioxide (CO$_2$) by heating the soil to at least in a flow of
+to carbon dioxide (CO$_2$) by heating the soil to at least (WHAT TEMP HERE? 1000 c?) in a flow of
 oxygen-containing gas that is free from carbon dioxide. The amount of
 carbon dioxide released is then measured by titrimetry, gravimetry,
 conductometry, gas chromatography or using an infrared detection method,
 depending on the apparatus used. When the soil is heated to a
-temperature of at least , in addition to organic carbon any inorganic
+temperature of at least (WHAT TEMP HERE? 1000 c?), in addition to organic carbon any inorganic
 carbon present as carbonate is also completely decomposed. Total organic
 carbon can be determined directly or indirectly. Direct determination
 consists of previous removal of any carbonates present by treating the
@@ -642,7 +642,7 @@ soil). Low pH is associated with acidic conditions and with increased
 mobility of toxic ions such as aluminum iron and even acid sulphates.
 High pH is associated with reduced availability of phosphorus and at
 higher levels with alkaline conditions that impede water uptake by
-plants. A global estimate of distribution of the soil pH is shown in
+plants. A global estimate of the distribution of the soil pH is shown in
 Figs. \@ref(fig:sprops-phiho5) and \@ref(fig:sprops-phikcl).
 
 PH index approximates concentration of dissolved hydrogen ions
@@ -671,7 +671,7 @@ CaCl$_2$).
 The most common method for analyzing pH in North America is a 1:1
 soil/water suspension [@Miller2010SSSAJ]. Adopting ISO 10390:2005 as a
 standard with its specification of pH measured in a 1:5 suspension of
-soil in water will require US values to be converted from 1:1 soil/water
+soil in water requires US values to be converted from 1:1 soil/water
 to 1:5 soil/water equivalent values.
 
 ```{r color-legend-phi, echo=FALSE, fig.cap="Histogram for soil pH and connected color legend available via the GSIF package. Color breaks in the legend have been selected using histogram equalization (i.e. by using constant quantiles) to ensure maximum contrast in the output maps.", out.width="85%"}
@@ -716,7 +716,7 @@ a variety of different analytical methods. Consequently, it is not
 necessary or beneficial to report pH with a precision greater than
 ±0.1 unit. Natural variation of pH in soils is over a range of 2 to
 11 with a standard deviation of 1.4. Note also that pH follows
-close-to-normal distribution, although it is often argued that, locally,
+a close-to-normal distribution, although it is often argued that, locally,
 it can show bimodal or even trimodal peaks
 (Fig. \@ref(fig:color-legend-phi)).
 
