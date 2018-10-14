@@ -2,16 +2,16 @@
 
 *Edited by: Hengl T., MacMillan R.A. and Leenaars J.G.B.*
 
-This chapter identifies and provides comprehensive definitions and
-descriptions for all of the soil properties (and classes) that are
-standardly predicted using PSM. We first discuss complexity of measuring and exchanging soil attributes, then focus on the key soil properties and classes of interest for global soil
-mapping. The purpose of this chapter is to serve as a reference to other
-chapters where the focus is put on generating soil maps, interpreting
+This chapter identifies, and provides comprehensive definitions and
+descriptions for, a standardized set of soil properties (and classes) that are
+commonly predicted using PSM. We first discuss the complexity of measuring and exchanging soil attributes, then focus on the key soil properties and classes of interest for global soil
+mapping. The purpose of this chapter is to serve as a reference, and background, for other
+chapters where the focus is on generating soil maps, interpreting
 accuracy results and similar.
 
-The R tutorial on the end of the chaper reviews soil data classes and 
-functions for R: how to organize and reformat soil data in R for spatial analysis, 
-how to import soil data to R, how to export data and plot it in Google Earth. 
+The R tutorial at the end of the chaper reviews soil data classes and 
+functions for R. It illustrates how to organize and reformat soil data in R for spatial analysis, 
+how to import soil data to R and how to export data and plot it in Google Earth. 
 To learn more about the Global Soil Information Facilities (GSIF) package, 
 visit the main [documentation page](http://gsif.r-forge.r-project.org/00Index.html).
 
@@ -36,12 +36,12 @@ Fig. \@ref(fig:soil-vars)):
 2.  *Indirect soil measurements obtained using mechanical devices,
     analytical instruments and procedures* — measurement of soil
     properties that can be used to infer information about a different
-    target soil properties. These can be based on soil spectroscopy and
+    target soil property. These can be based on soil spectroscopy and
     similar close-range or remote sensing systems
     [@ShepherdWalsh2007JNIS; @ViscarraRossel2010DSS].
 
 3.  *Direct observations of soil properties and interpretations* —
-    subjectively assessed values based on soil description manuals i.e.
+    subjectively assessed values based on protocols for soil description as presented in manuals i.e.
     abundance of mottles, soil drainage class, soil colour.
 
 4.  *Indirect or derived interpretations* — subjectively assessed values
@@ -49,7 +49,7 @@ Fig. \@ref(fig:soil-vars)):
     interpretation of observations e.g. soil classification, soil
     fertility class.
 
-```{r soil-vars, echo=FALSE, fig.cap="Types of soil observations in relation to data usage and production costs. Descriptive soil observations (e.g. manual texture or diagnostic soil horizons) are often not of much use by the end users who are often only interested in the secondary soil properties (e.g. water holding capacity, erosion index, soil fertility) as inputs to their modeling, but they are at an order of magnitude more affordable to obtain than laboratory analysis.", out.width="65%"}
+```{r soil-vars, echo=FALSE, fig.cap="Types of soil observations in relation to data usage and production costs. Descriptive soil observations (e.g. manual texture or diagnostic soil horizons) are often not directly useable by end users, who are often more interested in specific secondary soil properties (e.g. water holding capacity, erosion index, soil fertility) as inputs to their modeling. However, descriptive field observations are often some orders of magnitude more affordable to obtain than laboratory analysis.", out.width="65%"}
 knitr::include_graphics("figures/Fig_types_observations.png")
 ```
 
@@ -57,58 +57,58 @@ knitr::include_graphics("figures/Fig_types_observations.png")
 Soil can be assessed quantitatively based on direct or indirect
 measurements using analytical techniques (in a laboratory or in the
 field) and qualitatively or descriptively based on observations in the
-field and following some soil description guidelines. Examples of
+field that adhere to some soil description guidelines. Examples of
 subjective observations are: diagnostic soil materials and horizons,
 soil classes, Munsell color classes, manual texture assessment
 (texture-by-hand), structure, compaction, root abundance and similar.
 ```
 
-Field campaigns are the most costly part of soil surveys. Large numbers
+Field campaigns are usuallly the most costly part of soil surveys. Large numbers
 of soil observations are made in the field to assess the spatial
 distribution of readily observable soil properties to provide empirical
 evidence for soil mapping. Because a soil analytical measurement in the
-laboratory is much more costly than a soil observation in the field,
-only a small number of soil samples is taken from the large number of
-soil observations and brought to the laboratory for subsequent analysis.
-Ideally, each soil observation would be accompanied by soil analytical
-measurements to produce accurate and comprehensive soil information.
+laboratory is generally much more costly than a soil observation in the field,
+only a smaller subset of soil samples is taken from the larger number of
+field soil observations and brought to the laboratory for subsequent analysis.
+Ideally, every soil observation would be accompanied by corresponding soil analytical
+measurements to produce the most accurate and comprehensive soil information possible.
 
-It is important to emphasize that soil properties and methods to assess
-the soil properties are two distinctly different concepts. The two can
+It is important to emphasize that soil properties, and the methods used to assess
+soil properties, are two distinctly different concepts. The two can
 be defined together (functional definition) or can be defined
 separately, as given by numerous national and international manuals and
 guidelines for analytical procedures and soil description: e.g. in
 @Burt2004SSIR [@carter2007soil; @food2006guidelines], and/or
 @VanReeuwijk2002. Also in this chapter we make a distinction between the
-*‘target variable’* (i.e. target soil properties) and *‘paths’* i.e.
-determination methods.
+*‘target variable’* (i.e. target soil properties) and *‘paths’* (i.e.
+determination methods).
 
 Soil analytical data obtained in a laboratory are typically an order of
-magnitude more expensive than descriptive field observations
+magnitude more expensive to produce than descriptive field observations
 [@Burrough1971; @GehlRice2005; @Kempen2011PhDthesis]. To reduce these
 high costs, surveyors collect descriptive soil observations (Fig. \@ref(fig:soil-vars)), 
 which can subsequently be interpreted and linked to soil types and soil classes,
-which are assumed to be characterised by a limited and definable range
+which are then assumed to be characterised by a limited and definable range
 of soil properties [@bouma1998exploring]. It is also possible to convert
 observed values for certain soil properties to values comparable to
 those measured by analytical methods (albeit with unknown precision) by
 using various calibration models or *conversion functions*. For example,
-*manual texturing* analysis [@FAO1990; @SSDS1993] permits determination
-of soil texture fractions with a precision of ±5 m with an order of
-magnitude lower cost to obtain than laboratory analysis.
+*manual texturing* analysis [@FAO1990; @SSDS1993] can be used as a basis for estimating
+soil texture fractions with a precision of ±5 % at fraction of
+the cost of laboratory analysis.
 
 Soils are usually sampled per depth interval or layer, generally using a
 genetic A-B-C-R system i.e. corresponding to a *soil horizon* — a
 relatively homogeneous layer of soil (with upper and lower depth) that
 is *“distinctly different from other layers and informative for the
-soil’s nature”* [@harpstead2001soil]. The actual soil samples are either
-taken from the centre of the soil horizon or are mixed samples of the
+soil’s nature”* [@harpstead2001soil]. Actual soil samples are either
+taken from the centre of a soil horizon or are mixed samples of the
 material from the whole horizon (Fig. \@ref(fig:soi-var-depth)). Decades
-of soil survey have shown that soil horizons can be fuzzy objects, and
-they may be difficult to distinguish and delineate consistently by
-different surveyors [@Burrough1989JSS; @DeGruijter1997Geoderma]. Soil
+of soil survey have shown that soil horizons can be fuzzy objects.
+They may be difficult for different surveyors to distinguish and delineate consistently
+[@Burrough1989JSS; @DeGruijter1997Geoderma]. Soil
 correlation exercises try (not always successfully) to help different
-surveyors recognize similar soil horizons and assign similar codes with
+surveyors consistently recognize similar soil horizons and assign similar codes with
 comparable upper and lower boundaries so as to produce similar
 descriptions and classifications for any observed soil.
 
@@ -116,20 +116,20 @@ descriptions and classifications for any observed soil.
 knitr::include_graphics("figures/Fig_soi_var_depth.png")
 ```
 
-An emerging approach to soil sampling is to scan the complete soil
+An emerging approach to soil characterization is to scan the complete soil
 profile in different parts of the spectra, and then decide on vertical
 stratification *a posteriori* [@ViscarraRossel2010DSS]. Nevertheless,
 much of the analytical data available in existing legacy soil profile
 databases is sampled per soil layer and described by soil horizon.
 
-Soil observations are taken at a geographic position and a certain
-depth, which is either 3D or refers to the whole solum. The 3D
+Soil observations are taken at a geographic position and at a specific
+depth (or depth interval), which is either 3D or refers to the whole solum. The 3D
 (longitude, latitude, depth) position implies that the property varies
 not only in geographic space, but also with depth. Soil properties that
-describe an entire site are by implication 2D as are soil properties
+describe an entire site are by implication 2D, as are soil properties
 that summarise or refer to the soil profile as a whole (2D). For
-example, soil type does not change with depth; also rock outcrops, depth
-to bedrock, depth to ground water table.
+example, soil type does not change with depth. Also rock outcrops, depth
+to bedrock and depth to ground water table are single attributes that apply to an entire profile.
 
 ### Soil properties of interest for global soil mapping
 
@@ -137,13 +137,35 @@ There are many soil properties, possibly hundreds, used in the
 international domain of soil science including pedology, soil survey,
 soil fertility, soil hydrology, soil biology, etc. Not all of these can
 be mapped globally, nor are all of explicit interest for global
-applications or use. Soil data have been, and are, collected and
+applications or use. 
+
+Soil data have been, and are, collected and
 compiled into maps at various scales for various purposes and soil
 inventory projects typically begin by first carefully identifying the
 specific list of soil properties that are of interest for the
 anticipated uses of the planned survey. Different soil data are required
 for different purposes, such as applying different models with different
-data requirements. Local or national soil survey projects are of direct
+data requirements. 
+
+In the past, soil surveys typically elected to focus on observing
+and measuring soil attributes and properties that were considered
+to be relatively stable, or static, in time. For example the particle 
+size distribution of a soil, or its depth to bedrock, were considered 
+to be relatively stable and not subject to large changes over relatively
+short time periods (e.g. decades). Even attributes that were known to 
+change with management and time, such as topsoil thickness, organic carbon
+or pH, were treated as relatively stable properties for the purposes of 
+mapping. 
+
+This choice to emphasize relatively stable soil properties and
+attributes was a logical consequence of the fact that it could take years
+to produce a single soil map and decades to complete mapping for entire 
+areas of interest. Consequently, for maps to be relavant, and to remain
+relevant and useful for their anticipated period of use, they had to
+restrict themselves to trying to describe the variation in space only (not time)
+of properties that could be considered stable and static.
+
+Local or national soil survey projects are of direct
 relevance to global soil mapping initiatives if the range of data
 collected includes the minimum data set as specified for global
 initiatives.
