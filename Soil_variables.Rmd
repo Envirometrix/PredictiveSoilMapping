@@ -724,14 +724,14 @@ it can show bimodal or even trimodal peaks
 
 Nutrients are chemical elements or substances essential for the growth
 of plants. The most essential elements important for the growth of
-plants are in fact carbon, hydrogen and oxygen. Other essential elements
+plants are, in fact, carbon, hydrogen and oxygen. Other essential elements
 can be separated into macro-nutrients (>100 $\mu$g or >100 ppm) and micro-nutrients
 (<100 ppm), although there is no strict border between the two
 [@harpstead2001soil; @hengl2017soil]. Some macro-nutrients of global importance for soil
 management and protection are (http://en.wikipedia.org/wiki/Plant_nutrition):
 
 -   *Nitrogen* (N) — It is often considered synonymous with
-    soil fertility. Controls the leafy growth. Occurs in soil as
+    soil fertility. Controls leafy growth. Occurs in soil as
     nitrates (e.g. NO$_3$, NO$_2$).
 
 -   *Phosphorus* (P) — High phosphorus deficiency may result in the
@@ -773,9 +773,9 @@ Lead (Pb), Arsenic (As), Zinc (Zn), Cadmium (Cd), Nickel (Ni), Copper
 [@Markus2001399; @reimann2011statistical; @Morel2005202; @Rodriguez-Lado23082013;  @hengl2017soil].
 
 Macro- and micro-nutrients and heavy metals are measured and mapped in
-parts per million or $\mu$g per kg of soil. Within the AfSIS project,
-macro- and micro-nutrients have been mapped over large areas [@hengl2017soil]. The
-problem of mapping such chemical soil properties, however, is that they
+parts per million or $\mu$g per kg of soil. The AfSIS project, provides a good
+example of mapping macro- and micro-nutrients over a large area [@hengl2017soil]. The
+problem with mapping such chemical soil properties, however, is that they
 are highly dynamic. For example, nitrogen, phosphorus, and potassium are
 highly mobile nutrients. Their concentration changes from month to
 month, even from day to day so that space-time models (2D-T or 3D-T)
@@ -804,14 +804,14 @@ common subdivision of soil granulometry is [@Shirazi2001SSSAJ]:
 
     2.  stones or boulders (>8 cm)
 
-Coarse fragments occupy volume in the soil matrix reducing water and
+Coarse fragments occupy volume in the soil matrix, reducing water and
 nutrient availability as well as influencing rooting depth and
 workability. We elect to produce maps of coarse fragment content because many assessments, such as total stocks of carbon or
 available water, are volumetric based and require knowledge of the
-volume of non-soil materials throughout the profile to support
+volume of non-soil materials throughout the profile. This information is required to support
 calculations of the total volume of the fine earth fraction that is
 available to hold water or retain organic carbon. Without some estimate
-of the volume of the soil occupied by solid particles larger than , it
+of the volume of the soil occupied by solid particles larger than (******2 mm ****), it
 would not be possible to compute volumetric estimates of stocks of soil
 carbon or available moisture for fine earth soil.
 
@@ -825,7 +825,7 @@ consideration of the coarse fragment content. Data for coarse fragment
 content are generally derived from descriptive field observations on
 soil layer morphology. Those descriptions generally express the content
 of coarse fragments by class values or categories as for example
-*‘frequent stones’* indicating a volumetric content of 15–40% according to
+*‘frequent stones’* indicating an estimated volumetric content of 15–40% according to
 the FAO guidelines of 1977 (similar to *‘many stones’* according to
 SOTER conventions and the FAO guidelines of 2006). Because coarse
 fragment content is most frequently based on generalized visual field
@@ -837,21 +837,21 @@ Note that the uncertainty associated with coarse fragment content,
 propagated from the field observed class values, has significant impact
 on estimations of the volumetric totals of attributes assessed and
 mapped for the fine earth fraction (see also
-section \@ref(SOC-chapter)). Whilst of 1 meter deep
+section \@ref(SOC-chapter)). Whilst a 1 meter deep
 soil, with a bulk density of 1.5 tonne per cubic-metre and an organic 
 carbon content of 10 g per kg, contains 150 tonnes organic carbon. 
 A similar soil with bulk density adjusted for the
 presence of *‘frequent stones’* contains 90–127.5 tonnes organic carbon. Despite the
-inaccuracy of the data for field observed coarse fragments content it is
+inaccuracy of the data for field observed coarse fragments content, it is
 strongly recommended to collect and compile these data as completely as
 possible because of their relevance for estimating whole soil bulk
 density, total volume and volume of the fine earth fraction alone.
 
 The possible nature (and size) of coarse fragments is highly variable
-(quartz, carbonate, iron, basalt) with thus variable manageability and
-variable characteristics as breakability, solubility, bulk density, etc.
+(quartz, carbonate, iron, basalt) with consequent variable manageability and
+variable characteristics such as breakability, solubility, bulk density, etc.
 Where the coarse fragment content is dominant (>80%), approaching 100%,
-rootability is near nil which is determinant for the rooting or
+rootability is near nil which is a determinant for the rooting or
 effective soil depth and generally also for depth to bedrock. An
 estimated global distribution of coarse fragments and soil textures is
 given in Fig. \@ref(fig:sprofs-crfvol).
@@ -862,7 +862,7 @@ knitr::include_graphics("figures/Fig_sprofs_CRFVOL.png")
 
 ### Particle size class distribution: sand, silt and clay
 
-Majority global soil mapping initiatives elect to predict the
+The majority of global soil mapping initiatives elect to predict the
 spatial distribution of particle size classes (soil texture) because
 texture controls or influences many mechanical, hydrological and
 engineering aspects of use of the soil. Soil texture affects how a soil
@@ -873,10 +873,10 @@ substances adhere to surfaces and are retained or transformed and how
 energy and matter enter into the soil and are stored or transmitted
 through it. Texture is the fundamental physical and mechanical property
 of soils and, as such, it is one of the most widely analysed and
-reported soil properties.
+widely reported soil properties.
 
-The size of particles in the soil varies strongly from less than a 2 $\mu$m to
-several cm’s and occasionally even meters (boulders); which represents a
+The size of particles in the soil varies greatly from less than a 2 $\mu$m to
+several cm’s and occasionally even meters (boulders). This represents a
 range from to 1 $\mu$m to 1 million $\mu$m. Generally, particle size distribution has been
 simplified through aggregation or classification. The fine earth
 fraction (<2 mm) is the soil considered for laboratory analyses. This fine
@@ -976,7 +976,7 @@ converting between silt fraction based on the international standard of
 \end{equation}
 
 where $P_{\mathtt{20-2000}}$ is the international sand fraction. This
-conversion is fairly accurate since the model explains over variability
+conversion is fairly accurate since the model explains most of the observed variability
 in the original values ($R^2$=0.823). Together with the conversion of
 the silt fraction is the conversion of the sand fraction.
 
@@ -993,7 +993,7 @@ interpolation, and similarity method) in order to achieve compatibility
 of particle-size distributions within the *European soil hydraulic
 database HYPRES* (http://www.macaulay.ac.uk/hypres/). They introduced a new similarity procedure, which
 uses an external reference data set that contains a wide variety of
-reference soil materials each with 7 or 8 measured particle-size
+reference soil materials, each with 7 or 8 measured particle-size
 fractions. The procedure involves searching for soil samples in the
 external reference data set that match the particle-size distribution of
 the soil to be interpolated. From each search. 10 similar soils are
@@ -1005,10 +1005,10 @@ as the estimate of the fraction for the soil under investigation.
 The HYPRES reference database and the similarity procedures applied to
 it are appropriate for harmonizing a wide range of soils from a variety
 of countries and could be used as one of the main methods in a global
-Soil Reference Library. The generic nature of this conversion approach
+Soil Reference Library. The generic nature of this conversion approach,
 and the fact that it does not rely on multiple, locally developed,
-regression equations makes it an attractive option for use in a global
-project.
+regression equations, makes it an attractive option for use in harmonization of global
+particle size data.
 
 ### Bulk density
 
@@ -1029,7 +1029,7 @@ density of the fine earth fraction* (particles <2 mm) only. Calculations
 such as those for total stocks of carbon are first applied using the
 bulk density of the fine earth fraction only but this value is then
 reduced in accordance with the volume proportion of the soil that is
-occupied by coarse fragments greater than in size. Bulk density is also
+occupied by coarse fragments greater than 2 mm in size. Bulk density is also
 of interest for global soil mapping applications because it influences
 infiltration and movement of water in the soil, penetration of the soil
 by plant roots and mechanical workability of the soil using farm
@@ -1063,7 +1063,7 @@ to be able to calculate the oven-dry bulk density of the fine earth
 separately.
 
 The USDA handbook for analytical procedures describes various methods
-for assessing, by definition, various types of bulk density. USDA soil
+for assessing various types of bulk density. USDA soil
 data report values for bulk density of the fine earth as well as of the
 whole earth (including gravel), with the weight assessed oven-dry as
 well as at field capacity e.g. including water. The latter method
