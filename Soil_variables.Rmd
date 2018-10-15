@@ -4,7 +4,7 @@
 
 This chapter identifies, and provides comprehensive definitions and
 descriptions for, a standardized set of soil properties (and classes) that are
-commonly predicted using PSM. We first discuss the complexity of measuring and exchanging soil attributes, then focus on the key soil properties and classes of interest for global soil
+commonly predicted using PSM. We first discuss the complexity of measuring and standardizing (or harmonizing) soil attributes, then focus on the key soil properties and classes of interest for global soil
 mapping. The purpose of this chapter is to serve as a reference, and background, for other
 chapters where the focus is on generating soil maps, interpreting
 accuracy results and similar.
@@ -2045,6 +2045,21 @@ opportunities related to harmonization of soil property values contained
 in legacy soil profile databases that have been analysed using different
 methods of analysis.
 
+It should be noted that, in this chapter, we have emphasized the use of 
+existing, or legacy, soil profile data to provide the evidence used to
+construct predicton models for PSM. This emphasis reflecte the reality 
+that, for most of the world, legacy soil profile data is all that we 
+have to work with at the present time and all that we can reasonably 
+expect to obtain for the foreseeable future. Many of the issues and 
+challenges related to use and harmonization of legacy soil profile data
+discussed in this chapter will hopefully be of less importance as newer,
+contemporary data are collected in the field and analysed in the laboratory
+using more robust, statistically valid and reproduceable methods. Newer
+data should be collected using more robust sampling designs and analysed
+using more accurate and repeatable laboratory methods (e.g. spectroscopy).
+In the meantime, standardization and harmonization of legacy soil profile
+data will continue to present a challenge for global to regional PSM.
+
 One attractive option for harmonizing soil analytical data following the
 SINFER concept would be to create and maintain a Global Soil Reference
 Library (GSRL). This concept is further discussed in the final chapter.
@@ -2091,4 +2106,10 @@ mapping are fully harmonized and roughly equivalent for all input data
 sets. In the shorter term, it is likely that the accuracy of global
 predictions will be reduced because of weak, inconsistent or completely
 absent efforts to harmonize soil property values produced using
-different analytical methods.
+different analytical methods. In the longer term, we hope, and expect,
+that data collected in the future, as we move forward, will benefit from
+adoption of methods of data collection and analysis that are more 
+systematic, more reproduceable, more accurate and more interchangeable. 
+These improvements should reduce the need for harmonization and 
+standardization and should make use of soil observation and measurement
+data easier and more consistent. 
