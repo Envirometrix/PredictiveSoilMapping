@@ -3,7 +3,7 @@
 
 *Edited by: T. Hengl*
 
-This section contains instruction on how to install and use software to run predictive soil mapping and export results to GIS or web applications. It has been written (as most of the book) for Linux users, but should not be too much of a problem to adopt to Microsoft Windows OS and/or Mac OS. 
+This section contains instructions on how to install and use software to run predictive soil mapping and export results to GIS or web applications. It has been written (as has most of the book) for Linux users, but should not be too much of a problem to adoat to Microsoft Windows OS and/or Mac OS. 
 
 ## List of software in use
 
@@ -32,11 +32,11 @@ Software (required):
 
 *  [GDAL v2.x](https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries) for Windows machines use e.g. ["gdal-*-1800-x64-core.msi"](http://download.gisinternals.com/sdk/downloads/release-1800-x64-gdal-2-1-3-mapserver-7-0-4/gdal-201-1800-x64-core.msi);
 
-R script used in this tutorial you can download from the **[github](https://github.com/envirometrix/PredictiveSoilMapping)**. As a gentle introduction to R programming language and soil classes in R we recommend the chapter on importing and using soil data. Some more example of SAGA GIS + R usage you can find in the soil covariates chapter. To visualize spatial predictions in a web-browser or Google Earth you could also consider following the soil web-maps tutorial. As a gentle introduction to R programming language and spatial classes in R we recommend following [the Geocomputation with R book](https://geocompr.robinlovelace.net/). Obtaining also the [R reference card](https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf) is highly recommended.
+R script used in this tutorial can be downloaded from the **[github](https://github.com/envirometrix/PredictiveSoilMapping)**. As a gentle introduction to the R programming language and to soil classes in R we recommend the chapter on importing and using soil data. Some more examples of SAGA GIS + R usage can be found in the soil covariates chapter. To visualize spatial predictions in a web-browser or Google Earth you could also consider following the soil web-maps tutorial. As a gentle introduction to the R programming language and spatial classes in R we recommend following [the Geocomputation with R book](https://geocompr.robinlovelace.net/). Obtaining also the [R reference card](https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf) is highly recommended.
 
 ## Installing software on Ubuntu OS
 
-On Ubuntu (often the recommended standard for GIS community) main software can be installed within 10--20 minutes. We start with installing GDAL, proj4 and some packages that you might need later on:
+On Ubuntu (often the recommended standard for the GIS community) the main required software can be installed within 10--20 minutes. We start with installing GDAL, proj4 and some packages that you might need later on:
 
 
 ```bash
@@ -54,7 +54,7 @@ cd microsoft-r-open/
 sudo ./install.sh
 ```
 
-Note that the R versions are constantly being updated so you will need to replace the URL based on the information provided on the home page (http://mran.microsoft.com). Once you run ```install.sh``` you will have to accept the license terms two times before the installation can be completed. If everything went successful, you can get the session info by:
+Note that R versions are constantly being updated so you will need to replace the URL above based on information provided on the home page (http://mran.microsoft.com). Once you run ```install.sh``` you will have to accept the license terms two times before the installation can be completed. If everything completes successfully, you can get the session info by:
 
 
 ```r
@@ -111,7 +111,7 @@ sessionInfo()
 system("gdalinfo --version")
 ```
 
-This shows for example that the this installation of R is based on the Ubuntu 16.* LTS and the version of GDAL is up to date. Using an optimized distribution of R (read more about ["The Benefits of Multithreaded Performance with Microsoft R Open"](https://mran.microsoft.com/documents/rro/multithread)) is especially important if you plan to use R for production purposes i.e. to optimize computing and generation of soil maps for large amount of pixels.
+This shows, for example, that the this installation of R is based on the Ubuntu 16.* LTS and the version of GDAL is up to date. Using an optimized distribution of R (read more about ["The Benefits of Multithreaded Performance with Microsoft R Open"](https://mran.microsoft.com/documents/rro/multithread)) is especially important if you plan to use R for production purposes i.e. to optimize computing and generation of soil maps for large numbers of pixels.
 
 To install RStudio we can run:
 
@@ -125,7 +125,7 @@ sudo rm rstudio-1.1.447-amd64.deb
 
 Again, RStudio is constantly updated so you might have to adjust the rstudio version and distribution.
 
-Predictive soil mapping is about making maps, and maps require a GIS software so that one can open view overlay and analyze the maps. GIS software recommended for soil mapping in this book is SAGA GIS, QGIS, GRASS GIS and Google Earth. To install SAGA GIS on Ubuntu we can use:
+Predictive soil mapping is about making maps, and working with maps requires use of GIS software to open, view overlay and analyze the data sptially. GIS software recommended for soil mapping in this book consists of SAGA GIS, QGIS, GRASS GIS and Google Earth. To, install SAGA GIS on Ubuntu we can use:
 
 
 ```bash
@@ -158,7 +158,7 @@ Other utility software that you might need include `htop` that allows you to tra
 sudo apt-get install htop iotop
 ```
 
-and some additional libraries used be `devtools`, `geoR` and similar can be installed via:
+and some additional libraries use `devtools`, `geoR` and similar, which can be installed via:
 
 
 ```bash
@@ -176,14 +176,14 @@ sudo apt-get install pigz zip unzip p7zip-full
 
 ## WhiteboxTools {#Whitebox}
 
-WhiteboxTools (http://www.uoguelph.ca/~hydrogeo/WhiteboxTools/), contributed by John Lindsay, is an extensive suite of functions and tools for DEM analysis and can be used to supplement especially hydrological and morphometric analysis available in SAGA GIS and GRASS GIS [@lindsay2016whitebox]. Probably the easiest way to use WhiteboxTools is to install a QGIS plugin (kindly maintained by Alexander Bruy: https://plugins.bruy.me/) and then learn and extend the WhiteboxTools scripting language by testing things out in QGIS (see below).
+WhiteboxTools (http://www.uoguelph.ca/~hydrogeo/WhiteboxTools/), contributed by John Lindsay, is an extensive suite of functions and tools for DEM analysis which is especially useful for extending the hydrological and morphometric analysis tools available in SAGA GIS and GRASS GIS [@lindsay2016whitebox]. Probably the easiest way to use WhiteboxTools is to install a QGIS plugin (kindly maintained by Alexander Bruy: https://plugins.bruy.me/) and then learn and extend the WhiteboxTools scripting language by testing things out in QGIS (see below).
 
 <div class="figure" style="text-align: center">
 <img src="figures/whiteboxtools-preview.jpg" alt="Calling WhiteboxTools from QGIS via the WhiteboxTools plugin." width="100%" />
 <p class="caption">(\#fig:whiteboxtools-preview)Calling WhiteboxTools from QGIS via the WhiteboxTools plugin.</p>
 </div>
 
-The function `FlowAccumulationFullWorkflow` is for example a wrapper function to filter out all spurious sinks and derive hydrological flow accumulation map all at once. To run it from command line we can use:
+The function `FlowAccumulationFullWorkflow` is, for example, a wrapper function to filter out all spurious sinks and to derive a hydrological flow accumulation map in the same step. To run it from command line we can use:
 
 
 ```r
@@ -200,18 +200,18 @@ system(paste0('"/home/tomislav/software/WBT/whitebox_tools" ',
 <p class="caption">(\#fig:eberg-hydroflow-preview-3d)Hydrological flow accummulation map based on the Ebergotzen DEM derived using WhiteboxTools.</p>
 </div>
 
-This produces number of maps, from which usually the hydrological flow accumulation map is potentially most useful. It is highly recommended that, before you start running analysis on large DEM's using WhiteboxTools and/or SAGA GIS, is that you test functionality using smaller data sets i.e. either a subset of the original data or using DEM at very coarse resolutions (so that width and height of a DEM is only few hundred pixels). Also note that WhiteboxTools do not work with GeoTIFFs produced using the `COMPRESS=DEFLATE` creation options.
+This produces a number of maps, from which the hydrological flow accumulation map is usually the most useful. It is highly recommended that, before running analysis on large DEM's using WhiteboxTools and/or SAGA GIS, you test functionality using smaller data sets i.e. either a subset of the original data or using a DEM at very coarse resolutions (so that width and height of a DEM are only few hundred pixels). Also note that WhiteboxTools do not presently work with GeoTIFs that use the `COMPRESS=DEFLATE` creation options.
 
 ## RStudio {#Rstudio}
 
-RStudio is, in principle, the main R scripting environment and can be used to control all other software used in the course. A more detailed RStudio tutorial is available at: [RStudio — Online Learning](http://www.rstudio.com/resources/training/online-learning/). Consider also following some spatial data tutorials e.g. by James Cheshire (http://spatial.ly/r/). Below is an example of RStudio session with R editor on right and R console on left.
+RStudio is, in principle, the main R scripting environment and can be used to control all other software used in this tutorial. A more detailed RStudio tutorial is available at: [RStudio — Online Learning](http://www.rstudio.com/resources/training/online-learning/). Consider also following some spatial data tutorials e.g. by James Cheshire (http://spatial.ly/r/). Below is an example of RStudio session with R editor on right and R console on left.
 
 <div class="figure" style="text-align: center">
 <img src="figures/rstudio_example.png" alt="RStudio is a commonly used R editor written in C++." width="100%" />
 <p class="caption">(\#fig:rstudio-example)RStudio is a commonly used R editor written in C++.</p>
 </div>
 
-To install all required R packages used in some script at once, you can use:
+To install all required R packages used in this tutorial at once, you can use:
 
 
 ```r
@@ -227,7 +227,7 @@ new.packages <- ls[!(ls %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
 ```
 
-This will basically check if some package is installed already, then install it if it is missing only. You can put this line at top of each R script that you share so that anybody using that script will automatically get all missing packages.
+This will basically check if any package is installed already, then install it only if it is missing. You can put this line at the top of each R script that you share so that anybody using that script will automatically get all required packages.
 
 The h2o package requires Java libraries, so you should first install Java by using e.g.:
 
@@ -241,7 +241,7 @@ java -version
 
 ## plotKML and GSIF packages
 
-Many examples in the GSIF course rely on the top 5 most commonly used packages for spatial data: (1) [sp and rgdal](https://cran.r-project.org/web/views/Spatial.html), (2) [raster](https://cran.r-project.org/web/packages/raster/), (3) [plotKML](http://plotkml.r-forge.r-project.org/) and (4) [GSIF](http://gsif.r-forge.r-project.org/). To install most up-to-date version of plotKML/GSIF, you can also use the R-Forge versions of the package:
+Many examples in this course rely on the top 5 most commonly used packages for spatial data: (1) [sp and rgdal](https://cran.r-project.org/web/views/Spatial.html), (2) [raster](https://cran.r-project.org/web/packages/raster/), (3) [plotKML](http://plotkml.r-forge.r-project.org/) and (4) [GSIF](http://gsif.r-forge.r-project.org/). To install the most up-to-date version of plotKML/GSIF, you can also use the R-Forge versions of the package:
 
 
 ```r
@@ -251,7 +251,7 @@ if(!require(GSIF)){
 }
 ```
 
-A copy of the most-up-to-date stable versions of plotKML and GSIF is also available on [github](https://github.com/cran/GSIF). To run only some specific function from GSIF package you could do for example:
+A copy of the most-up-to-date and stable versions of plotKML and GSIF is also available on [github](https://github.com/cran/GSIF). To run only some specific function from the GSIF package you could do for example:
 
 
 ```r
@@ -267,7 +267,7 @@ source_https <- function(url, ...) {
 source_https("https://raw.githubusercontent.com/cran/GSIF/master/R/OCSKGM.R")
 ```
 
-To test if these packages work properly create soil maps and visualize them in Google Earth by running the following lines of code (see also function: [fit.gstatModel](http://gsif.r-forge.r-project.org/fit.gstatModel.html)):
+To test if these packages work properly, create soil maps and visualize them in Google Earth by running the following lines of code (see also function: [fit.gstatModel](http://gsif.r-forge.r-project.org/fit.gstatModel.html)):
 
 
 ```r
@@ -322,7 +322,7 @@ om.rk
 
 ## Connecting R and SAGA GIS
 
-SAGA GIS is an extensive GIS geoprocessor software with over [600 functions](http://www.saga-gis.org/saga_tool_doc/index.html). 
+SAGA GIS is an extensive GIS geoprocessing software with over [600 functions](http://www.saga-gis.org/saga_tool_doc/index.html). 
 SAGA GIS can not be installed from RStudio (it is not a package for R). 
 Instead, you need to install SAGA GIS using the installation instructions from the [software homepage](https://sourceforge.net/projects/saga-gis/). 
 After you have installed SAGA GIS, you can send processes from 
@@ -376,7 +376,7 @@ if(.Platform$OS.type == "windows"){
 system(paste(gdalwarp, "--help"))
 ```
 
-We can use GDAL to reproject grid from the previous example:
+We can use GDAL to reproject the grid from the previous example:
 
 
 ```r

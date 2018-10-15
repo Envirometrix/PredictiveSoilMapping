@@ -7,27 +7,27 @@
 ## Aspects of spatial variability of soil variables {#aspects-variability}
 
 In this chapter we review the statistical theory for soil
-mapping. We focus on models that are most suitable for practical
+mapping. We focus on models considered most suitable for practical
 implementation and use with soil profile data and gridded covariates,
 and we provide the mathematical-statistical details of the selected
 models. We start by revisiting some basic statistical aspects of soil
-mapping, and finally illustrate the proposed framework for reproducible,
+mapping, and conclude by illustrating a proposed framework for reproducible,
 semi-automated mapping of soil variables using simple, real-world
 examples.
 
-To code examples are only shown for illustration. More complex predictive modeling 
+The code and examples are provided only for illustration. More complex predictive modeling 
 is described in section \@ref(soilmapping-using-mla). To install and optimize 
-packages used in this chapter please refer to section \@ref(Rstudio).
+all packages used in this chapter please refer to section \@ref(Rstudio).
 
 ### Modelling soil variability
 
 Soils vary spatially in a way that is often only partially understood.
 The main (deterministic) causes of soil spatial variation are the
-well-known causal factors — climate, organisms, relief and parent
-material — but how these factors jointly shape the soil over time is a
+well-known causal factors — climate, organisms, relief, parent
+material and time — but how these factors jointly shape the soil over time is a
 very complex process that is (still) extremely difficult to model
 mechanistically. Moreover, mechanistic modelling approaches require
-large sets of input data that are not available in practice. Some
+large sets of input data that are realistically not available in practice. Some
 initial steps have been made, notably for mechanistic modelling of
 vertical soil variation (see e.g. @Finke2008462,
 @Sommer2008480, @Minasny2008140, and @vanwalleghem2010spatial), but
@@ -48,14 +48,14 @@ the soil variable of interest, because:
 -   *The regression model includes only a few of the many causal factors
     that formed the soil*.
 
--   *The covariates used in regression are often only proxies of the
+-   *The covariates used in regression are often only incomplete proxies of the
     true soil forming factors*.
 
 -   *The covariates often contain measurement errors and/or are measured
     at a much coarser scale (i.e. support) than that of the soil that
     needs to be mapped*.
 
-As a result, soil spatial regression models will often have a
+As a result, soil spatial regression models will often display a
 substantial amount of residual variance, which may well be larger than
 the amount of variance explained by the regression itself. The residual
 variation can subsequently be analysed on spatial structure through a
@@ -81,7 +81,7 @@ deterministic component, $\varepsilon '({\bf{s}})$ is the spatially
 correlated stochastic component and $\varepsilon ''({\bf{s}})$ is the
 pure noise (micro-scale variation and measurement error). This model was
 probably first introduced by @Matheron1969PhD, and has been used as a
-general framework for spatial prediction of quantities in various
+general framework for spatial prediction of quantities in a variety of
 environmental research disciplines.
 
 <div class="rmdnote">
@@ -116,17 +116,17 @@ are significantly more complex (Fig. \@ref(fig:scheme-2D-3D-maps)).
 One of the reasons why 2D+T and 3D+T models of soil variations are rare
 is because there are very few point data sets that satisfy the
 requirements for analysis. One national soil data set that could be
-analyzed using space-time geostatistics is for example the Swiss
+analyzed using space-time geostatistics is, for example, the Swiss
 soil-monitoring network (NABO) data set [@JPLN:JPLN200900269], but even
 this data set does not contain complete profile descriptions following
-international standards. At regional and global scale it would be even
+international standards. At regional and global scales it would be even
 more difficult to find enough data to fit space-time models (and to fit
 3D+T variogram models could be even more difficult). For catchments and
 plots, space-time datasets of soil moisture have been recorded and used
 in space-time geostatistical modelling (see e.g. @snepvangers2003soil and 
 @jost2005analysing).
 
-Statistical modelling of spatial distribution of soils requires field
+Statistical modelling of the spatial distribution of soils requires field
 observations because most statistical methods are data-driven. The
 minimum recommended number of points required to fit 2D geostatistical
 models, for example, is in the range 50–100 points, but this number
@@ -138,7 +138,7 @@ is relatively small and there are only ca. 50 station locations
 
 The deterministic and stochastic components of soil spatial variation
 are separately described in more detail in subsequent sections, but
-before we do this we first address soil vertical variability and how it
+before we do this, we first address soil vertical variability and how it
 can be modelled statistically.
 
 ### Modelling the variation of soil with depth {#soil-depth-models}
@@ -155,7 +155,7 @@ data, it is a good idea to standardize values to standard depths,
 otherwise soil observation depth becomes an additional source of
 uncertainty. For example soil organic carbon content is strongly
 controlled by soil depth, so combining values from two A horizons one
-thick and the other thick, would increase complexity of 2D soil mapping
+thick and the other thin, would increase the complexity of 2D soil mapping
 because a fraction of the variance is controlled by the depth, which is
 ignored.
 
@@ -188,7 +188,7 @@ exponential decay functions per soil horizon [@Kempen2011Geoderma].
 
 Parametric continuous models are chosen to reflect pedological knowledge
 e.g. knowledge of soil forming processes. For example, organic carbon
-usually origins from plant production i.e. litter or roots. Generally,
+usually originates from plant production i.e. litter or roots. Generally,
 the upper layers of the soil tend to have greater organic carbon
 content, which decreases continuously with depth, so that the soil-depth
 relationship can be modelled with a negative-exponential function:
@@ -258,12 +258,12 @@ Non-parametric soil-depth functions are more flexible and can represent
 observations of soil property averages for sampling layers or horizons
 more accurately. One such technique that is particularly interesting is
 *equal-area or mass-preserving splines*
-[@Bishop1999Geoderma; @Malone2009Geoderma] because it ensures that for
-each sampling layer (usually a soil horizon) the average of the spline
+[@Bishop1999Geoderma; @Malone2009Geoderma] because it ensures that, for
+each sampling layer (usually a soil horizon), the average of the spline
 function equals the measured value for the horizon. Disadvantages of the
 spline model are that it may not fit well if there are few observations
 along the soil profile and that it may create unrealistic values
-(through overshoots or extrapolation) in some instances, for instance
+(through overshoots or extrapolation) in some instances, for example
 near the surface. Also, mass-preserving splines cannot accommodate
 discontinuities unless, of course, separate spline functions are fitted
 above and below the discontinuity.
@@ -428,9 +428,9 @@ prediction) and produces three main outputs:
     **prediction error variance map**.
 
 It is clear from Fig. \@ref(fig:general-sp-process) that
-the key steps in the mapping procedure are: (a) *choice of the sampling scheme*, 
-(b) *choice of the model of spatial variation*, and 
-(c) *choice of the parameter estimation technique*. When the sampling scheme is
+the key steps in the mapping procedure are: (a) *choice of the sampling scheme* (e.g. @Ng2018), 
+(b) *choice of the model of spatial variation* (e.g. @Diggle2007Springer), and 
+(c) *choice of the parameter estimation technique* (e.g. @lark2006spatial). When the sampling scheme is
 given and cannot be changed, the focus of optimization of the spatial
 prediction process is then on selecting and fine-tuning the best
 performing spatial prediction method.
@@ -2294,11 +2294,10 @@ and multisource data is likely to be inevitable.
 <p class="caption">(\#fig:multiscale-vs-multisource)A general scheme for generating spatial predictions using multiscale and multisource data.</p>
 </div>
 
-As a general strategy, for multi-scale data we propose fitting a single
-model to combined covariates downscaled or upscaled to the same
-resolution (Fig. \@ref(fig:multiscale-vs-multisource)a), while for the
-multi-source data we propose using data assimilation methods i.e.
-merging of predictions (Fig. \@ref(fig:multiscale-vs-multisource)b).
+As a general strategy, for multi-scale data, statistically robust approach is 
+to fit a single model to combined covariates downscaled or upscaled to the same
+resolution (Fig. \@ref(fig:multiscale-vs-multisource)a). For the
+multi-source data data assimilation methods i.e. merging of predictions (Fig. \@ref(fig:multiscale-vs-multisource)b) can be used [@CAUBET201999].
 Imagine if we have covariate layers for one whole continent at some
 coarse resolution of e.g. 500 m, but for some specific country have other
 predictions at a finer resolution of e.g. 100 m. Obviously any model we
@@ -2306,7 +2305,9 @@ develop that uses both sources of data is limited in its application to
 just the extent of that country. To ensure that all covariate and soil
 data available for that country are used to generate predictions, we can
 fit two models at seperate scales of and and independently, and then
-merge the predictions only for the extent of the country of interest.
+merge the predictions only for the extent of the country of interest. 
+A statistical framework for merging such predictions is given for example in 
+@CAUBET201999.
 In that sense, methods for multisource data merging are more attractive for
 pan-continental and global projects, because for most of the countries
 in the world, both soil and covariate data are available at different

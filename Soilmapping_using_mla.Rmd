@@ -857,7 +857,7 @@ and these are almost equally as important as the environmental covariates (PC2â€
 
 This type of modeling can be best compared to using Universal Kriging or Regression-Kriging in the geoR package:
 
-```{r
+```{r}
 zinc.geo$covariate = ov.zinc1
 sic.t = ~ PC1 + PC2 + PC3 + PC4 + PC5
 zinc1.vgm <- likfit(zinc.geo, trend = sic.t, lambda=0, ini=ini.v, cov.model="exponential")

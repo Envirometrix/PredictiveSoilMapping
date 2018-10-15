@@ -430,9 +430,9 @@ prediction) and produces three main outputs:
     **prediction error variance map**.
 
 It is clear from Fig. \@ref(fig:general-sp-process) that
-the key steps in the mapping procedure are: (a) *choice of the sampling scheme*, 
-(b) *choice of the model of spatial variation*, and 
-(c) *choice of the parameter estimation technique*. When the sampling scheme is
+the key steps in the mapping procedure are: (a) *choice of the sampling scheme* (e.g. @Ng2018), 
+(b) *choice of the model of spatial variation* (e.g. @Diggle2007Springer), and 
+(c) *choice of the parameter estimation technique* (e.g. @lark2006spatial). When the sampling scheme is
 given and cannot be changed, the focus of optimization of the spatial
 prediction process is then on selecting and fine-tuning the best
 performing spatial prediction method.
@@ -1959,11 +1959,10 @@ and multisource data is likely to be inevitable.
 knitr::include_graphics("figures/Fig_multiscale_vs_multisource.png")
 ```
 
-As a general strategy, for multi-scale data we propose fitting a single
-model to combined covariates downscaled or upscaled to the same
-resolution (Fig. \@ref(fig:multiscale-vs-multisource)a), while for the
-multi-source data we propose using data assimilation methods i.e.
-merging of predictions (Fig. \@ref(fig:multiscale-vs-multisource)b).
+As a general strategy, for multi-scale data, statistically robust approach is 
+to fit a single model to combined covariates downscaled or upscaled to the same
+resolution (Fig. \@ref(fig:multiscale-vs-multisource)a). For the
+multi-source data data assimilation methods i.e. merging of predictions (Fig. \@ref(fig:multiscale-vs-multisource)b) can be used [@CAUBET201999].
 Imagine if we have covariate layers for one whole continent at some
 coarse resolution of e.g. 500 m, but for some specific country have other
 predictions at a finer resolution of e.g. 100 m. Obviously any model we
@@ -1971,7 +1970,9 @@ develop that uses both sources of data is limited in its application to
 just the extent of that country. To ensure that all covariate and soil
 data available for that country are used to generate predictions, we can
 fit two models at seperate scales of and and independently, and then
-merge the predictions only for the extent of the country of interest.
+merge the predictions only for the extent of the country of interest. 
+A statistical framework for merging such predictions is given for example in 
+@CAUBET201999.
 In that sense, methods for multisource data merging are more attractive for
 pan-continental and global projects, because for most of the countries
 in the world, both soil and covariate data are available at different

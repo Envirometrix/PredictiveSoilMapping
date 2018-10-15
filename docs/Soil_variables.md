@@ -3,16 +3,16 @@
 
 *Edited by: Hengl T., MacMillan R.A. and Leenaars J.G.B.*
 
-This chapter identifies and provides comprehensive definitions and
-descriptions for all of the soil properties (and classes) that are
-standardly predicted using PSM. We first discuss complexity of measuring and exchanging soil attributes, then focus on the key soil properties and classes of interest for global soil
-mapping. The purpose of this chapter is to serve as a reference to other
-chapters where the focus is put on generating soil maps, interpreting
+This chapter identifies, and provides comprehensive definitions and
+descriptions for, a standardized set of soil properties (and classes) that are
+commonly predicted using PSM. We first discuss the complexity of measuring and standardizing (or harmonizing) soil attributes, then focus on the key soil properties and classes of interest for global soil
+mapping. The purpose of this chapter is to serve as a reference, and background, for other
+chapters where the focus is on generating soil maps, interpreting
 accuracy results and similar.
 
-The R tutorial on the end of the chaper reviews soil data classes and 
-functions for R: how to organize and reformat soil data in R for spatial analysis, 
-how to import soil data to R, how to export data and plot it in Google Earth. 
+The R tutorial at the end of the chaper reviews soil data classes and 
+functions for R. It illustrates how to organize and reformat soil data in R for spatial analysis, 
+how to import soil data to R and how to export data and plot it in Google Earth. 
 To learn more about the Global Soil Information Facilities (GSIF) package, 
 visit the main [documentation page](http://gsif.r-forge.r-project.org/00Index.html).
 
@@ -37,12 +37,12 @@ Fig. \@ref(fig:soil-vars)):
 2.  *Indirect soil measurements obtained using mechanical devices,
     analytical instruments and procedures* — measurement of soil
     properties that can be used to infer information about a different
-    target soil properties. These can be based on soil spectroscopy and
+    target soil property. These can be based on soil spectroscopy and
     similar close-range or remote sensing systems
     [@ShepherdWalsh2007JNIS; @ViscarraRossel2010DSS].
 
 3.  *Direct observations of soil properties and interpretations* —
-    subjectively assessed values based on soil description manuals i.e.
+    subjectively assessed values based on protocols for soil description as presented in manuals i.e.
     abundance of mottles, soil drainage class, soil colour.
 
 4.  *Indirect or derived interpretations* — subjectively assessed values
@@ -51,60 +51,60 @@ Fig. \@ref(fig:soil-vars)):
     fertility class.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_types_observations.png" alt="Types of soil observations in relation to data usage and production costs. Descriptive soil observations (e.g. manual texture or diagnostic soil horizons) are often not of much use by the end users who are often only interested in the secondary soil properties (e.g. water holding capacity, erosion index, soil fertility) as inputs to their modeling, but they are at an order of magnitude more affordable to obtain than laboratory analysis." width="65%" />
-<p class="caption">(\#fig:soil-vars)Types of soil observations in relation to data usage and production costs. Descriptive soil observations (e.g. manual texture or diagnostic soil horizons) are often not of much use by the end users who are often only interested in the secondary soil properties (e.g. water holding capacity, erosion index, soil fertility) as inputs to their modeling, but they are at an order of magnitude more affordable to obtain than laboratory analysis.</p>
+<img src="figures/Fig_types_observations.png" alt="Types of soil observations in relation to data usage and production costs. Descriptive soil observations (e.g. manual texture or diagnostic soil horizons) are often not directly useable by end users, who are often more interested in specific secondary soil properties (e.g. water holding capacity, erosion index, soil fertility) as inputs to their modeling. However, descriptive field observations are often some orders of magnitude more affordable to obtain than laboratory analysis." width="65%" />
+<p class="caption">(\#fig:soil-vars)Types of soil observations in relation to data usage and production costs. Descriptive soil observations (e.g. manual texture or diagnostic soil horizons) are often not directly useable by end users, who are often more interested in specific secondary soil properties (e.g. water holding capacity, erosion index, soil fertility) as inputs to their modeling. However, descriptive field observations are often some orders of magnitude more affordable to obtain than laboratory analysis.</p>
 </div>
 
 <div class="rmdnote">
-<p>Soil can be assessed quantitatively based on direct or indirect measurements using analytical techniques (in a laboratory or in the field) and qualitatively or descriptively based on observations in the field and following some soil description guidelines. Examples of subjective observations are: diagnostic soil materials and horizons, soil classes, Munsell color classes, manual texture assessment (texture-by-hand), structure, compaction, root abundance and similar.</p>
+<p>Soil can be assessed quantitatively based on direct or indirect measurements using analytical techniques (in a laboratory or in the field) and qualitatively or descriptively based on observations in the field that adhere to some soil description guidelines. Examples of subjective observations are: diagnostic soil materials and horizons, soil classes, Munsell color classes, manual texture assessment (texture-by-hand), structure, compaction, root abundance and similar.</p>
 </div>
 
-Field campaigns are the most costly part of soil surveys. Large numbers
+Field campaigns are usuallly the most costly part of soil surveys. Large numbers
 of soil observations are made in the field to assess the spatial
 distribution of readily observable soil properties to provide empirical
 evidence for soil mapping. Because a soil analytical measurement in the
-laboratory is much more costly than a soil observation in the field,
-only a small number of soil samples is taken from the large number of
-soil observations and brought to the laboratory for subsequent analysis.
-Ideally, each soil observation would be accompanied by soil analytical
-measurements to produce accurate and comprehensive soil information.
+laboratory is generally much more costly than a soil observation in the field,
+only a smaller subset of soil samples is taken from the larger number of
+field soil observations and brought to the laboratory for subsequent analysis.
+Ideally, every soil observation would be accompanied by corresponding soil analytical
+measurements to produce the most accurate and comprehensive soil information possible.
 
-It is important to emphasize that soil properties and methods to assess
-the soil properties are two distinctly different concepts. The two can
+It is important to emphasize that soil properties, and the methods used to assess
+soil properties, are two distinctly different concepts. The two can
 be defined together (functional definition) or can be defined
 separately, as given by numerous national and international manuals and
 guidelines for analytical procedures and soil description: e.g. in
 @Burt2004SSIR [@carter2007soil; @food2006guidelines], and/or
 @VanReeuwijk2002. Also in this chapter we make a distinction between the
-*‘target variable’* (i.e. target soil properties) and *‘paths’* i.e.
-determination methods.
+*‘target variable’* (i.e. target soil properties) and *‘paths’* (i.e.
+determination methods).
 
 Soil analytical data obtained in a laboratory are typically an order of
-magnitude more expensive than descriptive field observations
+magnitude more expensive to produce than descriptive field observations
 [@Burrough1971; @GehlRice2005; @Kempen2011PhDthesis]. To reduce these
 high costs, surveyors collect descriptive soil observations (Fig. \@ref(fig:soil-vars)), 
 which can subsequently be interpreted and linked to soil types and soil classes,
-which are assumed to be characterised by a limited and definable range
+which are then assumed to be characterised by a limited and definable range
 of soil properties [@bouma1998exploring]. It is also possible to convert
 observed values for certain soil properties to values comparable to
 those measured by analytical methods (albeit with unknown precision) by
 using various calibration models or *conversion functions*. For example,
-*manual texturing* analysis [@FAO1990; @SSDS1993] permits determination
-of soil texture fractions with a precision of ±5 m with an order of
-magnitude lower cost to obtain than laboratory analysis.
+*manual texturing* analysis [@FAO1990; @SSDS1993] can be used as a basis for estimating
+soil texture fractions with a precision of ±5 % at fraction of
+the cost of laboratory analysis.
 
 Soils are usually sampled per depth interval or layer, generally using a
 genetic A-B-C-R system i.e. corresponding to a *soil horizon* — a
 relatively homogeneous layer of soil (with upper and lower depth) that
 is *“distinctly different from other layers and informative for the
-soil’s nature”* [@harpstead2001soil]. The actual soil samples are either
-taken from the centre of the soil horizon or are mixed samples of the
+soil’s nature”* [@harpstead2001soil]. Actual soil samples are either
+taken from the centre of a soil horizon or are mixed samples of the
 material from the whole horizon (Fig. \@ref(fig:soi-var-depth)). Decades
-of soil survey have shown that soil horizons can be fuzzy objects, and
-they may be difficult to distinguish and delineate consistently by
-different surveyors [@Burrough1989JSS; @DeGruijter1997Geoderma]. Soil
+of soil survey have shown that soil horizons can be fuzzy objects.
+They may be difficult for different surveyors to distinguish and delineate consistently
+[@Burrough1989JSS; @DeGruijter1997Geoderma]. Soil
 correlation exercises try (not always successfully) to help different
-surveyors recognize similar soil horizons and assign similar codes with
+surveyors consistently recognize similar soil horizons and assign similar codes with
 comparable upper and lower boundaries so as to produce similar
 descriptions and classifications for any observed soil.
 
@@ -113,20 +113,20 @@ descriptions and classifications for any observed soil.
 <p class="caption">(\#fig:soi-var-depth)Soil observations can refer to genetic horizons (left), fixed depths i.e. point support (center) and/or can be aggregate values for the complete profile (right).</p>
 </div>
 
-An emerging approach to soil sampling is to scan the complete soil
+An emerging approach to soil characterization is to scan the complete soil
 profile in different parts of the spectra, and then decide on vertical
 stratification *a posteriori* [@ViscarraRossel2010DSS]. Nevertheless,
 much of the analytical data available in existing legacy soil profile
 databases is sampled per soil layer and described by soil horizon.
 
-Soil observations are taken at a geographic position and a certain
-depth, which is either 3D or refers to the whole solum. The 3D
+Soil observations are taken at a geographic position and at a specific
+depth (or depth interval), which is either 3D or refers to the whole solum. The 3D
 (longitude, latitude, depth) position implies that the property varies
 not only in geographic space, but also with depth. Soil properties that
-describe an entire site are by implication 2D as are soil properties
+describe an entire site are by implication 2D, as are soil properties
 that summarise or refer to the soil profile as a whole (2D). For
-example, soil type does not change with depth; also rock outcrops, depth
-to bedrock, depth to ground water table.
+example, soil type does not change with depth. Also rock outcrops, depth
+to bedrock and depth to ground water table are single attributes that apply to an entire profile.
 
 ### Soil properties of interest for global soil mapping
 
@@ -134,20 +134,54 @@ There are many soil properties, possibly hundreds, used in the
 international domain of soil science including pedology, soil survey,
 soil fertility, soil hydrology, soil biology, etc. Not all of these can
 be mapped globally, nor are all of explicit interest for global
-applications or use. Soil data have been, and are, collected and
+applications or use. 
+
+Soil data have been, and are, collected and
 compiled into maps at various scales for various purposes and soil
 inventory projects typically begin by first carefully identifying the
 specific list of soil properties that are of interest for the
 anticipated uses of the planned survey. Different soil data are required
 for different purposes, such as applying different models with different
-data requirements. Local or national soil survey projects are of direct
-relevance to global soil mapping initiatives if the range of data
-collected includes the minimum data set as specified for global
-initiatives.
+data requirements. 
 
-For example, completion of an update to the SOTER database for the World
+In the past, soil surveys typically elected to focus on observing
+and measuring soil attributes and properties that were considered
+to be relatively stable, or static, in time. For example the particle 
+size distribution of a soil, or its depth to bedrock, were considered 
+to be relatively stable and not subject to large changes over relatively
+short time periods (e.g. decades). Even attributes that were known to 
+change with management and time, such as topsoil thickness, organic carbon
+or pH, were treated as relatively stable properties for the purposes of 
+mapping. 
+
+This choice to emphasize relatively stable soil properties and
+attributes was a logical consequence of the fact that it could take years
+to produce a single soil map and decades to complete mapping for an entire 
+area of interest. Consequently, for maps to be relevant, and to remain
+relevant and useful for their anticipated lifetime of use, they had to
+restrict themselves to trying to describe the variation in space only (not time)
+of properties that could be considered stable and static.
+
+The idea that soil properties could be assumed to remain relatively stable
+through time was partially based on an assumption that most soils had
+achieved a relatively stable condition that was in equilibruim with their
+current environment. If a soil is in equilibruim with its enviromment, it
+can be assumed that it will retain its present attributes, since there are
+no strong drivers for change. This may well apply to undisturbed soils in
+their natural environment, but it is not valid for disturbed or managed soils.
+It is well established that human management practices can, and do, significantly
+alter some key soil properties, such as pH, organic matter and topsoil thickness.
+Most conventional soil maps recognized, and reported on, differences in
+soil properties, such as pH or organic matter, between natural soils and
+managed soils. However, it was never a common practice to name, map and
+characterize managed soils seperately from natural soils. 
+
+Local or national soil survey projects are of direct
+relevance to global soil mapping initiatives if the range of data
+collected encompasses the minimum data set as specified for global
+initiatives. For example, completion of an update to the SOTER database for the World
 requires an extensive range of soil property data as specified in the
-procedures manual [@VanEngelen2012]. The update of the Harmonised World
+procedures manual [@VanEngelen2012]. An update of the Harmonised World
 Soil Database [@FAO2012HWSD] requires a smaller range of attributes. The
 *GlobalSoilMap* project [@Arrouays201493] selected a list of only
 *twelve soil properties* considered relevant for global analyses and
@@ -182,10 +216,10 @@ Bulk density of the whole soil           kg/m$^3$   ISO 11272
 
 ### Reference methods
 
-A pragmatic solution to ensuring efficient exchange of global soil data
-is to set reference soil measurement and description methods. The
-*GlobalSoilMap* project agreed that the target soil properties would be
-assessed and reported relative to specific designated *reference
+A pragmatic solution to ensuring efficient exchange, sharing and interpretation of global soil data
+is to establish reference methods for soil measurement and description. The
+*GlobalSoilMap* project agreed that their target soil properties would be
+assessed and reported relative to specific, designated *reference
 methods*. For example, soil organic carbon content of the fine earth
 fraction is to be assessed and reported according to ISO10694 dry
 combustion method [@Sleutel2007CSSPA]. Values for pH are to be be
@@ -212,7 +246,7 @@ methods to assess those soil properties, through `ISO TC-190` and
 required for purposes as such as multi-partner global soil mapping.
 
 In the following sections we focus our discussion on the soil properties
-that have been mapped within the [www.soilgrids.org](www.soilgrids.org) project: 
+that have been mapped for the [www.soilgrids.org](www.soilgrids.org) project: 
 depth to bedrock, occurrence of the `R` horizon, organic carbon content of the fine earth
 fraction, pH of the fine earth fraction, particle size class contents
 (sand, silt, clay) of the fine earth fraction, gravel content of the
@@ -231,7 +265,7 @@ following will be discussed:
 -   *Definition of the reference method to assess the soil property
     value*;
 
--   *Definition of the convention to express the soil property value
+-   *Definition of the convention used to express the soil property value
     (units, precision, range)*;
 
 -   *Review of the variation in soil property definitions and in methods
@@ -239,8 +273,8 @@ following will be discussed:
     widely used conversion functions cited from literature and with
     emphasis on harmonisation or conversion to the reference method*.
 
-We also identify and review a number of other widely used measurement
-methods in addition to our selected standard methods. We describe if and
+We also identify, and review, a number of other widely used measurement
+methods, in addition to our selected standard methods. We describe if and
 how these other methods relate to the selected reference methods and
 discuss issues related to harmonization and standardization for
 attributes of current interest for global mapping.
@@ -248,7 +282,7 @@ attributes of current interest for global mapping.
 ### Standard soil variables of interest for soil mapping
 
 Some standard soil legends for listed soil properties are embedded
-within the package for and can be loaded by:
+within the GSIF package and can be loaded by:
 
 
 ```r
@@ -319,17 +353,17 @@ str(soil.legends)
 #>   ..$ COLOR         : chr [1:118] "#FE813E" "#FD9F39" "#FDAE6B" "#FD8D3C" ...
 ```
 
-which shows the referent cumulative probabilities (`CPROB`) and
+which illustrates the referent cumulative probabilities (`CPROB`) and
 appropriate color legend (`COLOR`; coded as a six-digit, three-byte
 hexadecimal number) for the values of the target soil variables. The cumulative
 probabilities were derived using the collection of records in the World
-Soil Profiles repository and can be considered a global prior
+Soil Profiles repository and can be considered as an estimate of global prior
 probabilities for soil pH (see further for example
 Fig. ).
 
-A general intention of ISRIC is to maintain a *Global Soil Data
+A general intention is to maintain a *Global Soil Data
 Registry* so that a short variable name (in further text *“GSIF code”*)
-can be linked to unique set of metadata which should include:
+can be linked to a unique set of metadata which should include:
 
 -   Full description;
 
@@ -360,7 +394,7 @@ $\mathtt{C}$,$\ldots$ $\mathtt{Z}$. Another option is to simply use
 the US Goverment National Cooperative Soil Characterization Database column names (http://ncsslabdatamart.sc.egov.usda.gov/).
 
 Also note that the metadata can be easily separated from the code so
-that the short GSIF code (variable name) could be used as a replacement
+that the short GSIF code (variable name) could be used as a shorthand (replacement)
 for the long description of the complete metadata. Using short GSIF
 codes is also important for programming because unique code names are
 used consistently in all scripts / functions.
@@ -387,7 +421,7 @@ standard (via the `altitudeMode` tag) allow one to specify if the
 vertical dimension refers to actual altitude (vertical distance from the
 land surface) or to distance from the sea level (`absolute`). In this
 case soil depths can be represented using `clampToGround` and negative
-values. For example, depth of can be expressed as [@OGCKML2008]:
+values. For example, depth of 30 cm can be expressed as [@OGCKML2008]:
 
 
 ```bash
@@ -413,22 +447,22 @@ identified as an `O` horizon is considered the soil surface.
 The *depth to bedrock* i.e. depth to the `R` horizon is measured from
 the soil surface downwards and is expressed in cm with a precision of ±1 cm.
 Depth to bedrock deeper than e.g. 2–3 m is most often not recorded. Bedrock
-is consolidated hard rock, with only few cracks, underlying the soil. It
+is consolidated hard rock, with only a few cracks, underlying the soil. It
 is not necessarily parent material. We imagine it often as something
 distinct and easy to recognize in the field. In practice, depth to
 bedrock can be difficult to determine, and is often confused with
 stoniness or depth to parent material (which can be unconsolidated
-material). Another issue is that, for most of the soils in the world
+material). Another issue is that, for most of the soils in the world,
 hard bedrock is >2 m deep so that we actually don’t know the correct
 depth to enter, other than >2 m. Rootability is physically restricted by
 the bedrock, whether hard or soft (see Fig. \@ref(fig:scheme-depth-to-bedrock)).
 
 <div class="rmdnote">
-<p>Depth to bedrock is the mean distance to <code>R</code> horizon which is the layer impenetrable by roots or agricultural machinery. Depth to bedrock deeper than 2 m is most often not recorded.</p>
+<p>Depth to bedrock is the mean distance to <code>R</code> horizon which is the layer impenetrable by roots or agricultural machinery. Depth to bedrock deeper than 2 m is most often not recorded in field survey descriptions.</p>
 </div>
 
 In traditional soil characterisation, the total depth of the `O`,
-`A`,`E`, and `B` horizons is referred to as *solum*
+`A`,`E`, and `B` horizons is referred to as the *solum*
 [@harpstead2001soil], while the underlaying layer is referred to as
 parent material or substratum [@SSDS1993]. Parent material can be coarse
 or fine unconsolidated deposits of e.g. alluvial, colluvial or windblown
@@ -476,7 +510,7 @@ hydrological characteristics [@SSDS1993 p.60]. Restriction means the
 inability to support more than a very few fine or few very fine roots if
 depth from the soil surface and water state, other than the occurrence
 of frozen water, are not limiting. For some crops like cotton plants or
-soybeans and possibly other crops with less abundant roots than the
+soybeans, and possibly other crops with less abundant roots than the
 grasses, the very few class is used instead of the few class. The
 restriction may be below where plant roots normally occur because of
 limitations in water state, temperatures, or depth from the surface.
@@ -484,7 +518,7 @@ This evaluation can be based on the specific plants that are important
 to the use of the soil, as indicated in Tbl. \@ref(tab:rootingdepths); see
 also @SSDS1993 [p.60].
 
-Root restriction can be also inferred by certain pedogenic horizons,
+Root restriction can be also influenced by certain pedogenic horizons,
 such as *fragipans*. A change in particle size distribution alone, as
 for example loamy sand over gravel, is not always a basis for physical
 root restriction. A common indication of physical root restriction is a
@@ -502,14 +536,14 @@ Root-depth observations preferably should be used to make the
 generalization. If these are not available then inferences may be made
 from morphology.
 
-As a general recommendation it is advisable to focus first on mapping soil properties that
+As a general recommendation, it is advisable to focus first on mapping soil properties that
 limit rooting, including content of coarse fragments and the depth to
 bedrock, and then define effective soil depth *a posteriori* using
 distinct analytical rules. A similar approach has also been promoted by
 @rijsberman1985effect and @driessen1992land who refer to it as the
 *Soil-productivity Index* — a product of soil-water sufficiency, soil pH
 sufficiency and soil bulk density sufficiency. Here we consider somewhat
-wider range of soil properties that affect rooting depth, such as:
+wider range of soil properties that can affect rooting depth, such as:
 
 -   coarse fragments,
 
@@ -536,7 +570,7 @@ rooting index per layer.
 <p class="caption">(\#fig:lri-scheme)Derivation of the Limiting Rooting Index: (left) soil pH values and corresponding LRI, (right) coarse fragments and corresponding LRI [@Leenaars2018].</p>
 </div>
 
-By using the package, one can determine Limiting Rooting Index, which
+By using the GSIF package, one can determine Limiting Rooting Index, which
 can be a good indicator of the effective rooting depth. Consider the
 following soil profile from Nigeria [@Leenaars2012]:
 
@@ -600,9 +634,9 @@ bases in cmol/kg, `PHIHOX` is the soil pH in water suspension, `CRB` is the
 CaCO$_3$ (carbonates) in g/kg, `GYP` is the CaSO$_4$ (gypsum) in and `tetaS`
 is the volumetric percentage of water.
 
-For this specific profile, most limiting soil properties is `tetaS`, but
+For this specific profile, the most limiting soil property is `tetaS`, but
 because none of the soil properties got <20 points, we can conclude
-that the maximum rooting depth is . Note that the threshold values in
+that the maximum rooting depth is (MISSING VALUE HERE!). Note that the threshold values in
 the `LRI` function used to derive Limiting Rootability scores are set
 based on common soil agricultural productivity tresholds (e.g. for
 maize; see also Fig. \@ref(fig:lri-scheme)), and can be adjusted via the
@@ -645,7 +679,7 @@ mitigating the adverse effects of increases in green house gasses in the
 atmosphere [@Smith2004SUM; @Conant2010; @Scharlemann2014CM].
 Consequently, soil organic carbon is probably the soil property of
 greatest current interest and utility from the point of view of global
-mapping of soil properties.
+mapping, and interpretation, of soil properties.
 
 <div class="rmdnote">
 <p>Soil Organic Carbon is one the key measures of soil health. The standard reference method for assessing and reporting soil organic carbon content of the fine earth fraction is by dry combustion to at least (ISO 10694). Values of organic carbon content are typically reported in (permilles) with integer precision over a range of 0–1000.</p>
@@ -659,7 +693,7 @@ high temperature. Dry combustion is considered to ensure oxidation of
 all ORC and is considered an accurate method which has been used in many
 studies as a reference method against which to calibrate other methods
 [@Grewal1991JSS; @Meersmans2009SUM; @Bisutti2004TAC]. A global estimate
-of distribution of soil organic carbon is shown in
+of the distribution of soil organic carbon is shown in
 Fig. \@ref(fig:sprofs-soil-carbon).
 
 <div class="figure" style="text-align: center">
@@ -672,12 +706,12 @@ Fig. \@ref(fig:sprofs-soil-carbon).
 </div>
 
 In the dry combustion method, all carbon present in the soil is oxidized
-to carbon dioxide (CO$_2$) by heating the soil to at least in a flow of
+to carbon dioxide (CO$_2$) by heating the soil to at least (WHAT TEMP HERE? 1000 c?) in a flow of
 oxygen-containing gas that is free from carbon dioxide. The amount of
 carbon dioxide released is then measured by titrimetry, gravimetry,
 conductometry, gas chromatography or using an infrared detection method,
 depending on the apparatus used. When the soil is heated to a
-temperature of at least , in addition to organic carbon any inorganic
+temperature of at least (WHAT TEMP HERE? 1000 c?), in addition to organic carbon any inorganic
 carbon present as carbonate is also completely decomposed. Total organic
 carbon can be determined directly or indirectly. Direct determination
 consists of previous removal of any carbonates present by treating the
@@ -711,7 +745,7 @@ soil). Low pH is associated with acidic conditions and with increased
 mobility of toxic ions such as aluminum iron and even acid sulphates.
 High pH is associated with reduced availability of phosphorus and at
 higher levels with alkaline conditions that impede water uptake by
-plants. A global estimate of distribution of the soil pH is shown in
+plants. A global estimate of the distribution of the soil pH is shown in
 Figs. \@ref(fig:sprops-phiho5) and \@ref(fig:sprops-phikcl).
 
 PH index approximates concentration of dissolved hydrogen ions
@@ -742,7 +776,7 @@ CaCl$_2$).
 The most common method for analyzing pH in North America is a 1:1
 soil/water suspension [@Miller2010SSSAJ]. Adopting ISO 10390:2005 as a
 standard with its specification of pH measured in a 1:5 suspension of
-soil in water will require US values to be converted from 1:1 soil/water
+soil in water requires US values to be converted from 1:1 soil/water
 to 1:5 soil/water equivalent values.
 
 <div class="figure" style="text-align: center">
@@ -787,7 +821,7 @@ a variety of different analytical methods. Consequently, it is not
 necessary or beneficial to report pH with a precision greater than
 ±0.1 unit. Natural variation of pH in soils is over a range of 2 to
 11 with a standard deviation of 1.4. Note also that pH follows
-close-to-normal distribution, although it is often argued that, locally,
+a close-to-normal distribution, although it is often argued that, locally,
 it can show bimodal or even trimodal peaks
 (Fig. \@ref(fig:color-legend-phi)).
 
@@ -795,14 +829,14 @@ it can show bimodal or even trimodal peaks
 
 Nutrients are chemical elements or substances essential for the growth
 of plants. The most essential elements important for the growth of
-plants are in fact carbon, hydrogen and oxygen. Other essential elements
+plants are, in fact, carbon, hydrogen and oxygen. Other essential elements
 can be separated into macro-nutrients (>100 $\mu$g or >100 ppm) and micro-nutrients
 (<100 ppm), although there is no strict border between the two
 [@harpstead2001soil; @hengl2017soil]. Some macro-nutrients of global importance for soil
 management and protection are (http://en.wikipedia.org/wiki/Plant_nutrition):
 
 -   *Nitrogen* (N) — It is often considered synonymous with
-    soil fertility. Controls the leafy growth. Occurs in soil as
+    soil fertility. Controls leafy growth. Occurs in soil as
     nitrates (e.g. NO$_3$, NO$_2$).
 
 -   *Phosphorus* (P) — High phosphorus deficiency may result in the
@@ -839,9 +873,9 @@ Lead (Pb), Arsenic (As), Zinc (Zn), Cadmium (Cd), Nickel (Ni), Copper
 [@Markus2001399; @reimann2011statistical; @Morel2005202; @Rodriguez-Lado23082013;  @hengl2017soil].
 
 Macro- and micro-nutrients and heavy metals are measured and mapped in
-parts per million or $\mu$g per kg of soil. Within the AfSIS project,
-macro- and micro-nutrients have been mapped over large areas [@hengl2017soil]. The
-problem of mapping such chemical soil properties, however, is that they
+parts per million or $\mu$g per kg of soil. The AfSIS project, provides a good
+example of mapping macro- and micro-nutrients over a large area [@hengl2017soil]. The
+problem with mapping such chemical soil properties, however, is that they
 are highly dynamic. For example, nitrogen, phosphorus, and potassium are
 highly mobile nutrients. Their concentration changes from month to
 month, even from day to day so that space-time models (2D-T or 3D-T)
@@ -870,14 +904,14 @@ common subdivision of soil granulometry is [@Shirazi2001SSSAJ]:
 
     2.  stones or boulders (>8 cm)
 
-Coarse fragments occupy volume in the soil matrix reducing water and
+Coarse fragments occupy volume in the soil matrix, reducing water and
 nutrient availability as well as influencing rooting depth and
 workability. We elect to produce maps of coarse fragment content because many assessments, such as total stocks of carbon or
 available water, are volumetric based and require knowledge of the
-volume of non-soil materials throughout the profile to support
+volume of non-soil materials throughout the profile. This information is required to support
 calculations of the total volume of the fine earth fraction that is
 available to hold water or retain organic carbon. Without some estimate
-of the volume of the soil occupied by solid particles larger than , it
+of the volume of the soil occupied by solid particles larger than 2 mm, it
 would not be possible to compute volumetric estimates of stocks of soil
 carbon or available moisture for fine earth soil.
 
@@ -891,7 +925,7 @@ consideration of the coarse fragment content. Data for coarse fragment
 content are generally derived from descriptive field observations on
 soil layer morphology. Those descriptions generally express the content
 of coarse fragments by class values or categories as for example
-*‘frequent stones’* indicating a volumetric content of 15–40% according to
+*‘frequent stones’* indicating an estimated volumetric content of 15–40% according to
 the FAO guidelines of 1977 (similar to *‘many stones’* according to
 SOTER conventions and the FAO guidelines of 2006). Because coarse
 fragment content is most frequently based on generalized visual field
@@ -903,21 +937,21 @@ Note that the uncertainty associated with coarse fragment content,
 propagated from the field observed class values, has significant impact
 on estimations of the volumetric totals of attributes assessed and
 mapped for the fine earth fraction (see also
-section \@ref(SOC-chapter)). Whilst of 1 meter deep
+section \@ref(SOC-chapter)). Whilst a 1 meter deep
 soil, with a bulk density of 1.5 tonne per cubic-metre and an organic 
 carbon content of 10 g per kg, contains 150 tonnes organic carbon. 
 A similar soil with bulk density adjusted for the
 presence of *‘frequent stones’* contains 90–127.5 tonnes organic carbon. Despite the
-inaccuracy of the data for field observed coarse fragments content it is
+inaccuracy of the data for field observed coarse fragments content, it is
 strongly recommended to collect and compile these data as completely as
 possible because of their relevance for estimating whole soil bulk
 density, total volume and volume of the fine earth fraction alone.
 
 The possible nature (and size) of coarse fragments is highly variable
-(quartz, carbonate, iron, basalt) with thus variable manageability and
-variable characteristics as breakability, solubility, bulk density, etc.
+(quartz, carbonate, iron, basalt) with consequent variable manageability and
+variable characteristics such as breakability, solubility, bulk density, etc.
 Where the coarse fragment content is dominant (>80%), approaching 100%,
-rootability is near nil which is determinant for the rooting or
+rootability is near nil which is a determinant for the rooting or
 effective soil depth and generally also for depth to bedrock. An
 estimated global distribution of coarse fragments and soil textures is
 given in Fig. \@ref(fig:sprofs-crfvol).
@@ -929,7 +963,7 @@ given in Fig. \@ref(fig:sprofs-crfvol).
 
 ### Particle size class distribution: sand, silt and clay
 
-Majority global soil mapping initiatives elect to predict the
+The majority of global soil mapping initiatives elect to predict the
 spatial distribution of particle size classes (soil texture) because
 texture controls or influences many mechanical, hydrological and
 engineering aspects of use of the soil. Soil texture affects how a soil
@@ -940,10 +974,10 @@ substances adhere to surfaces and are retained or transformed and how
 energy and matter enter into the soil and are stored or transmitted
 through it. Texture is the fundamental physical and mechanical property
 of soils and, as such, it is one of the most widely analysed and
-reported soil properties.
+widely reported soil properties.
 
-The size of particles in the soil varies strongly from less than a 2 $\mu$m to
-several cm’s and occasionally even meters (boulders); which represents a
+The size of particles in the soil varies greatly from less than a 2 $\mu$m to
+several cm’s and occasionally even meters (boulders). This represents a
 range from to 1 $\mu$m to 1 million $\mu$m. Generally, particle size distribution has been
 simplified through aggregation or classification. The fine earth
 fraction (<2 mm) is the soil considered for laboratory analyses. This fine
@@ -1047,7 +1081,7 @@ converting between silt fraction based on the international standard of
 \end{equation}
 
 where $P_{\mathtt{20-2000}}$ is the international sand fraction. This
-conversion is fairly accurate since the model explains over variability
+conversion is fairly accurate since the model explains most of the observed variability
 in the original values ($R^2$=0.823). Together with the conversion of
 the silt fraction is the conversion of the sand fraction.
 
@@ -1064,7 +1098,7 @@ interpolation, and similarity method) in order to achieve compatibility
 of particle-size distributions within the *European soil hydraulic
 database HYPRES* (http://www.macaulay.ac.uk/hypres/). They introduced a new similarity procedure, which
 uses an external reference data set that contains a wide variety of
-reference soil materials each with 7 or 8 measured particle-size
+reference soil materials, each with 7 or 8 measured particle-size
 fractions. The procedure involves searching for soil samples in the
 external reference data set that match the particle-size distribution of
 the soil to be interpolated. From each search. 10 similar soils are
@@ -1076,10 +1110,10 @@ as the estimate of the fraction for the soil under investigation.
 The HYPRES reference database and the similarity procedures applied to
 it are appropriate for harmonizing a wide range of soils from a variety
 of countries and could be used as one of the main methods in a global
-Soil Reference Library. The generic nature of this conversion approach
+Soil Reference Library. The generic nature of this conversion approach,
 and the fact that it does not rely on multiple, locally developed,
-regression equations makes it an attractive option for use in a global
-project.
+regression equations, makes it an attractive option for use in harmonization of global
+particle size data.
 
 ### Bulk density
 
@@ -1100,7 +1134,7 @@ density of the fine earth fraction* (particles <2 mm) only. Calculations
 such as those for total stocks of carbon are first applied using the
 bulk density of the fine earth fraction only but this value is then
 reduced in accordance with the volume proportion of the soil that is
-occupied by coarse fragments greater than in size. Bulk density is also
+occupied by coarse fragments greater than 2 mm in size. Bulk density is also
 of interest for global soil mapping applications because it influences
 infiltration and movement of water in the soil, penetration of the soil
 by plant roots and mechanical workability of the soil using farm
@@ -1134,7 +1168,7 @@ to be able to calculate the oven-dry bulk density of the fine earth
 separately.
 
 The USDA handbook for analytical procedures describes various methods
-for assessing, by definition, various types of bulk density. USDA soil
+for assessing various types of bulk density. USDA soil
 data report values for bulk density of the fine earth as well as of the
 whole earth (including gravel), with the weight assessed oven-dry as
 well as at field capacity e.g. including water. The latter method
@@ -1207,8 +1241,7 @@ conductivity and moisture holding capacity.
 knowledge for predicting soil bulk density from other, more regularly
 measured, properties. The model considers soil bulk density to be a
 function of soil mineral packing structures ($\rho_m$) and soil
-structure ($\Delta \rho$). Bulk-density maxima were found for soils with
-approximately sand. Bulk densities were also observed to increase with
+structure ($\Delta \rho$). Bulk densities were also observed to increase with
 depth, suggesting the influence of over-burden pressure. Residuals from
 the $\rho_m$ model, referred to as $\Delta \rho$, correlated with
 organic carbon.
@@ -1222,14 +1255,14 @@ are a function only of organic matter i.e. organic carbon content.
 Although studies conducted by @Saini1966N and @Jeffrey1970JE have shown
 that organic matter has a dominating effect on soil bulk density and
 that it can be used alone as a good predictor of soil bulk density, it
-has been observed (e.g. @Alexander1980SSSAJ and @Manrique1991SSSAJ) that
-soil texture plays a major role in controlling bulk density where
-organic matter is a minor component.
+has been observed (e.g. @Alexander1980SSSAJ and @Manrique1991SSSAJ) that,
+where organic matter is a minor component, soil texture plays a major 
+role in controlling bulk density .
 
 ### Soil organic carbon stock
 
 Primary soil properties such as organic carbon content, bulk density and
-coarse fragments can be further used for estimation of secondary soil
+coarse fragments can be further used as inputs for estimation of secondary soil
 properties which are typically not measured directly in the field and
 need to be derived from primary soil properties. For instance, consider
 estimation of the global carbon stock (in permille). This secondary soil
@@ -1247,8 +1280,8 @@ soil bulk density in and `CRF` is volumetric fraction of coarse
 fragments ($>$ 2 mm) in percent.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_OCS_calculus_scheme.png" alt="Soil organic carbon stock calculus scheme. Example of how total soil organic carbon stock (OCS) and its propagated error can be estimated for a given volume of soil using organic carbon content (ORC), bulk density (BLD), thickness of horizon (HOT), and percentage of coarse fragments (CRF). Image source: @Hengl2014SoilGrids1km. OCSKGM function also available via the [GSIF package](http://gsif.r-forge.r-project.org/OCSKGM.html)." width="100%" />
-<p class="caption">(\#fig:ocs-calculus-scheme)Soil organic carbon stock calculus scheme. Example of how total soil organic carbon stock (OCS) and its propagated error can be estimated for a given volume of soil using organic carbon content (ORC), bulk density (BLD), thickness of horizon (HOT), and percentage of coarse fragments (CRF). Image source: @Hengl2014SoilGrids1km. OCSKGM function also available via the [GSIF package](http://gsif.r-forge.r-project.org/OCSKGM.html).</p>
+<img src="figures/Fig_OCS_calculus_scheme.png" alt="Soil organic carbon stock calculus scheme. Example of how total soil organic carbon stock (OCS), and its propagated error, can be estimated for a given volume of soil using organic carbon content (ORC), bulk density (BLD), thickness of horizon (HOT), and percentage of coarse fragments (CRF). Image source: @Hengl2014SoilGrids1km. OCSKGM function also available via the [GSIF package](http://gsif.r-forge.r-project.org/OCSKGM.html)." width="100%" />
+<p class="caption">(\#fig:ocs-calculus-scheme)Soil organic carbon stock calculus scheme. Example of how total soil organic carbon stock (OCS), and its propagated error, can be estimated for a given volume of soil using organic carbon content (ORC), bulk density (BLD), thickness of horizon (HOT), and percentage of coarse fragments (CRF). Image source: @Hengl2014SoilGrids1km. OCSKGM function also available via the [GSIF package](http://gsif.r-forge.r-project.org/OCSKGM.html).</p>
 </div>
 
 The propagated error of the soil organic carbon stock (Eq.\@ref(eq:ocs-calc)) can
@@ -1260,7 +1293,7 @@ all depths / horizons, then aggregated to estimate the total stock for
 the whole profile (e.g. 0–2 m).
 
 The formulas to derive soil organic carbon stock and the propagated
-uncertainty are implemented in the package e.g.:
+uncertainty are implemented in the GSIF package e.g.:
 
 
 ```r
@@ -1288,7 +1321,7 @@ A more robust way to estimate the propagated uncertainty of deriving
 error from a large number of realizations (e.g. >100) that incorporate
 spatial and vertical correlations. Because, in the case of soil mapping,
 we are often dealing with massive data sets, running geostatistical
-simulations for millions of pixels is probably not yet an option.
+simulations for millions of pixels is current not yet a feasible option.
 
 ### Available Water Capacity
 
@@ -1296,7 +1329,7 @@ The available water holding capacity (AWC) is a complex soil property.
 It is basically a soil or land quality [@food1977framework], that
 provides valuable information about the capacity of the soil to hold
 water, particularly water that is potentially available for root uptake
-and vegetative transpiration. In practice, AWC is land cover specific.
+by plants and vegetative transpiration. In practice, AWC is land cover specific.
 The water available for root uptake depends on the soil properties that
 determine rootability or rooting depth as genetically required by the
 vegetative land cover.
@@ -1370,7 +1403,7 @@ the methods were universally good. The best method in the comparison of
 @Rawls1982JIDDASCE.
 
 Alterra institute in collaboration with ISRIC validated the PTF
-developed by @hodnett2002marked on the basis of the data available in
+developed by @hodnett2002marked on the basis of the data present in
 the Africa Soil Profiles database [@Leenaars2012] to predict tension
 specific volumetric water content [@wosten2013soil] to assess WRD.
 @Jagtap2004TASAE developed an approach that does not fit a mathematical
@@ -1417,7 +1450,7 @@ the WRD from more easily available parameters as:
 @Zacharias2007SSSAJ concluded that approach (1) has the disadvantage
 that it uses a large number of regression parameters depending on the
 number of WRD sampling points, which makes its use in the mathematical
-modeling more difficult while for approach 2 very detailed information
+modeling more difficult; while for approach 2 very detailed information
 about the particle size distribution is required. They therefore
 preferred use of (3) the parameter estimation methods.
 
@@ -1504,7 +1537,7 @@ from 0.81 to 0.91.
 coverage of soil hydraulic property data for France that included an
 efficient sampling strategy based on the use of functional horizons
 [@Bouma1989S], and a series of reference sites where soil hydraulic
-properties could be measured comprehensively. They argued that
+properties could be measured comprehensively. They argued that the
 functional horizon method recognizes the soil texture class of the
 horizon rather than the profile as the individual or building block for
 prediction [@Wosten1985SSSAJ; @Wosten1992]. A significant feature of
@@ -1522,7 +1555,7 @@ general form of:
 where the total profile available water ($\mathtt{AWAIMM}$) can be
 summed over the effective depth.
 
-By using the GSIF package, one can determine $\mathtt{AWAIMM}$ using the
+By using the GSIF package, one can estimate $\mathtt{AWAIMM}$ using the
 pedo-transfer function described by @hodnett2002marked and
 @wosten2013soil:
 
@@ -1590,7 +1623,7 @@ or method-groups, and possibly the need to harmonize values produced
 using different methods in order to make them roughly equivalent and
 comparable. The process of conversion of values measured according to an
 original method to values roughly equivalent to those measured according
-to an agreed-upon standard method is referred to as *data
+to an agreed-upon standard reference method is referred to as *data
 harmonization*.
 
 Note that differences in methods are not necessarily reflected in
@@ -1718,8 +1751,8 @@ classification systems, but with increasingly more analytical data
 required to reach a specific, more refined, class. Mapping soil types,
 using WRB or KST or both, has been of interest for global soil mapping
 projects since the first development of the global classification
-systems. As a matter of fact, term *“World soil map”* has been
-exclusively used for cartographic presentation of the global
+systems. As a matter of interest, the term *“World soil map”* has been
+used exclusively for cartographic presentation of the global
 distribution of KST soil orders (12) and/or FAO WRB soil groups (32).
 
 <div class="rmdnote">
@@ -1752,12 +1785,12 @@ lower taxonomic levels with hundreds of unique taxonomic entities.
 </div>
 
 The map in Fig. \@ref(fig:worldmap-suborders) shows the global
-distribution of Keys to Soil Taxonomy soil suborders according to 
+distribution of Soil Taxonomy soil suborders according to 
 [USDA-NRCS World Soil Index](https://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/use/worldsoils/?cid=nrcs142p2_054010). 
 Assuming a rule of thumb that we need at least 5 and, if
 possible, 10 observations of a specific soil taxonomic entity per unique
 combination of predictor variables and observations,
-[@harrell2001regression], it is possible to estimate that the amount of
+[@harrell2001regression], it is possible to estimate that the optimum number of
 field observations required to e.g. predict the global distribution of
 USDA soil series would be in the order of few millions of soil profiles
 (Fig. \@ref(fig:usda-categories)).
@@ -1777,7 +1810,7 @@ variables:
     formation processes. They are much easier to detect in the field
     than soil types but are rarely mapped over entire areas. Diagnostic
     soil horizons can theoretically be mapped as 3D soil polygons or
-    probabilities (rasters) attached to specific depth.
+    probabilities (rasters) attached to specific depths.
 
 -   *Soil material classes* — Soil horizons or whole profiles can be
     dominated by minerals or their combinations e.g. organic material in
@@ -1799,7 +1832,7 @@ variables:
 As with any map, categorical, factor-type soil variables can be mapped
 globally (together with the uncertainty) as long as there is sufficient
 training field data to properly support application of the prediction
-algorithm. The other technical problem is storage required to save and
+algorithm. The other technical problem is the amount of storage required to save and
 share all the produced predictions. Each category of a soil categorical
 variable can be mapped separately, which can lead to hundreds of grids.
 The global land cover map for example contains only some 35 categories,
@@ -1922,7 +1955,7 @@ USDA.TT.cnt[,c("name","SAND","SILT","CLAY")]
 #> 12            sand 0.920 0.050 0.033
 ```
 
-Now that we have created a function that creates values in the texture triangle to texture fractions, we can go further and even estimate what is the uncertainty of estimating each texture fraction based on the class. For this we can use simulations i.e. randomly sample 100 points within some texture class and then derive standard deviations for each texture fraction. Note that, although this sounds as a complicated operation, we can run this in two lines of code. For example to estimate uncertainty of converting the class ''Cl'' (clay) to texture fractions we can simulate 100 random points the class polygon using the ''spsample'' function from the sp package [@Bivand2013Springer]:
+Now that we have created a function that converts values in the texture triangle to texture fractions, we can go further and even estimate the uncertainty of estimating each texture fraction based on the class. For this we can use simulations i.e. randomly sample 100 points within some texture class and then derive standard deviations for each texture fraction. Note that, although this sounds like a complicated operation, we can run this in two lines of code. For example to estimate uncertainty of converting the class ''Cl'' (clay) to texture fractions we can simulate 100 random points the class polygon using the ''spsample'' function from the sp package [@Bivand2013Springer]:
 
 
 ```r
@@ -1962,7 +1995,7 @@ TT.plot(class.sys = "USDA.TT", tri.data = tdf,
 <p class="caption">(\#fig:plot-tt-afsis)Distribution of observed soil textures for the [Africa Soil Profiles](http://gsif.r-forge.r-project.org/afsp.html).</p>
 </div>
 
-This shows that not all positions in the triangle have the same prior probability. So probably a more sensitive way to estimate uncertainty of converting soil texture classes to fractions would be to run simulations using a density image showing the actual distribution of classes and then, by using the `rpoint` function in the [spatstat package](http://spatstat.org), we could also derive an even more realistic conversions from texture-by-hand classes to texture fractions.
+This shows that not all positions in the triangle have the same prior probability. So probably a more sensitive way to estimate uncertainty of converting soil texture classes to fractions would be to run simulations using a density image showing the actual distribution of classes and then, by using the `rpoint` function in the [spatstat package](http://spatstat.org), we could also derive even more realistic conversions from texture-by-hand classes to texture fractions.
 
 ## Converting Munsell color codes to other color systems
 
@@ -2015,7 +2048,7 @@ plotKML::col2kml("#003A7CFF")
 #> [1] "#ff7c3a00"
 ```
 
-To plot the actual colors based on actual soil profile data base we often need to prepare the color codes before we can run the conversion [@VISCARRAROSSEL2006320]. In the case of the [Africa Soil Profile Database](http://gsif.r-forge.r-project.org/afsp.html):
+To plot the actual colors based on an actual soil profile data base we often need to prepare the color codes before we can run the conversion [@VISCARRAROSSEL2006320]. In the case of the [Africa Soil Profile Database](http://gsif.r-forge.r-project.org/afsp.html):
 
 
 ```r
@@ -2043,7 +2076,7 @@ str(mcol)
 #>  $ LATWGS84: num  -11 -11 -11 -11 -11 ...
 ```
 
-Next we need to format all Munsell color codes to ''Hue_Saturation_Intensity'' format. We can slowly replace the existing codes until all codes can be matched with the RGB table:
+Next we need to format all Munsell color codes to ''Hue_Saturation_Intensity'' format. We can incrementally replace the existing codes until all codes can be matched with the RGB table:
 
 
 ```r
@@ -2165,7 +2198,7 @@ plotKML(prof1, var.name="ORCDRC", color.name="soil_color")
 
 ### PTF for Bulk Density
 
-In the following examples we look at possibilities of using [Machine Learning](wiki/soilmapping_using_mla) to predict soil properties and classes from other soil properties and classes. In the first example, we try to build a Pedo-Transfer-Function (PTF) to predict bulk density using soil properties such as organic carbon content, soil texture and coarse fragments. Bulk density is often available only for a part of soil profiles, so if we could use a PTF to fill in all gaps in bulk density, then most likely we would not need to drop BD from further analysis. For testing PTFs to predict bulk density from other soil properties we will use a subset of the ISRIC WISE soil profile data set [@Batjes2009SUM], which can be loaded from:
+In the following examples we look at possibilities of using [Machine Learning](wiki/soilmapping_using_mla) to predict soil properties and classes from other soil properties and classes. In the first example, we try to build a Pedo-Transfer-Function (PTF) to predict bulk density using soil properties such as organic carbon content, soil texture and coarse fragments. Bulk density is often available only for a part of soil profiles, so if we could use a PTF to fill in all gaps in bulk density, then most likely we would not need to omit BD from further analysis. For testing PTFs to predict bulk density from other soil properties we will use a subset of the ISRIC WISE soil profile data set [@Batjes2009SUM], which can be loaded from:
 
 
 ```r
@@ -2215,14 +2248,14 @@ rfsrc_BD
 #>                           Error rate: 46373
 ```
 
-which shows that model explains about 40% with an RMSE of ±200 kg/m$^3$. Although the MSE is relatively high, it least can be used to fill in the missing values for BD which can be significant. We can plot the partial plots between the target variable and all covariates by using:
+which shows that the model explains about 40% with an RMSE of ±200 kg/m$^3$. Although the MSE is relatively high, it least can be used to fill in the missing values for BD which can be significant. We can plot the partial plots between the target variable and all covariates by using:
 
 <div class="figure" style="text-align: center">
 <img src="figures/bulk_density_ptf_plots.png" alt="Bulk density as a function of organic carbon, pH, sand and clay content coarse fragments and depth." width="100%" />
 <p class="caption">(\#fig:bulk-density-ptf)Bulk density as a function of organic carbon, pH, sand and clay content coarse fragments and depth.</p>
 </div>
 
-Obviously the key to explaining bulk density is soil organic carbon, while depth and pH are 2nd and 3rd most important covariates. Using this MLA-based model we can predict bulk density for various combinations of soil properties:
+Obviously the key to explaining bulk density is soil organic carbon, while depth and pH are the 2nd and 3rd most important covariates. Using this MLA-based model we can predict bulk density for various combinations of soil properties:
 
 
 ```r
@@ -2271,7 +2304,7 @@ str(leg)
 #>  $ TAX        : Factor w/ 434 levels "Alfisols_Aqualfs_Albaqualfs",..: 1 2 3 4 5 6 7 8 9 10 ...
 ```
 
-Our objective is to develop a function to translate WRB classed into USDA classes with a help of some soil properties. We can try to add soil pH and clay content to increase accuracy of the model:
+Our objective is to develop a function to translate WRB classes into USDA classes with help of some soil properties. We can try to add soil pH and clay content to increase the accuracy of the model:
 
 
 ```r
@@ -2323,12 +2356,12 @@ x[,order(1/x)[1:2]]
 #> 1    0.338   0.163
 ```
 
-so for example, the two most likely classes to convert Calcaric Cambisols seem to be Ochrepts and Orthids, which is not that much different from correlation classes reported in @Krasilnikov2009handbook in fact.
+so for example, the two most likely classes to equate to Calcaric Cambisols seem to be Ochrepts and Orthids, which is not that much different from correlation classes reported in @Krasilnikov2009handbook in fact.
 
 ## Summary points
 
 In this chapter, we have endeavoured to provide precise and explicit
-descriptions of the soil properties and soil classes of interest to PSM.
+descriptions of the soil properties and soil classes of interest to current PSM activities.
 For each soil property (or class) we have provided an explanation for
 why that property (or class) is of interest to users and why it has been
 selected to be mapped. In many cases, the most
@@ -2344,6 +2377,19 @@ describe each mapped soil property and reviewed problems and
 opportunities related to harmonization of soil property values contained
 in legacy soil profile databases that have been analysed using different
 methods of analysis.
+
+It should be noted that, in this chapter, we have emphasized the use of 
+existing, or legacy, soil profile data to provide the evidence used to
+construct predicton models for PSM. This emphasis reflects the reality 
+that, for most of the world, legacy soil profile data is all that we 
+have to work with, at the present time, and all that we can reasonably 
+expect to obtain for the foreseeable future. Many of the issues and 
+challenges related to use and harmonization of legacy soil profile data
+discussed in this chapter will hopefully be of less importance as newer,
+contemporary data are collected in the field and analysed in the laboratory
+using more robust, statistically valid and reproduceable methods (e.g. spectroscopy).
+In the meantime, standardization and harmonization of legacy soil profile
+data will continue to present a challenge for global to regional PSM.
 
 One attractive option for harmonizing soil analytical data following the
 SINFER concept would be to create and maintain a Global Soil Reference
@@ -2391,4 +2437,10 @@ mapping are fully harmonized and roughly equivalent for all input data
 sets. In the shorter term, it is likely that the accuracy of global
 predictions will be reduced because of weak, inconsistent or completely
 absent efforts to harmonize soil property values produced using
-different analytical methods.
+different analytical methods. In the longer term, we hope, and expect,
+that data collected in the future, as we move forward, will benefit from
+adoption of methods of data collection and analysis that are more 
+systematic, more reproduceable, more accurate and more interchangeable. 
+These improvements should reduce the need for harmonization and 
+standardization and should make use of soil observation and measurement
+data easier and more consistent. 

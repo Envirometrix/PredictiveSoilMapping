@@ -811,7 +811,7 @@ available water, are volumetric based and require knowledge of the
 volume of non-soil materials throughout the profile. This information is required to support
 calculations of the total volume of the fine earth fraction that is
 available to hold water or retain organic carbon. Without some estimate
-of the volume of the soil occupied by solid particles larger than (******2 mm ****), it
+of the volume of the soil occupied by solid particles larger than 2 mm, it
 would not be possible to compute volumetric estimates of stocks of soil
 carbon or available moisture for fine earth soil.
 
@@ -1142,8 +1142,7 @@ conductivity and moisture holding capacity.
 knowledge for predicting soil bulk density from other, more regularly
 measured, properties. The model considers soil bulk density to be a
 function of soil mineral packing structures ($\rho_m$) and soil
-structure ($\Delta \rho$). Bulk-density maxima were found for soils with
-approximately (****MISSING NUMBER****) sand. Bulk densities were also observed to increase with
+structure ($\Delta \rho$). Bulk densities were also observed to increase with
 depth, suggesting the influence of over-burden pressure. Residuals from
 the $\rho_m$ model, referred to as $\Delta \rho$, correlated with
 organic carbon.

@@ -1831,7 +1831,7 @@ and to import them to a platform to run spatial analysis. Note also that
 conversion from one data model to the other in software for statistical
 computing is relatively easy to accomplish.
 
-### Soil Information System
+### A Soil Information System
 
 A *Soil Information System* (SIS) consists of a combination of input
 soil data (soil profiles, soil polygon maps, soil covariates), output

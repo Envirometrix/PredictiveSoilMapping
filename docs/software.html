@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl">
 
 
-<meta name="date" content="2018-08-31">
+<meta name="date" content="2018-10-15">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -135,7 +135,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.3.3" data-path="introduction.html"><a href="introduction.html#soil-mapping-theory"><i class="fa fa-check"></i><b>1.3.3</b> Theoretical basis of soil mapping: in context of the universal model of spatial variation</a></li>
 <li class="chapter" data-level="1.3.4" data-path="introduction.html"><a href="introduction.html#conventional-mapping"><i class="fa fa-check"></i><b>1.3.4</b> Traditional (conventional) soil mapping</a></li>
 <li class="chapter" data-level="1.3.5" data-path="introduction.html"><a href="introduction.html#variants-of-soil-maps"><i class="fa fa-check"></i><b>1.3.5</b> Variants of soil maps</a></li>
-<li class="chapter" data-level="1.3.6" data-path="introduction.html"><a href="introduction.html#pedometric-mapping"><i class="fa fa-check"></i><b>1.3.6</b> Predictive and Automated soil mapping</a></li>
+<li class="chapter" data-level="1.3.6" data-path="introduction.html"><a href="introduction.html#pedometric-mapping"><i class="fa fa-check"></i><b>1.3.6</b> Predictive and automated soil mapping</a></li>
 <li class="chapter" data-level="1.3.7" data-path="introduction.html"><a href="introduction.html#comparison-conventional-pm"><i class="fa fa-check"></i><b>1.3.7</b> Comparison of conventional and pedometric soil mapping</a></li>
 <li class="chapter" data-level="1.3.8" data-path="introduction.html"><a href="introduction.html#top-down"><i class="fa fa-check"></i><b>1.3.8</b> Top-down versus bottom-up approaches: subdivision versus agglomeration</a></li>
 </ul></li>
@@ -152,7 +152,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#soil-databases"><i class="fa fa-check"></i><b>1.5</b> Soil databases and soil information systems</a><ul>
 <li class="chapter" data-level="1.5.1" data-path="introduction.html"><a href="introduction.html#soil-databases"><i class="fa fa-check"></i><b>1.5.1</b> Soil databases</a></li>
-<li class="chapter" data-level="1.5.2" data-path="introduction.html"><a href="introduction.html#soil-information-system"><i class="fa fa-check"></i><b>1.5.2</b> Soil Information System</a></li>
+<li class="chapter" data-level="1.5.2" data-path="introduction.html"><a href="introduction.html#a-soil-information-system"><i class="fa fa-check"></i><b>1.5.2</b> A Soil Information System</a></li>
 <li class="chapter" data-level="1.5.3" data-path="introduction.html"><a href="introduction.html#soil-information-users"><i class="fa fa-check"></i><b>1.5.3</b> Soil information users</a></li>
 <li class="chapter" data-level="1.5.4" data-path="introduction.html"><a href="introduction.html#usability-of-soil-geographical-database"><i class="fa fa-check"></i><b>1.5.4</b> Usability of soil geographical database</a></li>
 </ul></li>
@@ -279,7 +279,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.2.2" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#geographical-covariates"><i class="fa fa-check"></i><b>6.2.2</b> Geographical covariates</a></li>
 <li class="chapter" data-level="6.2.3" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#spatial-prediction-2d-continuous-variable-using-rfsp"><i class="fa fa-check"></i><b>6.2.3</b> Spatial prediction 2D continuous variable using RFsp</a></li>
 <li class="chapter" data-level="6.2.4" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#spatial-prediction-2d-variable-with-covariates-using-rfsp"><i class="fa fa-check"></i><b>6.2.4</b> Spatial prediction 2D variable with covariates using RFsp</a></li>
-<li class="chapter" data-level="6.2.5" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#spatial-prediction-of-binomial-variable"><i class="fa fa-check"></i><b>6.2.5</b> Spatial prediction of binomial variable</a></li>
+<li class="chapter" data-level="6.2.5" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#spatial-prediction-of-binomial-variables"><i class="fa fa-check"></i><b>6.2.5</b> Spatial prediction of binomial variables</a></li>
 <li class="chapter" data-level="6.2.6" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#spatial-prediction-of-soil-types"><i class="fa fa-check"></i><b>6.2.6</b> Spatial prediction of soil types</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#summary-points-3"><i class="fa fa-check"></i><b>6.3</b> Summary points</a></li>
@@ -319,7 +319,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="software" class="section level1">
 <h1><span class="header-section-number">2</span> Software installation and first steps</h1>
 <p><em>Edited by: T. Hengl</em></p>
-<p>This section contains instruction on how to install and use software to run predictive soil mapping and export results to GIS or web applications. It has been written (as most of the book) for Linux users, but should not be too much of a problem to adopt to Microsoft Windows OS and/or Mac OS.</p>
+<p>This section contains instructions on how to install and use software to run predictive soil mapping and export results to GIS or web applications. It has been written (as has most of the book) for Linux users, but should not be too much of a problem to adoat to Microsoft Windows OS and/or Mac OS.</p>
 <div id="list-of-software-in-use" class="section level2">
 <h2><span class="header-section-number">2.1</span> List of software in use</h2>
 <div class="figure" style="text-align: center"><span id="fig:software-triangle"></span>
@@ -338,11 +338,11 @@ Figure 2.1: Software combination used in this book.
 <li><p>Google Earth or Google Earth Pro;</p></li>
 <li><p><a href="https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries">GDAL v2.x</a> for Windows machines use e.g. <a href="http://download.gisinternals.com/sdk/downloads/release-1800-x64-gdal-2-1-3-mapserver-7-0-4/gdal-201-1800-x64-core.msi">“gdal-*-1800-x64-core.msi“</a>;</p></li>
 </ul>
-<p>R script used in this tutorial you can download from the <strong><a href="https://github.com/envirometrix/PredictiveSoilMapping">github</a></strong>. As a gentle introduction to R programming language and soil classes in R we recommend the chapter on importing and using soil data. Some more example of SAGA GIS + R usage you can find in the soil covariates chapter. To visualize spatial predictions in a web-browser or Google Earth you could also consider following the soil web-maps tutorial. As a gentle introduction to R programming language and spatial classes in R we recommend following <a href="https://geocompr.robinlovelace.net/">the Geocomputation with R book</a>. Obtaining also the <a href="https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf">R reference card</a> is highly recommended.</p>
+<p>R script used in this tutorial can be downloaded from the <strong><a href="https://github.com/envirometrix/PredictiveSoilMapping">github</a></strong>. As a gentle introduction to the R programming language and to soil classes in R we recommend the chapter on importing and using soil data. Some more examples of SAGA GIS + R usage can be found in the soil covariates chapter. To visualize spatial predictions in a web-browser or Google Earth you could also consider following the soil web-maps tutorial. As a gentle introduction to the R programming language and spatial classes in R we recommend following <a href="https://geocompr.robinlovelace.net/">the Geocomputation with R book</a>. Obtaining also the <a href="https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf">R reference card</a> is highly recommended.</p>
 </div>
 <div id="installing-software-on-ubuntu-os" class="section level2">
 <h2><span class="header-section-number">2.2</span> Installing software on Ubuntu OS</h2>
-<p>On Ubuntu (often the recommended standard for GIS community) main software can be installed within 10–20 minutes. We start with installing GDAL, proj4 and some packages that you might need later on:</p>
+<p>On Ubuntu (often the recommended standard for the GIS community) the main required software can be installed within 10–20 minutes. We start with installing GDAL, proj4 and some packages that you might need later on:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install libgdal-dev libproj-dev libjasper-dev
 <span class="fu">sudo</span> apt-get install gdal-bin python-gdal</code></pre></div>
 <p>Next, we can install R and RStudio. For R studio you can use the CRAN distribution or the optimized distribution provided by (the former REvolution company; now Microsoft):</p>
@@ -350,7 +350,7 @@ Figure 2.1: Software combination used in this book.
 <span class="fu">tar</span> -xf microsoft-r-open-3.4.3.tar.gz
 <span class="bu">cd</span> microsoft-r-open/
 <span class="fu">sudo</span> ./install.sh</code></pre></div>
-<p>Note that the R versions are constantly being updated so you will need to replace the URL based on the information provided on the home page (<a href="http://mran.microsoft.com" class="uri">http://mran.microsoft.com</a>). Once you run <code>install.sh</code> you will have to accept the license terms two times before the installation can be completed. If everything went successful, you can get the session info by:</p>
+<p>Note that R versions are constantly being updated so you will need to replace the URL above based on information provided on the home page (<a href="http://mran.microsoft.com" class="uri">http://mran.microsoft.com</a>). Once you run <code>install.sh</code> you will have to accept the license terms two times before the installation can be completed. If everything completes successfully, you can get the session info by:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sessionInfo</span>()
 <span class="co">#&gt; R version 3.4.3 (2017-11-30)</span>
 <span class="co">#&gt; Platform: x86_64-pc-linux-gnu (64-bit)</span>
@@ -402,14 +402,14 @@ Figure 2.1: Software combination used in this book.
 <span class="co">#&gt; [58] Hmisc_4.0-3         rprojroot_1.3-1     stringi_1.1.6      </span>
 <span class="co">#&gt; [61] Rcpp_0.12.14        acepack_1.4.1       xfun_0.1</span>
 <span class="kw">system</span>(<span class="st">&quot;gdalinfo --version&quot;</span>)</code></pre></div>
-<p>This shows for example that the this installation of R is based on the Ubuntu 16.* LTS and the version of GDAL is up to date. Using an optimized distribution of R (read more about <a href="https://mran.microsoft.com/documents/rro/multithread">“The Benefits of Multithreaded Performance with Microsoft R Open”</a>) is especially important if you plan to use R for production purposes i.e. to optimize computing and generation of soil maps for large amount of pixels.</p>
+<p>This shows, for example, that the this installation of R is based on the Ubuntu 16.* LTS and the version of GDAL is up to date. Using an optimized distribution of R (read more about <a href="https://mran.microsoft.com/documents/rro/multithread">“The Benefits of Multithreaded Performance with Microsoft R Open”</a>) is especially important if you plan to use R for production purposes i.e. to optimize computing and generation of soil maps for large numbers of pixels.</p>
 <p>To install RStudio we can run:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install gdebi-core
 <span class="fu">wget</span> https://download1.rstudio.org/rstudio-1.1.447-amd64.deb 
 <span class="fu">sudo</span> gdebi rstudio-1.1.447-amd64.deb
 <span class="fu">sudo</span> rm rstudio-1.1.447-amd64.deb</code></pre></div>
 <p>Again, RStudio is constantly updated so you might have to adjust the rstudio version and distribution.</p>
-<p>Predictive soil mapping is about making maps, and maps require a GIS software so that one can open view overlay and analyze the maps. GIS software recommended for soil mapping in this book is SAGA GIS, QGIS, GRASS GIS and Google Earth. To install SAGA GIS on Ubuntu we can use:</p>
+<p>Predictive soil mapping is about making maps, and working with maps requires use of GIS software to open, view overlay and analyze the data sptially. GIS software recommended for soil mapping in this book consists of SAGA GIS, QGIS, GRASS GIS and Google Earth. To, install SAGA GIS on Ubuntu we can use:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> add-apt-repository ppa:ubuntugis/ubuntugis-unstable
 <span class="fu">sudo</span> apt-get update
 <span class="fu">sudo</span> apt-get install saga</code></pre></div>
@@ -422,7 +422,7 @@ Figure 2.1: Software combination used in this book.
 <span class="fu">sudo</span> apt-get install qgis python-qgis qgis-plugin-grass</code></pre></div>
 <p>Other utility software that you might need include <code>htop</code> that allows you to track processing progress:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install htop iotop</code></pre></div>
-<p>and some additional libraries used be <code>devtools</code>, <code>geoR</code> and similar can be installed via:</p>
+<p>and some additional libraries use <code>devtools</code>, <code>geoR</code> and similar, which can be installed via:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install build-essential automake<span class="kw">;</span> 
         <span class="ex">libcurl4-openssl-dev</span> pkg-config libxml2-dev<span class="kw">;</span>
         <span class="ex">libfuse-dev</span> mtools libpng-dev libudunits2-dev</code></pre></div>
@@ -431,14 +431,14 @@ Figure 2.1: Software combination used in this book.
 </div>
 <div id="Whitebox" class="section level2">
 <h2><span class="header-section-number">2.3</span> WhiteboxTools</h2>
-<p>WhiteboxTools (<a href="http://www.uoguelph.ca/~hydrogeo/WhiteboxTools/" class="uri">http://www.uoguelph.ca/~hydrogeo/WhiteboxTools/</a>), contributed by John Lindsay, is an extensive suite of functions and tools for DEM analysis and can be used to supplement especially hydrological and morphometric analysis available in SAGA GIS and GRASS GIS <span class="citation">(Lindsay <a href="references.html#ref-lindsay2016whitebox">2016</a>)</span>. Probably the easiest way to use WhiteboxTools is to install a QGIS plugin (kindly maintained by Alexander Bruy: <a href="https://plugins.bruy.me/" class="uri">https://plugins.bruy.me/</a>) and then learn and extend the WhiteboxTools scripting language by testing things out in QGIS (see below).</p>
+<p>WhiteboxTools (<a href="http://www.uoguelph.ca/~hydrogeo/WhiteboxTools/" class="uri">http://www.uoguelph.ca/~hydrogeo/WhiteboxTools/</a>), contributed by John Lindsay, is an extensive suite of functions and tools for DEM analysis which is especially useful for extending the hydrological and morphometric analysis tools available in SAGA GIS and GRASS GIS <span class="citation">(Lindsay <a href="references.html#ref-lindsay2016whitebox">2016</a>)</span>. Probably the easiest way to use WhiteboxTools is to install a QGIS plugin (kindly maintained by Alexander Bruy: <a href="https://plugins.bruy.me/" class="uri">https://plugins.bruy.me/</a>) and then learn and extend the WhiteboxTools scripting language by testing things out in QGIS (see below).</p>
 <div class="figure" style="text-align: center"><span id="fig:whiteboxtools-preview"></span>
 <img src="figures/whiteboxtools-preview.jpg" alt="Calling WhiteboxTools from QGIS via the WhiteboxTools plugin." width="100%" />
 <p class="caption">
 Figure 2.2: Calling WhiteboxTools from QGIS via the WhiteboxTools plugin.
 </p>
 </div>
-<p>The function <code>FlowAccumulationFullWorkflow</code> is for example a wrapper function to filter out all spurious sinks and derive hydrological flow accumulation map all at once. To run it from command line we can use:</p>
+<p>The function <code>FlowAccumulationFullWorkflow</code> is, for example, a wrapper function to filter out all spurious sinks and to derive a hydrological flow accumulation map in the same step. To run it from command line we can use:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">system</span>(<span class="kw">paste0</span>(<span class="st">&#39;&quot;/home/tomislav/software/WBT/whitebox_tools&quot; &#39;</span>,
   <span class="st">&#39;--run=FlowAccumulationFullWorkflow --dem=&quot;./extdata/DEMTOPx.tif&quot; &#39;</span>,
   <span class="st">&#39;--out_type=&quot;Specific Contributing Area&quot; --log=&quot;False&quot; --clip=&quot;False&quot; --esri_pntr=&quot;False&quot; &#39;</span>,
@@ -451,18 +451,18 @@ Figure 2.2: Calling WhiteboxTools from QGIS via the WhiteboxTools plugin.
 Figure 2.3: Hydrological flow accummulation map based on the Ebergotzen DEM derived using WhiteboxTools.
 </p>
 </div>
-<p>This produces number of maps, from which usually the hydrological flow accumulation map is potentially most useful. It is highly recommended that, before you start running analysis on large DEM’s using WhiteboxTools and/or SAGA GIS, is that you test functionality using smaller data sets i.e. either a subset of the original data or using DEM at very coarse resolutions (so that width and height of a DEM is only few hundred pixels). Also note that WhiteboxTools do not work with GeoTIFFs produced using the <code>COMPRESS=DEFLATE</code> creation options.</p>
+<p>This produces a number of maps, from which the hydrological flow accumulation map is usually the most useful. It is highly recommended that, before running analysis on large DEM’s using WhiteboxTools and/or SAGA GIS, you test functionality using smaller data sets i.e. either a subset of the original data or using a DEM at very coarse resolutions (so that width and height of a DEM are only few hundred pixels). Also note that WhiteboxTools do not presently work with GeoTIFs that use the <code>COMPRESS=DEFLATE</code> creation options.</p>
 </div>
 <div id="Rstudio" class="section level2">
 <h2><span class="header-section-number">2.4</span> RStudio</h2>
-<p>RStudio is, in principle, the main R scripting environment and can be used to control all other software used in the course. A more detailed RStudio tutorial is available at: <a href="http://www.rstudio.com/resources/training/online-learning/">RStudio — Online Learning</a>. Consider also following some spatial data tutorials e.g. by James Cheshire (<a href="http://spatial.ly/r/" class="uri">http://spatial.ly/r/</a>). Below is an example of RStudio session with R editor on right and R console on left.</p>
+<p>RStudio is, in principle, the main R scripting environment and can be used to control all other software used in this tutorial. A more detailed RStudio tutorial is available at: <a href="http://www.rstudio.com/resources/training/online-learning/">RStudio — Online Learning</a>. Consider also following some spatial data tutorials e.g. by James Cheshire (<a href="http://spatial.ly/r/" class="uri">http://spatial.ly/r/</a>). Below is an example of RStudio session with R editor on right and R console on left.</p>
 <div class="figure" style="text-align: center"><span id="fig:rstudio-example"></span>
 <img src="figures/rstudio_example.png" alt="RStudio is a commonly used R editor written in C++." width="100%" />
 <p class="caption">
 Figure 2.4: RStudio is a commonly used R editor written in C++.
 </p>
 </div>
-<p>To install all required R packages used in some script at once, you can use:</p>
+<p>To install all required R packages used in this tutorial at once, you can use:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ls &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;rgdal&quot;</span>, <span class="st">&quot;raster&quot;</span>, <span class="st">&quot;GSIF&quot;</span>, <span class="st">&quot;plotKML&quot;</span>, 
         <span class="st">&quot;nnet&quot;</span>, <span class="st">&quot;plyr&quot;</span>, <span class="st">&quot;ROCR&quot;</span>, <span class="st">&quot;randomForest&quot;</span>, 
         <span class="st">&quot;psych&quot;</span>, <span class="st">&quot;mda&quot;</span>, <span class="st">&quot;h2o&quot;</span>, <span class="st">&quot;dismo&quot;</span>, <span class="st">&quot;grDevices&quot;</span>, 
@@ -473,7 +473,7 @@ Figure 2.4: RStudio is a commonly used R editor written in C++.
         <span class="st">&quot;gam&quot;</span>, <span class="st">&quot;glmnet&quot;</span>, <span class="st">&quot;matrixStats&quot;</span>, <span class="st">&quot;SuperLearner&quot;</span>)
 new.packages &lt;-<span class="st"> </span>ls[<span class="op">!</span>(ls <span class="op">%in%</span><span class="st"> </span><span class="kw">installed.packages</span>()[,<span class="st">&quot;Package&quot;</span>])]
 <span class="cf">if</span>(<span class="kw">length</span>(new.packages)) <span class="kw">install.packages</span>(new.packages)</code></pre></div>
-<p>This will basically check if some package is installed already, then install it if it is missing only. You can put this line at top of each R script that you share so that anybody using that script will automatically get all missing packages.</p>
+<p>This will basically check if any package is installed already, then install it only if it is missing. You can put this line at the top of each R script that you share so that anybody using that script will automatically get all required packages.</p>
 <p>The h2o package requires Java libraries, so you should first install Java by using e.g.:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> add-apt-repository ppa:webupd8team/java
 <span class="fu">sudo</span> apt-get update
@@ -482,12 +482,12 @@ new.packages &lt;-<span class="st"> </span>ls[<span class="op">!</span>(ls <span
 </div>
 <div id="plotkml-and-gsif-packages" class="section level2">
 <h2><span class="header-section-number">2.5</span> plotKML and GSIF packages</h2>
-<p>Many examples in the GSIF course rely on the top 5 most commonly used packages for spatial data: (1) <a href="https://cran.r-project.org/web/views/Spatial.html">sp and rgdal</a>, (2) <a href="https://cran.r-project.org/web/packages/raster/">raster</a>, (3) <a href="http://plotkml.r-forge.r-project.org/">plotKML</a> and (4) <a href="http://gsif.r-forge.r-project.org/">GSIF</a>. To install most up-to-date version of plotKML/GSIF, you can also use the R-Forge versions of the package:</p>
+<p>Many examples in this course rely on the top 5 most commonly used packages for spatial data: (1) <a href="https://cran.r-project.org/web/views/Spatial.html">sp and rgdal</a>, (2) <a href="https://cran.r-project.org/web/packages/raster/">raster</a>, (3) <a href="http://plotkml.r-forge.r-project.org/">plotKML</a> and (4) <a href="http://gsif.r-forge.r-project.org/">GSIF</a>. To install the most up-to-date version of plotKML/GSIF, you can also use the R-Forge versions of the package:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(GSIF)){
   <span class="kw">install.packages</span>(<span class="st">&quot;GSIF&quot;</span>, <span class="dt">repos=</span><span class="kw">c</span>(<span class="st">&quot;http://R-Forge.R-project.org&quot;</span>), 
                  <span class="dt">type =</span> <span class="st">&quot;source&quot;</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)
 }</code></pre></div>
-<p>A copy of the most-up-to-date stable versions of plotKML and GSIF is also available on <a href="https://github.com/cran/GSIF">github</a>. To run only some specific function from GSIF package you could do for example:</p>
+<p>A copy of the most-up-to-date and stable versions of plotKML and GSIF is also available on <a href="https://github.com/cran/GSIF">github</a>. To run only some specific function from the GSIF package you could do for example:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">source_https &lt;-<span class="st"> </span><span class="cf">function</span>(url, ...) {
    <span class="co"># load package</span>
    <span class="kw">require</span>(RCurl)
@@ -498,7 +498,7 @@ new.packages &lt;-<span class="st"> </span>ls[<span class="op">!</span>(ls <span
    <span class="kw">source</span>(<span class="kw">basename</span>(url))
 }
 <span class="kw">source_https</span>(<span class="st">&quot;https://raw.githubusercontent.com/cran/GSIF/master/R/OCSKGM.R&quot;</span>)</code></pre></div>
-<p>To test if these packages work properly create soil maps and visualize them in Google Earth by running the following lines of code (see also function: <a href="http://gsif.r-forge.r-project.org/fit.gstatModel.html">fit.gstatModel</a>):</p>
+<p>To test if these packages work properly, create soil maps and visualize them in Google Earth by running the following lines of code (see also function: <a href="http://gsif.r-forge.r-project.org/fit.gstatModel.html">fit.gstatModel</a>):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(GSIF)
 <span class="kw">library</span>(sp)
 <span class="kw">library</span>(boot)
@@ -551,7 +551,7 @@ Figure 2.5: Example of plotKML output.
 </div>
 <div id="connecting-r-and-saga-gis" class="section level2">
 <h2><span class="header-section-number">2.6</span> Connecting R and SAGA GIS</h2>
-<p>SAGA GIS is an extensive GIS geoprocessor software with over <a href="http://www.saga-gis.org/saga_tool_doc/index.html">600 functions</a>. SAGA GIS can not be installed from RStudio (it is not a package for R). Instead, you need to install SAGA GIS using the installation instructions from the <a href="https://sourceforge.net/projects/saga-gis/">software homepage</a>. After you have installed SAGA GIS, you can send processes from R to SAGA GIS by using the <code>saga_cmd</code> command line interface:</p>
+<p>SAGA GIS is an extensive GIS geoprocessing software with over <a href="http://www.saga-gis.org/saga_tool_doc/index.html">600 functions</a>. SAGA GIS can not be installed from RStudio (it is not a package for R). Instead, you need to install SAGA GIS using the installation instructions from the <a href="https://sourceforge.net/projects/saga-gis/">software homepage</a>. After you have installed SAGA GIS, you can send processes from R to SAGA GIS by using the <code>saga_cmd</code> command line interface:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span>(<span class="op">!</span><span class="kw">Sys.info</span>()[<span class="st">&#39;sysname&#39;</span>]<span class="op">==</span><span class="st">&quot;Linux&quot;</span>){
   saga_cmd =<span class="st"> &quot;C:/Progra~1/SAGA-GIS/saga_cmd.exe&quot;</span>
 } <span class="cf">else</span> {
@@ -587,7 +587,7 @@ Figure 2.6: Deriving hillshading using SAGA GIS and then visualizing the result 
   gdalwarp =<span class="st"> &quot;gdalwarp&quot;</span>
 }
 <span class="kw">system</span>(<span class="kw">paste</span>(gdalwarp, <span class="st">&quot;--help&quot;</span>))</code></pre></div>
-<p>We can use GDAL to reproject grid from the previous example:</p>
+<p>We can use GDAL to reproject the grid from the previous example:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">system</span>(<span class="st">&#39;gdalwarp ./extdata/DEMSRT6.sdat ./extdata/DEMSRT6_ll.tif -t_srs </span><span class="ch">\&quot;</span><span class="st">+proj=longlat +datum=WGS84</span><span class="ch">\&quot;</span><span class="st">&#39;</span>)
 <span class="kw">library</span>(raster)
 <span class="kw">plot</span>(<span class="kw">raster</span>(<span class="st">&quot;./extdata/DEMSRT6_ll.tif&quot;</span>))</code></pre></div>
