@@ -597,7 +597,7 @@ especially if it remains visible in the cross-validation residuals, indicates
 that the predictions are perhaps biased, and this is sub-optimal. 
 To account for this, @Hengl2018RFsp describe a framework for using Random Forest 
 (as implemented in the ranger package) in combination with geographical 
-distances to sampling locations (which provide explicit mesaures of spatial location) 
+distances to sampling locations (which provide measures of relative spatial location) 
 to fit models and predict values (RFsp).
 
 ### General principle of RFsp
