@@ -733,7 +733,7 @@ We can derive buffer distance by using:
 grid.dist0 <- GSIF::buffer.dist(meuse["zinc"], meuse.grid[1], as.factor(1:nrow(meuse)))
 ```
 
-which requires few seconds, as it generates 155 individual gridded maps. The value of the target variable `zinc` can be now modeled as a function of these computed buffer distances:
+which requires a few seconds, as it generates 155 individual gridded maps. The value of the target variable `zinc` can be now modeled as a function of these computed buffer distances:
 
 ```{r}
 dn0 <- paste(names(grid.dist0), collapse="+")
@@ -773,7 +773,7 @@ meuse.grid$zinc_rfd = zinc.rfd[,2]
 meuse.grid$zinc_rfd_range = (zinc.rfd[,3]-zinc.rfd[,1])/2
 ```
 
-We can compare the RFsp approach with the model-based geostatistics (see e.g. [geoR package](http://leg.ufpr.br/geoR/geoRdoc/geoRintro.html)), where we first decide about the transformation, then fit variogram of the target variable [@Diggle2007Springer; @Brown2014JSS]:
+We can compare the RFsp approach with the model-based geostatistics approach (see e.g. [geoR package](http://leg.ufpr.br/geoR/geoRdoc/geoRintro.html)), where we first decide about the transformation, then fit the variogram of the target variable [@Diggle2007Springer; @Brown2014JSS]:
 
 ```{r}
 zinc.geo <- as.geodata(meuse["zinc"])
@@ -797,7 +797,7 @@ in this case geoR automatically back-transforms values to the original scale, wh
 knitr::include_graphics("figures/Fig_comparison_OK_RF_zinc_meuse.png")
 ```
 
-From the plot above, it can be concluded that RFsp gives very similar results to those produced using ordinary kriging via geoR. The differences between geoR and RFsp, however, are:
+From the plot above, it can be concluded that RFsp yields very similar results to those produced using ordinary kriging via geoR. There are differences between geoR and RFsp, however. These are:
 
 - RF requires no transformation i.e. works equally well with skewed and normally distributed variables; in general RF, requires fewer statistical assumptions than model-based geostatistics,
 - RF prediction error variance on average shows somewhat stronger contrast than OK variance map i.e. it emphasizes isolated, less probable, local points much more than geoR,
@@ -806,7 +806,7 @@ From the plot above, it can be concluded that RFsp gives very similar results to
 
 ### Spatial prediction 2D variable with covariates using RFsp
 
-Next, we can also consider adding additional covariates that describe soil forming processes or characteristics of the land of interest to the list of buffer distances, for example the surface water occurrence [@pekel2016high] and elevation ([AHN](http://ahn.nl)):
+Next, we can also consider adding additional covariates that describe soil forming processes or characteristics of the land to the list of buffer distances. For example, we can add covariates for surface water occurrence [@pekel2016high] and elevation ([AHN](http://ahn.nl)):
 
 ```{r}
 f1 = "extdata/Meuse_GlobalSurfaceWater_occurrence.tif"
@@ -815,7 +815,7 @@ meuse.grid$SW_occurrence <- readGDAL(f1)$band1[meuse.grid@grid.index]
 meuse.grid$AHN = readGDAL(f2)$band1[meuse.grid@grid.index]
 ```
 
-to convert all covariates to numeric values and impute all missing pixels we use Principal Component transformation:
+to convert all covariates to numeric values and fill in all missing pixels we use Principal Component transformation:
 
 ```{r}
 grids.spc = GSIF::spc(meuse.grid, as.formula("~ SW_occurrence + AHN + ffreq + dist"))
@@ -852,12 +852,12 @@ points(vv, 1:10)
 axis(2, 1:10, labels = dimnames(vv)[[1]], las = 2)
 ```
 
-which shows, for example, that point 54, 59 and 53 are the most influential points, 
+which shows, for example, that locations 54, 59 and 53 are the most influential points, 
 and these are almost equally as important as the environmental covariates (PC2–PC4).
 
 This type of modeling can be best compared to using Universal Kriging or Regression-Kriging in the geoR package:
 
-```{r}
+```{r
 zinc.geo$covariate = ov.zinc1
 sic.t = ~ PC1 + PC2 + PC3 + PC4 + PC5
 zinc1.vgm <- likfit(zinc.geo, trend = sic.t, lambda=0, ini=ini.v, cov.model="exponential")
@@ -880,16 +880,16 @@ meuse.grid$zinc_UK = zinc.uk$predict
 knitr::include_graphics("figures/Fig_RF_covs_bufferdist_zinc_meuse.png")
 ```
 
-again, overall predictions (spatial patterns) look fairly similar (Fig. \@ref(fig:RF-covs-bufferdist-zinc-meuse)). 
+again, overall predictions (the spatial patterns) look fairly similar (Fig. \@ref(fig:RF-covs-bufferdist-zinc-meuse)). 
 The difference between using geoR and RFsp is that, in the case of RFsp, there are fewer choices 
 and fewer assumptions required. Also, RFsp permits the relationship between covariates 
-and geographical distances to befitted all at once. This makes RFsp, in general, less 
-cumbersome than model-based geostatistics, but then more of a “black-box” system 
+and geographical distances to be fitted all at once. This makes RFsp, in general, less 
+cumbersome than model-based geostatistics, but then also more of a “black-box” system 
 to a geostatistician. 
 
 ### Spatial prediction of binomial variables
 
-RFsp can also be used to predict i.e. map distribution of binomial variables i.e. having only two states (TRUE or FALSE). In the model-based geostatistics equivalent methods are indicator kriging and similar. Consider for example the soil type 1 from the meuse data set:
+RFsp can also be used to predict (map the distribution of) binomial variables i.e. variables having only two states (TRUE or FALSE). In the model-based geostatistics equivalent methods are indicator kriging and similar. Consider for example soil type 1 from the meuse data set:
 
 ```{r}
 meuse@data = cbind(meuse@data, data.frame(model.matrix(~soil-1, meuse@data)))
@@ -898,8 +898,8 @@ summary(as.factor(meuse$soil1))
 
 in this case class `soil1` is the dominant soil type in the area. To produce a map of `soil1` using RFsp we have now two options:
 
-- _Option 1_: treat binomial variable as numeric variable with 0 / 1 values (thus a regression problem),
-- _Option 2_: treat binomial variable as factor variable with a single class (thus a classification problem),
+- _Option 1_: treat the binomial variable as numeric variable with 0 / 1 values (thus a regression problem),
+- _Option 2_: treat the binomial variable as a factor variable with a single class (thus a classification problem),
 
 In the case of Option 1, we model `soil1` as:
 
@@ -913,11 +913,11 @@ m1.s1 <- ranger(fm.s1, rm.s1, mtry=22, num.trees=150, seed=1, quantreg=TRUE)
 m1.s1
 ```
 
-which shows that the model explains about 75% of variability in the `soil1` values. 
+which results in a model that explains about 75% of variability in the `soil1` values. 
 We set `quantreg=TRUE` so that we can also derive lower and upper prediction 
 intervals following the quantile regression random forest [@meinshausen2006quantile].
 
-In the case of Option 2, we treat binomial variable as a factor variable:
+In the case of Option 2, we treat the binomial variable as a factor variable:
 
 ```{r}
 fm.s1c <- as.formula(paste("soil1c ~ ", 
@@ -942,17 +942,17 @@ pred.regr <- predict(m1.s1, cbind(meuse.grid@data, grid.dist0@data), type="respo
 pred.clas <- predict(m2.s1, cbind(meuse.grid@data, grid.dist0@data), type="se")
 ```
 
-in principle, the two options to predicting distribution of binomial variable are mathematically equivalent and should lead to same predictions (also shown in the map below). In practice there can be some smaller differences in numbers due to rounding effect or random start effects. 
+in principle, the two options to predicting the distribution of the binomial variable are mathematically equivalent and should lead to the same predictions (also shown in the map below). In practice, there can be some small differences in numbers, due to rounding effect or random start effects. 
 
 ```{r comparison-uncertainty-Binomial, echo=FALSE, fig.cap="Comparison of predictions for soil class “1” produced using (left) regression and prediction of the median value, (middle) regression and prediction of response value, and (right) classification with probabilities.", out.width="90%"}
 knitr::include_graphics("figures/Fig_comparison_uncertainty_Binomial_variables_meuse.png")
 ```
 
-This shows that predicting binomial variables using RFsp can be implemented both as a classification and regression problems and both are possible via the ranger package and should lead to same results.
+This shows that predicting binomial variables using RFsp can be implemented both as a classification and a regression problem and both are possible to implement using the ranger package and both should lead to the same results.
 
 ### Spatial prediction of soil types
 
-Spatial prediction of categorical variable using ranger belongs to classification problems. The target variable contains multiple states (3 in this case), but the model follows still the same formulation:
+Spatial prediction of a categorical variable using ranger is a form of classification problem. The target variable contains multiple states (3 in this case), but the model still follows the same formulation:
 
 ```{r}
 fm.s = as.formula(paste("soil ~ ", paste(names(grid.dist0), collapse="+"), 
@@ -960,7 +960,7 @@ fm.s = as.formula(paste("soil ~ ", paste(names(grid.dist0), collapse="+"),
 fm.s
 ```
 
-to produce probability maps per soil class, we need to turn the `probability=TRUE` option:
+to produce probability maps per soil class, we need to turn on the `probability=TRUE` option:
 
 ```{r}
 rm.s <- do.call(cbind, list(meuse@data["soil"], 
@@ -970,7 +970,7 @@ m.s <- ranger(fm.s, rm.s, mtry=22, num.trees=150, seed=1, probability=TRUE, keep
 m.s
 ```
 
-this shows that the model is successful with the OOB prediction error of about 0.09. This number is rather abstract so we can also check what is the actual classification accuracy using hard classes:
+this shows that the model is successful with an OOB prediction error of about 0.09. This number is rather abstract so we can also check the actual classification accuracy using hard classes:
 
 ```{r}
 m.s0 <- ranger(fm.s, rm.s, mtry=22, num.trees=150, seed=1)
@@ -989,43 +989,43 @@ names(pred.grids) = c("soil", paste0("pred_soil", 1:3), paste0("se_soil", 1:3))
 str(pred.grids@data)
 ```
 
-where `pred_soil1` is the probability of occurrence of class 1 and `se_soil1` is the standard error of prediction for the `pred_soil1` based on the Jackknife-after-Bootstrap method [@wager2014confidence]. The first column in `pred.grids` contains existing map of `soil` with hard classes only.
+where `pred_soil1` is the probability of occurrence of class 1 and `se_soil1` is the standard error of prediction for the `pred_soil1` based on the Jackknife-after-Bootstrap method [@wager2014confidence]. The first column in `pred.grids` contains the existing map of `soil` with hard classes only.
 
 ```{r comparison-uncertainty-Factor, echo=FALSE, fig.cap="Predictions of soil types for the meuse data set based on the RFsp: (above) probability for three soil classes, and (below) derived standard errors per class.", out.width="90%"}
 knitr::include_graphics("figures/Fig_comparison_uncertainty_Factor_variables_meuse.png")
 ```
 
-Spatial prediction of binomial and factor-type variables is straight forward with ranger / RFsp: buffer distance and spatial-autocorrelation can be incorporated at once. Compare with geostatistical packages where link functions and/or indicator kriging would need to be used, and which requires that variograms are fitted per class.
+Spatial prediction of binomial and factor-type variables is straight forward with ranger / RFsp: buffer distance and spatial-autocorrelation can be incorporated simultaneously as opposed to geostatistical packages, where link functions and/or indicator kriging would need to be used, and which require that variograms are fitted per class.
 
 ## Summary points
 
-In summary, MLA's are fairly attractive for soil mapping and soil modelling problems in general as they often perform better than standard linear models (already recognized by @moran2002spatial and @Henderson2004Geoderma; some recent comparisons of MLA's performance for operational soil mapping can be found in @nussbaum2018evaluation). MLA's often perform better than linear techniques for soil mapping possibly due to the following three reasons:
+In summary, MLA's are fairly attractive for soil mapping and soil modelling problems in general, as they often perform better than standard linear models (as previously recognized by @moran2002spatial and @Henderson2004Geoderma) Some recent comparisons of MLA's performance for operational soil mapping can be found in @nussbaum2018evaluation). MLA's often perform better than linear techniques for soil mapping; possibly for the following three reasons:
 
- 1. Non-linear relationships between soil forming factors and soil properties can be efficiently modeled using MLA's,
- 2. Tree-based MLA's (random forest, gradient boosting, cubist) are suitable for representing *local* soil-landscape relationships, which is often important for accuracy of spatial prediction models,
+ 1. Non-linear relationships between soil forming factors and soil properties can be more efficiently modeled using MLA's,
+ 2. Tree-based MLA's (random forest, gradient boosting, cubist) are suitable for representing *local* soil-landscape relationships, nested within larger areas, which is often important for achieving accuracy of spatial prediction models,
  3. In the case of MLA, statistical properties such as multicolinearity and non-Gaussian distribution are dealt with inside the models, which simplifies statistical modeling steps,
 
-On the other hand MLA's can be computationally very intensive and hence require careful planning, especially as the number of points goes beyond few thousand and number of covariates beyond a dozen. Note also that some MLA's such as for example Support Vector Machines (`svm`) is computationally very intensive and is probably not suited for large data sets.
+On the other hand, MLA's can be computationally very intensive and consequently require careful planning, especially as the number of points goes beyond a few thousand and the number of covariates beyond a dozen. Note also that some MLA's, such as for example Support Vector Machines (`svm`), are computationally very intensive and are probably not well suited for large data sets.
 
 Within PSM, there is increasing interest in doing ensemble predictions, 
 model averages or model stacks. Stacking models can improve upon
 individual best techniques, achieving improvements of up to 30%, with
-the additional costs including only higher computation loads
+the additional demands consistinf of only higher computation loads
 [@michailidis2017investigating]. In the example above, the extensive
-computational load from derivation of models and product predictions had
-already obtained improved accuracies, making increasing computing loads
+computational load from derivation of models and product predictions 
+already achieved improved accuracies, making increasing computing loads
 further a matter of diminishing returns. Some interesting Machine Learning Algorithms for soil mapping based on regression include: Random Forest [@Biau2016], 
 Gradient Boosting Machine (GBM) [@hastie2009elements], Cubist [@kuhn2014cubist], 
 Generalized Boosted Regression Models [@ridgeway2010gbm], Support Vector Machines [@chang2011libsvm],
 and the Extreme Gradient Boosting approach available via the xgboost package [@2016arXiv160302754C].
-None of this techniques is universally the best spatial predictor for all soil variables,
-instead we recommend comparing MLA's using robust cross-validation methods as explained above.
-Also combining MLA's into ensemble predictions might not be beneficial at all. 
+None of these techniques is universally recognized as the best spatial predictor for all soil variables.
+Instead, we recommend comparing MLA's using robust cross-validation methods as explained above.
+Also combining MLA's into ensemble predictions might not be beneficial in all situations. 
 Less is better sometimes.
 
 The RFsp method seems to be suitable for generating spatial and spatiotemporal predictions. 
-Computing time, however, can be a cumbersome and working with data sets with >1000 
-point locations (hence 1000+ buffer distance maps) is probably not yet recommended. 
+Computing time, however, can be demanding and working with data sets with >1000 
+point locations (hence 1000+ buffer distance maps) is probably not yet feasible or recommended. 
 Also cross-validation of accuracy of predictions produced using RFsp needs to be 
 implemented using leave-location-out CV to account for spatial autocorrelation in data. 
 The key to the success of the RFsp framework might be the training data quality — 
