@@ -2047,16 +2047,14 @@ methods of analysis.
 
 It should be noted that, in this chapter, we have emphasized the use of 
 existing, or legacy, soil profile data to provide the evidence used to
-construct predicton models for PSM. This emphasis reflecte the reality 
+construct predicton models for PSM. This emphasis reflects the reality 
 that, for most of the world, legacy soil profile data is all that we 
-have to work with at the present time and all that we can reasonably 
+have to work with, at the present time, and all that we can reasonably 
 expect to obtain for the foreseeable future. Many of the issues and 
 challenges related to use and harmonization of legacy soil profile data
 discussed in this chapter will hopefully be of less importance as newer,
 contemporary data are collected in the field and analysed in the laboratory
-using more robust, statistically valid and reproduceable methods. Newer
-data should be collected using more robust sampling designs and analysed
-using more accurate and repeatable laboratory methods (e.g. spectroscopy).
+using more robust, statistically valid and reproduceable methods (e.g. spectroscopy).
 In the meantime, standardization and harmonization of legacy soil profile
 data will continue to present a challenge for global to regional PSM.
 
