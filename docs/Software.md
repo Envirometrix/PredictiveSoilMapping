@@ -7,10 +7,14 @@ This section contains instructions on how to install and use software to run pre
 
 ## List of software in use
 
-<div class="figure" style="text-align: center">
-<img src="figures/software_triangle.png" alt="Software combination used in this book." width="60%" />
-<p class="caption">(\#fig:software-triangle)Software combination used in this book.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics[width=0.6\linewidth]{figures/software_triangle} 
+
+}
+
+\caption{Software combination used in this book.}(\#fig:software-triangle)
+\end{figure}
 
 For processing the covariates we used a combination of Open Source GIS
 software, primarily SAGA GIS [@gmd-8-1991-2015], packages raster [@raster],
@@ -59,13 +63,12 @@ Note that R versions are constantly being updated so you will need to replace th
 
 ```r
 sessionInfo()
-#> R version 3.4.3 (2017-11-30)
-#> Platform: x86_64-pc-linux-gnu (64-bit)
-#> Running under: Ubuntu 16.04.4 LTS
+#> R version 3.5.1 (2018-07-02)
+#> Platform: x86_64-redhat-linux-gnu (64-bit)
+#> Running under: Fedora 28 (Workstation Edition)
 #> 
 #> Matrix products: default
-#> BLAS: /opt/microsoft/ropen/3.4.3/lib64/R/lib/libRblas.so
-#> LAPACK: /opt/microsoft/ropen/3.4.3/lib64/R/lib/libRlapack.so
+#> BLAS/LAPACK: /usr/lib64/R/lib/libRblas.so
 #> 
 #> locale:
 #>  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
@@ -76,38 +79,17 @@ sessionInfo()
 #> [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 #> 
 #> attached base packages:
-#> [1] methods   stats     graphics  grDevices utils     datasets  base     
+#> [1] stats     graphics  grDevices utils     datasets  methods   base     
 #> 
 #> other attached packages:
-#>  [1] raster_2.6-7           rgdal_1.2-16           plotKML_0.5-9         
-#>  [4] quantregForest_1.3-7   RColorBrewer_1.1-2     randomForest_4.6-12   
-#>  [7] gstat_1.1-5            rpart_4.1-11           plyr_1.8.4            
-#> [10] aqp_1.15               boot_1.3-20            sp_1.2-5              
-#> [13] GSIF_0.5-4             microbenchmark_1.4-2.1 RevoUtils_10.0.7      
-#> [16] RevoUtilsMath_10.0.1  
+#> [1] microbenchmark_1.4-4
 #> 
 #> loaded via a namespace (and not attached):
-#>  [1] splines_3.4.3       Formula_1.2-2       highr_0.6          
-#>  [4] latticeExtra_0.6-28 pixmap_0.4-11       yaml_2.1.16        
-#>  [7] pillar_1.0.1        backports_1.1.2     lattice_0.20-35    
-#> [10] digest_0.6.13       checkmate_1.8.5     colorspace_1.3-2   
-#> [13] htmltools_0.3.6     Matrix_1.2-12       XML_3.98-1.9       
-#> [16] bookdown_0.7.12     scales_0.5.0        intervals_0.15.1   
-#> [19] htmlTable_1.11.1    tibble_1.4.1        ggplot2_2.2.1      
-#> [22] RSAGA_0.94-5        nnet_7.3-12         lazyeval_0.2.1     
-#> [25] survival_2.41-3     magrittr_1.5        evaluate_0.10.1    
-#> [28] MASS_7.3-47         xts_0.10-1          foreign_0.8-69     
-#> [31] class_7.3-14        FNN_1.1             tools_3.4.3        
-#> [34] dismo_1.1-4         shapefiles_0.7      data.table_1.10.4-3
-#> [37] stringr_1.2.0       munsell_0.4.3       cluster_2.0.6      
-#> [40] plotrix_3.7         colorRamps_2.3      compiler_3.4.3     
-#> [43] e1071_1.6-8         spacetime_1.2-1     rlang_0.1.6        
-#> [46] classInt_0.1-24     grid_3.4.3          rstudioapi_0.7     
-#> [49] htmlwidgets_0.9     base64enc_0.1-3     rmarkdown_1.8      
-#> [52] gtable_0.2.0        codetools_0.2-15    reshape_0.8.7      
-#> [55] gridExtra_2.3       zoo_1.8-0           knitr_1.18         
-#> [58] Hmisc_4.0-3         rprojroot_1.3-1     stringi_1.1.6      
-#> [61] Rcpp_0.12.14        acepack_1.4.1       xfun_0.1
+#>  [1] Rcpp_0.12.19     bookdown_0.7     codetools_0.2-15 digest_0.6.18   
+#>  [5] rprojroot_1.3-2  backports_1.1.2  magrittr_1.5     evaluate_0.11   
+#>  [9] stringi_1.2.4    rmarkdown_1.10   tools_3.5.1      stringr_1.3.1   
+#> [13] xfun_0.3         yaml_2.2.0       compiler_3.5.1   htmltools_0.3.6 
+#> [17] knitr_1.20
 system("gdalinfo --version")
 ```
 
@@ -139,6 +121,7 @@ If installation was successful, you should be able to access SAGA command line a
 
 ```r
 system("saga_cmd --version")
+#> Warning in system("saga_cmd --version"): error in running command
 ```
 
 To install QGIS (https://download.qgis.org/) you might first have to add the location of the debian libraries:
@@ -178,10 +161,14 @@ sudo apt-get install pigz zip unzip p7zip-full
 
 WhiteboxTools (http://www.uoguelph.ca/~hydrogeo/WhiteboxTools/), contributed by John Lindsay, is an extensive suite of functions and tools for DEM analysis which is especially useful for extending the hydrological and morphometric analysis tools available in SAGA GIS and GRASS GIS [@lindsay2016whitebox]. Probably the easiest way to use WhiteboxTools is to install a QGIS plugin (kindly maintained by Alexander Bruy: https://plugins.bruy.me/) and then learn and extend the WhiteboxTools scripting language by testing things out in QGIS (see below).
 
-<div class="figure" style="text-align: center">
-<img src="figures/whiteboxtools-preview.jpg" alt="Calling WhiteboxTools from QGIS via the WhiteboxTools plugin." width="100%" />
-<p class="caption">(\#fig:whiteboxtools-preview)Calling WhiteboxTools from QGIS via the WhiteboxTools plugin.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics[width=1\linewidth]{figures/whiteboxtools-preview} 
+
+}
+
+\caption{Calling WhiteboxTools from QGIS via the WhiteboxTools plugin.}(\#fig:whiteboxtools-preview)
+\end{figure}
 
 The function `FlowAccumulationFullWorkflow` is, for example, a wrapper function to filter out all spurious sinks and to derive a hydrological flow accumulation map in the same step. To run it from command line we can use:
 
@@ -193,12 +180,18 @@ system(paste0('"/home/tomislav/software/WBT/whitebox_tools" ',
   '--out_dem="./extdata/DEMTOPx_out.tif" ',
   '--out_pntr="./extdata/DEMTOPx_pntr.tif" ',
   '--out_accum="./extdata/DEMTOPx_accum.tif" -v'))
+#> Warning in system(paste0("\"/home/tomislav/software/WBT/whitebox_tools\"
+#> ", : error in running command
 ```
 
-<div class="figure" style="text-align: center">
-<img src="figures/eberg_hydroflow_preview_3d.jpg" alt="Hydrological flow accummulation map based on the Ebergotzen DEM derived using WhiteboxTools." width="100%" />
-<p class="caption">(\#fig:eberg-hydroflow-preview-3d)Hydrological flow accummulation map based on the Ebergotzen DEM derived using WhiteboxTools.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics[width=1\linewidth]{figures/eberg_hydroflow_preview_3d} 
+
+}
+
+\caption{Hydrological flow accummulation map based on the Ebergotzen DEM derived using WhiteboxTools.}(\#fig:eberg-hydroflow-preview-3d)
+\end{figure}
 
 This produces a number of maps, from which the hydrological flow accumulation map is usually the most useful. It is highly recommended that, before running analysis on large DEM's using WhiteboxTools and/or SAGA GIS, you test functionality using smaller data sets i.e. either a subset of the original data or using a DEM at very coarse resolutions (so that width and height of a DEM are only few hundred pixels). Also note that WhiteboxTools do not presently work with GeoTIFs that use the `COMPRESS=DEFLATE` creation options.
 
@@ -206,10 +199,14 @@ This produces a number of maps, from which the hydrological flow accumulation ma
 
 RStudio is, in principle, the main R scripting environment and can be used to control all other software used in this tutorial. A more detailed RStudio tutorial is available at: [RStudio — Online Learning](http://www.rstudio.com/resources/training/online-learning/). Consider also following some spatial data tutorials e.g. by James Cheshire (http://spatial.ly/r/). Below is an example of RStudio session with R editor on right and R console on left.
 
-<div class="figure" style="text-align: center">
-<img src="figures/rstudio_example.png" alt="RStudio is a commonly used R editor written in C++." width="100%" />
-<p class="caption">(\#fig:rstudio-example)RStudio is a commonly used R editor written in C++.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics[width=1\linewidth]{figures/rstudio_example} 
+
+}
+
+\caption{RStudio is a commonly used R editor written in C++.}(\#fig:rstudio-example)
+\end{figure}
 
 To install all required R packages used in this tutorial at once, you can use:
 
@@ -222,7 +219,8 @@ ls <- c("rgdal", "raster", "GSIF", "plotKML",
         "soiltexture", "aqp", "colorspace", "Cubist",
         "randomForestSRC", "ggRandomForests", "scales",
         "xgboost", "parallel", "doParallel", "caret", 
-        "gam", "glmnet", "matrixStats", "SuperLearner")
+        "gam", "glmnet", "matrixStats", "SuperLearner",
+        "quantregForest", "LITAP", "intamap")
 new.packages <- ls[!(ls %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
 ```
@@ -249,6 +247,9 @@ if(!require(GSIF)){
   install.packages("GSIF", repos=c("http://R-Forge.R-project.org"), 
                  type = "source", dependencies = TRUE)
 }
+#> Loading required package: GSIF
+#> GSIF version 0.5-4 (2017-04-25)
+#> URL: http://gsif.r-forge.r-project.org/
 ```
 
 A copy of the most-up-to-date and stable versions of plotKML and GSIF is also available on [github](https://github.com/cran/GSIF). To run only some specific function from the GSIF package you could do for example:
@@ -275,12 +276,19 @@ library(GSIF)
 library(sp)
 library(boot)
 library(aqp)
+#> This is aqp 1.16-3
 library(plyr)
 library(rpart)
 library(splines)
 library(gstat)
 library(quantregForest)
+#> Loading required package: randomForest
+#> randomForest 4.6-14
+#> Type rfNews() to see new features/changes/bug fixes.
+#> Loading required package: RColorBrewer
 library(plotKML)
+#> plotKML version 0.5-8 (2017-05-12)
+#> URL: http://plotkml.r-forge.r-project.org/
 demo(meuse, echo=FALSE)
 omm <- fit.gstatModel(meuse, om~dist+ffreq, meuse.grid, method="quantregForest")
 #> Fitting a Quantile Regression Forest model...
@@ -305,20 +313,24 @@ om.rk
 #>   Resolution (y)     : 40 
 #>   Resolution (units) : m 
 #>   Vgm model          : Exp 
-#>   Nugget (residual)  : 2.34 
-#>   Sill (residual)    : 8.32 
-#>   Range (residual)   : 5760 
-#>   RMSE (validation)  : 1.7 
-#>   Var explained      : 75.2% 
-#>   Effective bytes    : 1226 
+#>   Nugget (residual)  : 2.32 
+#>   Sill (residual)    : 4.76 
+#>   Range (residual)   : 2930 
+#>   RMSE (validation)  : 1.75 
+#>   Var explained      : 73.8% 
+#>   Effective bytes    : 1203 
 #>   Compression method : gzip
 #plotKML(om.rk)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="figures/ge_preview.jpg" alt="Example of plotKML output." width="90%" />
-<p class="caption">(\#fig:ge-preview)Example of plotKML output.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics[width=0.9\linewidth]{figures/ge_preview} 
+
+}
+
+\caption{Example of plotKML output.}(\#fig:ge-preview)
+\end{figure}
 
 ## Connecting R and SAGA GIS
 
@@ -336,6 +348,7 @@ if(!Sys.info()['sysname']=="Linux"){
   saga_cmd = "saga_cmd"
 }
 system(paste(saga_cmd, "-v"))
+#> Warning in system(paste(saga_cmd, "-v")): error in running command
 ```
 
 To use some SAGA GIS function you need to carefully follow 
@@ -345,19 +358,39 @@ the [SAGA GIS command line arguments](http://www.saga-gis.org/saga_tool_doc/inde
 ```r
 library(plotKML)
 library(rgdal)
+#> rgdal: version: 1.3-4, (SVN revision 766)
+#>  Geospatial Data Abstraction Library extensions to R successfully loaded
+#>  Loaded GDAL runtime: GDAL 2.2.4, released 2018/03/19
+#>  Path to GDAL shared files: /usr/share/gdal
+#>  GDAL binary built with GEOS: TRUE 
+#>  Loaded PROJ.4 runtime: Rel. 4.9.3, 15 August 2016, [PJ_VERSION: 493]
+#>  Path to PROJ.4 shared files: (autodetected)
+#>  Linking to sp version: 1.3-1
 library(raster)
+#> 
+#> Attaching package: 'raster'
+#> The following objects are masked from 'package:aqp':
+#> 
+#>     metadata, metadata<-
 data("eberg_grid")
 gridded(eberg_grid) <- ~x+y
 proj4string(eberg_grid) <- CRS("+init=epsg:31467")
 writeGDAL(eberg_grid["DEMSRT6"], "./extdata/DEMSRT6.sdat", "SAGA")
 system(paste(saga_cmd, 'ta_lighting 0 -ELEVATION "./extdata/DEMSRT6.sgrd" 
              -SHADE "./extdata/hillshade.sgrd" -EXAGGERATION 2'))
+#> Warning in system(paste(saga_cmd, "ta_lighting 0 -ELEVATION \"./extdata/
+#> DEMSRT6.sgrd\" \n -SHADE \"./extdata/hillshade.sgrd\" -EXAGGERATION 2")):
+#> error in running command
 ```
 
-<div class="figure" style="text-align: center">
-<img src="figures/rstudio_saga_gis.png" alt="Deriving hillshading using SAGA GIS and then visualizing the result in R." width="100%" />
-<p class="caption">(\#fig:rstudio-saga-gis)Deriving hillshading using SAGA GIS and then visualizing the result in R.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics[width=1\linewidth]{figures/rstudio_saga_gis} 
+
+}
+
+\caption{Deriving hillshading using SAGA GIS and then visualizing the result in R.}(\#fig:rstudio-saga-gis)
+\end{figure}
 
 ## Connecting R and GDAL
 
@@ -385,7 +418,11 @@ library(raster)
 plot(raster("./extdata/DEMSRT6_ll.tif"))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="Software_files/figure-html/plot-eberg-ll-1.png" alt="Ebergotzen DEM reprojected in geographical coordinates." width="672" />
-<p class="caption">(\#fig:plot-eberg-ll)Ebergotzen DEM reprojected in geographical coordinates.</p>
-</div>
+\begin{figure}[t]
+
+{\centering \includegraphics{Software_files/figure-latex/plot-eberg-ll-1} 
+
+}
+
+\caption{Ebergotzen DEM reprojected in geographical coordinates.}(\#fig:plot-eberg-ll)
+\end{figure}

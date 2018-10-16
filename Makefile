@@ -9,7 +9,7 @@ build:
 	Rscript -e 'browseURL("docs/index.html")'
 	
 pdf:
-	Rscript -e 'bookdown::renderdocs("index.Rmd", output_format = "bookdown::pdfdocs")'
+  Rscript --quiet _render.R "bookdown::pdf_book"
 
 md:
 	Rscript -e 'bookdown::renderdocs("index.Rmd", output_format = "bookdown::pdfdocs",clean=FALSE)'

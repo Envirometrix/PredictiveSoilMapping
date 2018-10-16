@@ -3,7 +3,7 @@
 knit: "bookdown::render_book"
 title: "Predictive Soil Mapping with R"
 author: ["Tomislav Hengl"]
-date: "2018-10-15"
+date: "2018-10-16"
 layout: default
 comments: true
 site: bookdown::bookdown_site
@@ -30,7 +30,8 @@ url: 'http\://soilmapper.org'
 
 # Predictive Soil Mapping for advanced R users {-}
 
-<img src="figures/f0_web.png" width="33%" style="display: block; margin: auto;" />
+
+\begin{center}\includegraphics[width=0.33\linewidth]{figures/f0_web} \end{center}
 
 This is the online version of the Open Access book: [**Predictive Soil Mapping with R**](https://envirometrix.github.io/PredictiveSoilMapping/). Pull requests and general comments are welcome. These materials are based on the technical tutorials developed within the [ISRIC’s](http://isric.org/) Global Soil Information Facilities (GSIF) framework for automated soil mapping over the period 2014–2017.
 

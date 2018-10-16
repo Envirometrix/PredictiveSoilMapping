@@ -22,9 +22,7 @@ bookdown::html_chapters:
     after_body: disqus.html
 bookdown::pdf_book:
   includes:
-    in_header: latex/preamble.tex
-    before_body: latex/before_body.tex
-    after_body: latex/after_body.tex
+    in_header: preamble.tex
   keep_tex: yes
   dev: "cairo_pdf"
   latex_engine: "xelatex"
@@ -35,4 +33,3 @@ bookdown::pdf_book:
   toc_unnumbered: no
   toc_appendix: yes
   quote_footer: ["\\VA{", "}{}"]
-  highlight_bw: true
