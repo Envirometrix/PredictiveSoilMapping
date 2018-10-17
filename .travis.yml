@@ -12,6 +12,7 @@ before_install:
 install:
   - R -e "install.packages('devtools')"
   - R -e "install.packages('bookdown')"
+  - R -e "install.packages('microbenchmark')""
   - R -e "devtools::install_github('nowosad/PSMpkg')"
 
 script:
