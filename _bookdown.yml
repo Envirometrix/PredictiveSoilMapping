@@ -1,13 +1,14 @@
 new_session: yes
 before_chapter_script: ["code/before_script.R"]
+delete_merged_file: true
 output_dir: "docs"
 rmd_files:
   - "index.Rmd"
-  - "Introduction.Rmd"
-  - "Software.Rmd"
-  - "Soil_variables.Rmd"
-  - "Soil_covariates.Rmd"
-  - "Statistical_theory.Rmd"
+  #- "Introduction.Rmd"
+  #- "Software.Rmd"
+  #- "Soil_variables.Rmd"
+  #- "Soil_covariates.Rmd"
+  #- "Statistical_theory.Rmd"
   #- "Soilmapping_using_mla.Rmd"
   #- "Soil_organic_carbon.Rmd"
   - "references.Rmd"
