@@ -3,15 +3,17 @@
 knit: "bookdown::render_book"
 title: "Predictive Soil Mapping with R"
 author: ["Tomislav Hengl"]
-date: "2018-10-16"
-layout: default
+date: "2018-10-17"
+#layout: default
 comments: true
 site: bookdown::bookdown_site
 #documentclass: book
 #documentclass: svmono
 #classoption: 11pt,graybox,envcountchap,sectrefs
 documentclass: krantz
-classoption: 11pt
+classoption:
+    - 11pt
+    - letterpaper
 monofont: "Source Code Pro"
 monofontoptions: "Scale=0.6"
 linestretch: 1.15
@@ -20,10 +22,11 @@ biblio-style: apalike
 link-citations: true
 colorlinks: yes
 twitter-handle: tom_hengl
-cover-image: figures/f0_web.png
+cover-image: "figures/f0_web.png"
 description: "Predictive Soil Mapping aims at producing most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement various soil mapping procedures with R programming language."
-github-repo: envirometrix/PredictiveSoilMapping
+github-repo: "envirometrix/PredictiveSoilMapping"
 url: 'http\://soilmapper.org'
+graphics: yes
 ---
 
 
