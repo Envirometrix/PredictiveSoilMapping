@@ -166,7 +166,7 @@ Converting large polygons in R using the raster package can be very time-consumi
 
 ```{r}
 library(sf)
-if(!require(fasterize)){ devtools::install_github("ecohealthalliance/fasterize") }
+library(fasterize)
 eberg_zones_sf <- as(eberg_zones, "sf")
 eberg_zones_r <- fasterize(eberg_zones_sf, r, field="ZONES")
 ```
