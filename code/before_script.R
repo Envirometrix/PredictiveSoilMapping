@@ -7,9 +7,11 @@ knitr::opts_chunk$set(
   comment = "#>",
   collapse = TRUE,
   cache = TRUE, 
-  fig.align="center",
-  fig.pos="t",
-  auto_pdf = FALSE
+  fig.pos = "t",
+  fig.align = "center",
+  #auto_pdf = FALSE,
+  fig.show = "hold",
+  out.width = "100%"
 )
 set.seed(2016)
 options(digits = 3)
