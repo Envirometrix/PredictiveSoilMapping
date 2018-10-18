@@ -7,7 +7,7 @@ knitr::opts_chunk$set(
   comment = "#>",
   collapse = TRUE,
   cache = TRUE, 
-  fig.pos = "t",
+  fig.pos = "H",
   fig.align = "center",
   #auto_pdf = FALSE,
   fig.show = "hold",
