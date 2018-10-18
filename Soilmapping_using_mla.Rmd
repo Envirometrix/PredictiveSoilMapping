@@ -154,7 +154,7 @@ In the following example we look at mapping sand content for the upper horizons.
 
 ```{r}
 library(h2o)
-localH2O = h2o.init(startH2O=FALSE)
+localH2O = h2o.init(startH2O=TRUE)
 ```
 
 This shows that multiple cores will be used for computing (to control the number of cores you can use the `nthreads` argument). Next, we need to prepare the regression matrix and prediction locations using the `as.h2o` function so that they are visible to h2o:
