@@ -1604,7 +1604,7 @@ realistic image of the spatial correlation structure or spatial pattern
 of the target variable because, unlike kriging, they do not smooth out
 the values.
 
-```{r sims-cross-section, echo=FALSE, fig.cap="20 simulations (at block support) of the soil organic carbon for the Meuse study area (cross-section from West to East at Y=330348). Bold line indicates the median value and broken lines indicate upper and lower quantiles (95% probability).", out.width="100%"}
+```{r sims-cross-section, echo=FALSE, fig.cap="20 simulations (at block support) of the soil organic carbon for the Meuse study area (cross-section from West to East at Y=330348). Bold line indicates the median value and broken lines indicate upper and lower quantiles (95\\% probability).", out.width="100%"}
 knitr::include_graphics("figures/Fig_20_sims_cross_section.png")
 ```
 
@@ -2149,7 +2149,7 @@ analysis. There are several types of cross-validation methods
 -   *Jackknifing* — similar to LOO, but aims at estimating the bias of
     statistical analysis and not of predictions;
 
-```{r cross-validation-repetitions, echo=FALSE, fig.cap="Left: confidence limits for the amount of variation explained (0–100%) for two spatial prediction methods: inverse distance interpolation (IDW) and regression-kriging (RK) for mapping organic carbon content (Meuse data set). Right: the average amount of variation explained for two realizations (5-fold cross-validation) as a function of the number of cross-validation runs (repetitions). In this case, the RK method is distinctly better than method IDW, but the cross-validation score seems to stabilize only after 10 runs.", out.width="85%"}
+```{r cross-validation-repetitions, echo=FALSE, fig.cap="Left: confidence limits for the amount of variation explained (0–100\\%) for two spatial prediction methods: inverse distance interpolation (IDW) and regression-kriging (RK) for mapping organic carbon content (Meuse data set). Right: the average amount of variation explained for two realizations (5-fold cross-validation) as a function of the number of cross-validation runs (repetitions). In this case, the RK method is distinctly better than method IDW, but the cross-validation score seems to stabilize only after 10 runs.", out.width="85%"}
 knitr::include_graphics("figures/Fig_cross_validation_repetitions.png")
 ```
 
