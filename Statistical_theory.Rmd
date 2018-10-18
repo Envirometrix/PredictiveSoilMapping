@@ -71,13 +71,13 @@ noise. This is the basis of the *universal model of soil variation*
 [@Burrough1998OUP;Webster2001Wiley p.133]:
 
 \begin{equation}
-Z({\bf{s}}) = m({\bf{s}}) + \varepsilon '({\bf{s}}) + \varepsilon ''({\bf{s}})
+Z({s}) = m({s}) + \varepsilon '({s}) + \varepsilon ''({s})
 (\#eq:ukm)
 \end{equation}
 
-where $\bf{s}$ is two-dimensional location, $m({\bf{s}})$ is the
-deterministic component, $\varepsilon '({\bf{s}})$ is the spatially
-correlated stochastic component and $\varepsilon ''({\bf{s}})$ is the
+where $s$ is two-dimensional location, $m({s})$ is the
+deterministic component, $\varepsilon '({s})$ is the spatially
+correlated stochastic component and $\varepsilon ''({s})$ is the
 pure noise (micro-scale variation and measurement error). This model was
 probably first introduced by @Matheron1969PhD, and has been used as a
 general framework for spatial prediction of quantities in a variety of
@@ -95,7 +95,7 @@ further generalised to three-dimensional space and the spatio-temporal
 domain (3D+T) by letting the variables also depend on depth and time:
 
 \begin{equation}
-Z({\bf{s}}, d, t) = m({\bf{s}}, d, t) + \varepsilon '({\bf{s}}, d, t) + \varepsilon ''({\bf{s}}, d, t)
+Z({s}, d, t) = m({s}, d, t) + \varepsilon '({s}, d, t) + \varepsilon ''({s}, d, t)
 (\#eq:ukm3DT)
 \end{equation}
 
@@ -438,30 +438,30 @@ prediction process is then on selecting and fine-tuning the best
 performing spatial prediction method.
 
 In a geostatistical framework, spatial prediction is estimation of
-values of some target variable $Z$ at a new location (${\bf{s}}_0$)
+values of some target variable $Z$ at a new location (${s}_0$)
 given the input data:
 
 \begin{equation}
-\hat Z({\bf{s}}_0) = E\left\{ Z({\bf{s}}_0)|z({\bf{s}}_i), \; {\bf{X}}({\bf{s}}_0), \; i=1,...,n \right\}
+\hat Z({s}_0) = E\left\{ Z({s}_0)|z({s}_i), \; {{X}}({s}_0), \; i=1,...,n \right\}
 (\#eq:sp)
 \end{equation}
 
-where the $z({\bf{s}}_i)$ are the input set of observations of the
-target variable, ${\bf{s}}_i$ is a geographical location, $n$ is the
-number of observations and ${\bf{X}}({\bf{s}}_0)$ is a list of
+where the $z({s}_i)$ are the input set of observations of the
+target variable, ${s}_i$ is a geographical location, $n$ is the
+number of observations and ${{X}}({s}_0)$ is a list of
 *covariates* or explanatory variables, available at all prediction
-locations within the study area of interest (${\bf{s}} \in \mathbb{A}$).
+locations within the study area of interest (${s} \in \mathbb{A}$).
 To emphasise that the model parameters also influence the outcome of the
 prediction process, this can be made explicit by writing
 [@cressie2011statistics]:
 
 \begin{equation}
-[Z|Y,{\bf{\theta}} ]
+[Z|Y,{{\theta}} ]
 (\#eq:datamodel)
 \end{equation}
 
 where $Z$ is the data, $Y$ is the (hidden) process that we are
-predicting, and ${\bf{\theta}}$ is a list of model parameters (e.g.
+predicting, and ${{\theta}}$ is a list of model parameters (e.g.
 trend coefficients and variogram parameters).
 
 There are many spatial prediction methods for generating spatial
@@ -647,14 +647,14 @@ classification values using the SOLIM approach @Zhu2001
 
 \begin{equation}
 \begin{aligned}
- \hat z({\bf{s}}_0) = \sum\limits_{c_j = 1}^{c_p} {\nu _{c_j} ({\bf{s}}_0) \cdot z_{c_j} }; & \hspace{.6cm}
- \sum\limits_{c_j = 1}^{c_p} {\nu _j ({\bf{s}}_0)}  = 1\end{aligned}
+ \hat z({s}_0) = \sum\limits_{c_j = 1}^{c_p} {\nu _{c_j} ({s}_0) \cdot z_{c_j} }; & \hspace{.6cm}
+ \sum\limits_{c_j = 1}^{c_p} {\nu _j ({s}_0)}  = 1\end{aligned}
 (\#eq:solim)
 \end{equation}
 
-where $\hat z({\bf{s}}_0)$ is the predicted soil attribute at
-${\bf{s}}_0$, $\nu _{c_j} ({\bf{s}}_0)$ is the membership value of class
-$c_j$ at location ${\bf{s}}_0$, and $z_{c_j}$ is the modal (or best
+where $\hat z({s}_0)$ is the predicted soil attribute at
+${s}_0$, $\nu _{c_j} ({s}_0)$ is the membership value of class
+$c_j$ at location ${s}_0$, and $z_{c_j}$ is the modal (or best
 representative) value of the inferred soil attribute of the $c_j$-th
 category. The predicted soil attribute is mapped directly from
 membership maps using a linear additive weighing function. Consider the
@@ -737,7 +737,7 @@ the sum of a deterministic trend and a stochastic residual
 (Eq.\@ref(eq:ukm)):
 
 \begin{equation}
-Z({\bf{s}}) = m({\bf{s}}) + \varepsilon({\bf{s}})
+Z({s}) = m({s}) + \varepsilon({s})
 (\#eq:ukm-gstat)
 \end{equation}
 
@@ -794,10 +794,10 @@ but when the covariates are related environmental properties one must
 define a structure for $m$ and introduce parameters to be estimated from
 paired observations of the soil property and covariates. One of the
 simplest approaches is to use *multiple linear regression* to predict
-values at some new location ${\bf{s}}_0$ [@kutner2005applied]:
+values at some new location ${s}_0$ [@kutner2005applied]:
 
 \begin{equation}
-m({\bf{s}}_0 ) = \sum\limits_{j = 0}^p { \beta _j \cdot X_j ({\bf{s}}_0 )}
+m({s}_0 ) = \sum\limits_{j = 0}^p { \beta _j \cdot X_j ({s}_0 )}
 (\#eq:MRK2D)
 \end{equation}
 
@@ -883,13 +883,13 @@ distributed and has zero mean, only its variance-covariance remains to
 be specified:
 
 \begin{equation}
-C\left[Z({\bf{s}}),Z({\bf{s}}+\bf{h})\right] = \sigma (\bf{s}) \cdot \sigma(\bf{s}+\bf{h}) \cdot \rho (\bf{h})
+C\left[Z({s}),Z({s}+{h})\right] = \sigma (s) \cdot \sigma(s+{h}) \cdot \rho ({h})
 \end{equation}
 
-where ${\bf{h}}$ is the separation distance between two locations. Note
+where ${{h}}$ is the separation distance between two locations. Note
 that here we assumed that the correlation function $\rho$ is invariant
 to geographic translation (i.e., it only depends on the distance
-$\bf{h}$ between locations and not on the locations themselves). If in
+${h}$ between locations and not on the locations themselves). If in
 addition the standard deviation $\sigma$ would be spatially invariant
 then $C$ would be *second-order stationary*. These type of simplifying
 assumptions are needed to be able to estimate the variance-covariance
@@ -899,7 +899,7 @@ as in Eq.\@ref(eq:MRK2D). The correlation function $\rho$ would be
 parameterised to a common form (e.g. exponential, spherical, Matérn),
 thus ensuring that the model is statistically valid and
 *positive-definite*. It is also quite common to assume isotropy, meaning
-that two-dimensional geographic distance ${\bf{h}}$ can be reduced to
+that two-dimensional geographic distance ${{h}}$ can be reduced to
 one-dimensional Euclidean distance $h$.
 
 Once the model has been defined, its parameters must be estimated from
@@ -929,32 +929,32 @@ normally distributed residual is given by the well-kown *Best Linear
 Unbiased Predictor* (BLUP):
 
 $$\label{E:BLUP}
-\hat z({{\bf{s}}_0}) = {\bf{X}}_{\bf{0}}^{\bf{T}}\cdot \hat{\bf{\beta}} + \hat{\bf{\lambda}}_{\bf{0}}^{\bf{T}}\cdot({\bf{z}} - {\bf{X}}\cdot \hat{\bf{\beta}} )$$
+\hat z({{{s}}_0}) = {{X}}_{{0}}^{{T}}\cdot \hat{{\beta}} + \hat{{\lambda}}_{{0}}^{{T}}\cdot({{z}} - {{X}}\cdot \hat{{\beta}} )$$
 
 where the regression coefficients and kriging weights are estimated
 using:
 
 \begin{equation}
 \begin{aligned}
-\hat{\bf{\beta}}  &= {\left( {{{\bf{X}}^{\bf{T}}}\cdot{{\bf{C}}^{ - {\bf{1}}}}\cdot{\bf{X}}} \right)^{ - {\bf{1}}}}\cdot{{\bf{X}}^{\bf{T}}}\cdot{{\bf{C}}^{ - {\bf{1}}}}\cdot{\bf{z}} \\
-\hat{\bf{\lambda}}_{\bf{0}} &= \bf{C}^{ - {\bf{1}}} \cdot {\bf{c}}_{\bf{0}} \notag\end{aligned}
+\hat{{\beta}}  &= {\left( {{{{X}}^{{T}}}\cdot{{{C}}^{ - {{1}}}}\cdot{{X}}} \right)^{ - {{1}}}}\cdot{{{X}}^{{T}}}\cdot{{{C}}^{ - {{1}}}}\cdot{{z}} \\
+\hat{{\lambda}}_{{0}} &= {C}^{ - {{1}}} \cdot {{c}}_{{0}} \notag\end{aligned}
 (\#eq:betas)
 \end{equation}
 
-and where ${\bf{X}}$ is the matrix of $p$ predictors at the $n$ sampling
-locations, $\hat{\bf{\beta}}$ is the vector of estimated regression
-coefficients, $\bf{C}$ is the $n$$n$ variance-covariance matrix of
-residuals, $\bf{c}_{\bf{0}}$ is the vector of $n$$1$ covariances at the
-prediction location, and $\bf{\lambda}_{\bf{0}}$ is the vector of $n$
+and where ${{X}}$ is the matrix of $p$ predictors at the $n$ sampling
+locations, $\hat{{\beta}}$ is the vector of estimated regression
+coefficients, ${C}$ is the $n$$n$ variance-covariance matrix of
+residuals, ${c}_{{0}}$ is the vector of $n$$1$ covariances at the
+prediction location, and ${\lambda}_{{0}}$ is the vector of $n$
 kriging weights used to interpolate the residuals. Derivation of BLUP
 for spatial data can be found in many standard statistical books e.g.
 @Stein1999Springer, @Christensen2001Springer [p.277],
 @Venables2002Springer [p.425–430] and/or @schabenberger2005statistical.
 
 Any form of kriging computes the conditional distribution of
-$Z({\bf{s}}_0)$ at an unobserved location ${\bf{s}}_0$ from the
-observations $z({\bf{s}}_1 )$, $z({\bf{s}}_2 ), \ldots , z({\bf{s}}_n )$
-and the covariates ${\bf{X}}({\bf{s}}_0)$ (matrix of size $p \times n$).
+$Z({{s}}_0)$ at an unobserved location ${{s}}_0$ from the
+observations $z({{s}}_1 )$, $z({{s}}_2 ), \ldots , z({{s}}_n )$
+and the covariates ${{X}}({{s}}_0)$ (matrix of size $p \times n$).
 From a statistical perspective this is straightforward for the case of a
 linear model and normally distributed residuals. However, solving large
 matrices and more sophisticated model fitting algorithms such as
@@ -1010,10 +1010,10 @@ regression and the kriging model errors.
 
 ### Spatial Prediction using multiple linear regression
 
-The predictor $\hat Y({{\bf s}_0})$ of $Y({{\bf s}_0})$ is
-typically taken as a function of covariates and the $Y({\bf s}_i)$
-which, upon substitution of the observations $y({\bf s}_i)$, yields a
-(deterministic) prediction $\hat y({{\bf s}_0})$. In the case of 
+The predictor $\hat Y({{ s}_0})$ of $Y({{ s}_0})$ is
+typically taken as a function of covariates and the $Y({ s}_i)$
+which, upon substitution of the observations $y({ s}_i)$, yields a
+(deterministic) prediction $\hat y({{ s}_0})$. In the case of 
 multiple linear regression (MLR), model assumptions state
 that at any location in $D$ the dependent variable is the sum of a
 linear combination of the covariates at that location and a zero-mean
@@ -1021,36 +1021,36 @@ normally distributed residual. Thus, at the $n$ observation locations we
 have:
 
 \begin{equation}
-{\bf Y} = {\bf X}^{{\bf T}} \cdot {\bf \beta} + {\bf \varepsilon}
+{ Y} = { X}^{{ T}} \cdot { \beta} + { \varepsilon}
 (\#eq:lm)
 \end{equation}
 
-where ${\bf Y}$ is a vector of the target variable at the $n$
-observation locations, ${\bf X}$ is an $n \times p$ matrix of covariates
-at the same locations and ${\bf \beta}$ is a vector of $p$ regression
-coefficients. The stochastic residual ${\bf \varepsilon}$ is assumed to
+where ${ Y}$ is a vector of the target variable at the $n$
+observation locations, ${ X}$ is an $n \times p$ matrix of covariates
+at the same locations and ${ \beta}$ is a vector of $p$ regression
+coefficients. The stochastic residual ${ \varepsilon}$ is assumed to
 be independently and identically distributed. The paired observations of
-the target variable and covariates (${\bf y}$ and ${\bf X}$) are used to
+the target variable and covariates (${ y}$ and ${ X}$) are used to
 estimate the regression coefficients using, e.g., Ordinary Least Squares
 [@Kutner2004McGraw]:
 
 \begin{equation}
-\hat{{\bf \beta}}  = \left( {{{\bf X}}^{{\bf T}} \cdot {{\bf X}}} \right)^{ - {{\bf 1}}} \cdot
-{{\bf X}}^{{\bf T}} \cdot {{\bf y}}
+\hat{{ \beta}}  = \left( {{{ X}}^{{ T}} \cdot {{ X}}} \right)^{ - {{ 1}}} \cdot
+{{ X}}^{{ T}} \cdot {{ y}}
 (\#eq:ols-betas)
 \end{equation}
 
 once the coefficients are estimated, these can be used to generate a
-prediction at ${\bf s}_0$:
+prediction at ${ s}_0$:
 
 \begin{equation}
-\hat y({\bf s}_0) = {\bf x}_0^{\bf T} \cdot {\bf \hat \beta}
+\hat y({ s}_0) = { x}_0^{ T} \cdot { \hat \beta}
 \end{equation}
 
 with associated prediction error variance:
 
 \begin{equation}
-\sigma ^2 ({\bf s}_0 ) = var\left[ \varepsilon ({\bf s}_0) \right] \cdot \left[ {1 +
+\sigma ^2 ({ s}_0 ) = var\left[ \varepsilon ({ s}_0) \right] \cdot \left[ {1 +
 {\mathbf x}_0^{\rm T}  \cdot \left(
 {{\mathbf X}^{\rm T}  \cdot {\mathbf X}} \right)^{ -
 {\mathbf 1}}  \cdot {\mathbf x}_0 } \right]
@@ -1058,7 +1058,7 @@ with associated prediction error variance:
 \end{equation}
 
 here, ${\mathbf x}_0$ is a vector with covariates at the prediction
-location and $var\left[ \varepsilon ({\bf s}_0) \right]$ is the variance
+location and $var\left[ \varepsilon ({ s}_0) \right]$ is the variance
 of the stochastic residual. The latter is usually estimated by the mean
 squared error (MSE):
 
@@ -1082,17 +1082,17 @@ External Drift, the prediction error is computed as
 [@Christensen2001Springer]:
 
 \begin{equation}
-\hat \sigma _{\tt{UK}}^2 ({\bf{s}}_0 )  = (C_0  + C_1 ) - {\bf{c}}_{\bf{0}}^{\bf{T}}  \cdot {\bf{C}}^{ - {\bf{1}}}  \cdot
-{\bf{c}}_{\bf{0}} + \left( {{\bf{X}}_{\bf{0}}  -
-{\bf{X}}^{\bf{T}} \cdot {\bf{C}}^{ - {\bf{1}}} \cdot
-{\bf{c}}_{\bf{0}} } \right)^{\bf{T}}  \cdot \left( {{\bf{X}}^{\bf{T}}
-\cdot {\bf{C}}^{ - {\bf{1}}} \cdot {\bf{X}}} \right)^{{\bf{ - 1}}} \cdot \left( {{\bf{X}}_{\bf{0}}  - {\bf{X}}^{\bf{T}}  \cdot
-{\bf{C}}^{ - {\bf{1}}} \cdot {\bf{c}}_{\bf{0}} } \right)
+\hat \sigma _{\tt{UK}}^2 ({{s}}_0 )  = (C_0  + C_1 ) - {{c}}_{{0}}^{{T}}  \cdot {{C}}^{ - {{1}}}  \cdot
+{{c}}_{{0}} + \left( {{{X}}_{{0}}  -
+{{X}}^{{T}} \cdot {{C}}^{ - {{1}}} \cdot
+{{c}}_{{0}} } \right)^{{T}}  \cdot \left( {{{X}}^{{T}}
+\cdot {{C}}^{ - {{1}}} \cdot {{X}}} \right)^{{{ - 1}}} \cdot \left( {{{X}}_{{0}}  - {{X}}^{{T}}  \cdot
+{{C}}^{ - {{1}}} \cdot {{c}}_{{0}} } \right)
 (\#eq:UKvar)
 \end{equation}
 
-where $C_0 + C_1$ is the sill variation (variogram parameters), $\bf{C}$
-is the covariance matrix of the residuals, and ${\bf{c}}_0$ is the
+where $C_0 + C_1$ is the sill variation (variogram parameters), ${C}$
+is the covariance matrix of the residuals, and ${{c}}_0$ is the
 vector of covariances of residuals at the unvisited location.
 
 Ignoring the mixed component of the prediction variance in
@@ -1101,9 +1101,9 @@ variance i.e. as a sum of the kriging variance and the standard error of
 estimating the regression mean:
 
 \begin{equation}
-\hat \sigma _{\tt{RK}}^2 ({\bf{s}}_0) = (C_0  + C_1 ) -
-{\bf{c}}_{\bf{0}}^{\bf{T}}  \cdot {\bf{C}}^{ - {\bf{1}}}  \cdot
-{\bf{c}}_{\bf{0}} + {\it{SEM}}^2
+\hat \sigma _{\tt{RK}}^2 ({{s}}_0) = (C_0  + C_1 ) -
+{{c}}_{{0}}^{{T}}  \cdot {{C}}^{ - {{1}}}  \cdot
+{{c}}_{{0}} + {\it{SEM}}^2
 (\#eq:RKvar-simple)
 \end{equation}
 
@@ -1300,7 +1300,7 @@ Predictor of the values is simple averaging of soil properties per
 unit [@Webster2001Wiley p.43]:
 
 \begin{equation}
-\hat z({\bf{s}}_0 ) = \bar \mu _p  = \frac{1}{{n_p }}\sum\limits_{i = 1}^{n_p } {z({\bf{s}}_i )}
+\hat z({{s}}_0 ) = \bar \mu _p  = \frac{1}{{n_p }}\sum\limits_{i = 1}^{n_p } {z({{s}}_i )}
 (\#eq:regavg)
 \end{equation}
 
@@ -1310,7 +1310,7 @@ area-class prediction model is simply the sum of the within-unit
 variance and the estimation variance of the unit mean:
 
 \begin{equation}
-\hat \sigma^2 ({\bf{s}}_0 ) = \left( 1 + \frac{1}{n_p } \right) \cdot \sigma _p^2
+\hat \sigma^2 ({{s}}_0 ) = \left( 1 + \frac{1}{n_p } \right) \cdot \sigma _p^2
 (\#eq:polvar)
 \end{equation}
 
@@ -1321,8 +1321,8 @@ small compared to the between-unit variation. The predictions under this
 model can also be expressed as:
 
 \begin{equation}
-\hat z({\bf{s}}_0 ) = \sum\limits_{i = 1}^n {w_i  \cdot z({\bf{s}}_i)}; \qquad w_i  = \left\{ {\begin{array}{*{20}c}
-   {1/n_p } & {{\rm for} \; {\bf{s}}_i \in p}  \\
+\hat z({{s}}_0 ) = \sum\limits_{i = 1}^n {w_i  \cdot z({{s}}_i)}; \qquad w_i  = \left\{ {\begin{array}{*{20}c}
+   {1/n_p } & {{\rm for} \; {{s}}_i \in p}  \\
    0 & {{\rm otherwise}}  \\
  \end{array} } \right.
 \end{equation}
@@ -1366,7 +1366,7 @@ range 0–1. Hence also the SOLIM model (Eq.\@ref(eq:solim)) is in fact just
 a special version of regression on mapping units:
 
 \begin{equation}
-\hat z({\bf{s}}_0 ) = \sum\limits_{c_j = 1}^{c_p} {\nu _{c_j} ({\bf{s}}_0) \cdot z_{c_j} } = \sum\limits_{j = 1}^p { {\rm{MU}}_j \cdot \hat b_j}  \hspace{.5cm} {\rm {for}}  \hspace{.5cm}  z_{c_j} = \frac{1}{{n_p }}\sum\limits_{i = 1}^{n_p } {z({\bf{s}}_i )}
+\hat z({{s}}_0 ) = \sum\limits_{c_j = 1}^{c_p} {\nu _{c_j} ({{s}}_0) \cdot z_{c_j} } = \sum\limits_{j = 1}^p { {\rm{MU}}_j \cdot \hat b_j}  \hspace{.5cm} {\rm {for}}  \hspace{.5cm}  z_{c_j} = \frac{1}{{n_p }}\sum\limits_{i = 1}^{n_p } {z({{s}}_i )}
 (\#eq:SOLIMreg)
 \end{equation}
 
@@ -1861,13 +1861,13 @@ Eq.\@ref(eq:ukm-gstat) with a soil depth function:
 
 \begin{equation}
 \begin{split}
-\hat z({\bf{s}}_0, d_0 ) = \sum\limits_{j = 0}^p {\hat \beta _j \cdot X_j ({\bf{s}}_0, d_0 )} + {\bf{\hat g}}(d_0) + \sum\limits_{i = 1}^n {\hat{\lambda}_i ({\bf{s}}_0, d_0 ) \cdot e({\bf{s}}_i, d_i )}
+\hat z({{s}}_0, d_0 ) = \sum\limits_{j = 0}^p {\hat \beta _j \cdot X_j ({{s}}_0, d_0 )} + {{\hat g}}(d_0) + \sum\limits_{i = 1}^n {\hat{\lambda}_i ({{s}}_0, d_0 ) \cdot e({{s}}_i, d_i )}
 \end{split}
 (\#eq:MRK3D)
 \end{equation}
 
 where $d$ is the 3rd depth dimension expressed in meters from the land
-surface, ${\bf{\hat g}}(d_0)$ is the predicted soil depth function,
+surface, ${{\hat g}}(d_0)$ is the predicted soil depth function,
 typically modelled by a spline function. This allows prediction of soil
 properties at any depth using observations at other depths but does
 require 3D modelling of the covariance structure, which is not easy
@@ -1887,12 +1887,12 @@ standard parameters (nugget $c_0$, partial sill $c_1$, range parameter
 $r$):
 
 \begin{equation}
-\gamma \left( {\bf{h}} \right) = \left\{
+\gamma \left( {{h}} \right) = \left\{
 {\begin{array}{*{20}c}
    0 & {{\rm{if}}} & {h = 0}  \\
    {c_0  + c_1  \cdot \left[ {1 - e^{ - \left( {\frac{{h}}
 {r}} \right)} } \right]} & {{\rm{if}}} & {h > 0}  \\
- \end{array} } \right. \qquad {\bf{h}} =  \left[ {h_x  , h_y  , h_d } \right]
+ \end{array} } \right. \qquad {{h}} =  \left[ {h_x  , h_y  , h_d } \right]
 (\#eq:exp)
 \end{equation}
 
@@ -2037,11 +2037,11 @@ using field records, and then generate
 what we know about soils, is then a sum of two *signals*:
 
 \begin{equation}
-z^{\rm{map}}({\bf{s}}) = Z({\bf{s}}) + \varepsilon({\bf{s}})
+z^{\rm{map}}({{s}}) = Z({{s}}) + \varepsilon({{s}})
 (\#eq:varparts)
 \end{equation}
 
-where $Z({\bf{s}})$ is the *true* variation, and $\varepsilon({\bf{s}})$
+where $Z({{s}})$ is the *true* variation, and $\varepsilon({{s}})$
 is the error component i.e. what we do not know. The error component,
 also known as the *error budget*, consists of two parts: (1) 
 *the unexplained part of soil variation*, and (2) *the pure noise* 
@@ -2062,19 +2062,19 @@ collect additional samples and then determine the average error or the
 
 \begin{equation}
 {\it RMSE} = \sqrt {\frac{1}{l} \cdot \sum\limits_{i = 1}^l {\left[
-{\hat z({\bf{s}}_i ) - z ({\bf{s}}_i )} \right]^2 } }
+{\hat z({{s}}_i ) - z ({{s}}_i )} \right]^2 } }
 (\#eq:RMSE)
 \end{equation}
 
 where $l$ is the number of validation points, and the expected estimate
 of prediction error at sampling locations is equal to the nugget
-variation ($E\{ {\it RMSE} \} = \sigma({\bf{h}}=0)$). In addition to $\it{RMSE}$, 
+variation ($E\{ {\it RMSE} \} = \sigma({{h}}=0)$). In addition to $\it{RMSE}$, 
 it is often interesting to see also whether the errors are, on average, positive
 (over-estimation) or negative (under-estimation) i.e. whether there is possibly 
 any clear bias in our predictions:
 
 \begin{equation}
-{\rm ME} = \frac{1}{m} \sum_{j=1}^{m} (\hat y ({\bf s}_j) - y ({\bf s}_j))
+{\rm ME} = \frac{1}{m} \sum_{j=1}^{m} (\hat y ({ s}_j) - y ({ s}_j))
 (\#eq:ME)
 \end{equation}
 
@@ -2092,7 +2092,7 @@ only under the assumption that the validation points are spatially
 independent from the calibration points, representative and large enough
 (e.g. $l>50$), and that the error component is normally distributed
 around the zero value
-($E\left\{ {\hat z({{\bf{s}}_i}) - z({{\bf{s}}_i})} \right\} = 0$).
+($E\left\{ {\hat z({{{s}}_i}) - z({{{s}}_i})} \right\} = 0$).
 
 Once we have estimated $\it{RMSE}$, we can also determine the effective
 *numeric resolution* for the predictions [@Hengl2013JAG]. For example,
@@ -2189,8 +2189,8 @@ or over-pessimistic estimates of the true mapping accuracy.
 
 Recall from Eq.\@ref(eq:sp) that the output of the prediction process is
 typically (1) predicted mean value at some location
-($\hat Z({\bf{s}}_0)$), and (2) predicted prediction variance i.e.
-regression-kriging error ($\hat{\sigma}({\bf{s}}_0)$). In the previous
+($\hat Z({{s}}_0)$), and (2) predicted prediction variance i.e.
+regression-kriging error ($\hat{\sigma}({{s}}_0)$). In the previous
 section we have shown some common accuracy measures for the prediction 
 of the mean value. It might sound confusing but, in geostatistics, one 
 can also validate the *uncertainty of uncertainty* i.e. derive the 
@@ -2210,7 +2210,7 @@ expected error is referred to as the $z$-scores [@Bivand2008Springer
 p.225]:
 
 \begin{equation}
- \sigma_r ({\bf{s}}_j) = \frac{\hat z({\bf{s}}_j ) - z^* ({\bf{s}}_j )}{\hat{\sigma}({\bf{s}}_j )}; \qquad  E\{var(\sigma_r)\} = 1
+ \sigma_r ({{s}}_j) = \frac{\hat z({{s}}_j ) - z^* ({{s}}_j )}{\hat{\sigma}({{s}}_j )}; \qquad  E\{var(\sigma_r)\} = 1
 (\#eq:z-scores)
 \end{equation}
 
