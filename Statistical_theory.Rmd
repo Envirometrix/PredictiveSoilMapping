@@ -1754,7 +1754,7 @@ meuse.ov$x0 = 1
 
 We can quickly compare performance of using GLM vs random forest vs no model for predicting organic matter (om) by using the caret package functionality:
 
-```{r}
+```{r, warning=FALSE}
 fitControl <- trainControl(method="repeatedcv", number=2, repeats=2)
 mFit0 <- caret::train(om~x0, data=meuse.ov, method="glm", 
                family=gaussian(link=log), trControl=fitControl, 
