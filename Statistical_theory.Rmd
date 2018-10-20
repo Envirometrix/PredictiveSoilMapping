@@ -83,7 +83,7 @@ probably first introduced by @Matheron1969PhD, and has been used as a
 general framework for spatial prediction of quantities in a variety of
 environmental research disciplines.
 
-```{block, type="rmdnote"}
+```{block2, type="rmdnote"}
 The *universal model of soil variation* assumes that there are three
 major components of soil variation: (1) the deterministic component
 (function of covariates), (2) spatially correlated component (treated as
@@ -246,7 +246,7 @@ cultivation practices or holocene drift sand. The model given by
 Eq.\@ref(eq:loglog) illustrated in Fig. \@ref(fig:soil-depth-examples)
 (left) will not be able to represent such abrupt changes.
 
-```{block, type="rmdnote"}
+```{block2, type="rmdnote"}
 Before fitting a 2D spatial prediction model to soil profile data, it is
 important to standardize values to standard depths, otherwise soil
 observation depth can be an additional source of uncertainty.
@@ -307,7 +307,7 @@ differences in vertical support between measurements are taken into
 account also). We will address this also in later sections of this
 chapter, among others in Section \@ref(prediction-3D).
 
-```{block, type="rmdnote"}
+```{block2, type="rmdnote"}
 Soil property-depth relationships are commonly modelled using various
 types of mathematical functions. Mass-preserving splines, which ensure
 that the average of the spline function equals the measured value for
@@ -366,7 +366,7 @@ because soil observations at *point* locations are not the same as
 average or *bulk soil samples* taken by averaging a large number of
 point observations on a site or plot [@Webster2001Wiley].
 
-```{block, type="rmdnote"}
+```{block2, type="rmdnote"}
 Soil variables can refer to a specific depth interval or to the whole
 profile. The differences in spatial patterns between variables
 representing fundamentally the same feature (e.g. soil organic carbon in
@@ -913,7 +913,7 @@ techniques to estimate their parameters, although they might also need
 to rely on more complex parameter estimation methods such as genetic
 algorithms and *simulated annealing* [@lark2003fitting].
 
-```{block, type="rmdnote"}
+```{block2, type="rmdnote"}
 Spatial prediction under the linear Gaussian model with a trend boils
 down to *regression-kriging* when the trend coefficients are determined
 prior to kriging i.e. to *universal kriging* or *kriging with external drift* when they are estimated together with kriging weights. Both
@@ -1433,7 +1433,7 @@ predictions might lead to practically the same predictions (see some
 examples by @Goovaerts1997Oxford [p.158], @Heuvelink1999Geoderma and/or
 @Hengl2006CG).
 
-```{block, type="rmdnote"}
+```{block2, type="rmdnote"}
 The spatial support is the integration volume or size of the blocks
 being sampled and/or predicted. By increasing the support size from
 point to block support we decrease the prediction error variance. The
@@ -1563,7 +1563,7 @@ values at coarser resolution blocks (250, 500, 1000 m etc). In any case,
 understanding consequences of aggregating spatial data and converting
 from point to block support is important.
 
-```{block, type="rmdnote"}
+```{block2, type="rmdnote"}
 In geostatistics, one needs to consider that any input / output spatial
 layer refers to some support. In soil mapping, there are three main
 support sizes: support size of the soil samples (sampling support; can
@@ -1687,7 +1687,7 @@ The interpolate function automatically chooses between: (1) kriging,
 projected spatial gaussian process methods in the
 package, (4) transGaussian kriging or Yamamoto interpolation.
 
-```{block, type="rmdnote"}
+```{block2, type="rmdnote"}
 Automated mapping is the computer-aided generation of (meaningful) maps
 from measurements. In the context of geostatistical mapping, automated
 mapping implies that the model fitting, prediction and visualization can
@@ -1836,7 +1836,7 @@ reasons:
     vertical (depth) dimensions, so that it makes sense to treat them
     using 3D geostatistics whenever we have enough 3D soil observations.
 
-```{block, type="rmdnote"}
+```{block2, type="rmdnote"}
 Because soil variables are auto-correlated in both horizontal and
 vertical (depth) dimensions it makes sense to treat them using 3D
 geostatistics, as long as there are enough measurements in all spatial
@@ -1978,7 +1978,7 @@ pan-continental and global projects, because for most of the countries
 in the world, both soil and covariate data are available at different
 effective scales.
 
-```{block, type="rmdnote"}
+```{block2, type="rmdnote"}
 A sensible approach to merging multiple predictions
 (usually at multiple resolutions) is to derive a weighted average of two
 or more predictions / use the per-pixel accuracy to assign relative
@@ -2153,7 +2153,7 @@ analysis. There are several types of cross-validation methods
 knitr::include_graphics("figures/Fig_cross_validation_repetitions.png")
 ```
 
-```{block, type="rmdnote"}
+```{block2, type="rmdnote"}
 Cross-validation is a cost-efficient way to get an objective estimate of
 the mapping accuracy. Under an assumption that the input samples are
 representative of the study area (ideally collected using objective /
@@ -2392,7 +2392,7 @@ than the previously derived 0.54 because we use `ffreq` stratification as a
 covariate, so that, as long as the strata is relatively homogenous, the
 confidence limits get narrower.
 
-```{block, type="rmdnote"}
+```{block2, type="rmdnote"}
 Prediction intervals (upper and lower ranges of expected values with some
 high probability) are possibly the most accepted way to communicate
 uncertainty. Users are commonly interested in what the probability
@@ -2584,7 +2584,7 @@ and after recoding the values to match the effective precision
 the area is not included in the equation and hence can be used to compare the efficiency 
 of various different soil mapping projects.
 
-```{block, type="rmdnote"}
+```{block2, type="rmdnote"}
 Soil mapping efficiency can be expressed as the cost of producing bytes 
 of information about the target soil variables for a given area
 of interest. This allows for an objective comparison of prediction
@@ -2670,7 +2670,7 @@ list of target variables an optimal (most efficient) prediction method
 can be determined by deriving the mapping efficiency described in
 Eq.\@ref(eq:efficiency) or even better Eq.\@ref(eq:data-efficiency).
 
-```{block, type="rmdnote"}
+```{block2, type="rmdnote"}
 Modern soil mapping is driven by the objective assessment of
 accuracy — emphasis is put on using methods and covariate
 layers that can produce the most accurate soil information given
