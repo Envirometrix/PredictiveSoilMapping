@@ -13,6 +13,7 @@ classoption: 11pt,graybox,envcountchap,sectrefs,letterpaper
 #classoption:
 #    - 11pt
 #    - letterpaper
+geometry: "left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm"
 monofont: "Source Code Pro"
 monofontoptions: "Scale=0.7"
 #linestretch: 1.15
