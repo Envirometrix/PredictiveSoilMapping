@@ -1699,7 +1699,7 @@ so that it is relatively easy to distribute and use that GIS layer.
 
 In the following example we look at how to convert texture-by-hand estimated classes to texture fractions i.e. sand, silt and clay content in %. We focus on the USDA texture-by-hand classes. There classes are embedded in the [soiltexture package](http://cran.r-project.org/web/packages/soiltexture/) kindly contributed by Julien Moeys. The USDA texture triangle can be accessed by:
 
-```{r plot-tt-triangle, dpi=300, fig.cap="Soil texture triangle based on the USDA system. Generated using the [soiltexture package](http://cran.r-project.org/web/packages/soiltexture/) in R."}
+```{r plot-tt-triangle, fig.height=8, fig.width=8, out.width = '50%', fig.cap="Soil texture triangle based on the USDA system. Generated using the [soiltexture package](http://cran.r-project.org/web/packages/soiltexture/) in R."}
 library(soiltexture)
 TT.plot(class.sys = "USDA.TT")
 ```
@@ -1793,7 +1793,7 @@ for(i in c("CLYPPT", "SLTPPT", "SNDPPT")) { tdf[,i] <- tdf[,i]/tdf$Sum * 100 }
 names(tdf)[1:3] <- c("CLAY", "SILT", "SAND")
 ```
 
-```{r plot-tt-afsis, fig.width=10, dpi=300, fig.cap="Distribution of observed soil textures for the [Africa Soil Profiles](http://gsif.r-forge.r-project.org/afsp.html)."}
+```{r plot-tt-afsis, fig.height=8, fig.width=8, out.width = '50%', fig.cap="Distribution of observed soil textures for the [Africa Soil Profiles](http://gsif.r-forge.r-project.org/afsp.html)."}
 TT.plot(class.sys = "USDA.TT", tri.data = tdf, 
         grid.show = FALSE, pch="+", cex=.4, col="red")
 ```
