@@ -6,9 +6,9 @@ date: "`r Sys.Date()`"
 #comments: true
 knit: bookdown::render_book
 site: bookdown::bookdown_site
-#documentclass: book
-documentclass: svmono2
-classoption: 11pt,graybox,envcountchap,sectrefs,letterpaper
+# documentclass: book
+documentclass: svmono
+classoption: 11pt,graybox,natbib,nospthms
 #documentclass: krantz
 #classoption:
 #    - 11pt
