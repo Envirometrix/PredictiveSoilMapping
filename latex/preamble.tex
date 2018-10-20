@@ -3,12 +3,10 @@
 \usepackage[bf,singlelinecheck=off]{caption}
 \usepackage{tabu}
 \usepackage{float}
-
 % \setmainfont[UprightFeatures={SmallCapsFont=AlegreyaSC-Regular}]{Alegreya}
 
 \usepackage{framed,color}
-\definecolor{shadecolor}{RGB}{255,255,255}
-% \usepackage[numbers]{natbib}
+\definecolor{shadecolor}{RGB}{211,211,211}
 
 \renewcommand{\textfraction}{0.05}
 \renewcommand{\topfraction}{0.8}
@@ -60,19 +58,19 @@
 
 \newenvironment{rmdblock}[1]
   {
-  \begin{itemize}
-  \renewcommand{\labelitemi}{
-    \raisebox{-.7\height}[0pt][0pt]{
-      {\setkeys{Gin}{width=3em,keepaspectratio}\includegraphics{images/#1}}
-    }
-  }
-  \setlength{\fboxsep}{1em}
+  % \begin{itemize}
+  % \renewcommand{\labelitemi}{
+  %   \raisebox{-.7\height}[0pt][0pt]{
+  %     {\setkeys{Gin}{width=3em,keepaspectratio}\includegraphics{images/#1}}
+  %   }
+  % }
+  % \setlength{\fboxsep}{10em}
   \begin{kframe}
-  \item
+  % \item
   }
   {
   \end{kframe}
-  \end{itemize}
+  % \end{itemize}
   }
 \newenvironment{rmdnote}
   {\begin{rmdblock}{note}}
