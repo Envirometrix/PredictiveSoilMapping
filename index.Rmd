@@ -8,7 +8,7 @@ knit: bookdown::render_book
 site: bookdown::bookdown_site
 # documentclass: book
 documentclass: svmono
-classoption: 11pt,graybox,natbib,nospthms
+classoption: graybox,natbib,nospthms
 #documentclass: krantz
 #classoption:
 #    - 11pt
