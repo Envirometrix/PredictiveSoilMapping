@@ -22,9 +22,9 @@ biblio-style: spbasic
 # biblio-style: apalike
 link-citations: yes
 twitter-handle: tom_hengl
-description: "Predictive Soil Mapping aims at producing most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement various soil mapping procedures with R programming language."
-github-repo: "envirometrix/PredictiveSoilMapping"
-cover-image: "figures/f0_web.png"
+cover-image: figures/f0_web.png
+description: "Predictive Soil Mapping aims to produce the most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement common soil mapping procedures within the R programming language."
+github-repo: envirometrix/PredictiveSoilMapping
 url: 'http\://soilmapper.org'
 colorlinks: yes
 graphics: yes
@@ -41,7 +41,7 @@ is_online = curl::has_internet()
 knitr::include_graphics("figures/f0_web.png")
 ```
 
-This is the online version of the Open Access book: [**Predictive Soil Mapping with R**](https://envirometrix.github.io/PredictiveSoilMapping/). Pull requests and general comments are welcome. These materials are based on the technical tutorials developed within the [ISRIC’s](http://isric.org/) Global Soil Information Facilities (GSIF) framework for automated soil mapping over the period 2014–2017.
+This is the online version of the Open Access book: [**Predictive Soil Mapping with R**](https://envirometrix.github.io/PredictiveSoilMapping/). Pull requests and general comments are welcome. These materials are based on technical tutorials initially developed for [ISRIC’s](http://isric.org/) Global Soil Information Facilities (GSIF) framework for automated soil mapping over the period 2014–2017.
 
 <img alt="Under construction" style="border-width:0" src="images/under-construction_640.png" /><br />**This website is under construction**. For news and updates please refer to the [github issues](https://github.com/envirometrix/PredictiveSoilMapping/issues).
 
@@ -49,23 +49,25 @@ Hard copies of this book from will be made available in the second half of 2018.
 
 ## Editors {-}
 
-[Tom Hengl](http://envirometrix.net/staff) is a Senior Researchers / technical director at Envirometrix Ltd. 
+[Tom Hengl](http://envirometrix.net/staff) is the Senior Researcher and technical director at Envirometrix Ltd. 
 He has more than 20 years of experience as an environmental modeler, data scientist and spatial analyst. 
 Tom is a passionate advocate for, and supporter of, open data, reproducible science and career development 
-for young scientists. He has designed and implemented the global [SoilGrids](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0169748) dataset, 
+for young scientists. Tom designed and implemented the global [SoilGrids](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0169748) dataset, 
 partially in response to other well known open data projects such as OpenStreetMap, GBIF, GlobalForestWatch 
-and global climate mapping projects. He has been teaching predictive soil mapping at Wageningen University / 
-ISRIC within the “Hands-on-GSIF” block courses. Video tutorials of the soil mapping with R can also be 
+and global climate mapping projects. He has taught predictive soil mapping at Wageningen University / 
+ISRIC as part of the “Hands-on-GSIF” courses. Soil mapping with R video tutorials can be 
 found at http://youtube.com/c/ISRICorg
+
+[Bob MacMillan](https://opengeohub.org/team-list) is a retired environmental consultant with over 40 years of experience in creating, packaging, delivering and using environmental information on soils, ecosystems, landforms and hydrology. Bob spent 19 years working in public sector research with the Alberta Research Council and Agriculture and Agri-Food Canada and a second 20 years as a private sector consultant offering services in predictive soil and ecological mapping. Since retiring, Bob has remained an active supporter, promoter, advocate, mentor and technical contributor to several continental to global scale efforts to advance the science and technology of mapping soils and other ecosystem components. Bob continues to contribute on a voluntary basis to OpenGeoHub (https://opengeohub.org/), Africa Soil Information Servicce (AfSIS) (http://africasoils.net/) and the Canadian Digital Soil Data Consortium (CDSDC): (http://soilinfo.ca/). Throughout his career, Bob has shared his expertise and his enthusiasm freely with dozens of younger scientists interested in learning about, and becoming, practitioners of digital soil mapping. Bob continues to support the next generation of digital soil mappers through his involvement with OpenGeoHub. 
 
 # Preface {-}
 
-Predictive Soil Mapping (PSM) is based on applying statistical and/or machine learning techniques to fit models for the purpose of producing spatial and/or spatiotemporal predictions of soil variables i.e. maps of soil properties and classes at different resolutions. It is a multidisciplinary field combining statistics, data science, soil science, physical geography, remote sensing, geoinformation science and number of other sciences [@Scul01; @MCBRATNEY20033; @Henderson2004Geoderma; @Boettinger2010Springer; @Zhu2015PSM]. *Predictive Soil Mapping with R* is about understanding the main concepts behind soil mapping, mastering R packages that can be used to produce high quality soil maps, and about optimizing all processes involved so that also the production costs can be reduced.
+Predictive Soil Mapping (PSM) is based on applying statistical and/or machine learning techniques to fit models for the purpose of producing spatial and/or spatiotemporal predictions of soil variables i.e. maps of soil properties and classes at different resolutions. It is a multidisciplinary field combining statistics, data science, soil science, physical geography, remote sensing, geoinformation science and a number of other sciences [@Scul01; @MCBRATNEY20033; @Henderson2004Geoderma; @Boettinger2010Springer; @Zhu2015PSM]. *Predictive Soil Mapping with R* is about understanding the main concepts behind soil mapping, mastering R packages that can be used to produce high quality soil maps, and about optimizing all processes involved so that also the production costs can be reduced.
 
-The main idea behind Predictive vs traditional expert-based soil mapping is that production of maps: (a) 
-is based on using state-of-the-art statistical methods to ensure objectivity of maps (including objective uncertainty assessment vs expert judgment), and (b) is driven by automation of the processes so that overall soil data production costs can be reduced and updates of the maps implemented without a need for large investments. R in that sense is a logical platform to develop PSM workflows and applications, especially thanks to the vibrant and productive R spatial interest group activities and also thanks to the increasingly professional soil data packages such as the soiltexture, aqp, soilprofile, soilDB and similar.
+The main idea behind predictive vs traditional expert-based soil mapping is that the production of maps: (a) 
+is based on using state-of-the-art statistical methods to ensure objectivity of maps (including objective uncertainty assessment vs expert judgment), and (b) is driven by automation of the processes so that overall soil data production costs can be reduced and updates of the maps implemented without a need for large investments. R, in that sense, is a logical platform to develop PSM workflows and applications, especially thanks to the vibrant and productive R spatial interest group activities and also thanks to the increasingly professional soil data packages such as the soiltexture, aqp, soilprofile, soilDB and similar.
 
-Book is divided into sections covering theoretical concepts, preparation of covariates, model selection and evaluation, prediction and visualization and distribution of final maps. Most of chapters contain R code examples that try to illustrate main processing steps and give practical instructions to developers and applied users.
+The book is divided into sections covering theoretical concepts, preparation of covariates, model selection and evaluation, prediction and visualization and distribution of final maps. Most of the chapters contain R code examples that try to illustrate the main processing steps and give practical instructions to developers and applied users.
 
 ## Connected publications {-}
 
@@ -123,11 +125,11 @@ For the most recent developments in the R-spatial community refer to https://r-s
 
 This book is constantly updated and contributions are welcome (through pull requests, but also through adding new chapters) provided that some minimum requirements are met. To contribute a complete new chapter please contact the editors first. Some minimum requirements to contribute a chapter are:
 
-1. The data needs to be available in majority of chapter, best via some R package or web-source.
-2. Chapter should focus on implementing computing in R (it should be written as R tutorial).
-3. All examples should be computationally efficient with not more than 30 secs of computing time per process on a single core system.
-4. Theoretical basis for methods and interpretation of results should be based on peer-review publications. This book is not intended to host primary research / experimental results, but only to supplement existing research publications.
-5. Chapter should consist of at least 1500 words and at most 3500 words.
+1. The data needs to be available for the majority tutorials presented in a chapter. Best is if this is via some R package or web-source.
+2. A chapter should focus on implementing some computing in R (it should be written as an R tutorial).
+3. All examples should be computationally efficient requiring not more than 30 secs of computing time per process on a single core system.
+4. The theoretical basis for methods and interpretation of results should be based on peer-review publications. This book is not intended to report on primary research / experimental results, but only to supplement existing research publications.
+5. A chapter should consist of at least 1500 words and at most 3500 words.
 6. The topic of the chapter must be closely connected to theme of soil mapping, soil geographical databases, methods for processing spatial soil data and similar.
 
 In principle, all submitted chapters should also follow closely the [five pillars of Wikipedia](https://en.wikipedia.org/wiki/Wikipedia:Five_pillars), especially: Verifiability, Reproducibility, No original research, Neutral point of view, Good faith, No conflict of interest, and no personal attacks.
@@ -149,7 +151,7 @@ browseURL("docs/index.html") # to view it
 
 ## Acknowledgements {-}
 
-The authors are grateful to numerous contributions from colleagues around the world, especially for the contributions by the current and former ISRIC — World Soil Information colleagues: Robert MacMillan, Gerard Heuvelink, Johan Leenaars, Jorge Mendes de Jesus, Wei Shangguan, David G. Rossiter, and many others. ISRIC is a research foundation funded primarily by the Dutch Government. The authors also grateful to the support received via the [AfSIS project](http://africasoils.net), which has been funded by the Bill and Melinda Gates Foundation (BMGF) and the Alliance for a Green Revolution in Africa (AGRA). Many soil data processing examples in the book are based on the R code developed by Dylan Beuadette, Pierre Roudier, Julian Moeys, Brandad Malone and many other developers. Author is also grateful to comments and suggestions to the methods explained in the book by Travis Nauman, Amanda Ramcharan, David G. Rossiter and [Julian Moeys](http://julienmoeys.info/). 
+The authors are grateful to numerous contributions from colleagues around the world, especially for contributions by current and former ISRIC — World Soil Information colleagues: Gerard Heuvelink, Johan Leenaars, Jorge Mendes de Jesus, Wei Shangguan, David G. Rossiter, and many others. The authors gratefully acknowledge support received via the [AfSIS project](http://africasoils.net), funded by the Bill and Melinda Gates Foundation (BMGF) and the Alliance for a Green Revolution in Africa (AGRA) during an earlier period at ISRI-World Soil Information when many of these ideas and functionalities were first developed. Many soil data processing examples in the book are based on R code developed by Dylan Beuadette, Pierre Roudier, Julian Moeys, Brendan Malone and many other developers. The authors are also grateful to comments and suggestions on the methods explained in the book by Travis Nauman, Amanda Ramcharan, David G. Rossiter and [Julian Moeys](http://julienmoeys.info/). 
 
 SoilGrids are based on numerous soil profile data sets that have been
 kindly contributed by various national and international agencies: the
