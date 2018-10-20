@@ -88,6 +88,7 @@ The *universal model of soil variation* assumes that there are three
 major components of soil variation: (1) the deterministic component
 (function of covariates), (2) spatially correlated component (treated as
 stochastic) and (3) pure noise.
+
 ```
 
 The universal model of soil variation model (Eq.\@ref(eq:ukm)) can be
