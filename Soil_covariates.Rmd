@@ -538,7 +538,10 @@ We would like to run a function on this raster in parallel, for example a simple
 fun_mask <- function(i, tiles, dir="./tiled/", threshold=190){
   out.tif = paste0(dir, "T", i, ".tif")
   if(!file.exists(out.tif)){
-    x = readGDAL(fn, offset=unlist(tiles[i,c("offset.y","offset.x")]), region.dim=unlist(tiles[i,c("region.dim.y","region.dim.x")]), output.dim=unlist(tiles[i,c("region.dim.y","region.dim.x")]), silent = TRUE)
+    x = readGDAL(fn, offset=unlist(tiles[i,c("offset.y","offset.x")]),
+                 region.dim=unlist(tiles[i,c("region.dim.y","region.dim.x")]), 
+                 output.dim=unlist(tiles[i,c("region.dim.y","region.dim.x")]),
+                 silent = TRUE)
     x$mask = ifelse(x$band1>threshold, 1, 0)
     writeGDAL(x["mask"], type="Byte", mvFlag = 255, out.tif, options=c("COMPRESS=DEFLATE"))
   }
