@@ -1,5 +1,40 @@
-\usepackage{booktabs}
+% from unofficial guide
+\usepackage{amsmath,amssymb,textcomp}
+% \usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{verbatim}
+\usepackage{helvet}
+\usepackage{courier}
+\usepackage{array,tabularx,multirow,rotating} %Table format packages
+\usepackage{natbib} %Format for references
+\usepackage{textcomp,eurosym}
+\usepackage{wrapfig}
+\usepackage[switch,pagewise]{lineno}
+% \usepackage{fancyhdr,fancybox}
+\usepackage{url}
+\usepackage{hyperref}            %automatic hyperlinks in document; redefines
+\hypersetup{colorlinks=true, linkcolor=black, citecolor=black,
+        urlcolor=black, bookmarks=true, bookmarksnumbered=true,
+        bookmarksopen=true, pdfview=FitH, pdfstartview=FitH,
+        pdftitle={Predictive Soil Mapping with R},
+        pdfauthor={Tomislav Hengl},}
+% 
+% % Margin paragraphs:
+\setlength{\marginparwidth}{1.8cm}
+\setlength{\marginparsep}{4pt}
+
+% fix the font size and encoding for url's etc:
+\renewcommand{\ttdefault}{cmtt}
+\renewcommand{\sfdefault}{cmss}
+\setlength\rotFPtop{0pt plus 1fil}  % rotated tables.
+\renewcommand\refname{Cited sources:} % Title for bibliography
+% end from unofficial guide
+
+
+
+% from bookdown
 \usepackage{longtable}
+\usepackage{booktabs}
 \usepackage[bf,singlelinecheck=off]{caption}
 \usepackage{tabu}
 \usepackage{float}
