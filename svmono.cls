@@ -229,9 +229,9 @@ passing it to article class \MessageBreak
 
 % various sizes and settings for monographs
 
-\setlength{\textwidth}{117mm}
+%\setlength{\textwidth}{117mm}
 %\setlength{\textheight}{12pt}\multiply\textheight by 45\relax
-\setlength{\textheight}{191mm}
+%\setlength{\textheight}{191mm}
 \setlength{\topmargin}{0cm}
 \setlength\oddsidemargin   {63\p@}
 \setlength\evensidemargin  {63\p@}
