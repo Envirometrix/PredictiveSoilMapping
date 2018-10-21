@@ -8,12 +8,12 @@ knit: bookdown::render_book
 site: bookdown::bookdown_site
 # documentclass: book
 documentclass: svmono
-classoption: graybox,natbib,nospthms
+classoption: graybox,natbib,nospthms,UStrade
 #documentclass: krantz
 #classoption:
 #    - 11pt
 #    - letterpaper
-geometry: "left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm"
+geometry: "top=1.6cm, bottom=2cm, left=2.1cm, right=2.1cm"
 monofont: "Source Code Pro"
 monofontoptions: "Scale=0.7"
 #linestretch: 1.15
