@@ -284,7 +284,8 @@ knitr::include_graphics("figures/eberg_original_vs_aggregated.png")
 Now that we have established a connection between R and SAGA GIS, we can also use SAGA GIS to derive some standard DEM parameters of interest to soil mapping. To automate further processing, we make the following function:
 
 ```{r}
-saga_DEM_derivatives <- function(INPUT, MASK=NULL, sel=c("SLP","TWI","CRV","VBF","VDP","OPN","DVM")){
+saga_DEM_derivatives <- function(INPUT, MASK=NULL, 
+                                 sel=c("SLP","TWI","CRV","VBF","VDP","OPN","DVM")){
   if(!is.null(MASK)){
     ## Fill in missing DEM pixels:
     suppressWarnings( system(paste0(saga_cmd, 

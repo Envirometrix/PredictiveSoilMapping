@@ -818,7 +818,8 @@ rm.zinc1 <- do.call(cbind, list(meuse@data["zinc"], ov.zinc, ov.zinc1))
 this finally gives:
 
 ```{r}
-m1.zinc <- ranger(fm1, rm.zinc1, importance="impurity", quantreg=TRUE, num.trees=150, seed=1)
+m1.zinc <- ranger(fm1, rm.zinc1, importance="impurity", 
+                  quantreg=TRUE, num.trees=150, seed=1)
 m1.zinc
 ```
 
