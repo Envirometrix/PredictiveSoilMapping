@@ -1459,7 +1459,7 @@ square blocks of (***WHAT***) by(***WHAT***) we run:
 
 ```{r}
 om.rk.b <- predict(omm, meuse.grid, block=c(40,40), nfold=0)
-om.rksim.b <- predict(omm, meuse.grid, nsim=2, block=c(40,40))
+om.rksim.b <- predict(omm, meuse.grid, nsim=2, block=c(40,40), debug.level=0)
 ## computationally intensive
 ```
 
@@ -2306,7 +2306,7 @@ simulations that we can generate using the geostatistical model (which
 can be time-consuming to compute!):
 
 ```{r confidence-limits-boxplot, fig.cap="Prediction intervals for three flooding frequency classes for sampled and predicted soil organic matter. The grey boxes show 1st and 3rd quantiles i.e. range where of data falls.", out.width="90%"}
-om.rksim <- predict(omm, meuse.grid, nsim=5)
+om.rksim <- predict(omm, meuse.grid, nsim=5, debug.level=0)
 ov <- as(om.rksim@realizations, "SpatialGridDataFrame")
 meuse.grid$om.sim1 <- expm1(ov@data[,1][meuse.grid@grid.index])
 meuse.grid$om.rk <- expm1(om.rk@predicted$om)
