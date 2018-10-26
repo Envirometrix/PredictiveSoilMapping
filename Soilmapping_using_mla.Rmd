@@ -290,7 +290,8 @@ h2 <- hor2xyd(edgeroi$horizons)
 ## regression matrix:
 m2 <- plyr::join_all(dfs = list(edgeroi$sites, h2, ov2))
 ## spatial prediction model:
-formulaStringP2 <- ORCDRC ~ DEMSRT5+TWISRT5+PMTGEO5+EV1MOD5+EV2MOD5+EV3MOD5+DEPTH
+formulaStringP2 <- ORCDRC ~ DEMSRT5+TWISRT5+PMTGEO5+
+                            EV1MOD5+EV2MOD5+EV3MOD5+DEPTH
 mP2 <- m2[complete.cases(m2[,all.vars(formulaStringP2)]),]
 ```
 
@@ -909,7 +910,8 @@ fm.s1c <- as.formula(paste("soil1c ~ ",
                            paste(names(grid.dist0), collapse="+"), 
                            " + SW_occurrence + dist"))
 rm.s1$soil1c = as.factor(rm.s1$soil1)
-m2.s1 <- ranger(fm.s1c, rm.s1, mtry=22, num.trees=150, seed=1, probability=TRUE, keep.inbag=TRUE)
+m2.s1 <- ranger(fm.s1c, rm.s1, mtry=22, num.trees=150, seed=1, 
+                probability=TRUE, keep.inbag=TRUE)
 m2.s1
 ```
 
@@ -951,7 +953,8 @@ to produce probability maps per soil class, we need to turn on the `probability=
 rm.s <- do.call(cbind, list(meuse@data["soil"], 
                             over(meuse["soil"], meuse.grid), 
                             over(meuse["soil"], grid.dist0)))
-m.s <- ranger(fm.s, rm.s, mtry=22, num.trees=150, seed=1, probability=TRUE, keep.inbag=TRUE)
+m.s <- ranger(fm.s, rm.s, mtry=22, num.trees=150, seed=1, 
+              probability=TRUE, keep.inbag=TRUE)
 m.s
 ```
 
