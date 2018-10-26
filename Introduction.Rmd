@@ -573,7 +573,7 @@ generally has to choose some best achievable target scale (e.g.
 generalized, depending on the application and users demands
 [@Wysocki2005Geoderma].
 
-```{r smu-aggregation, echo=FALSE, fig.cap="Three basic conceptual *scales* in soil mapping: (left) *most detailed scale* showing the actual distribution of soil *bodies*, (center) *target scale* i.e. scale achievable by the soil survey budget, (right) *generalized intermediate scale or coarse resolution maps*. In a conventional soil survey, soils are described and conceptualized as groups of similar pedons (smallest elements of 1–10 square-m), called *“polypedons”* — the smallest mappable entity. These can then be further generalized to soil map units, which can be various combinations (systematic or random) of dominant and contrasting soils (inclusions).", out.width="85%", out.extra="angle=270"}
+```{r smu-aggregation, echo=FALSE, fig.cap="Three basic conceptual scales in soil mapping: (left) most detailed scale showing the actual distribution of soil bodies, (center) target scale i.e. scale achievable by the soil survey budget, (right) generalized intermediate scale or coarse resolution maps. In a conventional soil survey, soils are described and conceptualized as groups of similar pedons (smallest elements of 1–10 square-m), called “polypedons” — the smallest mappable entity. These can then be further generalized to soil map units, which can be various combinations (systematic or random) of dominant and contrasting soils (inclusions).", out.width="85%"}
 knitr::include_graphics("figures/Fig_SMU_aggregation.png")
 ```
 
@@ -702,7 +702,7 @@ developing technologies and newly available global data layers, especially
 those that are free and publicly distributed such as MODIS products,
 SRTM DEM and similar (Fig. \@ref(fig:new-technologies)). PSM can be compared to, and shares similar concepts with, other applications of statistics and machine learning in physical geography, for example Predictive Vegetation Mapping [@Fran01; @Hengl2018PNV].
 
-```{r new-technologies, echo=FALSE, fig.cap="Evolution of digital soil mapping parallels the emergence of new technologies and global, publicly available data sources.", out.width="100%"}
+```{r new-technologies, echo=FALSE, fig.cap="Evolution of digital soil mapping parallels the emergence of new technologies and global, publicly available data sources.", out.width="100%",out.extra="angle=270"}
 knitr::include_graphics("figures/Fig_new_technologies.png")
 ```
 
@@ -2014,7 +2014,7 @@ number of factors (Fig. \@ref(fig:usability-scheme)):
     for download and are they easy to obtain? How many users can access
     the data at the same time? Are the data free and easily obtained?
 
-```{r usability-scheme, echo=FALSE, fig.cap="Usability of a Soil Information System is basically a function of a number of data usability measures from which the following four (C’s) are essential: completeness, consistency, correctness and currency.", out.width="75%", out.extra="angle=270"}
+```{r usability-scheme, echo=FALSE, fig.cap="Usability of a Soil Information System is basically a function of a number of data usability measures from which the following four (C’s) are essential: completeness, consistency, correctness and currency.", out.width="60%", out.extra="angle=270"}
 knitr::include_graphics("figures/Fig_usability_scheme.png")
 ```
 
