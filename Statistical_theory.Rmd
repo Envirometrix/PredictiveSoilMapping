@@ -283,7 +283,7 @@ site(prof1.spc) <- ~ lon + lat + FAO1988
 coordinates(prof1.spc) <- ~ lon + lat
 proj4string(prof1.spc) <- CRS("+proj=longlat +datum=WGS84")
 ## fit a spline:
-ORCDRC.s <- mpspline(prof1.spc, var.name="ORCDRC")
+ORCDRC.s <- mpspline(prof1.spc, var.name="ORCDRC", show.progress=FALSE)
 ORCDRC.s$var.std
 ```
 
