@@ -558,7 +558,8 @@ x0 <- mclapply(1:nrow(tiles), FUN=fun_mask, tiles=tiles)
 We can look in the the tiles folder, and this should show 35 produced GeoTiffs. These can be further used to construct a virtual mosaic by using:
 
 ```{r, eval=FALSE}
-t.lst <- list.files(path="extdata/tiled", pattern=glob2rx("^T*.tif$"), full.names=TRUE, recursive=TRUE)
+t.lst <- list.files(path="extdata/tiled", pattern=glob2rx("^T*.tif$"), 
+                    full.names=TRUE, recursive=TRUE)
 cat(t.lst, sep="\n", file="SP27GTIF_tiles.txt")
 system('gdalbuildvrt -input_file_list SP27GTIF_tiles.txt SP27GTIF.vrt')
 system('gdalwarp SP27GTIF.vrt SP27GTIF_mask.tif -ot \"Byte\"', 
