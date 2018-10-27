@@ -424,7 +424,8 @@ We can also test ensemble predictions using the cookfarm data set [@Gasch2015SPA
 data(cookfarm)
 cookfarm.hor <- cookfarm$profiles
 str(cookfarm.hor)
-cookfarm.hor$depth <- cookfarm.hor$UHDICM + (cookfarm.hor$LHDICM - cookfarm.hor$UHDICM)/2
+cookfarm.hor$depth <- cookfarm.hor$UHDICM +
+  (cookfarm.hor$LHDICM - cookfarm.hor$UHDICM)/2
 sel.id <- !duplicated(cookfarm.hor$SOURCEID)
 cookfarm.xy <- cookfarm.hor[sel.id,c("SOURCEID","Easting","Northing")]
 str(cookfarm.xy)

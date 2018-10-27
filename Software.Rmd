@@ -278,8 +278,8 @@ system(paste(gdalwarp, "--help"))
 We can use GDAL to reproject the grid from the previous example:
 
 ```{r plot-eberg-ll, fig.width=7, fig.cap="Ebergotzen DEM reprojected in geographical coordinates."}
-system('gdalwarp ./extdata/DEMSRT6.sdat ./extdata/DEMSRT6_ll.tif 
-       -t_srs \"+proj=longlat +datum=WGS84\"')
+system(paste('gdalwarp ./extdata/DEMSRT6.sdat ./extdata/DEMSRT6_ll.tif',  
+             '-t_srs \"+proj=longlat +datum=WGS84\"'))
 library(raster)
 plot(raster("./extdata/DEMSRT6_ll.tif"))
 ```
