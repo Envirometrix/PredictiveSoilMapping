@@ -486,7 +486,7 @@ Possibly a more robust way to determine the effective rooting depth is
 to map all limiting soil properties with high accuracy, and then derive
 rooting index per layer.
 
-```{r lri-scheme, echo=FALSE, fig.cap="Derivation of the Limiting Rooting Index: (left) soil pH values and corresponding LRI, (right) coarse fragments and corresponding LRI [@Leenaars2018].", out.width="60%", out.extra="angle=270"}
+```{r lri-scheme, echo=FALSE, fig.cap="Derivation of the Limiting Rooting Index: (left) soil pH values and corresponding LRI, (right) coarse fragments and corresponding LRI [@Leenaars2018].", out.width="40%", out.extra="angle=270"}
 knitr::include_graphics("figures/Fig_LRI_scheme.png")
 ```
 

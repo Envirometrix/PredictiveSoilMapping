@@ -506,7 +506,7 @@ patterns to similar portions of the landscape
 procedures mainly address the deterministic part of the universal model
 of soil variation.
 
-```{r soilsurvey-scheme, echo=FALSE, fig.cap="Typical soil survey phases and intermediate and final products.", out.width="100%"}
+```{r soilsurvey-scheme, echo=FALSE, fig.cap="Typical soil survey phases and intermediate and final products.", out.width="100%", fig.pos="h"}
 knitr::include_graphics("figures/Fig_soilsurvey_scheme.png")
 ```
 
@@ -702,7 +702,7 @@ developing technologies and newly available global data layers, especially
 those that are free and publicly distributed such as MODIS products,
 SRTM DEM and similar (Fig. \@ref(fig:new-technologies)). PSM can be compared to, and shares similar concepts with, other applications of statistics and machine learning in physical geography, for example Predictive Vegetation Mapping [@Fran01; @Hengl2018PNV].
 
-```{r new-technologies, echo=FALSE, fig.cap="Evolution of digital soil mapping parallels the emergence of new technologies and global, publicly available data sources.", out.width="100%",out.extra="angle=270"}
+```{r new-technologies, echo=FALSE, fig.cap="Evolution of digital soil mapping parallels the emergence of new technologies and global, publicly available data sources.", out.width="45%",out.extra="angle=270"}
 knitr::include_graphics("figures/Fig_new_technologies.png")
 ```
 
