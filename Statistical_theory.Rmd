@@ -111,7 +111,7 @@ In this chapter, we mainly focus on purely 2D models but also present
 some theory for 3D models, while 2D+T and 3D+T models of soil variation
 are significantly more complex (Fig. \@ref(fig:scheme-2D-3D-maps)).
 
-```{r scheme-2D-3D-maps, echo=FALSE, fig.cap="Number of variogram parameters assuming an exponential model, minimum number of samples and corresponding increase in number of prediction locations for 2D, 3D, 2D+T and 3D+T models of soil variation. Here *“altitude”* refers to vertical distance from the land surface, which is in case of soil mapping often expressed as negative vertical distance from the land surface.", out.width="60%"}
+```{r scheme-2D-3D-maps, echo=FALSE, fig.cap="Number of variogram parameters assuming an exponential model, minimum number of samples and corresponding increase in number of prediction locations for 2D, 3D, 2D+T and 3D+T models of soil variation. Here “altitude” refers to vertical distance from the land surface, which is in case of soil mapping often expressed as negative vertical distance from the land surface.", out.width="60%"}
 knitr::include_graphics("figures/Fig_2D_3DT_maps.png")
 ```
 
@@ -1277,7 +1277,7 @@ prediction methods is, in fact, not large (±5% of variance explained).
 It is important to run such comparisons nevertheless, as they allow us
 to objectively select the most efficient method.
 
-```{r rk-vs-rf-meuse, echo=FALSE, fig.cap="Predictions of the organic carbon (log-transformed values) using random forest vs linear regression-kriging. The random forest-kriging variance has been derived using the quantregForest package [@meinshausen2006quantile].", out.width="100%"}
+```{r rk-vs-rf-meuse, echo=FALSE, fig.cap="Predictions of the organic carbon (log-transformed values) using random forest vs linear regression-kriging. The random forest-kriging variance has been derived using the quantregForest package.", out.width="100%"}
 knitr::include_graphics("figures/Fig_RK_vs_randomForestK_Meuse.png")
 ```
 
@@ -1416,7 +1416,7 @@ support, e.g. when model inputs require a different support than the
 support of the observations, scaling (aggregation or disaggregation)
 becomes necessary [@Heuvelink1999Geoderma].
 
-```{r confidence-limits-block, echo=FALSE, fig.cap="Scheme with predictions on point (above) and block support (below). In the case of various versions of kriging, both point and block predictions smooth the original measurements proportionally to the nugget variation. After @Goovaerts1997Oxford.", out.width="100%"}
+```{r confidence-limits-block, echo=FALSE, fig.cap="Scheme with predictions on point (above) and block support (below). In the case of various versions of kriging, both point and block predictions smooth the original measurements proportionally to the nugget variation. After Goovaerts (1997).", out.width="100%"}
 knitr::include_graphics("figures/Fig_confidence_limits.png")
 ```
 
@@ -1484,7 +1484,7 @@ function. The (***WHAT***) package reports automatically the cross-validation er
 om.rk.p
 ```
 
-```{r meuse-block-predictions, echo=FALSE, fig.cap="Predictions and simulations (2) at point (above) and block (below) support using the Meuse dataset. Note that prediction values produced by point and block methods are quite similar. Simulations on block support produce *smoother* maps than the point-support simulations.", out.width="100%"}
+```{r meuse-block-predictions, echo=FALSE, fig.cap="Predictions and simulations (2) at point (above) and block (below) support using the Meuse dataset. Note that prediction values produced by point and block methods are quite similar. Simulations on block support produce smoother maps than the point-support simulations.", out.width="100%"}
 knitr::include_graphics("figures/Fig_meuse_block_predictions.jpg")
 ```
 
@@ -1615,7 +1615,7 @@ of a large number of geostatistical simulations will approximate the
 kriging variance (and likewise the average of a large number of
 simulations will approximate the kriging prediction map).
 
-```{r hist-om-predicted-simulated, echo=FALSE, fig.cap="Histogram for the target variable (Meuse data set; log of organic matter) based on the actual observations (left), predictions at all grid nodes (middle) and simulations (right). Note that the histogram for predicted values will always show somewhat narrower distribution (smoothed), depending on the strength of the model, while the simulations should be able to reproduce the original range (see also @Yamamoto2008).", out.width="100%"}
+```{r hist-om-predicted-simulated, echo=FALSE, fig.cap="Histogram for the target variable (Meuse data set; log of organic matter) based on the actual observations (left), predictions at all grid nodes (middle) and simulations (right). Note that the histogram for predicted values will always show somewhat narrower distribution (smoothed), depending on the strength of the model, while the simulations should be able to reproduce the original range (see also Yamamoto et al. (2008)).", out.width="100%"}
 knitr::include_graphics("figures/Fig_hist_om_predicted_vs_simulated.png")
 ```
 
@@ -2440,7 +2440,7 @@ observed data deviate from the line of perfect concordance (1:1 line in
 Fig. \@ref(fig:validation-scheme)). It is usually equal to or somewhat
 lower than R–square, depending on the amount of bias in predictions.
 
-```{r validation-scheme, echo=FALSE, fig.cap="Universal plots of predictive performance: (a) 1:1 predicted vs observed plot, (b) CCC vs standard deviation of the z-scores plot, (c) nominal vs coverage probabilities, and (d) variogram of cross-validation residuals. For more detail see: @Hengl2018RFsp.", out.width="80%"}
+```{r validation-scheme, echo=FALSE, fig.cap="Universal plots of predictive performance: (a) 1:1 predicted vs observed plot, (b) CCC vs standard deviation of the z-scores plot, (c) nominal vs coverage probabilities, and (d) variogram of cross-validation residuals. Image source: Hengl et al. (2018) doi: 10.7717/peerj.5518.", out.width="80%"}
 knitr::include_graphics("figures/Fig_validation_plots.png")
 ```
 
@@ -2509,7 +2509,7 @@ square-km); to map soil at 1:20 would cost about 25 EUR per ha. These
 are the all-inclusive costs that include salaries and time in the office
 needed for the work of synthesis and editing.
 
-```{r scale-costs-ratio, echo=FALSE, fig.cap="Some basic concepts of soil survey: (a) relationship between cartographic scale and pixel size [@Hengl2006CG], (b) soil survey costs and scale relationship based on the empirical data of @Legros2006SP.", out.width="100%"}
+```{r scale-costs-ratio, echo=FALSE, fig.cap="Some basic concepts of soil survey: (a) relationship between cartographic scale and pixel size (Hengl, 2006), (b) soil survey costs and scale relationship based on the empirical data of (Legros, 2006).", out.width="100%"}
 knitr::include_graphics("figures/Fig_scale_costs_ratio.png")
 ```
 
@@ -2568,7 +2568,7 @@ spatial prediction model (Eq.\@ref(eq:normvar)). In other words, soil
 mapping efficiency is the total cost of explaining each percent of variation
 in target soil variables for a given area of interest.
 
-```{r costs-RMSE-scheme, echo=FALSE, fig.cap="General relationship between the sampling intensity (i.e. survey costs) and amount of variation in the target variable explained by a spatial prediction model. After @Hengl2013JAG.", out.width="80%"}
+```{r costs-RMSE-scheme, echo=FALSE, fig.cap="General relationship between the sampling intensity (i.e. survey costs) and amount of variation in the target variable explained by a spatial prediction model. After Hengl et al. (2013) doi: 10.1016/j.jag.2012.02.005.", out.width="80%"}
 knitr::include_graphics("figures/Fig_costs_RMSE_scheme.png")
 ```
 
@@ -2655,7 +2655,7 @@ studies permit us to determine the best performing, and most cost
 effective, pedometric method for an area of interest and a list of
 target variables.
 
-```{r cost-methods-scheme, echo=FALSE, fig.cap="An schematic example of a performance plot (*‘predictogram’*) for comparing spatial prediction models. For more details see: @Hengl2013JAG.", out.width="80%"}
+```{r cost-methods-scheme, echo=FALSE, fig.cap="An schematic example of a performance plot (*‘predictogram’*) for comparing spatial prediction models. For more details see: Hengl et al. (2013) doi: 10.1016/j.jag.2012.02.005.", out.width="80%"}
 knitr::include_graphics("figures/Fig_costs_RMSE_scheme-2.png")
 ```
 

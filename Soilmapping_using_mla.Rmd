@@ -1,3 +1,26 @@
+```{r include=FALSE, cache=FALSE}
+## Needed for Rscript
+library("methods")
+library("microbenchmark")
+## load data sets
+
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  cache = TRUE, 
+  fig.align="center",
+  fig.pos="t",
+  auto_pdf = FALSE
+)
+set.seed(2016)
+options(digits = 3)
+options(dplyr.print_min = 4, dplyr.print_max = 4)
+options(knitr.graphics.auto_pdf = TRUE)
+
+figs.lst = list.files("figures", pattern=glob2rx("*.pdf$"), full.names = TRUE)
+for(i in 1:length(figs.lst)){ if(!file.exists(gsub(".pdf", ".png", figs.lst[i]))) system(paste0("convert -density 200 ", figs.lst[i], " -quality 90 ", gsub(".pdf", ".png", figs.lst[i]))) }
+#for(i in 1:length(figs.lst)){ if(!file.exists(gsub(".pdf", ".png", figs.lst[i]))) system(paste0('inkscape \"', figs.lst[i], '\" -z --export-dpi=200 --export-area-drawing --export-png="', gsub(".pdf", ".png", figs.lst[i]), '"')) }
+```
 # Machine Learning Algorithms for soil mapping {#soilmapping-using-mla}
 
 *Edited by: T. Hengl*
@@ -667,7 +690,7 @@ and DEM-derivatives, such as slope (Fig. \@ref(fig:distances-examples)b).
 SAGA GIS [@gmd-8-1991-2015] offers a wide variety of DEM derivatives
 that can be derived per location of interest.
 
-```{r distances-examples, echo=FALSE, fig.cap="Examples of distance maps to some location in space (yellow dot) based on different derivation algorithms: (a) simple Euclidean distances, (b) complex speed-based distances based on the package and Digital Elevation Model (DEM) [@vanEtten2017r], and (c) upslope area derived based on the DEM in SAGA GIS [@gmd-8-1991-2015]. Case study: Ebergötzen [@bohner2006saga].", out.width="100%"}
+```{r distances-examples, echo=FALSE, fig.cap="Examples of distance maps to some location in space (yellow dot) based on different derivation algorithms: (a) simple Euclidean distances, (b) complex speed-based distances based on the package and Digital Elevation Model (DEM), and (c) upslope area derived based on the DEM in SAGA GIS. Image source: Hengl et al. (2018) doi: 10.7717/peerj.5518.", out.width="100%"}
 knitr::include_graphics("figures/Fig_distances_examples.png")
 ```
 
@@ -779,7 +802,7 @@ meuse.grid$zinc_ok_range <- sqrt(zinc.ok$krige.var)
 
 in this case geoR automatically back-transforms values to the original scale, which is a recommended feature. Comparison of predictions and prediction error maps produced using geoR (ordinary kriging) and RFsp (with buffer distances and by just using coordinates) is given in Fig. \@ref(fig:comparison-OK-RF-zinc-meuse).
 
-```{r comparison-OK-RF-zinc-meuse, echo=FALSE, fig.cap="Comparison of predictions based on ordinary kriging as implemented in the geoR package (left) and random forest (right) for Zinc concentrations, Meuse data set: (first row) predicted concentrations in log-scale and (second row) standard deviation of the prediction errors for OK and RF methods. After @Hengl2018RFsp.", out.width="100%"}
+```{r comparison-OK-RF-zinc-meuse, echo=FALSE, fig.cap="Comparison of predictions based on ordinary kriging as implemented in the geoR package (left) and random forest (right) for Zinc concentrations, Meuse data set: (first row) predicted concentrations in log-scale and (second row) standard deviation of the prediction errors for OK and RF methods. Image source: Hengl et al. (2018) doi: 10.7717/peerj.5518.", out.width="100%"}
 knitr::include_graphics("figures/Fig_comparison_OK_RF_zinc_meuse.png")
 ```
 

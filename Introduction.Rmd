@@ -33,7 +33,7 @@ topmost layer of the Earth’s surface [@chesworth2008encyclopedia]. The
 upper limit of the soil is either air, shallow water, live plants or
 plant materials that have not begun to decompose. The lower limit is
 defined by the presence of hard rock or the lower limit of biologic
-activity [@richter1995deep; @SSDS1993]. Although soil profiles up to tens
+activity [@Richter1995deep; @SSDS1993]. Although soil profiles up to tens
 of meters depths can be found in some tropical areas [@richter1995deep], for
 soil classification and mapping purposes, the lower limit soil is often
 arbitrarily set to 2 m (http://soils.usda.gov/education/facts/soil.html). Soils are rarely described to depths beyond 2 m and
@@ -754,7 +754,7 @@ continuum of *digital soil mapping* methods [@malone2016using; @mcbratney2018ped
 We promote in this book specifically the Class E soil mapping approach 
 i.e. which we refer to as the *predictive* and/or *automated soil mapping*.
 
-```{r pedometric-mapping-vs-dsm, echo=FALSE, fig.cap="A classification of approaches to soil mapping: from purely expert driven, to various types of *digital* soil mapping.", out.width="85%"}
+```{r pedometric-mapping-vs-dsm, echo=FALSE, fig.cap="A classification of approaches to soil mapping: from purely expert driven, to various types of digital soil mapping.", out.width="85%"}
 knitr::include_graphics("figures/Fig_pedometric_mapping_vs_DSM.png")
 ```
 
@@ -1186,7 +1186,7 @@ distances and directions from some known local reference point
 an accuracy of better than 50–100 m. Some widely used profile data from
 developing countries cannot be reliably located to within 1 km [@Leenaars2012].
 
-```{r gps-evolution, echo=FALSE, fig.cap="Evolution of the Open Access Navigation and positioning technologies (left) and the open access remote sensing monitoring systems (right). API — Aerial photo-interpretation; S.A. --- Selective Availability; L.R.S.P.A. — Land Remote Sensing Policy Act (made Landsat digital data and images available at the lowest possible cost).", out.width="100%"}
+```{r gps-evolution, echo=FALSE, fig.cap="Evolution of the Open Access Navigation and positioning technologies (left) and the open access remote sensing monitoring systems (right). API — Aerial photo-interpretation; S.A. — Selective Availability; L.R.S.P.A. — Land Remote Sensing Policy Act (made Landsat digital data and images available at the lowest possible cost).", out.width="100%"}
 knitr::include_graphics("figures/Fig_GPS_evolution.png")
 ```
 
@@ -1299,7 +1299,7 @@ interest for pedometric soil mapping:
     prepared); empirical maps of soil processes and features (e.g.
     catena sequences etc).
 
-```{r dem-evolution, echo=FALSE, fig.cap="Evolution of global DEM data sources: (right) SRTM DEM released in 2002, as compared to (left) WorldDEM released in 2014 [@Baade2014IEE]. Sample data set for city of Quorn in South Australia. As with many digital technologies, the level of detail and accuracy of GIS and remote sensing data is exhibiting exponential growth.", out.width="100%"}
+```{r dem-evolution, echo=FALSE, fig.cap="Evolution of global DEM data sources: (right) SRTM DEM released in 2002, as compared to (left) WorldDEM released in 2014 (Baade et al., 2014). Sample data set for city of Quorn in South Australia. As with many digital technologies, the level of detail and accuracy of GIS and remote sensing data is exhibiting exponential growth.", out.width="100%"}
 knitr::include_graphics("figures/Fig_DEM_evolution.png")
 ```
 
@@ -1338,7 +1338,7 @@ bodies and are, in a way, irreplaceable [@SSS1983USDA]. However, in many
 parts of the world, soil delineations have been produced using
 relatively weak source materials and these can be of variable accuracy.
 
-```{r from-photointerpretation-to-soilmap, echo=FALSE, fig.cap="In conventional soil mapping, soil delineations are usually manually drawn polygons representing (assumed) bodies of homogenous soil materials (often geomorphological units). These are first validated in the field before a final area-class map is produced, which can then be generalized and used to extract soil property maps. After @SSS1983USDA.", out.width="95%"}
+```{r from-photointerpretation-to-soilmap, echo=FALSE, fig.cap="In conventional soil mapping, soil delineations are usually manually drawn polygons representing (assumed) bodies of homogenous soil materials (often geomorphological units). These are first validated in the field before a final area-class map is produced, which can then be generalized and used to extract soil property maps. After USDA Soil Survey Manual.", out.width="95%"}
 knitr::include_graphics("figures/Fig_from_photointerpretation_to_soilmap.png")
 ```
 
@@ -1808,7 +1808,7 @@ answer soil or soil–land use specific questions. Once the data are in a
 database, one can generate maps and statistical plots by running spatial
 queries [@Beaudette2009CG].
 
-```{r site-horizon-structure, echo=FALSE, fig.cap="An example of a basic soil profile geographical database, which commonly consists of four tables: SITE, HORIZON, DESCRIPTION and NAMES tables (a). To facilitate rapid display and use of soil variables, SITE and HORIZON tables can be combined into a single (*wide*) table structure (b).", out.width="80%", out.extra="angle=0"}
+```{r site-horizon-structure, echo=FALSE, fig.cap="An example of a basic soil profile geographical database, which commonly consists of four tables: SITE, HORIZON, DESCRIPTION and NAMES tables (a). To facilitate rapid display and use of soil variables, SITE and HORIZON tables can be combined into a single (wide) table structure (b).", out.width="80%"}
 knitr::include_graphics("figures/Fig_SITE_HORIZON_structure.png")
 ```
 
