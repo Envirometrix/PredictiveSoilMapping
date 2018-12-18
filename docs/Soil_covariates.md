@@ -196,8 +196,19 @@ Before we can attach a polygon map to other stacks of covariates, it needs to be
 
 ```r
 library(rgdal)
+#> Loading required package: sp
+#> rgdal: version: 1.3-6, (SVN revision 773)
+#>  Geospatial Data Abstraction Library extensions to R successfully loaded
+#>  Loaded GDAL runtime: GDAL 2.3.2, released 2018/09/21
+#>  Path to GDAL shared files: /usr/share/gdal
+#>  GDAL binary built with GEOS: TRUE 
+#>  Loaded PROJ.4 runtime: Rel. 4.9.3, 15 August 2016, [PJ_VERSION: 493]
+#>  Path to PROJ.4 shared files: (autodetected)
+#>  Linking to sp version: 1.3-1
 library(raster)
 library(plotKML)
+#> plotKML version 0.5-8 (2017-05-12)
+#> URL: http://plotkml.r-forge.r-project.org/
 data(eberg_zones)
 spplot(eberg_zones[1])
 ```
@@ -251,9 +262,8 @@ Converting large polygons in R using the raster package can be very time-consumi
 
 ```r
 library(sf)
-#> Linking to GEOS 3.5.1, GDAL 2.3.1, proj.4 4.9.2
-if(!require(fasterize)){ devtools::install_github("ecohealthalliance/fasterize") }
-#> Loading required package: fasterize
+#> Linking to GEOS 3.6.1, GDAL 2.3.2, PROJ 4.9.3
+library(fasterize)
 #> 
 #> Attaching package: 'fasterize'
 #> The following object is masked from 'package:graphics':
@@ -300,6 +310,8 @@ system(paste0(saga_cmd, ' grid_gridding 0 -INPUT \"extdata/eberg_zones.shp\" ',
       extent(r)[1]+pix/2,' -TARGET_USER_XMAX ', extent(r)[2]-pix/2, 
       ' -TARGET_USER_YMIN ', extent(r)[3]+pix/2,' -TARGET_USER_YMAX ', 
       extent(r)[4]-pix/2))
+#> Warning in system(paste0(saga_cmd, " grid_gridding 0 -INPUT \"extdata/
+#> eberg_zones.shp\" ", : error in running command
 eberg_zones_r2 <- readGDAL("extdata/eberg_zones.sdat")
 #> extdata/eberg_zones.sdat has GDAL driver SAGA 
 #> and has 400 rows and 400 columns
@@ -390,7 +402,8 @@ Now that we have established a connection between R and SAGA GIS, we can also us
 
 
 ```r
-saga_DEM_derivatives <- function(INPUT, MASK=NULL, sel=c("SLP","TWI","CRV","VBF","VDP","OPN","DVM")){
+saga_DEM_derivatives <- function(INPUT, MASK=NULL, 
+                                 sel=c("SLP","TWI","CRV","VBF","VDP","OPN","DVM")){
   if(!is.null(MASK)){
     ## Fill in missing DEM pixels:
     suppressWarnings( system(paste0(saga_cmd, 
@@ -501,7 +514,7 @@ to quantify soil deposition / accumulation processes. To plot for example
 watersheds by flow paths we can run:
 
 <div class="figure" style="text-align: center">
-<img src="Soil_covariates_files/figure-html/watersheds-by-flow-paths-1.png" alt="Watersheds by flow paths dervied using the [LITAP](https://steffilazerte.github.io/LITAP/) package." width="768" />
+<img src="Soil_covariates_files/figure-html/watersheds-by-flow-paths-1.png" alt="Watersheds by flow paths dervied using the [LITAP](https://steffilazerte.github.io/LITAP/) package." width="100%" />
 <p class="caption">(\#fig:watersheds-by-flow-paths)Watersheds by flow paths dervied using the [LITAP](https://steffilazerte.github.io/LITAP/) package.</p>
 </div>
 
@@ -618,7 +631,7 @@ As R is often inefficient in handling large objects in memory (such as large ras
 ```r
 fn = system.file("pictures/SP27GTIF.TIF", package = "rgdal")
 obj <- rgdal::GDALinfo(fn)
-#> Warning: statistics not supported by this driver
+#> Warning in rgdal::GDALinfo(fn): statistics not supported by this driver
 ```
 
 We can split that object in 35 tiles, each of 5 x 5 km in size by running:
@@ -659,7 +672,10 @@ We would like to run a function on this raster in parallel, for example a simple
 fun_mask <- function(i, tiles, dir="./tiled/", threshold=190){
   out.tif = paste0(dir, "T", i, ".tif")
   if(!file.exists(out.tif)){
-    x = readGDAL(fn, offset=unlist(tiles[i,c("offset.y","offset.x")]), region.dim=unlist(tiles[i,c("region.dim.y","region.dim.x")]), output.dim=unlist(tiles[i,c("region.dim.y","region.dim.x")]), silent = TRUE)
+    x = readGDAL(fn, offset=unlist(tiles[i,c("offset.y","offset.x")]),
+                 region.dim=unlist(tiles[i,c("region.dim.y","region.dim.x")]), 
+                 output.dim=unlist(tiles[i,c("region.dim.y","region.dim.x")]),
+                 silent = TRUE)
     x$mask = ifelse(x$band1>threshold, 1, 0)
     writeGDAL(x["mask"], type="Byte", mvFlag = 255, out.tif, options=c("COMPRESS=DEFLATE"))
   }
@@ -677,7 +693,8 @@ We can look in the the tiles folder, and this should show 35 produced GeoTiffs. 
 
 
 ```r
-t.lst <- list.files(path="extdata/tiled", pattern=glob2rx("^T*.tif$"), full.names=TRUE, recursive=TRUE)
+t.lst <- list.files(path="extdata/tiled", pattern=glob2rx("^T*.tif$"), 
+                    full.names=TRUE, recursive=TRUE)
 cat(t.lst, sep="\n", file="SP27GTIF_tiles.txt")
 system('gdalbuildvrt -input_file_list SP27GTIF_tiles.txt SP27GTIF.vrt')
 system('gdalwarp SP27GTIF.vrt SP27GTIF_mask.tif -ot \"Byte\"', 

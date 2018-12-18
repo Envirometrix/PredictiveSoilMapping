@@ -1,0 +1,139 @@
+% from unofficial guide
+\usepackage{amsmath,amssymb,textcomp}
+% \usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{verbatim}
+\usepackage{helvet}
+\usepackage{courier}
+\usepackage{array,tabularx,multirow,rotating} %Table format packages
+\usepackage{natbib} %Format for references
+\usepackage{textcomp,eurosym}
+\usepackage{wrapfig}
+\usepackage[switch,pagewise]{lineno}
+% \usepackage{fancyhdr,fancybox}
+\usepackage{url}
+\usepackage{hyperref}            %automatic hyperlinks in document; redefines
+\hypersetup{colorlinks=true, linkcolor=black, citecolor=black,
+        urlcolor=black, bookmarks=true, bookmarksnumbered=true,
+        bookmarksopen=true, pdfview=FitH, pdfstartview=FitH,
+        pdftitle={Predictive Soil Mapping with R},
+        pdfauthor={Tomislav Hengl},}
+% 
+% % Margin paragraphs:
+\setlength{\marginparwidth}{1.8cm}
+\setlength{\marginparsep}{4pt}
+
+% fix the font size and encoding for url's etc:
+\renewcommand{\ttdefault}{cmtt}
+\renewcommand{\sfdefault}{cmss}
+\setlength\rotFPtop{0pt plus 1fil}  % rotated tables.
+% \renewcommand\refname{References:} % Title for bibliography
+% end from unofficial guide
+
+
+
+% from bookdown
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage[bf,singlelinecheck=off]{caption}
+\usepackage{tabu}
+\usepackage{float}
+% \setmainfont[UprightFeatures={SmallCapsFont=AlegreyaSC-Regular}]{Alegreya}
+
+\usepackage{framed,color}
+\definecolor{shadecolor}{RGB}{231,231,231}
+
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\topfraction}{0.8}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\floatpagefraction}{0.75}
+
+\renewenvironment{quote}{\begin{VF}}{\end{VF}}
+\let\oldhref\href
+\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
+
+\ifxetex
+  \usepackage{letltxmacro}
+  \setlength{\XeTeXLinkMargin}{1pt}
+  \LetLtxMacro\SavedIncludeGraphics\includegraphics
+  \def\includegraphics#1#{% #1 catches optional stuff (star/opt. arg.)
+    \IncludeGraphicsAux{#1}%
+  }%
+  \newcommand*{\IncludeGraphicsAux}[2]{%
+    \XeTeXLinkBox{%
+      \SavedIncludeGraphics#1{#2}%
+    }%
+  }%
+\fi
+
+\makeatletter
+\newenvironment{kframe}{%
+\medskip{}
+\setlength{\fboxsep}{.8em}
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\makeatletter
+\@ifundefined{Shaded}{
+}{\renewenvironment{Shaded}{\begin{kframe}}{\end{kframe}}}
+\makeatother
+
+\newenvironment{rmdblock}[1]
+  {
+  % \begin{itemize}
+  % \renewcommand{\labelitemi}{
+  %   \raisebox{-.7\height}[0pt][0pt]{
+  %     {\setkeys{Gin}{width=3em,keepaspectratio}\includegraphics{images/#1}}
+  %   }
+  % }
+  % \setlength{\fboxsep}{10em}
+  \begin{kframe}
+  % \item
+  }
+  {
+  \end{kframe}
+  % \end{itemize}
+  }
+\newenvironment{rmdnote}
+  {\begin{rmdblock}{note}}
+  {\end{rmdblock}}
+\newenvironment{rmdcaution}
+  {\begin{rmdblock}{caution}}
+  {\end{rmdblock}}
+\newenvironment{rmdimportant}
+  {\begin{rmdblock}{important}}
+  {\end{rmdblock}}
+\newenvironment{rmdtip}
+  {\begin{rmdblock}{tip}}
+  {\end{rmdblock}}
+\newenvironment{rmdwarning}
+  {\begin{rmdblock}{warning}}
+  {\end{rmdblock}}
+
+\usepackage{makeidx}
+\makeindex
+
+\urlstyle{tt}
+
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+
+% \frontmatter

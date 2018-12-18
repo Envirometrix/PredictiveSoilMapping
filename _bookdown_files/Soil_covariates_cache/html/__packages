@@ -1,11 +1,9 @@
 base
-RevoUtilsMath
-RevoUtils
 microbenchmark
 sp
 rgdal
 raster
 plotKML
-bindrcpp
 sf
 fasterize
+bindrcpp

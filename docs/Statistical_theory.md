@@ -72,28 +72,30 @@ noise. This is the basis of the *universal model of soil variation*
 [@Burrough1998OUP;Webster2001Wiley p.133]:
 
 \begin{equation}
-Z({\bf{s}}) = m({\bf{s}}) + \varepsilon '({\bf{s}}) + \varepsilon ''({\bf{s}})
+Z({s}) = m({s}) + \varepsilon '({s}) + \varepsilon ''({s})
 (\#eq:ukm)
 \end{equation}
 
-where $\bf{s}$ is two-dimensional location, $m({\bf{s}})$ is the
-deterministic component, $\varepsilon '({\bf{s}})$ is the spatially
-correlated stochastic component and $\varepsilon ''({\bf{s}})$ is the
+where $s$ is two-dimensional location, $m({s})$ is the
+deterministic component, $\varepsilon '({s})$ is the spatially
+correlated stochastic component and $\varepsilon ''({s})$ is the
 pure noise (micro-scale variation and measurement error). This model was
 probably first introduced by @Matheron1969PhD, and has been used as a
 general framework for spatial prediction of quantities in a variety of
 environmental research disciplines.
 
-<div class="rmdnote">
-<p>The <em>universal model of soil variation</em> assumes that there are three major components of soil variation: (1) the deterministic component (function of covariates), (2) spatially correlated component (treated as stochastic) and (3) pure noise.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">The *universal model of soil variation* assumes that there are three
+major components of soil variation: (1) the deterministic component
+(function of covariates), (2) spatially correlated component (treated as
+stochastic) and (3) pure noise.
+</div>\EndKnitrBlock{rmdnote}
 
 The universal model of soil variation model (Eq.\@ref(eq:ukm)) can be
 further generalised to three-dimensional space and the spatio-temporal
 domain (3D+T) by letting the variables also depend on depth and time:
 
 \begin{equation}
-Z({\bf{s}}, d, t) = m({\bf{s}}, d, t) + \varepsilon '({\bf{s}}, d, t) + \varepsilon ''({\bf{s}}, d, t)
+Z({s}, d, t) = m({s}, d, t) + \varepsilon '({s}, d, t) + \varepsilon ''({s}, d, t)
 (\#eq:ukm3DT)
 \end{equation}
 
@@ -250,9 +252,9 @@ cultivation practices or holocene drift sand. The model given by
 Eq.\@ref(eq:loglog) illustrated in Fig. \@ref(fig:soil-depth-examples)
 (left) will not be able to represent such abrupt changes.
 
-<div class="rmdnote">
-<p>Before fitting a 2D spatial prediction model to soil profile data, it is important to standardize values to standard depths, otherwise soil observation depth can be an additional source of uncertainty.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Before fitting a 2D spatial prediction model to soil profile data, it is
+important to standardize values to standard depths, otherwise soil
+observation depth can be an additional source of uncertainty.</div>\EndKnitrBlock{rmdnote}
 
 Non-parametric soil-depth functions are more flexible and can represent
 observations of soil property averages for sampling layers or horizons
@@ -278,8 +280,25 @@ To fit mass preserving splines we can use:
 
 ```r
 library(aqp)
+#> This is aqp 1.16-3
 library(rgdal)
+#> Loading required package: sp
+#> rgdal: version: 1.3-6, (SVN revision 773)
+#>  Geospatial Data Abstraction Library extensions to R successfully loaded
+#>  Loaded GDAL runtime: GDAL 2.3.2, released 2018/09/21
+#>  Path to GDAL shared files: /usr/share/gdal
+#>  GDAL binary built with GEOS: TRUE 
+#>  Loaded PROJ.4 runtime: Rel. 4.9.3, 15 August 2016, [PJ_VERSION: 493]
+#>  Path to PROJ.4 shared files: (autodetected)
+#>  Linking to sp version: 1.3-1
 library(GSIF)
+#> GSIF version 0.5-4 (2017-04-25)
+#> URL: http://gsif.r-forge.r-project.org/
+#> 
+#> Attaching package: 'GSIF'
+#> The following object is masked _by_ '.GlobalEnv':
+#> 
+#>     munsell
 prof1.spc <- prof1
 depths(prof1.spc) <- id ~ top + bottom
 #> Warning: converting IDs from factor to character
@@ -287,9 +306,8 @@ site(prof1.spc) <- ~ lon + lat + FAO1988
 coordinates(prof1.spc) <- ~ lon + lat
 proj4string(prof1.spc) <- CRS("+proj=longlat +datum=WGS84")
 ## fit a spline:
-ORCDRC.s <- mpspline(prof1.spc, var.name="ORCDRC")
+ORCDRC.s <- mpspline(prof1.spc, var.name="ORCDRC", show.progress=FALSE)
 #> Fitting mass preserving splines per profile...
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 ORCDRC.s$var.std
 #>   0-5 cm 5-15 cm 15-30 cm 30-60 cm 60-100 cm 100-200 cm soil depth
 #> 1     21      17      7.3      3.3       3.6        1.8        181
@@ -316,9 +334,14 @@ differences in vertical support between measurements are taken into
 account also). We will address this also in later sections of this
 chapter, among others in Section \@ref(prediction-3D).
 
-<div class="rmdnote">
-<p>Soil property-depth relationships are commonly modelled using various types of mathematical functions. Mass-preserving splines, which ensure that the average of the spline function equals the measured value for each sampling layer or horizon, can be used to convert measurements per layer to point values along the profile. Because soils can show both abrupt and continuous transitions within the same profile, no simple spline model is universally valid and case-dependent adjustments often need to be made.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Soil property-depth relationships are commonly modelled using various
+types of mathematical functions. Mass-preserving splines, which ensure
+that the average of the spline function equals the measured value for
+each sampling layer or horizon, can be used to convert measurements per
+layer to point values along the profile. Because soils can show both
+abrupt and continuous transitions within the same profile, no simple
+spline model is universally valid and case-dependent adjustments often
+need to be made.</div>\EndKnitrBlock{rmdnote}
 
 ### Vertical aggregation of soil properties {#vertical-aggregation}
 
@@ -368,9 +391,12 @@ because soil observations at *point* locations are not the same as
 average or *bulk soil samples* taken by averaging a large number of
 point observations on a site or plot [@Webster2001Wiley].
 
-<div class="rmdnote">
-<p>Soil variables can refer to a specific depth interval or to the whole profile. The differences in spatial patterns between variables representing fundamentally the same feature (e.g. soil organic carbon in of a specific soil horizon or soil layer and total organic carbon stock in of the whole profile), but at different spatial and vertical support, can be significant.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Soil variables can refer to a specific depth interval or to the whole
+profile. The differences in spatial patterns between variables
+representing fundamentally the same feature (e.g. soil organic carbon in
+of a specific soil horizon or soil layer and total organic carbon stock
+in of the whole profile), but at different spatial and vertical support,
+can be significant.</div>\EndKnitrBlock{rmdnote}
 
 In order to avoid misinterpretation of the results of mapping, we
 recommend that any delivered map of soil properties should specify the
@@ -436,30 +462,30 @@ prediction process is then on selecting and fine-tuning the best
 performing spatial prediction method.
 
 In a geostatistical framework, spatial prediction is estimation of
-values of some target variable $Z$ at a new location (${\bf{s}}_0$)
+values of some target variable $Z$ at a new location (${s}_0$)
 given the input data:
 
 \begin{equation}
-\hat Z({\bf{s}}_0) = E\left\{ Z({\bf{s}}_0)|z({\bf{s}}_i), \; {\bf{X}}({\bf{s}}_0), \; i=1,...,n \right\}
+\hat Z({s}_0) = E\left\{ Z({s}_0)|z({s}_i), \; {{X}}({s}_0), \; i=1,...,n \right\}
 (\#eq:sp)
 \end{equation}
 
-where the $z({\bf{s}}_i)$ are the input set of observations of the
-target variable, ${\bf{s}}_i$ is a geographical location, $n$ is the
-number of observations and ${\bf{X}}({\bf{s}}_0)$ is a list of
+where the $z({s}_i)$ are the input set of observations of the
+target variable, ${s}_i$ is a geographical location, $n$ is the
+number of observations and ${{X}}({s}_0)$ is a list of
 *covariates* or explanatory variables, available at all prediction
-locations within the study area of interest (${\bf{s}} \in \mathbb{A}$).
+locations within the study area of interest (${s} \in \mathbb{A}$).
 To emphasise that the model parameters also influence the outcome of the
 prediction process, this can be made explicit by writing
 [@cressie2011statistics]:
 
 \begin{equation}
-[Z|Y,{\bf{\theta}} ]
+[Z|Y,{{\theta}} ]
 (\#eq:datamodel)
 \end{equation}
 
 where $Z$ is the data, $Y$ is the (hidden) process that we are
-predicting, and ${\bf{\theta}}$ is a list of model parameters (e.g.
+predicting, and ${{\theta}}$ is a list of model parameters (e.g.
 trend coefficients and variogram parameters).
 
 There are many spatial prediction methods for generating spatial
@@ -649,14 +675,14 @@ classification values using the SOLIM approach @Zhu2001
 
 \begin{equation}
 \begin{aligned}
- \hat z({\bf{s}}_0) = \sum\limits_{c_j = 1}^{c_p} {\nu _{c_j} ({\bf{s}}_0) \cdot z_{c_j} }; & \hspace{.6cm}
- \sum\limits_{c_j = 1}^{c_p} {\nu _j ({\bf{s}}_0)}  = 1\end{aligned}
+ \hat z({s}_0) = \sum\limits_{c_j = 1}^{c_p} {\nu _{c_j} ({s}_0) \cdot z_{c_j} }; & \hspace{.6cm}
+ \sum\limits_{c_j = 1}^{c_p} {\nu _j ({s}_0)}  = 1\end{aligned}
 (\#eq:solim)
 \end{equation}
 
-where $\hat z({\bf{s}}_0)$ is the predicted soil attribute at
-${\bf{s}}_0$, $\nu _{c_j} ({\bf{s}}_0)$ is the membership value of class
-$c_j$ at location ${\bf{s}}_0$, and $z_{c_j}$ is the modal (or best
+where $\hat z({s}_0)$ is the predicted soil attribute at
+${s}_0$, $\nu _{c_j} ({s}_0)$ is the membership value of class
+$c_j$ at location ${s}_0$, and $z_{c_j}$ is the modal (or best
 representative) value of the inferred soil attribute of the $c_j$-th
 category. The predicted soil attribute is mapped directly from
 membership maps using a linear additive weighing function. Consider the
@@ -739,7 +765,7 @@ the sum of a deterministic trend and a stochastic residual
 (Eq.\@ref(eq:ukm)):
 
 \begin{equation}
-Z({\bf{s}}) = m({\bf{s}}) + \varepsilon({\bf{s}})
+Z({s}) = m({s}) + \varepsilon({s})
 (\#eq:ukm-gstat)
 \end{equation}
 
@@ -796,10 +822,10 @@ but when the covariates are related environmental properties one must
 define a structure for $m$ and introduce parameters to be estimated from
 paired observations of the soil property and covariates. One of the
 simplest approaches is to use *multiple linear regression* to predict
-values at some new location ${\bf{s}}_0$ [@kutner2005applied]:
+values at some new location ${s}_0$ [@kutner2005applied]:
 
 \begin{equation}
-m({\bf{s}}_0 ) = \sum\limits_{j = 0}^p { \beta _j \cdot X_j ({\bf{s}}_0 )}
+m({s}_0 ) = \sum\limits_{j = 0}^p { \beta _j \cdot X_j ({s}_0 )}
 (\#eq:MRK2D)
 \end{equation}
 
@@ -885,13 +911,13 @@ distributed and has zero mean, only its variance-covariance remains to
 be specified:
 
 \begin{equation}
-C\left[Z({\bf{s}}),Z({\bf{s}}+\bf{h})\right] = \sigma (\bf{s}) \cdot \sigma(\bf{s}+\bf{h}) \cdot \rho (\bf{h})
+C\left[Z({s}),Z({s}+{h})\right] = \sigma (s) \cdot \sigma(s+{h}) \cdot \rho ({h})
 \end{equation}
 
-where ${\bf{h}}$ is the separation distance between two locations. Note
+where ${{h}}$ is the separation distance between two locations. Note
 that here we assumed that the correlation function $\rho$ is invariant
 to geographic translation (i.e., it only depends on the distance
-$\bf{h}$ between locations and not on the locations themselves). If in
+${h}$ between locations and not on the locations themselves). If in
 addition the standard deviation $\sigma$ would be spatially invariant
 then $C$ would be *second-order stationary*. These type of simplifying
 assumptions are needed to be able to estimate the variance-covariance
@@ -901,7 +927,7 @@ as in Eq.\@ref(eq:MRK2D). The correlation function $\rho$ would be
 parameterised to a common form (e.g. exponential, spherical, Matérn),
 thus ensuring that the model is statistically valid and
 *positive-definite*. It is also quite common to assume isotropy, meaning
-that two-dimensional geographic distance ${\bf{h}}$ can be reduced to
+that two-dimensional geographic distance ${{h}}$ can be reduced to
 one-dimensional Euclidean distance $h$.
 
 Once the model has been defined, its parameters must be estimated from
@@ -915,9 +941,13 @@ techniques to estimate their parameters, although they might also need
 to rely on more complex parameter estimation methods such as genetic
 algorithms and *simulated annealing* [@lark2003fitting].
 
-<div class="rmdnote">
-<p>Spatial prediction under the linear Gaussian model with a trend boils down to <em>regression-kriging</em> when the trend coefficients are determined prior to kriging i.e. to <em>universal kriging</em> or <em>kriging with external drift</em> when they are estimated together with kriging weights. Both computational approaches — regression-kriging, kriging with external drift or universal kriging — yield exactly the same predictions if run using the same inputs and assuming the same (global) geostatistical model <span class="citation">[@hengl2007regression]</span>.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Spatial prediction under the linear Gaussian model with a trend boils
+down to *regression-kriging* when the trend coefficients are determined
+prior to kriging i.e. to *universal kriging* or *kriging with external drift* when they are estimated together with kriging weights. Both
+computational approaches — regression-kriging, kriging with external
+drift or universal kriging — yield exactly the same predictions if run
+using the same inputs and assuming the same (global) geostatistical
+model [@hengl2007regression].</div>\EndKnitrBlock{rmdnote}
 
 The optimal spatial prediction in the case of a model
 Eq.\@ref(eq:ukm-gstat) with a linear trend Eq.\@ref(eq:MRK2D) and a
@@ -925,32 +955,32 @@ normally distributed residual is given by the well-kown *Best Linear
 Unbiased Predictor* (BLUP):
 
 $$\label{E:BLUP}
-\hat z({{\bf{s}}_0}) = {\bf{X}}_{\bf{0}}^{\bf{T}}\cdot \hat{\bf{\beta}} + \hat{\bf{\lambda}}_{\bf{0}}^{\bf{T}}\cdot({\bf{z}} - {\bf{X}}\cdot \hat{\bf{\beta}} )$$
+\hat z({{{s}}_0}) = {{X}}_{{0}}^{{T}}\cdot \hat{{\beta}} + \hat{{\lambda}}_{{0}}^{{T}}\cdot({{z}} - {{X}}\cdot \hat{{\beta}} )$$
 
 where the regression coefficients and kriging weights are estimated
 using:
 
 \begin{equation}
 \begin{aligned}
-\hat{\bf{\beta}}  &= {\left( {{{\bf{X}}^{\bf{T}}}\cdot{{\bf{C}}^{ - {\bf{1}}}}\cdot{\bf{X}}} \right)^{ - {\bf{1}}}}\cdot{{\bf{X}}^{\bf{T}}}\cdot{{\bf{C}}^{ - {\bf{1}}}}\cdot{\bf{z}} \\
-\hat{\bf{\lambda}}_{\bf{0}} &= \bf{C}^{ - {\bf{1}}} \cdot {\bf{c}}_{\bf{0}} \notag\end{aligned}
+\hat{{\beta}}  &= {\left( {{{{X}}^{{T}}}\cdot{{{C}}^{ - {{1}}}}\cdot{{X}}} \right)^{ - {{1}}}}\cdot{{{X}}^{{T}}}\cdot{{{C}}^{ - {{1}}}}\cdot{{z}} \\
+\hat{{\lambda}}_{{0}} &= {C}^{ - {{1}}} \cdot {{c}}_{{0}} \notag\end{aligned}
 (\#eq:betas)
 \end{equation}
 
-and where ${\bf{X}}$ is the matrix of $p$ predictors at the $n$ sampling
-locations, $\hat{\bf{\beta}}$ is the vector of estimated regression
-coefficients, $\bf{C}$ is the $n$$n$ variance-covariance matrix of
-residuals, $\bf{c}_{\bf{0}}$ is the vector of $n$$1$ covariances at the
-prediction location, and $\bf{\lambda}_{\bf{0}}$ is the vector of $n$
+and where ${{X}}$ is the matrix of $p$ predictors at the $n$ sampling
+locations, $\hat{{\beta}}$ is the vector of estimated regression
+coefficients, ${C}$ is the $n$$n$ variance-covariance matrix of
+residuals, ${c}_{{0}}$ is the vector of $n$$1$ covariances at the
+prediction location, and ${\lambda}_{{0}}$ is the vector of $n$
 kriging weights used to interpolate the residuals. Derivation of BLUP
 for spatial data can be found in many standard statistical books e.g.
 @Stein1999Springer, @Christensen2001Springer [p.277],
 @Venables2002Springer [p.425–430] and/or @schabenberger2005statistical.
 
 Any form of kriging computes the conditional distribution of
-$Z({\bf{s}}_0)$ at an unobserved location ${\bf{s}}_0$ from the
-observations $z({\bf{s}}_1 )$, $z({\bf{s}}_2 ), \ldots , z({\bf{s}}_n )$
-and the covariates ${\bf{X}}({\bf{s}}_0)$ (matrix of size $p \times n$).
+$Z({{s}}_0)$ at an unobserved location ${{s}}_0$ from the
+observations $z({{s}}_1 )$, $z({{s}}_2 ), \ldots , z({{s}}_n )$
+and the covariates ${{X}}({{s}}_0)$ (matrix of size $p \times n$).
 From a statistical perspective this is straightforward for the case of a
 linear model and normally distributed residuals. However, solving large
 matrices and more sophisticated model fitting algorithms such as
@@ -1006,10 +1036,10 @@ regression and the kriging model errors.
 
 ### Spatial Prediction using multiple linear regression
 
-The predictor $\hat Y({{\bf s}_0})$ of $Y({{\bf s}_0})$ is
-typically taken as a function of covariates and the $Y({\bf s}_i)$
-which, upon substitution of the observations $y({\bf s}_i)$, yields a
-(deterministic) prediction $\hat y({{\bf s}_0})$. In the case of 
+The predictor $\hat Y({{ s}_0})$ of $Y({{ s}_0})$ is
+typically taken as a function of covariates and the $Y({ s}_i)$
+which, upon substitution of the observations $y({ s}_i)$, yields a
+(deterministic) prediction $\hat y({{ s}_0})$. In the case of 
 multiple linear regression (MLR), model assumptions state
 that at any location in $D$ the dependent variable is the sum of a
 linear combination of the covariates at that location and a zero-mean
@@ -1017,36 +1047,36 @@ normally distributed residual. Thus, at the $n$ observation locations we
 have:
 
 \begin{equation}
-{\bf Y} = {\bf X}^{{\bf T}} \cdot {\bf \beta} + {\bf \varepsilon}
+{ Y} = { X}^{{ T}} \cdot { \beta} + { \varepsilon}
 (\#eq:lm)
 \end{equation}
 
-where ${\bf Y}$ is a vector of the target variable at the $n$
-observation locations, ${\bf X}$ is an $n \times p$ matrix of covariates
-at the same locations and ${\bf \beta}$ is a vector of $p$ regression
-coefficients. The stochastic residual ${\bf \varepsilon}$ is assumed to
+where ${ Y}$ is a vector of the target variable at the $n$
+observation locations, ${ X}$ is an $n \times p$ matrix of covariates
+at the same locations and ${ \beta}$ is a vector of $p$ regression
+coefficients. The stochastic residual ${ \varepsilon}$ is assumed to
 be independently and identically distributed. The paired observations of
-the target variable and covariates (${\bf y}$ and ${\bf X}$) are used to
+the target variable and covariates (${ y}$ and ${ X}$) are used to
 estimate the regression coefficients using, e.g., Ordinary Least Squares
 [@Kutner2004McGraw]:
 
 \begin{equation}
-\hat{{\bf \beta}}  = \left( {{{\bf X}}^{{\bf T}} \cdot {{\bf X}}} \right)^{ - {{\bf 1}}} \cdot
-{{\bf X}}^{{\bf T}} \cdot {{\bf y}}
+\hat{{ \beta}}  = \left( {{{ X}}^{{ T}} \cdot {{ X}}} \right)^{ - {{ 1}}} \cdot
+{{ X}}^{{ T}} \cdot {{ y}}
 (\#eq:ols-betas)
 \end{equation}
 
 once the coefficients are estimated, these can be used to generate a
-prediction at ${\bf s}_0$:
+prediction at ${ s}_0$:
 
 \begin{equation}
-\hat y({\bf s}_0) = {\bf x}_0^{\bf T} \cdot {\bf \hat \beta}
+\hat y({ s}_0) = { x}_0^{ T} \cdot { \hat \beta}
 \end{equation}
 
 with associated prediction error variance:
 
 \begin{equation}
-\sigma ^2 ({\bf s}_0 ) = var\left[ \varepsilon ({\bf s}_0) \right] \cdot \left[ {1 +
+\sigma ^2 ({ s}_0 ) = var\left[ \varepsilon ({ s}_0) \right] \cdot \left[ {1 +
 {\mathbf x}_0^{\rm T}  \cdot \left(
 {{\mathbf X}^{\rm T}  \cdot {\mathbf X}} \right)^{ -
 {\mathbf 1}}  \cdot {\mathbf x}_0 } \right]
@@ -1054,7 +1084,7 @@ with associated prediction error variance:
 \end{equation}
 
 here, ${\mathbf x}_0$ is a vector with covariates at the prediction
-location and $var\left[ \varepsilon ({\bf s}_0) \right]$ is the variance
+location and $var\left[ \varepsilon ({ s}_0) \right]$ is the variance
 of the stochastic residual. The latter is usually estimated by the mean
 squared error (MSE):
 
@@ -1078,17 +1108,17 @@ External Drift, the prediction error is computed as
 [@Christensen2001Springer]:
 
 \begin{equation}
-\hat \sigma _{\tt{UK}}^2 ({\bf{s}}_0 )  = (C_0  + C_1 ) - {\bf{c}}_{\bf{0}}^{\bf{T}}  \cdot {\bf{C}}^{ - {\bf{1}}}  \cdot
-{\bf{c}}_{\bf{0}} + \left( {{\bf{X}}_{\bf{0}}  -
-{\bf{X}}^{\bf{T}} \cdot {\bf{C}}^{ - {\bf{1}}} \cdot
-{\bf{c}}_{\bf{0}} } \right)^{\bf{T}}  \cdot \left( {{\bf{X}}^{\bf{T}}
-\cdot {\bf{C}}^{ - {\bf{1}}} \cdot {\bf{X}}} \right)^{{\bf{ - 1}}} \cdot \left( {{\bf{X}}_{\bf{0}}  - {\bf{X}}^{\bf{T}}  \cdot
-{\bf{C}}^{ - {\bf{1}}} \cdot {\bf{c}}_{\bf{0}} } \right)
+\hat \sigma _{\tt{UK}}^2 ({{s}}_0 )  = (C_0  + C_1 ) - {{c}}_{{0}}^{{T}}  \cdot {{C}}^{ - {{1}}}  \cdot
+{{c}}_{{0}} + \left( {{{X}}_{{0}}  -
+{{X}}^{{T}} \cdot {{C}}^{ - {{1}}} \cdot
+{{c}}_{{0}} } \right)^{{T}}  \cdot \left( {{{X}}^{{T}}
+\cdot {{C}}^{ - {{1}}} \cdot {{X}}} \right)^{{{ - 1}}} \cdot \left( {{{X}}_{{0}}  - {{X}}^{{T}}  \cdot
+{{C}}^{ - {{1}}} \cdot {{c}}_{{0}} } \right)
 (\#eq:UKvar)
 \end{equation}
 
-where $C_0 + C_1$ is the sill variation (variogram parameters), $\bf{C}$
-is the covariance matrix of the residuals, and ${\bf{c}}_0$ is the
+where $C_0 + C_1$ is the sill variation (variogram parameters), ${C}$
+is the covariance matrix of the residuals, and ${{c}}_0$ is the
 vector of covariances of residuals at the unvisited location.
 
 Ignoring the mixed component of the prediction variance in
@@ -1097,9 +1127,9 @@ variance i.e. as a sum of the kriging variance and the standard error of
 estimating the regression mean:
 
 \begin{equation}
-\hat \sigma _{\tt{RK}}^2 ({\bf{s}}_0) = (C_0  + C_1 ) -
-{\bf{c}}_{\bf{0}}^{\bf{T}}  \cdot {\bf{C}}^{ - {\bf{1}}}  \cdot
-{\bf{c}}_{\bf{0}} + {\it{SEM}}^2
+\hat \sigma _{\tt{RK}}^2 ({{s}}_0) = (C_0  + C_1 ) -
+{{c}}_{{0}}^{{T}}  \cdot {{C}}^{ - {{1}}}  \cdot
+{{c}}_{{0}} + {\it{SEM}}^2
 (\#eq:RKvar-simple)
 \end{equation}
 
@@ -1444,7 +1474,7 @@ Predictor of the values is simple averaging of soil properties per
 unit [@Webster2001Wiley p.43]:
 
 \begin{equation}
-\hat z({\bf{s}}_0 ) = \bar \mu _p  = \frac{1}{{n_p }}\sum\limits_{i = 1}^{n_p } {z({\bf{s}}_i )}
+\hat z({{s}}_0 ) = \bar \mu _p  = \frac{1}{{n_p }}\sum\limits_{i = 1}^{n_p } {z({{s}}_i )}
 (\#eq:regavg)
 \end{equation}
 
@@ -1454,7 +1484,7 @@ area-class prediction model is simply the sum of the within-unit
 variance and the estimation variance of the unit mean:
 
 \begin{equation}
-\hat \sigma^2 ({\bf{s}}_0 ) = \left( 1 + \frac{1}{n_p } \right) \cdot \sigma _p^2
+\hat \sigma^2 ({{s}}_0 ) = \left( 1 + \frac{1}{n_p } \right) \cdot \sigma _p^2
 (\#eq:polvar)
 \end{equation}
 
@@ -1465,8 +1495,8 @@ small compared to the between-unit variation. The predictions under this
 model can also be expressed as:
 
 \begin{equation}
-\hat z({\bf{s}}_0 ) = \sum\limits_{i = 1}^n {w_i  \cdot z({\bf{s}}_i)}; \qquad w_i  = \left\{ {\begin{array}{*{20}c}
-   {1/n_p } & {{\rm for} \; {\bf{s}}_i \in p}  \\
+\hat z({{s}}_0 ) = \sum\limits_{i = 1}^n {w_i  \cdot z({{s}}_i)}; \qquad w_i  = \left\{ {\begin{array}{*{20}c}
+   {1/n_p } & {{\rm for} \; {{s}}_i \in p}  \\
    0 & {{\rm otherwise}}  \\
  \end{array} } \right.
 \end{equation}
@@ -1543,7 +1573,7 @@ range 0–1. Hence also the SOLIM model (Eq.\@ref(eq:solim)) is in fact just
 a special version of regression on mapping units:
 
 \begin{equation}
-\hat z({\bf{s}}_0 ) = \sum\limits_{c_j = 1}^{c_p} {\nu _{c_j} ({\bf{s}}_0) \cdot z_{c_j} } = \sum\limits_{j = 1}^p { {\rm{MU}}_j \cdot \hat b_j}  \hspace{.5cm} {\rm {for}}  \hspace{.5cm}  z_{c_j} = \frac{1}{{n_p }}\sum\limits_{i = 1}^{n_p } {z({\bf{s}}_i )}
+\hat z({{s}}_0 ) = \sum\limits_{c_j = 1}^{c_p} {\nu _{c_j} ({{s}}_0) \cdot z_{c_j} } = \sum\limits_{j = 1}^p { {\rm{MU}}_j \cdot \hat b_j}  \hspace{.5cm} {\rm {for}}  \hspace{.5cm}  z_{c_j} = \frac{1}{{n_p }}\sum\limits_{i = 1}^{n_p } {z({{s}}_i )}
 (\#eq:SOLIMreg)
 \end{equation}
 
@@ -1611,9 +1641,11 @@ predictions might lead to practically the same predictions (see some
 examples by @Goovaerts1997Oxford [p.158], @Heuvelink1999Geoderma and/or
 @Hengl2006CG).
 
-<div class="rmdnote">
-<p>The spatial support is the integration volume or size of the blocks being sampled and/or predicted. By increasing the support size from point to block support we decrease the prediction error variance. The decrease in the prediction error variance is approximately equal to the nugget variance.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">The spatial support is the integration volume or size of the blocks
+being sampled and/or predicted. By increasing the support size from
+point to block support we decrease the prediction error variance. The
+decrease in the prediction error variance is approximately equal to the
+nugget variance.</div>\EndKnitrBlock{rmdnote}
 
 Consider, for example, point and block predictions and simulations using
 the estimates of organic matter content in the topsoil (in dg/kg) for the
@@ -1638,8 +1670,17 @@ om.rksim.p <- predict(omm, meuse.grid, nsim=20, block=c(0,0))
 #> Generating 20 conditional simulations using the trend model (RK method)...
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
-#>  89% done100% done
+#>  17% done100% done
 #> Creating an object of class "RasterBrickSimulations"
+#> Loading required package: raster
+#> 
+#> Attaching package: 'raster'
+#> The following object is masked from 'package:nlme':
+#> 
+#>     getData
+#> The following objects are masked from 'package:aqp':
+#> 
+#>     metadata, metadata<-
 ```
 
 where the argument `block` defines the support size for the predictions
@@ -1654,12 +1695,9 @@ om.rk.b <- predict(omm, meuse.grid, block=c(40,40), nfold=0)
 #> [using ordinary kriging]
 #> 100% done
 #> Creating an object of class "SpatialPredictions"
-om.rksim.b <- predict(omm, meuse.grid, nsim=2, block=c(40,40))
+om.rksim.b <- predict(omm, meuse.grid, nsim=2, block=c(40,40), debug.level=0)
 #> Subsetting observations to fit the prediction domain in 2D...
 #> Generating 2 conditional simulations using the trend model (RK method)...
-#> drawing 2 GLS realisations of beta...
-#> [using conditional Gaussian simulation]
-#>   8% done 17% done 24% done 31% done 37% done 44% done 50% done 56% done 61% done 67% done 73% done 79% done 85% done 90% done 96% done100% done
 #> Creating an object of class "RasterBrickSimulations"
 ## computationally intensive
 ```
@@ -1700,9 +1738,9 @@ om.rk.p
 #>   Nugget (residual)  : 0.048 
 #>   Sill (residual)    : 0.065 
 #>   Range (residual)   : 285 
-#>   RMSE (validation)  : 2.4 
-#>   Var explained      : 50.2% 
-#>   Effective bytes    : 306 
+#>   RMSE (validation)  : 2.5 
+#>   Var explained      : 47.3% 
+#>   Effective bytes    : 313 
 #>   Compression method : gzip
 ```
 
@@ -1789,9 +1827,12 @@ values at coarser resolution blocks (250, 500, 1000 m etc). In any case,
 understanding consequences of aggregating spatial data and converting
 from point to block support is important.
 
-<div class="rmdnote">
-<p>In geostatistics, one needs to consider that any input / output spatial layer refers to some support. In soil mapping, there are three main support sizes: support size of the soil samples (sampling support; can refer to point locations or blocks of land), support size of the covariates (often equivalent to the grid cell size), and support size of predictions (again point locations or blocks of land).</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">In geostatistics, one needs to consider that any input / output spatial
+layer refers to some support. In soil mapping, there are three main
+support sizes: support size of the soil samples (sampling support; can
+refer to point locations or blocks of land), support size of the
+covariates (often equivalent to the grid cell size), and support size of
+predictions (again point locations or blocks of land).</div>\EndKnitrBlock{rmdnote}
 
 ### Geostatistical simulations {#gstat-sims}
 
@@ -1826,8 +1867,8 @@ of the target variable because, unlike kriging, they do not smooth out
 the values.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_20_sims_cross_section.png" alt="20 simulations (at block support) of the soil organic carbon for the Meuse study area (cross-section from West to East at Y=330348). Bold line indicates the median value and broken lines indicate upper and lower quantiles (95% probability)." width="100%" />
-<p class="caption">(\#fig:sims-cross-section)20 simulations (at block support) of the soil organic carbon for the Meuse study area (cross-section from West to East at Y=330348). Bold line indicates the median value and broken lines indicate upper and lower quantiles (95% probability).</p>
+<img src="figures/Fig_20_sims_cross_section.png" alt="20 simulations (at block support) of the soil organic carbon for the Meuse study area (cross-section from West to East at Y=330348). Bold line indicates the median value and broken lines indicate upper and lower quantiles (95\% probability)." width="100%" />
+<p class="caption">(\#fig:sims-cross-section)20 simulations (at block support) of the soil organic carbon for the Meuse study area (cross-section from West to East at Y=330348). Bold line indicates the median value and broken lines indicate upper and lower quantiles (95\% probability).</p>
 </div>
 
 Estimates of the model accuracy are also provided by the geostatistical
@@ -1873,13 +1914,12 @@ om.rksim.p <- predict(omm, meuse.grid, block=c(0,0), nsim=20)
 log1p(meuse@data[1,"om"])
 #> [1] 2.7
 extract(raster(om.rk.p@predicted), meuse[1,])
-#>     
-#> 2.7
+#> [1] 2.7
 extract(om.rksim.p@realizations, meuse[1,])
 #>      sim1 sim2 sim3 sim4 sim5 sim6 sim7 sim8 sim9 sim10 sim11 sim12 sim13
-#> [1,]  2.2  2.8  2.6  3.1  2.6  2.4  2.7  3.1  2.9     3   3.1   2.4   2.6
+#> [1,]  2.3  2.8  2.8  2.9  2.2  2.4  2.8  2.4  2.4     2   2.3   2.9   2.8
 #>      sim14 sim15 sim16 sim17 sim18 sim19 sim20
-#> [1,]   2.8   2.8   2.3   2.1   2.4     3   3.1
+#> [1,]   2.7   2.5   2.9   2.7   2.8   2.4   2.5
 ```
 
 which shows the difference between sampled value (2.681022), predicted
@@ -1890,7 +1930,7 @@ If we average the 20 simulations we obtain an alternative estimate of the mean:
 
 ```r
 mean(extract(om.rksim.p@realizations, meuse[1,]))
-#> [1] 2.7
+#> [1] 2.6
 ```
 
 In this case there remains a small difference between the two results,
@@ -1909,16 +1949,21 @@ organic matter content using the Meuse case study:
 
 ```r
 library(intamap)
+#> 
+#> Attaching package: 'intamap'
+#> The following object is masked from 'package:raster':
+#> 
+#>     interpolate
 demo(meuse, echo=FALSE)
 meuse$value = meuse$zinc
 output <- interpolate(meuse, meuse.grid, list(mean=TRUE, variance=TRUE))
-#> R 2018-06-11 11:55:38 interpolating 155 observations, 3103 prediction locations
+#> R 2018-12-18 15:21:29 interpolating 155 observations, 3103 prediction locations
 #> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : 
 #>  using standard model for estimating time. For better 
 #>  platform spesific predictions, please run 
 #>  timeModels <- generateTimeModels()
 #>   and save the workspace
-#> [1] "estimated time for  copula 146.071330432664"
+#> [1] "estimated time for  copula 147.539115038528"
 #> Checking object ... OK
 ```
 
@@ -1932,15 +1977,18 @@ str(output, max.level = 2)
 #> List of 16
 #>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
 #>  $ formulaString      :Class 'formula'  language value ~ 1
-#>   .. ..- attr(*, ".Environment")=<environment: 0x14ce18f0> 
+#>   .. ..- attr(*, ".Environment")=<environment: 0x55ff0110bdd0> 
 #>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
-#>  $ params             :List of 15
+#>  $ params             :List of 18
 #>   ..$ doAnisotropy     : logi TRUE
 #>   ..$ testMean         : logi FALSE
 #>   ..$ removeBias       : logi NA
 #>   ..$ addBias          : logi NA
 #>   ..$ biasRemovalMethod: chr "LM"
 #>   ..$ nmax             : num 50
+#>   ..$ nmin             : num 0
+#>   ..$ omax             : num 0
+#>   ..$ maxdist          : num Inf
 #>   ..$ ngrid            : num 100
 #>   ..$ nsim             : num 100
 #>   ..$ sMin             : num 4
@@ -2002,9 +2050,10 @@ The interpolate function automatically chooses between: (1) kriging,
 projected spatial gaussian process methods in the
 package, (4) transGaussian kriging or Yamamoto interpolation.
 
-<div class="rmdnote">
-<p>Automated mapping is the computer-aided generation of (meaningful) maps from measurements. In the context of geostatistical mapping, automated mapping implies that the model fitting, prediction and visualization can be run with little or no human interaction / intervention.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Automated mapping is the computer-aided generation of (meaningful) maps
+from measurements. In the context of geostatistical mapping, automated
+mapping implies that the model fitting, prediction and visualization can
+be run with little or no human interaction / intervention.</div>\EndKnitrBlock{rmdnote}
 
 The same idea of automated model fitting and prediction has been
 implemented in the package for (***WHAT***) , which extends simple point-based models
@@ -2060,6 +2109,13 @@ The purpose of spatial prediction is to (a) produce a map showing spatial distri
 
 ```r
 library(caret); library(rgdal)
+#> Loading required package: lattice
+#> Loading required package: ggplot2
+#> 
+#> Attaching package: 'caret'
+#> The following object is masked from 'package:intamap':
+#> 
+#>     preProcess
 demo(meuse, echo=FALSE)
 meuse.ov <- cbind(over(meuse, meuse.grid), meuse@data)
 meuse.ov$x0 = 1
@@ -2073,19 +2129,6 @@ fitControl <- trainControl(method="repeatedcv", number=2, repeats=2)
 mFit0 <- caret::train(om~x0, data=meuse.ov, method="glm", 
                family=gaussian(link=log), trControl=fitControl, 
                na.action=na.omit)
-#> Warning in predict.lm(object, newdata, se.fit, scale = 1, type =
-#> ifelse(type == : prediction from a rank-deficient fit may be misleading
-
-#> Warning in predict.lm(object, newdata, se.fit, scale = 1, type =
-#> ifelse(type == : prediction from a rank-deficient fit may be misleading
-
-#> Warning in predict.lm(object, newdata, se.fit, scale = 1, type =
-#> ifelse(type == : prediction from a rank-deficient fit may be misleading
-
-#> Warning in predict.lm(object, newdata, se.fit, scale = 1, type =
-#> ifelse(type == : prediction from a rank-deficient fit may be misleading
-#> Warning in nominalTrainWorkflow(x = x, y = y, wts = weights, info =
-#> trainInfo, : There were missing values in resampled performance measures.
 mFit1 <- caret::train(om~soil, data=meuse.ov, method="glm", 
                family=gaussian(link=log), trControl=fitControl, 
                na.action=na.omit)
@@ -2107,7 +2150,7 @@ bwplot(resamps, layout = c(2, 1), metric=c("RMSE","Rsquared"),
 ```
 
 <div class="figure" style="text-align: center">
-<img src="Statistical_theory_files/figure-html/bwplot-meuse-1.png" alt="Comparison of spatial prediction accuracy (RMSE at cross-validation points) for simple averaging (Mean), GLM with only soil map as covariate (Soilmap), GLM and random forest (RF) models with all possible covariates. Error bars indicate range of RMSE values for repeated CV." width="576" />
+<img src="Statistical_theory_files/figure-html/bwplot-meuse-1.png" alt="Comparison of spatial prediction accuracy (RMSE at cross-validation points) for simple averaging (Mean), GLM with only soil map as covariate (Soilmap), GLM and random forest (RF) models with all possible covariates. Error bars indicate range of RMSE values for repeated CV." width="100%" />
 <p class="caption">(\#fig:bwplot-meuse)Comparison of spatial prediction accuracy (RMSE at cross-validation points) for simple averaging (Mean), GLM with only soil map as covariate (Soilmap), GLM and random forest (RF) models with all possible covariates. Error bars indicate range of RMSE values for repeated CV.</p>
 </div>
 
@@ -2116,7 +2159,7 @@ In the case above, it seems that random forest ([ranger package](https://github.
 
 ```r
 round((1-min(mFit3$results$RMSE)/min(mFit0$results$RMSE))*100)
-#> [1] 31
+#> [1] 32
 ```
 
 There is certainly added value in using spatial covariates (in the case above: distance to water and flooding frequency maps) and in using machine learning for spatial prediction, even with smaller data sets. 
@@ -2172,9 +2215,10 @@ reasons:
     vertical (depth) dimensions, so that it makes sense to treat them
     using 3D geostatistics whenever we have enough 3D soil observations.
 
-<div class="rmdnote">
-<p>Because soil variables are auto-correlated in both horizontal and vertical (depth) dimensions it makes sense to treat them using 3D geostatistics, as long as there are enough measurements in all spatial dimensions.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Because soil variables are auto-correlated in both horizontal and
+vertical (depth) dimensions it makes sense to treat them using 3D
+geostatistics, as long as there are enough measurements in all spatial
+dimensions.</div>\EndKnitrBlock{rmdnote}
 
 <div class="figure" style="text-align: center">
 <img src="figures/Fig_voxel_scheme.png" alt="Spatial 3D prediction locations in a gridded system (voxels). In soil mapping, we often predict for larger blocks of land e.g. 100 to 1000 m, but then for vertical depths of few tens of centimeters, so the output voxels might appear in reality as being somewhat disproportional." width="60%" />
@@ -2195,13 +2239,13 @@ Eq.\@ref(eq:ukm-gstat) with a soil depth function:
 
 \begin{equation}
 \begin{split}
-\hat z({\bf{s}}_0, d_0 ) = \sum\limits_{j = 0}^p {\hat \beta _j \cdot X_j ({\bf{s}}_0, d_0 )} + {\bf{\hat g}}(d_0) + \sum\limits_{i = 1}^n {\hat{\lambda}_i ({\bf{s}}_0, d_0 ) \cdot e({\bf{s}}_i, d_i )}
+\hat z({{s}}_0, d_0 ) = \sum\limits_{j = 0}^p {\hat \beta _j \cdot X_j ({{s}}_0, d_0 )} + {{\hat g}}(d_0) + \sum\limits_{i = 1}^n {\hat{\lambda}_i ({{s}}_0, d_0 ) \cdot e({{s}}_i, d_i )}
 \end{split}
 (\#eq:MRK3D)
 \end{equation}
 
 where $d$ is the 3rd depth dimension expressed in meters from the land
-surface, ${\bf{\hat g}}(d_0)$ is the predicted soil depth function,
+surface, ${{\hat g}}(d_0)$ is the predicted soil depth function,
 typically modelled by a spline function. This allows prediction of soil
 properties at any depth using observations at other depths but does
 require 3D modelling of the covariance structure, which is not easy
@@ -2221,12 +2265,12 @@ standard parameters (nugget $c_0$, partial sill $c_1$, range parameter
 $r$):
 
 \begin{equation}
-\gamma \left( {\bf{h}} \right) = \left\{
+\gamma \left( {{h}} \right) = \left\{
 {\begin{array}{*{20}c}
    0 & {{\rm{if}}} & {h = 0}  \\
    {c_0  + c_1  \cdot \left[ {1 - e^{ - \left( {\frac{{h}}
 {r}} \right)} } \right]} & {{\rm{if}}} & {h > 0}  \\
- \end{array} } \right. \qquad {\bf{h}} =  \left[ {h_x  , h_y  , h_d } \right]
+ \end{array} } \right. \qquad {{h}} =  \left[ {h_x  , h_y  , h_d } \right]
 (\#eq:exp)
 \end{equation}
 
@@ -2313,9 +2357,11 @@ pan-continental and global projects, because for most of the countries
 in the world, both soil and covariate data are available at different
 effective scales.
 
-<div class="rmdnote">
-<p>A sensible approach to merging multiple predictions (usually at multiple resolutions) is to derive a weighted average of two or more predictions / use the per-pixel accuracy to assign relative weights, so that more accurate predictions receive more weight <span class="citation">[@Heuvelink19921]</span>.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">A sensible approach to merging multiple predictions
+(usually at multiple resolutions) is to derive a weighted average of two
+or more predictions / use the per-pixel accuracy to assign relative
+weights, so that more accurate predictions receive more weight
+[@Heuvelink19921].</div>\EndKnitrBlock{rmdnote}
 
 It is important to emphasize, however, that, in order to combine various
 predictors, we do need to have an estimate of the prediction uncertainty
@@ -2368,11 +2414,11 @@ using field records, and then generate
 what we know about soils, is then a sum of two *signals*:
 
 \begin{equation}
-z^{\rm{map}}({\bf{s}}) = Z({\bf{s}}) + \varepsilon({\bf{s}})
+z^{\rm{map}}({{s}}) = Z({{s}}) + \varepsilon({{s}})
 (\#eq:varparts)
 \end{equation}
 
-where $Z({\bf{s}})$ is the *true* variation, and $\varepsilon({\bf{s}})$
+where $Z({{s}})$ is the *true* variation, and $\varepsilon({{s}})$
 is the error component i.e. what we do not know. The error component,
 also known as the *error budget*, consists of two parts: (1) 
 *the unexplained part of soil variation*, and (2) *the pure noise* 
@@ -2393,19 +2439,19 @@ collect additional samples and then determine the average error or the
 
 \begin{equation}
 {\it RMSE} = \sqrt {\frac{1}{l} \cdot \sum\limits_{i = 1}^l {\left[
-{\hat z({\bf{s}}_i ) - z ({\bf{s}}_i )} \right]^2 } }
+{\hat z({{s}}_i ) - z ({{s}}_i )} \right]^2 } }
 (\#eq:RMSE)
 \end{equation}
 
 where $l$ is the number of validation points, and the expected estimate
 of prediction error at sampling locations is equal to the nugget
-variation ($E\{ {\it RMSE} \} = \sigma({\bf{h}}=0)$). In addition to $\it{RMSE}$, 
+variation ($E\{ {\it RMSE} \} = \sigma({{h}}=0)$). In addition to $\it{RMSE}$, 
 it is often interesting to see also whether the errors are, on average, positive
 (over-estimation) or negative (under-estimation) i.e. whether there is possibly 
 any clear bias in our predictions:
 
 \begin{equation}
-{\rm ME} = \frac{1}{m} \sum_{j=1}^{m} (\hat y ({\bf s}_j) - y ({\bf s}_j))
+{\rm ME} = \frac{1}{m} \sum_{j=1}^{m} (\hat y ({ s}_j) - y ({ s}_j))
 (\#eq:ME)
 \end{equation}
 
@@ -2423,7 +2469,7 @@ only under the assumption that the validation points are spatially
 independent from the calibration points, representative and large enough
 (e.g. $l>50$), and that the error component is normally distributed
 around the zero value
-($E\left\{ {\hat z({{\bf{s}}_i}) - z({{\bf{s}}_i})} \right\} = 0$).
+($E\left\{ {\hat z({{{s}}_i}) - z({{{s}}_i})} \right\} = 0$).
 
 Once we have estimated $\it{RMSE}$, we can also determine the effective
 *numeric resolution* for the predictions [@Hengl2013JAG]. For example,
@@ -2482,13 +2528,14 @@ analysis. There are several types of cross-validation methods
     statistical analysis and not of predictions;
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_cross_validation_repetitions.png" alt="Left: confidence limits for the amount of variation explained (0–100%) for two spatial prediction methods: inverse distance interpolation (IDW) and regression-kriging (RK) for mapping organic carbon content (Meuse data set). Right: the average amount of variation explained for two realizations (5-fold cross-validation) as a function of the number of cross-validation runs (repetitions). In this case, the RK method is distinctly better than method IDW, but the cross-validation score seems to stabilize only after 10 runs." width="85%" />
-<p class="caption">(\#fig:cross-validation-repetitions)Left: confidence limits for the amount of variation explained (0–100%) for two spatial prediction methods: inverse distance interpolation (IDW) and regression-kriging (RK) for mapping organic carbon content (Meuse data set). Right: the average amount of variation explained for two realizations (5-fold cross-validation) as a function of the number of cross-validation runs (repetitions). In this case, the RK method is distinctly better than method IDW, but the cross-validation score seems to stabilize only after 10 runs.</p>
+<img src="figures/Fig_cross_validation_repetitions.png" alt="Left: confidence limits for the amount of variation explained (0–100\%) for two spatial prediction methods: inverse distance interpolation (IDW) and regression-kriging (RK) for mapping organic carbon content (Meuse data set). Right: the average amount of variation explained for two realizations (5-fold cross-validation) as a function of the number of cross-validation runs (repetitions). In this case, the RK method is distinctly better than method IDW, but the cross-validation score seems to stabilize only after 10 runs." width="85%" />
+<p class="caption">(\#fig:cross-validation-repetitions)Left: confidence limits for the amount of variation explained (0–100\%) for two spatial prediction methods: inverse distance interpolation (IDW) and regression-kriging (RK) for mapping organic carbon content (Meuse data set). Right: the average amount of variation explained for two realizations (5-fold cross-validation) as a function of the number of cross-validation runs (repetitions). In this case, the RK method is distinctly better than method IDW, but the cross-validation score seems to stabilize only after 10 runs.</p>
 </div>
 
-<div class="rmdnote">
-<p>Cross-validation is a cost-efficient way to get an objective estimate of the mapping accuracy. Under an assumption that the input samples are representative of the study area (ideally collected using objective / probability sampling to avoid any kind of bias).</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Cross-validation is a cost-efficient way to get an objective estimate of
+the mapping accuracy. Under an assumption that the input samples are
+representative of the study area (ideally collected using objective /
+probability sampling to avoid any kind of bias).</div>\EndKnitrBlock{rmdnote}
 
 Both $k$–fold and the leave-one-out cross validation are implemented in
 the e.g. package (`krige.cv` methods), which makes this type of
@@ -2519,8 +2566,8 @@ or over-pessimistic estimates of the true mapping accuracy.
 
 Recall from Eq.\@ref(eq:sp) that the output of the prediction process is
 typically (1) predicted mean value at some location
-($\hat Z({\bf{s}}_0)$), and (2) predicted prediction variance i.e.
-regression-kriging error ($\hat{\sigma}({\bf{s}}_0)$). In the previous
+($\hat Z({{s}}_0)$), and (2) predicted prediction variance i.e.
+regression-kriging error ($\hat{\sigma}({{s}}_0)$). In the previous
 section we have shown some common accuracy measures for the prediction 
 of the mean value. It might sound confusing but, in geostatistics, one 
 can also validate the *uncertainty of uncertainty* i.e. derive the 
@@ -2534,7 +2581,7 @@ hist(om.rk.cv$zscore, main="Z-scores histogram",
 ```
 
 <div class="figure" style="text-align: center">
-<img src="Statistical_theory_files/figure-html/z-scores-histogram-1.png" alt="Z-scores for the cross-validation of the soil organic carbon model." width="576" />
+<img src="Statistical_theory_files/figure-html/z-scores-histogram-1.png" alt="Z-scores for the cross-validation of the soil organic carbon model." width="100%" />
 <p class="caption">(\#fig:z-scores-histogram)Z-scores for the cross-validation of the soil organic carbon model.</p>
 </div>
 
@@ -2546,7 +2593,7 @@ expected error is referred to as the $z$-scores [@Bivand2008Springer
 p.225]:
 
 \begin{equation}
- \sigma_r ({\bf{s}}_j) = \frac{\hat z({\bf{s}}_j ) - z^* ({\bf{s}}_j )}{\hat{\sigma}({\bf{s}}_j )}; \qquad  E\{var(\sigma_r)\} = 1
+ \sigma_r ({{s}}_j) = \frac{\hat z({{s}}_j ) - z^* ({{s}}_j )}{\hat{\sigma}({{s}}_j )}; \qquad  E\{var(\sigma_r)\} = 1
 (\#eq:z-scores)
 \end{equation}
 
@@ -2663,12 +2710,9 @@ can be time-consuming to compute!):
 
 
 ```r
-om.rksim <- predict(omm, meuse.grid, nsim=5)
+om.rksim <- predict(omm, meuse.grid, nsim=5, debug.level=0)
 #> Subsetting observations to fit the prediction domain in 2D...
 #> Generating 5 conditional simulations using the trend model (RK method)...
-#> drawing 5 GLS realisations of beta...
-#> [using conditional Gaussian simulation]
-#>  10% done 17% done 23% done 28% done 33% done 38% done 43% done 48% done 53% done 58% done 63% done 67% done 72% done 77% done 81% done 86% done 91% done 95% done100% done
 #> Creating an object of class "RasterBrickSimulations"
 ov <- as(om.rksim@realizations, "SpatialGridDataFrame")
 meuse.grid$om.sim1 <- expm1(ov@data[,1][meuse.grid@grid.index])
@@ -2741,11 +2785,11 @@ lapply(levels(meuse.grid$ffreq), function(x){
 #> 
 #> [[2]]
 #> om.sim1 
-#>     2.7 
+#>     2.4 
 #> 
 #> [[3]]
 #> om.sim1 
-#>     1.7
+#>     1.9
 ```
 
 This can be confusing especially if the soil data producer does not
@@ -2777,9 +2821,11 @@ than the previously derived 0.54 because we use `ffreq` stratification as a
 covariate, so that, as long as the strata is relatively homogenous, the
 confidence limits get narrower.
 
-<div class="rmdnote">
-<p>Prediction intervals (upper and lower ranges of expected values with some high probability) are possibly the most accepted way to communicate uncertainty. Users are commonly interested in what the probability confidence limits are of measuring some value at a specific location, or the high probability prediction range.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Prediction intervals (upper and lower ranges of expected values with some
+high probability) are possibly the most accepted way to communicate
+uncertainty. Users are commonly interested in what the probability
+confidence limits are of measuring some value at a specific location, or the
+high probability prediction range.</div>\EndKnitrBlock{rmdnote}
 
 To estimate the actual prediction intervals of estimating individual values
 (estimation error) we need to add the residual scale value which is a
@@ -2803,8 +2849,8 @@ predicted by the geostatistical model fitted above:
 aggregate(meuse.grid$om.sim1, by=list(meuse.grid$ffreq), sd, na.rm=TRUE)
 #>   Group.1   x
 #> 1       1 3.0
-#> 2       2 2.7
-#> 3       3 1.7
+#> 2       2 2.4
+#> 3       3 1.9
 ```
 
 we can clearly see that the geostatistical model has helped us narrow
@@ -2978,9 +3024,10 @@ and after recoding the values to match the effective precision
 the area is not included in the equation and hence can be used to compare the efficiency 
 of various different soil mapping projects.
 
-<div class="rmdnote">
-<p>Soil mapping efficiency can be expressed as the cost of producing bytes of information about the target soil variables for a given area of interest. This allows for an objective comparison of prediction efficiency for different soil variables for different study areas.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Soil mapping efficiency can be expressed as the cost of producing bytes 
+of information about the target soil variables for a given area
+of interest. This allows for an objective comparison of prediction
+efficiency for different soil variables for different study areas.</div>\EndKnitrBlock{rmdnote}
 
 ### Summary points
 
@@ -3062,9 +3109,10 @@ list of target variables an optimal (most efficient) prediction method
 can be determined by deriving the mapping efficiency described in
 Eq.\@ref(eq:efficiency) or even better Eq.\@ref(eq:data-efficiency).
 
-<div class="rmdnote">
-<p>Modern soil mapping is driven by the objective assessment of accuracy — emphasis is put on using methods and covariate layers that can produce the most accurate soil information given available resources, and much less on expert opinion or preference.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Modern soil mapping is driven by the objective assessment of
+accuracy — emphasis is put on using methods and covariate
+layers that can produce the most accurate soil information given
+available resources, and much less on expert opinion or preference.</div>\EndKnitrBlock{rmdnote}
 
 By reporting on the RMSE, effective precision, information production efficiency,
 and by plotting the prediction variance estimated by the model, one gets

@@ -1,26 +1,3 @@
-```{r include=FALSE, cache=FALSE}
-## Needed for Rscript
-library("methods")
-library("microbenchmark")
-## load data sets
-
-knitr::opts_chunk$set(
-  comment = "#>",
-  collapse = TRUE,
-  cache = TRUE, 
-  fig.align="center",
-  fig.pos="t",
-  auto_pdf = FALSE
-)
-set.seed(2016)
-options(digits = 3)
-options(dplyr.print_min = 4, dplyr.print_max = 4)
-options(knitr.graphics.auto_pdf = TRUE)
-
-figs.lst = list.files("figures", pattern=glob2rx("*.pdf$"), full.names = TRUE)
-for(i in 1:length(figs.lst)){ if(!file.exists(gsub(".pdf", ".png", figs.lst[i]))) system(paste0("convert -density 200 ", figs.lst[i], " -quality 90 ", gsub(".pdf", ".png", figs.lst[i]))) }
-#for(i in 1:length(figs.lst)){ if(!file.exists(gsub(".pdf", ".png", figs.lst[i]))) system(paste0('inkscape \"', figs.lst[i], '\" -z --export-dpi=200 --export-area-drawing --export-png="', gsub(".pdf", ".png", figs.lst[i]), '"')) }
-```
 # Machine Learning Algorithms for soil mapping {#soilmapping-using-mla}
 
 *Edited by: T. Hengl*
@@ -47,6 +24,11 @@ library(Cubist)
 library(GSIF)
 library(xgboost)
 ```
+
+```{r, include=FALSE}
+h2o::h2o.no_progress()
+```
+
 
 Next, we load the ([Ebergotzen](http://plotkml.r-forge.r-project.org/eberg.html)) data set which consists of point data collected using a soil auger and a stack of rasters containing all covariates:
 
@@ -175,14 +157,14 @@ Random forest is suited for both classification and regression problems (it is o
 
 In the following example we look at mapping sand content for the upper horizons. To initiate h2o we run:
 
-```{r}
+```{r, message=FALSE}
 library(h2o)
-localH2O = h2o.init(startH2O=FALSE)
+localH2O = h2o.init(startH2O=TRUE)
 ```
 
 This shows that multiple cores will be used for computing (to control the number of cores you can use the `nthreads` argument). Next, we need to prepare the regression matrix and prediction locations using the `as.h2o` function so that they are visible to h2o:
 
-```{r}
+```{r, message=FALSE}
 eberg.hex <- as.h2o(m, destination_frame = "eberg.hex")
 eberg.grid <- as.h2o(eberg_grid@data, destination_frame = "eberg.grid")
 ```
@@ -308,7 +290,8 @@ h2 <- hor2xyd(edgeroi$horizons)
 ## regression matrix:
 m2 <- plyr::join_all(dfs = list(edgeroi$sites, h2, ov2))
 ## spatial prediction model:
-formulaStringP2 <- ORCDRC ~ DEMSRT5+TWISRT5+PMTGEO5+EV1MOD5+EV2MOD5+EV3MOD5+DEPTH
+formulaStringP2 <- ORCDRC ~ DEMSRT5+TWISRT5+PMTGEO5+
+                            EV1MOD5+EV2MOD5+EV3MOD5+DEPTH
 mP2 <- m2[complete.cases(m2[,all.vars(formulaStringP2)]),]
 ```
 
@@ -378,7 +361,9 @@ We can quickly test the overall performance using a script on github prepared fo
 source_https <- function(url, ...) {
   require(RCurl)
   if(!file.exists(paste0("R/", basename(url)))){
-    cat(getURL(url, followlocation = TRUE, cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")), file = paste0("R/", basename(url)))
+    cat(getURL(url, followlocation = TRUE,
+               cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")), 
+        file = paste0("R/", basename(url)))
   }
   source(paste0("R/", basename(url)))
 }
@@ -439,7 +424,8 @@ We can also test ensemble predictions using the cookfarm data set [@Gasch2015SPA
 data(cookfarm)
 cookfarm.hor <- cookfarm$profiles
 str(cookfarm.hor)
-cookfarm.hor$depth <- cookfarm.hor$UHDICM + (cookfarm.hor$LHDICM - cookfarm.hor$UHDICM)/2
+cookfarm.hor$depth <- cookfarm.hor$UHDICM +
+  (cookfarm.hor$LHDICM - cookfarm.hor$UHDICM)/2
 sel.id <- !duplicated(cookfarm.hor$SOURCEID)
 cookfarm.xy <- cookfarm.hor[sel.id,c("SOURCEID","Easting","Northing")]
 str(cookfarm.xy)
@@ -834,7 +820,8 @@ rm.zinc1 <- do.call(cbind, list(meuse@data["zinc"], ov.zinc, ov.zinc1))
 this finally gives:
 
 ```{r}
-m1.zinc <- ranger(fm1, rm.zinc1, importance="impurity", quantreg=TRUE, num.trees=150, seed=1)
+m1.zinc <- ranger(fm1, rm.zinc1, importance="impurity", 
+                  quantreg=TRUE, num.trees=150, seed=1)
 m1.zinc
 ```
 
@@ -924,7 +911,8 @@ fm.s1c <- as.formula(paste("soil1c ~ ",
                            paste(names(grid.dist0), collapse="+"), 
                            " + SW_occurrence + dist"))
 rm.s1$soil1c = as.factor(rm.s1$soil1)
-m2.s1 <- ranger(fm.s1c, rm.s1, mtry=22, num.trees=150, seed=1, probability=TRUE, keep.inbag=TRUE)
+m2.s1 <- ranger(fm.s1c, rm.s1, mtry=22, num.trees=150, seed=1, 
+                probability=TRUE, keep.inbag=TRUE)
 m2.s1
 ```
 
@@ -966,7 +954,8 @@ to produce probability maps per soil class, we need to turn on the `probability=
 rm.s <- do.call(cbind, list(meuse@data["soil"], 
                             over(meuse["soil"], meuse.grid), 
                             over(meuse["soil"], grid.dist0)))
-m.s <- ranger(fm.s, rm.s, mtry=22, num.trees=150, seed=1, probability=TRUE, keep.inbag=TRUE)
+m.s <- ranger(fm.s, rm.s, mtry=22, num.trees=150, seed=1, 
+              probability=TRUE, keep.inbag=TRUE)
 m.s
 ```
 

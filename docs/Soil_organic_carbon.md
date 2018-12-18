@@ -67,7 +67,7 @@ In summary, there are four main variables used to represent soil organic carbon:
 Global estimates of the total soil organic carbon stock are highly variable [@Scharlemann2014CM]. Current estimates of the present total soil organic carbon stock range between 800–2100 Pg C (for 0–100 cm), with a median estimate of about 1500 Pg C (for 0–100 cm). This means that the average OCS for the 0–100 cm depth interval for the global land mask (148,940,000 km$^2$) is about 11 kg/m$^2$ or 110 tons/ha, and that average soil organic carbon density (OCD) is about 11 kg/m$^3$ (compare to the standard bulk density of fine earth of 1250 kg/m$^3$); standard OCS for 0–30 cm depth interval is 7 kg/m$^2$ i.e. the average OCD is about 13 kg/m$^3$. 
 
 <div class="rmdnote">
-<p>The average Organic Carbon Stock for the 0–100 cm depth interval for the land mask (148,940,000 km<span class="math inline">\(^2\)</span>) is about 11 kg/m<span class="math inline">\(^2\)</span> or 110 tons/ha. The average soil Organic Carbon Density (OCD) is about 11 kg/m<span class="math inline">\(^3\)</span> (compared to the standard bulk density of fine earth of 1250 kg/m<span class="math inline">\(^3\)</span>). Standard Organic Carbon Stock for 0–30 cm depth interval is 7 kg/m<span class="math inline">\(^2\)</span> i.e. the average OCD is about 13 kg/m<span class="math inline">\(^3\)</span>.</p>
+<p>The average Organic Carbon Stock for the 0–100 cm depth interval for the land mask (148,940,000 km<span class="math inline">\(^2\)</span>) is about 11 kg/m<span class="math inline">\(^2\)</span> or 110 tons/ha. The average soil Organic Carbon Density (OCD) is about 11 kg/m<span class="math inline">\(^3\)</span> (compared to the standard bulk density of fine earth of 1250 kg/m<span class="math inline">\(^3\)</span>). Standard Organic Carbon Stock for 0–30 cm depth interval is 7 kg/m<span class="math inline">\(^2\)</span> i.e. the average OCD is about 13 kg/m<span class="math inline">\(^3\)</span>.</p>
 </div>
 
 The distribution of soil organic carbon in the world is, however, highly patchy with large areas with OCS $\ll 100$ tons/ha, and then some *pockets* of accumulated organic material i.e. organic soil types (histosols) with OCS up to 850tons/ha (for 0–30 cm depth interval). The world's soil organic matter accumulation areas are usually found in the following biomes / land cover classes: wetlands and peatlands, mangroves, tundras and taigas. 
@@ -98,7 +98,10 @@ To determine OCS for standard depth intervals 0–30, 0–100 and 0–200 cm, we
 
 ```r
 library(GSIF)
+#> GSIF version 0.5-4 (2017-04-25)
+#> URL: http://gsif.r-forge.r-project.org/
 library(aqp)
+#> This is aqp 1.16-3
 library(sp)
 library(plyr)
 lon = 149.73; lat = -30.09; 
@@ -259,6 +262,7 @@ m.BLD_PTF
 #> Mtry:                             8 
 #> Target node size:                 5 
 #> Variable importance mode:         impurity 
+#> Splitrule:                        variance 
 #> OOB prediction error (MSE):       32379 
 #> R squared (OOB):                  0.549
 ```
@@ -300,7 +304,7 @@ predict(m.BLD_ls, data.frame(ORCDRC=320))
 This gives about 30% lower value than the random forest-based PTF from above. Over-estimating BLD will always result in higher OCS, hence clearly accurate information on BLD can be crucial for any OCS monitoring project. This means that the PTF fitted using random forest above is likely over-estimating BLD values for organic soils, mainly because there are not enough training points in organic soils that have measurements data for all of ORC, BLD, soil pH and texture fractions (if ANY of the calibration measurements are missing, the whole horizons are taken out of calibration and hence different ranges of BLD could be completely misrepresented).
 
 <div class="rmdnote">
-<p>Soil Bulk density (BLD) is an important soil property that is required to estimate stocks of nutrients especially soil organic carbon. Measurements of BLD are often not available and need to be estimated using some PTF or similar. Most PTF's for BLD are based on correlating BLD with soil organic carbon, clay and sand content, pH, soil type and climate zone.</p>
+<p>Soil Bulk density (BLD) is an important soil property that is required to estimate stocks of nutrients especially soil organic carbon. Measurements of BLD are often not available and need to be estimated using some PTF or similar. Most PTF’s for BLD are based on correlating BLD with soil organic carbon, clay and sand content, pH, soil type and climate zone.</p>
 </div>
 
 <div class="figure" style="text-align: center">
@@ -440,7 +444,8 @@ We can convert the original covariates to Principal Components, also to fill in 
 
 ```r
 covs30m@data = cbind(covs30m@data, covs30mdist@data)
-sel.rm = c("GlobalSurfaceWater_occurrence", "GlobalSurfaceWater_extent", "Landsat_bare2010", "COSha30map_var1pred_")
+sel.rm = c("GlobalSurfaceWater_occurrence", "GlobalSurfaceWater_extent",
+           "Landsat_bare2010", "COSha30map_var1pred_")
 rr = which(names(covs30m@data) %in% sel.rm)
 fm.spc = as.formula(paste(" ~ ", paste(names(covs30m)[-rr], collapse = "+")))
 proj4string(covs30m) = proj4string(COSha30)
@@ -454,6 +459,8 @@ By using the above listed covariates, we can fit a spatial prediction 2D model u
 
 ```r
 library(caret)
+#> Loading required package: lattice
+#> Loading required package: ggplot2
 library(ranger)
 fm.COSha30 = as.formula(paste("COSha30 ~ ", paste(names(covs30m.spc@predicted), collapse = "+")))
 fm.COSha30
@@ -493,38 +500,38 @@ mFit1
 #> 
 #> No pre-processing
 #> Resampling: Cross-Validated (4 fold, repeated 1 times) 
-#> Summary of sample sizes: 88, 90, 89, 87 
+#> Summary of sample sizes: 87, 88, 89, 90 
 #> Resampling results across tuning parameters:
 #> 
 #>   mtry  min.node.size  RMSE  Rsquared  MAE 
-#>    2    10             11.2  0.0492    8.68
-#>    2    20             11.1  0.1059    8.60
-#>    7    10             11.1  0.0640    8.54
-#>    7    20             11.1  0.0794    8.53
-#>   12    10             11.1  0.0905    8.47
-#>   12    20             11.1  0.1044    8.49
-#>   17    10             11.1  0.0977    8.52
-#>   17    20             11.1  0.0890    8.50
-#>   22    10             11.0  0.1066    8.49
-#>   22    20             11.0  0.1184    8.41
-#>   27    10             11.0  0.0653    8.45
-#>   27    20             11.0  0.0849    8.42
-#>   32    10             11.1  0.0605    8.44
-#>   32    20             11.0  0.1119    8.37
-#>   37    10             11.0  0.0865    8.46
-#>   37    20             11.0  0.1104    8.41
-#>   42    10             10.9  0.1165    8.37
-#>   42    20             11.0  0.0930    8.47
-#>   47    10             11.0  0.1065    8.41
-#>   47    20             10.9  0.1204    8.34
-#>   52    10             11.0  0.0834    8.44
-#>   52    20             11.0  0.1159    8.39
-#>   57    10             10.9  0.1303    8.35
-#>   57    20             11.0  0.1192    8.39
+#>    2    10             11.0  0.0225    8.75
+#>    2    20             11.0  0.0450    8.69
+#>    7    10             11.0  0.0442    8.66
+#>    7    20             11.0  0.0442    8.68
+#>   12    10             11.0  0.0608    8.61
+#>   12    20             10.9  0.0588    8.62
+#>   17    10             11.0  0.0519    8.65
+#>   17    20             11.0  0.0583    8.60
+#>   22    10             10.9  0.0684    8.59
+#>   22    20             10.9  0.0699    8.59
+#>   27    10             10.9  0.0710    8.57
+#>   27    20             10.9  0.0737    8.57
+#>   32    10             10.9  0.0836    8.55
+#>   32    20             10.9  0.0836    8.56
+#>   37    10             10.9  0.0887    8.63
+#>   37    20             10.9  0.0739    8.57
+#>   42    10             10.9  0.0606    8.64
+#>   42    20             10.8  0.0930    8.50
+#>   47    10             10.9  0.0731    8.58
+#>   47    20             10.9  0.0753    8.60
+#>   52    10             10.9  0.0848    8.55
+#>   52    20             10.9  0.0849    8.53
+#>   57    10             10.9  0.0748    8.61
+#>   57    20             10.9  0.0772    8.61
 #> 
 #> Tuning parameter 'splitrule' was held constant at a value of maxstat
 #> RMSE was used to select the optimal model using the smallest value.
-#> The final values used for the model were mtry = 47, splitrule =
+#> The final values used for the model were mtry = 42, splitrule =
 #>  maxstat and min.node.size = 20.
 mFit2 <- train(fm.COSha30, data=ov.COSha30, method="xgbTree", 
                trControl=fitControl, tuneGrid=gb.tuneGrid)
@@ -536,18 +543,18 @@ mFit2
 #> 
 #> No pre-processing
 #> Resampling: Cross-Validated (4 fold, repeated 1 times) 
-#> Summary of sample sizes: 88, 88, 89, 89 
+#> Summary of sample sizes: 87, 89, 89, 89 
 #> Resampling results across tuning parameters:
 #> 
-#>   eta  max_depth  nrounds  RMSE  Rsquared  MAE  
-#>   0.3  2           50      12.3  0.0460     9.77
-#>   0.3  2          100      12.2  0.0459     9.75
-#>   0.3  3           50      12.5  0.0570     9.79
-#>   0.3  3          100      12.5  0.0571     9.79
-#>   0.4  2           50      13.1  0.0210    10.28
-#>   0.4  2          100      13.1  0.0216    10.28
-#>   0.4  3           50      12.2  0.0232     9.72
-#>   0.4  3          100      12.2  0.0232     9.72
+#>   eta  max_depth  nrounds  RMSE  Rsquared  MAE 
+#>   0.3  2           50      11.8  0.0361    9.33
+#>   0.3  2          100      11.8  0.0367    9.33
+#>   0.3  3           50      11.7  0.0366    9.48
+#>   0.3  3          100      11.7  0.0367    9.48
+#>   0.4  2           50      11.9  0.0480    9.53
+#>   0.4  2          100      11.9  0.0478    9.54
+#>   0.4  3           50      12.1  0.0429    9.56
+#>   0.4  3          100      12.1  0.0429    9.56
 #> 
 #> Tuning parameter 'gamma' was held constant at a value of 0
 #>  0.8
@@ -555,8 +562,8 @@ mFit2
 #>  1
 #> Tuning parameter 'subsample' was held constant at a value of 1
 #> RMSE was used to select the optimal model using the smallest value.
-#> The final values used for the model were nrounds = 50, max_depth = 3,
-#>  eta = 0.4, gamma = 0, colsample_bytree = 0.8, min_child_weight = 1
+#> The final values used for the model were nrounds = 100, max_depth = 3,
+#>  eta = 0.3, gamma = 0, colsample_bytree = 0.8, min_child_weight = 1
 #>  and subsample = 1.
 ```
 
@@ -565,7 +572,7 @@ This example illustrates that no significant spatial prediction models (with an 
 Note that the absolute values of our predictions of OCS are somewhat different than those produced by the [geospt package](https://cran.r-project.org/package=geospt) authors, although the main patterns are comparable.
 
 <div class="figure" style="text-align: center">
-<img src="Soil_organic_carbon_files/figure-html/plot-cosha30map-rf-1.png" alt="Comparison of predictions generated using ordinary kriging (left) and machine learning with the help of 30 m resolution covariates and buffer distances (right)." width="672" />
+<img src="Soil_organic_carbon_files/figure-html/plot-cosha30map-rf-1.png" alt="Comparison of predictions generated using ordinary kriging (left) and machine learning with the help of 30 m resolution covariates and buffer distances (right)." width="100%" />
 <p class="caption">(\#fig:plot-cosha30map-rf)Comparison of predictions generated using ordinary kriging (left) and machine learning with the help of 30 m resolution covariates and buffer distances (right).</p>
 </div>
 
@@ -584,7 +591,7 @@ and derive the total SOC in tonnes:
 
 ```r
 sum(COSha30.pr$COSha30map_RF*30^2/1e4, na.rm=TRUE)
-#> [1] 102230
+#> [1] 102089
 ```
 
 ## Deriving OCS from soil profile data (the 3D approach) {#ocs-3d-approach}
@@ -671,7 +678,8 @@ Third, we match BLD values by matching horizon depths (center of horizon) with t
 
 ```r
 edgeroi$horizons$DEPTH = edgeroi$horizons$UHDICM + (edgeroi$horizons$LHDICM - edgeroi$horizons$UHDICM)/2
-edgeroi$horizons$DEPTH.c = cut(edgeroi$horizons$DEPTH, include.lowest=TRUE, breaks=c(0,10,30,60,100,1000), labels=paste0("sd",1:5))
+edgeroi$horizons$DEPTH.c = cut(edgeroi$horizons$DEPTH, include.lowest=TRUE,
+                               breaks=c(0,10,30,60,100,1000), labels=paste0("sd",1:5))
 summary(edgeroi$horizons$DEPTH.c)
 #> sd1 sd2 sd3 sd4 sd5 
 #> 391 379 408 391 769
@@ -731,8 +739,8 @@ m.OCD
 #> Target node size:                 5 
 #> Variable importance mode:         impurity 
 #> Splitrule:                        variance 
-#> OOB prediction error (MSE):       18.7 
-#> R squared (OOB):                  0.693
+#> OOB prediction error (MSE):       18.6 
+#> R squared (OOB):                  0.694
 ```
 
 Which shows that the average error with Out-of-bag training points is ±4.2 kg/m-cubic. Note that setting `quantreg = TRUE` allows us to derive also a map of the prediction errors (Fig. \@ref(fig:plot-edgeroi-ocd)), following the method of @meinshausen2006quantile. 
@@ -757,12 +765,17 @@ so that the final Organic carbon stocks in t/ha is:
 
 
 ```
+#> 
+#> Attaching package: 'raster'
+#> The following objects are masked from 'package:aqp':
+#> 
+#>     metadata, metadata<-
 #>    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-#>    20.7    38.1    46.4    47.3    55.1   101.6
+#>    20.7    39.5    47.6    48.5    56.4   105.7
 ```
 
 <div class="figure" style="text-align: center">
-<img src="Soil_organic_carbon_files/figure-html/plot-edgeroi-ocd-1.png" alt="Predicted organic carbon stock for 0–30 cm depth and error map for the Edgeroi data set. All values expressed in tons/ha." width="864" />
+<img src="Soil_organic_carbon_files/figure-html/plot-edgeroi-ocd-1.png" alt="Predicted organic carbon stock for 0–30 cm depth and error map for the Edgeroi data set. All values expressed in tons/ha." width="100%" />
 <p class="caption">(\#fig:plot-edgeroi-ocd)Predicted organic carbon stock for 0–30 cm depth and error map for the Edgeroi data set. All values expressed in tons/ha.</p>
 </div>
 
@@ -773,6 +786,14 @@ Next, we can derive the total soil organic carbon stock per [land use class](htt
 
 ```r
 library(rgdal)
+#> rgdal: version: 1.3-6, (SVN revision 773)
+#>  Geospatial Data Abstraction Library extensions to R successfully loaded
+#>  Loaded GDAL runtime: GDAL 2.3.2, released 2018/09/21
+#>  Path to GDAL shared files: /usr/share/gdal
+#>  GDAL binary built with GEOS: TRUE 
+#>  Loaded PROJ.4 runtime: Rel. 4.9.3, 15 August 2016, [PJ_VERSION: 493]
+#>  Path to PROJ.4 shared files: (autodetected)
+#>  Linking to sp version: 1.3-1
 edgeroi.grids$LandUse = readGDAL("extdata/edgeroi_LandUse.sdat")$band1
 #> extdata/edgeroi_LandUse.sdat has GDAL driver SAGA 
 #> and has 128 rows and 190 columns
@@ -787,27 +808,27 @@ OCS_agg.lu$LandUseClass.f = strtrim(OCS_agg.lu$LandUseClass, 34)
 OCS_agg.lu$OCH_t_ha_M = round(OCS_agg.lu$Total_OCS_kt*1000/(OCS_agg.lu$Area_km2*100))
 OCS_agg.lu[OCS_agg.lu$Area_km2>5,c("LandUseClass.f","Total_OCS_kt","Area_km2","OCH_t_ha_M")]
 #>                        LandUseClass.f Total_OCS_kt Area_km2 OCH_t_ha_M
-#> 2  Constructed grass waterway for wat           54       11         49
-#> 3                              Cotton           41        8         51
-#> 4                  Cotton - irrigated          795      203         39
-#> 5   Cropping - continuous or rotation         1737      402         43
-#> 6  Cropping - continuous or rotation           227       59         38
-#> 10                           Farm dam           52       10         52
-#> 11 Farm Infrastructure - house, machi           87       18         48
-#> 12 Grazing - Residual strips (block o           47       10         47
-#> 13 Grazing of native vegetation. Graz          662      129         51
-#> 14 Grazing of native vegetation. Graz           66       13         51
-#> 16                     Irrigation dam           63       16         39
-#> 21                      Native forest          222       37         60
-#> 26                  Research facility           38        9         42
-#> 27 River, creek or other incised drai           67       11         61
-#> 28               Road or road reserve          114       23         50
-#> 29                       State forest          418       83         50
-#> 32 Volunteer, naturalised, native or          1359      238         57
-#> 33 Volunteer, naturalised, native or            62       16         39
-#> 34 Volunteer, naturalised, native or            74       14         53
-#> 35 Volunteer, naturalised, native or           460       99         46
-#> 37 Wide road reserve or TSR, with som          453       90         50
+#> 2  Constructed grass waterway for wat           55       11         50
+#> 3                              Cotton           42        8         52
+#> 4                  Cotton - irrigated          828      203         41
+#> 5   Cropping - continuous or rotation         1788      402         44
+#> 6  Cropping - continuous or rotation           235       59         40
+#> 10                           Farm dam           54       10         54
+#> 11 Farm Infrastructure - house, machi           90       18         50
+#> 12 Grazing - Residual strips (block o           49       10         49
+#> 13 Grazing of native vegetation. Graz          685      129         53
+#> 14 Grazing of native vegetation. Graz           68       13         52
+#> 16                     Irrigation dam           66       16         41
+#> 21                      Native forest          226       37         61
+#> 26                  Research facility           40        9         44
+#> 27 River, creek or other incised drai           69       11         63
+#> 28               Road or road reserve          117       23         51
+#> 29                       State forest          407       83         49
+#> 32 Volunteer, naturalised, native or          1378      238         58
+#> 33 Volunteer, naturalised, native or            64       16         40
+#> 34 Volunteer, naturalised, native or            75       14         54
+#> 35 Volunteer, naturalised, native or           471       99         48
+#> 37 Wide road reserve or TSR, with som          468       90         52
 ```
 
 Which shows that, for the `Cropping - continuous or rotation`, which is the dominant land use class in the area, the average OCS is 43 tons/ha for the 0–30 cm depth. In this case, the total soil organic carbon stock for the whole area (for all land use classes) is ca 7154 thousand tons of C. There do not appear to be large differences in OCS between the natural vegetation and croplands.
@@ -831,7 +852,7 @@ hist(OCD_stN$YEAR, xlab="Year", main="", col="darkgrey")
 ```
 
 <div class="figure" style="text-align: center">
-<img src="Soil_organic_carbon_files/figure-html/thist-usa48-1.png" alt="Distribution of soil observations based on sampling year." width="672" />
+<img src="Soil_organic_carbon_files/figure-html/thist-usa48-1.png" alt="Distribution of soil observations based on sampling year." width="100%" />
 <p class="caption">(\#fig:thist-usa48)Distribution of soil observations based on sampling year.</p>
 </div>
 
@@ -854,7 +875,8 @@ All these layers are available only at a relatively coarse resolution of 10 km, 
 
 
 ```r
-pr.lst <- names(OCD_stN)[-which(names(OCD_stN) %in% c("SOURCEID", "DEPTH.f", "OCDENS", "YEAR", "YEAR_c", "LONWGS84", "LATWGS84"))]
+pr.lst <- names(OCD_stN)[-which(names(OCD_stN) %in% c("SOURCEID", "DEPTH.f", "OCDENS", 
+                                                      "YEAR", "YEAR_c", "LONWGS84", "LATWGS84"))]
 fm0.st <- as.formula(paste('OCDENS ~ DEPTH.f + ', paste(pr.lst, collapse="+")))
 sel0.m = complete.cases(OCD_stN[,all.vars(fm0.st)])
 ## takes >2 mins
@@ -909,7 +931,8 @@ to speed up processing we can subset grids and focus on the State of Texas:
 library(maps)
 library(maptools)
 states <- map('state', plot=FALSE, fill=TRUE)
-states = SpatialPolygonsDataFrame(map2SpatialPolygons(states, IDs=1:length(states$names)), data.frame(names=states$names))
+states = SpatialPolygonsDataFrame(map2SpatialPolygons(states, IDs=1:length(states$names)),
+                                  data.frame(names=states$names))
 proj4string(states) = "+proj=longlat +datum=WGS84"
 ov.g10km = over(y=states, x=g10km)
 txg10km = g10km[which(ov.g10km$names=="texas"),]

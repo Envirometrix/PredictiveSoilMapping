@@ -34,7 +34,7 @@ topmost layer of the Earth’s surface [@chesworth2008encyclopedia]. The
 upper limit of the soil is either air, shallow water, live plants or
 plant materials that have not begun to decompose. The lower limit is
 defined by the presence of hard rock or the lower limit of biologic
-activity [@Richter1995deep; @SSDS1993]. Although soil profiles up to tens
+activity [@richter1995deep; @SSDS1993]. Although soil profiles up to tens
 of meters depths can be found in some tropical areas [@richter1995deep], for
 soil classification and mapping purposes, the lower limit soil is often
 arbitrarily set to 2 m (http://soils.usda.gov/education/facts/soil.html). Soils are rarely described to depths beyond 2 m and
@@ -228,9 +228,9 @@ of a map tells us how accurate predictions of targeted soil properties
 are overall, while the spatial resolution helps us locate features
 with some specified level of spatial precision.
 
-<div class="rmdnote">
-<p>The most common output of a soil resource inventory is a <em>soil map</em>. Soil maps convey information about the geographic distribution of named soil types in a given area. They are meant to help answer the questions <em>“what is here”</em> and <em>“where is what”</em> <span class="citation">[@Burrough1998OUP]</span>.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">The most common output of a soil resource inventory is a *soil map*. Soil maps convey information
+about the geographic distribution of named soil types in a given area.
+They are meant to help answer the questions *“what is here”* and *“where is what”* [@Burrough1998OUP].</div>\EndKnitrBlock{rmdnote}
 
 Any map is an abstraction and generalization of reality. The only
 perfect one-to-one representation of reality is reality itself. To fully
@@ -286,9 +286,12 @@ are:
 
 6.  *Small scale variation*;
 
-<div class="rmdnote">
-<p>In statistical terms, the main objective of soil mapping is to describe the spatial complexity of soils, then represent this complexity using maps, summary measures, mathematical models and simulations. From the application point of view, the main application objective of soil mapping is to accurately predict response of a soil(-plant) ecosystem to various soil management strategies.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">In statistical terms, the main objective of
+soil mapping is to describe the spatial complexity of soils, then
+represent this complexity using maps, summary measures, mathematical
+models and simulations. From the application point of view, the main
+application objective of soil mapping is to accurately predict response of a
+soil(-plant) ecosystem to various soil management strategies.</div>\EndKnitrBlock{rmdnote}
 
 Soil mappers do their best to try explain the first two items above and
 minimize, or exclude from modelling, the remaining components: temporal
@@ -296,7 +299,7 @@ variation, measurement error, spatial location error and small scale
 variation.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_soil_crop_model_scheme.png" alt="Inputs to soil-plant, soil-hydrology or soil-ecology models and their relationship." width="100%" />
+<img src="figures/Fig_soil_crop_model_scheme.png" alt="Inputs to soil-plant, soil-hydrology or soil-ecology models and their relationship." width="100%" angle=0 />
 <p class="caption">(\#fig:soil-crop-model-scheme)Inputs to soil-plant, soil-hydrology or soil-ecology models and their relationship.</p>
 </div>
 
@@ -353,9 +356,10 @@ deterministic component, $\varepsilon '({\bf{s}})$ is the spatially
 correlated stochastic component and $\varepsilon ''({\bf{s}})$ is the
 pure noise (micro-scale variation and measurement error).
 
-<div class="rmdnote">
-<p>The <em>universal model of soil variation</em> assumes that there are three major components of soil variation: (1) the deterministic component (function of covariates), (2) spatially correlated component (treated as stochastic) and (3) pure noise.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">The *universal model of soil variation* assumes that
+there are three major components of soil variation: (1) the
+deterministic component (function of covariates), (2) spatially
+correlated component (treated as stochastic) and (3) pure noise.</div>\EndKnitrBlock{rmdnote}
 
 The deterministic part of the equation describes that part of the
 variation in soils and soil properties that can be explained by
@@ -442,9 +446,8 @@ analogue of spatial interpolation to describe patterns of variation in
 soils where such patterns are not readily related to a clear
 soil-landscape model.
 
-<div class="rmdnote">
-<p>In its essence, the objective of PSM is to produce optimal unbiased predictions of a mean value at some new location along with the uncertainty associated with the prediction, at the finest possible resolution.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">In its essence, the objective
+of PSM is to produce optimal unbiased predictions of a mean value at some new location along with the uncertainty associated with the prediction, at the finest possible resolution.</div>\EndKnitrBlock{rmdnote}
 
 There is one way in which PSM differs significantly from
 conventional soil mapping in terms of the universal model of soil
@@ -641,9 +644,10 @@ spatio-temporal soil data is likely to grow.
 <p class="caption">(\#fig:soilmap-types)Classification of types of soil maps based on spatial representation and variable type.</p>
 </div>
 
-<div class="rmdnote">
-<p>A soil map can represent 2D, 3D, 2D+T and/or 3D+T distribution of quantitative soil properties or soil classes. It can show predicted or simulated values of target soil properties and/or classes, or inferred soil-functions.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">A soil map can represent 2D, 3D, 2D+T
+and/or 3D+T distribution of quantitative soil properties or soil
+classes. It can show predicted or simulated values of target soil
+properties and/or classes, or inferred soil-functions.</div>\EndKnitrBlock{rmdnote}
 
 The spatial model increasingly used to represent soil spatial
 information is the *gridded or raster data model*, where most of the
@@ -695,7 +699,7 @@ those that are free and publicly distributed such as MODIS products,
 SRTM DEM and similar (Fig. \@ref(fig:new-technologies)). PSM can be compared to, and shares similar concepts with, other applications of statistics and machine learning in physical geography, for example Predictive Vegetation Mapping [@Fran01; @Hengl2018PNV].
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_new_technologies.png" alt="Evolution of digital soil mapping parallels the emergence of new technologies and global, publicly available data sources." width="100%" />
+<img src="figures/Fig_new_technologies.png" alt="Evolution of digital soil mapping parallels the emergence of new technologies and global, publicly available data sources." width="45%" angle=0 />
 <p class="caption">(\#fig:new-technologies)Evolution of digital soil mapping parallels the emergence of new technologies and global, publicly available data sources.</p>
 </div>
 
@@ -734,9 +738,10 @@ Pedometric soil mapping typically follows six steps as outlined by
 6.  *Publish and distribute the soil information in the form of maps,
     geographical databases and reports (and provide support to users)*;
 
-<div class="rmdnote">
-<p>Differences among <em>conventional soil mapping</em>, <em>digital soil mapping</em> or <em>technology-driven or data-driven mapping</em> relate primarily to the degree of use of robust statistical methods in developing prediction models to support the mapping process.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Differences among *conventional soil mapping*, *digital soil mapping* or
+*technology-driven or data-driven mapping* relate primarily to the
+degree of use of robust statistical methods in developing prediction
+models to support the mapping process.</div>\EndKnitrBlock{rmdnote}
 
 We here recognize four classes of soil mapping methods (B, C, D and E in
 Fig. \@ref(fig:pedometric-mapping-vs-dsm)) which all belong to a
@@ -781,9 +786,12 @@ available legacy soil point observations may not be representative of
 the true population of soils, with some soils being either over or
 under-represented.
 
-<div class="rmdnote">
-<p>We define automated or predictive soil mapping as a data-driven approach to soil mapping with little or no human interaction, commonly based on using optimal (where possible) statistical methods that elucidate relationships between target soil variables (sampled in the field and geolocated) and covariate layers, primarily coming from remote sensing data.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">We define automated or predictive soil mapping as
+a data-driven approach to soil mapping with little or no human
+interaction, commonly based on using optimal (where possible)
+statistical methods that elucidate relationships between target soil
+variables (sampled in the field and geolocated) and covariate layers,
+primarily coming from remote sensing data.</div>\EndKnitrBlock{rmdnote}
 
 A second key limitation of the automated approach to soil
 mapping is that there may be no obvious relationship between observed
@@ -945,9 +953,10 @@ to rescue and protect the existing accumulation of legacy soil data, but
 to put it to new and beneficial uses, so that its value is increased and
 not just preserved.
 
-<div class="rmdnote">
-<p>Four main groups of legacy data of interest for global soil mapping are: (1) soil field records, (2) soil polygon maps and legends, (3) soil-landscape diagrams and sketches, (d) soil (profile) photographs.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Four main groups of legacy data of
+interest for global soil mapping are: (1) soil field records, (2) soil
+polygon maps and legends, (3) soil-landscape diagrams and sketches, (d)
+soil (profile) photographs.</div>\EndKnitrBlock{rmdnote}
 
 In the context of soils, legacy soil data consist of the sum total of
 data, information and knowledge about soils accumulated since soils were
@@ -1062,9 +1071,10 @@ sampled in the vertical dimension with respect to arbitrary depth
 intervals or layers e.g. at fixed depths intervals e.g. 10, 20, 30, 40,
 $\ldots$ cm.
 
-<div class="rmdnote">
-<p>A soil profile record is a set of field observations of the soil at a location — a collection of descriptive and analytical soil properties attached to a specific location, depth and sampling support size (volume of soil body).</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">A soil profile record is a set of field
+observations of the soil at a location — a collection of descriptive and
+analytical soil properties attached to a specific location, depth and
+sampling support size (volume of soil body).</div>\EndKnitrBlock{rmdnote}
 
 Soil profile descriptions in the vertical dimension are usually
 accompanied by additional soil site descriptions that describe
@@ -1114,9 +1124,12 @@ expected to be consistent, repeatable and comparable across time and
 space. We will see in the following chapter that this is not always the
 case.
 
-<div class="rmdnote">
-<p>An advantage of descriptive field observations such as soil color, stone content, presence, size and abundance of roots, pores, mottles, cracks, diagnostic horizons etc. is that they provide much useful information at a relatively low cost, since there is no need to sample or transport the soil or analyze it at considerable cost in a distant laboratory.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">An advantage of descriptive field
+observations such as soil color, stone content, presence, size and
+abundance of roots, pores, mottles, cracks, diagnostic horizons etc. is
+that they provide much useful information at a relatively low cost,
+since there is no need to sample or transport the soil or analyze it at
+considerable cost in a distant laboratory.</div>\EndKnitrBlock{rmdnote}
 
 ### Legacy soil profile data
 
@@ -1228,9 +1241,15 @@ reference method. Even where harmonization is applied, some noise and
 inconsistency always remains and the ability to establish statistical
 relationships is often somewhat compromised.
 
-<div class="rmdnote">
-<p>If not collected using probability sampling and with high location accuracy, soil field records are often only marginally suitable for building spatial prediction models, especially at fine spatial resolution. Legacy data can carry significant positional and attribute error, and is possibly not representative of all soil forming conditions in an area of interest. All these limitations can seriously degrade the final map accuracy, so that sometimes better accuracy cannot be achieved without collecting new field data.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">If not collected using probability
+sampling and with high location accuracy, soil field records are often
+only marginally suitable for building spatial prediction models,
+especially at fine spatial resolution. Legacy data can carry significant
+positional and attribute error, and is possibly not representative of
+all soil forming conditions in an area of interest. All these
+limitations can seriously degrade the final map accuracy, so that
+sometimes better accuracy cannot be achieved without collecting new
+field data.</div>\EndKnitrBlock{rmdnote}
 
 What needs to be emphasized is that much of the legacy soils profile
 data in the world is under used. It tends to be fragmented, non-standard
@@ -1272,9 +1291,11 @@ interest for pedometric soil mapping:
 <p class="caption">(\#fig:dem-evolution)Evolution of global DEM data sources: (right) SRTM DEM released in 2002, as compared to (left) WorldDEM released in 2014 (Baade et al., 2014). Sample data set for city of Quorn in South Australia. As with many digital technologies, the level of detail and accuracy of GIS and remote sensing data is exhibiting exponential growth.</p>
 </div>
 
-<div class="rmdnote">
-<p>The most common environmental covariates typically used in soil mapping are: (1) Raw spectral and multi-spectral images of the land surface, (2) DEM-derivatives, (3) Climatic maps, (4) Vegetation and land-cover based covariates, (5) Land survey and land use information, and (6) Expert-based covariates e.g. soil or surficial geology maps.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">The most common environmental covariates typically used in soil mapping
+are: (1) Raw spectral and multi-spectral images of the land surface, (2)
+DEM-derivatives, (3) Climatic maps, (4) Vegetation and land-cover based
+covariates, (5) Land survey and land use information, and (6)
+Expert-based covariates e.g. soil or surficial geology maps.</div>\EndKnitrBlock{rmdnote}
 
 Different environmental covariates will be the dominant spatial predictors of
 targeted soil properties and this relationship is often scale dependent. Often, only a few key covariates can
@@ -1339,9 +1360,10 @@ which lists of specific soils are predicted to occur with specified
 frequencies or possibilities. Soils are conceptualized as objects that
 belong to defined soil classes.
 
-<div class="rmdnote">
-<p>Soil delineations are manually drawn entities that portray boundaries between soil bodies assumed to be internally homogeneous. Soil delineations can be considered to be expert-based soil covariates.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Soil delineations are manually drawn
+entities that portray boundaries between soil bodies assumed to be
+internally homogeneous. Soil delineations can be considered to be
+expert-based soil covariates.</div>\EndKnitrBlock{rmdnote}
 
 Each class of soil (often a soil series or taxonomic class) is assumed
 to have a limited and describable range of characteristics i.e. physical
@@ -1481,9 +1503,11 @@ provide only partial coverage for these mapped areas. Even where
 coverage is complete, or nearly complete, consistency is often a
 significant issue.
 
-<div class="rmdnote">
-<p>Conventional soil polygon maps (manually-drawn delineations) are often one of the best sources of information on local variation in soil polypedons. On the other hand, conventional soil polygon maps often suffer from incompleteness, inconsistency and low accuracy of thematic content, as well as from suspect positional accuracy.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Conventional soil polygon maps (manually-drawn
+delineations) are often one of the best sources of information on local
+variation in soil polypedons. On the other hand, conventional soil
+polygon maps often suffer from incompleteness, inconsistency and low
+accuracy of thematic content, as well as from suspect positional accuracy.</div>\EndKnitrBlock{rmdnote}
 
 Mapping concepts change across time and vary among different mappers and
 agencies. Consequently, the normal situation is that no two maps are
@@ -1567,9 +1591,10 @@ borders (most often an artifact), but also inconsistent effective scale
 within continents. All these limitations reduce confidence in the final
 product and its usage.
 
-<div class="rmdnote">
-<p>For legacy soil maps to be of maximum possible utility for digital soil mapping they need to be harmonized with respect to thematic content and accuracy, and they need to be corrected with respect to positional accuracy.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">For legacy soil maps to be of maximum
+possible utility for digital soil mapping they need to be harmonized
+with respect to thematic content and accuracy, and they need to be
+corrected with respect to positional accuracy.</div>\EndKnitrBlock{rmdnote}
 
 So, conventional soil polygon maps suffer from issues related to
 completeness, consistency and accuracy of thematic content as well as
@@ -1643,9 +1668,10 @@ down. So, a challenge exists to simply locate legacy soil expert
 knowledge. Once located, a second challenge is how to best capture and
 formalize it i.e. how to turn it into rules for a mapping algorithm.
 
-<div class="rmdnote">
-<p>The first challenge to using legacy soil expert knowledge is to locate it. Once located, a second challenge is how to best capture and formalize it i.e. how to turn it into rules for a mapping algorithm.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">The first challenge to using
+legacy soil expert knowledge is to locate it. Once located, a second
+challenge is how to best capture and formalize it i.e. how to turn it
+into rules for a mapping algorithm.</div>\EndKnitrBlock{rmdnote}
 
 Common approaches to codifying expert knowledge about soil-landscape
 patterns include construction of *decision trees*
@@ -1824,9 +1850,12 @@ to be used for spatial planning. The PSM tools described in this book,
 in that context, have been designed as a step forward to producing more
 complete soil information systems.
 
-<div class="rmdnote">
-<p>A Soil Information System is an end product of soil mapping — a standardized collection of (usually gridded) soil property and class maps of an area that can be used for spatial planning, environmental modelling, agricultural engineering, land degradation studies, biodiversity assessment and similar. A SIS tries to provide the best possible soil information at some given scale for the spatial domain of interest.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">A Soil Information System is an end product of soil
+mapping — a standardized collection of (usually gridded) soil property and class
+maps of an area that can be used for spatial planning, environmental
+modelling, agricultural engineering, land degradation studies,
+biodiversity assessment and similar. A SIS tries to provide the best possible soil
+information at some given scale for the spatial domain of interest.</div>\EndKnitrBlock{rmdnote}
 
 Another important point is that a modern SIS needs to be user-oriented.
 As @Campbell2008NCST argues: *“Soil science, soil classification,
@@ -1839,7 +1868,7 @@ also contribute to construction and influence content.
 *“Web 3.0”* (read, write and execute) approaches to content creation. We also envisage that soil information will increasingly be produced using global vs local models and increasingly using distributed data and computing (Fig. \@ref(fig:automap-future)).
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_automap_future.png" alt="The future of global mapping and environmental monitoring activities is expected to be increasingly automated and distributed." width="75%" />
+<img src="figures/Fig_automap_future.png" alt="The future of global mapping and environmental monitoring activities is expected to be increasingly automated and distributed." width="75%" angle=0 />
 <p class="caption">(\#fig:automap-future)The future of global mapping and environmental monitoring activities is expected to be increasingly automated and distributed.</p>
 </div>
 
@@ -1855,9 +1884,14 @@ soil mapper to justify the importance of producing spatial soil
 information there is no better argument that a thorough economic
 assessment of its use.
 
-<div class="rmdnote">
-<p>There is an increasing need to quantify economic aspects of soil functions in relation to soil mapping and soil information use: What is the value of soil information for food production? How much does some sophisticated geostatistical mapping method reduce costs (while producing equally accurate information)? How much does soil (environmental) remediation cost? What is the cost-benefit ratio between soil mapping and soil exploitation? What is the global value of soil for fixation of atmospheric gasses or for water filtering or retention?</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">There is an increasing need to quantify
+economic aspects of soil functions in relation to soil mapping and soil
+information use: What is the value of soil information for food
+production? How much does some sophisticated geostatistical mapping
+method reduce costs (while producing equally accurate information)? How
+much does soil (environmental) remediation cost? What is the
+cost-benefit ratio between soil mapping and soil exploitation? What is
+the global value of soil for fixation of atmospheric gasses or for water filtering or retention?</div>\EndKnitrBlock{rmdnote}
 
 ### Soil information users
 
@@ -1958,7 +1992,7 @@ number of factors (Fig. \@ref(fig:usability-scheme)):
     the data at the same time? Are the data free and easily obtained?
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_usability_scheme.png" alt="Usability of a Soil Information System is basically a function of a number of data usability measures from which the following four (C’s) are essential: completeness, consistency, correctness and currency." width="95%" />
+<img src="figures/Fig_usability_scheme.png" alt="Usability of a Soil Information System is basically a function of a number of data usability measures from which the following four (C’s) are essential: completeness, consistency, correctness and currency." width="60%" angle=0 />
 <p class="caption">(\#fig:usability-scheme)Usability of a Soil Information System is basically a function of a number of data usability measures from which the following four (C’s) are essential: completeness, consistency, correctness and currency.</p>
 </div>
 
@@ -1994,9 +2028,10 @@ optimization of decision making is to accurately account for uncertainty
 
 -   *Measure where it matters and only enough to make a sound decision*.
 
-<div class="rmdnote">
-<p>The quality of a geospatial database is a function of accuracy, adequacy, consistency, completeness, interoperability, accessibility and serving capacity. Each of these usability measures can be optimized up to a certain level depending on the available resources.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">The quality of a geospatial database is a function
+of accuracy, adequacy, consistency, completeness, interoperability,
+accessibility and serving capacity. Each of these usability measures can
+be optimized up to a certain level depending on the available resources.</div>\EndKnitrBlock{rmdnote}
 
 In practice, soil surveyors rarely have the luxury of returning to the
 field to collect additional samples to iteratively improve predictions and
@@ -2042,9 +2077,12 @@ measuring an uncertain variable was properly conducted. Finally, the
 extent does the information on the uncertainty of a variable change over
 time.
 
-<div class="rmdnote">
-<p>Estimates of uncertainty of soil property and soil class predictions are an increasingly important extension to soil mapping outputs. Maps of spatial variation in uncertainty can be submitted as maps of upper and lower confidence limits, probability distributions or density functions, prediction error maps and/or equiprobable simulations.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Estimates of uncertainty of soil
+property and soil class predictions are an increasingly important
+extension to soil mapping outputs. Maps of spatial variation in uncertainty can be submitted
+as maps of upper and lower confidence limits, probability distributions
+or density functions, prediction error maps and/or equiprobable
+simulations.</div>\EndKnitrBlock{rmdnote}
 
 @Heuvelink2006Elsevier observed that soil data are rarely certain or
 *‘error free’*, and these errors may be difficult to quantify in
@@ -2147,9 +2185,10 @@ mean error over an entire study area we might need only 50–100 points,
 but to accurately map the spatial pattern of actual errors we might need an order of
 magnitude more points.
 
-<div class="rmdnote">
-<p>Uncertainty in soil data products can be quantified either via the geostatistical model, or by using a model-free assessment of uncertainty (independent validation), or by relying on expert judgement.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Uncertainty in soil data products can be
+quantified either via the geostatistical model, or by using a
+model-free assessment of uncertainty (independent validation), or by
+relying on expert judgement.</div>\EndKnitrBlock{rmdnote}
 
 ### Common uncertainty levels in soil maps
 
@@ -2182,7 +2221,7 @@ significant portion of uncertainty. A map can never be 100% valid
 [@Oreskes04021994].
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_Lagacherie1992.png" alt="Reduction of prediction error as a function of sampling intensity (for three control areas). Based on @Lagacherie1992PhD." width="85%" />
+<img src="figures/Fig_Lagacherie1992.png" alt="Reduction of prediction error as a function of sampling intensity (for three control areas). Based on @Lagacherie1992PhD." width="85%" angle=0 />
 <p class="caption">(\#fig:lagacherie1992)Reduction of prediction error as a function of sampling intensity (for three control areas). Based on @Lagacherie1992PhD.</p>
 </div>
 

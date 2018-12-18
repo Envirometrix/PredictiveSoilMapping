@@ -51,13 +51,17 @@ Fig. \@ref(fig:soil-vars)):
     fertility class.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_types_observations.png" alt="Types of soil observations in relation to data usage and production costs. Descriptive soil observations (e.g. manual texture or diagnostic soil horizons) are often not directly useable by end users, who are often more interested in specific secondary soil properties (e.g. water holding capacity, erosion index, soil fertility) as inputs to their modeling. However, descriptive field observations are often some orders of magnitude more affordable to obtain than laboratory analysis." width="65%" />
+<img src="figures/Fig_types_observations.png" alt="Types of soil observations in relation to data usage and production costs. Descriptive soil observations (e.g. manual texture or diagnostic soil horizons) are often not directly useable by end users, who are often more interested in specific secondary soil properties (e.g. water holding capacity, erosion index, soil fertility) as inputs to their modeling. However, descriptive field observations are often some orders of magnitude more affordable to obtain than laboratory analysis." width="65%" angle=0 />
 <p class="caption">(\#fig:soil-vars)Types of soil observations in relation to data usage and production costs. Descriptive soil observations (e.g. manual texture or diagnostic soil horizons) are often not directly useable by end users, who are often more interested in specific secondary soil properties (e.g. water holding capacity, erosion index, soil fertility) as inputs to their modeling. However, descriptive field observations are often some orders of magnitude more affordable to obtain than laboratory analysis.</p>
 </div>
 
-<div class="rmdnote">
-<p>Soil can be assessed quantitatively based on direct or indirect measurements using analytical techniques (in a laboratory or in the field) and qualitatively or descriptively based on observations in the field that adhere to some soil description guidelines. Examples of subjective observations are: diagnostic soil materials and horizons, soil classes, Munsell color classes, manual texture assessment (texture-by-hand), structure, compaction, root abundance and similar.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Soil can be assessed quantitatively based on direct or indirect
+measurements using analytical techniques (in a laboratory or in the
+field) and qualitatively or descriptively based on observations in the
+field that adhere to some soil description guidelines. Examples of
+subjective observations are: diagnostic soil materials and horizons,
+soil classes, Munsell color classes, manual texture assessment
+(texture-by-hand), structure, compaction, root abundance and similar.</div>\EndKnitrBlock{rmdnote}
 
 Field campaigns are usuallly the most costly part of soil surveys. Large numbers
 of soil observations are made in the field to assess the spatial
@@ -287,6 +291,8 @@ within the GSIF package and can be loaded by:
 
 ```r
 library(GSIF)
+#> GSIF version 0.5-4 (2017-04-25)
+#> URL: http://gsif.r-forge.r-project.org/
 data(soil.legends)
 str(soil.legends)
 #> List of 12
@@ -457,9 +463,9 @@ hard bedrock is >2 m deep so that we actually don’t know the correct
 depth to enter, other than >2 m. Rootability is physically restricted by
 the bedrock, whether hard or soft (see Fig. \@ref(fig:scheme-depth-to-bedrock)).
 
-<div class="rmdnote">
-<p>Depth to bedrock is the mean distance to <code>R</code> horizon which is the layer impenetrable by roots or agricultural machinery. Depth to bedrock deeper than 2 m is most often not recorded in field survey descriptions.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Depth to bedrock is the mean distance to `R` horizon which is the layer
+impenetrable by roots or agricultural machinery. Depth to bedrock deeper
+than 2 m is most often not recorded in field survey descriptions.</div>\EndKnitrBlock{rmdnote}
 
 In traditional soil characterisation, the total depth of the `O`,
 `A`,`E`, and `B` horizons is referred to as the *solum*
@@ -681,9 +687,11 @@ Consequently, soil organic carbon is probably the soil property of
 greatest current interest and utility from the point of view of global
 mapping, and interpretation, of soil properties.
 
-<div class="rmdnote">
-<p>Soil Organic Carbon is one the key measures of soil health. The standard reference method for assessing and reporting soil organic carbon content of the fine earth fraction is by dry combustion to at least (ISO 10694). Values of organic carbon content are typically reported in (permilles) with integer precision over a range of 0–1000.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Soil Organic Carbon is one the key measures of soil health.
+The standard reference method for assessing and reporting soil organic
+carbon content of the fine earth fraction is by dry combustion to at
+least (ISO 10694). Values of organic carbon content are typically reported in
+(permilles) with integer precision over a range of 0–1000.</div>\EndKnitrBlock{rmdnote}
 
 The *dry combustion method* (Leco at 1000&deg;C) is based on thermal oxidation of
 both mineral carbon (IC) and organic carbon by means of a furnace.
@@ -701,9 +709,10 @@ Fig. \@ref(fig:sprofs-soil-carbon).
 <p class="caption">(\#fig:sprofs-soil-carbon)Histogram and soil-depth density distribution for a global compilation of measurements of soil organic carbon content in permilles. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/). The log-transformation is used to ensure close-to-normal distribution in the histogram.</p>
 </div>
 
-<div class="rmdnote">
-<p>Soil organic carbon content is most commonly expressed in weight percentage and for GSIF in grams per kilogram fine earth fraction or permilles. The standard method of determining the soil organic carbon content is by dry combustion method (Leco at 1000°C).</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Soil organic carbon content is most commonly expressed in weight
+percentage and for GSIF in grams per kilogram fine earth fraction or
+permilles. The standard method of determining the soil organic carbon
+content is by dry combustion method (Leco at 1000&deg;C).</div>\EndKnitrBlock{rmdnote}
 
 In the dry combustion method, all carbon present in the soil is oxidized
 to carbon dioxide (CO$_2$) by heating the soil to at least (WHAT TEMP HERE? 1000 c?) in a flow of
@@ -806,9 +815,10 @@ ph_h2o = 7.2
 
 This model fitted explains 94% of variation in the values of pH CaCl$_2$ (R-square=0.9401).
 
-<div class="rmdnote">
-<p>Soil pH is negative decimal logarithm of the hydrogen ion activity in a soil suspension. Soil pH values are usually in the range 3–11 and are recorded with a precision of ±0.1 pH in the range of 5.5 to 7.5 is optimal for growing crops.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Soil pH is negative decimal logarithm of the hydrogen ion activity in a
+soil suspension. Soil pH values are usually in the range 3–11 and are
+recorded with a precision of ±0.1 pH in the range of 5.5 to 7.5 is
+optimal for growing crops.</div>\EndKnitrBlock{rmdnote}
 
 Soil pH varies with season and soil moisture content, with higher pH
 values associated with wetter soils and winter conditions and lower pH
@@ -859,9 +869,12 @@ management and protection are (http://en.wikipedia.org/wiki/Plant_nutrition):
     of chlorophyll. Magnesium deficiency can result in
     interveinal chlorosis.
 
-<div class="rmdnote">
-<p>Nitrogen, Phosphorus and Potassium are the three relatively mobile and dynamic nutrients in soil that are most often lacking and hence have been identified of primary interest for the fertilizer industry. Other micro-nutrients of interest for global soil mapping would be: Iron (Fe), Zinc (Zn), Manganese (Mn), Copper (Cu), Boron (B), Chlorine (Cl), Molybdenum (Mo), Nickel (Ni) and Sodium (Na).</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Nitrogen, Phosphorus and Potassium are the three relatively mobile and
+dynamic nutrients in soil that are most often lacking and hence have
+been identified of primary interest for the fertilizer industry. Other
+micro-nutrients of interest for global soil mapping would be: Iron (Fe),
+Zinc (Zn), Manganese (Mn), Copper (Cu), Boron (B), Chlorine (Cl),
+Molybdenum (Mo), Nickel (Ni) and Sodium (Na).</div>\EndKnitrBlock{rmdnote}
 
 Apart from macro- and micro-nutrients important for plant growth, there
 is an increasing interest in the distribution of heavy metals in soils,
@@ -1038,9 +1051,9 @@ texture data deals with harmonizing differences in attribute definitions
 or the reported particle size classes
 (Fig. \@ref(fig:texture-limits)).
 
-<div class="rmdnote">
-<p>The most commonly used standard for designation of fine earth texture fractions, used by the <em>GlobalSoilMap</em> project, is the USDA system (sand: 50–2000 <span class="math inline"><em>μ</em></span>m, silt: 2–50 <span class="math inline"><em>μ</em></span>m, clay: &lt;2 <span class="math inline"><em>μ</em></span>m).</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">The most commonly used standard for designation of fine earth texture
+fractions, used by the *GlobalSoilMap* project, is the USDA
+system (sand: 50–2000 $\mu$m, silt: 2–50 $\mu$m, clay: <2 $\mu$m).</div>\EndKnitrBlock{rmdnote}
 
 @Minasny2001AJSR identified two major textural classifications in the
 world as the International and USDA/FAO systems (Tbl. \@ref(tab:usdafaotexture)).
@@ -1197,9 +1210,14 @@ contributor to bulk density prediction. Other significant variables
 included clay content, water content and to a lesser extent, silt
 content, and depth.
 
-<div class="rmdnote">
-<p>Bulk density is the oven-dry mass of soil material divided by the total volume and typically ranges from 0.7 to 1.8 t/kg<span class="math inline"><em></em><sup>3</sup></span>. The average bulk density of fine earth fraction of soil is about 1.3 t/kg<span class="math inline"><em></em><sup>3</sup></span>; soils with a bulk density higher than tend to restrict root growth. Different values for bulk density typically apply for different soils with different soil genesis as reflected by different materials and mineralogy, e.g. Histosols (organic), Arenosols (sandy), Andosols (allophanic clay), Acrisols (low activity clays) and Vertisols (high activity clays).</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Bulk density is the oven-dry mass of soil material divided by the total
+volume and typically ranges from 0.7 to 1.8 t/kg$^3$. The average bulk density of
+fine earth fraction of soil is about 1.3 t/kg$^3$; soils with a bulk density higher
+than tend to restrict root growth. Different values for bulk density
+typically apply for different soils with different soil genesis as
+reflected by different materials and mineralogy, e.g. Histosols
+(organic), Arenosols (sandy), Andosols (allophanic clay), Acrisols (low
+activity clays) and Vertisols (high activity clays).</div>\EndKnitrBlock{rmdnote}
 
 Bulk density tends to be measured and reported less frequently in legacy
 data bases and reports than most other commonly measured soil analytical
@@ -1377,9 +1395,10 @@ converted to a whole soil volume basis by multiplying by the oven dry
 bulk density of the fine earth fraction (`Db33`) and adjusting downward
 for the volume fraction of rock fragments, if present, in the soil.
 
-<div class="rmdnote">
-<p>Available water capacity (expressed in mm of water for the effective soil depth) can be estimated based on the Water Retention Difference (WRD) which denotes the volume fraction for water in the whole soil, including gravel, that is retained between -1500 kPa suction and an upper limit of 33 kPa suction.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Available water capacity (expressed in mm of water for the effective
+soil depth) can be estimated based on the Water Retention Difference
+(WRD) which denotes the volume fraction for water in the whole soil,
+including gravel, that is retained between -1500 kPa suction and an upper limit of 33 kPa suction.</div>\EndKnitrBlock{rmdnote}
 
 *“The development of hydraulic PTFs has become a boom industry, mostly
 in the US and Europe”* [@Minasny2007JITL]. Results of such research have
@@ -1688,9 +1707,8 @@ current multitude of method definitions to be unambiguously defined and
 uniquely identified (IDx), and possibly grouped into aggregate classes,
 for subsequent conversion from IDx to IDy.
 
-<div class="rmdnote">
-<p>Soil observations, such as observation of texture by hand class, are often inexpensive, but rely on good expert knowledge skills. Statistical frameworks are needed that can use both highly precise and quick-and-inaccurate observations to generate better soil maps.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Soil observations, such as observation of texture by hand class, are
+often inexpensive, but rely on good expert knowledge skills. Statistical frameworks are needed that can use both highly precise and quick-and-inaccurate observations to generate better soil maps.</div>\EndKnitrBlock{rmdnote}
 
 We have previously noted that locally-specific harmonisation functions
 have consistently proven to be more effective than global ones and there
@@ -1755,9 +1773,7 @@ systems. As a matter of interest, the term *“World soil map”* has been
 used exclusively for cartographic presentation of the global
 distribution of KST soil orders (12) and/or FAO WRB soil groups (32).
 
-<div class="rmdnote">
-<p>USDA's Soil Taxonomy is probably the most developed soil classification system in the world. Using it for producing soil data is highly recommended also because all documents, databases and guidelines are publicly available.</p>
-</div>
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">USDA's Soil Taxonomy is probably the most developed soil classification system in the world. Using it for producing soil data is highly recommended also because all documents, databases and guidelines are publicly available.</div>\EndKnitrBlock{rmdnote}
 
 <div class="figure" style="text-align: center">
 <img src="figures/Fig_worldmap_suborders.png" alt="The USDA-NRCS map of the Keys to Soil Taxonomy soil suborders of the world at 20 km. The map shows the distribution of 12 soil orders. The original map contains assumed distributions also for suborders e.g. Histels, Udolls, Calcids, and similar. Projected in the Robinson projection commonly used to display world maps." width="100%" />
@@ -1780,7 +1796,7 @@ multinomial logistic regression could even be used to map soil taxa at
 lower taxonomic levels with hundreds of unique taxonomic entities.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_USDA_categories.png" alt="USDA classification system and approximate minimum required number of observations to fit a global multinomial regression model." width="60%" />
+<img src="figures/Fig_USDA_categories.png" alt="USDA classification system and approximate minimum required number of observations to fit a global multinomial regression model." width="60%" angle=0 />
 <p class="caption">(\#fig:usda-categories)USDA classification system and approximate minimum required number of observations to fit a global multinomial regression model.</p>
 </div>
 
@@ -1852,7 +1868,7 @@ TT.plot(class.sys = "USDA.TT")
 ```
 
 <div class="figure" style="text-align: center">
-<img src="Soil_variables_files/figure-html/plot-tt-triangle-1.png" alt="Soil texture triangle based on the USDA system. Generated using the soiltexture package (http://cran.r-project.org/web/packages/soiltexture/)." width="3000" />
+<img src="Soil_variables_files/figure-html/plot-tt-triangle-1.png" alt="Soil texture triangle based on the USDA system. Generated using the soiltexture package (http://cran.r-project.org/web/packages/soiltexture/)." width="100%" />
 <p class="caption">(\#fig:plot-tt-triangle)Soil texture triangle based on the USDA system. Generated using the soiltexture package (http://cran.r-project.org/web/packages/soiltexture/).</p>
 </div>
 
@@ -1991,7 +2007,7 @@ TT.plot(class.sys = "USDA.TT", tri.data = tdf,
 ```
 
 <div class="figure" style="text-align: center">
-<img src="Soil_variables_files/figure-html/plot-tt-afsis-1.png" alt="Distribution of observed soil textures for the Africa Soil Profiles (http://gsif.r-forge.r-project.org/afsp.html)." width="3000" />
+<img src="Soil_variables_files/figure-html/plot-tt-afsis-1.png" alt="Distribution of observed soil textures for the Africa Soil Profiles (http://gsif.r-forge.r-project.org/afsp.html)." width="100%" />
 <p class="caption">(\#fig:plot-tt-afsis)Distribution of observed soil textures for the Africa Soil Profiles (http://gsif.r-forge.r-project.org/afsp.html).</p>
 </div>
 
@@ -2081,7 +2097,8 @@ Next we need to format all Munsell color codes to ''Hue_Saturation_Intensity'' f
 
 ```r
 mcol$Munsell <- sub(" ", "", sub("/", "_", mcol$MCOMNS))
-hue.lst <- expand.grid(c("2.5", "5", "7.5", "10"), c("YR","GY","BG","YE","YN","YY","R","Y","B","G"))
+hue.lst <- expand.grid(c("2.5", "5", "7.5", "10"),
+                       c("YR","GY","BG","YE","YN","YY","R","Y","B","G"))
 hue.lst$mhue <- paste(hue.lst$Var1, hue.lst$Var2, sep="")
 for(j in hue.lst$mhue[1:28]){
   mcol$Munsell <- sub(j, paste(j, "_", sep=""), mcol$Munsell, fixed=TRUE)
@@ -2131,7 +2148,7 @@ points(mcol.RGB, pch=21, bg=mcol.RGB$col, col="black")
 ```
 
 <div class="figure" style="text-align: center">
-<img src="Soil_variables_files/figure-html/plot-af-soil-cols-1.png" alt="Actual observed soil colors (moist) for the top soil based on the Africa Soil Profiles Database (http://gsif.r-forge.r-project.org/afsp.html)." width="480" />
+<img src="Soil_variables_files/figure-html/plot-af-soil-cols-1.png" alt="Actual observed soil colors (moist) for the top soil based on the Africa Soil Profiles Database (http://gsif.r-forge.r-project.org/afsp.html)." width="100%" />
 <p class="caption">(\#fig:plot-af-soil-cols)Actual observed soil colors (moist) for the top soil based on the Africa Soil Profiles Database (http://gsif.r-forge.r-project.org/afsp.html).</p>
 </div>
 
@@ -2141,6 +2158,7 @@ Finally, via the plotKML package you can also plot the actual colors of horizons
 ```r
 library(plyr)
 library(aqp)
+#> This is aqp 1.16-3
 lon = 3.90; lat = 7.50; id = "ISRIC:NG0017"; FAO1988 = "LXp"
 top = c(0, 18, 36, 65, 87, 127)
 bottom = c(18, 36, 65, 87, 127, 181)
@@ -2203,7 +2221,17 @@ In the following examples we look at possibilities of using [Machine Learning](w
 
 ```r
 library(randomForestSRC)
+#> 
+#>  randomForestSRC 2.7.0 
+#>  
+#>  Type rfsrc.news() to see new features, changes, and bug fixes. 
+#> 
 library(ggRandomForests)
+#> 
+#> Attaching package: 'ggRandomForests'
+#> The following object is masked from 'package:randomForestSRC':
+#> 
+#>     partial.rfsrc
 library(ggplot2)
 library(scales)
 load("extdata/sprops.wise.rda")
@@ -2238,14 +2266,17 @@ rfsrc_BD
 #>                          Sample size: 3330
 #>                      Number of trees: 1000
 #>            Forest terminal node size: 5
-#>        Average no. of terminal nodes: 689
+#>        Average no. of terminal nodes: 685
 #> No. of variables tried at each split: 2
 #>               Total no. of variables: 6
+#>        Resampling used to grow trees: swr
+#>     Resample size used to grow trees: 3330
 #>                             Analysis: RF-R
 #>                               Family: regr
-#>                       Splitting rule: mse
+#>                       Splitting rule: mse *random*
+#>        Number of random split points: 10
 #>                 % variance explained: 39.6
-#>                           Error rate: 46373
+#>                           Error rate: 46370
 ```
 
 which shows that the model explains about 40% with an RMSE of ±200 kg/m$^3$. Although the MSE is relatively high, it least can be used to fill in the missing values for BD which can be significant. We can plot the partial plots between the target variable and all covariates by using:
@@ -2261,7 +2292,7 @@ Obviously the key to explaining bulk density is soil organic carbon, while depth
 ```r
 predict(rfsrc_BD, data.frame(ORCDRC=1.2, PHIHOX=7.6, 
                   SNDPPT=45, CLYPPT=12, CRFVOL=0, DEPTH=20))$predicted
-#> [1] 1560
+#> [1] 1548
 ```
 
 and a soil with higher organic carbon content:
@@ -2270,7 +2301,7 @@ and a soil with higher organic carbon content:
 ```r
 predict(rfsrc_BD, data.frame(ORCDRC=150, PHIHOX=4.6, 
                   SNDPPT=25, CLYPPT=35, CRFVOL=0, DEPTH=20))$predicted
-#> [1] 909
+#> [1] 906
 ```
 
 ### PTF for correlating classification systems
@@ -2353,7 +2384,7 @@ newdata = data.frame(TAXNWRB=factor("Calcaric Cambisol",
 x <- data.frame(predict(TAXNUSDA.rf, newdata, type="prob")$predicted)
 x[,order(1/x)[1:2]]
 #>   Ochrepts Orthids
-#> 1    0.338   0.163
+#> 1    0.288   0.154
 ```
 
 so for example, the two most likely classes to equate to Calcaric Cambisols seem to be Ochrepts and Orthids, which is not that much different from correlation classes reported in @Krasilnikov2009handbook in fact.

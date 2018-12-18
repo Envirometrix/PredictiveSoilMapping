@@ -1,28 +1,33 @@
 ---
-knit: "bookdown::render_book"
 title: "Predictive Soil Mapping with R"
 author: ["Tomislav Hengl and Robert A. MacMillan"]
 date: "`r Sys.Date()`"
-layout: default
-comments: true
+#layout: default
+#comments: true
+knit: bookdown::render_book
 site: bookdown::bookdown_site
-#documentclass: book
-#documentclass: svmono
-#classoption: 11pt,graybox,envcountchap,sectrefs
-documentclass: krantz
-classoption: 11pt
+# documentclass: book
+documentclass: svmono
+classoption: graybox,natbib,nospthms,UStrade
+#documentclass: krantz
+#classoption:
+#    - 11pt
+#    - letterpaper
+geometry: "top=1.6cm, bottom=2cm, left=2.1cm, right=2.1cm"
 monofont: "Source Code Pro"
-monofontoptions: "Scale=0.6"
-linestretch: 1.15
+monofontoptions: "Scale=0.7"
+#linestretch: 1.15
 bibliography: refs.bib
-biblio-style: apalike
-link-citations: true
-colorlinks: yes
+biblio-style: spbasic
+# biblio-style: apalike
+link-citations: yes
 twitter-handle: tom_hengl
 cover-image: figures/f0_web.png
 description: "Predictive Soil Mapping aims to produce the most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement common soil mapping procedures within the R programming language."
 github-repo: envirometrix/PredictiveSoilMapping
 url: 'http\://soilmapper.org'
+colorlinks: yes
+graphics: yes
 ---
 
 ```{r, echo=FALSE}
@@ -150,11 +155,7 @@ browseURL("docs/index.html") # to view it
 
 ## Acknowledgements {-}
 
-<<<<<<< HEAD
 The authors are grateful to numerous contributions from colleagues around the world, especially for the contributions by the current and former ISRIC — World Soil Information colleagues: Gerard Heuvelink, Johan Leenaars, Jorge Mendes de Jesus, Wei Shangguan, David G. Rossiter, and many others. The authors are grateful to Dutch and European citizens for financing ISRIC and Wageningen University. The authors are also grateful to the support received via the [AfSIS project](http://africasoils.net), which has been funded by the Bill and Melinda Gates Foundation (BMGF) and the Alliance for a Green Revolution in Africa (AGRA). Many soil data processing examples in the book are based on the R code developed by Dylan Beuadette, Pierre Roudier, Alessandro Samuel Rosa, Marcos E. Angelini, Guillermo Federico Olmedo, Julian Moeys, Brandon Malone, and many other developers. Author is also grateful to comments and suggestions to the methods explained in the book by Travis Nauman, Amanda Ramcharan, David G. Rossiter and [Julian Moeys](http://julienmoeys.info/). 
-=======
-The authors are grateful to numerous contributions from colleagues around the world, especially for contributions by current and former ISRIC — World Soil Information colleagues: Gerard Heuvelink, Johan Leenaars, Jorge Mendes de Jesus, Wei Shangguan, David G. Rossiter, and many others. The authors gratefully acknowledge support received via the [AfSIS project](http://africasoils.net), funded by the Bill and Melinda Gates Foundation (BMGF) and the Alliance for a Green Revolution in Africa (AGRA) during an earlier period at ISRI-World Soil Information when many of these ideas and functionalities were first developed. Many soil data processing examples in the book are based on R code developed by Dylan Beuadette, Pierre Roudier, Julian Moeys, Brendan Malone and many other developers. The authors are also grateful to comments and suggestions on the methods explained in the book by Travis Nauman, Amanda Ramcharan, David G. Rossiter and [Julian Moeys](http://julienmoeys.info/). 
->>>>>>> 00802082d1ba755d6ac0805db045e8fde115c222
 
 LandGIS and SoilGrids are based on numerous soil profile data sets that have been
 kindly contributed by various national and international agencies: the

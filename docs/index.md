@@ -1,29 +1,34 @@
 
 ---
-knit: "bookdown::render_book"
 title: "Predictive Soil Mapping with R"
 author: ["Tomislav Hengl and Robert A. MacMillan"]
 date: "2018-12-18"
-layout: default
-comments: true
+#layout: default
+#comments: true
+knit: bookdown::render_book
 site: bookdown::bookdown_site
-#documentclass: book
-#documentclass: svmono
-#classoption: 11pt,graybox,envcountchap,sectrefs
-documentclass: krantz
-classoption: 11pt
+# documentclass: book
+documentclass: svmono
+classoption: graybox,natbib,nospthms,UStrade
+#documentclass: krantz
+#classoption:
+#    - 11pt
+#    - letterpaper
+geometry: "top=1.6cm, bottom=2cm, left=2.1cm, right=2.1cm"
 monofont: "Source Code Pro"
-monofontoptions: "Scale=0.6"
-linestretch: 1.15
+monofontoptions: "Scale=0.7"
+#linestretch: 1.15
 bibliography: refs.bib
-biblio-style: apalike
-link-citations: true
-colorlinks: yes
+biblio-style: spbasic
+# biblio-style: apalike
+link-citations: yes
 twitter-handle: tom_hengl
 cover-image: figures/f0_web.png
 description: "Predictive Soil Mapping aims to produce the most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement common soil mapping procedures within the R programming language."
 github-repo: envirometrix/PredictiveSoilMapping
 url: 'http\://soilmapper.org'
+colorlinks: yes
+graphics: yes
 ---
 
 
@@ -47,7 +52,7 @@ for young scientists. He has designed and implemented the global [SoilGrids](htt
 partially in response to other well known open data projects such as OpenStreetMap, GBIF, GlobalForestWatch 
 and global climate mapping projects. He has been teaching predictive soil mapping at Wageningen University / 
 ISRIC within the “Hands-on-GSIF” block courses. Video tutorials of the soil mapping with R can also be 
-found at http://youtube.com/c/ISRICorg. Tom currently leads production of a web mapping system called “LandGIS” (https://landgis.opengeohub.org) and which is envisaged as *“an OpenStreetMap-type system”* for land-related environmental data. The system hosts global, fine spatial resolution data (250 m to 1 km) including various soil classes and soil properties, and is intended for eventual integration farm-scale data and beyond.
+found at http://youtube.com/c/ISRICorg. Tom currently leads production of a web mapping system called “LandGIS” (https://landgis.opengeohub.org) and which is envisaged as *“an OpenStreetMap-type system”* for land-related environmental data. The system hosts global, fine spatial resolution data (250 m to 1 km) including various soil classes and soil properties, and is intended for eventual integration with farm-scale data and beyond.
 
 [Bob MacMillan](https://opengeohub.org/people/bob-macmillan) is a retired environmental consultant with over 40 years of experience in creating, packaging, delivering and using environmental information on soils, ecosystems, landforms and hydrology. Bob spent 19 years working in public sector research with the Alberta Research Council and Agriculture and Agri-Food Canada and a second 20 years as a private sector consultant offering services in predictive soil and ecological mapping. Since retiring, Bob has remained an active supporter, promoter, advocate, mentor and technical contributor to several continental to global scale efforts to advance the science and technology of mapping soils and other ecosystem components. As Science Coordinator for the GlobalSoilMap project, Bob helped to articulate the vision for the project and led initial activities aimed at achieving this, including authoring technical specifications, promoting the project, recruiting participants/cooperators, and liaising with representatives of national and international soil agencies. Bob continues to contribute on a voluntary basis to OpenGeoHub (https://opengeohub.org/), Africa Soil Information Servicce (AfSIS) (http://africasoils.net/) and the Canadian Digital Soil Data Consortium (CDSDC): (http://soilinfo.ca). Throughout his career, Bob has shared his expertise and his enthusiasm freely with dozens of younger scientists interested in learning about, and becoming, practitioners of digital soil mapping. Bob continues to support the next generation of digital soil mappers through his involvement with OpenGeoHub. 
 
@@ -148,11 +153,7 @@ browseURL("docs/index.html") # to view it
 
 ## Acknowledgements {-}
 
-<<<<<<< HEAD
 The authors are grateful to numerous contributions from colleagues around the world, especially for the contributions by the current and former ISRIC — World Soil Information colleagues: Gerard Heuvelink, Johan Leenaars, Jorge Mendes de Jesus, Wei Shangguan, David G. Rossiter, and many others. The authors are grateful to Dutch and European citizens for financing ISRIC and Wageningen University. The authors are also grateful to the support received via the [AfSIS project](http://africasoils.net), which has been funded by the Bill and Melinda Gates Foundation (BMGF) and the Alliance for a Green Revolution in Africa (AGRA). Many soil data processing examples in the book are based on the R code developed by Dylan Beuadette, Pierre Roudier, Alessandro Samuel Rosa, Marcos E. Angelini, Guillermo Federico Olmedo, Julian Moeys, Brandon Malone, and many other developers. Author is also grateful to comments and suggestions to the methods explained in the book by Travis Nauman, Amanda Ramcharan, David G. Rossiter and [Julian Moeys](http://julienmoeys.info/). 
-=======
-The authors are grateful to numerous contributions from colleagues around the world, especially for contributions by current and former ISRIC — World Soil Information colleagues: Gerard Heuvelink, Johan Leenaars, Jorge Mendes de Jesus, Wei Shangguan, David G. Rossiter, and many others. The authors gratefully acknowledge support received via the [AfSIS project](http://africasoils.net), funded by the Bill and Melinda Gates Foundation (BMGF) and the Alliance for a Green Revolution in Africa (AGRA) during an earlier period at ISRI-World Soil Information when many of these ideas and functionalities were first developed. Many soil data processing examples in the book are based on R code developed by Dylan Beuadette, Pierre Roudier, Julian Moeys, Brendan Malone and many other developers. The authors are also grateful to comments and suggestions on the methods explained in the book by Travis Nauman, Amanda Ramcharan, David G. Rossiter and [Julian Moeys](http://julienmoeys.info/). 
->>>>>>> 00802082d1ba755d6ac0805db045e8fde115c222
 
 LandGIS and SoilGrids are based on numerous soil profile data sets that have been
 kindly contributed by various national and international agencies: the

@@ -1,6 +1,4 @@
 base
-RevoUtilsMath
-RevoUtils
 microbenchmark
 plotKML
 sp
@@ -23,6 +21,13 @@ snow
 snowfall
 ranger
 h2oEnsemble
+nnls
+SuperLearner
+Matrix
+foreach
+glmnet
+kernlab
+matrixStats
 rgdal
 geoR
 gstat

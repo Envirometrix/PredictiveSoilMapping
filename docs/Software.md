@@ -59,13 +59,12 @@ Note that R versions are constantly being updated so you will need to replace th
 
 ```r
 sessionInfo()
-#> R version 3.4.3 (2017-11-30)
-#> Platform: x86_64-pc-linux-gnu (64-bit)
-#> Running under: Ubuntu 16.04.4 LTS
+#> R version 3.5.1 (2018-07-02)
+#> Platform: x86_64-redhat-linux-gnu (64-bit)
+#> Running under: Fedora 29 (Workstation Edition)
 #> 
 #> Matrix products: default
-#> BLAS: /opt/microsoft/ropen/3.4.3/lib64/R/lib/libRblas.so
-#> LAPACK: /opt/microsoft/ropen/3.4.3/lib64/R/lib/libRlapack.so
+#> BLAS/LAPACK: /usr/lib64/R/lib/libRblas.so
 #> 
 #> locale:
 #>  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
@@ -76,38 +75,16 @@ sessionInfo()
 #> [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 #> 
 #> attached base packages:
-#> [1] methods   stats     graphics  grDevices utils     datasets  base     
+#> [1] stats     graphics  grDevices utils     datasets  methods   base     
 #> 
 #> other attached packages:
-#>  [1] raster_2.6-7           rgdal_1.2-16           plotKML_0.5-9         
-#>  [4] quantregForest_1.3-7   RColorBrewer_1.1-2     randomForest_4.6-12   
-#>  [7] gstat_1.1-5            rpart_4.1-11           plyr_1.8.4            
-#> [10] aqp_1.15               boot_1.3-20            sp_1.2-5              
-#> [13] GSIF_0.5-4             microbenchmark_1.4-2.1 RevoUtils_10.0.7      
-#> [16] RevoUtilsMath_10.0.1  
+#> [1] microbenchmark_1.4-6
 #> 
 #> loaded via a namespace (and not attached):
-#>  [1] splines_3.4.3       Formula_1.2-2       highr_0.6          
-#>  [4] latticeExtra_0.6-28 pixmap_0.4-11       yaml_2.1.16        
-#>  [7] pillar_1.0.1        backports_1.1.2     lattice_0.20-35    
-#> [10] digest_0.6.13       checkmate_1.8.5     colorspace_1.3-2   
-#> [13] htmltools_0.3.6     Matrix_1.2-12       XML_3.98-1.9       
-#> [16] bookdown_0.7.12     scales_0.5.0        intervals_0.15.1   
-#> [19] htmlTable_1.11.1    tibble_1.4.1        ggplot2_2.2.1      
-#> [22] RSAGA_0.94-5        nnet_7.3-12         lazyeval_0.2.1     
-#> [25] survival_2.41-3     magrittr_1.5        evaluate_0.10.1    
-#> [28] MASS_7.3-47         xts_0.10-1          foreign_0.8-69     
-#> [31] class_7.3-14        FNN_1.1             tools_3.4.3        
-#> [34] dismo_1.1-4         shapefiles_0.7      data.table_1.10.4-3
-#> [37] stringr_1.2.0       munsell_0.4.3       cluster_2.0.6      
-#> [40] plotrix_3.7         colorRamps_2.3      compiler_3.4.3     
-#> [43] e1071_1.6-8         spacetime_1.2-1     rlang_0.1.6        
-#> [46] classInt_0.1-24     grid_3.4.3          rstudioapi_0.7     
-#> [49] htmlwidgets_0.9     base64enc_0.1-3     rmarkdown_1.8      
-#> [52] gtable_0.2.0        codetools_0.2-15    reshape_0.8.7      
-#> [55] gridExtra_2.3       zoo_1.8-0           knitr_1.18         
-#> [58] Hmisc_4.0-3         rprojroot_1.3-1     stringi_1.1.6      
-#> [61] Rcpp_0.12.14        acepack_1.4.1       xfun_0.1
+#>  [1] compiler_3.5.1   magrittr_1.5     bookdown_0.7     tools_3.5.1     
+#>  [5] htmltools_0.3.6  yaml_2.2.0       Rcpp_1.0.0       codetools_0.2-15
+#>  [9] stringi_1.2.4    rmarkdown_1.11   highr_0.7        knitr_1.21      
+#> [13] stringr_1.3.1    xfun_0.4         digest_0.6.18    evaluate_0.12
 system("gdalinfo --version")
 ```
 
@@ -139,6 +116,7 @@ If installation was successful, you should be able to access SAGA command line a
 
 ```r
 system("saga_cmd --version")
+#> Warning in system("saga_cmd --version"): error in running command
 ```
 
 To install QGIS (https://download.qgis.org/) you might first have to add the location of the debian libraries:
@@ -193,6 +171,8 @@ system(paste0('"/home/tomislav/software/WBT/whitebox_tools" ',
   '--out_dem="./extdata/DEMTOPx_out.tif" ',
   '--out_pntr="./extdata/DEMTOPx_pntr.tif" ',
   '--out_accum="./extdata/DEMTOPx_accum.tif" -v'))
+#> Warning in system(paste0("\"/home/tomislav/software/WBT/whitebox_tools\"
+#> ", : error in running command
 ```
 
 <div class="figure" style="text-align: center">
@@ -222,7 +202,8 @@ ls <- c("rgdal", "raster", "GSIF", "plotKML",
         "soiltexture", "aqp", "colorspace", "Cubist",
         "randomForestSRC", "ggRandomForests", "scales",
         "xgboost", "parallel", "doParallel", "caret", 
-        "gam", "glmnet", "matrixStats", "SuperLearner")
+        "gam", "glmnet", "matrixStats", "SuperLearner",
+        "quantregForest", "LITAP", "intamap")
 new.packages <- ls[!(ls %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
 ```
@@ -249,6 +230,9 @@ if(!require(GSIF)){
   install.packages("GSIF", repos=c("http://R-Forge.R-project.org"), 
                  type = "source", dependencies = TRUE)
 }
+#> Loading required package: GSIF
+#> GSIF version 0.5-4 (2017-04-25)
+#> URL: http://gsif.r-forge.r-project.org/
 ```
 
 A copy of the most-up-to-date and stable versions of plotKML and GSIF is also available on [github](https://github.com/cran/GSIF). To run only some specific function from the GSIF package you could do for example:
@@ -275,12 +259,19 @@ library(GSIF)
 library(sp)
 library(boot)
 library(aqp)
+#> This is aqp 1.16-3
 library(plyr)
 library(rpart)
 library(splines)
 library(gstat)
 library(quantregForest)
+#> Loading required package: randomForest
+#> randomForest 4.6-14
+#> Type rfNews() to see new features/changes/bug fixes.
+#> Loading required package: RColorBrewer
 library(plotKML)
+#> plotKML version 0.5-8 (2017-05-12)
+#> URL: http://plotkml.r-forge.r-project.org/
 demo(meuse, echo=FALSE)
 omm <- fit.gstatModel(meuse, om~dist+ffreq, meuse.grid, method="quantregForest")
 #> Fitting a Quantile Regression Forest model...
@@ -305,12 +296,12 @@ om.rk
 #>   Resolution (y)     : 40 
 #>   Resolution (units) : m 
 #>   Vgm model          : Exp 
-#>   Nugget (residual)  : 2.34 
-#>   Sill (residual)    : 8.32 
-#>   Range (residual)   : 5760 
-#>   RMSE (validation)  : 1.7 
-#>   Var explained      : 75.2% 
-#>   Effective bytes    : 1226 
+#>   Nugget (residual)  : 2.32 
+#>   Sill (residual)    : 4.76 
+#>   Range (residual)   : 2930 
+#>   RMSE (validation)  : 1.75 
+#>   Var explained      : 73.8% 
+#>   Effective bytes    : 1203 
 #>   Compression method : gzip
 #plotKML(om.rk)
 ```
@@ -336,6 +327,7 @@ if(!Sys.info()['sysname']=="Linux"){
   saga_cmd = "saga_cmd"
 }
 system(paste(saga_cmd, "-v"))
+#> Warning in system(paste(saga_cmd, "-v")): error in running command
 ```
 
 To use some SAGA GIS function you need to carefully follow 
@@ -345,13 +337,29 @@ the [SAGA GIS command line arguments](http://www.saga-gis.org/saga_tool_doc/inde
 ```r
 library(plotKML)
 library(rgdal)
+#> rgdal: version: 1.3-6, (SVN revision 773)
+#>  Geospatial Data Abstraction Library extensions to R successfully loaded
+#>  Loaded GDAL runtime: GDAL 2.3.2, released 2018/09/21
+#>  Path to GDAL shared files: /usr/share/gdal
+#>  GDAL binary built with GEOS: TRUE 
+#>  Loaded PROJ.4 runtime: Rel. 4.9.3, 15 August 2016, [PJ_VERSION: 493]
+#>  Path to PROJ.4 shared files: (autodetected)
+#>  Linking to sp version: 1.3-1
 library(raster)
+#> 
+#> Attaching package: 'raster'
+#> The following objects are masked from 'package:aqp':
+#> 
+#>     metadata, metadata<-
 data("eberg_grid")
 gridded(eberg_grid) <- ~x+y
 proj4string(eberg_grid) <- CRS("+init=epsg:31467")
 writeGDAL(eberg_grid["DEMSRT6"], "./extdata/DEMSRT6.sdat", "SAGA")
 system(paste(saga_cmd, 'ta_lighting 0 -ELEVATION "./extdata/DEMSRT6.sgrd" 
              -SHADE "./extdata/hillshade.sgrd" -EXAGGERATION 2'))
+#> Warning in system(paste(saga_cmd, "ta_lighting 0 -ELEVATION \"./extdata/
+#> DEMSRT6.sgrd\" \n -SHADE \"./extdata/hillshade.sgrd\" -EXAGGERATION 2")):
+#> error in running command
 ```
 
 <div class="figure" style="text-align: center">
@@ -380,12 +388,13 @@ We can use GDAL to reproject the grid from the previous example:
 
 
 ```r
-system('gdalwarp ./extdata/DEMSRT6.sdat ./extdata/DEMSRT6_ll.tif -t_srs \"+proj=longlat +datum=WGS84\"')
+system(paste('gdalwarp ./extdata/DEMSRT6.sdat ./extdata/DEMSRT6_ll.tif',  
+             '-t_srs \"+proj=longlat +datum=WGS84\"'))
 library(raster)
 plot(raster("./extdata/DEMSRT6_ll.tif"))
 ```
 
 <div class="figure" style="text-align: center">
-<img src="Software_files/figure-html/plot-eberg-ll-1.png" alt="Ebergotzen DEM reprojected in geographical coordinates." width="672" />
+<img src="Software_files/figure-html/plot-eberg-ll-1.png" alt="Ebergotzen DEM reprojected in geographical coordinates." width="100%" />
 <p class="caption">(\#fig:plot-eberg-ll)Ebergotzen DEM reprojected in geographical coordinates.</p>
 </div>

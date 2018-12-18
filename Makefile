@@ -1,32 +1,31 @@
 html:
-	Rscript -e 'bookdown::renderdocs("index.Rmd", output_format = "bookdown::gitbook", clean = FALSE)'
+	Rscript -e 'bookdown::render_book("index.Rmd", output_format = "bookdown::gitbook", clean = FALSE)'
 	cp -fvr css/style.css docs/
-	cp -fvr images docs/
+	# cp -fvr images _book/
 	cp -fvr _main.utf8.md docs/main.md
 
 build:
 	make html
-	Rscript -e 'browseURL("docs/index.html")'
-	
+	Rscript -e 'browseURL("_book/index.html")'
+
 pdf:
-	Rscript -e 'bookdown::renderdocs("index.Rmd", output_format = "bookdown::pdfdocs")'
+	Rscript -e 'bookdown::render_book("index.Rmd", output_format = "bookdown::pdf_book")'
 
 md:
-	Rscript -e 'bookdown::renderdocs("index.Rmd", output_format = "bookdown::pdfdocs",clean=FALSE)'
-	
-install:
-	Rscript -e 'devtools::install_github("envirometrix/PredictiveSoilMapping")'
+	Rscript -e 'bookdown::render_book("index.Rmd", output_format = "bookdown::pdf_book", clean = FALSE)'
 
-## Deploy
+install:
+	Rscript -e 'devtools::install_github("nowosad/PSMpkg")'
+
 deploy:
 	Rscript -e 'bookdown::publishdocs(render="local", account="thengl")'
 
 clean:
-	Rscript -e "bookdown::cleandocs(TRUE)"
-	rm -fvr *.log Rplots.pdf docsdown_files land.sqlite3
+	Rscript -e "bookdown::clean_book(TRUE)"
+	rm -fvr *.log Rplots.pdf _bookdown_files land.sqlite3
 
 cleaner:
 	make clean && rm -fvr rsconnect
 	rm -frv *.aux *.out  *.toc # Latex output
 	rm -fvr *.html # rogue html files
-	
+	rm -fvr *utf8.md # rogue md files

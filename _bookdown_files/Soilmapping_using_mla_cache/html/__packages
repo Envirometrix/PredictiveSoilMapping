@@ -1,6 +1,4 @@
 base
-RevoUtilsMath
-RevoUtils
 microbenchmark
 plotKML
 sp
@@ -23,10 +21,6 @@ snow
 snowfall
 ranger
 h2oEnsemble
-rgdal
-geoR
-gstat
-gridExtra
 nnls
 SuperLearner
 Matrix
@@ -34,3 +28,7 @@ foreach
 glmnet
 kernlab
 matrixStats
+rgdal
+geoR
+gstat
+gridExtra

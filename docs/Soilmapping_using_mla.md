@@ -1,5 +1,4 @@
 
-
 # Machine Learning Algorithms for soil mapping {#soilmapping-using-mla}
 
 *Edited by: T. Hengl*
@@ -15,18 +14,39 @@ We start by loading all required packages:
 
 ```r
 library(plotKML)
+#> plotKML version 0.5-8 (2017-05-12)
+#> URL: http://plotkml.r-forge.r-project.org/
 library(sp)
 library(randomForest)
+#> randomForest 4.6-14
+#> Type rfNews() to see new features/changes/bug fixes.
 library(nnet)
 library(e1071)
 library(GSIF)
+#> GSIF version 0.5-4 (2017-04-25)
+#> URL: http://gsif.r-forge.r-project.org/
 library(plyr)
 library(raster)
+#> 
+#> Attaching package: 'raster'
+#> The following object is masked from 'package:e1071':
+#> 
+#>     interpolate
 library(caret)
+#> Loading required package: lattice
+#> Loading required package: ggplot2
+#> 
+#> Attaching package: 'ggplot2'
+#> The following object is masked from 'package:randomForest':
+#> 
+#>     margin
 library(Cubist)
 library(GSIF)
 library(xgboost)
 ```
+
+
+
 
 Next, we load the ([Ebergotzen](http://plotkml.r-forge.r-project.org/eberg.html)) data set which consists of point data collected using a soil auger and a stack of rasters containing all covariates:
 
@@ -116,9 +136,9 @@ TAXGRSC.rf <- randomForest(x=m[-s,paste0("PC",1:10)], y=m$soiltype[-s],
 ## accuracy:
 TAXGRSC.rf$test$confusion[,"class.error"]
 #>     Auenboden     Braunerde          Gley    Kolluvisol Parabraunerde 
-#>         0.500         0.448         0.818         0.773         0.570 
+#>         0.750         0.479         0.692         0.696         0.560 
 #>  Pararendzina       Pelosol    Pseudogley        Ranker       Regosol 
-#>         0.559         0.638         0.711         1.000         0.660 
+#>         0.600         0.717         0.678         1.000         0.643 
 #>      Rendzina 
 #>         0.500
 ```
@@ -148,7 +168,7 @@ TAXGRSC.mn <- nnet::multinom(fm, m)
 #> stopped after 100 iterations
 TAXGRSC.svm <- e1071::svm(fm, m, probability=TRUE, cross=5)
 TAXGRSC.svm$tot.accuracy
-#> [1] 40.5
+#> [1] 40.2
 ```
 
 This produces about the same accuracy levels as for random forest. Because all three methods produce comparable accuracy, we can also merge predictions by calculating a simple average:
@@ -186,7 +206,7 @@ summary(ch)
 To plot the result we can use the raster package (Fig. \@ref(fig:plot-eberg-soiltype)):
 
 <div class="figure" style="text-align: center">
-<img src="Soilmapping_using_mla_files/figure-html/plot-eberg-soiltype-1.png" alt="Predicted soil types for the Ebergotzen case study." width="864" />
+<img src="Soilmapping_using_mla_files/figure-html/plot-eberg-soiltype-1.png" alt="Predicted soil types for the Ebergotzen case study." width="100%" />
 <p class="caption">(\#fig:plot-eberg-soiltype)Predicted soil types for the Ebergotzen case study.</p>
 </div>
 
@@ -198,9 +218,9 @@ eberg_soiltype$cl <- as.factor(apply(eberg_soiltype@data,1,which.max))
 levels(eberg_soiltype$cl) = attr(probs, "dimnames")[[2]][as.integer(levels(eberg_soiltype$cl))]
 summary(eberg_soiltype$cl)
 #>     Auenboden     Braunerde          Gley    Kolluvisol Parabraunerde 
-#>            41          2326           147            60          2251 
+#>            36          2314           150            66          2234 
 #>  Pararendzina       Pelosol    Pseudogley       Regosol      Rendzina 
-#>           739           457          1304           294          2381
+#>           789           437          1297           321          2356
 ```
 
 ### Modelling numeric soil properties using h2o
@@ -212,20 +232,28 @@ In the following example we look at mapping sand content for the upper horizons.
 
 ```r
 library(h2o)
-localH2O = h2o.init(startH2O=FALSE)
-#>  Connection successful!
+localH2O = h2o.init(startH2O=TRUE)
+#> 
+#> H2O is not running yet, starting it now...
+#> 
+#> Note:  In case of errors look at the following log files:
+#>     /tmp/RtmpD75UuS/h2o_jn_started_from_r.out
+#>     /tmp/RtmpD75UuS/h2o_jn_started_from_r.err
+#> 
+#> 
+#> Starting H2O JVM and connecting: . Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         1 hours 18 minutes 
-#>     H2O cluster timezone:       Europe/Amsterdam 
+#>     H2O cluster uptime:         2 seconds 884 milliseconds 
+#>     H2O cluster timezone:       Europe/Warsaw 
 #>     H2O data parsing timezone:  UTC 
-#>     H2O cluster version:        3.20.0.2 
-#>     H2O cluster version age:    6 months and 2 days !!! 
-#>     H2O cluster name:           H2O_started_from_R_tomislav_het448 
+#>     H2O cluster version:        3.20.0.8 
+#>     H2O cluster version age:    2 months and 26 days  
+#>     H2O cluster name:           H2O_started_from_R_jn_qts628 
 #>     H2O cluster total nodes:    1 
-#>     H2O cluster total memory:   3.82 GB 
-#>     H2O cluster total cores:    8 
-#>     H2O cluster allowed cores:  8 
+#>     H2O cluster total memory:   4.32 GB 
+#>     H2O cluster total cores:    4 
+#>     H2O cluster allowed cores:  4 
 #>     H2O cluster healthy:        TRUE 
 #>     H2O Connection ip:          localhost 
 #>     H2O Connection port:        54321 
@@ -233,9 +261,6 @@ localH2O = h2o.init(startH2O=FALSE)
 #>     H2O Internal Security:      FALSE 
 #>     H2O API Extensions:         XGBoost, Algos, AutoML, Core V3, Core V4 
 #>     R Version:                  R version 3.5.1 (2018-07-02)
-#> Warning in h2o.clusterInfo(): 
-#> Your H2O cluster version is too old (6 months and 2 days)!
-#> Please download and install the latest version from http://h2o.ai/download/
 ```
 
 This shows that multiple cores will be used for computing (to control the number of cores you can use the `nthreads` argument). Next, we need to prepare the regression matrix and prediction locations using the `as.h2o` function so that they are visible to h2o:
@@ -243,9 +268,7 @@ This shows that multiple cores will be used for computing (to control the number
 
 ```r
 eberg.hex <- as.h2o(m, destination_frame = "eberg.hex")
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 eberg.grid <- as.h2o(eberg_grid@data, destination_frame = "eberg.grid")
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 ```
 
 We can now fit a random forest model by using all the computing power available to us:
@@ -255,29 +278,28 @@ We can now fit a random forest model by using all the computing power available 
 RF.m <- h2o.randomForest(y = which(names(m)=="SNDMHT_A"), 
                         x = which(names(m) %in% paste0("PC",1:10)), 
                         training_frame = eberg.hex, ntree = 50)
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=====                                                            |   8%  |                                                                         |=================================================================| 100%
 RF.m
 #> Model Details:
 #> ==============
 #> 
 #> H2ORegressionModel: drf
-#> Model ID:  DRF_model_R_1545136645002_11 
+#> Model ID:  DRF_model_R_1545142934283_1 
 #> Model Summary: 
 #>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#> 1              50                       50              647111        20
+#> 1              50                       50              643941        20
 #>   max_depth mean_depth min_leaves max_leaves mean_leaves
-#> 1        20   20.00000        963       1084  1026.58000
+#> 1        20   20.00000        951       1066  1021.38000
 #> 
 #> 
 #> H2ORegressionMetrics: drf
 #> ** Reported on training data. **
 #> ** Metrics reported on Out-Of-Bag training samples **
 #> 
-#> MSE:  222
+#> MSE:  221
 #> RMSE:  14.9
 #> MAE:  10.1
-#> RMSLE:  0.433
-#> Mean Residual Deviance :  222
+#> RMSLE:  0.431
+#> Mean Residual Deviance :  221
 ```
 
 This shows that the model fitting R-square is about 50%. This is also indicated by the predicted vs observed plot:
@@ -287,7 +309,6 @@ This shows that the model fitting R-square is about 50%. This is also indicated 
 library(scales)
 library(lattice)
 SDN.pred <- as.data.frame(h2o.predict(RF.m, eberg.hex, na.action=na.pass))$predict
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 plt1 <- xyplot(m$SNDMHT_A ~ SDN.pred, asp=1, 
                par.settings=list(
                  plot.symbol = list(col=alpha("black", 0.6), 
@@ -297,7 +318,7 @@ plt1
 ```
 
 <div class="figure" style="text-align: center">
-<img src="Soilmapping_using_mla_files/figure-html/obs-pred-snd-1.png" alt="Measured vs predicted SAND content based on the Random Forest model." width="672" />
+<img src="Soilmapping_using_mla_files/figure-html/obs-pred-snd-1.png" alt="Measured vs predicted SAND content based on the Random Forest model." width="100%" />
 <p class="caption">(\#fig:obs-pred-snd)Measured vs predicted SAND content based on the Random Forest model.</p>
 </div>
 
@@ -306,11 +327,10 @@ To produce a map based on these predictions we use:
 
 ```r
 eberg_grid$RFx <- as.data.frame(h2o.predict(RF.m, eberg.grid, na.action=na.pass))$predict
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 ```
 
 <div class="figure" style="text-align: center">
-<img src="Soilmapping_using_mla_files/figure-html/map-snd-1.png" alt="Predicted sand content based on random forest." width="768" />
+<img src="Soilmapping_using_mla_files/figure-html/map-snd-1.png" alt="Predicted sand content based on random forest." width="100%" />
 <p class="caption">(\#fig:map-snd)Predicted sand content based on random forest.</p>
 </div>
 
@@ -321,35 +341,34 @@ h2o has another MLA of interest for soil mapping called *deep learning* (a feed-
 DL.m <- h2o.deeplearning(y = which(names(m)=="SNDMHT_A"), 
                          x = which(names(m) %in% paste0("PC",1:10)), 
                          training_frame = eberg.hex)
-#>   |                                                                         |                                                                 |   0%  |                                                                         |==========================                                       |  40%  |                                                                         |=================================================================| 100%
 DL.m
 #> Model Details:
 #> ==============
 #> 
 #> H2ORegressionModel: deeplearning
-#> Model ID:  DeepLearning_model_R_1545136645002_12 
+#> Model ID:  DeepLearning_model_R_1545142934283_2 
 #> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1
 #>   layer units      type dropout       l1       l2 mean_rate rate_rms
-#> 1     1    10     Input  0.00 %                                     
-#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.013758 0.008405
-#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.138262 0.184080
-#> 4     4     1    Linear         0.000000 0.000000  0.001414 0.002542
+#> 1     1    10     Input  0.00 %       NA       NA        NA       NA
+#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.013969 0.008483
+#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.150391 0.175266
+#> 4     4     1    Linear      NA 0.000000 0.000000  0.001334 0.000842
 #>   momentum mean_weight weight_rms mean_bias bias_rms
-#> 1                                                   
-#> 2 0.000000    0.005690   0.106252  0.372136 0.061386
-#> 3 0.000000   -0.017770   0.071265  0.958353 0.017744
-#> 4 0.000000   -0.001888   0.051385  0.095168 0.000000
+#> 1       NA          NA         NA        NA       NA
+#> 2 0.000000    0.004037   0.107953  0.358530 0.054244
+#> 3 0.000000   -0.018108   0.070959  0.954204 0.018889
+#> 4 0.000000    0.002435   0.047210  0.102178 0.000000
 #> 
 #> 
 #> H2ORegressionMetrics: deeplearning
 #> ** Reported on training data. **
 #> ** Metrics reported on full training frame **
 #> 
-#> MSE:  228
-#> RMSE:  15.1
-#> MAE:  10.7
-#> RMSLE:  0.445
-#> Mean Residual Deviance :  228
+#> MSE:  237
+#> RMSE:  15.4
+#> MAE:  11.2
+#> RMSLE:  0.439
+#> Mean Residual Deviance :  237
 ```
 
 Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. \@ref(fig:map-snd) and Fig. \@ref(fig:map-snd-dl)).
@@ -358,11 +377,10 @@ Which delivers performance comparable to the random forest model. The output pre
 ```r
 ## predictions:
 eberg_grid$DLx <- as.data.frame(h2o.predict(DL.m, eberg.grid, na.action=na.pass))$predict
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 ```
 
 <div class="figure" style="text-align: center">
-<img src="Soilmapping_using_mla_files/figure-html/map-snd-dl-1.png" alt="Predicted SAND content based on deep learning." width="768" />
+<img src="Soilmapping_using_mla_files/figure-html/map-snd-dl-1.png" alt="Predicted SAND content based on deep learning." width="100%" />
 <p class="caption">(\#fig:map-snd-dl)Predicted SAND content based on deep learning.</p>
 </div>
 
@@ -377,7 +395,7 @@ eberg_grid$SNDMHT_A <- rowSums(cbind(eberg_grid$RFx*rf.R2,
 ```
 
 <div class="figure" style="text-align: center">
-<img src="Soilmapping_using_mla_files/figure-html/map-snd-ensemble-1.png" alt="Predicted SAND content based on ensemble predictions." width="768" />
+<img src="Soilmapping_using_mla_files/figure-html/map-snd-ensemble-1.png" alt="Predicted SAND content based on ensemble predictions." width="100%" />
 <p class="caption">(\#fig:map-snd-ensemble)Predicted SAND content based on ensemble predictions.</p>
 </div>
 
@@ -448,7 +466,8 @@ m2 <- plyr::join_all(dfs = list(edgeroi$sites, h2, ov2))
 #> Joining by: SOURCEID
 #> Joining by: SOURCEID
 ## spatial prediction model:
-formulaStringP2 <- ORCDRC ~ DEMSRT5+TWISRT5+PMTGEO5+EV1MOD5+EV2MOD5+EV3MOD5+DEPTH
+formulaStringP2 <- ORCDRC ~ DEMSRT5+TWISRT5+PMTGEO5+
+                            EV1MOD5+EV2MOD5+EV3MOD5+DEPTH
 mP2 <- m2[complete.cases(m2[,all.vars(formulaStringP2)]),]
 ```
 
@@ -469,16 +488,16 @@ tr.ORCDRC.rf
 #> 
 #> No pre-processing
 #> Resampling: Cross-Validated (5 fold, repeated 1 times) 
-#> Summary of sample sizes: 401, 400, 401, 399, 399 
+#> Summary of sample sizes: 401, 399, 399, 400, 401 
 #> Resampling results across tuning parameters:
 #> 
 #>   mtry  RMSE  Rsquared  MAE 
-#>    2    4.47  0.463     2.71
-#>    7    3.93  0.538     2.24
-#>   12    3.87  0.558     2.26
+#>    2    4.18  0.490     2.78
+#>    7    3.87  0.519     2.40
+#>   12    3.95  0.510     2.44
 #> 
 #> RMSE was used to select the optimal model using the smallest value.
-#> The final value used for the model was mtry = 12.
+#> The final value used for the model was mtry = 7.
 ```
 
 In this case, `mtry = 12` seems to achieve the best performance. Note that we sub-set the initial matrix to speed up fine-tuning of the parameters (otherwise the computing time could easily become too great). Next, we can fit the final model by using all data (this time we also turn cross-validation off):
@@ -513,7 +532,7 @@ w2 <- 100*max(tr.ORCDRC.cb$results$Rsquared)
 ORCDRC.gb <- train(formulaStringP2, data=mP2, method = "xgbTree", trControl=ctrl)
 w3 <- 100*max(ORCDRC.gb$results$Rsquared)
 c(w1, w2, w3)
-#> [1] 55.8 59.1 66.5
+#> [1] 51.9 54.5 67.3
 ```
 
 At the end of the statistical modelling process, we can merge the predictions by using the CV R-square estimates:
@@ -530,7 +549,7 @@ edgeroi.grids$ORCDRC_5cm <- (edgeroi.grids$Random_forest*w1 +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="Soilmapping_using_mla_files/figure-html/maps-soc-edgeroi-1.png" alt="Comparison of three MLA's and final ensemble prediction (ORCDRC 5cm) of soil organic carbon content for 2.5 cm depth." width="672" />
+<img src="Soilmapping_using_mla_files/figure-html/maps-soc-edgeroi-1.png" alt="Comparison of three MLA's and final ensemble prediction (ORCDRC 5cm) of soil organic carbon content for 2.5 cm depth." width="100%" />
 <p class="caption">(\#fig:maps-soc-edgeroi)Comparison of three MLA's and final ensemble prediction (ORCDRC 5cm) of soil organic carbon content for 2.5 cm depth.</p>
 </div>
 
@@ -543,12 +562,16 @@ We can quickly test the overall performance using a script on github prepared fo
 source_https <- function(url, ...) {
   require(RCurl)
   if(!file.exists(paste0("R/", basename(url)))){
-    cat(getURL(url, followlocation = TRUE, cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")), file = paste0("R/", basename(url)))
+    cat(getURL(url, followlocation = TRUE,
+               cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")), 
+        file = paste0("R/", basename(url)))
   }
   source(paste0("R/", basename(url)))
 }
 wdir = "https://raw.githubusercontent.com/ISRICWorldSoil/SoilGrids250m/"
 source_https(paste0(wdir, "master/grids/cv/cv_functions.R"))
+#> Loading required package: RCurl
+#> Loading required package: bitops
 ```
 
 We can hence run 5-fold cross validation:
@@ -560,36 +583,43 @@ test.ORC <- cv_numeric(formulaStringP2, rmatrix=mP2,
                        nfold=5, idcol="SOURCEID", Log=TRUE)
 #> Running 5-fold cross validation with model re-fitting method ranger ...
 #> Subsetting observations by unique location
+#> Loading required package: snowfall
+#> Loading required package: snow
 #> Warning in searchCommandline(parallel, cpus = cpus, type = type,
 #> socketHosts = socketHosts, : Unknown option on commandline: --file
 #> R Version:  R version 3.5.1 (2018-07-02)
-#> snowfall 1.84-6.1 initialized (using snow 0.4-2): parallel execution on 5 CPUs.
+#> snowfall 1.84-6.1 initialized (using snow 0.4-3): parallel execution on 4 CPUs.
 #> Library plyr loaded.
 #> Library plyr loaded in cluster.
 #> Library ranger loaded.
 #> Library ranger loaded in cluster.
 #> 
+#> Attaching package: 'ranger'
+#> The following object is masked from 'package:randomForest':
+#> 
+#>     importance
+#> 
 #> Stopping cluster
 str(test.ORC)
 #> List of 2
 #>  $ CV_residuals:'data.frame':	4972 obs. of  4 variables:
-#>   ..$ Observed : num [1:4972] 22.3 6.5 5.2 4.9 2.9 ...
-#>   ..$ Predicted: num [1:4972] 11.02 6.71 6.22 4.05 3.05 ...
-#>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed002_1" "399_EDGEROI_ed002_1" "399_EDGEROI_ed002_1" "399_EDGEROI_ed002_1" ...
+#>   ..$ Observed : num [1:4972] 6.5 5.1 4.9 3.3 2.2 ...
+#>   ..$ Predicted: num [1:4972] 11.66 7.07 6.38 4.87 2.96 ...
+#>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" ...
 #>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ Summary     :'data.frame':	1 obs. of  6 variables:
-#>   ..$ ME          : num -0.069
-#>   ..$ MAE         : num 2.1
-#>   ..$ RMSE        : num 3.63
-#>   ..$ R.squared   : num 0.569
-#>   ..$ logRMSE     : num 0.478
-#>   ..$ logR.squared: num 0.656
+#>   ..$ ME          : num -0.0784
+#>   ..$ MAE         : num 2.12
+#>   ..$ RMSE        : num 3.64
+#>   ..$ R.squared   : num 0.566
+#>   ..$ logRMSE     : num 0.483
+#>   ..$ logR.squared: num 0.649
 ```
 
 Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about $\pm 4$ g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:
 
 <div class="figure" style="text-align: center">
-<img src="Soilmapping_using_mla_files/figure-html/plot-measured-predicted-1.png" alt="Predicted vs observed plot for soil organic carbon ML-based model (Edgeroi data set)." width="672" />
+<img src="Soilmapping_using_mla_files/figure-html/plot-measured-predicted-1.png" alt="Predicted vs observed plot for soil organic carbon ML-based model (Edgeroi data set)." width="100%" />
 <p class="caption">(\#fig:plot-measured-predicted)Predicted vs observed plot for soil organic carbon ML-based model (Edgeroi data set).</p>
 </div>
 
@@ -599,19 +629,22 @@ Ensemble models often outperform single models. There is certainly opportunity f
 
 
 ```
+#> h2oEnsemble R package for H2O-3
+#> Version: 0.2.1
+#> Package created on 2017-08-02
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         1 hours 20 minutes 
-#>     H2O cluster timezone:       Europe/Amsterdam 
+#>     H2O cluster uptime:         1 minutes 48 seconds 
+#>     H2O cluster timezone:       Europe/Warsaw 
 #>     H2O data parsing timezone:  UTC 
-#>     H2O cluster version:        3.20.0.2 
-#>     H2O cluster version age:    6 months and 2 days !!! 
-#>     H2O cluster name:           H2O_started_from_R_tomislav_het448 
+#>     H2O cluster version:        3.20.0.8 
+#>     H2O cluster version age:    2 months and 26 days  
+#>     H2O cluster name:           H2O_started_from_R_jn_qts628 
 #>     H2O cluster total nodes:    1 
-#>     H2O cluster total memory:   3.82 GB 
-#>     H2O cluster total cores:    8 
-#>     H2O cluster allowed cores:  8 
+#>     H2O cluster total memory:   4.31 GB 
+#>     H2O cluster total cores:    4 
+#>     H2O cluster allowed cores:  4 
 #>     H2O cluster healthy:        TRUE 
 #>     H2O Connection ip:          localhost 
 #>     H2O Connection port:        54321 
@@ -619,9 +652,6 @@ Ensemble models often outperform single models. There is certainly opportunity f
 #>     H2O Internal Security:      FALSE 
 #>     H2O API Extensions:         XGBoost, Algos, AutoML, Core V3, Core V4 
 #>     R Version:                  R version 3.5.1 (2018-07-02)
-#> Warning in h2o.clusterInfo(): 
-#> Your H2O cluster version is too old (6 months and 2 days)!
-#> Please download and install the latest version from http://h2o.ai/download/
 ```
 
 we first specify all learners (MLA methods) of interest:
@@ -634,30 +664,22 @@ summary(as.factor(k.f))
 #> 1243 1243 1243 1243
 ## split data into training and validation:
 edgeroi_v.hex = as.h2o(mP2[k.f==1,], destination_frame = "eberg_v.hex")
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 edgeroi_t.hex = as.h2o(mP2[!k.f==1,], destination_frame = "eberg_t.hex")
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 learner <- c("h2o.randomForest.wrapper", "h2o.gbm.wrapper")
 fit <- h2o.ensemble(x = which(names(m2) %in% all.vars(formulaStringP2)[-1]), 
                     y = which(names(m2)=="ORCDRC"), 
                     training_frame = edgeroi_t.hex, learner = learner, 
                     cvControl = list(V = 5))
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 #> [1] "Cross-validating and training base learner 1: h2o.randomForest.wrapper"
 #> Warning in h2o.randomForest(x = x, y = y, training_frame =
 #> training_frame, : Argument offset_column is deprecated and has no use for
 #> Random Forest.
-#>   |                                                                         |                                                                 |   0%  |                                                                         |                                                                 |   1%  |                                                                         |=====================================                            |  57%  |                                                                         |=========================================================        |  87%  |                                                                         |=================================================================| 100%
 #> [1] "Cross-validating and training base learner 2: h2o.gbm.wrapper"
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=========                                                        |  13%  |                                                                         |=================================================================| 100%
 #> [1] "Metalearning"
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 perf <- h2o.ensemble_performance(fit, newdata = edgeroi_v.hex)
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 #> Warning in doTryCatch(return(expr), name, parentenv, handler): Test/
 #> Validation dataset is missing column 'fold_id': substituting in a column of
 #> 0.0
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 #> Warning in doTryCatch(return(expr), name, parentenv, handler): Test/
 #> Validation dataset is missing column 'fold_id': substituting in a column of
 #> 0.0
@@ -665,15 +687,15 @@ perf
 #> 
 #> Base learner performance, sorted by specified metric:
 #>                    learner  MSE
-#> 2          h2o.gbm.wrapper 8.55
-#> 1 h2o.randomForest.wrapper 7.47
+#> 2          h2o.gbm.wrapper 12.7
+#> 1 h2o.randomForest.wrapper 12.3
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 7.35968387861012
+#> Ensemble performance (MSE): 11.6494142561051
 ```
 
 which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.
@@ -695,7 +717,8 @@ str(cookfarm.hor)
 #>  $ LHDICM  : num  21 39 65 98 153 17 42 66 97 153 ...
 #>  $ BLD     : num  1.46 1.37 1.52 1.72 1.72 1.56 1.33 1.36 1.37 1.48 ...
 #>  $ PHIHOX  : num  4.69 5.9 6.25 6.54 6.75 4.12 5.73 6.26 6.59 6.85 ...
-cookfarm.hor$depth <- cookfarm.hor$UHDICM + (cookfarm.hor$LHDICM - cookfarm.hor$UHDICM)/2
+cookfarm.hor$depth <- cookfarm.hor$UHDICM +
+  (cookfarm.hor$LHDICM - cookfarm.hor$UHDICM)/2
 sel.id <- !duplicated(cookfarm.hor$SOURCEID)
 cookfarm.xy <- cookfarm.hor[sel.id,c("SOURCEID","Easting","Northing")]
 str(cookfarm.xy)
@@ -737,43 +760,33 @@ We can again test fitting an ensemble model using two MLA's:
 k.f3 <- dismo::kfold(mP3, k=4)
 ## split data into training and validation:
 cookfarm_v.hex <- as.h2o(mP3[k.f3==1,], destination_frame = "cookfarm_v.hex")
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 cookfarm_t.hex <- as.h2o(mP3[!k.f3==1,], destination_frame = "cookfarm_t.hex")
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 learner3 = c("h2o.glm.wrapper", "h2o.randomForest.wrapper",
             "h2o.gbm.wrapper", "h2o.deeplearning.wrapper")
 fit3 <- h2o.ensemble(x = which(names(mP3) %in% all.vars(fm.PHI)[-1]), 
                     y = which(names(mP3)=="PHIHOX"), 
                     training_frame = cookfarm_t.hex, learner = learner3, 
                     cvControl = list(V = 5))
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 #> [1] "Cross-validating and training base learner 1: h2o.glm.wrapper"
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 #> [1] "Cross-validating and training base learner 2: h2o.randomForest.wrapper"
 #> Warning in h2o.randomForest(x = x, y = y, training_frame =
 #> training_frame, : Argument offset_column is deprecated and has no use for
 #> Random Forest.
-#>   |                                                                         |                                                                 |   0%  |                                                                         |========                                                         |  13%  |                                                                         |=================================================================| 100%
 #> [1] "Cross-validating and training base learner 3: h2o.gbm.wrapper"
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=================                                                |  26%  |                                                                         |=================================================================| 100%
 #> [1] "Cross-validating and training base learner 4: h2o.deeplearning.wrapper"
-#>   |                                                                         |                                                                 |   0%  |                                                                         |==========                                                       |  15%  |                                                                         |========================                                         |  37%  |                                                                         |=====================================                            |  57%  |                                                                         |==================================================               |  77%  |                                                                         |============================================================     |  92%  |                                                                         |=================================================================| 100%
 #> [1] "Metalearning"
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 perf3 <- h2o.ensemble_performance(fit3, newdata = cookfarm_v.hex)
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 #> Warning in doTryCatch(return(expr), name, parentenv, handler): Test/
 #> Validation dataset is missing column 'fold_id': substituting in a column of
 #> 0.0
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 #> Warning in doTryCatch(return(expr), name, parentenv, handler): Test/
 #> Validation dataset is missing column 'fold_id': substituting in a column of
 #> 0.0
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
+
 #> Warning in doTryCatch(return(expr), name, parentenv, handler): Test/
 #> Validation dataset is missing column 'fold_id': substituting in a column of
 #> 0.0
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
+
 #> Warning in doTryCatch(return(expr), name, parentenv, handler): Test/
 #> Validation dataset is missing column 'fold_id': substituting in a column of
 #> 0.0
@@ -782,16 +795,16 @@ perf3
 #> Base learner performance, sorted by specified metric:
 #>                    learner    MSE
 #> 1          h2o.glm.wrapper 0.2827
-#> 4 h2o.deeplearning.wrapper 0.1889
+#> 4 h2o.deeplearning.wrapper 0.1553
 #> 3          h2o.gbm.wrapper 0.0971
-#> 2 h2o.randomForest.wrapper 0.0841
+#> 2 h2o.randomForest.wrapper 0.0770
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 0.0802485949291254
+#> Ensemble performance (MSE): 0.0756454451033218
 ```
 
 In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.
@@ -800,6 +813,7 @@ In this case Ensemble performance (MSE) seems to be *as bad* as the single best 
 ```r
 h2o.shutdown()
 #> Are you sure you want to shutdown the H2O instance running at http://localhost:54321/ (Y/N)?
+#> [1] TRUE
 ```
 
 ### Ensemble predictions using SuperLearner package
@@ -809,6 +823,10 @@ Another interesting package to generate ensemble predictions of soil properties 
 
 ```r
 library(SuperLearner)
+#> Loading required package: nnls
+#> Super Learner
+#> Version: 2.0-24
+#> Package created on 2018-08-10
 # List available models:
 listWrappers()
 #> All prediction algorithm wrappers in SuperLearner:
@@ -858,6 +876,10 @@ sl <- snowSuperLearner(Y = mP3$PHIHOX,
                        X = mP3[,all.vars(fm.PHI)[-1]],
                        cluster = cl, 
                        SL.library = sl.l)
+#> Loading required package: glmnet
+#> Loading required package: Matrix
+#> Loading required package: foreach
+#> Loaded glmnet 2.0-16
 sl
 #> 
 #> Call:  
@@ -865,12 +887,12 @@ sl
 #>     SL.library = sl.l) 
 #> 
 #> 
-#>                  Risk    Coef
-#> SL.mean_All    0.7540 0.00000
-#> SL.xgboost_All 0.0598 0.80625
-#> SL.ksvm_All    0.1289 0.00546
-#> SL.glmnet_All  0.3080 0.00000
-#> SL.ranger_All  0.0841 0.18829
+#>                  Risk  Coef
+#> SL.mean_All    0.7540 0.000
+#> SL.xgboost_All 0.0598 0.819
+#> SL.ksvm_All    0.1286 0.017
+#> SL.glmnet_All  0.3073 0.000
+#> SL.ranger_All  0.0852 0.164
 ```
 
 This shows that `SL.xgboost_All` outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by `SL.xgboost_All` is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:
@@ -891,8 +913,8 @@ sl2
 #> 
 #>                  Risk  Coef
 #> SL.xgboost_All 0.0603 0.813
-#> SL.ranger_All  0.0835 0.187
-#> SL.ksvm_All    0.1302 0.000
+#> SL.ranger_All  0.0833 0.187
+#> SL.ksvm_All    0.1305 0.000
 ```
 
 again `SL.xgboost` dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where entire profiles are taken out of the training dataset:
@@ -919,11 +941,11 @@ summary(cv_sl)
 #> All risk estimates are based on V =  5 
 #> 
 #>       Algorithm  Ave    se   Min  Max
-#>   Super Learner 0.16 0.014 0.094 0.26
+#>   Super Learner 0.16 0.014 0.095 0.26
 #>     Discrete SL 0.17 0.015 0.116 0.25
 #>  SL.xgboost_All 0.19 0.016 0.135 0.27
-#>   SL.ranger_All 0.17 0.015 0.105 0.25
-#>     SL.ksvm_All 0.18 0.014 0.109 0.29
+#>   SL.ranger_All 0.16 0.015 0.106 0.25
+#>     SL.ksvm_All 0.18 0.015 0.109 0.30
 ```
 
 where `V=5` specifies number of folds, and `id=rm.cookfarm$SOURCEID` forces that entire profiles are removed from training and cross-validation. This gives a more realistic RMSE of about ±0.35. Note that this time `SL.xgboost_All` is even somewhat worse than the random forest model, and the ensemble model (`Super Learner`) is slightly better than each individual model. This matches our previous results with `h20.ensemble`. 
@@ -948,8 +970,8 @@ sl2
 #> 
 #>                 Risk  Coef
 #> SL.xgboost_All 0.215 0.000
-#> SL.ranger_All  0.166 0.474
-#> SL.ksvm_All    0.163 0.526
+#> SL.ranger_All  0.166 0.461
+#> SL.ksvm_All    0.163 0.539
 new.data <- grid10m@data
 pred.PHI <- list(NULL)
 depths = c(10,30,50,70,90)
@@ -957,9 +979,21 @@ for(j in 1:length(depths)){
   new.data$depth = depths[j]
   pred.PHI[[j]] <- predict(sl2, new.data[,sl2$varNames])
 }
+#> Loading required package: kernlab
+#> 
+#> Attaching package: 'kernlab'
+#> The following object is masked from 'package:scales':
+#> 
+#>     alpha
+#> The following object is masked from 'package:ggplot2':
+#> 
+#>     alpha
+#> The following objects are masked from 'package:raster':
+#> 
+#>     buffer, rotated
 str(pred.PHI[[1]])
 #> List of 2
-#>  $ pred           : num [1:3865, 1] 4.69 4.77 4.92 4.89 4.8 ...
+#>  $ pred           : num [1:3865, 1] 4.64 4.7 4.86 4.83 4.76 ...
 #>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...
 #>   ..- attr(*, "dimnames")=List of 2
 #>   .. ..$ : NULL
@@ -983,7 +1017,7 @@ spplot(grid10m, paste0("PHI.", depths,"cm"),
 ```
 
 <div class="figure" style="text-align: center">
-<img src="Soilmapping_using_mla_files/figure-html/ph-cookfarm-1.png" alt="Predicted soil pH using 3D ensemble model." width="768" />
+<img src="Soilmapping_using_mla_files/figure-html/ph-cookfarm-1.png" alt="Predicted soil pH using 3D ensemble model." width="100%" />
 <p class="caption">(\#fig:ph-cookfarm)Predicted soil pH using 3D ensemble model.</p>
 </div>
 
@@ -1003,7 +1037,7 @@ spplot(grid10m, "PHI.10cm.sd", sp.layout = list(pts), col.regions=rev(bpy.colors
 ```
 
 <div class="figure" style="text-align: center">
-<img src="Soilmapping_using_mla_files/figure-html/ph-cookfarm-var-1.png" alt="Example of variance of prediction models for soil pH." width="672" />
+<img src="Soilmapping_using_mla_files/figure-html/ph-cookfarm-var-1.png" alt="Example of variance of prediction models for soil pH." width="100%" />
 <p class="caption">(\#fig:ph-cookfarm-var)Example of variance of prediction models for soil pH.</p>
 </div>
 
@@ -1136,12 +1170,32 @@ Quantile regression random forest and derivation of standard errors using Jackkn
 ```r
 library(GSIF)
 library(rgdal)
+#> rgdal: version: 1.3-6, (SVN revision 773)
+#>  Geospatial Data Abstraction Library extensions to R successfully loaded
+#>  Loaded GDAL runtime: GDAL 2.3.2, released 2018/09/21
+#>  Path to GDAL shared files: /usr/share/gdal
+#>  GDAL binary built with GEOS: TRUE 
+#>  Loaded PROJ.4 runtime: Rel. 4.9.3, 15 August 2016, [PJ_VERSION: 493]
+#>  Path to PROJ.4 shared files: (autodetected)
+#>  Linking to sp version: 1.3-1
 library(raster)
 library(geoR)
+#> --------------------------------------------------------------
+#>  Analysis of Geostatistical Data
+#>  For an Introduction to geoR go to http://www.leg.ufpr.br/geoR
+#>  geoR version 1.7-5.2.1 (built on 2016-05-02) is now loaded
+#> --------------------------------------------------------------
 library(ranger)
 ```
 
 
+```
+#> 
+#> Attaching package: 'gridExtra'
+#> The following object is masked from 'package:randomForest':
+#> 
+#>     combine
+```
 
 If no other information is available, we can use buffer distances to all points as covariates to predict values of some continuous or categorical variable in the RFsp framework. These can be derived with the help of the [raster](https://cran.r-project.org/package=raster) package [@raster]. Consider for example the meuse data set from the [gstat](https://github.com/edzer/gstat) package:
 
@@ -1373,7 +1427,8 @@ this finally gives:
 
 
 ```r
-m1.zinc <- ranger(fm1, rm.zinc1, importance="impurity", quantreg=TRUE, num.trees=150, seed=1)
+m1.zinc <- ranger(fm1, rm.zinc1, importance="impurity", 
+                  quantreg=TRUE, num.trees=150, seed=1)
 m1.zinc
 #> Ranger result
 #> 
@@ -1388,8 +1443,8 @@ m1.zinc
 #> Target node size:                 5 
 #> Variable importance mode:         impurity 
 #> Splitrule:                        variance 
-#> OOB prediction error (MSE):       54750 
-#> R squared (OOB):                  0.594
+#> OOB prediction error (MSE):       53437 
+#> R squared (OOB):                  0.603
 ```
 
 which demonstrates that there is a slight improvement relative to using only buffer distances as covariates. 
@@ -1408,7 +1463,7 @@ axis(2, 1:10, labels = dimnames(vv)[[1]], las = 2)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="Soilmapping_using_mla_files/figure-html/rf-variableImportance-1.png" alt="Variable importance plot for mapping zinc content based on the Meuse data set." width="672" />
+<img src="Soilmapping_using_mla_files/figure-html/rf-variableImportance-1.png" alt="Variable importance plot for mapping zinc content based on the Meuse data set." width="100%" />
 <p class="caption">(\#fig:rf-variableImportance)Variable importance plot for mapping zinc content based on the Meuse data set.</p>
 </div>
 
@@ -1530,7 +1585,8 @@ fm.s1c <- as.formula(paste("soil1c ~ ",
                            paste(names(grid.dist0), collapse="+"), 
                            " + SW_occurrence + dist"))
 rm.s1$soil1c = as.factor(rm.s1$soil1)
-m2.s1 <- ranger(fm.s1c, rm.s1, mtry=22, num.trees=150, seed=1, probability=TRUE, keep.inbag=TRUE)
+m2.s1 <- ranger(fm.s1c, rm.s1, mtry=22, num.trees=150, seed=1, 
+                probability=TRUE, keep.inbag=TRUE)
 m2.s1
 #> Ranger result
 #> 
@@ -1619,7 +1675,8 @@ to produce probability maps per soil class, we need to turn on the `probability=
 rm.s <- do.call(cbind, list(meuse@data["soil"], 
                             over(meuse["soil"], meuse.grid), 
                             over(meuse["soil"], grid.dist0)))
-m.s <- ranger(fm.s, rm.s, mtry=22, num.trees=150, seed=1, probability=TRUE, keep.inbag=TRUE)
+m.s <- ranger(fm.s, rm.s, mtry=22, num.trees=150, seed=1, 
+              probability=TRUE, keep.inbag=TRUE)
 m.s
 #> Ranger result
 #> 
@@ -1675,9 +1732,9 @@ str(pred.grids@data)
 #>  $ pred_soil1: num  0.716 0.713 0.713 0.693 0.713 ...
 #>  $ pred_soil2: num  0.246 0.256 0.256 0.27 0.256 ...
 #>  $ pred_soil3: num  0.0374 0.0307 0.0307 0.0374 0.0307 ...
-#>  $ se_soil1  : num  0.1806 0.1692 0.1692 0.0901 0.1692 ...
-#>  $ se_soil2  : num  0.145 0.0807 0.0807 0.0793 0.0807 ...
-#>  $ se_soil3  : num  0.0391 0.039 0.039 0.0391 0.039 ...
+#>  $ se_soil1  : num  0.1798 0.1684 0.1684 0.0903 0.1684 ...
+#>  $ se_soil2  : num  0.1446 0.0808 0.0808 0.0796 0.0808 ...
+#>  $ se_soil3  : num  0.0414 0.0413 0.0413 0.0414 0.0413 ...
 ```
 
 where `pred_soil1` is the probability of occurrence of class 1 and `se_soil1` is the standard error of prediction for the `pred_soil1` based on the Jackknife-after-Bootstrap method [@wager2014confidence]. The first column in `pred.grids` contains the existing map of `soil` with hard classes only.

@@ -227,7 +227,7 @@ Converting large polygons in R using the raster package can be very time-consumi
 
 ```{r}
 library(sf)
-if(!require(fasterize)){ devtools::install_github("ecohealthalliance/fasterize") }
+library(fasterize)
 eberg_zones_sf <- as(eberg_zones, "sf")
 eberg_zones_r <- fasterize(eberg_zones_sf, r, field="ZONES")
 ```
@@ -345,7 +345,8 @@ knitr::include_graphics("figures/eberg_original_vs_aggregated.png")
 Now that we have established a connection between R and SAGA GIS, we can also use SAGA GIS to derive some standard DEM parameters of interest to soil mapping. To automate further processing, we make the following function:
 
 ```{r}
-saga_DEM_derivatives <- function(INPUT, MASK=NULL, sel=c("SLP","TWI","CRV","VBF","VDP","OPN","DVM")){
+saga_DEM_derivatives <- function(INPUT, MASK=NULL, 
+                                 sel=c("SLP","TWI","CRV","VBF","VDP","OPN","DVM")){
   if(!is.null(MASK)){
     ## Fill in missing DEM pixels:
     suppressWarnings( system(paste0(saga_cmd, 
@@ -599,7 +600,10 @@ We would like to run a function on this raster in parallel, for example a simple
 fun_mask <- function(i, tiles, dir="./tiled/", threshold=190){
   out.tif = paste0(dir, "T", i, ".tif")
   if(!file.exists(out.tif)){
-    x = readGDAL(fn, offset=unlist(tiles[i,c("offset.y","offset.x")]), region.dim=unlist(tiles[i,c("region.dim.y","region.dim.x")]), output.dim=unlist(tiles[i,c("region.dim.y","region.dim.x")]), silent = TRUE)
+    x = readGDAL(fn, offset=unlist(tiles[i,c("offset.y","offset.x")]),
+                 region.dim=unlist(tiles[i,c("region.dim.y","region.dim.x")]), 
+                 output.dim=unlist(tiles[i,c("region.dim.y","region.dim.x")]),
+                 silent = TRUE)
     x$mask = ifelse(x$band1>threshold, 1, 0)
     writeGDAL(x["mask"], type="Byte", mvFlag = 255, out.tif, options=c("COMPRESS=DEFLATE"))
   }
@@ -615,7 +619,8 @@ x0 <- mclapply(1:nrow(tiles), FUN=fun_mask, tiles=tiles)
 We can look in the the tiles folder, and this should show 35 produced GeoTiffs. These can be further used to construct a virtual mosaic by using:
 
 ```{r, eval=FALSE}
-t.lst <- list.files(path="extdata/tiled", pattern=glob2rx("^T*.tif$"), full.names=TRUE, recursive=TRUE)
+t.lst <- list.files(path="extdata/tiled", pattern=glob2rx("^T*.tif$"), 
+                    full.names=TRUE, recursive=TRUE)
 cat(t.lst, sep="\n", file="SP27GTIF_tiles.txt")
 system('gdalbuildvrt -input_file_list SP27GTIF_tiles.txt SP27GTIF.vrt')
 system('gdalwarp SP27GTIF.vrt SP27GTIF_mask.tif -ot \"Byte\"', 

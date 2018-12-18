@@ -49,11 +49,11 @@ Fig. \@ref(fig:soil-vars)):
     interpretation of observations e.g. soil classification, soil
     fertility class.
 
-```{r soil-vars, echo=FALSE, fig.cap="Types of soil observations in relation to data usage and production costs. Descriptive soil observations (e.g. manual texture or diagnostic soil horizons) are often not directly useable by end users, who are often more interested in specific secondary soil properties (e.g. water holding capacity, erosion index, soil fertility) as inputs to their modeling. However, descriptive field observations are often some orders of magnitude more affordable to obtain than laboratory analysis.", out.width="65%"}
+```{r soil-vars, echo=FALSE, fig.cap="Types of soil observations in relation to data usage and production costs. Descriptive soil observations (e.g. manual texture or diagnostic soil horizons) are often not directly useable by end users, who are often more interested in specific secondary soil properties (e.g. water holding capacity, erosion index, soil fertility) as inputs to their modeling. However, descriptive field observations are often some orders of magnitude more affordable to obtain than laboratory analysis.", out.width="65%", out.extra="angle=0"}
 knitr::include_graphics("figures/Fig_types_observations.png")
 ```
 
-```{block, type="rmdnote"}
+```{block2, type="rmdnote"}
 Soil can be assessed quantitatively based on direct or indirect
 measurements using analytical techniques (in a laboratory or in the
 field) and qualitatively or descriptively based on observations in the
@@ -385,7 +385,7 @@ hard bedrock is >2 m deep so that we actually don’t know the correct
 depth to enter, other than >2 m. Rootability is physically restricted by
 the bedrock, whether hard or soft (see Fig. \@ref(fig:scheme-depth-to-bedrock)).
 
-```{block, type="rmdnote"}
+```{block2, type="rmdnote"}
 Depth to bedrock is the mean distance to `R` horizon which is the layer
 impenetrable by roots or agricultural machinery. Depth to bedrock deeper
 than 2 m is most often not recorded in field survey descriptions.
@@ -572,7 +572,7 @@ Consequently, soil organic carbon is probably the soil property of
 greatest current interest and utility from the point of view of global
 mapping, and interpretation, of soil properties.
 
-```{block, type="rmdnote"}
+```{block2, type="rmdnote"}
 Soil Organic Carbon is one the key measures of soil health.
 The standard reference method for assessing and reporting soil organic
 carbon content of the fine earth fraction is by dry combustion to at
@@ -595,7 +595,7 @@ Fig. \@ref(fig:sprofs-soil-carbon).
 knitr::include_graphics("figures/Fig_sprofs_ORCDRC.png")
 ```
 
-```{block, type="rmdnote"}
+```{block2, type="rmdnote"}
 Soil organic carbon content is most commonly expressed in weight
 percentage and for GSIF in grams per kilogram fine earth fraction or
 permilles. The standard method of determining the soil organic carbon
@@ -698,7 +698,7 @@ ph_h2o = 7.2
 
 This model fitted explains 94% of variation in the values of pH CaCl$_2$ (R-square=0.9401).
 
-```{block, type="rmdnote"}
+```{block2, type="rmdnote"}
 Soil pH is negative decimal logarithm of the hydrogen ion activity in a
 soil suspension. Soil pH values are usually in the range 3–11 and are
 recorded with a precision of ±0.1 pH in the range of 5.5 to 7.5 is
@@ -754,7 +754,7 @@ management and protection are (http://en.wikipedia.org/wiki/Plant_nutrition):
     of chlorophyll. Magnesium deficiency can result in
     interveinal chlorosis.
 
-```{block, type="rmdnote"}
+```{block2, type="rmdnote"}
 Nitrogen, Phosphorus and Potassium are the three relatively mobile and
 dynamic nutrients in soil that are most often lacking and hence have
 been identified of primary interest for the fertilizer industry. Other
@@ -933,7 +933,7 @@ texture data deals with harmonizing differences in attribute definitions
 or the reported particle size classes
 (Fig. \@ref(fig:texture-limits)).
 
-```{block, type="rmdnote"}
+```{block2, type="rmdnote"}
 The most commonly used standard for designation of fine earth texture
 fractions, used by the *GlobalSoilMap* project, is the USDA
 system (sand: 50–2000 $\mu$m, silt: 2–50 $\mu$m, clay: <2 $\mu$m).
@@ -1092,7 +1092,7 @@ contributor to bulk density prediction. Other significant variables
 included clay content, water content and to a lesser extent, silt
 content, and depth.
 
-```{block, type="rmdnote"}
+```{block2, type="rmdnote"}
 Bulk density is the oven-dry mass of soil material divided by the total
 volume and typically ranges from 0.7 to 1.8 t/kg$^3$. The average bulk density of
 fine earth fraction of soil is about 1.3 t/kg$^3$; soils with a bulk density higher
@@ -1270,7 +1270,7 @@ converted to a whole soil volume basis by multiplying by the oven dry
 bulk density of the fine earth fraction (`Db33`) and adjusting downward
 for the volume fraction of rock fragments, if present, in the soil.
 
-```{block, type="rmdnote"}
+```{block2, type="rmdnote"}
 Available water capacity (expressed in mm of water for the effective
 soil depth) can be estimated based on the Water Retention Difference
 (WRD) which denotes the volume fraction for water in the whole soil,
@@ -1544,7 +1544,7 @@ current multitude of method definitions to be unambiguously defined and
 uniquely identified (IDx), and possibly grouped into aggregate classes,
 for subsequent conversion from IDx to IDy.
 
-```{block, type="rmdnote"}
+```{block2, type="rmdnote"}
 Soil observations, such as observation of texture by hand class, are
 often inexpensive, but rely on good expert knowledge skills. Statistical frameworks are needed that can use both highly precise and quick-and-inaccurate observations to generate better soil maps.
 ```
@@ -1612,7 +1612,7 @@ systems. As a matter of interest, the term *“World soil map”* has been
 used exclusively for cartographic presentation of the global
 distribution of KST soil orders (12) and/or FAO WRB soil groups (32).
 
-```{block, type="rmdnote"}
+```{block2, type="rmdnote"}
 USDA's Soil Taxonomy is probably the most developed soil classification system in the world. Using it for producing soil data is highly recommended also because all documents, databases and guidelines are publicly available.
 ```
 
@@ -1634,7 +1634,7 @@ and an adequate spatial distribution of field observed classes,
 multinomial logistic regression could even be used to map soil taxa at
 lower taxonomic levels with hundreds of unique taxonomic entities.
 
-```{r usda-categories, echo=FALSE, fig.cap="USDA classification system and approximate minimum required number of observations to fit a global multinomial regression model.", out.width="60%"}
+```{r usda-categories, echo=FALSE, fig.cap="USDA classification system and approximate minimum required number of observations to fit a global multinomial regression model.", out.width="60%", out.extra="angle=0"}
 knitr::include_graphics("figures/Fig_USDA_categories.png")
 ```
 
@@ -1856,7 +1856,8 @@ Next we need to format all Munsell color codes to ''Hue_Saturation_Intensity'' f
 
 ```{r}
 mcol$Munsell <- sub(" ", "", sub("/", "_", mcol$MCOMNS))
-hue.lst <- expand.grid(c("2.5", "5", "7.5", "10"), c("YR","GY","BG","YE","YN","YY","R","Y","B","G"))
+hue.lst <- expand.grid(c("2.5", "5", "7.5", "10"),
+                       c("YR","GY","BG","YE","YN","YY","R","Y","B","G"))
 hue.lst$mhue <- paste(hue.lst$Var1, hue.lst$Var2, sep="")
 for(j in hue.lst$mhue[1:28]){
   mcol$Munsell <- sub(j, paste(j, "_", sep=""), mcol$Munsell, fixed=TRUE)
