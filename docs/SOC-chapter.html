@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Predictive Soil Mapping with R</title>
+  <title>7 Spatial prediction and assessment of Soil Organic Carbon | Predictive Soil Mapping with R</title>
   <meta name="description" content="Predictive Soil Mapping aims at producing most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement various soil mapping procedures with R programming language.">
-  <meta name="generator" content="bookdown 0.7.12 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Predictive Soil Mapping with R" />
+  <meta property="og:title" content="7 Spatial prediction and assessment of Soil Organic Carbon | Predictive Soil Mapping with R" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://soilmapper.org" />
   <meta property="og:image" content="http://soilmapper.orgfigures/f0_web.png" />
@@ -17,15 +17,15 @@
   <meta name="github-repo" content="envirometrix/PredictiveSoilMapping" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Predictive Soil Mapping with R" />
+  <meta name="twitter:title" content="7 Spatial prediction and assessment of Soil Organic Carbon | Predictive Soil Mapping with R" />
   <meta name="twitter:site" content="@tom_hengl" />
   <meta name="twitter:description" content="Predictive Soil Mapping aims at producing most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement various soil mapping procedures with R programming language." />
   <meta name="twitter:image" content="http://soilmapper.orgfigures/f0_web.png" />
 
-<meta name="author" content="Tomislav Hengl">
+<meta name="author" content="Tomislav Hengl and Robert A. MacMillan">
 
 
-<meta name="date" content="2018-10-15">
+<meta name="date" content="2018-12-18">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="references.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -216,8 +217,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="4" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html"><i class="fa fa-check"></i><b>4</b> Preparation of soil covariates for soil mapping</a><ul>
 <li class="chapter" data-level="4.1" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#soil-covariate-data-sources"><i class="fa fa-check"></i><b>4.1</b> Soil covariate data sources</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#soil-covs-30m"><i class="fa fa-check"></i><b>4.1.1</b> Soil covariate data sources (30–100 m resolution)</a></li>
-<li class="chapter" data-level="4.1.2" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#soil-covs-250m"><i class="fa fa-check"></i><b>4.1.2</b> Soil covariate data sources (250 m resolution or coarser)</a></li>
+<li class="chapter" data-level="4.1.1" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#types-of-soil-covariates"><i class="fa fa-check"></i><b>4.1.1</b> Types of soil covariates</a></li>
+<li class="chapter" data-level="4.1.2" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#soil-covs-30m"><i class="fa fa-check"></i><b>4.1.2</b> Soil covariate data sources (30–100 m resolution)</a></li>
+<li class="chapter" data-level="4.1.3" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#soil-covs-250m"><i class="fa fa-check"></i><b>4.1.3</b> Soil covariate data sources (250 m resolution or coarser)</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#preparing-soil-covariate-layers"><i class="fa fa-check"></i><b>4.2</b> Preparing soil covariate layers</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#converting-polygon-maps-to-rasters"><i class="fa fa-check"></i><b>4.2.1</b> Converting polygon maps to rasters</a></li>
@@ -297,7 +299,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
-<li><a href="http://envirometrix.net/staff">T. (Tom) Hengl</a></li>
+<li><a href="https://opengeohub.org/people/tom-hengl">T. (Tom) Hengl and R.A. (Bob) MacMillan</a></li>
 
 </ul>
 
@@ -334,7 +336,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li>Plant and animal residues at various stages of decomposition (organic matter).</li>
 </ol>
-<p><span class="citation">Xu, Thornton, and Post (<a href="references.html#ref-xu2013global">2013</a>)</span> estimated that total global microbial biomass is about 17 Pg C, which is only about 2% of the total for organic matter. Therefore, the amounts of C in microbial biomass can reasonably be considered negligible, in comparison to the total C stock. However, if one includes all living organisms, and especially tree roots, then the portion of total C fouind in living organisms could be more significant, especially in areas under dense forests.</p>
+<p><span class="citation">Xu, Thornton, and Post (<a href="references.html#ref-xu2013global">2013</a>)</span> estimated that total global microbial biomass is about 17 Pg C, which is only about 2% of the total for organic matter. Therefore, the amounts of C in microbial biomass can reasonably be considered negligible, in comparison to the total C stock. However, if one includes all living organisms, and especially tree roots, then the portion of total C found in living organisms could be more significant, especially in areas under dense forests.</p>
 <p>Soil Organic Carbon Stock (<strong>OCS</strong>) is the mass of soil organic carbon per standard area and for a specific depth interval, usually expressed in kg/m<span class="math inline">\(^2\)</span> or t/ha. It can be derived using (laboratory and/or field) measurement of soil organic carbon content (ORC; expressed in % or g/kg of &lt;2mm mineral earth), then taking into account bulk density (BLD), thickness of the soil layer, and volume percentage of coarse fragments (CRF) <span class="citation">(Nelson and Sommers <a href="references.html#ref-Nelson1982">1982</a>; Poeplau, Vos, and Axel <a href="references.html#ref-poeplau2017soil">2017</a>)</span>:</p>
 <span class="math display" id="eq:ocs">\[\begin{equation}
 {\rm OCS} [{\rm kg/m^2}] = {\rm ORC} [\%] / 100 \cdot {\rm BLD} [{\rm kg/m^3}] \cdot (1- {\rm CRF} [\%]/100) \cdot {\rm HOT} [m]
@@ -359,7 +361,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 {\rm OCD} [{\rm kg/m^3}] = {\rm ORC} [\%]/100 \cdot {\rm BLD} [{\rm kg/m^3}] \cdot (1- {\rm CRF} [\%]/100) = {\rm OCS} / {\rm HOT}
 \tag{7.4}
 \end{equation}\]</span>
-<p>While OCS is a summary measure of SOC, always associated with a specific depth interval, OCD is a relative measure of soil organic carbon distribution and can be associated with any support size i.e. to an arbitrary depth. In principle, OCD (kg/m<span class="math inline">\(^3\)</span>) is strongly correlated with ORC (g/kg) as indicated in the figure below. However, depending on soil mineralogy and coarse fragment content, OCD can be lower or higher than what the smoothed line indicates (notice the range of values around the smoothed line is relatively wide). It is important to understand, however, that, as long as ORC, BLD and CRF are known, one can convert the values from ORC to OCD and OCS and vice versa, without loosing any information about the soil organic carbon stock.</p>
+<p>While OCS is a summary measure of SOC, always associated with a specific depth interval, OCD is a relative measure of soil organic carbon distribution and can be associated with any support size i.e. to an arbitrary depth. In principle, OCD (kg/m<span class="math inline">\(^3\)</span>) is strongly correlated with ORC (g/kg) as indicated in the figure below. However, depending on soil mineralogy and coarse fragment content, OCD can be lower or higher than what the smoothed line indicates (notice the range of values around the smoothed line is relatively wide). It is important to understand, however, that, as long as ORC, BLD and CRF are known, one can convert the values from ORC to OCD and OCS and <em>vice versa</em>, without loosing any information about the soil organic carbon stock.</p>
 <div class="figure" style="text-align: center"><span id="fig:scheme-solum"></span>
 <img src="figures/rplot_soilcarbon_density_vs_orc.png" alt="Correlation between soil organic carbon density and soil organic carbon content (displayed on a log-scale) created using a global compilations of soil profile data [@Batjes2017ESSD]. Values 1, 2, 3, 4, 5 and 6 in the plot (log scale) correspond to values 2, 6, 19, 54, 147 and 402. Note that for ORC &gt;12%, the OCD line flattens, which means that, organic carbon density practically stops to increase with the increase of ORC content." width="55%" />
 <p class="caption">
@@ -376,7 +378,7 @@ Figure 3.3: Correlation between soil organic carbon density and soil organic car
 <p>Global estimates of the total soil organic carbon stock are highly variable <span class="citation">(Scharlemann et al. <a href="references.html#ref-Scharlemann2014CM">2014</a>)</span>. Current estimates of the present total soil organic carbon stock range between 800–2100 Pg C (for 0–100 cm), with a median estimate of about 1500 Pg C (for 0–100 cm). This means that the average OCS for the 0–100 cm depth interval for the global land mask (148,940,000 km<span class="math inline">\(^2\)</span>) is about 11 kg/m<span class="math inline">\(^2\)</span> or 110 tons/ha, and that average soil organic carbon density (OCD) is about 11 kg/m<span class="math inline">\(^3\)</span> (compare to the standard bulk density of fine earth of 1250 kg/m<span class="math inline">\(^3\)</span>); standard OCS for 0–30 cm depth interval is 7 kg/m<span class="math inline">\(^2\)</span> i.e. the average OCD is about 13 kg/m<span class="math inline">\(^3\)</span>.</p>
 <div class="rmdnote">
 <p>
-The average Organic Carbon Stock for tha 0–100 cm depth interval for the land mask (148,940,000 km<span class="math inline"><span class="math inline">\(^2\)</span></span>) is about 11 kg/m<span class="math inline"><span class="math inline">\(^2\)</span></span> or 110 tons/ha. The average soil Organic Carbon Density (OCD) is about 11 kg/m<span class="math inline"><span class="math inline">\(^3\)</span></span> (compared to the standard bulk density of fine earth of 1250 kg/m<span class="math inline"><span class="math inline">\(^3\)</span></span>). Standard Organic Carbon Stock for 0–30 cm depth interval is 7 kg/m<span class="math inline"><span class="math inline">\(^2\)</span></span> i.e. the average OCD is about 13 kg/m<span class="math inline"><span class="math inline">\(^3\)</span></span>.
+The average Organic Carbon Stock for the 0–100 cm depth interval for the land mask (148,940,000 km<span class="math inline"><span class="math inline">\(^2\)</span></span>) is about 11 kg/m<span class="math inline"><span class="math inline">\(^2\)</span></span> or 110 tons/ha. The average soil Organic Carbon Density (OCD) is about 11 kg/m<span class="math inline"><span class="math inline">\(^3\)</span></span> (compared to the standard bulk density of fine earth of 1250 kg/m<span class="math inline"><span class="math inline">\(^3\)</span></span>). Standard Organic Carbon Stock for 0–30 cm depth interval is 7 kg/m<span class="math inline"><span class="math inline">\(^2\)</span></span> i.e. the average OCD is about 13 kg/m<span class="math inline"><span class="math inline">\(^3\)</span></span>.
 </p>
 </div>
 <p>The distribution of soil organic carbon in the world is, however, highly patchy with large areas with OCS <span class="math inline">\(\ll 100\)</span> tons/ha, and then some <em>pockets</em> of accumulated organic material i.e. organic soil types (histosols) with OCS up to 850tons/ha (for 0–30 cm depth interval). The world’s soil organic matter accumulation areas are usually found in the following biomes / land cover classes: wetlands and peatlands, mangroves, tundras and taigas.</p>
@@ -441,13 +443,13 @@ The average Organic Carbon Stock for tha 0–100 cm depth interval for the land 
 </tr>
 </tbody>
 </table>
-<p>Note that BLD data were not given for the described horizons (the original soil profile description / laboratory data indicates that no BLD were recorded for this profile). In the absence of measured field BLD we can substitute BLD estimated using SoilGrids250m data. It (unfortunately) commonly happens that soil profile observations lack BLD measurements, and consequently BLD needs to be generated using a Pedo-Transfer function or estimated from soil maps.</p>
+<p>Note that BLD data were not given for the described horizons (the original soil profile description / laboratory data indicates that no BLD were recorded for this profile). In the absence of measured field BLD we can substitute BLD estimated using LandGIS data. It (unfortunately) commonly happens that soil profile observations lack BLD measurements, and consequently BLD needs to be generated using a Pedo-Transfer function or estimated from soil maps.</p>
 <p>To determine OCS for standard depth intervals 0–30, 0–100 and 0–200 cm, we first fit a mass-preserving spline <span class="citation">(Malone et al. <a href="references.html#ref-Malone2009Geoderma">2009</a>)</span>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(GSIF)
 <span class="kw">library</span>(aqp)
 <span class="kw">library</span>(sp)
 <span class="kw">library</span>(plyr)
-lon =<span class="st"> </span><span class="fl">149.73</span>; lat =<span class="st"> </span><span class="op">-</span><span class="fl">30.09</span>; 
+lon =<span class="st"> </span><span class="fl">149.73</span>; lat =<span class="st"> </span><span class="fl">-30.09</span>; 
 id =<span class="st"> &quot;399_EDGEROI_ed079&quot;</span>; TIMESTRR =<span class="st"> &quot;1987-01-05&quot;</span>
 top =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">55</span>, <span class="dv">90</span>) 
 bottom =<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">55</span>, <span class="dv">90</span>, <span class="dv">116</span>)
@@ -648,7 +650,7 @@ m.BLD_PTF
                                     <span class="dt">SNDPPT=</span><span class="dv">35</span>, 
                                     <span class="dt">DEPTH.f=</span><span class="dv">5</span>), ind.tax.new))<span class="op">$</span>predictions
 <span class="co">#&gt; [1] 1526</span></code></pre></div>
-<p>Note also that the PTF above needs USDA suborder values per point location following the SoilGrids legend for USDA suborders, and formatted as in the <code>ind.tax</code> object. Unfortunately, the model above probably over-estimates bulk density for organic soils as these are usually under-represented i.e. often not available (consider for example a Saprist with 32% organic carbon):</p>
+<p>Note also that the PTF above needs USDA suborder values per point location following the LandGIS legend for USDA suborders, and formatted as in the <code>ind.tax</code> object. Unfortunately, the model above probably over-estimates bulk density for organic soils as these are usually under-represented i.e. often not available (consider for example a Saprist with 32% organic carbon):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ind.tax.new =<span class="st"> </span>ind.tax[<span class="kw">which</span>(ind.tax<span class="op">$</span>TAXOUSDA13<span class="op">==</span><span class="dv">1</span>)[<span class="dv">1</span>],]
 <span class="kw">predict</span>(m.BLD_PTF, 
         <span class="kw">cbind</span>(<span class="kw">data.frame</span>(<span class="dt">ORCDRC=</span><span class="dv">320</span>, <span class="dt">CLYPPT=</span><span class="dv">8</span>, <span class="dt">PHIHOX=</span><span class="fl">5.5</span>, 
@@ -679,12 +681,12 @@ ORC (depth) = exp[ 4.1517 −0.60934 \cdot log(depth) ]
 \end{equation}\]</span>
 <p>This also illustrates that any organic carbon spatial prediction model can significantly profit from including depth in the statistical modelling.</p>
 <div class="figure" style="text-align: center"><span id="fig:soc-depth-plot"></span>
-<img src="figures/journal_pone_0105992_g005.png" alt=" Globally fitted regression model for predicting soil organic carbon using depth only (log-log regression) and (a) individual soil profile from the ISRIC soil monolith collection. Image source: @Hengl2014SoilGrids1km." width="90%" />
+<img src="figures/journal_pone_0105992_g005.png" alt=" Globally fitted regression model for predicting soil organic carbon using depth only (log-log regression) and (a) individual soil profile from the ISRIC soil monolith collection. Image source: Hengl et al. (2014) doi: 10.1371/journal.pone.0105992." width="90%" />
 <p class="caption">
-Figure 7.5:  Globally fitted regression model for predicting soil organic carbon using depth only (log-log regression) and (a) individual soil profile from the ISRIC soil monolith collection. Image source: <span class="citation">Hengl (<a href="references.html#ref-Hengl2014SoilGrids1km">2014</a>)</span>.
+Figure 7.5:  Globally fitted regression model for predicting soil organic carbon using depth only (log-log regression) and (a) individual soil profile from the ISRIC soil monolith collection. Image source: Hengl et al. (2014) doi: 10.1371/journal.pone.0105992.
 </p>
 </div>
-<p>In summary, PTFs can be used to efficiently estimate missing BLD values (BLD is usually highly correlated with organic carbon content and depth, texture fractions, soil classification and soil pH can also help improve accuracy of the PTFs). However, for organic soils there is, in general, less calibration data and therefore errors are potentially higher. Mistakes in estimating BLD can result in systematic and significant over/under-estimations of the actual carbon stock. On the other hand, removing all soil horizons from OCS assessment that lack BLD measurements leads also to reduced accuracy as fewer points are then available for training of the spatial prediction models. Especially for organic soils (&gt;12% organic carbon), there is no easy solution for estimating missing values for BLD. consequently collecting additional (local) calibration points might become unavoidable. <span class="citation">Lobsey and Viscarra Rossel (<a href="references.html#ref-lobsey2016sensing">2016</a>)</span> recently proposed a method that combines gamma-ray attenuation and visible–near infrared (vis–NIR) spectroscopy to measure bulk density ex situ using samples that are freshly colllected under wet field conditions. Hopefully BLD measurements (or their complete absence) will become less of a problem in the future.</p>
+<p>In summary, PTFs can be used to efficiently estimate missing BLD values (BLD is usually highly correlated with organic carbon content and depth, texture fractions, soil classification and soil pH can also help improve accuracy of the PTFs). However, for organic soils there is, in general, less calibration data and therefore errors are potentially higher. Mistakes in estimating BLD can result in systematic and significant over/under-estimations of the actual carbon stock. On the other hand, removing all soil horizons from OCS assessment that lack BLD measurements leads also to reduced accuracy as fewer points are then available for training of the spatial prediction models. Especially for organic soils (&gt;12% organic carbon), there is no easy solution for estimating missing values for BLD. Collecting additional (local) calibration points might become unavoidable. <span class="citation">Lobsey and Viscarra Rossel (<a href="references.html#ref-lobsey2016sensing">2016</a>)</span> recently proposed a method that combines gamma-ray attenuation and visible–near infrared (vis–NIR) spectroscopy to measure bulk density <em>ex situ</em> using samples that are freshly collected under wet field conditions. Hopefully BLD measurements (or their complete absence) will become less of a problem in the future.</p>
 </div>
 <div id="generating-maps-of-ocs" class="section level2">
 <h2><span class="header-section-number">7.5</span> Generating maps of OCS</h2>
@@ -697,7 +699,7 @@ Figure 7.5:  Globally fitted regression model for predicting soil organic carbon
 </ul>
 <div class="rmdnote">
 <p>
-Soil Organic Carbon stock can be mapped by using at least differing approaches: (1) the 2D approach where estimation of OCS is done at the site level, (2) the 3D approach where soil organic carbon content, bulk density and coarse fragments are mapped seperately, then used to derive OCS for standard depths at each grid cell, and (3) the 3D approach based on mapping Organic Carbon Density, then converting to stocks.
+Soil Organic Carbon stock can be mapped by using at least differing approaches: (1) the 2D approach where estimation of OCS is done at the site level, (2) the 3D approach where soil organic carbon content, bulk density and coarse fragments are mapped separately, then used to derive OCS for standard depths at each grid cell, and (3) the 3D approach based on mapping Organic Carbon Density, then converting to stocks.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:ocs-three-approaches"></span>
@@ -767,7 +769,7 @@ Figure 7.7: Example of a data set with OCS samples (for 2D prediction). Case stu
 <span class="co">#&gt; [16] &quot;GlobalSurfaceWater_extent&quot;                </span>
 <span class="co">#&gt; [17] &quot;GlobalSurfaceWater_occurrence&quot;            </span>
 <span class="co">#&gt; [18] &quot;Landsat_bare2010&quot;</span></code></pre></div>
-<p>This contains a number of covariates from SRTM DEM derivatives, to Global Surface Water occurrence values and similar (see section <a href="soil-covs-chapter.html#soil-covs-30m">4.1.1</a> for more details). All these could potentially prove useful for mapping OCS. We can also derive buffer distances from observations points and use these (as measures of spatial context) to improve predictions <span class="citation">(T. Hengl, Nussbaum, et al. <a href="references.html#ref-Hengl2018RFsp">2018</a>)</span>:</p>
+<p>This contains a number of covariates from SRTM DEM derivatives, to Global Surface Water occurrence values and similar (see section <a href="soil-covs-chapter.html#soil-covs-30m">4.1.2</a> for more details). All these could potentially prove useful for mapping OCS. We can also derive buffer distances from observations points and use these (as measures of spatial context) to improve predictions <span class="citation">(T. Hengl, Nussbaum, et al. <a href="references.html#ref-Hengl2018RFsp">2018</a>)</span>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">proj4string</span>(COSha30map) =<span class="st"> &quot;+proj=utm +zone=18 +ellps=WGS84 +datum=WGS84 +units=m +no_defs&quot;</span>
 <span class="kw">coordinates</span>(COSha30) =<span class="st"> </span><span class="er">~</span><span class="st"> </span>x<span class="op">+</span>y
 <span class="kw">proj4string</span>(COSha30) =<span class="st"> </span><span class="kw">proj4string</span>(COSha30map)
@@ -887,7 +889,7 @@ mFit2
 <span class="co">#&gt; The final values used for the model were nrounds = 50, max_depth = 3,</span>
 <span class="co">#&gt;  eta = 0.4, gamma = 0, colsample_bytree = 0.8, min_child_weight = 1</span>
 <span class="co">#&gt;  and subsample = 1.</span></code></pre></div>
-<p>This example illustrates that no significant spatial prediction models (with an R-square exceeding 10%) can be fitted using these data. It is very common in soil mapping projects for models to explain only low amounts of the total variation, resulting in large average errors of prediction and/or wide prediction intervals. This can occur because of high measurement errors, and/or because there are missing covariates, but it coud also happen because the natural complexity of soils in the area is simply high.</p>
+<p>This example illustrates that no significant spatial prediction models (with an R-square exceeding 10%) can be fitted using these data. It is very common in soil mapping projects for models to explain only low amounts of the total variation, resulting in large average errors of prediction and/or wide prediction intervals. This can occur because of high measurement errors, and/or because there are missing covariates, but it could also happen because the natural complexity of soils in the area is simply high.</p>
 <p>Note that the absolute values of our predictions of OCS are somewhat different than those produced by the <a href="https://cran.r-project.org/package=geospt">geospt package</a> authors, although the main patterns are comparable.</p>
 <div class="figure" style="text-align: center"><span id="fig:plot-cosha30map-rf"></span>
 <img src="Soil_organic_carbon_files/figure-html/plot-cosha30map-rf-1.png" alt="Comparison of predictions generated using ordinary kriging (left) and machine learning with the help of 30 m resolution covariates and buffer distances (right)." width="672" />
@@ -930,37 +932,42 @@ edgeroi.sp &lt;-<span class="st"> </span><span class="kw">spTransform</span>(edg
 Figure 7.9: Edgeroi data set: locations of soil profiles and Australian soil classification codes. For more details see <span class="citation">Malone et al. (<a href="references.html#ref-Malone2009Geoderma">2009</a>)</span>.
 </p>
 </div>
-<p>Note that Edgeroi completely lacks any BLD values, therefore before we can compute OCD values, we need to estimate BLD values for each corresponding horizon. Here the easiest option is probably to use BLD values sourced from SoilGrids250m predictions (and which you can dowload from the <a href="ftp://ftp.soilgrids.org/data/recent/">SoilGrids FTP</a>). Matching between the irregularly distributed soil horizons and SoilGrids BLD at standard depths can be implemented in three steps. First, we overlay the points and SoilGrids250m GeoTIFFs to get the BLD values at standard depths:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sg &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;/mnt/nas/ftp.soilgrids.org/data/recent/BLDFIE_M_sl&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">7</span>,<span class="st">&quot;_250m_ll.tif&quot;</span>)
-ov.edgeroi.BLD &lt;-<span class="st"> </span>raster<span class="op">::</span><span class="kw">extract</span>(<span class="kw">stack</span>(sg), 
-                          <span class="kw">spTransform</span>(edgeroi.sp, <span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat +datum=WGS84&quot;</span>)))
-<span class="kw">str</span>(ov.edgeroi.BLD)
-<span class="co">#&gt;  num [1:359, 1:7] 1249 1091 1255 1262 1241 ...</span>
-<span class="co">#&gt;  - attr(*, &quot;dimnames&quot;)=List of 2</span>
-<span class="co">#&gt;   ..$ : NULL</span>
-<span class="co">#&gt;   ..$ : chr [1:7] &quot;BLDFIE_M_sl1_250m_ll&quot; &quot;BLDFIE_M_sl2_250m_ll&quot; &quot;BLDFIE_M_sl3_250m_ll&quot; &quot;BLDFIE_M_sl4_250m_ll&quot; ...</span></code></pre></div>
+<p>Note that Edgeroi completely lacks any BLD values, therefore before we can compute OCD values, we need to estimate BLD values for each corresponding horizon. Here the easiest option is probably to use BLD values sourced from LandGIS predictions (and which you can download from <a href="https://landgis.opengeohub.org" class="uri">https://landgis.opengeohub.org</a>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">landgis.bld =<span class="st"> </span><span class="kw">list.files</span>(<span class="st">&quot;/mnt/DATA/LandGIS/predicted250m&quot;</span>, 
+                     <span class="dt">pattern=</span><span class="kw">glob2rx</span>(<span class="st">&quot;sol_bulkdens.fineearth_usda.4a1h_m_*.tif$&quot;</span>), <span class="dt">full.names=</span><span class="ot">TRUE</span>)
+<span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(landgis.bld)){
+  <span class="kw">system</span>(<span class="kw">paste0</span>(<span class="st">&#39;gdalwarp &#39;</span>, landgis.bld[j], <span class="st">&#39; extdata/edgeroi_&#39;</span>, <span class="kw">basename</span>(landgis.bld[j]), 
+         <span class="st">&#39; -t_srs </span><span class="ch">\&quot;</span><span class="st">&#39;</span>, <span class="kw">proj4string</span>(edgeroi.grids), <span class="st">&#39;</span><span class="ch">\&quot;</span><span class="st"> -tr 250 250 -co </span><span class="ch">\&quot;</span><span class="st">COMPRESS=DEFLATE</span><span class="ch">\&quot;</span><span class="st">&#39;</span>, 
+         <span class="st">&#39; -te &#39;</span>, <span class="kw">paste</span>(<span class="kw">as.vector</span>(edgeroi.grids<span class="op">@</span>bbox), <span class="dt">collapse =</span> <span class="st">&quot; &quot;</span>)))
+}</code></pre></div>
+<p>Matching between the irregularly distributed soil horizons and LandGIS bulk density at standard depths can be implemented in three steps. First, we overlay the points and LandGIS GeoTIFFs to get the BLD values in kg / cubic-m at standard depths:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sg &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;edgeroi_sol_bulkdens.fineearth&quot;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)
+ov &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(raster<span class="op">::</span><span class="kw">extract</span>(<span class="kw">stack</span>(sg), edgeroi.sp)<span class="op">*</span><span class="dv">10</span>)
+ov.edgeroi.BLD =<span class="st"> </span>ov[,<span class="kw">c</span>(<span class="kw">grep</span>(<span class="st">&quot;b0..&quot;</span>, <span class="kw">names</span>(ov), <span class="dt">fixed =</span> <span class="ot">TRUE</span>), <span class="kw">grep</span>(<span class="st">&quot;b10..&quot;</span>, <span class="kw">names</span>(ov), <span class="dt">fixed =</span> <span class="ot">TRUE</span>), 
+                       <span class="kw">grep</span>(<span class="st">&quot;b30..&quot;</span>, <span class="kw">names</span>(ov), <span class="dt">fixed =</span> <span class="ot">TRUE</span>), <span class="kw">grep</span>(<span class="st">&quot;b60..&quot;</span>, <span class="kw">names</span>(ov), <span class="dt">fixed =</span> <span class="ot">TRUE</span>), 
+                       <span class="kw">grep</span>(<span class="st">&quot;b100..&quot;</span>, <span class="kw">names</span>(ov), <span class="dt">fixed =</span> <span class="ot">TRUE</span>), <span class="kw">grep</span>(<span class="st">&quot;b200..&quot;</span>, <span class="kw">names</span>(ov), <span class="dt">fixed =</span> <span class="ot">TRUE</span>))]</code></pre></div>
 <p>Second, we derive averaged estimates of BLD for standard depth intervals:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ov.edgeroi.BLDm =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">BLD.f=</span><span class="kw">as.vector</span>(<span class="kw">sapply</span>(<span class="dv">2</span><span class="op">:</span><span class="kw">ncol</span>(ov.edgeroi.BLD),                                                <span class="cf">function</span>(i){<span class="kw">rowMeans</span>(ov.edgeroi.BLD[,<span class="kw">c</span>(i<span class="op">-</span><span class="dv">1</span>,i)])})),
-                    <span class="dt">DEPTH.c=</span><span class="kw">as.vector</span>(<span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="cf">function</span>(i){<span class="kw">rep</span>(<span class="kw">paste0</span>(<span class="st">&quot;sd&quot;</span>,i),
-                        <span class="kw">nrow</span>(edgeroi<span class="op">$</span>sites))})), <span class="dt">SOURCEID=</span><span class="kw">rep</span>(edgeroi<span class="op">$</span>sites<span class="op">$</span>SOURCEID, <span class="dv">6</span>))
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ov.edgeroi.BLDm =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">BLD.f=</span><span class="kw">as.vector</span>(<span class="kw">sapply</span>(<span class="dv">2</span><span class="op">:</span><span class="kw">ncol</span>(ov.edgeroi.BLD),                                                <span class="cf">function</span>(i){<span class="kw">rowMeans</span>(ov.edgeroi.BLD[,<span class="kw">c</span>(i<span class="dv">-1</span>,i)])})),
+                    <span class="dt">DEPTH.c=</span><span class="kw">as.vector</span>(<span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="cf">function</span>(i){<span class="kw">rep</span>(<span class="kw">paste0</span>(<span class="st">&quot;sd&quot;</span>,i),
+                        <span class="kw">nrow</span>(edgeroi<span class="op">$</span>sites))})), <span class="dt">SOURCEID=</span><span class="kw">rep</span>(edgeroi<span class="op">$</span>sites<span class="op">$</span>SOURCEID, <span class="dv">5</span>))
 <span class="kw">str</span>(ov.edgeroi.BLDm)
-<span class="co">#&gt; &#39;data.frame&#39;:    2154 obs. of  3 variables:</span>
-<span class="co">#&gt;  $ BLD.f   : num  1270 1175 1296 1286 1278 ...</span>
-<span class="co">#&gt;  $ DEPTH.c : Factor w/ 6 levels &quot;sd1&quot;,&quot;sd2&quot;,&quot;sd3&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</span>
+<span class="co">#&gt; &#39;data.frame&#39;:    1795 obs. of  3 variables:</span>
+<span class="co">#&gt;  $ BLD.f   : num  1370 1335 1310 1500 1490 ...</span>
+<span class="co">#&gt;  $ DEPTH.c : Factor w/ 5 levels &quot;sd1&quot;,&quot;sd2&quot;,&quot;sd3&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</span>
 <span class="co">#&gt;  $ SOURCEID: Factor w/ 359 levels &quot;199_CAN_CP111_1&quot;,..: 1 2 3 4 5 6 7 8 9 10 ...</span></code></pre></div>
-<p>Third, we match BLD values by matching horizon depths (center of horizon) with the standard depth intervals <code>sd1</code> to <code>sd6</code>:</p>
+<p>Third, we match BLD values by matching horizon depths (center of horizon) with the standard depth intervals <code>sd1</code> to <code>sd5</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">edgeroi<span class="op">$</span>horizons<span class="op">$</span>DEPTH =<span class="st"> </span>edgeroi<span class="op">$</span>horizons<span class="op">$</span>UHDICM <span class="op">+</span><span class="st"> </span>(edgeroi<span class="op">$</span>horizons<span class="op">$</span>LHDICM <span class="op">-</span><span class="st"> </span>edgeroi<span class="op">$</span>horizons<span class="op">$</span>UHDICM)<span class="op">/</span><span class="dv">2</span>
-edgeroi<span class="op">$</span>horizons<span class="op">$</span>DEPTH.c =<span class="st"> </span><span class="kw">cut</span>(edgeroi<span class="op">$</span>horizons<span class="op">$</span>DEPTH, <span class="dt">include.lowest=</span><span class="ot">TRUE</span>, <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">5</span>,<span class="dv">15</span>,<span class="dv">30</span>,<span class="dv">60</span>,<span class="dv">100</span>,<span class="dv">1000</span>), <span class="dt">labels=</span><span class="kw">paste0</span>(<span class="st">&quot;sd&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>))
+edgeroi<span class="op">$</span>horizons<span class="op">$</span>DEPTH.c =<span class="st"> </span><span class="kw">cut</span>(edgeroi<span class="op">$</span>horizons<span class="op">$</span>DEPTH, <span class="dt">include.lowest=</span><span class="ot">TRUE</span>, <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">30</span>,<span class="dv">60</span>,<span class="dv">100</span>,<span class="dv">1000</span>), <span class="dt">labels=</span><span class="kw">paste0</span>(<span class="st">&quot;sd&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>))
 <span class="kw">summary</span>(edgeroi<span class="op">$</span>horizons<span class="op">$</span>DEPTH.c)
-<span class="co">#&gt; sd1 sd2 sd3 sd4 sd5 sd6 </span>
-<span class="co">#&gt; 100 314 356 408 391 769</span>
+<span class="co">#&gt; sd1 sd2 sd3 sd4 sd5 </span>
+<span class="co">#&gt; 391 379 408 391 769</span>
 edgeroi<span class="op">$</span>horizons<span class="op">$</span>BLD.f =<span class="st"> </span>plyr<span class="op">::</span><span class="kw">join</span>(edgeroi<span class="op">$</span>horizons[,<span class="kw">c</span>(<span class="st">&quot;SOURCEID&quot;</span>,<span class="st">&quot;DEPTH.c&quot;</span>)], ov.edgeroi.BLDm)<span class="op">$</span>BLD.f
 <span class="co">#&gt; Joining by: SOURCEID, DEPTH.c</span></code></pre></div>
-<p>Now that we have a rough estimate of the bulk density for all horizons, we can derive OCD in kg/m-cubic by using:</p>
+<p>which shows relatively equal distribution of soil horizons for within the standard depths. Now that we have a rough estimate of the bulk density for all horizons, we can derive OCD in kg/m-cubic by using:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">edgeroi<span class="op">$</span>horizons<span class="op">$</span>OCD =<span class="st"> </span>edgeroi<span class="op">$</span>horizons<span class="op">$</span>ORCDRC<span class="op">/</span><span class="dv">1000</span> <span class="op">*</span><span class="st"> </span>edgeroi<span class="op">$</span>horizons<span class="op">$</span>BLD.f
 <span class="kw">summary</span>(edgeroi<span class="op">$</span>horizons<span class="op">$</span>OCD)
 <span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s </span>
-<span class="co">#&gt;     0.1     2.5     7.3     9.5    13.2   110.0     297</span></code></pre></div>
+<span class="co">#&gt;     0.1     2.4     7.2     9.5    13.2   124.9     262</span></code></pre></div>
 <p>This shows that OCD values range from 0–110 kg/m-cubic, with an average of 9.5 kg/m-cubic (this corresponds to an average organic carbon content of about 0.8%).</p>
 <p>For further 3D spatial prediction of OCD we use the ranger package, which fits a random forest model to this 3D data. We start by overlaying points and rasters so that we can create a regression matrix:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ov2 &lt;-<span class="st"> </span><span class="kw">over</span>(edgeroi.sp, edgeroi.spc<span class="op">@</span>predicted)
@@ -984,13 +991,14 @@ m.OCD
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Type:                             Regression </span>
 <span class="co">#&gt; Number of trees:                  500 </span>
-<span class="co">#&gt; Sample size:                      4858 </span>
+<span class="co">#&gt; Sample size:                      4972 </span>
 <span class="co">#&gt; Number of independent variables:  13 </span>
 <span class="co">#&gt; Mtry:                             3 </span>
 <span class="co">#&gt; Target node size:                 5 </span>
 <span class="co">#&gt; Variable importance mode:         impurity </span>
-<span class="co">#&gt; OOB prediction error (MSE):       17.3 </span>
-<span class="co">#&gt; R squared (OOB):                  0.703</span></code></pre></div>
+<span class="co">#&gt; Splitrule:                        variance </span>
+<span class="co">#&gt; OOB prediction error (MSE):       18.7 </span>
+<span class="co">#&gt; R squared (OOB):                  0.693</span></code></pre></div>
 <p>Which shows that the average error with Out-of-bag training points is ±4.2 kg/m-cubic. Note that setting <code>quantreg = TRUE</code> allows us to derive also a map of the prediction errors (Fig. <a href="SOC-chapter.html#fig:plot-edgeroi-ocd">7.10</a>), following the method of <span class="citation">Meinshausen (<a href="references.html#ref-meinshausen2006quantile">2006</a>)</span>.</p>
 <p>To derive OCS in tons/ha we can compute OCD at two depths (0 and 30 cm) and then take the mean value to produce a more representative value:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">30</span>)){
@@ -999,11 +1007,11 @@ m.OCD
    nm1 =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;OCD.&quot;</span>, i, <span class="st">&quot;cm&quot;</span>)
    edgeroi.grids<span class="op">@</span>data[,nm1] =<span class="st"> </span>OCD.rf<span class="op">$</span>predictions
    OCD.qrf &lt;-<span class="st"> </span><span class="kw">predict</span>(m.OCD, edgeroi.spc<span class="op">@</span>predicted<span class="op">@</span>data, 
-                      <span class="dt">type=</span><span class="st">&quot;quantiles&quot;</span>, <span class="dt">quantiles=</span><span class="kw">c</span>((<span class="dv">1</span><span class="op">-</span>.<span class="dv">682</span>)<span class="op">/</span><span class="dv">2</span>, <span class="dv">1</span><span class="op">-</span>(<span class="dv">1</span><span class="op">-</span>.<span class="dv">682</span>)<span class="op">/</span><span class="dv">2</span>))
+                      <span class="dt">type=</span><span class="st">&quot;quantiles&quot;</span>, <span class="dt">quantiles=</span><span class="kw">c</span>((<span class="dv">1</span><span class="fl">-.682</span>)<span class="op">/</span><span class="dv">2</span>, <span class="dv">1</span><span class="op">-</span>(<span class="dv">1</span><span class="fl">-.682</span>)<span class="op">/</span><span class="dv">2</span>))
    nm2 =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;OCD.&quot;</span>, i, <span class="st">&quot;cm_se&quot;</span>)
    edgeroi.grids<span class="op">@</span>data[,nm2] =<span class="st"> </span>(OCD.qrf<span class="op">$</span>predictions[,<span class="dv">2</span>] <span class="op">-</span><span class="st"> </span>OCD.qrf<span class="op">$</span>predictions[,<span class="dv">1</span>])<span class="op">/</span><span class="dv">2</span>
 }</code></pre></div>
-<p>so that the final Organic carbon stocks in t/ha is (see Eq. ??):</p>
+<p>so that the final Organic carbon stocks in t/ha is:</p>
 <pre><code>#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 #&gt;    20.7    38.1    46.4    47.3    55.1   101.6</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:plot-edgeroi-ocd"></span>
@@ -1019,11 +1027,12 @@ edgeroi.grids<span class="op">$</span>LandUse =<span class="st"> </span><span cl
 <span class="co">#&gt; extdata/edgeroi_LandUse.sdat has GDAL driver SAGA </span>
 <span class="co">#&gt; and has 128 rows and 190 columns</span>
 lu.leg =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;extdata/LandUse.csv&quot;</span>)
-edgeroi.grids<span class="op">$</span>LandUseClass =<span class="st"> </span><span class="kw">paste</span>(<span class="kw">join</span>(<span class="kw">data.frame</span>(<span class="dt">LandUse=</span>edgeroi.grids<span class="op">$</span>LandUse), lu.leg, <span class="dt">match=</span><span class="st">&quot;first&quot;</span>)<span class="op">$</span>LU_NSWDeta)
+edgeroi.grids<span class="op">$</span>LandUseClass =<span class="st"> </span><span class="kw">paste</span>(<span class="kw">join</span>(<span class="kw">data.frame</span>(<span class="dt">LandUse=</span>edgeroi.grids<span class="op">$</span>LandUse), 
+                                        lu.leg, <span class="dt">match=</span><span class="st">&quot;first&quot;</span>)<span class="op">$</span>LU_NSWDeta)
 <span class="co">#&gt; Joining by: LandUse</span>
 OCS_agg.lu &lt;-<span class="st"> </span>plyr<span class="op">::</span><span class="kw">ddply</span>(edgeroi.grids<span class="op">@</span>data, .(LandUseClass), summarize,
-                          <span class="dt">Total_OCS_kt=</span><span class="kw">round</span>(<span class="kw">sum</span>(OCS.30cm<span class="op">*</span><span class="dv">250</span><span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="fl">1e4</span>, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)<span class="op">/</span><span class="fl">1e3</span>),
-                          <span class="dt">Area_km2=</span><span class="kw">round</span>(<span class="kw">sum</span>(<span class="op">!</span><span class="kw">is.na</span>(OCS.30cm))<span class="op">*</span><span class="dv">250</span><span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="fl">1e6</span>))
+                          <span class="dt">Total_OCS_kt=</span><span class="kw">round</span>(<span class="kw">sum</span>(OCS<span class="fl">.30</span>cm<span class="op">*</span><span class="dv">250</span><span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="fl">1e4</span>, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)<span class="op">/</span><span class="fl">1e3</span>),
+                          <span class="dt">Area_km2=</span><span class="kw">round</span>(<span class="kw">sum</span>(<span class="op">!</span><span class="kw">is.na</span>(OCS<span class="fl">.30</span>cm))<span class="op">*</span><span class="dv">250</span><span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="fl">1e6</span>))
 OCS_agg.lu<span class="op">$</span>LandUseClass.f =<span class="st"> </span><span class="kw">strtrim</span>(OCS_agg.lu<span class="op">$</span>LandUseClass, <span class="dv">34</span>)
 OCS_agg.lu<span class="op">$</span>OCH_t_ha_M =<span class="st"> </span><span class="kw">round</span>(OCS_agg.lu<span class="op">$</span>Total_OCS_kt<span class="op">*</span><span class="dv">1000</span><span class="op">/</span>(OCS_agg.lu<span class="op">$</span>Area_km2<span class="op">*</span><span class="dv">100</span>))
 OCS_agg.lu[OCS_agg.lu<span class="op">$</span>Area_km2<span class="op">&gt;</span><span class="dv">5</span>,<span class="kw">c</span>(<span class="st">&quot;LandUseClass.f&quot;</span>,<span class="st">&quot;Total_OCS_kt&quot;</span>,<span class="st">&quot;Area_km2&quot;</span>,<span class="st">&quot;OCH_t_ha_M&quot;</span>)]
@@ -1060,9 +1069,9 @@ OCS_agg.lu[OCS_agg.lu<span class="op">$</span>Area_km2<span class="op">&gt;</spa
 <p>This data shows that there are actually sufficient observations spread through time (last 60+ years) to fit a spatiotemporal model:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(OCD_stN<span class="op">$</span>YEAR, <span class="dt">xlab=</span><span class="st">&quot;Year&quot;</span>, <span class="dt">main=</span><span class="st">&quot;&quot;</span>, <span class="dt">col=</span><span class="st">&quot;darkgrey&quot;</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:thist-usa48"></span>
-<img src="Soil_organic_carbon_files/figure-html/thist-usa48-1.png" alt="Distribution of soil observations based on sampling year" width="672" />
+<img src="Soil_organic_carbon_files/figure-html/thist-usa48-1.png" alt="Distribution of soil observations based on sampling year." width="672" />
 <p class="caption">
-Figure 7.11: Distribution of soil observations based on sampling year
+Figure 7.11: Distribution of soil observations based on sampling year.
 </p>
 </div>
 <p>In fact, because the data set above represents values of OCD at variable depths, we can use this data to fit a full 3D+T spatiotemporal model in the form:</p>
@@ -1072,9 +1081,9 @@ Figure 7.11: Distribution of soil observations based on sampling year
 \end{equation}\]</span>
 <p>where <span class="math inline">\(d\)</span> is the depth, <span class="math inline">\(X_k (xy)\)</span> are static covariates i.e. the covariates that do not change in time, and <span class="math inline">\(X_p (xyt)\)</span> are spatiotemporal covariates i.e. covariates that change with time. Here we can assume that the static covariates are mainly landform and lithology: these have probably not changed significantly in the last 100 years. Land cover, land use and climate, on the other hand, have probably changed drastically in the last 100 years and have to be represented with a time-series of images. There are, indeed, several time-series data sets now available that can be used to represent land cover dynamics:</p>
 <ul>
-<li><p><a href="ftp://ftp.pbl.nl/hyde/hyde3.2/">HYDE 3.2 Historic land use data set</a> <span class="citation">(Klein Goldewijk et al. <a href="references.html#ref-klein2011hyde">2011</a>)</span>: portrays the distribution of major agricultural systems from 10,000 BC (pre-historic no landuse condition) to the present time. 10 categories of land use have been represented: total cropping, total grazing, pasture (improved grazingland), rangeland (unimproved grazingland), total rainfed cropping, total irrigated cropping, with further subdivisions for rice and non-rice cropping systems for both rainfed and irrigated cropping.</p></li>
+<li><p><a href="ftp://ftp.pbl.nl/hyde/hyde3.2/">HYDE 3.2 Historic land use data set</a> <span class="citation">(Klein Goldewijk et al. <a href="references.html#ref-klein2011hyde">2011</a>)</span>: portrays the distribution of major agricultural systems from 10,000 BC (pre-historic no land-use condition) to the present time. 10 categories of land use have been represented: total cropping, total grazing, pasture (improved grazing-land), rangeland (unimproved grazing-land), total rainfed cropping, total irrigated cropping, with further subdivisions for rice and non-rice cropping systems for both rainfed and irrigated cropping.</p></li>
 <li><p><a href="http://www.ipcc-data.org/observ/clim/">CRU TS2.1 climatic surfaces</a> for period 1960–1990 <span class="citation">(Harris et al. <a href="references.html#ref-harris2014updated">2014</a>)</span>.</p></li>
-<li><p><a href="http://www.unep-wcmc.org/resources-and-data/generalised-original-and-current-forest">UNEP-WCMC Generalised Original and Current Forest cover map</a> showing global dynamics of forest cover.</p></li>
+<li><p><a href="http://www.unep-wcmc.org/resources-and-data/generalised-original-and-current-forest">UNEP-WCMC Generalized Original and Current Forest cover map</a> showing global dynamics of forest cover.</p></li>
 </ul>
 <p>All these layers are available only at a relatively coarse resolution of 10 km, but then cover longer time spans. Note also that, since these are time-series images, spatiotemporal overlay can take time as spatial overlay must be repeated for each time period. The spatiotemporal matrix file already contains the results of overlay, so that we can focus directly on building spatiotemporal models of OCD e.g.:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pr.lst &lt;-<span class="st"> </span><span class="kw">names</span>(OCD_stN)[<span class="op">-</span><span class="kw">which</span>(<span class="kw">names</span>(OCD_stN) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;SOURCEID&quot;</span>, <span class="st">&quot;DEPTH.f&quot;</span>, <span class="st">&quot;OCDENS&quot;</span>, <span class="st">&quot;YEAR&quot;</span>, <span class="st">&quot;YEAR_c&quot;</span>, <span class="st">&quot;LONWGS84&quot;</span>, <span class="st">&quot;LATWGS84&quot;</span>))]
@@ -1149,8 +1158,8 @@ Figure 7.15: Predicted slope of change of soil organic carbon density for Texas 
 <h2><span class="header-section-number">7.9</span> Summary points</h2>
 <p>Based on all the examples and discussion above, the following key points can be emphasized:</p>
 <ol style="list-style-type: decimal">
-<li>OCS for an area of interest can be derived either using 2D or 3D approachs. 3D approaches typically include modeling ORC, BLD and CRF separately (and then deriving OCS per pixel), or modeling OCD for standard depths and then converting to OCS.</li>
-<li>Publicly available RS-based covariates (SRTM / ALOS DEM, Landsat, Sentinel satellites) are available for improving the mapping accuracy of OCS. Improving the accuracy of OCS maps is becomming less expensive, given the increasing availability of RS data.</li>
+<li>OCS for an area of interest can be derived either using 2D or 3D approaches. 3D approaches typically include modeling ORC, BLD and CRF separately (and then deriving OCS per pixel), or modeling OCD for standard depths and then converting to OCS.</li>
+<li>Publicly available RS-based covariates (SRTM / ALOS DEM, Landsat, Sentinel satellites) are available for improving the mapping accuracy of OCS. Improving the accuracy of OCS maps is becoming less expensive, given the increasing availability of RS data.</li>
 <li>PT (Pedo-Transfer) rules can be used to fill in (estimate) missing BLD values and to estimate ORC for deeper soil depths. Also global maps with predictions of BLD and CRF can be used to supply missing values, if there are no other alternatives.</li>
 <li>Machine learning techniques such as Random Forest, neural nets, gradient boosting and similar, can be used to predict soil organic carbon in 2D, 3D and in spatiotemporal modeling frameworks. The accuracy of these predictions is improved relative to linear statistical models, especially where the relationship between soil organic carbon distribution and climatic, land cover, hydrological, relief and similar covariates is complex (i.e. non-linear).</li>
 <li>Global estimates of ORC, BLD and CRF can be used as covariates so that consistent predictions can be produced (as explained in <span class="citation">Ramcharan et al. (<a href="references.html#ref-ramcharan2018soil">2018</a><a href="references.html#ref-ramcharan2018soil">a</a>)</span>).</li>
@@ -1206,7 +1215,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -1218,6 +1227,10 @@ gitbook.start({
 "edit": {
 "link": "https://github.com/envirometrix/PredictiveSoilMapping/edit/master/Soil_organic_carbon.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": null,
 "toc": {
@@ -1233,7 +1246,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

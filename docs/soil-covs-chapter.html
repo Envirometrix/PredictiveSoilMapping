@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Predictive Soil Mapping with R</title>
+  <title>4 Preparation of soil covariates for soil mapping | Predictive Soil Mapping with R</title>
   <meta name="description" content="Predictive Soil Mapping aims at producing most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement various soil mapping procedures with R programming language.">
-  <meta name="generator" content="bookdown 0.7.12 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Predictive Soil Mapping with R" />
+  <meta property="og:title" content="4 Preparation of soil covariates for soil mapping | Predictive Soil Mapping with R" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://soilmapper.org" />
   <meta property="og:image" content="http://soilmapper.orgfigures/f0_web.png" />
@@ -17,15 +17,15 @@
   <meta name="github-repo" content="envirometrix/PredictiveSoilMapping" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Predictive Soil Mapping with R" />
+  <meta name="twitter:title" content="4 Preparation of soil covariates for soil mapping | Predictive Soil Mapping with R" />
   <meta name="twitter:site" content="@tom_hengl" />
   <meta name="twitter:description" content="Predictive Soil Mapping aims at producing most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement various soil mapping procedures with R programming language." />
   <meta name="twitter:image" content="http://soilmapper.orgfigures/f0_web.png" />
 
-<meta name="author" content="Tomislav Hengl">
+<meta name="author" content="Tomislav Hengl and Robert A. MacMillan">
 
 
-<meta name="date" content="2018-10-15">
+<meta name="date" content="2018-12-18">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="statistical-theory.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -216,8 +217,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="4" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html"><i class="fa fa-check"></i><b>4</b> Preparation of soil covariates for soil mapping</a><ul>
 <li class="chapter" data-level="4.1" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#soil-covariate-data-sources"><i class="fa fa-check"></i><b>4.1</b> Soil covariate data sources</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#soil-covs-30m"><i class="fa fa-check"></i><b>4.1.1</b> Soil covariate data sources (30–100 m resolution)</a></li>
-<li class="chapter" data-level="4.1.2" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#soil-covs-250m"><i class="fa fa-check"></i><b>4.1.2</b> Soil covariate data sources (250 m resolution or coarser)</a></li>
+<li class="chapter" data-level="4.1.1" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#types-of-soil-covariates"><i class="fa fa-check"></i><b>4.1.1</b> Types of soil covariates</a></li>
+<li class="chapter" data-level="4.1.2" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#soil-covs-30m"><i class="fa fa-check"></i><b>4.1.2</b> Soil covariate data sources (30–100 m resolution)</a></li>
+<li class="chapter" data-level="4.1.3" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#soil-covs-250m"><i class="fa fa-check"></i><b>4.1.3</b> Soil covariate data sources (250 m resolution or coarser)</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#preparing-soil-covariate-layers"><i class="fa fa-check"></i><b>4.2</b> Preparing soil covariate layers</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#converting-polygon-maps-to-rasters"><i class="fa fa-check"></i><b>4.2.1</b> Converting polygon maps to rasters</a></li>
@@ -297,7 +299,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
-<li><a href="http://envirometrix.net/staff">T. (Tom) Hengl</a></li>
+<li><a href="https://opengeohub.org/people/tom-hengl">T. (Tom) Hengl and R.A. (Bob) MacMillan</a></li>
 
 </ul>
 
@@ -321,8 +323,93 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><em>Edited by: T. Hengl</em></p>
 <div id="soil-covariate-data-sources" class="section level2">
 <h2><span class="header-section-number">4.1</span> Soil covariate data sources</h2>
+<div id="types-of-soil-covariates" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Types of soil covariates</h3>
+<p>Soils (and vegetation + ecosystem) form under complex interactions between climate, living organism and anthropogenic influences, modified by relief and hydrological processes and run through long periods of time. This has been clearly identified first by <span class="citation">Jenny (<a href="references.html#ref-jenny1994factors">1994</a>)</span> with his CLORPT factors of soil formation and later on by <span class="citation">McBratney, Mendonça Santos, and Minasny (<a href="references.html#ref-MCBRATNEY20033">2003</a>)</span> with his SCORPAN formulation (see <a href="introduction.html#soil-mapping-theory">Introduction chapter</a>).</p>
+<p>In general, the following list of covariates are commonly used in Predictive Soil Mapping:</p>
+<ol style="list-style-type: decimal">
+<li>Climate related covariates include:</li>
+</ol>
+<ul>
+<li>temperature maps,</li>
+<li>precipitation maps,</li>
+<li>snow cover maps,</li>
+<li>potential evapotranspiration,</li>
+<li>cloud fraction and other atmospheric images,</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Vegetation and Living Organisms include:</li>
+</ol>
+<ul>
+<li>vegetation indices e.g. FAPAR (mean, median), NDVI, EVI,</li>
+<li>biomass, Leaf Area Index,</li>
+<li>land cover type maps,</li>
+<li>vegetation types and communities (if mapped at high accuracy),</li>
+<li>land cover,</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Relief and Topography covariates include:</li>
+</ol>
+<ul>
+<li>standard window calculations e.g. slope, curvatures, standard deviation,</li>
+<li>standard flow model outputs,</li>
+<li>landform classes / landform class likelihoods,</li>
+<li>hydrological / soil accumulation and deposition indices — MRVBFI, MRRTFI, Wetness index, height above channel, height below ridge, horizontal distance to channel, horizontal distance to ridge,</li>
+<li>climatic and micro-climatic indices determined by relief — incoming solar insolation and similar,</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Parent material / geologic Material covariates include:</li>
+</ol>
+<ul>
+<li>bedrock type and age,</li>
+<li>bedrock mineralogy (acid, basic),</li>
+<li>surface material type, texture, age, mineralogy, thickness,</li>
+<li>volcanic activity, historic earthquake density,</li>
+<li>seismic activity level,</li>
+<li>gamma Ray Spectroscopy grids,</li>
+<li>gravity measurements,</li>
+<li>electrical conductivity/resistance,</li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li>Estimated geological age of surface:</li>
+</ol>
+<ul>
+<li>bedrock age / surface material age,</li>
+<li>recent disturbance age,</li>
+</ul>
+<ol start="6" style="list-style-type: decimal">
+<li>Spatial position or spatial context</li>
+</ol>
+<ul>
+<li>Latitude and Longitude,</li>
+<li>distance to nearest large ocean</li>
+<li>Northing — distance to north pole,</li>
+<li>Southing — distance to south pole,</li>
+<li>Easting — distance to east,</li>
+<li>Westing — distance to west,</li>
+<li>shortest distance in any direction,</li>
+<li>distance to nearest high mountain,</li>
+<li>distance to nearest moderate hill,</li>
+<li>distance to nearest major river,</li>
+</ul>
+<ol start="7" style="list-style-type: decimal">
+<li>Human or Anthropogenic Influences</li>
+</ol>
+<ul>
+<li>land use / land management maps,</li>
+<li>probability / intensity of agricultural land use,</li>
+<li>probability / intensity of pasture or grazing use,</li>
+<li>probability / intensity of forest land management,</li>
+<li>probability / intensity of urbanization,</li>
+<li>soil dredging, surface sealing,</li>
+<li>night time illumination (nightlights) images,</li>
+<li>probability of gullying or human-induced erosion,</li>
+<li>soil nutrient fertilization, liming and similar maps,</li>
+</ul>
+<p>In the following sections we provide some practical tips (with links to the most important data sources) on how to prepare soil covariates for PSM.</p>
+</div>
 <div id="soil-covs-30m" class="section level3">
-<h3><span class="header-section-number">4.1.1</span> Soil covariate data sources (30–100 m resolution)</h3>
+<h3><span class="header-section-number">4.1.2</span> Soil covariate data sources (30–100 m resolution)</h3>
 <p>Adding relevant covariates that can help explain the distribution of soil properties increases the accuracy of spatial predictions. Hence, prior to generating predictions of soil properties, it is a good idea to invest in preparing a list of Remote Sensing (RS), geomorphological/lithologic and DEM-based covariates that can potentially help explain the spatial distribution of soil properties and classes. There are now many finer resolution (30–250 m) covariates with global coverage that are publicly available without restrictions. The spatial detail, accessibility and accuracy of RS-based products has been growing exponentially and there is no evidence that this trend is going to slow down in the coming decades <span class="citation">(Herold et al. <a href="references.html#ref-Herold2016">2016</a>)</span>.</p>
 <p>The most relevant (global) publicly available remote sensing-based covariates that can be downloaded and used to improve predictive soil mapping at high spatial resolutions are, for example:</p>
 <ul>
@@ -331,12 +418,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><p><a href="https://global-surface-water.appspot.com/download">Landsat-based Global Surface Water (GSW) dynamics images</a> at 30 m resolution for the period 1985–2016 <span class="citation">(Pekel et al. <a href="references.html#ref-pekel2016high">2016</a>)</span>;</p></li>
 <li><p>Global Land Cover (GLC) maps based on the <a href="http://www.globallandcover.com">GLC30 project</a> at 30 m resolution for 2000 and 2010 <span class="citation">(Chen et al. <a href="references.html#ref-Chen2014">2015</a>)</span> and similar land cover projects <span class="citation">(Herold et al. <a href="references.html#ref-Herold2016">2016</a>)</span>;</p></li>
 <li><p>USGS’s <a href="https://landcover.usgs.gov/glc/">global bare surface images</a> at 30 m resolution;</p></li>
-<li><p><a href="http://www.eorc.jaxa.jp/ALOS/en/dataset/dataset_index.htm">JAXA’s ALOS</a> (PALSAR/PALSAR-2) radar images at 20 m resolution <span class="citation">(Shimada et al. <a href="references.html#ref-shimada2014new">2014</a>)</span>; radar images, bands HH: -27.7 (5.3) dB and HV: -35.8 (3.0) dB, from the JAXA’s ALOS project are especially interesting for mapping rock outcrops and exposed bedrock but are also to distinguish between bare soil and dense vegation;</p></li>
+<li><p><a href="http://www.eorc.jaxa.jp/ALOS/en/dataset/dataset_index.htm">JAXA’s ALOS</a> (PALSAR/PALSAR-2) radar images at 20 m resolution <span class="citation">(Shimada et al. <a href="references.html#ref-shimada2014new">2014</a>)</span>; radar images, bands HH: -27.7 (5.3) dB and HV: -35.8 (3.0) dB, from the JAXA’s ALOS project are especially interesting for mapping rock outcrops and exposed bedrock but are also to distinguish between bare soil and dense vegetation;</p></li>
 </ul>
 <p>Note that the download time for 30 m global RS data can be significant if the data are needed for a larger area (hence you might consider using some RS data processing hub such as <a href="http://www.sentinel-hub.com/">Sentinel hub</a>, <a href="https://earthengine.google.com/">Google Earth Engine</a> and/or <a href="https://aws.amazon.com/public-datasets/">Amazon Web Services</a> instead of trying to download large mosaics yourself).</p>
 </div>
 <div id="soil-covs-250m" class="section level3">
-<h3><span class="header-section-number">4.1.2</span> Soil covariate data sources (250 m resolution or coarser)</h3>
+<h3><span class="header-section-number">4.1.3</span> Soil covariate data sources (250 m resolution or coarser)</h3>
 <p><span class="citation">Hengl, Mendes de Jesus, et al. (<a href="references.html#ref-Hengl2017SoilGrids250m">2017</a>)</span> used a large stack of coarser resolution covariate layers for producing SoilGrids250m predictions, most of which were based on remote sensing data:</p>
 <ul>
 <li><p>DEM-derived surfaces — slope, profile curvature, Multiresolution Index of Valley Bottom Flatness (VBF), deviation from Mean Value, valley depth, negative and positive Topographic Openness and SAGA Wetness Index — all based on a global merge of SRTMGL3 DEM and GMTED2010 <span class="citation">(Danielson and Gesch <a href="references.html#ref-Danielson2011GMTED">2011</a>)</span>. All DEM derivatives were computed using SAGA GIS <span class="citation">(Conrad et al. <a href="references.html#ref-gmd-8-1991-2015">2015</a>)</span>,</p></li>
@@ -353,8 +440,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><p>Landsat-based estimated distribution of Mangroves <span class="citation">(Giri et al. <a href="references.html#ref-giri2011status">2011</a>)</span>,</p></li>
 <li><p>Average soil and sedimentary-deposit thickness in meters <span class="citation">(Pelletier et al. <a href="references.html#ref-Pelletier2016">2016</a>)</span>.</p></li>
 </ul>
-<p>These covariates were selected to represent factors of soil formation according to <span class="citation">Jenny (<a href="references.html#ref-jenny1994factors">1994</a>)</span>: climate, relief, living organisms, water dynamics and parent material. Out of the five main factors, water dynamics and living organisms (especially vegetation dynamics) are not trivial to represent as these operate over long periods of time and often exhibit chaotic behaviour. Using reflectance bands such as the mid-infrared MODIS bands from a single day, would be of little use for soil mapping for areas with dynamic vegetation, i.e. with strong seasonal changes in vegetation cover. To account for seasonal fluctuation and for inter-annual variations in surface reflectance, long-term temporal signatures of the soil surface derived as monthly averages from long-term MODIS imagery (15 years of data) can be used <span class="citation">(Hengl, Mendes de Jesus, et al. <a href="references.html#ref-Hengl2017SoilGrids250m">2017</a>)</span>. Long-term average seasonal signatures of surface reflectance or vegetation index provide a better indication of soil characteristics than only a single snapshot of surface reflectance. Computing temporal signatures of the land surface requires a considerable investment of time (comparable to the generation of climatic images vs temporary weather maps), but it is possibly the only way to represent the cumulative influence of living organisms on soil formation.</p>
-<p><span class="citation">Behrens et al. (<a href="references.html#ref-Behrens2018128">2018</a>)</span> recently reported that, for example, DEM derivatives derived at coarser resolutions correlated better with some targeted soil properties than the derivatives derived at finer resolutions. In this case, resolution (or scale) was represented through various DEM aggregation levels and filter sizes. Some physical and chemical processes of soil formation or vegetation distribution might not be effecive or obvious at finer aggregation levels, but these can become very visible at coarser aggregation levels. In fact, it seems that spatial dependencies and interactions of the covariates can often be explained better simply by a aggregating DEM and its derivatives.</p>
+<p>These covariates were selected to represent factors of soil formation according to <span class="citation">Jenny (<a href="references.html#ref-jenny1994factors">1994</a>)</span>: climate, relief, living organisms, water dynamics and parent material. Out of the five main factors, water dynamics and living organisms (especially vegetation dynamics) are not trivial to represent as these operate over long periods of time and often exhibit chaotic behavior. Using reflectance bands such as the mid-infrared MODIS bands from a single day, would be of little use for soil mapping for areas with dynamic vegetation, i.e. with strong seasonal changes in vegetation cover. To account for seasonal fluctuation and for inter-annual variations in surface reflectance, long-term temporal signatures of the soil surface derived as monthly averages from long-term MODIS imagery (15 years of data) can be used <span class="citation">(Hengl, Mendes de Jesus, et al. <a href="references.html#ref-Hengl2017SoilGrids250m">2017</a>)</span>. Long-term average seasonal signatures of surface reflectance or vegetation index provide a better indication of soil characteristics than only a single snapshot of surface reflectance. Computing temporal signatures of the land surface requires a considerable investment of time (comparable to the generation of climatic images vs temporary weather maps), but it is possibly the only way to represent the cumulative influence of living organisms on soil formation.</p>
+<p><span class="citation">Behrens et al. (<a href="references.html#ref-Behrens2018128">2018</a>)</span> recently reported that, for example, DEM derivatives derived at coarser resolutions correlated better with some targeted soil properties than the derivatives derived at finer resolutions. In this case, resolution (or scale) was represented through various DEM aggregation levels and filter sizes. Some physical and chemical processes of soil formation or vegetation distribution might not be effective or obvious at finer aggregation levels, but these can become very visible at coarser aggregation levels. In fact, it seems that spatial dependencies and interactions of the covariates can often be explained better simply by a aggregating DEM and its derivatives.</p>
 </div>
 </div>
 <div id="preparing-soil-covariate-layers" class="section level2">
@@ -475,7 +562,7 @@ Figure 4.3: Eberg zones rasterized to 25 m resolution.
               <span class="st">&#39; extdata/eberg_grid_TWISRT6_25m.tif -r </span><span class="ch">\&quot;</span><span class="st">cubicspline</span><span class="ch">\&quot;</span><span class="st"> -te &#39;</span>, 
               <span class="kw">paste</span>(<span class="kw">as.vector</span>(<span class="kw">extent</span>(r))[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">4</span>)], <span class="dt">collapse=</span><span class="st">&quot; &quot;</span>),
               <span class="st">&#39; -tr &#39;</span>, pix, <span class="st">&#39; &#39;</span>, pix, <span class="st">&#39; -overwrite&#39;</span>))</code></pre></div>
-<p>The writeGDAL command writes the TWISRT6 grid, that is stored in the eberg_grid grid stack, to a TIFF file. This TIFF is subsequently read by the gdalwarp function and resampled to a 25m TIFF file using <code>cubicspline</code>, which will fill in values between original grid nodes using smooth surfaces. Note that the paste0 function in the <code>system()</code> command pastes together the following string:</p>
+<p>The writeGDAL command writes the TWISRT6 grid, that is stored in the eberg_grid grid stack, to a TIFF file. This TIFF is subsequently read by the <code>gdalwarp</code> function and resampled to a 25 m TIFF file using <code>cubicspline</code>, which will fill in values between original grid nodes using smooth surfaces. Note that the paste0 function in the <code>system()</code> command pastes together the following string:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="st">&quot;C:/Progra~1/GDAL/gdalwarp.exe eberg_grid_TWISRT6.tif </span>
 <span class="st">eberg_grid_TWISRT6_25m.tif -r </span><span class="dt">\&quot;</span><span class="st">cubicspline</span><span class="dt">\&quot;</span><span class="st"> </span>
 <span class="st">-te 3570000 5708000 3580000 5718000 -tr 25 25 -overwrite&quot;</span></code></pre></div>
@@ -715,20 +802,21 @@ Figure 4.9: A tile produced for a satellite image in the example above.
 <span class="kw">system</span>(<span class="st">&#39;gdalbuildvrt -input_file_list SP27GTIF_tiles.txt SP27GTIF.vrt&#39;</span>)
 <span class="kw">system</span>(<span class="st">&#39;gdalwarp SP27GTIF.vrt SP27GTIF_mask.tif -ot </span><span class="ch">\&quot;</span><span class="st">Byte</span><span class="ch">\&quot;</span><span class="st">&#39;</span>, 
   <span class="st">&#39; -dstnodata 255 -co </span><span class="ch">\&quot;</span><span class="st">BIGTIFF=YES</span><span class="ch">\&quot;</span><span class="st"> -r </span><span class="ch">\&quot;</span><span class="st">near</span><span class="ch">\&quot;</span><span class="st"> -overwrite -co </span><span class="ch">\&quot;</span><span class="st">COMPRESS=DEFLATE</span><span class="ch">\&quot;</span><span class="st">&#39;</span>)</code></pre></div>
-<p>Note we use a few important settings here for GDAL e.g. <code>-overwrite -co &quot;COMPRESS=DEFLATE&quot;</code> to overwrite the GeoTiff and internally compress it to save space and <code>-r &quot;near&quot;</code> basically no resampling just binding tiles together. Also, if the output GeoTiff is HUGE, you will most likely have to turn on <code>-co &quot;BIGTIFF=YES&quot;</code> otherwise gdalwarp would not run through. The output mosaic looks like this:</p>
+<p>Note we use a few important settings here for GDAL e.g. <code>-overwrite -co &quot;COMPRESS=DEFLATE&quot;</code> to overwrite the GeoTiff and internally compress it to save space and <code>-r &quot;near&quot;</code> basically no resampling just binding tiles together. Also, if the output GeoTiff is HUGE, you will most likely have to turn on <code>-co &quot;BIGTIFF=YES&quot;</code> otherwise <code>gdalwarp</code> would not run through. The output mosaic looks like this:</p>
 <div class="figure" style="text-align: center"><span id="fig:sp27gtif-mask"></span>
 <img src="figures/sp27gtif_mask.png" alt="Final processed output." width="80%" />
 <p class="caption">
 Figure 4.10: Final processed output.
 </p>
 </div>
-<p>This demonstrates that R can be used to compute with large rasters provided that these operations can be parallelized. Suggested best practice for this is to: (1) design a tiling system that optimizes use of RAM and read/write spead of a disk, (2) prepare and test a function that can be then run in parallel, and (3) stitch back all tiles to a large raster using <code>gdalwarp</code>. Note that Tiling and and stitching can not be applied universally to all problems e.g. functions that require global geographical search or all data in the raster, in such cases tiling should be applied with overlap (to minimize boundary effects) or to irregular tiling systems (e.g. per watershed). Once an optimal tiling system and function is prepared, R is no longer limited to running efficient computing, but only dependant on how much RAM and cores you have available i.e. it becomes more a hardware than a software problem.</p>
+<p>This demonstrates that R can be used to compute with large rasters provided that these operations can be parallelized. Suggested best practice for this is to: (1) design a tiling system that optimizes use of RAM and read/write speed of a disk, (2) prepare and test a function that can be then run in parallel, and (3) stitch back all tiles to a large raster using <code>gdalwarp</code>.</p>
+<p>Note that Tiling and and stitching can not be applied universally to all problems e.g. functions that require global geographical search or all data in the raster, in such cases tiling should be applied with overlap (to minimize boundary effects) or to irregular tiling systems (e.g. per watershed). Once an optimal tiling system and function is prepared, R is no longer limited to running efficient computing, but only dependent on how much RAM and cores you have available i.e. it becomes more a hardware than a software problem.</p>
 </div>
 </div>
 <div id="summary-points-1" class="section level2">
 <h2><span class="header-section-number">4.3</span> Summary points</h2>
-<p>Soil covariate layers are one of the key inputs to predictive soil mapping. Before any spatial layer can be used for modeling, it typically needs to be preprocessed to remove artifacts, resample to a standard resolution, fill in the missing values etc. All these operations can be succesfully run by combining R and Open Source GIS software and by careful programming and optimization.</p>
-<p>Preparing soil covariates can often be time and resources consuming so careful preparation and prioritisation of processing is highly recommended. <span class="citation">Hengl, Mendes de Jesus, et al. (<a href="references.html#ref-Hengl2017SoilGrids250m">2017</a>)</span> show that, for soil types and soil textures, DEM-parameters, i.e. soil forming factors of relief, especially flow-based DEM-indices, emerge as the second-most dominant covariates. These results largely correspond with conventional soil survey knowledge (surveyors have been using relief as a key guideline to delineate soil bodies for decades).</p>
+<p>Soil covariate layers are one of the key inputs to predictive soil mapping. Before any spatial layer can be used for modeling, it typically needs to be preprocessed to remove artifacts, resample to a standard resolution, fill in the missing values etc. All these operations can be successfully run by combining R and Open Source GIS software and by careful programming and optimization.</p>
+<p>Preparing soil covariates can often be time and resources consuming so careful preparation and prioritization of processing is highly recommended. <span class="citation">Hengl, Mendes de Jesus, et al. (<a href="references.html#ref-Hengl2017SoilGrids250m">2017</a>)</span> show that, for soil types and soil textures, DEM-parameters, i.e. soil forming factors of relief, especially flow-based DEM-indices, emerge as the second-most dominant covariates. These results largely correspond with conventional soil survey knowledge (surveyors have been using relief as a key guideline to delineate soil bodies for decades).</p>
 <p>Although lithology is not in the list of the top 15 most important predictors, spatial patterns of lithologic classes can often be distinctly recognized in the output predictions. This is especially true for soil texture fractions and coarse fragments. In general, for predicting soil chemical properties, climatic variables (especially precipitation) and surface reflectance seem to be the most important, while for soil classes and soil physical properties it is a combination of relief, vegetation dynamics and parent material. Investing extra time in preparing a better map of soil parent material is often a good idea.</p>
 <p>Other potentially useful covariates for predicting soil properties and classes could be maps of paleo i.e. pre-historic climatic conditions of soil formation, e.g. glacial landscapes and processes, past climate conditions and similar. These could likely become significant predictors of many current soil characteristics. Information on pre-historic climatic conditions and land use is unfortunately often not available, especially not at detailed cartographic scales, although there are now several global products that represent, for example, dynamics of land use / changes of land cover (see e.g. HYDE data set <span class="citation">(Klein Goldewijk et al. <a href="references.html#ref-klein2011hyde">2011</a>)</span>) through the past 1500+ years. As the spatial detail and completeness of such pre-historic maps increases, they will become potentially interesting covariates for global soil modeling.</p>
 <p>USA’s NASA and USGS, with its MODIS, Landsat and similar civil-applications missions will likely remain the main source of spatial covariate data to support global and local soil mapping initiatives.</p>
@@ -781,7 +869,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -793,6 +881,10 @@ gitbook.start({
 "edit": {
 "link": "https://github.com/envirometrix/PredictiveSoilMapping/edit/master/Soil_covariates.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": null,
 "toc": {
@@ -808,7 +900,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

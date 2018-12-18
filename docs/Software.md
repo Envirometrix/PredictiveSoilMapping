@@ -216,8 +216,8 @@ To install all required R packages used in this tutorial at once, you can use:
 
 ```r
 ls <- c("rgdal", "raster", "GSIF", "plotKML", 
-        "nnet", "plyr", "ROCR", "randomForest", 
-        "psych", "mda", "h2o", "dismo", "grDevices", 
+        "nnet", "plyr", "ROCR", "randomForest", "quantregForest", 
+        "psych", "mda", "h2o", "h2oEnsemble", "dismo", "grDevices", 
         "snowfall", "hexbin", "lattice", "ranger", 
         "soiltexture", "aqp", "colorspace", "Cubist",
         "randomForestSRC", "ggRandomForests", "scales",

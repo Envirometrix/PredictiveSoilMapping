@@ -1,5 +1,4 @@
 
-
 # Machine Learning Algorithms for soil mapping {#soilmapping-using-mla}
 
 *Edited by: T. Hengl*
@@ -116,11 +115,11 @@ TAXGRSC.rf <- randomForest(x=m[-s,paste0("PC",1:10)], y=m$soiltype[-s],
 ## accuracy:
 TAXGRSC.rf$test$confusion[,"class.error"]
 #>     Auenboden     Braunerde          Gley    Kolluvisol Parabraunerde 
-#>         0.500         0.488         0.818         0.682         0.561 
+#>         0.400         0.526         0.786         0.781         0.546 
 #>  Pararendzina       Pelosol    Pseudogley        Ranker       Regosol 
-#>         0.588         0.681         0.699         1.000         0.660 
+#>         0.629         0.674         0.683         1.000         0.745 
 #>      Rendzina 
-#>         0.667
+#>         0.500
 ```
 
 Note that, by specifying `xtest` and `ytest`, we run both model fitting and cross-validation with 500 excluded points. The results show relatively high prediction error of about 60% i.e. relative classification accuracy of about 40%.
@@ -148,7 +147,7 @@ TAXGRSC.mn <- nnet::multinom(fm, m)
 #> stopped after 100 iterations
 TAXGRSC.svm <- e1071::svm(fm, m, probability=TRUE, cross=5)
 TAXGRSC.svm$tot.accuracy
-#> [1] 40.2
+#> [1] 40.5
 ```
 
 This produces about the same accuracy levels as for random forest. Because all three methods produce comparable accuracy, we can also merge predictions by calculating a simple average:
@@ -198,9 +197,9 @@ eberg_soiltype$cl <- as.factor(apply(eberg_soiltype@data,1,which.max))
 levels(eberg_soiltype$cl) = attr(probs, "dimnames")[[2]][as.integer(levels(eberg_soiltype$cl))]
 summary(eberg_soiltype$cl)
 #>     Auenboden     Braunerde          Gley    Kolluvisol Parabraunerde 
-#>            39          2295           145            56          2251 
+#>            39          2323           151            65          2232 
 #>  Pararendzina       Pelosol    Pseudogley       Regosol      Rendzina 
-#>           758           466          1320           310          2360
+#>           765           455          1301           305          2364
 ```
 
 ### Modelling numeric soil properties using h2o
@@ -216,12 +215,14 @@ localH2O = h2o.init(startH2O=FALSE)
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         25 minutes 38 seconds 
-#>     H2O cluster version:        3.16.0.2 
-#>     H2O cluster version age:    9 months !!! 
-#>     H2O cluster name:           H2O_started_from_R_tomislav_cqe222 
+#>     H2O cluster uptime:         18 seconds 221 milliseconds 
+#>     H2O cluster timezone:       Europe/Amsterdam 
+#>     H2O data parsing timezone:  UTC 
+#>     H2O cluster version:        3.20.0.2 
+#>     H2O cluster version age:    6 months and 2 days !!! 
+#>     H2O cluster name:           H2O_started_from_R_tomislav_het448 
 #>     H2O cluster total nodes:    1 
-#>     H2O cluster total memory:   3.23 GB 
+#>     H2O cluster total memory:   3.89 GB 
 #>     H2O cluster total cores:    8 
 #>     H2O cluster allowed cores:  8 
 #>     H2O cluster healthy:        TRUE 
@@ -230,9 +231,9 @@ localH2O = h2o.init(startH2O=FALSE)
 #>     H2O Connection proxy:       NA 
 #>     H2O Internal Security:      FALSE 
 #>     H2O API Extensions:         XGBoost, Algos, AutoML, Core V3, Core V4 
-#>     R Version:                  R version 3.4.3 (2017-11-30)
+#>     R Version:                  R version 3.5.1 (2018-07-02)
 #> Warning in h2o.clusterInfo(): 
-#> Your H2O cluster version is too old (9 months)!
+#> Your H2O cluster version is too old (6 months and 2 days)!
 #> Please download and install the latest version from http://h2o.ai/download/
 ```
 
@@ -253,29 +254,29 @@ We can now fit a random forest model by using all the computing power available 
 RF.m <- h2o.randomForest(y = which(names(m)=="SNDMHT_A"), 
                         x = which(names(m) %in% paste0("PC",1:10)), 
                         training_frame = eberg.hex, ntree = 50)
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=                                                                |   2%  |                                                                         |=================================================================| 100%
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=====================================================            |  82%  |                                                                         |=================================================================| 100%
 RF.m
 #> Model Details:
 #> ==============
 #> 
 #> H2ORegressionModel: drf
-#> Model ID:  DRF_model_R_1535712458501_6 
+#> Model ID:  DRF_model_R_1545136645002_1 
 #> Model Summary: 
 #>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#> 1              50                       50              644252        20
+#> 1              50                       50              642463        20
 #>   max_depth mean_depth min_leaves max_leaves mean_leaves
-#> 1        20   20.00000        943       1079  1021.76000
+#> 1        20   20.00000        965       1065  1018.96000
 #> 
 #> 
 #> H2ORegressionMetrics: drf
 #> ** Reported on training data. **
 #> ** Metrics reported on Out-Of-Bag training samples **
 #> 
-#> MSE:  219
+#> MSE:  220
 #> RMSE:  14.8
-#> MAE:  10
-#> RMSLE:  0.429
-#> Mean Residual Deviance :  219
+#> MAE:  10.1
+#> RMSLE:  0.43
+#> Mean Residual Deviance :  220
 ```
 
 This shows that the model fitting R-square is about 50%. This is also indicated by the predicted vs observed plot:
@@ -325,29 +326,29 @@ DL.m
 #> ==============
 #> 
 #> H2ORegressionModel: deeplearning
-#> Model ID:  DeepLearning_model_R_1535712458501_7 
+#> Model ID:  DeepLearning_model_R_1545136645002_2 
 #> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1
 #>   layer units      type dropout       l1       l2 mean_rate rate_rms
 #> 1     1    10     Input  0.00 %                                     
-#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.012405 0.007541
-#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.170934 0.195329
-#> 4     4     1    Linear         0.000000 0.000000  0.001430 0.001119
+#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.013224 0.007567
+#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.157603 0.193595
+#> 4     4     1    Linear         0.000000 0.000000  0.001305 0.000952
 #>   momentum mean_weight weight_rms mean_bias bias_rms
 #> 1                                                   
-#> 2 0.000000    0.003344   0.107442  0.362893 0.059482
-#> 3 0.000000   -0.018839   0.071501  0.951620 0.017827
-#> 4 0.000000    0.002715   0.048609  0.093769 0.000000
+#> 2 0.000000   -0.002052   0.112147  0.386134 0.052485
+#> 3 0.000000   -0.017935   0.071046  0.957706 0.016447
+#> 4 0.000000    0.003729   0.053765  0.137227 0.000000
 #> 
 #> 
 #> H2ORegressionMetrics: deeplearning
 #> ** Reported on training data. **
 #> ** Metrics reported on full training frame **
 #> 
-#> MSE:  217
-#> RMSE:  14.7
-#> MAE:  11.1
-#> RMSLE:  0.445
-#> Mean Residual Deviance :  217
+#> MSE:  212
+#> RMSE:  14.6
+#> MAE:  10.2
+#> RMSLE:  0.416
+#> Mean Residual Deviance :  212
 ```
 
 Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. \@ref(fig:map-snd) and Fig. \@ref(fig:map-snd-dl)).
@@ -471,12 +472,12 @@ tr.ORCDRC.rf
 #> Resampling results across tuning parameters:
 #> 
 #>   mtry  RMSE  Rsquared  MAE 
-#>    2    4.48  0.462     2.71
-#>    7    3.88  0.550     2.24
-#>   12    3.89  0.552     2.26
+#>    2    4.47  0.463     2.71
+#>    7    3.93  0.538     2.24
+#>   12    3.87  0.558     2.26
 #> 
 #> RMSE was used to select the optimal model using the smallest value.
-#> The final value used for the model was mtry = 7.
+#> The final value used for the model was mtry = 12.
 ```
 
 In this case, `mtry = 12` seems to achieve the best performance. Note that we sub-set the initial matrix to speed up fine-tuning of the parameters (otherwise the computing time could easily become too great). Next, we can fit the final model by using all data (this time we also turn cross-validation off):
@@ -511,7 +512,7 @@ w2 <- 100*max(tr.ORCDRC.cb$results$Rsquared)
 ORCDRC.gb <- train(formulaStringP2, data=mP2, method = "xgbTree", trControl=ctrl)
 w3 <- 100*max(ORCDRC.gb$results$Rsquared)
 c(w1, w2, w3)
-#> [1] 55.2 59.1 66.9
+#> [1] 55.8 59.1 66.5
 ```
 
 At the end of the statistical modelling process, we can merge the predictions by using the CV R-square estimates:
@@ -560,8 +561,8 @@ test.ORC <- cv_numeric(formulaStringP2, rmatrix=mP2,
 #> Subsetting observations by unique location
 #> Warning in searchCommandline(parallel, cpus = cpus, type = type,
 #> socketHosts = socketHosts, : Unknown option on commandline: --file
-#> R Version:  R version 3.4.3 (2017-11-30)
-#> snowfall 1.84-6.1 initialized (using snow 0.4-2): parallel execution on 4 CPUs.
+#> R Version:  R version 3.5.1 (2018-07-02)
+#> snowfall 1.84-6.1 initialized (using snow 0.4-2): parallel execution on 5 CPUs.
 #> Library plyr loaded.
 #> Library plyr loaded in cluster.
 #> Library ranger loaded.
@@ -572,16 +573,16 @@ str(test.ORC)
 #> List of 2
 #>  $ CV_residuals:'data.frame':	4972 obs. of  4 variables:
 #>   ..$ Observed : num [1:4972] 22.3 6.5 5.2 4.9 2.9 ...
-#>   ..$ Predicted: num [1:4972] 10.73 6.75 6.17 3.93 2.71 ...
+#>   ..$ Predicted: num [1:4972] 9.88 6.55 5.95 3.94 2.98 ...
 #>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed002_1" "399_EDGEROI_ed002_1" "399_EDGEROI_ed002_1" "399_EDGEROI_ed002_1" ...
 #>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ Summary     :'data.frame':	1 obs. of  6 variables:
-#>   ..$ ME          : num -0.0687
+#>   ..$ ME          : num -0.0901
 #>   ..$ MAE         : num 2.13
-#>   ..$ RMSE        : num 3.65
-#>   ..$ R.squared   : num 0.564
-#>   ..$ logRMSE     : num 0.485
-#>   ..$ logR.squared: num 0.647
+#>   ..$ RMSE        : num 3.66
+#>   ..$ R.squared   : num 0.561
+#>   ..$ logRMSE     : num 0.483
+#>   ..$ logR.squared: num 0.65
 ```
 
 Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about $\pm 4$ g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:
@@ -600,12 +601,14 @@ Ensemble models often outperform single models. There is certainly opportunity f
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         2 hours 4 minutes 
-#>     H2O cluster version:        3.16.0.2 
-#>     H2O cluster version age:    9 months !!! 
-#>     H2O cluster name:           H2O_started_from_R_tomislav_cqe222 
+#>     H2O cluster uptime:         6 minutes 23 seconds 
+#>     H2O cluster timezone:       Europe/Amsterdam 
+#>     H2O data parsing timezone:  UTC 
+#>     H2O cluster version:        3.20.0.2 
+#>     H2O cluster version age:    6 months and 2 days !!! 
+#>     H2O cluster name:           H2O_started_from_R_tomislav_het448 
 #>     H2O cluster total nodes:    1 
-#>     H2O cluster total memory:   3.09 GB 
+#>     H2O cluster total memory:   3.88 GB 
 #>     H2O cluster total cores:    8 
 #>     H2O cluster allowed cores:  8 
 #>     H2O cluster healthy:        TRUE 
@@ -614,9 +617,9 @@ Ensemble models often outperform single models. There is certainly opportunity f
 #>     H2O Connection proxy:       NA 
 #>     H2O Internal Security:      FALSE 
 #>     H2O API Extensions:         XGBoost, Algos, AutoML, Core V3, Core V4 
-#>     R Version:                  R version 3.4.3 (2017-11-30)
+#>     R Version:                  R version 3.5.1 (2018-07-02)
 #> Warning in h2o.clusterInfo(): 
-#> Your H2O cluster version is too old (9 months)!
+#> Your H2O cluster version is too old (6 months and 2 days)!
 #> Please download and install the latest version from http://h2o.ai/download/
 ```
 
@@ -640,9 +643,12 @@ fit <- h2o.ensemble(x = which(names(m2) %in% all.vars(formulaStringP2)[-1]),
                     cvControl = list(V = 5))
 #>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 #> [1] "Cross-validating and training base learner 1: h2o.randomForest.wrapper"
-#>   |                                                                         |                                                                 |   0%  |                                                                         |                                                                 |   1%  |                                                                         |========================                                         |  37%  |                                                                         |==============================================                   |  70%  |                                                                         |============================================================     |  92%  |                                                                         |=================================================================| 100%
+#> Warning in h2o.randomForest(x = x, y = y, training_frame =
+#> training_frame, : Argument offset_column is deprecated and has no use for
+#> Random Forest.
+#>   |                                                                         |                                                                 |   0%  |                                                                         |==========                                                       |  15%  |                                                                         |======================================                           |  58%  |                                                                         |===========================================================      |  91%  |                                                                         |=================================================================| 100%
 #> [1] "Cross-validating and training base learner 2: h2o.gbm.wrapper"
-#>   |                                                                         |                                                                 |   0%  |                                                                         |===                                                              |   5%  |                                                                         |=================================================================| 100%
+#>   |                                                                         |                                                                 |   0%  |                                                                         |========================================================         |  86%  |                                                                         |=================================================================| 100%
 #> [1] "Metalearning"
 #>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 perf <- h2o.ensemble_performance(fit, newdata = edgeroi_v.hex)
@@ -658,15 +664,15 @@ perf
 #> 
 #> Base learner performance, sorted by specified metric:
 #>                    learner  MSE
-#> 2          h2o.gbm.wrapper 8.73
-#> 1 h2o.randomForest.wrapper 7.32
+#> 2          h2o.gbm.wrapper 8.55
+#> 1 h2o.randomForest.wrapper 7.23
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 7.21647878283577
+#> Ensemble performance (MSE): 7.22317020521794
 ```
 
 which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.
@@ -743,11 +749,14 @@ fit3 <- h2o.ensemble(x = which(names(mP3) %in% all.vars(fm.PHI)[-1]),
 #> [1] "Cross-validating and training base learner 1: h2o.glm.wrapper"
 #>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 #> [1] "Cross-validating and training base learner 2: h2o.randomForest.wrapper"
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=========                                                        |  13%  |                                                                         |=================================================================| 100%
+#> Warning in h2o.randomForest(x = x, y = y, training_frame =
+#> training_frame, : Argument offset_column is deprecated and has no use for
+#> Random Forest.
+#>   |                                                                         |                                                                 |   0%  |                                                                         |======                                                           |   9%  |                                                                         |===========================================================      |  91%  |                                                                         |=================================================================| 100%
 #> [1] "Cross-validating and training base learner 3: h2o.gbm.wrapper"
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=================                                                |  26%  |                                                                         |=================================================================| 100%
+#>   |                                                                         |                                                                 |   0%  |                                                                         |==========                                                       |  15%  |                                                                         |=================================================================| 100%
 #> [1] "Cross-validating and training base learner 4: h2o.deeplearning.wrapper"
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=========                                                        |  13%  |                                                                         |====================                                             |  31%  |                                                                         |=============================                                    |  45%  |                                                                         |==========================================                       |  64%  |                                                                         |======================================================           |  83%  |                                                                         |=============================================================    |  94%  |                                                                         |=================================================================| 100%
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=========                                                        |  13%  |                                                                         |=====================                                            |  32%  |                                                                         |====================================                             |  55%  |                                                                         |=================================================                |  75%  |                                                                         |============================================================     |  92%  |                                                                         |=================================================================| 100%
 #> [1] "Metalearning"
 #>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 perf3 <- h2o.ensemble_performance(fit3, newdata = cookfarm_v.hex)
@@ -772,16 +781,16 @@ perf3
 #> Base learner performance, sorted by specified metric:
 #>                    learner    MSE
 #> 1          h2o.glm.wrapper 0.2827
-#> 4 h2o.deeplearning.wrapper 0.1796
+#> 4 h2o.deeplearning.wrapper 0.1590
 #> 3          h2o.gbm.wrapper 0.0971
-#> 2 h2o.randomForest.wrapper 0.0774
+#> 2 h2o.randomForest.wrapper 0.0781
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 0.0760444534559628
+#> Ensemble performance (MSE): 0.0767682744078366
 ```
 
 In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.
@@ -857,10 +866,10 @@ sl
 #> 
 #>                  Risk   Coef
 #> SL.mean_All    0.7540 0.0000
-#> SL.xgboost_All 0.0598 0.8187
-#> SL.ksvm_All    0.1289 0.0176
-#> SL.glmnet_All  0.3079 0.0000
-#> SL.ranger_All  0.0849 0.1637
+#> SL.xgboost_All 0.0598 0.8232
+#> SL.ksvm_All    0.1289 0.0183
+#> SL.glmnet_All  0.3074 0.0000
+#> SL.ranger_All  0.0859 0.1585
 ```
 
 This shows that `SL.xgboost_All` outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by `SL.xgboost_All` is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:
@@ -881,8 +890,8 @@ sl2
 #> 
 #>                  Risk  Coef
 #> SL.xgboost_All 0.0603 0.814
-#> SL.ranger_All  0.0833 0.186
-#> SL.ksvm_All    0.1311 0.000
+#> SL.ranger_All  0.0836 0.186
+#> SL.ksvm_All    0.1310 0.000
 ```
 
 again `SL.xgboost` dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where entire profiles are taken out of the training dataset:
@@ -909,10 +918,10 @@ summary(cv_sl)
 #> All risk estimates are based on V =  5 
 #> 
 #>       Algorithm  Ave    se   Min  Max
-#>   Super Learner 0.16 0.014 0.096 0.26
-#>     Discrete SL 0.17 0.014 0.116 0.25
+#>   Super Learner 0.16 0.014 0.095 0.26
+#>     Discrete SL 0.17 0.014 0.112 0.25
 #>  SL.xgboost_All 0.19 0.016 0.135 0.27
-#>   SL.ranger_All 0.16 0.014 0.103 0.25
+#>   SL.ranger_All 0.16 0.014 0.102 0.25
 #>     SL.ksvm_All 0.18 0.015 0.109 0.30
 ```
 
@@ -938,8 +947,8 @@ sl2
 #> 
 #>                 Risk  Coef
 #> SL.xgboost_All 0.215 0.000
-#> SL.ranger_All  0.165 0.502
-#> SL.ksvm_All    0.165 0.498
+#> SL.ranger_All  0.166 0.477
+#> SL.ksvm_All    0.164 0.523
 new.data <- grid10m@data
 pred.PHI <- list(NULL)
 depths = c(10,30,50,70,90)
@@ -949,7 +958,7 @@ for(j in 1:length(depths)){
 }
 str(pred.PHI[[1]])
 #> List of 2
-#>  $ pred           : num [1:3865, 1] 4.62 4.68 4.83 4.8 4.74 ...
+#>  $ pred           : num [1:3865, 1] 4.66 4.73 4.86 4.83 4.76 ...
 #>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...
 #>   ..- attr(*, "dimnames")=List of 2
 #>   .. ..$ : NULL
@@ -1210,6 +1219,7 @@ m.zinc
 #> Mtry:                             12 
 #> Target node size:                 5 
 #> Variable importance mode:         none 
+#> Splitrule:                        variance 
 #> OOB prediction error (MSE):       67501 
 #> R squared (OOB):                  0.499
 ```
@@ -1376,6 +1386,7 @@ m1.zinc
 #> Mtry:                             12 
 #> Target node size:                 5 
 #> Variable importance mode:         impurity 
+#> Splitrule:                        variance 
 #> OOB prediction error (MSE):       54750 
 #> R squared (OOB):                  0.594
 ```
@@ -1501,6 +1512,7 @@ m1.s1
 #> Mtry:                             22 
 #> Target node size:                 5 
 #> Variable importance mode:         none 
+#> Splitrule:                        variance 
 #> OOB prediction error (MSE):       0.0579 
 #> R squared (OOB):                  0.754
 ```
@@ -1531,7 +1543,8 @@ m2.s1
 #> Mtry:                             22 
 #> Target node size:                 10 
 #> Variable importance mode:         none 
-#> OOB prediction error:             0.0586
+#> Splitrule:                        gini 
+#> OOB prediction error (Brier s.):  0.0586
 ```
 
 which shows that the Out of Bag prediction error (classification error) is (only) 
@@ -1619,7 +1632,8 @@ m.s
 #> Mtry:                             22 
 #> Target node size:                 10 
 #> Variable importance mode:         none 
-#> OOB prediction error:             0.0922
+#> Splitrule:                        gini 
+#> OOB prediction error (Brier s.):  0.0922
 ```
 
 this shows that the model is successful with an OOB prediction error of about 0.09. This number is rather abstract so we can also check the actual classification accuracy using hard classes:
@@ -1640,6 +1654,7 @@ m.s0
 #> Mtry:                             22 
 #> Target node size:                 1 
 #> Variable importance mode:         none 
+#> Splitrule:                        gini 
 #> OOB prediction error:             10.32 %
 ```
 

@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Predictive Soil Mapping with R</title>
+  <title>Preface | Predictive Soil Mapping with R</title>
   <meta name="description" content="Predictive Soil Mapping aims at producing most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement various soil mapping procedures with R programming language.">
-  <meta name="generator" content="bookdown 0.7.12 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Predictive Soil Mapping with R" />
+  <meta property="og:title" content="Preface | Predictive Soil Mapping with R" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://soilmapper.org" />
   <meta property="og:image" content="http://soilmapper.orgfigures/f0_web.png" />
@@ -17,15 +17,15 @@
   <meta name="github-repo" content="envirometrix/PredictiveSoilMapping" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Predictive Soil Mapping with R" />
+  <meta name="twitter:title" content="Preface | Predictive Soil Mapping with R" />
   <meta name="twitter:site" content="@tom_hengl" />
   <meta name="twitter:description" content="Predictive Soil Mapping aims at producing most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement various soil mapping procedures with R programming language." />
   <meta name="twitter:image" content="http://soilmapper.orgfigures/f0_web.png" />
 
-<meta name="author" content="Tomislav Hengl">
+<meta name="author" content="Tomislav Hengl and Robert A. MacMillan">
 
 
-<meta name="date" content="2018-10-15">
+<meta name="date" content="2018-12-18">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="introduction.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -216,8 +217,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="4" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html"><i class="fa fa-check"></i><b>4</b> Preparation of soil covariates for soil mapping</a><ul>
 <li class="chapter" data-level="4.1" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#soil-covariate-data-sources"><i class="fa fa-check"></i><b>4.1</b> Soil covariate data sources</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#soil-covs-30m"><i class="fa fa-check"></i><b>4.1.1</b> Soil covariate data sources (30–100 m resolution)</a></li>
-<li class="chapter" data-level="4.1.2" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#soil-covs-250m"><i class="fa fa-check"></i><b>4.1.2</b> Soil covariate data sources (250 m resolution or coarser)</a></li>
+<li class="chapter" data-level="4.1.1" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#types-of-soil-covariates"><i class="fa fa-check"></i><b>4.1.1</b> Types of soil covariates</a></li>
+<li class="chapter" data-level="4.1.2" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#soil-covs-30m"><i class="fa fa-check"></i><b>4.1.2</b> Soil covariate data sources (30–100 m resolution)</a></li>
+<li class="chapter" data-level="4.1.3" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#soil-covs-250m"><i class="fa fa-check"></i><b>4.1.3</b> Soil covariate data sources (250 m resolution or coarser)</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#preparing-soil-covariate-layers"><i class="fa fa-check"></i><b>4.2</b> Preparing soil covariate layers</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#converting-polygon-maps-to-rasters"><i class="fa fa-check"></i><b>4.2.1</b> Converting polygon maps to rasters</a></li>
@@ -297,7 +299,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
-<li><a href="http://envirometrix.net/staff">T. (Tom) Hengl</a></li>
+<li><a href="https://opengeohub.org/people/tom-hengl">T. (Tom) Hengl and R.A. (Bob) MacMillan</a></li>
 
 </ul>
 
@@ -325,9 +327,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2>Connected publications</h2>
 <p>Most of methods described in this book are based on the following publications:</p>
 <ul>
-<li><p>Hengl, T., Nussbaum, M., Wright, M. N., Heuvelink, G. B., and Gräler, B. (2018) <a href="https://peerj.com/preprints/26693/">Random Forest as a generic framework for predictive modeling of spatial and spatio-temporal variables</a>. PeerJ Preprints.</p></li>
+<li><p>Hengl, T., Nussbaum, M., Wright, M. N., Heuvelink, G. B., and Gräler, B. (2018) <a href="https://doi.org/10.7717/peerj.5518">Random Forest as a generic framework for predictive modeling of spatial and spatio-temporal variables</a>. PeerJ 6:e5518.</p></li>
 <li><p>Sanderman, J., Hengl, T., Fiske, G., (2017) <a href="http://www.pnas.org/content/early/2017/08/15/1706103114.full">The soil carbon debt of 12,000 years of human land use</a>. PNAS, <a href="doi:10.1073/pnas.1706103114" class="uri">doi:10.1073/pnas.1706103114</a></p></li>
-<li><p>Ramcharan, A., Hengl, T., Nauman, T., Brungard, C., Waltman, S., Wills, S., &amp; Thompson, J. (2018). <a href="https://dl.sciencesocieties.org/publications/sssaj/abstracts/82/1/186">Soil Property and Class Maps of the Conterminous United States at 100-Meter Spatial Resolution</a>. Soil Science Society of America Journal, 82(1), 186-201.</p></li>
+<li><p>Ramcharan, A., Hengl, T., Nauman, T., Brungard, C., Waltman, S., Wills, S., &amp; Thompson, J. (2018). <a href="https://dl.sciencesocieties.org/publications/sssaj/abstracts/82/1/186">Soil Property and Class Maps of the Conterminous United States at 100-Meter Spatial Resolution</a>. Soil Science Society of America Journal, 82(1), 186–201.</p></li>
 <li><p>Hengl, T., Leenaars, J. G., Shepherd, K. D., Walsh, M. G., Heuvelink, G. B., Mamo, T., et al. (2017) <a href="https://link.springer.com/article/10.1007/s10705-017-9870-x">Soil nutrient maps of Sub-Saharan Africa: assessment of soil nutrient content at 250 m spatial resolution using machine learning</a>. Nutrient Cycling in Agroecosystems, 109(1), 77–102.</p></li>
 <li><p>Hengl T, Mendes de Jesus J, Heuvelink GBM, Ruiperez Gonzalez M, Kilibarda M, Blagotic A, et al. (2017) <a href="http://dx.doi.org/10.1371/journal.pone.0169748">SoilGrids250m: Global gridded soil information based on machine learning</a>. PLoS ONE 12(2): e0169748. <a href="doi:10.1371/journal.pone.0169748" class="uri">doi:10.1371/journal.pone.0169748</a></p></li>
 <li><p>Shangguan, W., Hengl, T., de Jesus, J. M., Yuan, H., &amp; Dai, Y. (2017). <a href="https://doi.org/10.1002/2016MS000686">Mapping the global depth to bedrock for land surface modeling</a>. Journal of Advances in Modeling Earth Systems, 9(1), 65-88.</p></li>
@@ -337,9 +339,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><p>Hengl, T., Heuvelink, G. B., &amp; Rossiter, D. G. (2007) <a href="https://doi.org/10.1016/j.cageo.2007.05.001">About regression-kriging: from equations to case studies</a>. Computers &amp; geosciences, 33(10), 1301-1315.</p></li>
 <li><p>Hengl, T. (2006) <a href="https://doi.org/10.1016/j.cageo.2005.11.008">Finding the right pixel size</a>. Computers &amp; geosciences, 32(9), 1283–1298.</p></li>
 </ul>
-<p>Some other publications / books on the subject of Predictive Soil Mapping include:</p>
+<p>Some other publications / books on the subject of Predictive Soil Mapping and Data Science in general include:</p>
 <ul>
 <li><p>Malone, B.P, Minasny, B., McBratney, A.B., (2016) <a href="https://www.springer.com/gp/book/9783319443256">Using R for Digital Soil Mapping</a>. Progress in Soil Science ISBN: 9783319443270, 262 pages.</p></li>
+<li><p>Hengl, T., &amp; MacMillan, R. A. (2009). <a href="https://doi.org/10.1016/S0166-2481(08)00019-6">Geomorphometry—a key to landscape mapping and modelling</a>. Developments in Soil Science, 33, 433–460.</p></li>
 <li><p>California Soil Resource Lab, (2017) <a href="https://casoilresource.lawr.ucdavis.edu/software/">Open Source Software Tools for Soil Scientists</a>, UC Davis.</p></li>
 <li><p>McBratney, A.B., Minasny, B., Stockmann, U. (Eds) (2018) <a href="https://www.springer.com/gp/book/9783319634371">Pedometrics</a>. Progress in Soil Science ISBN: 9783319634395, 720 pages.</p></li>
 <li><p>FAO, (2018) <a href="https://github.com/FAO-GSP/SOC-Mapping-Cookbook">Soil Organic Carbon Mapping Cookbook</a>. 2nd edt. ISBN: 9789251304402</p></li>
@@ -347,12 +350,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Readers are also encouraged to obtain and study the following R books before following some of the more complex exercises in this book:</p>
 <ul>
 <li><p>Bivand, R., Pebesma, E., Rubio, V., (2013) <a href="http://www.asdar-book.org/">Applied Spatial Data Analysis with R</a>. Use R Series, Springer, Heidelberg, 2nd Ed. 400 pages.</p></li>
+<li><p>Irizarry, R.A., (2018) <a href="https://rafalab.github.io/dsbook/">Introduction to Data Science: Data Analysis and Prediction Algorithms with R</a>. HarvardX Data Science Series.</p></li>
 <li><p>Kabacoff, R.I., (2011) <a href="http://www.manning.com/kabacoff/">R in Action: Data Analysis and Graphics with R</a>. Manning publications, ISBN: 9781935182399, 472 pages.</p></li>
 <li><p>Kuhn, M., Johnson, K. (2013) <a href="http://appliedpredictivemodeling.com/">Applied Predictive Modeling</a>. Springer Science, ISBN: 9781461468493, 600 pages.</p></li>
-<li><p>Lovelace, R., Nowosad, J., Muenchow, J., (2018) <a href="https://geocompr.robinlovelace.net/">Geocomputation with R</a>. forthcoming book with CRC Press.</p></li>
+<li><p>Lovelace, R., Nowosad, J., Muenchow, J., (2018) <a href="https://geocompr.robinlovelace.net/">Geocomputation with R</a>. R Series, CRC Press, ISBN: 9781138304512, 338 pages.</p></li>
 <li><p>Reimann, C., Filzmoser, P., Garrett, R., Dutter, R., (2008) <a href="https://onlinelibrary.wiley.com/doi/book/10.1002/9780470987605">Statistical Data Analysis Explained Applied Environmental Statistics with R</a>. Wiley, Chichester, 337 pages.</p></li>
 </ul>
-<p>For the most recent developments in the R-spatial community refer to <a href="https://r-spatial.github.io" class="uri">https://r-spatial.github.io</a> and/or the R-sig-geo mailing list.</p>
+<p>For the most recent developments in the R-spatial community refer to <a href="https://r-spatial.github.io" class="uri">https://r-spatial.github.io</a>, the R-sig-geo mailing list and/or <a href="https://opengeohub.org" class="uri">https://opengeohub.org</a>.</p>
 </div>
 <div id="contributions" class="section level2 unnumbered">
 <h2>Contributions</h2>
@@ -377,12 +381,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="acknowledgements" class="section level2 unnumbered">
 <h2>Acknowledgements</h2>
-<p>The authors are grateful to numerous contributions from colleagues around the world, especially for the contributions by the current and former ISRIC — World Soil Information colleagues: Robert MacMillan, Gerard Heuvelink, Johan Leenaars, Jorge Mendes de Jesus, Wei Shangguan, David G. Rossiter, and many others. ISRIC is a research foundation funded primarily by the Dutch Government. The authors also grateful to the support received via the <a href="http://africasoils.net">AfSIS project</a>, which has been funded by the Bill and Melinda Gates Foundation (BMGF) and the Alliance for a Green Revolution in Africa (AGRA). Many soil data processing examples in the book are based on the R code developed by Dylan Beuadette, Pierre Roudier, Julian Moeys, Brandad Malone and many other developers. Author is also grateful to comments and suggestions to the methods explained in the book by Travis Nauman, Amanda Ramcharan, David G. Rossiter and <a href="http://julienmoeys.info/">Julian Moeys</a>.</p>
-<p>SoilGrids are based on numerous soil profile data sets that have been kindly contributed by various national and international agencies: the USA National Cooperative Soil Survey Soil Characterization database (<a href="http://ncsslabdatamart.sc.egov.usda.gov/" class="uri">http://ncsslabdatamart.sc.egov.usda.gov/</a>) and profiles from the USA National Soil Information System, Land Use/Land Cover Area Frame Survey (LUCAS) Topsoil Survey database <span class="citation">(Tóth, Jones, and Montanarella <a href="references.html#ref-Toth2013LUCAS">2013</a>)</span>, Africa Soil Profiles database <span class="citation">(Leenaars <a href="references.html#ref-Leenaars2012">2014</a>)</span>, Australian National Soil Information by CSIRO Land and Water <span class="citation">(Karssies <a href="references.html#ref-Karssies2011CSIRO">2011</a>; Searle <a href="references.html#ref-searle2014australian">2014</a>)</span>, Mexican National soil profile database <span class="citation">(Instituto Nacional de Estadística y Geografía (INEGI) <a href="references.html#ref-INEGI2000">2000</a>)</span> provided by the Mexican Instituto Nacional de Estadística y Geografía / CONABIO, Brazilian national soil profile database <span class="citation">(Cooper et al. <a href="references.html#ref-cooper2005national">2005</a>)</span> provided by the University of São Paulo, Chinese National Soil Profile database <span class="citation">(Shangguan et al. <a href="references.html#ref-shangguan2013china">2013</a>)</span> provided by the Institute of Soil Science, Chinese Academy of Sciences, soil profile archive from the Canadian Soil Information System <span class="citation">(MacDonald and Valentine <a href="references.html#ref-macdonald1992cansis">1992</a>)</span> and Forest Ecosystem Carbon Database (FECD), ISRIC-WISE <span class="citation">(Batjes <a href="references.html#ref-Batjes2009SUM">2009</a>)</span>, The Northern Circumpolar Soil Carbon Database <span class="citation">(Hugelius et al. <a href="references.html#ref-essd-5-3-2013">2013</a>)</span>, eSOTER profiles <span class="citation">(Van Engelen and Dijkshoorn <a href="references.html#ref-VanEngelen2012">2012</a>)</span>, SPADE <span class="citation">(Hollis et al. <a href="references.html#ref-hollis2006spade">2006</a>)</span>, Unified State Register of soil resources RUSSIA (Version 1.0. Moscow — 2014), National Database of Iran provided by the Tehran University, points from the Dutch Soil Information System (BIS) prepared by Wageningen Environmental Research, and others. We are also grateful to USA’s NASA, USGS and USDA agencies, European Space Agency Copernicus projects, JAXA (Japan Aerospace Exploration Agency) for distributing vast amounts of remote sensing data (especially MODIS, Landsat, Copernicus land products and elevation data), and to the Open Source software developers of the packages rgdal, sp, raster, caret, mlr, ranger, h2o and similar, and without which predictive soil mapping would most likely not be possible.</p>
-<p>This book has been inspired by the <a href="https://geocompr.robinlovelace.net/">the Geocomputation with R book</a>, an Open Access book edited by Robin Lovelace, Jakub Nowosad and Jannes Muenchow. Many thanks to Robin Lovelace for helping with rmarkdown and for giving some initial tips for compiling and organizing book. The author is also grateful to the numerous software/package developers, especially Edzer Pebesma, Roger Bivand, Robert Hijmans, Markus Neteler, Tim Appelhans, and Hadley Wickham, that have enabled a generation of researchers and applied projects.</p>
+<p>The authors are grateful to numerous contributions from colleagues around the world, especially for the contributions by the current and former ISRIC — World Soil Information colleagues: Gerard Heuvelink, Johan Leenaars, Jorge Mendes de Jesus, Wei Shangguan, David G. Rossiter, and many others. The authors are grateful to Dutch and European citizens for financing ISRIC and Wageningen University. The authors are also grateful to the support received via the <a href="http://africasoils.net">AfSIS project</a>, which has been funded by the Bill and Melinda Gates Foundation (BMGF) and the Alliance for a Green Revolution in Africa (AGRA). Many soil data processing examples in the book are based on the R code developed by Dylan Beuadette, Pierre Roudier, Alessandro Samuel Rosa, Marcos E. Angelini, Guillermo Federico Olmedo, Julian Moeys, Brandon Malone, and many other developers. Author is also grateful to comments and suggestions to the methods explained in the book by Travis Nauman, Amanda Ramcharan, David G. Rossiter and <a href="http://julienmoeys.info/">Julian Moeys</a>.</p>
+<p>LandGIS and SoilGrids are based on numerous soil profile data sets that have been kindly contributed by various national and international agencies: the USA National Cooperative Soil Survey Soil Characterization database (<a href="http://ncsslabdatamart.sc.egov.usda.gov/" class="uri">http://ncsslabdatamart.sc.egov.usda.gov/</a>) and profiles from the USA National Soil Information System, Land Use/Land Cover Area Frame Survey (LUCAS) Topsoil Survey database <span class="citation">(Tóth, Jones, and Montanarella <a href="references.html#ref-Toth2013LUCAS">2013</a>)</span>, Repositório Brasileiro Livre para Dados Abertos do Solo (<a href="https://github.com/febr-team">FEBR</a>), Sistema de Información de Suelos de Latinoamérica y el Caribe (SISLAC), Africa Soil Profiles database <span class="citation">(Leenaars <a href="references.html#ref-Leenaars2012">2014</a>)</span>, Australian National Soil Information by CSIRO Land and Water <span class="citation">(Karssies <a href="references.html#ref-Karssies2011CSIRO">2011</a>; Searle <a href="references.html#ref-searle2014australian">2014</a>)</span>, Mexican National soil profile database <span class="citation">(Instituto Nacional de Estadística y Geografía (INEGI) <a href="references.html#ref-INEGI2000">2000</a>)</span> provided by the Mexican Instituto Nacional de Estadística y Geografía / CONABIO, Brazilian national soil profile database <span class="citation">(Cooper et al. <a href="references.html#ref-cooper2005national">2005</a>)</span> provided by the University of São Paulo, Chinese National Soil Profile database <span class="citation">(Shangguan et al. <a href="references.html#ref-shangguan2013china">2013</a>)</span> provided by the Institute of Soil Science, Chinese Academy of Sciences, soil profile archive from the Canadian Soil Information System <span class="citation">(MacDonald and Valentine <a href="references.html#ref-macdonald1992cansis">1992</a>)</span> and Forest Ecosystem Carbon Database (FECD), ISRIC-WISE <span class="citation">(Batjes <a href="references.html#ref-Batjes2009SUM">2009</a>)</span>, The Northern Circumpolar Soil Carbon Database <span class="citation">(Hugelius et al. <a href="references.html#ref-essd-5-3-2013">2013</a>)</span>, eSOTER profiles <span class="citation">(Van Engelen and Dijkshoorn <a href="references.html#ref-VanEngelen2012">2012</a>)</span>, SPADE <span class="citation">(Hollis et al. <a href="references.html#ref-hollis2006spade">2006</a>)</span>, Unified State Register of soil resources RUSSIA (Version 1.0. Moscow — 2014), National Database of Iran provided by the Tehran University, points from the Dutch Soil Information System (BIS) prepared by Wageningen Environmental Research, and others. We are also grateful to USA’s NASA, USGS and USDA agencies, European Space Agency Copernicus projects, JAXA (Japan Aerospace Exploration Agency) for distributing vast amounts of remote sensing data (especially MODIS, Landsat, Copernicus land products and elevation data), and to the Open Source software developers of the packages rgdal, sp, raster, caret, mlr, ranger, h2o and similar, and without which predictive soil mapping would most likely not be possible.</p>
+<p>This book has been inspired by the <a href="https://geocompr.robinlovelace.net/">the Geocomputation with R book</a>, an Open Access book edited by Robin Lovelace, Jakub Nowosad and Jannes Muenchow. Many thanks to Robin Lovelace for helping with rmarkdown and for giving some initial tips for compiling and organizing book. The authors are also grateful to the numerous software/package developers, especially Edzer Pebesma, Roger Bivand, Robert Hijmans, Markus Neteler, Tim Appelhans, and Hadley Wickham, that have enabled a generation of researchers and applied projects.</p>
+<p>OpenGeoHub is a not-for-profit research foundation with headquarters in Wageningen, the Netherlands (Stichting OpenGeoHub, KvK 71844570). The main goal of the OpenGeoHub is to promote publishing and sharing of Open Geographical and Geoscientific Data and using and developing of Open Source Software. We believe that the key measure of quality of research in all sciences (and especially in geographical information sciences) is in transparency and reproducibility of the computer code used to generate results. Transparency and reproducibility increase trust in information so that it is eventually also the fastest path to optimal decision making.</p>
 <p>Every effort has been made to trace copyright holders of the materials used in these materials. Should we, despite all our efforts have overlooked contributors please contact the author and we shall correct this unintentional omission without any delay and will acknowledge any overlooked contributions and contributors in future updates.</p>
 <p><strong>Data availability</strong>: All data used in this book is either available through R packages or is available via the github repository. If not mentioned otherwise, all code presented is available under the <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html">GNU General Public License v2.0</a>.</p>
-<p><strong>Copyright</strong>: © 2018 Hengl et al.</p>
+<p><strong>Copyright</strong>: © 2018 Authors.</p>
 <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
 
 </div>
@@ -433,7 +438,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -445,6 +450,10 @@ gitbook.start({
 "edit": {
 "link": "https://github.com/envirometrix/PredictiveSoilMapping/edit/master/index.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": null,
 "toc": {
@@ -460,7 +469,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

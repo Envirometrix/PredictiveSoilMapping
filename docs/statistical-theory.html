@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Predictive Soil Mapping with R</title>
+  <title>5 Statistical theory for predictive soil mapping | Predictive Soil Mapping with R</title>
   <meta name="description" content="Predictive Soil Mapping aims at producing most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement various soil mapping procedures with R programming language.">
-  <meta name="generator" content="bookdown 0.7.12 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Predictive Soil Mapping with R" />
+  <meta property="og:title" content="5 Statistical theory for predictive soil mapping | Predictive Soil Mapping with R" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://soilmapper.org" />
   <meta property="og:image" content="http://soilmapper.orgfigures/f0_web.png" />
@@ -17,15 +17,15 @@
   <meta name="github-repo" content="envirometrix/PredictiveSoilMapping" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Predictive Soil Mapping with R" />
+  <meta name="twitter:title" content="5 Statistical theory for predictive soil mapping | Predictive Soil Mapping with R" />
   <meta name="twitter:site" content="@tom_hengl" />
   <meta name="twitter:description" content="Predictive Soil Mapping aims at producing most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement various soil mapping procedures with R programming language." />
   <meta name="twitter:image" content="http://soilmapper.orgfigures/f0_web.png" />
 
-<meta name="author" content="Tomislav Hengl">
+<meta name="author" content="Tomislav Hengl and Robert A. MacMillan">
 
 
-<meta name="date" content="2018-10-15">
+<meta name="date" content="2018-12-18">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="soilmapping-using-mla.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -216,8 +217,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="4" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html"><i class="fa fa-check"></i><b>4</b> Preparation of soil covariates for soil mapping</a><ul>
 <li class="chapter" data-level="4.1" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#soil-covariate-data-sources"><i class="fa fa-check"></i><b>4.1</b> Soil covariate data sources</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#soil-covs-30m"><i class="fa fa-check"></i><b>4.1.1</b> Soil covariate data sources (30–100 m resolution)</a></li>
-<li class="chapter" data-level="4.1.2" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#soil-covs-250m"><i class="fa fa-check"></i><b>4.1.2</b> Soil covariate data sources (250 m resolution or coarser)</a></li>
+<li class="chapter" data-level="4.1.1" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#types-of-soil-covariates"><i class="fa fa-check"></i><b>4.1.1</b> Types of soil covariates</a></li>
+<li class="chapter" data-level="4.1.2" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#soil-covs-30m"><i class="fa fa-check"></i><b>4.1.2</b> Soil covariate data sources (30–100 m resolution)</a></li>
+<li class="chapter" data-level="4.1.3" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#soil-covs-250m"><i class="fa fa-check"></i><b>4.1.3</b> Soil covariate data sources (250 m resolution or coarser)</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#preparing-soil-covariate-layers"><i class="fa fa-check"></i><b>4.2</b> Preparing soil covariate layers</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#converting-polygon-maps-to-rasters"><i class="fa fa-check"></i><b>4.2.1</b> Converting polygon maps to rasters</a></li>
@@ -297,7 +299,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
-<li><a href="http://envirometrix.net/staff">T. (Tom) Hengl</a></li>
+<li><a href="https://opengeohub.org/people/tom-hengl">T. (Tom) Hengl and R.A. (Bob) MacMillan</a></li>
 
 </ul>
 
@@ -934,7 +936,7 @@ Figure 5.9: Predictions of the organic carbon (log-transformed values) using ran
 \end{equation}\]</span>
 <p>where <span class="math inline">\(p\)</span> is the unit identifier. So in fact, weighted averaging per unit is a special version of regression-kriging where spatial autocorrelation is ignored (assumed zero) and all covariates are categorical variables.</p>
 <p>Going back to the Meuse data set, we can fit a regression model for organic matter using soil types as predictors, which gives:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">omm &lt;-<span class="st"> </span><span class="kw">fit.gstatModel</span>(meuse, <span class="kw">log1p</span>(om)<span class="op">~</span>soil<span class="op">-</span><span class="dv">1</span>, meuse.grid)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">omm &lt;-<span class="st"> </span><span class="kw">fit.gstatModel</span>(meuse, <span class="kw">log1p</span>(om)<span class="op">~</span>soil<span class="dv">-1</span>, meuse.grid)
 <span class="co">#&gt; Fitting a linear model...</span>
 <span class="co">#&gt; Fitting a 2D variogram...</span>
 <span class="co">#&gt; Saving an object of class &#39;gstatModel&#39;...</span>
@@ -1493,7 +1495,7 @@ Figure 5.23: Mapping accuracy and model reliability (accuracy of the prediction 
 <div id="derivation-and-interpretation-of-prediction-interval" class="section level3">
 <h3><span class="header-section-number">5.3.5</span> Derivation and interpretation of prediction interval</h3>
 <p>Another important issue for understanding the error budget is derivation of <em>prediction interval</em> i.e. upper and lower values of the target variable for which we assume that our predictions will fall within with a high probability (e.g. 19 out of 20 times or the 95% probability). Prediction interval or <em>confidence limits</em> are commonly well accepted by users as the easiest way to communicate uncertainty <span class="citation">(Brodlie, Osorio, and Lopes <a href="references.html#ref-brodlie2012review">2012</a>)</span>. For example, organic carbon in Meuse study area (based on 153 samples of organic matter) has a 95% interval of 2–16%:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">signif</span>(<span class="kw">quantile</span>(meuse<span class="op">$</span>om, <span class="kw">c</span>(.<span class="dv">025</span>, .<span class="dv">975</span>), <span class="dt">na.rm=</span><span class="ot">TRUE</span>), <span class="dv">2</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">signif</span>(<span class="kw">quantile</span>(meuse<span class="op">$</span>om, <span class="kw">c</span>(.<span class="dv">025</span>, <span class="fl">.975</span>), <span class="dt">na.rm=</span><span class="ot">TRUE</span>), <span class="dv">2</span>)
 <span class="co">#&gt; 2.5%  98% </span>
 <span class="co">#&gt;    2   16</span></code></pre></div>
 <p>We have previously fitted a geostatistical model using two covariates, which can now be used to generate predictions:</p>
@@ -1511,15 +1513,15 @@ Figure 5.23: Mapping accuracy and model reliability (accuracy of the prediction 
 <span class="kw">proj4string</span>(pt1) =<span class="st"> </span><span class="kw">proj4string</span>(meuse.grid)
 pt1.om &lt;-<span class="st"> </span><span class="kw">over</span>(pt1, om.rk<span class="op">@</span>predicted[<span class="st">&quot;om&quot;</span>])
 pt1.om.sd &lt;-<span class="st"> </span><span class="kw">over</span>(pt1, om.rk<span class="op">@</span>predicted[<span class="st">&quot;var1.var&quot;</span>])
-<span class="kw">signif</span>(<span class="kw">expm1</span>(pt1.om<span class="op">-</span><span class="fl">1.645</span><span class="op">*</span><span class="kw">sqrt</span>(pt1.om.sd)), <span class="dv">2</span>)
+<span class="kw">signif</span>(<span class="kw">expm1</span>(pt1.om<span class="fl">-1.645</span><span class="op">*</span><span class="kw">sqrt</span>(pt1.om.sd)), <span class="dv">2</span>)
 <span class="co">#&gt;    om</span>
 <span class="co">#&gt; 1 4.6</span>
-<span class="kw">signif</span>(<span class="kw">expm1</span>(pt1.om<span class="op">+</span><span class="fl">1.645</span><span class="op">*</span><span class="kw">sqrt</span>(pt1.om.sd)), <span class="dv">2</span>)
+<span class="kw">signif</span>(<span class="kw">expm1</span>(pt1.om<span class="fl">+1.645</span><span class="op">*</span><span class="kw">sqrt</span>(pt1.om.sd)), <span class="dv">2</span>)
 <span class="co">#&gt;    om</span>
 <span class="co">#&gt; 1 8.9</span></code></pre></div>
 <p>where 4.6–8.9 are the upper and lower confidence limits. This interval can also be expressed as:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">signif</span>((<span class="kw">expm1</span>(pt1.om<span class="op">+</span><span class="fl">1.645</span><span class="op">*</span><span class="kw">sqrt</span>(pt1.om.sd)) <span class="op">-</span>
-<span class="st">       </span><span class="kw">expm1</span>(pt1.om<span class="op">-</span><span class="fl">1.645</span><span class="op">*</span><span class="kw">sqrt</span>(pt1.om.sd)))<span class="op">/</span><span class="dv">2</span>, <span class="dv">2</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">signif</span>((<span class="kw">expm1</span>(pt1.om<span class="fl">+1.645</span><span class="op">*</span><span class="kw">sqrt</span>(pt1.om.sd)) <span class="op">-</span>
+<span class="st">       </span><span class="kw">expm1</span>(pt1.om<span class="fl">-1.645</span><span class="op">*</span><span class="kw">sqrt</span>(pt1.om.sd)))<span class="op">/</span><span class="dv">2</span>, <span class="dv">2</span>)
 <span class="co">#&gt;    om</span>
 <span class="co">#&gt; 1 2.1</span></code></pre></div>
 <p>or 6.3 ± 2.1 where half the error of estimating organic matter at that location is about 1 s.d. Note that these are location specific prediction intervals and need to be computed for each location.</p>
@@ -1598,7 +1600,7 @@ sd.om
 <span class="co">#&gt;     1.7</span></code></pre></div>
 <p>This can be confusing especially if the soil data producer does not clearly report if the confidence limits refer to the population mean, or to individual values. In principle, most users are interested in what are the confidence limits of measuring some value at individual location, which are always few times wider than confidence limits of estimating the population mean.</p>
 <p>Assessment of the confidence limits should be best considered as a regression problem in fact. It can be easily shown that, by fitting a regression model on strata, we automatically get an estimate of confidence limits for the study area:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">omm0 &lt;-<span class="st"> </span><span class="kw">lm</span>(om<span class="op">~</span>ffreq<span class="op">-</span><span class="dv">1</span>, omm<span class="op">@</span>regModel<span class="op">$</span>data)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">omm0 &lt;-<span class="st"> </span><span class="kw">lm</span>(om<span class="op">~</span>ffreq<span class="dv">-1</span>, omm<span class="op">@</span>regModel<span class="op">$</span>data)
 om.r &lt;-<span class="st"> </span><span class="kw">predict</span>(omm0, meuse.grid, <span class="dt">se.fit=</span><span class="ot">TRUE</span>)
 meuse.grid<span class="op">$</span>se.fit &lt;-<span class="st"> </span>om.r<span class="op">$</span>se.fit
 <span class="kw">signif</span>(<span class="kw">mean</span>(meuse.grid<span class="op">$</span>se.fit, <span class="dt">na.rm=</span><span class="ot">TRUE</span>), <span class="dv">3</span>)
@@ -1774,7 +1776,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -1786,6 +1788,10 @@ gitbook.start({
 "edit": {
 "link": "https://github.com/envirometrix/PredictiveSoilMapping/edit/master/Statistical_theory.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": null,
 "toc": {
@@ -1801,7 +1807,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;
