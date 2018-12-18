@@ -343,7 +343,8 @@ We can convert the original covariates to Principal Components, also to fill in 
 
 ```{r}
 covs30m@data = cbind(covs30m@data, covs30mdist@data)
-sel.rm = c("GlobalSurfaceWater_occurrence", "GlobalSurfaceWater_extent", "Landsat_bare2010", "COSha30map_var1pred_")
+sel.rm = c("GlobalSurfaceWater_occurrence", "GlobalSurfaceWater_extent",
+           "Landsat_bare2010", "COSha30map_var1pred_")
 rr = which(names(covs30m@data) %in% sel.rm)
 fm.spc = as.formula(paste(" ~ ", paste(names(covs30m)[-rr], collapse = "+")))
 proj4string(covs30m) = proj4string(COSha30)
@@ -469,7 +470,8 @@ Third, we match BLD values by matching horizon depths (center of horizon) with t
 
 ```{r}
 edgeroi$horizons$DEPTH = edgeroi$horizons$UHDICM + (edgeroi$horizons$LHDICM - edgeroi$horizons$UHDICM)/2
-edgeroi$horizons$DEPTH.c = cut(edgeroi$horizons$DEPTH, include.lowest=TRUE, breaks=c(0,10,30,60,100,1000), labels=paste0("sd",1:5))
+edgeroi$horizons$DEPTH.c = cut(edgeroi$horizons$DEPTH, include.lowest=TRUE,
+                               breaks=c(0,10,30,60,100,1000), labels=paste0("sd",1:5))
 summary(edgeroi$horizons$DEPTH.c)
 edgeroi$horizons$BLD.f = plyr::join(edgeroi$horizons[,c("SOURCEID","DEPTH.c")], ov.edgeroi.BLDm)$BLD.f
 ```
@@ -605,7 +607,8 @@ where $d$ is the depth, $X_k (xy)$ are static covariates i.e. the covariates tha
 All these layers are available only at a relatively coarse resolution of 10 km, but then cover longer time spans. Note also that, since these are time-series images, spatiotemporal overlay can take time as spatial overlay must be repeated for each time period. The spatiotemporal matrix file already contains the results of overlay, so that we can focus directly on building spatiotemporal models of OCD e.g.: 
 
 ```{r, eval=FALSE}
-pr.lst <- names(OCD_stN)[-which(names(OCD_stN) %in% c("SOURCEID", "DEPTH.f", "OCDENS", "YEAR", "YEAR_c", "LONWGS84", "LATWGS84"))]
+pr.lst <- names(OCD_stN)[-which(names(OCD_stN) %in% c("SOURCEID", "DEPTH.f", "OCDENS", 
+                                                      "YEAR", "YEAR_c", "LONWGS84", "LATWGS84"))]
 fm0.st <- as.formula(paste('OCDENS ~ DEPTH.f + ', paste(pr.lst, collapse="+")))
 sel0.m = complete.cases(OCD_stN[,all.vars(fm0.st)])
 ## takes >2 mins
@@ -655,7 +658,8 @@ to speed up processing we can subset grids and focus on the State of Texas:
 library(maps)
 library(maptools)
 states <- map('state', plot=FALSE, fill=TRUE)
-states = SpatialPolygonsDataFrame(map2SpatialPolygons(states, IDs=1:length(states$names)), data.frame(names=states$names))
+states = SpatialPolygonsDataFrame(map2SpatialPolygons(states, IDs=1:length(states$names)),
+                                  data.frame(names=states$names))
 proj4string(states) = "+proj=longlat +datum=WGS84"
 ov.g10km = over(y=states, x=g10km)
 txg10km = g10km[which(ov.g10km$names=="texas"),]
