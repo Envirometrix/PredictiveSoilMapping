@@ -301,7 +301,7 @@ minimize, or exclude from modelling, the remaining components: temporal
 variation, measurement error, spatial location error and small scale
 variation.
 
-```{r soil-crop-model-scheme, echo=FALSE, fig.cap="Inputs to soil-plant, soil-hydrology or soil-ecology models and their relationship.", out.width="100%", out.extra="angle=270"}
+```{r soil-crop-model-scheme, echo=FALSE, fig.cap="Inputs to soil-plant, soil-hydrology or soil-ecology models and their relationship.", out.width="100%", out.extra="angle=0"}
 knitr::include_graphics("figures/Fig_soil_crop_model_scheme.png")
 ```
 
@@ -702,7 +702,7 @@ developing technologies and newly available global data layers, especially
 those that are free and publicly distributed such as MODIS products,
 SRTM DEM and similar (Fig. \@ref(fig:new-technologies)). PSM can be compared to, and shares similar concepts with, other applications of statistics and machine learning in physical geography, for example Predictive Vegetation Mapping [@Fran01; @Hengl2018PNV].
 
-```{r new-technologies, echo=FALSE, fig.cap="Evolution of digital soil mapping parallels the emergence of new technologies and global, publicly available data sources.", out.width="45%",out.extra="angle=270"}
+```{r new-technologies, echo=FALSE, fig.cap="Evolution of digital soil mapping parallels the emergence of new technologies and global, publicly available data sources.", out.width="45%",out.extra="angle=0"}
 knitr::include_graphics("figures/Fig_new_technologies.png")
 ```
 
@@ -1808,7 +1808,7 @@ answer soil or soil–land use specific questions. Once the data are in a
 database, one can generate maps and statistical plots by running spatial
 queries [@Beaudette2009CG].
 
-```{r site-horizon-structure, echo=FALSE, fig.cap="An example of a basic soil profile geographical database, which commonly consists of four tables: SITE, HORIZON, DESCRIPTION and NAMES tables (a). To facilitate rapid display and use of soil variables, SITE and HORIZON tables can be combined into a single (*wide*) table structure (b).", out.width="80%", out.extra="angle=270"}
+```{r site-horizon-structure, echo=FALSE, fig.cap="An example of a basic soil profile geographical database, which commonly consists of four tables: SITE, HORIZON, DESCRIPTION and NAMES tables (a). To facilitate rapid display and use of soil variables, SITE and HORIZON tables can be combined into a single (*wide*) table structure (b).", out.width="80%", out.extra="angle=0"}
 knitr::include_graphics("figures/Fig_SITE_HORIZON_structure.png")
 ```
 
@@ -1889,7 +1889,7 @@ also contribute to construction and influence content.
 @Goodchild2008Accuracy calls this *“Web 2.0”* (read and write) and/or
 *“Web 3.0”* (read, write and execute) approaches to content creation. We also envisage that soil information will increasingly be produced using global vs local models and increasingly using distributed data and computing (Fig. \@ref(fig:automap-future)).
 
-```{r automap-future, echo=FALSE, fig.cap="The future of global mapping and environmental monitoring activities is expected to be increasingly automated and distributed.", out.width="75%", out.extra="angle=270"}
+```{r automap-future, echo=FALSE, fig.cap="The future of global mapping and environmental monitoring activities is expected to be increasingly automated and distributed.", out.width="75%", out.extra="angle=0"}
 knitr::include_graphics("figures/Fig_automap_future.png")
 ```
 
@@ -2014,7 +2014,7 @@ number of factors (Fig. \@ref(fig:usability-scheme)):
     for download and are they easy to obtain? How many users can access
     the data at the same time? Are the data free and easily obtained?
 
-```{r usability-scheme, echo=FALSE, fig.cap="Usability of a Soil Information System is basically a function of a number of data usability measures from which the following four (C’s) are essential: completeness, consistency, correctness and currency.", out.width="60%", out.extra="angle=270"}
+```{r usability-scheme, echo=FALSE, fig.cap="Usability of a Soil Information System is basically a function of a number of data usability measures from which the following four (C’s) are essential: completeness, consistency, correctness and currency.", out.width="60%", out.extra="angle=0"}
 knitr::include_graphics("figures/Fig_usability_scheme.png")
 ```
 
@@ -2247,7 +2247,7 @@ infinite number of points, we would still not be able to explain some
 significant portion of uncertainty. A map can never be 100% valid
 [@Oreskes04021994].
 
-```{r lagacherie1992, echo=FALSE, fig.cap="Reduction of prediction error as a function of sampling intensity (for three control areas). Based on @Lagacherie1992PhD.", out.width="85%", out.extra="angle=270"}
+```{r lagacherie1992, echo=FALSE, fig.cap="Reduction of prediction error as a function of sampling intensity (for three control areas). Based on @Lagacherie1992PhD.", out.width="85%", out.extra="angle=0"}
 knitr::include_graphics("figures/Fig_Lagacherie1992.png")
 ```
 
