@@ -1,0 +1,13 @@
+base
+microbenchmark
+aqp
+sp
+rgdal
+GSIF
+gstat
+nlme
+raster
+intamap
+lattice
+ggplot2
+caret

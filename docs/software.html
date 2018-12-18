@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Predictive Soil Mapping with R</title>
+  <meta name="description" content="Predictive Soil Mapping aims to produce the most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement common soil mapping procedures within the R programming language.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Predictive Soil Mapping with R" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://soilmapper.org" />
+  <meta property="og:image" content="http://soilmapper.orgfigures/f0_web.png" />
+  <meta property="og:description" content="Predictive Soil Mapping aims to produce the most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement common soil mapping procedures within the R programming language." />
+  <meta name="github-repo" content="envirometrix/PredictiveSoilMapping" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Predictive Soil Mapping with R" />
+  <meta name="twitter:site" content="@tom_hengl" />
+  <meta name="twitter:description" content="Predictive Soil Mapping aims to produce the most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement common soil mapping procedures within the R programming language." />
+  <meta name="twitter:image" content="http://soilmapper.orgfigures/f0_web.png" />
+
+<meta name="author" content="Tomislav Hengl and Robert A. MacMillan">
+
+
+<meta name="date" content="2018-12-18">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="introduction.html">
+<link rel="next" href="soil-variables-chapter.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-120633517-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Predictive Soil Mapping with R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Predictive Soil Mapping for advanced R users</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#editors"><i class="fa fa-check"></i>Editors</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#connected-publications"><i class="fa fa-check"></i>Connected publications</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#contributions"><i class="fa fa-check"></i>Contributions</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#reproducibility"><i class="fa fa-check"></i>Reproducibility</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Soil resource inventories and soil maps</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#introduction-1"><i class="fa fa-check"></i><b>1.1</b> Introduction</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#soils-and-soil-inventories"><i class="fa fa-check"></i><b>1.2</b> Soils and soil inventories</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#soil-a-definition"><i class="fa fa-check"></i><b>1.2.1</b> Soil: a definition</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#soil-variables"><i class="fa fa-check"></i><b>1.2.2</b> Soil variables</a></li>
+<li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#primary-and-secondary-soil-variables"><i class="fa fa-check"></i><b>1.2.3</b> Primary and secondary soil variables</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#soil-mapping"><i class="fa fa-check"></i><b>1.3</b> Soil mapping</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="introduction.html"><a href="introduction.html#what-are-soil-resource-inventories"><i class="fa fa-check"></i><b>1.3.1</b> What are soil resource inventories?</a></li>
+<li class="chapter" data-level="1.3.2" data-path="introduction.html"><a href="introduction.html#soil-mapping-approaches-and-concepts"><i class="fa fa-check"></i><b>1.3.2</b> Soil mapping approaches and concepts</a></li>
+<li class="chapter" data-level="1.3.3" data-path="introduction.html"><a href="introduction.html#soil-mapping-theory"><i class="fa fa-check"></i><b>1.3.3</b> Theoretical basis of soil mapping: in context of the universal model of spatial variation</a></li>
+<li class="chapter" data-level="1.3.4" data-path="introduction.html"><a href="introduction.html#conventional-mapping"><i class="fa fa-check"></i><b>1.3.4</b> Traditional (conventional) soil mapping</a></li>
+<li class="chapter" data-level="1.3.5" data-path="introduction.html"><a href="introduction.html#variants-of-soil-maps"><i class="fa fa-check"></i><b>1.3.5</b> Variants of soil maps</a></li>
+<li class="chapter" data-level="1.3.6" data-path="introduction.html"><a href="introduction.html#pedometric-mapping"><i class="fa fa-check"></i><b>1.3.6</b> Predictive and automated soil mapping</a></li>
+<li class="chapter" data-level="1.3.7" data-path="introduction.html"><a href="introduction.html#comparison-conventional-pm"><i class="fa fa-check"></i><b>1.3.7</b> Comparison of conventional and pedometric soil mapping</a></li>
+<li class="chapter" data-level="1.3.8" data-path="introduction.html"><a href="introduction.html#top-down"><i class="fa fa-check"></i><b>1.3.8</b> Top-down versus bottom-up approaches: subdivision versus agglomeration</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#sources-of-soil-data-for-soil-mapping"><i class="fa fa-check"></i><b>1.4</b> Sources of soil data for soil mapping</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="introduction.html"><a href="introduction.html#soil-data-sources-targeted-by-psm"><i class="fa fa-check"></i><b>1.4.1</b> Soil data sources targeted by PSM</a></li>
+<li class="chapter" data-level="1.4.2" data-path="introduction.html"><a href="introduction.html#field-observations"><i class="fa fa-check"></i><b>1.4.2</b> Field observations of soil properties</a></li>
+<li class="chapter" data-level="1.4.3" data-path="introduction.html"><a href="introduction.html#legacy-soil-profile-data"><i class="fa fa-check"></i><b>1.4.3</b> Legacy soil profile data</a></li>
+<li class="chapter" data-level="1.4.4" data-path="introduction.html"><a href="introduction.html#soil-covariates"><i class="fa fa-check"></i><b>1.4.4</b> Soil covariates</a></li>
+<li class="chapter" data-level="1.4.5" data-path="introduction.html"><a href="introduction.html#soil-delineations"><i class="fa fa-check"></i><b>1.4.5</b> Soil delineations</a></li>
+<li class="chapter" data-level="1.4.6" data-path="introduction.html"><a href="introduction.html#advantages-and-disadvantages-of-using-soil-delineations"><i class="fa fa-check"></i><b>1.4.6</b> Advantages and disadvantages of using soil delineations</a></li>
+<li class="chapter" data-level="1.4.7" data-path="introduction.html"><a href="introduction.html#accuracy-of-conventional-soil-polygon-maps"><i class="fa fa-check"></i><b>1.4.7</b> Accuracy of conventional soil polygon maps</a></li>
+<li class="chapter" data-level="1.4.8" data-path="introduction.html"><a href="introduction.html#tacit-knowledge"><i class="fa fa-check"></i><b>1.4.8</b> Legacy soil expertise (tacit knowledge)</a></li>
+<li class="chapter" data-level="1.4.9" data-path="introduction.html"><a href="introduction.html#pseudo-observations"><i class="fa fa-check"></i><b>1.4.9</b> Pseudo-observations</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#soil-databases"><i class="fa fa-check"></i><b>1.5</b> Soil databases and soil information systems</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="introduction.html"><a href="introduction.html#soil-databases-1"><i class="fa fa-check"></i><b>1.5.1</b> Soil databases</a></li>
+<li class="chapter" data-level="1.5.2" data-path="introduction.html"><a href="introduction.html#a-soil-information-system"><i class="fa fa-check"></i><b>1.5.2</b> A Soil Information System</a></li>
+<li class="chapter" data-level="1.5.3" data-path="introduction.html"><a href="introduction.html#soil-information-users"><i class="fa fa-check"></i><b>1.5.3</b> Soil information users</a></li>
+<li class="chapter" data-level="1.5.4" data-path="introduction.html"><a href="introduction.html#usability-of-soil-geographical-database"><i class="fa fa-check"></i><b>1.5.4</b> Usability of soil geographical database</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#uncertainty-soil-variables"><i class="fa fa-check"></i><b>1.6</b> Uncertainty of soil variables</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="introduction.html"><a href="introduction.html#basic-concepts"><i class="fa fa-check"></i><b>1.6.1</b> Basic concepts</a></li>
+<li class="chapter" data-level="1.6.2" data-path="introduction.html"><a href="introduction.html#sources-uncertainty"><i class="fa fa-check"></i><b>1.6.2</b> Sources of uncertainty</a></li>
+<li class="chapter" data-level="1.6.3" data-path="introduction.html"><a href="introduction.html#quantifying-the-uncertainty-in-soil-data-products"><i class="fa fa-check"></i><b>1.6.3</b> Quantifying the uncertainty in soil data products</a></li>
+<li class="chapter" data-level="1.6.4" data-path="introduction.html"><a href="introduction.html#common-uncertainty-levels-in-soil-maps"><i class="fa fa-check"></i><b>1.6.4</b> Common uncertainty levels in soil maps</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="introduction.html"><a href="introduction.html#summary-and-conclusions"><i class="fa fa-check"></i><b>1.7</b> Summary and conclusions</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="software.html"><a href="software.html"><i class="fa fa-check"></i><b>2</b> Software installation and first steps</a><ul>
+<li class="chapter" data-level="2.1" data-path="software.html"><a href="software.html#list-of-software-in-use"><i class="fa fa-check"></i><b>2.1</b> List of software in use</a></li>
+<li class="chapter" data-level="2.2" data-path="software.html"><a href="software.html#installing-software-on-ubuntu-os"><i class="fa fa-check"></i><b>2.2</b> Installing software on Ubuntu OS</a></li>
+<li class="chapter" data-level="2.3" data-path="software.html"><a href="software.html#Whitebox"><i class="fa fa-check"></i><b>2.3</b> WhiteboxTools</a></li>
+<li class="chapter" data-level="2.4" data-path="software.html"><a href="software.html#Rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a></li>
+<li class="chapter" data-level="2.5" data-path="software.html"><a href="software.html#plotkml-and-gsif-packages"><i class="fa fa-check"></i><b>2.5</b> plotKML and GSIF packages</a></li>
+<li class="chapter" data-level="2.6" data-path="software.html"><a href="software.html#connecting-r-and-saga-gis"><i class="fa fa-check"></i><b>2.6</b> Connecting R and SAGA GIS</a></li>
+<li class="chapter" data-level="2.7" data-path="software.html"><a href="software.html#connecting-r-and-gdal"><i class="fa fa-check"></i><b>2.7</b> Connecting R and GDAL</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html"><i class="fa fa-check"></i><b>3</b> Soil observations and variables</a><ul>
+<li class="chapter" data-level="3.1" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#basic-concepts-1"><i class="fa fa-check"></i><b>3.1</b> Basic concepts</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#types-of-soil-observations"><i class="fa fa-check"></i><b>3.1.1</b> Types of soil observations</a></li>
+<li class="chapter" data-level="3.1.2" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#soil-properties-of-interest-for-global-soil-mapping"><i class="fa fa-check"></i><b>3.1.2</b> Soil properties of interest for global soil mapping</a></li>
+<li class="chapter" data-level="3.1.3" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#reference-methods"><i class="fa fa-check"></i><b>3.1.3</b> Reference methods</a></li>
+<li class="chapter" data-level="3.1.4" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#standard-soil-variables-of-interest-for-soil-mapping"><i class="fa fa-check"></i><b>3.1.4</b> Standard soil variables of interest for soil mapping</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#descriptive-soil-profile-observations"><i class="fa fa-check"></i><b>3.2</b> Descriptive soil profile observations</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#depth-to-bedrock"><i class="fa fa-check"></i><b>3.2.1</b> Depth to bedrock</a></li>
+<li class="chapter" data-level="3.2.2" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#effective-soil-depth-and-rooting-depth"><i class="fa fa-check"></i><b>3.2.2</b> Effective soil depth and rooting depth</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#chemical-soil-properties"><i class="fa fa-check"></i><b>3.3</b> Chemical soil properties</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#soil-organic-carbon"><i class="fa fa-check"></i><b>3.3.1</b> Soil organic carbon</a></li>
+<li class="chapter" data-level="3.3.2" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#soil-ph"><i class="fa fa-check"></i><b>3.3.2</b> Soil pH</a></li>
+<li class="chapter" data-level="3.3.3" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#soil-nutrients"><i class="fa fa-check"></i><b>3.3.3</b> Soil nutrients</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#physical-and-hydrological-soil-properties"><i class="fa fa-check"></i><b>3.4</b> Physical and hydrological soil properties</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#coarse-fragments"><i class="fa fa-check"></i><b>3.4.1</b> Coarse fragments</a></li>
+<li class="chapter" data-level="3.4.2" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#particle-size-class-distribution-sand-silt-and-clay"><i class="fa fa-check"></i><b>3.4.2</b> Particle size class distribution: sand, silt and clay</a></li>
+<li class="chapter" data-level="3.4.3" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#bulk-density"><i class="fa fa-check"></i><b>3.4.3</b> Bulk density</a></li>
+<li class="chapter" data-level="3.4.4" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#soil-organic-carbon-stock"><i class="fa fa-check"></i><b>3.4.4</b> Soil organic carbon stock</a></li>
+<li class="chapter" data-level="3.4.5" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#available-water-capacity"><i class="fa fa-check"></i><b>3.4.5</b> Available Water Capacity</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#harmonisation-of-soil-data-and-pedo-transfer-functions"><i class="fa fa-check"></i><b>3.5</b> Harmonisation of soil data and pedo-transfer functions</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#basic-concepts-of-harmonisation-of-soil-property-values"><i class="fa fa-check"></i><b>3.5.1</b> Basic concepts of harmonisation of soil property values</a></li>
+<li class="chapter" data-level="3.5.2" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#example-of-harmonization-using-texture-by-hand-classes"><i class="fa fa-check"></i><b>3.5.2</b> Example of harmonization using texture-by-hand classes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#soil-class-data"><i class="fa fa-check"></i><b>3.6</b> Soil class data</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#soil-types"><i class="fa fa-check"></i><b>3.6.1</b> Soil types</a></li>
+<li class="chapter" data-level="3.6.2" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#other-factor-type-variables"><i class="fa fa-check"></i><b>3.6.2</b> Other factor-type variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#importing-and-formatting-soil-data-in-r"><i class="fa fa-check"></i><b>3.7</b> Importing and formatting soil data in R</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#converting-texture-by-hand-classes-to-fractions"><i class="fa fa-check"></i><b>3.7.1</b> Converting texture-by-hand classes to fractions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#converting-munsell-color-codes-to-other-color-systems"><i class="fa fa-check"></i><b>3.8</b> Converting Munsell color codes to other color systems</a></li>
+<li class="chapter" data-level="3.9" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#mla-ptfs"><i class="fa fa-check"></i><b>3.9</b> Using Machine Learning to build Pedo-Transfer-Functions</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#ptf-for-bulk-density"><i class="fa fa-check"></i><b>3.9.1</b> PTF for Bulk Density</a></li>
+<li class="chapter" data-level="3.9.2" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#ptf-for-correlating-classification-systems"><i class="fa fa-check"></i><b>3.9.2</b> PTF for correlating classification systems</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#summary-points"><i class="fa fa-check"></i><b>3.10</b> Summary points</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html"><i class="fa fa-check"></i><b>4</b> Preparation of soil covariates for soil mapping</a><ul>
+<li class="chapter" data-level="4.1" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#soil-covariate-data-sources"><i class="fa fa-check"></i><b>4.1</b> Soil covariate data sources</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#types-of-soil-covariates"><i class="fa fa-check"></i><b>4.1.1</b> Types of soil covariates</a></li>
+<li class="chapter" data-level="4.1.2" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#soil-covs-30m"><i class="fa fa-check"></i><b>4.1.2</b> Soil covariate data sources (30–100 m resolution)</a></li>
+<li class="chapter" data-level="4.1.3" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#soil-covs-250m"><i class="fa fa-check"></i><b>4.1.3</b> Soil covariate data sources (250 m resolution or coarser)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#preparing-soil-covariate-layers"><i class="fa fa-check"></i><b>4.2</b> Preparing soil covariate layers</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#converting-polygon-maps-to-rasters"><i class="fa fa-check"></i><b>4.2.1</b> Converting polygon maps to rasters</a></li>
+<li class="chapter" data-level="4.2.2" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#downscaling-upscaling"><i class="fa fa-check"></i><b>4.2.2</b> Downscaling or upscaling (aggregating) rasters</a></li>
+<li class="chapter" data-level="4.2.3" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#deriving-dem-parameters-using-saga-gis"><i class="fa fa-check"></i><b>4.2.3</b> Deriving DEM parameters using SAGA GIS</a></li>
+<li class="chapter" data-level="4.2.4" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#filtering-out-missing-pixels-and-artifacts"><i class="fa fa-check"></i><b>4.2.4</b> Filtering out missing pixels and artifacts</a></li>
+<li class="chapter" data-level="4.2.5" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#overlaying-and-subsetting-raster-stacks-and-points"><i class="fa fa-check"></i><b>4.2.5</b> Overlaying and subsetting raster stacks and points</a></li>
+<li class="chapter" data-level="4.2.6" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#working-with-larger-rasters"><i class="fa fa-check"></i><b>4.2.6</b> Working with large(r) rasters</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#summary-points-1"><i class="fa fa-check"></i><b>4.3</b> Summary points</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="statistical-theory.html"><a href="statistical-theory.html"><i class="fa fa-check"></i><b>5</b> Statistical theory for predictive soil mapping</a><ul>
+<li class="chapter" data-level="5.1" data-path="statistical-theory.html"><a href="statistical-theory.html#aspects-variability"><i class="fa fa-check"></i><b>5.1</b> Aspects of spatial variability of soil variables</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="statistical-theory.html"><a href="statistical-theory.html#modelling-soil-variability"><i class="fa fa-check"></i><b>5.1.1</b> Modelling soil variability</a></li>
+<li class="chapter" data-level="5.1.2" data-path="statistical-theory.html"><a href="statistical-theory.html#umsv"><i class="fa fa-check"></i><b>5.1.2</b> Universal model of soil variation</a></li>
+<li class="chapter" data-level="5.1.3" data-path="statistical-theory.html"><a href="statistical-theory.html#soil-depth-models"><i class="fa fa-check"></i><b>5.1.3</b> Modelling the variation of soil with depth</a></li>
+<li class="chapter" data-level="5.1.4" data-path="statistical-theory.html"><a href="statistical-theory.html#vertical-aggregation"><i class="fa fa-check"></i><b>5.1.4</b> Vertical aggregation of soil properties</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="statistical-theory.html"><a href="statistical-theory.html#spatial-prediction-of-soil-variables"><i class="fa fa-check"></i><b>5.2</b> Spatial prediction of soil variables</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="statistical-theory.html"><a href="statistical-theory.html#main-principles"><i class="fa fa-check"></i><b>5.2.1</b> Main principles</a></li>
+<li class="chapter" data-level="5.2.2" data-path="statistical-theory.html"><a href="statistical-theory.html#soil-sampling"><i class="fa fa-check"></i><b>5.2.2</b> Soil sampling</a></li>
+<li class="chapter" data-level="5.2.3" data-path="statistical-theory.html"><a href="statistical-theory.html#sec:expertsystems"><i class="fa fa-check"></i><b>5.2.3</b> Knowledge-driven soil mapping</a></li>
+<li class="chapter" data-level="5.2.4" data-path="statistical-theory.html"><a href="statistical-theory.html#regression-kriging"><i class="fa fa-check"></i><b>5.2.4</b> Geostatistics-driven soil mapping (pedometric mapping)</a></li>
+<li class="chapter" data-level="5.2.5" data-path="statistical-theory.html"><a href="statistical-theory.html#RK-generic"><i class="fa fa-check"></i><b>5.2.5</b> Regression-kriging (generic model)</a></li>
+<li class="chapter" data-level="5.2.6" data-path="statistical-theory.html"><a href="statistical-theory.html#spatial-prediction-using-multiple-linear-regression"><i class="fa fa-check"></i><b>5.2.6</b> Spatial Prediction using multiple linear regression</a></li>
+<li class="chapter" data-level="5.2.7" data-path="statistical-theory.html"><a href="statistical-theory.html#universal-kriging-prediction-error"><i class="fa fa-check"></i><b>5.2.7</b> Universal kriging prediction error</a></li>
+<li class="chapter" data-level="5.2.8" data-path="statistical-theory.html"><a href="statistical-theory.html#regression-kriging-examples"><i class="fa fa-check"></i><b>5.2.8</b> Regression-kriging examples</a></li>
+<li class="chapter" data-level="5.2.9" data-path="statistical-theory.html"><a href="statistical-theory.html#regression-kriging-examples-using-the-gsif-package"><i class="fa fa-check"></i><b>5.2.9</b> Regression-kriging examples using the GSIF package</a></li>
+<li class="chapter" data-level="5.2.10" data-path="statistical-theory.html"><a href="statistical-theory.html#regression-kriging-and-polygon-averaging"><i class="fa fa-check"></i><b>5.2.10</b> Regression-kriging and polygon averaging</a></li>
+<li class="chapter" data-level="5.2.11" data-path="statistical-theory.html"><a href="statistical-theory.html#block-support"><i class="fa fa-check"></i><b>5.2.11</b> Predictions at point vs block support</a></li>
+<li class="chapter" data-level="5.2.12" data-path="statistical-theory.html"><a href="statistical-theory.html#gstat-sims"><i class="fa fa-check"></i><b>5.2.12</b> Geostatistical simulations</a></li>
+<li class="chapter" data-level="5.2.13" data-path="statistical-theory.html"><a href="statistical-theory.html#automated-mapping"><i class="fa fa-check"></i><b>5.2.13</b> Automated mapping</a></li>
+<li class="chapter" data-level="5.2.14" data-path="statistical-theory.html"><a href="statistical-theory.html#selecting-spatial-prediction-models"><i class="fa fa-check"></i><b>5.2.14</b> Selecting spatial prediction models</a></li>
+<li class="chapter" data-level="5.2.15" data-path="statistical-theory.html"><a href="statistical-theory.html#regression-kriging-3D"><i class="fa fa-check"></i><b>5.2.15</b> 3D regression-kriging</a></li>
+<li class="chapter" data-level="5.2.16" data-path="statistical-theory.html"><a href="statistical-theory.html#multiscale"><i class="fa fa-check"></i><b>5.2.16</b> Predicting with multiscale and multisource data</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="statistical-theory.html"><a href="statistical-theory.html#accuracy-assessment"><i class="fa fa-check"></i><b>5.3</b> Accuracy assessment and the mapping efficiency</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="statistical-theory.html"><a href="statistical-theory.html#mapping-accuracy"><i class="fa fa-check"></i><b>5.3.1</b> Mapping accuracy and numeric resolution</a></li>
+<li class="chapter" data-level="5.3.2" data-path="statistical-theory.html"><a href="statistical-theory.html#accuracy-assessment-methods"><i class="fa fa-check"></i><b>5.3.2</b> Accuracy assessment methods</a></li>
+<li class="chapter" data-level="5.3.3" data-path="statistical-theory.html"><a href="statistical-theory.html#cross-validation-and-its-limitations"><i class="fa fa-check"></i><b>5.3.3</b> Cross-validation and its limitations</a></li>
+<li class="chapter" data-level="5.3.4" data-path="statistical-theory.html"><a href="statistical-theory.html#accuracy-of-the-predicted-model-uncertainty"><i class="fa fa-check"></i><b>5.3.4</b> Accuracy of the predicted model uncertainty</a></li>
+<li class="chapter" data-level="5.3.5" data-path="statistical-theory.html"><a href="statistical-theory.html#derivation-and-interpretation-of-prediction-interval"><i class="fa fa-check"></i><b>5.3.5</b> Derivation and interpretation of prediction interval</a></li>
+<li class="chapter" data-level="5.3.6" data-path="statistical-theory.html"><a href="statistical-theory.html#universal-measures-of-mapping-accuracy"><i class="fa fa-check"></i><b>5.3.6</b> Universal measures of mapping accuracy</a></li>
+<li class="chapter" data-level="5.3.7" data-path="statistical-theory.html"><a href="statistical-theory.html#mapping-accuracy-and-soil-survey-costs"><i class="fa fa-check"></i><b>5.3.7</b> Mapping accuracy and soil survey costs</a></li>
+<li class="chapter" data-level="5.3.8" data-path="statistical-theory.html"><a href="statistical-theory.html#summary-points-2"><i class="fa fa-check"></i><b>5.3.8</b> Summary points</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html"><i class="fa fa-check"></i><b>6</b> Machine Learning Algorithms for soil mapping</a><ul>
+<li class="chapter" data-level="6.1" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#spatial-prediction-of-soil-properties-and-classes-using-mlas"><i class="fa fa-check"></i><b>6.1</b> Spatial prediction of soil properties and classes using MLA’s</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#loading-the-packages-and-data"><i class="fa fa-check"></i><b>6.1.1</b> Loading the packages and data</a></li>
+<li class="chapter" data-level="6.1.2" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#spatial-prediction-of-soil-classes-using-mlas"><i class="fa fa-check"></i><b>6.1.2</b> Spatial prediction of soil classes using MLA’s</a></li>
+<li class="chapter" data-level="6.1.3" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#modelling-numeric-soil-properties-using-h2o"><i class="fa fa-check"></i><b>6.1.3</b> Modelling numeric soil properties using h2o</a></li>
+<li class="chapter" data-level="6.1.4" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#prediction-3D"><i class="fa fa-check"></i><b>6.1.4</b> Spatial prediction of 3D (numeric) variables</a></li>
+<li class="chapter" data-level="6.1.5" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#ensemble-predictions-using-h2oensemble"><i class="fa fa-check"></i><b>6.1.5</b> Ensemble predictions using h2oEnsemble</a></li>
+<li class="chapter" data-level="6.1.6" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#ensemble-predictions-using-superlearner-package"><i class="fa fa-check"></i><b>6.1.6</b> Ensemble predictions using SuperLearner package</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#a-generic-framework-for-spatial-prediction-using-random-forest"><i class="fa fa-check"></i><b>6.2</b> A generic framework for spatial prediction using Random Forest</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#general-principle-of-rfsp"><i class="fa fa-check"></i><b>6.2.1</b> General principle of RFsp</a></li>
+<li class="chapter" data-level="6.2.2" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#geographical-covariates"><i class="fa fa-check"></i><b>6.2.2</b> Geographical covariates</a></li>
+<li class="chapter" data-level="6.2.3" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#spatial-prediction-2d-continuous-variable-using-rfsp"><i class="fa fa-check"></i><b>6.2.3</b> Spatial prediction 2D continuous variable using RFsp</a></li>
+<li class="chapter" data-level="6.2.4" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#spatial-prediction-2d-variable-with-covariates-using-rfsp"><i class="fa fa-check"></i><b>6.2.4</b> Spatial prediction 2D variable with covariates using RFsp</a></li>
+<li class="chapter" data-level="6.2.5" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#spatial-prediction-of-binomial-variables"><i class="fa fa-check"></i><b>6.2.5</b> Spatial prediction of binomial variables</a></li>
+<li class="chapter" data-level="6.2.6" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#spatial-prediction-of-soil-types"><i class="fa fa-check"></i><b>6.2.6</b> Spatial prediction of soil types</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#summary-points-3"><i class="fa fa-check"></i><b>6.3</b> Summary points</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="SOC-chapter.html"><a href="SOC-chapter.html"><i class="fa fa-check"></i><b>7</b> Spatial prediction and assessment of Soil Organic Carbon</a><ul>
+<li class="chapter" data-level="7.1" data-path="SOC-chapter.html"><a href="SOC-chapter.html#introduction-2"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="SOC-chapter.html"><a href="SOC-chapter.html#measurement-and-derivation-of-soil-organic-carbon"><i class="fa fa-check"></i><b>7.2</b> Measurement and derivation of soil organic carbon</a></li>
+<li class="chapter" data-level="7.3" data-path="SOC-chapter.html"><a href="SOC-chapter.html#derivation-of-ocs-and-ocd-using-soil-profile-data"><i class="fa fa-check"></i><b>7.3</b> Derivation of OCS and OCD using soil profile data</a></li>
+<li class="chapter" data-level="7.4" data-path="SOC-chapter.html"><a href="SOC-chapter.html#estimation-of-bulk-density-using-a-globally-calibrated-ptf"><i class="fa fa-check"></i><b>7.4</b> Estimation of Bulk Density using a globally-calibrated PTF</a></li>
+<li class="chapter" data-level="7.5" data-path="SOC-chapter.html"><a href="SOC-chapter.html#generating-maps-of-ocs"><i class="fa fa-check"></i><b>7.5</b> Generating maps of OCS</a></li>
+<li class="chapter" data-level="7.6" data-path="SOC-chapter.html"><a href="SOC-chapter.html#predicting-ocs-from-point-data-the-2d-approach"><i class="fa fa-check"></i><b>7.6</b> Predicting OCS from point data (the 2D approach)</a></li>
+<li class="chapter" data-level="7.7" data-path="SOC-chapter.html"><a href="SOC-chapter.html#ocs-3d-approach"><i class="fa fa-check"></i><b>7.7</b> Deriving OCS from soil profile data (the 3D approach)</a></li>
+<li class="chapter" data-level="7.8" data-path="SOC-chapter.html"><a href="SOC-chapter.html#deriving-ocs-using-spatiotemporal-models"><i class="fa fa-check"></i><b>7.8</b> Deriving OCS using spatiotemporal models</a></li>
+<li class="chapter" data-level="7.9" data-path="SOC-chapter.html"><a href="SOC-chapter.html#summary-points-4"><i class="fa fa-check"></i><b>7.9</b> Summary points</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://opengeohub.org/people/tom-hengl">T. (Tom) Hengl and R.A. (Bob) MacMillan</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Predictive Soil Mapping with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="software" class="section level1">
+<h1><span class="header-section-number">2</span> Software installation and first steps</h1>
+<p><em>Edited by: T. Hengl</em></p>
+<p>This section contains instructions on how to install and use software to run predictive soil mapping and export results to GIS or web applications. It has been written (as has most of the book) for Linux users, but should not be too much of a problem to adoat to Microsoft Windows OS and/or Mac OS.</p>
+<div id="list-of-software-in-use" class="section level2">
+<h2><span class="header-section-number">2.1</span> List of software in use</h2>
+<div class="figure" style="text-align: center"><span id="fig:software-triangle"></span>
+<img src="figures/software_triangle.png" alt="Software combination used in this book." width="60%" />
+<p class="caption">
+Figure 2.1: Software combination used in this book.
+</p>
+</div>
+<p>For processing the covariates we used a combination of Open Source GIS
+software, primarily SAGA GIS <span class="citation">(Conrad et al. <a href="#ref-gmd-8-1991-2015">2015</a>)</span>, packages raster <span class="citation">(Hijmans and van Etten <a href="#ref-raster">2017</a>)</span>,
+sp <span class="citation">(Pebesma and Bivand <a href="#ref-pebesma2005classes">2005</a>)</span>, and GDAL <span class="citation">(Mitchell and GDAL Developers <a href="#ref-mitchell2014geospatial">2014</a>)</span> for reprojecting,
+mosaicking and merging tiles. GDAL and parallel packages in R are highly suitable for
+processing large data.</p>
+<p>Software (required):</p>
+<ul>
+<li><p><a href="http://cran.r-project.org/bin/windows/base/">R</a> or <a href="https://mran.microsoft.com/download/">MRO</a>;</p></li>
+<li><p><a href="http://www.rstudio.com/products/RStudio/">RStudio</a>;</p></li>
+<li><p>R packages: GSIF, plotKML, aqp, ranger, caret, xgboost, plyr, raster, gstat, randomForest, ggplot2, e1071 (see: <a href="http://www.r-bloggers.com/installing-r-packages/">how to install R package</a>)</p></li>
+<li><p><a href="http://sourceforge.net/projects/saga-gis/">SAGA GIS</a> (on Windows machines run windows installer);</p></li>
+<li><p>Google Earth or Google Earth Pro;</p></li>
+<li><p><a href="https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries">GDAL v2.x</a> for Windows machines use e.g. <a href="http://download.gisinternals.com/sdk/downloads/release-1800-x64-gdal-2-1-3-mapserver-7-0-4/gdal-201-1800-x64-core.msi">&quot;gdal-*-1800-x64-core.msi&quot;</a>;</p></li>
+</ul>
+<p>R script used in this tutorial can be downloaded from the <strong><a href="https://github.com/envirometrix/PredictiveSoilMapping">github</a></strong>. As a gentle introduction to the R programming language and to soil classes in R we recommend the chapter on importing and using soil data. Some more examples of SAGA GIS + R usage can be found in the soil covariates chapter. To visualize spatial predictions in a web-browser or Google Earth you could also consider following the soil web-maps tutorial. As a gentle introduction to the R programming language and spatial classes in R we recommend following <a href="https://geocompr.robinlovelace.net/">the Geocomputation with R book</a>. Obtaining also the <a href="https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf">R reference card</a> is highly recommended.</p>
+</div>
+<div id="installing-software-on-ubuntu-os" class="section level2">
+<h2><span class="header-section-number">2.2</span> Installing software on Ubuntu OS</h2>
+<p>On Ubuntu (often the recommended standard for the GIS community) the main required software can be installed within 10–20 minutes. We start with installing GDAL, proj4 and some packages that you might need later on:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="fu">sudo</span> apt-get install libgdal-dev libproj-dev libjasper-dev</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="fu">sudo</span> apt-get install gdal-bin python-gdal</a></code></pre></div>
+<p>Next, we can install R and RStudio. For R studio you can use the CRAN distribution or the optimized distribution provided by (the former REvolution company; now Microsoft):</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="fu">wget</span> https://mran.blob.core.windows.net/install/mro/3.4.3/microsoft-r-open-3.4.3.tar.gz</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="fu">tar</span> -xf microsoft-r-open-3.4.3.tar.gz</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="bu">cd</span> microsoft-r-open/</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="fu">sudo</span> ./install.sh</a></code></pre></div>
+<p>Note that R versions are constantly being updated so you will need to replace the URL above based on information provided on the home page (<a href="http://mran.microsoft.com" class="uri">http://mran.microsoft.com</a>). Once you run <code>install.sh</code> you will have to accept the license terms two times before the installation can be completed. If everything completes successfully, you can get the session info by:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">sessionInfo</span>()</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; R version 3.5.1 (2018-07-02)</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt; Platform: x86_64-redhat-linux-gnu (64-bit)</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt; Running under: Fedora 29 (Workstation Edition)</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt; Matrix products: default</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt; BLAS/LAPACK: /usr/lib64/R/lib/libRblas.so</span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt; locale:</span></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt;  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              </span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#&gt;  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    </span></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">#&gt;  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   </span></a>
+<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">#&gt;  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 </span></a>
+<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co">#&gt;  [9] LC_ADDRESS=C               LC_TELEPHONE=C            </span></a>
+<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">#&gt; [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       </span></a>
+<a class="sourceLine" id="cb5-16" data-line-number="16"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb5-17" data-line-number="17"><span class="co">#&gt; attached base packages:</span></a>
+<a class="sourceLine" id="cb5-18" data-line-number="18"><span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span></a>
+<a class="sourceLine" id="cb5-19" data-line-number="19"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb5-20" data-line-number="20"><span class="co">#&gt; other attached packages:</span></a>
+<a class="sourceLine" id="cb5-21" data-line-number="21"><span class="co">#&gt; [1] microbenchmark_1.4-6</span></a>
+<a class="sourceLine" id="cb5-22" data-line-number="22"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb5-23" data-line-number="23"><span class="co">#&gt; loaded via a namespace (and not attached):</span></a>
+<a class="sourceLine" id="cb5-24" data-line-number="24"><span class="co">#&gt;  [1] compiler_3.5.1   magrittr_1.5     bookdown_0.7     tools_3.5.1     </span></a>
+<a class="sourceLine" id="cb5-25" data-line-number="25"><span class="co">#&gt;  [5] htmltools_0.3.6  yaml_2.2.0       Rcpp_1.0.0       codetools_0.2-15</span></a>
+<a class="sourceLine" id="cb5-26" data-line-number="26"><span class="co">#&gt;  [9] stringi_1.2.4    rmarkdown_1.11   highr_0.7        knitr_1.21      </span></a>
+<a class="sourceLine" id="cb5-27" data-line-number="27"><span class="co">#&gt; [13] stringr_1.3.1    xfun_0.4         digest_0.6.18    evaluate_0.12</span></a>
+<a class="sourceLine" id="cb5-28" data-line-number="28"><span class="kw">system</span>(<span class="st">&quot;gdalinfo --version&quot;</span>)</a></code></pre></div>
+<p>This shows, for example, that the this installation of R is based on the Ubuntu 16.* LTS and the version of GDAL is up to date. Using an optimized distribution of R (read more about <a href="https://mran.microsoft.com/documents/rro/multithread">“The Benefits of Multithreaded Performance with Microsoft R Open”</a>) is especially important if you plan to use R for production purposes i.e. to optimize computing and generation of soil maps for large numbers of pixels.</p>
+<p>To install RStudio we can run:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="fu">sudo</span> apt-get install gdebi-core</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="fu">wget</span> https://download1.rstudio.org/rstudio-1.1.447-amd64.deb </a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="fu">sudo</span> gdebi rstudio-1.1.447-amd64.deb</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="fu">sudo</span> rm rstudio-1.1.447-amd64.deb</a></code></pre></div>
+<p>Again, RStudio is constantly updated so you might have to adjust the rstudio version and distribution.</p>
+<p>Predictive soil mapping is about making maps, and working with maps requires use of GIS software to open, view overlay and analyze the data sptially. GIS software recommended for soil mapping in this book consists of SAGA GIS, QGIS, GRASS GIS and Google Earth. To, install SAGA GIS on Ubuntu we can use:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="fu">sudo</span> add-apt-repository ppa:ubuntugis/ubuntugis-unstable</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="fu">sudo</span> apt-get update</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="fu">sudo</span> apt-get install saga</a></code></pre></div>
+<p>If installation was successful, you should be able to access SAGA command line also from R by using:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">system</span>(<span class="st">&quot;saga_cmd --version&quot;</span>)</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">#&gt; Warning in system(&quot;saga_cmd --version&quot;): error in running command</span></a></code></pre></div>
+<p>To install QGIS (<a href="https://download.qgis.org/" class="uri">https://download.qgis.org/</a>) you might first have to add the location of the debian libraries:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="fu">sudo</span> sh -c <span class="st">&#39;echo &quot;deb http://qgis.org/debian xenial main&quot; &gt;&gt; /etc/apt/sources.list&#39;</span>  </a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="fu">sudo</span> sh -c <span class="st">&#39;echo &quot;deb-src http://qgis.org/debian xenial main &quot; &gt;&gt; /etc/apt/sources.list&#39;</span>  </a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="fu">sudo</span> apt-get update </a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="fu">sudo</span> apt-get install qgis python-qgis qgis-plugin-grass</a></code></pre></div>
+<p>Other utility software that you might need include <code>htop</code> that allows you to track processing progress:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="fu">sudo</span> apt-get install htop iotop</a></code></pre></div>
+<p>and some additional libraries use <code>devtools</code>, <code>geoR</code> and similar, which can be installed via:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="fu">sudo</span> apt-get install build-essential automake<span class="kw">;</span> </a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">        <span class="ex">libcurl4-openssl-dev</span> pkg-config libxml2-dev<span class="kw">;</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">        <span class="ex">libfuse-dev</span> mtools libpng-dev libudunits2-dev</a></code></pre></div>
+<p>You might also need the <code>7z</code> software for easier compression and <code>pigz</code> for parallelized compression:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="fu">sudo</span> apt-get install pigz zip unzip p7zip-full </a></code></pre></div>
+</div>
+<div id="Whitebox" class="section level2">
+<h2><span class="header-section-number">2.3</span> WhiteboxTools</h2>
+<p>WhiteboxTools (<a href="http://www.uoguelph.ca/~hydrogeo/WhiteboxTools/" class="uri">http://www.uoguelph.ca/~hydrogeo/WhiteboxTools/</a>), contributed by John Lindsay, is an extensive suite of functions and tools for DEM analysis which is especially useful for extending the hydrological and morphometric analysis tools available in SAGA GIS and GRASS GIS <span class="citation">(Lindsay <a href="#ref-lindsay2016whitebox">2016</a>)</span>. Probably the easiest way to use WhiteboxTools is to install a QGIS plugin (kindly maintained by Alexander Bruy: <a href="https://plugins.bruy.me/" class="uri">https://plugins.bruy.me/</a>) and then learn and extend the WhiteboxTools scripting language by testing things out in QGIS (see below).</p>
+<div class="figure" style="text-align: center"><span id="fig:whiteboxtools-preview"></span>
+<img src="figures/whiteboxtools-preview.jpg" alt="Calling WhiteboxTools from QGIS via the WhiteboxTools plugin." width="100%" />
+<p class="caption">
+Figure 2.2: Calling WhiteboxTools from QGIS via the WhiteboxTools plugin.
+</p>
+</div>
+<p>The function <code>FlowAccumulationFullWorkflow</code> is, for example, a wrapper function to filter out all spurious sinks and to derive a hydrological flow accumulation map in the same step. To run it from command line we can use:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">system</span>(<span class="kw">paste0</span>(<span class="st">&#39;&quot;/home/tomislav/software/WBT/whitebox_tools&quot; &#39;</span>,</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">  <span class="st">&#39;--run=FlowAccumulationFullWorkflow --dem=&quot;./extdata/DEMTOPx.tif&quot; &#39;</span>,</a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">  <span class="st">&#39;--out_type=&quot;Specific Contributing Area&quot; --log=&quot;False&quot; --clip=&quot;False&quot; --esri_pntr=&quot;False&quot; &#39;</span>,</a>
+<a class="sourceLine" id="cb13-4" data-line-number="4">  <span class="st">&#39;--out_dem=&quot;./extdata/DEMTOPx_out.tif&quot; &#39;</span>,</a>
+<a class="sourceLine" id="cb13-5" data-line-number="5">  <span class="st">&#39;--out_pntr=&quot;./extdata/DEMTOPx_pntr.tif&quot; &#39;</span>,</a>
+<a class="sourceLine" id="cb13-6" data-line-number="6">  <span class="st">&#39;--out_accum=&quot;./extdata/DEMTOPx_accum.tif&quot; -v&#39;</span>))</a>
+<a class="sourceLine" id="cb13-7" data-line-number="7"><span class="co">#&gt; Warning in system(paste0(&quot;\&quot;/home/tomislav/software/WBT/whitebox_tools\&quot;</span></a>
+<a class="sourceLine" id="cb13-8" data-line-number="8"><span class="co">#&gt; &quot;, : error in running command</span></a></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:eberg-hydroflow-preview-3d"></span>
+<img src="figures/eberg_hydroflow_preview_3d.jpg" alt="Hydrological flow accummulation map based on the Ebergotzen DEM derived using WhiteboxTools." width="100%" />
+<p class="caption">
+Figure 2.3: Hydrological flow accummulation map based on the Ebergotzen DEM derived using WhiteboxTools.
+</p>
+</div>
+<p>This produces a number of maps, from which the hydrological flow accumulation map is usually the most useful. It is highly recommended that, before running analysis on large DEM’s using WhiteboxTools and/or SAGA GIS, you test functionality using smaller data sets i.e. either a subset of the original data or using a DEM at very coarse resolutions (so that width and height of a DEM are only few hundred pixels). Also note that WhiteboxTools do not presently work with GeoTIFs that use the <code>COMPRESS=DEFLATE</code> creation options.</p>
+</div>
+<div id="Rstudio" class="section level2">
+<h2><span class="header-section-number">2.4</span> RStudio</h2>
+<p>RStudio is, in principle, the main R scripting environment and can be used to control all other software used in this tutorial. A more detailed RStudio tutorial is available at: <a href="http://www.rstudio.com/resources/training/online-learning/">RStudio — Online Learning</a>. Consider also following some spatial data tutorials e.g. by James Cheshire (<a href="http://spatial.ly/r/" class="uri">http://spatial.ly/r/</a>). Below is an example of RStudio session with R editor on right and R console on left.</p>
+<div class="figure" style="text-align: center"><span id="fig:rstudio-example"></span>
+<img src="figures/rstudio_example.png" alt="RStudio is a commonly used R editor written in C++." width="100%" />
+<p class="caption">
+Figure 2.4: RStudio is a commonly used R editor written in C++.
+</p>
+</div>
+<p>To install all required R packages used in this tutorial at once, you can use:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">ls &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;rgdal&quot;</span>, <span class="st">&quot;raster&quot;</span>, <span class="st">&quot;GSIF&quot;</span>, <span class="st">&quot;plotKML&quot;</span>, </a>
+<a class="sourceLine" id="cb14-2" data-line-number="2">        <span class="st">&quot;nnet&quot;</span>, <span class="st">&quot;plyr&quot;</span>, <span class="st">&quot;ROCR&quot;</span>, <span class="st">&quot;randomForest&quot;</span>, <span class="st">&quot;quantregForest&quot;</span>, </a>
+<a class="sourceLine" id="cb14-3" data-line-number="3">        <span class="st">&quot;psych&quot;</span>, <span class="st">&quot;mda&quot;</span>, <span class="st">&quot;h2o&quot;</span>, <span class="st">&quot;h2oEnsemble&quot;</span>, <span class="st">&quot;dismo&quot;</span>, <span class="st">&quot;grDevices&quot;</span>, </a>
+<a class="sourceLine" id="cb14-4" data-line-number="4">        <span class="st">&quot;snowfall&quot;</span>, <span class="st">&quot;hexbin&quot;</span>, <span class="st">&quot;lattice&quot;</span>, <span class="st">&quot;ranger&quot;</span>, </a>
+<a class="sourceLine" id="cb14-5" data-line-number="5">        <span class="st">&quot;soiltexture&quot;</span>, <span class="st">&quot;aqp&quot;</span>, <span class="st">&quot;colorspace&quot;</span>, <span class="st">&quot;Cubist&quot;</span>,</a>
+<a class="sourceLine" id="cb14-6" data-line-number="6">        <span class="st">&quot;randomForestSRC&quot;</span>, <span class="st">&quot;ggRandomForests&quot;</span>, <span class="st">&quot;scales&quot;</span>,</a>
+<a class="sourceLine" id="cb14-7" data-line-number="7">        <span class="st">&quot;xgboost&quot;</span>, <span class="st">&quot;parallel&quot;</span>, <span class="st">&quot;doParallel&quot;</span>, <span class="st">&quot;caret&quot;</span>, </a>
+<a class="sourceLine" id="cb14-8" data-line-number="8">        <span class="st">&quot;gam&quot;</span>, <span class="st">&quot;glmnet&quot;</span>, <span class="st">&quot;matrixStats&quot;</span>, <span class="st">&quot;SuperLearner&quot;</span>,</a>
+<a class="sourceLine" id="cb14-9" data-line-number="9">        <span class="st">&quot;quantregForest&quot;</span>, <span class="st">&quot;LITAP&quot;</span>, <span class="st">&quot;intamap&quot;</span>)</a>
+<a class="sourceLine" id="cb14-10" data-line-number="10">new.packages &lt;-<span class="st"> </span>ls[<span class="op">!</span>(ls <span class="op">%in%</span><span class="st"> </span><span class="kw">installed.packages</span>()[,<span class="st">&quot;Package&quot;</span>])]</a>
+<a class="sourceLine" id="cb14-11" data-line-number="11"><span class="cf">if</span>(<span class="kw">length</span>(new.packages)) <span class="kw">install.packages</span>(new.packages)</a></code></pre></div>
+<p>This will basically check if any package is installed already, then install it only if it is missing. You can put this line at the top of each R script that you share so that anybody using that script will automatically get all required packages.</p>
+<p>The h2o package requires Java libraries, so you should first install Java by using e.g.:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="fu">sudo</span> add-apt-repository ppa:webupd8team/java</a>
+<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="fu">sudo</span> apt-get update</a>
+<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="fu">sudo</span> apt-get install oracle-java8-installer</a>
+<a class="sourceLine" id="cb15-4" data-line-number="4"><span class="ex">java</span> -version</a></code></pre></div>
+</div>
+<div id="plotkml-and-gsif-packages" class="section level2">
+<h2><span class="header-section-number">2.5</span> plotKML and GSIF packages</h2>
+<p>Many examples in this course rely on the top 5 most commonly used packages for spatial data: (1) <a href="https://cran.r-project.org/web/views/Spatial.html">sp and rgdal</a>, (2) <a href="https://cran.r-project.org/web/packages/raster/">raster</a>, (3) <a href="http://plotkml.r-forge.r-project.org/">plotKML</a> and (4) <a href="http://gsif.r-forge.r-project.org/">GSIF</a>. To install the most up-to-date version of plotKML/GSIF, you can also use the R-Forge versions of the package:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(GSIF)){</a>
+<a class="sourceLine" id="cb16-2" data-line-number="2">  <span class="kw">install.packages</span>(<span class="st">&quot;GSIF&quot;</span>, <span class="dt">repos=</span><span class="kw">c</span>(<span class="st">&quot;http://R-Forge.R-project.org&quot;</span>), </a>
+<a class="sourceLine" id="cb16-3" data-line-number="3">                 <span class="dt">type =</span> <span class="st">&quot;source&quot;</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb16-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb16-5" data-line-number="5"><span class="co">#&gt; Loading required package: GSIF</span></a>
+<a class="sourceLine" id="cb16-6" data-line-number="6"><span class="co">#&gt; GSIF version 0.5-4 (2017-04-25)</span></a>
+<a class="sourceLine" id="cb16-7" data-line-number="7"><span class="co">#&gt; URL: http://gsif.r-forge.r-project.org/</span></a></code></pre></div>
+<p>A copy of the most-up-to-date and stable versions of plotKML and GSIF is also available on <a href="https://github.com/cran/GSIF">github</a>. To run only some specific function from the GSIF package you could do for example:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">source_https &lt;-<span class="st"> </span><span class="cf">function</span>(url, ...) {</a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">   <span class="co"># load package</span></a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">   <span class="kw">require</span>(RCurl)</a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">   <span class="co"># download:</span></a>
+<a class="sourceLine" id="cb17-5" data-line-number="5">   <span class="kw">cat</span>(<span class="kw">getURL</span>(url, <span class="dt">followlocation =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb17-6" data-line-number="6">       <span class="dt">cainfo =</span> <span class="kw">system.file</span>(<span class="st">&quot;CurlSSL&quot;</span>, <span class="st">&quot;cacert.pem&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;RCurl&quot;</span>)), </a>
+<a class="sourceLine" id="cb17-7" data-line-number="7">       <span class="dt">file =</span> <span class="kw">basename</span>(url))</a>
+<a class="sourceLine" id="cb17-8" data-line-number="8">   <span class="kw">source</span>(<span class="kw">basename</span>(url))</a>
+<a class="sourceLine" id="cb17-9" data-line-number="9">}</a>
+<a class="sourceLine" id="cb17-10" data-line-number="10"><span class="kw">source_https</span>(<span class="st">&quot;https://raw.githubusercontent.com/cran/GSIF/master/R/OCSKGM.R&quot;</span>)</a></code></pre></div>
+<p>To test if these packages work properly, create soil maps and visualize them in Google Earth by running the following lines of code (see also function: <a href="http://gsif.r-forge.r-project.org/fit.gstatModel.html">fit.gstatModel</a>):</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw">library</span>(GSIF)</a>
+<a class="sourceLine" id="cb18-2" data-line-number="2"><span class="kw">library</span>(sp)</a>
+<a class="sourceLine" id="cb18-3" data-line-number="3"><span class="kw">library</span>(boot)</a>
+<a class="sourceLine" id="cb18-4" data-line-number="4"><span class="kw">library</span>(aqp)</a>
+<a class="sourceLine" id="cb18-5" data-line-number="5"><span class="co">#&gt; This is aqp 1.16-3</span></a>
+<a class="sourceLine" id="cb18-6" data-line-number="6"><span class="kw">library</span>(plyr)</a>
+<a class="sourceLine" id="cb18-7" data-line-number="7"><span class="kw">library</span>(rpart)</a>
+<a class="sourceLine" id="cb18-8" data-line-number="8"><span class="kw">library</span>(splines)</a>
+<a class="sourceLine" id="cb18-9" data-line-number="9"><span class="kw">library</span>(gstat)</a>
+<a class="sourceLine" id="cb18-10" data-line-number="10"><span class="kw">library</span>(quantregForest)</a>
+<a class="sourceLine" id="cb18-11" data-line-number="11"><span class="co">#&gt; Loading required package: randomForest</span></a>
+<a class="sourceLine" id="cb18-12" data-line-number="12"><span class="co">#&gt; randomForest 4.6-14</span></a>
+<a class="sourceLine" id="cb18-13" data-line-number="13"><span class="co">#&gt; Type rfNews() to see new features/changes/bug fixes.</span></a>
+<a class="sourceLine" id="cb18-14" data-line-number="14"><span class="co">#&gt; Loading required package: RColorBrewer</span></a>
+<a class="sourceLine" id="cb18-15" data-line-number="15"><span class="kw">library</span>(plotKML)</a>
+<a class="sourceLine" id="cb18-16" data-line-number="16"><span class="co">#&gt; plotKML version 0.5-8 (2017-05-12)</span></a>
+<a class="sourceLine" id="cb18-17" data-line-number="17"><span class="co">#&gt; URL: http://plotkml.r-forge.r-project.org/</span></a>
+<a class="sourceLine" id="cb18-18" data-line-number="18"><span class="kw">demo</span>(meuse, <span class="dt">echo=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb18-19" data-line-number="19">omm &lt;-<span class="st"> </span><span class="kw">fit.gstatModel</span>(meuse, om<span class="op">~</span>dist<span class="op">+</span>ffreq, meuse.grid, <span class="dt">method=</span><span class="st">&quot;quantregForest&quot;</span>)</a>
+<a class="sourceLine" id="cb18-20" data-line-number="20"><span class="co">#&gt; Fitting a Quantile Regression Forest model...</span></a>
+<a class="sourceLine" id="cb18-21" data-line-number="21"><span class="co">#&gt; Fitting a 2D variogram...</span></a>
+<a class="sourceLine" id="cb18-22" data-line-number="22"><span class="co">#&gt; Saving an object of class &#39;gstatModel&#39;...</span></a>
+<a class="sourceLine" id="cb18-23" data-line-number="23">om.rk &lt;-<span class="st"> </span><span class="kw">predict</span>(omm, meuse.grid)</a>
+<a class="sourceLine" id="cb18-24" data-line-number="24"><span class="co">#&gt; Subsetting observations to fit the prediction domain in 2D...</span></a>
+<a class="sourceLine" id="cb18-25" data-line-number="25"><span class="co">#&gt; Prediction error for &#39;randomForest&#39; model estimated using the &#39;quantreg&#39; package.</span></a>
+<a class="sourceLine" id="cb18-26" data-line-number="26"><span class="co">#&gt; Generating predictions using the trend model (RK method)...</span></a>
+<a class="sourceLine" id="cb18-27" data-line-number="27"><span class="co">#&gt; [using ordinary kriging]</span></a>
+<a class="sourceLine" id="cb18-28" data-line-number="28"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb18-29" data-line-number="29"><span class="dv">100</span>% done</a>
+<a class="sourceLine" id="cb18-30" data-line-number="30"><span class="co">#&gt; Running 5-fold cross validation using &#39;krige.cv&#39;...</span></a>
+<a class="sourceLine" id="cb18-31" data-line-number="31"><span class="co">#&gt; Creating an object of class &quot;SpatialPredictions&quot;</span></a>
+<a class="sourceLine" id="cb18-32" data-line-number="32">om.rk</a>
+<a class="sourceLine" id="cb18-33" data-line-number="33"><span class="co">#&gt;   Variable           : om </span></a>
+<a class="sourceLine" id="cb18-34" data-line-number="34"><span class="co">#&gt;   Minium value       : 1 </span></a>
+<a class="sourceLine" id="cb18-35" data-line-number="35"><span class="co">#&gt;   Maximum value      : 17 </span></a>
+<a class="sourceLine" id="cb18-36" data-line-number="36"><span class="co">#&gt;   Size               : 153 </span></a>
+<a class="sourceLine" id="cb18-37" data-line-number="37"><span class="co">#&gt;   Total area         : 4964800 </span></a>
+<a class="sourceLine" id="cb18-38" data-line-number="38"><span class="co">#&gt;   Total area (units) : square-m </span></a>
+<a class="sourceLine" id="cb18-39" data-line-number="39"><span class="co">#&gt;   Resolution (x)     : 40 </span></a>
+<a class="sourceLine" id="cb18-40" data-line-number="40"><span class="co">#&gt;   Resolution (y)     : 40 </span></a>
+<a class="sourceLine" id="cb18-41" data-line-number="41"><span class="co">#&gt;   Resolution (units) : m </span></a>
+<a class="sourceLine" id="cb18-42" data-line-number="42"><span class="co">#&gt;   Vgm model          : Exp </span></a>
+<a class="sourceLine" id="cb18-43" data-line-number="43"><span class="co">#&gt;   Nugget (residual)  : 2.32 </span></a>
+<a class="sourceLine" id="cb18-44" data-line-number="44"><span class="co">#&gt;   Sill (residual)    : 4.76 </span></a>
+<a class="sourceLine" id="cb18-45" data-line-number="45"><span class="co">#&gt;   Range (residual)   : 2930 </span></a>
+<a class="sourceLine" id="cb18-46" data-line-number="46"><span class="co">#&gt;   RMSE (validation)  : 1.75 </span></a>
+<a class="sourceLine" id="cb18-47" data-line-number="47"><span class="co">#&gt;   Var explained      : 73.8% </span></a>
+<a class="sourceLine" id="cb18-48" data-line-number="48"><span class="co">#&gt;   Effective bytes    : 1203 </span></a>
+<a class="sourceLine" id="cb18-49" data-line-number="49"><span class="co">#&gt;   Compression method : gzip</span></a>
+<a class="sourceLine" id="cb18-50" data-line-number="50"><span class="co">#plotKML(om.rk)</span></a></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ge-preview"></span>
+<img src="figures/ge_preview.jpg" alt="Example of plotKML output." width="90%" />
+<p class="caption">
+Figure 2.5: Example of plotKML output.
+</p>
+</div>
+</div>
+<div id="connecting-r-and-saga-gis" class="section level2">
+<h2><span class="header-section-number">2.6</span> Connecting R and SAGA GIS</h2>
+<p>SAGA GIS is an extensive GIS geoprocessing software with over <a href="http://www.saga-gis.org/saga_tool_doc/index.html">600 functions</a>.
+SAGA GIS can not be installed from RStudio (it is not a package for R).
+Instead, you need to install SAGA GIS using the installation instructions from the <a href="https://sourceforge.net/projects/saga-gis/">software homepage</a>.
+After you have installed SAGA GIS, you can send processes from
+R to SAGA GIS by using the <code>saga_cmd</code> command line interface:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="cf">if</span>(<span class="op">!</span><span class="kw">Sys.info</span>()[<span class="st">&#39;sysname&#39;</span>]<span class="op">==</span><span class="st">&quot;Linux&quot;</span>){</a>
+<a class="sourceLine" id="cb19-2" data-line-number="2">  saga_cmd =<span class="st"> &quot;C:/Progra~1/SAGA-GIS/saga_cmd.exe&quot;</span></a>
+<a class="sourceLine" id="cb19-3" data-line-number="3">} <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb19-4" data-line-number="4">  saga_cmd =<span class="st"> &quot;saga_cmd&quot;</span></a>
+<a class="sourceLine" id="cb19-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb19-6" data-line-number="6"><span class="kw">system</span>(<span class="kw">paste</span>(saga_cmd, <span class="st">&quot;-v&quot;</span>))</a>
+<a class="sourceLine" id="cb19-7" data-line-number="7"><span class="co">#&gt; Warning in system(paste(saga_cmd, &quot;-v&quot;)): error in running command</span></a></code></pre></div>
+<p>To use some SAGA GIS function you need to carefully follow
+the <a href="http://www.saga-gis.org/saga_tool_doc/index.html">SAGA GIS command line arguments</a>. For example,</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">library</span>(plotKML)</a>
+<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="kw">library</span>(rgdal)</a>
+<a class="sourceLine" id="cb20-3" data-line-number="3"><span class="co">#&gt; rgdal: version: 1.3-6, (SVN revision 773)</span></a>
+<a class="sourceLine" id="cb20-4" data-line-number="4"><span class="co">#&gt;  Geospatial Data Abstraction Library extensions to R successfully loaded</span></a>
+<a class="sourceLine" id="cb20-5" data-line-number="5"><span class="co">#&gt;  Loaded GDAL runtime: GDAL 2.3.2, released 2018/09/21</span></a>
+<a class="sourceLine" id="cb20-6" data-line-number="6"><span class="co">#&gt;  Path to GDAL shared files: /usr/share/gdal</span></a>
+<a class="sourceLine" id="cb20-7" data-line-number="7"><span class="co">#&gt;  GDAL binary built with GEOS: TRUE </span></a>
+<a class="sourceLine" id="cb20-8" data-line-number="8"><span class="co">#&gt;  Loaded PROJ.4 runtime: Rel. 4.9.3, 15 August 2016, [PJ_VERSION: 493]</span></a>
+<a class="sourceLine" id="cb20-9" data-line-number="9"><span class="co">#&gt;  Path to PROJ.4 shared files: (autodetected)</span></a>
+<a class="sourceLine" id="cb20-10" data-line-number="10"><span class="co">#&gt;  Linking to sp version: 1.3-1</span></a>
+<a class="sourceLine" id="cb20-11" data-line-number="11"><span class="kw">library</span>(raster)</a>
+<a class="sourceLine" id="cb20-12" data-line-number="12"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb20-13" data-line-number="13"><span class="co">#&gt; Attaching package: &#39;raster&#39;</span></a>
+<a class="sourceLine" id="cb20-14" data-line-number="14"><span class="co">#&gt; The following objects are masked from &#39;package:aqp&#39;:</span></a>
+<a class="sourceLine" id="cb20-15" data-line-number="15"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb20-16" data-line-number="16"><span class="co">#&gt;     metadata, metadata&lt;-</span></a>
+<a class="sourceLine" id="cb20-17" data-line-number="17"><span class="kw">data</span>(<span class="st">&quot;eberg_grid&quot;</span>)</a>
+<a class="sourceLine" id="cb20-18" data-line-number="18"><span class="kw">gridded</span>(eberg_grid) &lt;-<span class="st"> </span><span class="er">~</span>x<span class="op">+</span>y</a>
+<a class="sourceLine" id="cb20-19" data-line-number="19"><span class="kw">proj4string</span>(eberg_grid) &lt;-<span class="st"> </span><span class="kw">CRS</span>(<span class="st">&quot;+init=epsg:31467&quot;</span>)</a>
+<a class="sourceLine" id="cb20-20" data-line-number="20"><span class="kw">writeGDAL</span>(eberg_grid[<span class="st">&quot;DEMSRT6&quot;</span>], <span class="st">&quot;./extdata/DEMSRT6.sdat&quot;</span>, <span class="st">&quot;SAGA&quot;</span>)</a>
+<a class="sourceLine" id="cb20-21" data-line-number="21"><span class="kw">system</span>(<span class="kw">paste</span>(saga_cmd, <span class="st">&#39;ta_lighting 0 -ELEVATION &quot;./extdata/DEMSRT6.sgrd&quot; </span></a>
+<a class="sourceLine" id="cb20-22" data-line-number="22"><span class="st">             -SHADE &quot;./extdata/hillshade.sgrd&quot; -EXAGGERATION 2&#39;</span>))</a>
+<a class="sourceLine" id="cb20-23" data-line-number="23"><span class="co">#&gt; Warning in system(paste(saga_cmd, &quot;ta_lighting 0 -ELEVATION \&quot;./extdata/</span></a>
+<a class="sourceLine" id="cb20-24" data-line-number="24"><span class="co">#&gt; DEMSRT6.sgrd\&quot; \n -SHADE \&quot;./extdata/hillshade.sgrd\&quot; -EXAGGERATION 2&quot;)):</span></a>
+<a class="sourceLine" id="cb20-25" data-line-number="25"><span class="co">#&gt; error in running command</span></a></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:rstudio-saga-gis"></span>
+<img src="figures/rstudio_saga_gis.png" alt="Deriving hillshading using SAGA GIS and then visualizing the result in R." width="100%" />
+<p class="caption">
+Figure 2.6: Deriving hillshading using SAGA GIS and then visualizing the result in R.
+</p>
+</div>
+</div>
+<div id="connecting-r-and-gdal" class="section level2">
+<h2><span class="header-section-number">2.7</span> Connecting R and GDAL</h2>
+<p>Another very important software for handling spatial data (and especially for exchanging / converting spatial data) is GDAL. GDAL also needs to be installed separately (for Windows machines use e.g. <a href="http://download.gisinternals.com/sdk/downloads/release-1800-x64-gdal-2-1-3-mapserver-7-0-4/gdal-201-1800-x64-core.msi">“gdal-201-1800-x64-core.msi”</a>) and then can be called from command line:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="cf">if</span>(.Platform<span class="op">$</span>OS.type <span class="op">==</span><span class="st"> &quot;windows&quot;</span>){</a>
+<a class="sourceLine" id="cb21-2" data-line-number="2">  gdal.dir &lt;-<span class="st"> </span><span class="kw">shortPathName</span>(<span class="st">&quot;C:/Program files/GDAL&quot;</span>)</a>
+<a class="sourceLine" id="cb21-3" data-line-number="3">  gdal_translate &lt;-<span class="st"> </span><span class="kw">paste0</span>(gdal.dir, <span class="st">&quot;/gdal_translate.exe&quot;</span>)</a>
+<a class="sourceLine" id="cb21-4" data-line-number="4">  gdalwarp &lt;-<span class="st"> </span><span class="kw">paste0</span>(gdal.dir, <span class="st">&quot;/gdalwarp.exe&quot;</span>) </a>
+<a class="sourceLine" id="cb21-5" data-line-number="5">} <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb21-6" data-line-number="6">  gdal_translate =<span class="st"> &quot;gdal_translate&quot;</span></a>
+<a class="sourceLine" id="cb21-7" data-line-number="7">  gdalwarp =<span class="st"> &quot;gdalwarp&quot;</span></a>
+<a class="sourceLine" id="cb21-8" data-line-number="8">}</a>
+<a class="sourceLine" id="cb21-9" data-line-number="9"><span class="kw">system</span>(<span class="kw">paste</span>(gdalwarp, <span class="st">&quot;--help&quot;</span>))</a></code></pre></div>
+<p>We can use GDAL to reproject the grid from the previous example:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="kw">system</span>(<span class="kw">paste</span>(<span class="st">&#39;gdalwarp ./extdata/DEMSRT6.sdat ./extdata/DEMSRT6_ll.tif&#39;</span>,  </a>
+<a class="sourceLine" id="cb22-2" data-line-number="2">             <span class="st">&#39;-t_srs </span><span class="ch">\&quot;</span><span class="st">+proj=longlat +datum=WGS84</span><span class="ch">\&quot;</span><span class="st">&#39;</span>))</a>
+<a class="sourceLine" id="cb22-3" data-line-number="3"><span class="kw">library</span>(raster)</a>
+<a class="sourceLine" id="cb22-4" data-line-number="4"><span class="kw">plot</span>(<span class="kw">raster</span>(<span class="st">&quot;./extdata/DEMSRT6_ll.tif&quot;</span>))</a></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:plot-eberg-ll"></span>
+<img src="Software_files/figure-html/plot-eberg-ll-1.png" alt="Ebergotzen DEM reprojected in geographical coordinates." width="100%" />
+<p class="caption">
+Figure 2.7: Ebergotzen DEM reprojected in geographical coordinates.
+</p>
+</div>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-gmd-8-1991-2015">
+<p>Conrad, O., B. Bechtel, M. Bock, H. Dietrich, E. Fischer, L. Gerlitz, J. Wehberg, V. Wichmann, and J. Böhner. 2015. “System for Automated Geoscientific Analyses (Saga) V. 2.1.4.” <em>Geoscientific Model Development</em> 8 (7). Copernicus GmbH: 1991–2007. <a href="https://doi.org/10.5194/gmd-8-1991-2015">https://doi.org/10.5194/gmd-8-1991-2015</a>.</p>
+</div>
+<div id="ref-raster">
+<p>Hijmans, Robert J., and Jacob van Etten. 2017. <em>Raster: Geographic Data Analysis and Modeling</em>. <a href="http://CRAN.R-project.org/package=raster">http://CRAN.R-project.org/package=raster</a>.</p>
+</div>
+<div id="ref-pebesma2005classes">
+<p>Pebesma, Edzer J, and Roger S Bivand. 2005. “Classes and Methods for Spatial Data in R.” <em>R News</em> 5 (2): 9–13.</p>
+</div>
+<div id="ref-mitchell2014geospatial">
+<p>Mitchell, T., and GDAL Developers. 2014. <em>Geospatial Power Tools: GDAL Raster &amp; Vector Commands</em>. Locate Press.</p>
+</div>
+<div id="ref-lindsay2016whitebox">
+<p>Lindsay, John B. 2016. “Whitebox GAT: A case study in geomorphometric analysis.” <em>Computers &amp; Geosciences</em> 95. Elsevier: 75–84.</p>
+</div>
+</div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://https-envirometrix-github-io-predictivesoilmapping.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="soil-variables-chapter.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/envirometrix/PredictiveSoilMapping/edit/master/Software.Rmd",
+"text": "Edit"
+},
+"download": ["_main.pdf"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
