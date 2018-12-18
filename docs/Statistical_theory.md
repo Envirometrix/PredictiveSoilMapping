@@ -109,8 +109,8 @@ some theory for 3D models, while 2D+T and 3D+T models of soil variation
 are significantly more complex (Fig. \@ref(fig:scheme-2D-3D-maps)).
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_2D_3DT_maps.png" alt="Number of variogram parameters assuming an exponential model, minimum number of samples and corresponding increase in number of prediction locations for 2D, 3D, 2D+T and 3D+T models of soil variation. Here *“altitude”* refers to vertical distance from the land surface, which is in case of soil mapping often expressed as negative vertical distance from the land surface." width="60%" />
-<p class="caption">(\#fig:scheme-2D-3D-maps)Number of variogram parameters assuming an exponential model, minimum number of samples and corresponding increase in number of prediction locations for 2D, 3D, 2D+T and 3D+T models of soil variation. Here *“altitude”* refers to vertical distance from the land surface, which is in case of soil mapping often expressed as negative vertical distance from the land surface.</p>
+<img src="figures/Fig_2D_3DT_maps.png" alt="Number of variogram parameters assuming an exponential model, minimum number of samples and corresponding increase in number of prediction locations for 2D, 3D, 2D+T and 3D+T models of soil variation. Here “altitude” refers to vertical distance from the land surface, which is in case of soil mapping often expressed as negative vertical distance from the land surface." width="60%" />
+<p class="caption">(\#fig:scheme-2D-3D-maps)Number of variogram parameters assuming an exponential model, minimum number of samples and corresponding increase in number of prediction locations for 2D, 3D, 2D+T and 3D+T models of soil variation. Here “altitude” refers to vertical distance from the land surface, which is in case of soil mapping often expressed as negative vertical distance from the land surface.</p>
 </div>
 
 One of the reasons why 2D+T and 3D+T models of soil variations are rare
@@ -1420,8 +1420,8 @@ It is important to run such comparisons nevertheless, as they allow us
 to objectively select the most efficient method.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_RK_vs_randomForestK_Meuse.png" alt="Predictions of the organic carbon (log-transformed values) using random forest vs linear regression-kriging. The random forest-kriging variance has been derived using the quantregForest package [@meinshausen2006quantile]." width="100%" />
-<p class="caption">(\#fig:rk-vs-rf-meuse)Predictions of the organic carbon (log-transformed values) using random forest vs linear regression-kriging. The random forest-kriging variance has been derived using the quantregForest package [@meinshausen2006quantile].</p>
+<img src="figures/Fig_RK_vs_randomForestK_Meuse.png" alt="Predictions of the organic carbon (log-transformed values) using random forest vs linear regression-kriging. The random forest-kriging variance has been derived using the quantregForest package." width="100%" />
+<p class="caption">(\#fig:rk-vs-rf-meuse)Predictions of the organic carbon (log-transformed values) using random forest vs linear regression-kriging. The random forest-kriging variance has been derived using the quantregForest package.</p>
 </div>
 
 Fig. \@ref(fig:rk-vs-rf-meuse) shows the RK variance derived
@@ -1593,8 +1593,8 @@ support of the observations, scaling (aggregation or disaggregation)
 becomes necessary [@Heuvelink1999Geoderma].
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_confidence_limits.png" alt="Scheme with predictions on point (above) and block support (below). In the case of various versions of kriging, both point and block predictions smooth the original measurements proportionally to the nugget variation. After @Goovaerts1997Oxford." width="100%" />
-<p class="caption">(\#fig:confidence-limits-block)Scheme with predictions on point (above) and block support (below). In the case of various versions of kriging, both point and block predictions smooth the original measurements proportionally to the nugget variation. After @Goovaerts1997Oxford.</p>
+<img src="figures/Fig_confidence_limits.png" alt="Scheme with predictions on point (above) and block support (below). In the case of various versions of kriging, both point and block predictions smooth the original measurements proportionally to the nugget variation. After Goovaerts (1997)." width="100%" />
+<p class="caption">(\#fig:confidence-limits-block)Scheme with predictions on point (above) and block support (below). In the case of various versions of kriging, both point and block predictions smooth the original measurements proportionally to the nugget variation. After Goovaerts (1997).</p>
 </div>
 
 Depending on how significant the nugget variation is, prediction
@@ -1707,8 +1707,8 @@ om.rk.p
 ```
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_meuse_block_predictions.jpg" alt="Predictions and simulations (2) at point (above) and block (below) support using the Meuse dataset. Note that prediction values produced by point and block methods are quite similar. Simulations on block support produce *smoother* maps than the point-support simulations." width="100%" />
-<p class="caption">(\#fig:meuse-block-predictions)Predictions and simulations (2) at point (above) and block (below) support using the Meuse dataset. Note that prediction values produced by point and block methods are quite similar. Simulations on block support produce *smoother* maps than the point-support simulations.</p>
+<img src="figures/Fig_meuse_block_predictions.jpg" alt="Predictions and simulations (2) at point (above) and block (below) support using the Meuse dataset. Note that prediction values produced by point and block methods are quite similar. Simulations on block support produce smoother maps than the point-support simulations." width="100%" />
+<p class="caption">(\#fig:meuse-block-predictions)Predictions and simulations (2) at point (above) and block (below) support using the Meuse dataset. Note that prediction values produced by point and block methods are quite similar. Simulations on block support produce smoother maps than the point-support simulations.</p>
 </div>
 
 which shows that the mapping accuracy at point support is ca. 53% of the
@@ -1837,8 +1837,8 @@ kriging variance (and likewise the average of a large number of
 simulations will approximate the kriging prediction map).
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_hist_om_predicted_vs_simulated.png" alt="Histogram for the target variable (Meuse data set; log of organic matter) based on the actual observations (left), predictions at all grid nodes (middle) and simulations (right). Note that the histogram for predicted values will always show somewhat narrower distribution (smoothed), depending on the strength of the model, while the simulations should be able to reproduce the original range (see also @Yamamoto2008)." width="100%" />
-<p class="caption">(\#fig:hist-om-predicted-simulated)Histogram for the target variable (Meuse data set; log of organic matter) based on the actual observations (left), predictions at all grid nodes (middle) and simulations (right). Note that the histogram for predicted values will always show somewhat narrower distribution (smoothed), depending on the strength of the model, while the simulations should be able to reproduce the original range (see also @Yamamoto2008).</p>
+<img src="figures/Fig_hist_om_predicted_vs_simulated.png" alt="Histogram for the target variable (Meuse data set; log of organic matter) based on the actual observations (left), predictions at all grid nodes (middle) and simulations (right). Note that the histogram for predicted values will always show somewhat narrower distribution (smoothed), depending on the strength of the model, while the simulations should be able to reproduce the original range (see also Yamamoto et al. (2008))." width="100%" />
+<p class="caption">(\#fig:hist-om-predicted-simulated)Histogram for the target variable (Meuse data set; log of organic matter) based on the actual observations (left), predictions at all grid nodes (middle) and simulations (right). Note that the histogram for predicted values will always show somewhat narrower distribution (smoothed), depending on the strength of the model, while the simulations should be able to reproduce the original range (see also Yamamoto et al. (2008)).</p>
 </div>
 
 The differences among an ensemble of realizations produced using
@@ -2831,8 +2831,8 @@ Fig. \@ref(fig:validation-scheme)). It is usually equal to or somewhat
 lower than R–square, depending on the amount of bias in predictions.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_validation_plots.png" alt="Universal plots of predictive performance: (a) 1:1 predicted vs observed plot, (b) CCC vs standard deviation of the z-scores plot, (c) nominal vs coverage probabilities, and (d) variogram of cross-validation residuals. For more detail see: @Hengl2018RFsp." width="80%" />
-<p class="caption">(\#fig:validation-scheme)Universal plots of predictive performance: (a) 1:1 predicted vs observed plot, (b) CCC vs standard deviation of the z-scores plot, (c) nominal vs coverage probabilities, and (d) variogram of cross-validation residuals. For more detail see: @Hengl2018RFsp.</p>
+<img src="figures/Fig_validation_plots.png" alt="Universal plots of predictive performance: (a) 1:1 predicted vs observed plot, (b) CCC vs standard deviation of the z-scores plot, (c) nominal vs coverage probabilities, and (d) variogram of cross-validation residuals. Image source: Hengl et al. (2018) doi: 10.7717/peerj.5518." width="80%" />
+<p class="caption">(\#fig:validation-scheme)Universal plots of predictive performance: (a) 1:1 predicted vs observed plot, (b) CCC vs standard deviation of the z-scores plot, (c) nominal vs coverage probabilities, and (d) variogram of cross-validation residuals. Image source: Hengl et al. (2018) doi: 10.7717/peerj.5518.</p>
 </div>
 
 CCC and variance or standard deviation of the z-scores are two universal / 
@@ -2901,8 +2901,8 @@ are the all-inclusive costs that include salaries and time in the office
 needed for the work of synthesis and editing.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_scale_costs_ratio.png" alt="Some basic concepts of soil survey: (a) relationship between cartographic scale and pixel size [@Hengl2006CG], (b) soil survey costs and scale relationship based on the empirical data of @Legros2006SP." width="100%" />
-<p class="caption">(\#fig:scale-costs-ratio)Some basic concepts of soil survey: (a) relationship between cartographic scale and pixel size [@Hengl2006CG], (b) soil survey costs and scale relationship based on the empirical data of @Legros2006SP.</p>
+<img src="figures/Fig_scale_costs_ratio.png" alt="Some basic concepts of soil survey: (a) relationship between cartographic scale and pixel size (Hengl, 2006), (b) soil survey costs and scale relationship based on the empirical data of (Legros, 2006)." width="100%" />
+<p class="caption">(\#fig:scale-costs-ratio)Some basic concepts of soil survey: (a) relationship between cartographic scale and pixel size (Hengl, 2006), (b) soil survey costs and scale relationship based on the empirical data of (Legros, 2006).</p>
 </div>
 
 Estimated standard soil survey costs per area differ from country to
@@ -2961,8 +2961,8 @@ mapping efficiency is the total cost of explaining each percent of variation
 in target soil variables for a given area of interest.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_costs_RMSE_scheme.png" alt="General relationship between the sampling intensity (i.e. survey costs) and amount of variation in the target variable explained by a spatial prediction model. After @Hengl2013JAG." width="80%" />
-<p class="caption">(\#fig:costs-RMSE-scheme)General relationship between the sampling intensity (i.e. survey costs) and amount of variation in the target variable explained by a spatial prediction model. After @Hengl2013JAG.</p>
+<img src="figures/Fig_costs_RMSE_scheme.png" alt="General relationship between the sampling intensity (i.e. survey costs) and amount of variation in the target variable explained by a spatial prediction model. After Hengl et al. (2013) doi: 10.1016/j.jag.2012.02.005." width="80%" />
+<p class="caption">(\#fig:costs-RMSE-scheme)General relationship between the sampling intensity (i.e. survey costs) and amount of variation in the target variable explained by a spatial prediction model. After Hengl et al. (2013) doi: 10.1016/j.jag.2012.02.005.</p>
 </div>
 
 An even more universal measure of mapping efficiency is the Information Production Efficiency (IPE) [@Hengl2013JAG]:
@@ -3046,8 +3046,8 @@ effective, pedometric method for an area of interest and a list of
 target variables.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_costs_RMSE_scheme-2.png" alt="An schematic example of a performance plot (*‘predictogram’*) for comparing spatial prediction models. For more details see: @Hengl2013JAG." width="80%" />
-<p class="caption">(\#fig:cost-methods-scheme)An schematic example of a performance plot (*‘predictogram’*) for comparing spatial prediction models. For more details see: @Hengl2013JAG.</p>
+<img src="figures/Fig_costs_RMSE_scheme-2.png" alt="An schematic example of a performance plot (*‘predictogram’*) for comparing spatial prediction models. For more details see: Hengl et al. (2013) doi: 10.1016/j.jag.2012.02.005." width="80%" />
+<p class="caption">(\#fig:cost-methods-scheme)An schematic example of a performance plot (*‘predictogram’*) for comparing spatial prediction models. For more details see: Hengl et al. (2013) doi: 10.1016/j.jag.2012.02.005.</p>
 </div>
 
 In summary, gauging the success of soil mapping basically boils down to

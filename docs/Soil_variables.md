@@ -194,8 +194,8 @@ vertical and, 3–arcseconds in the horizontal dimension (ca. 100 m)
 (Fig. \@ref(fig:scheme-solum)).
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_scheme_solum.png" alt="Standard soil horizons, solum thickness and depth to bedrock (left), six standard depths used in the *GlobalSoilMap* project (right)." width="75%" />
-<p class="caption">(\#fig:scheme-solum)Standard soil horizons, solum thickness and depth to bedrock (left), six standard depths used in the *GlobalSoilMap* project (right).</p>
+<img src="figures/Fig_scheme_solum.png" alt="Standard soil horizons, solum thickness and depth to bedrock (left), six standard depths used in the GlobalSoilMap project (right)." width="75%" />
+<p class="caption">(\#fig:scheme-solum)Standard soil horizons, solum thickness and depth to bedrock (left), six standard depths used in the GlobalSoilMap project (right).</p>
 </div>
 
 
@@ -440,8 +440,8 @@ described separately. For organic soils, the top of any surface horizon
 identified as an `O` horizon is considered the soil surface.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_depth_2_bedrock.png" alt="Depth to bedrock for censured and uncensured observations. Image source: @shangguan2016." width="100%" />
-<p class="caption">(\#fig:scheme-depth-to-bedrock)Depth to bedrock for censured and uncensured observations. Image source: @shangguan2016.</p>
+<img src="figures/Fig_depth_2_bedrock.png" alt="Depth to bedrock for censured and uncensured observations. Image source: Shangguan et al. (2017) doi: 10.1002/2016MS000686." width="100%" />
+<p class="caption">(\#fig:scheme-depth-to-bedrock)Depth to bedrock for censured and uncensured observations. Image source: Shangguan et al. (2017) doi: 10.1002/2016MS000686.</p>
 </div>
 
 The *depth to bedrock* i.e. depth to the `R` horizon is measured from
@@ -566,8 +566,8 @@ to map all limiting soil properties with high accuracy, and then derive
 rooting index per layer.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_LRI_scheme.png" alt="Derivation of the Limiting Rooting Index: (left) soil pH values and corresponding LRI, (right) coarse fragments and corresponding LRI [@Leenaars2018]." width="90%" />
-<p class="caption">(\#fig:lri-scheme)Derivation of the Limiting Rooting Index: (left) soil pH values and corresponding LRI, (right) coarse fragments and corresponding LRI [@Leenaars2018].</p>
+<img src="figures/Fig_LRI_scheme.png" alt="Derivation of the Limiting Rooting Index: (left) soil pH values and corresponding LRI, (right) coarse fragments and corresponding LRI. Based on Leenaars et al. (2018) doi: 10.1016/j.geoderma.2018.02.046." width="90%" />
+<p class="caption">(\#fig:lri-scheme)Derivation of the Limiting Rooting Index: (left) soil pH values and corresponding LRI, (right) coarse fragments and corresponding LRI. Based on Leenaars et al. (2018) doi: 10.1016/j.geoderma.2018.02.046.</p>
 </div>
 
 By using the GSIF package, one can determine Limiting Rooting Index, which
@@ -697,8 +697,8 @@ of the distribution of soil organic carbon is shown in
 Fig. \@ref(fig:sprofs-soil-carbon).
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_sprofs_ORCDRC.png" alt="Histogram and soil-depth density distribution for a global compilation of measurements of soil organic carbon content in permilles. Based on the records from WOSIS [@Batjes2017ESSD]. The log-transformation is used to ensure close-to-normal distribution in the histogram." width="100%" />
-<p class="caption">(\#fig:sprofs-soil-carbon)Histogram and soil-depth density distribution for a global compilation of measurements of soil organic carbon content in permilles. Based on the records from WOSIS [@Batjes2017ESSD]. The log-transformation is used to ensure close-to-normal distribution in the histogram.</p>
+<img src="figures/Fig_sprofs_ORCDRC.png" alt="Histogram and soil-depth density distribution for a global compilation of measurements of soil organic carbon content in permilles. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/). The log-transformation is used to ensure close-to-normal distribution in the histogram." width="100%" />
+<p class="caption">(\#fig:sprofs-soil-carbon)Histogram and soil-depth density distribution for a global compilation of measurements of soil organic carbon content in permilles. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/). The log-transformation is used to ensure close-to-normal distribution in the histogram.</p>
 </div>
 
 <div class="rmdnote">
@@ -757,13 +757,13 @@ dissolution chemistry, and the activity of microorganisms
 [@Miller2010SSSAJ].
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_sprofs_PHIHO5.png" alt="Histogram and soil-depth density distribution for a global compilation of measurements of soil pH (suspension of soil in H$_2$O). Based on the records from WOSIS [@Batjes2017ESSD]." width="100%" />
-<p class="caption">(\#fig:sprops-phiho5)Histogram and soil-depth density distribution for a global compilation of measurements of soil pH (suspension of soil in H$_2$O). Based on the records from WOSIS [@Batjes2017ESSD].</p>
+<img src="figures/Fig_sprofs_PHIHO5.png" alt="Histogram and soil-depth density distribution for a global compilation of measurements of soil pH (suspension of soil in H2O). Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/)." width="100%" />
+<p class="caption">(\#fig:sprops-phiho5)Histogram and soil-depth density distribution for a global compilation of measurements of soil pH (suspension of soil in H2O). Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/).</p>
 </div>
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_sprofs_PHIKCL.png" alt="Histogram and soil-depth density distribution for a global compilation of measurements of soil pH (suspension of soil in KCl). Based on the records from WOSIS [@Batjes2017ESSD]." width="100%" />
-<p class="caption">(\#fig:sprops-phikcl)Histogram and soil-depth density distribution for a global compilation of measurements of soil pH (suspension of soil in KCl). Based on the records from WOSIS [@Batjes2017ESSD].</p>
+<img src="figures/Fig_sprofs_PHIKCL.png" alt="Histogram and soil-depth density distribution for a global compilation of measurements of soil pH (suspension of soil in KCl). Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/)." width="100%" />
+<p class="caption">(\#fig:sprops-phikcl)Histogram and soil-depth density distribution for a global compilation of measurements of soil pH (suspension of soil in KCl). Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/).</p>
 </div>
 
 The standard reference method for reporting pH is ISO
@@ -957,8 +957,8 @@ estimated global distribution of coarse fragments and soil textures is
 given in Fig. \@ref(fig:sprofs-crfvol).
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_sprofs_CRFVOL.png" alt="Histogram and soil-depth density distribution for a global compilation of measurements of coarse fragments in percent. Based on the records from WOSIS [@Batjes2017ESSD]. This variable in principle follows a zero inflated distribution." width="100%" />
-<p class="caption">(\#fig:sprofs-crfvol)Histogram and soil-depth density distribution for a global compilation of measurements of coarse fragments in percent. Based on the records from WOSIS [@Batjes2017ESSD]. This variable in principle follows a zero inflated distribution.</p>
+<img src="figures/Fig_sprofs_CRFVOL.png" alt="Histogram and soil-depth density distribution for a global compilation of measurements of coarse fragments in percent. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/). This variable in principle follows a zero inflated distribution." width="100%" />
+<p class="caption">(\#fig:sprofs-crfvol)Histogram and soil-depth density distribution for a global compilation of measurements of coarse fragments in percent. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/). This variable in principle follows a zero inflated distribution.</p>
 </div>
 
 ### Particle size class distribution: sand, silt and clay
@@ -1004,23 +1004,23 @@ given in Figs. \@ref(fig:sprofs-snd), \@ref(fig:sprofs-slt) and
 \@ref(fig:sprofs-cly).
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_texture_limits_Minasny2001.jpg" alt="Particle size limits used in European countries, Australia and America. Image source: @Minasny2001AJSR." width="100%" />
-<p class="caption">(\#fig:texture-limits)Particle size limits used in European countries, Australia and America. Image source: @Minasny2001AJSR.</p>
+<img src="figures/Fig_texture_limits_Minasny2001.jpg" alt="Particle size limits used in European countries, Australia and America. Image source: Minasny and McBratney (2001) doi: 10.1071/SR00065." width="100%" />
+<p class="caption">(\#fig:texture-limits)Particle size limits used in European countries, Australia and America. Image source: Minasny and McBratney (2001) doi: 10.1071/SR00065.</p>
 </div>
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_sprofs_SNDPPT.png" alt="Histogram and soil-depth density distribution for a global compilation of measurements of sand content in percent. Based on the records from WOSIS [@Batjes2017ESSD]." width="100%" />
-<p class="caption">(\#fig:sprofs-snd)Histogram and soil-depth density distribution for a global compilation of measurements of sand content in percent. Based on the records from WOSIS [@Batjes2017ESSD].</p>
+<img src="figures/Fig_sprofs_SNDPPT.png" alt="Histogram and soil-depth density distribution for a global compilation of measurements of sand content in percent. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/)." width="100%" />
+<p class="caption">(\#fig:sprofs-snd)Histogram and soil-depth density distribution for a global compilation of measurements of sand content in percent. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/).</p>
 </div>
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_sprofs_SLTPPT.png" alt="Histogram and soil-depth density distribution for a global compilation of measurements of silt content in percent. Based on the records from WOSIS [@Batjes2017ESSD]." width="100%" />
-<p class="caption">(\#fig:sprofs-slt)Histogram and soil-depth density distribution for a global compilation of measurements of silt content in percent. Based on the records from WOSIS [@Batjes2017ESSD].</p>
+<img src="figures/Fig_sprofs_SLTPPT.png" alt="Histogram and soil-depth density distribution for a global compilation of measurements of silt content in percent. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/)." width="100%" />
+<p class="caption">(\#fig:sprofs-slt)Histogram and soil-depth density distribution for a global compilation of measurements of silt content in percent. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/).</p>
 </div>
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_sprofs_CLYPPT.png" alt="Histogram and soil-depth density distribution for a global compilation of measurements of clay content in percent. Based on the records from WOSIS [@Batjes2017ESSD]." width="100%" />
-<p class="caption">(\#fig:sprofs-cly)Histogram and soil-depth density distribution for a global compilation of measurements of clay content in percent. Based on the records from WOSIS [@Batjes2017ESSD].</p>
+<img src="figures/Fig_sprofs_CLYPPT.png" alt="Histogram and soil-depth density distribution for a global compilation of measurements of clay content in percent. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/)." width="100%" />
+<p class="caption">(\#fig:sprofs-cly)Histogram and soil-depth density distribution for a global compilation of measurements of clay content in percent. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/).</p>
 </div>
 
 The current standard for particle size classes adopted by FAO for use in
@@ -1210,8 +1210,8 @@ frequently than bulk density for the whole soil
 (Fig. \@ref(fig:sprofs-bld)).
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_sprofs_BLD.png" alt="Histogram and soil-depth density distribution for a global compilation of measurements of bulk density (tonnes per cubic metre). Based on the records from WOSIS [@Batjes2017ESSD]." width="100%" />
-<p class="caption">(\#fig:sprofs-bld)Histogram and soil-depth density distribution for a global compilation of measurements of bulk density (tonnes per cubic metre). Based on the records from WOSIS [@Batjes2017ESSD].</p>
+<img src="figures/Fig_sprofs_BLD.png" alt="Histogram and soil-depth density distribution for a global compilation of measurements of bulk density (tonnes per cubic metre). Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/)." width="100%" />
+<p class="caption">(\#fig:sprofs-bld)Histogram and soil-depth density distribution for a global compilation of measurements of bulk density (tonnes per cubic metre). Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/).</p>
 </div>
 
 Given that there are more values reported for the bulk density of the
@@ -1280,8 +1280,8 @@ soil bulk density in and `CRF` is volumetric fraction of coarse
 fragments ($>$ 2 mm) in percent.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_OCS_calculus_scheme.png" alt="Soil organic carbon stock calculus scheme. Example of how total soil organic carbon stock (OCS), and its propagated error, can be estimated for a given volume of soil using organic carbon content (ORC), bulk density (BLD), thickness of horizon (HOT), and percentage of coarse fragments (CRF). Image source: @Hengl2014SoilGrids1km. OCSKGM function also available via the [GSIF package](http://gsif.r-forge.r-project.org/OCSKGM.html)." width="100%" />
-<p class="caption">(\#fig:ocs-calculus-scheme)Soil organic carbon stock calculus scheme. Example of how total soil organic carbon stock (OCS), and its propagated error, can be estimated for a given volume of soil using organic carbon content (ORC), bulk density (BLD), thickness of horizon (HOT), and percentage of coarse fragments (CRF). Image source: @Hengl2014SoilGrids1km. OCSKGM function also available via the [GSIF package](http://gsif.r-forge.r-project.org/OCSKGM.html).</p>
+<img src="figures/Fig_OCS_calculus_scheme.png" alt="Soil organic carbon stock calculus scheme. Example of how total soil organic carbon stock (OCS), and its propagated error, can be estimated for a given volume of soil using organic carbon content (ORC), bulk density (BLD), thickness of horizon (HOT), and percentage of coarse fragments (CRF). Image source: Hengl et al. (2014) doi: 10.1371/journal.pone.0169748. OCSKGM function also available via the GSIF package." width="100%" />
+<p class="caption">(\#fig:ocs-calculus-scheme)Soil organic carbon stock calculus scheme. Example of how total soil organic carbon stock (OCS), and its propagated error, can be estimated for a given volume of soil using organic carbon content (ORC), bulk density (BLD), thickness of horizon (HOT), and percentage of coarse fragments (CRF). Image source: Hengl et al. (2014) doi: 10.1371/journal.pone.0169748. OCSKGM function also available via the GSIF package.</p>
 </div>
 
 The propagated error of the soil organic carbon stock (Eq.\@ref(eq:ocs-calc)) can
@@ -1852,8 +1852,8 @@ TT.plot(class.sys = "USDA.TT")
 ```
 
 <div class="figure" style="text-align: center">
-<img src="Soil_variables_files/figure-html/plot-tt-triangle-1.png" alt="Soil texture triangle based on the USDA system. Generated using the [soiltexture package](http://cran.r-project.org/web/packages/soiltexture/) in R." width="3000" />
-<p class="caption">(\#fig:plot-tt-triangle)Soil texture triangle based on the USDA system. Generated using the [soiltexture package](http://cran.r-project.org/web/packages/soiltexture/) in R.</p>
+<img src="Soil_variables_files/figure-html/plot-tt-triangle-1.png" alt="Soil texture triangle based on the USDA system. Generated using the soiltexture package (http://cran.r-project.org/web/packages/soiltexture/)." width="3000" />
+<p class="caption">(\#fig:plot-tt-triangle)Soil texture triangle based on the USDA system. Generated using the soiltexture package (http://cran.r-project.org/web/packages/soiltexture/).</p>
 </div>
 
 We can also print out a table with all class names and vertices numbers that defines each class:
@@ -1991,8 +1991,8 @@ TT.plot(class.sys = "USDA.TT", tri.data = tdf,
 ```
 
 <div class="figure" style="text-align: center">
-<img src="Soil_variables_files/figure-html/plot-tt-afsis-1.png" alt="Distribution of observed soil textures for the [Africa Soil Profiles](http://gsif.r-forge.r-project.org/afsp.html)." width="3000" />
-<p class="caption">(\#fig:plot-tt-afsis)Distribution of observed soil textures for the [Africa Soil Profiles](http://gsif.r-forge.r-project.org/afsp.html).</p>
+<img src="Soil_variables_files/figure-html/plot-tt-afsis-1.png" alt="Distribution of observed soil textures for the Africa Soil Profiles (http://gsif.r-forge.r-project.org/afsp.html)." width="3000" />
+<p class="caption">(\#fig:plot-tt-afsis)Distribution of observed soil textures for the Africa Soil Profiles (http://gsif.r-forge.r-project.org/afsp.html).</p>
 </div>
 
 This shows that not all positions in the triangle have the same prior probability. So probably a more sensitive way to estimate uncertainty of converting soil texture classes to fractions would be to run simulations using a density image showing the actual distribution of classes and then, by using the `rpoint` function in the [spatstat package](http://spatstat.org), we could also derive even more realistic conversions from texture-by-hand classes to texture fractions.
@@ -2131,8 +2131,8 @@ points(mcol.RGB, pch=21, bg=mcol.RGB$col, col="black")
 ```
 
 <div class="figure" style="text-align: center">
-<img src="Soil_variables_files/figure-html/plot-af-soil-cols-1.png" alt="Actual observed soil colors (moist) for the top soil based on the [Africa Soil Profiles Database](http://gsif.r-forge.r-project.org/afsp.html)." width="480" />
-<p class="caption">(\#fig:plot-af-soil-cols)Actual observed soil colors (moist) for the top soil based on the [Africa Soil Profiles Database](http://gsif.r-forge.r-project.org/afsp.html).</p>
+<img src="Soil_variables_files/figure-html/plot-af-soil-cols-1.png" alt="Actual observed soil colors (moist) for the top soil based on the Africa Soil Profiles Database (http://gsif.r-forge.r-project.org/afsp.html)." width="480" />
+<p class="caption">(\#fig:plot-af-soil-cols)Actual observed soil colors (moist) for the top soil based on the Africa Soil Profiles Database (http://gsif.r-forge.r-project.org/afsp.html).</p>
 </div>
 
 Finally, via the plotKML package you can also plot the actual colors of horizons by converting tables to SoilProfileCollection class in the [aqp package](http://cran.r-project.org/web/packages/aqp/). Consider this soil profile from Nigeria:

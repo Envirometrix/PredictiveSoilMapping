@@ -196,7 +196,7 @@ where possible) at a fine resolution of six depth intervals in the
 vertical and, 3–arcseconds in the horizontal dimension (ca. 100 m)
 (Fig. \@ref(fig:scheme-solum)).
 
-```{r scheme-solum, echo=FALSE, fig.cap="Standard soil horizons, solum thickness and depth to bedrock (left), six standard depths used in the *GlobalSoilMap* project (right).", out.width="75%"}
+```{r scheme-solum, echo=FALSE, fig.cap="Standard soil horizons, solum thickness and depth to bedrock (left), six standard depths used in the GlobalSoilMap project (right).", out.width="75%"}
 knitr::include_graphics("figures/Fig_scheme_solum.png")
 ```
 
@@ -368,7 +368,7 @@ decomposition is not considered to be part of the soil and may be
 described separately. For organic soils, the top of any surface horizon
 identified as an `O` horizon is considered the soil surface.
 
-```{r scheme-depth-to-bedrock, echo=FALSE, fig.cap="Depth to bedrock for censured and uncensured observations. Image source: @shangguan2016.", out.width="100%"}
+```{r scheme-depth-to-bedrock, echo=FALSE, fig.cap="Depth to bedrock for censured and uncensured observations. Image source: Shangguan et al. (2017) doi: 10.1002/2016MS000686.", out.width="100%"}
 knitr::include_graphics("figures/Fig_depth_2_bedrock.png")
 ```
 
@@ -486,7 +486,7 @@ Possibly a more robust way to determine the effective rooting depth is
 to map all limiting soil properties with high accuracy, and then derive
 rooting index per layer.
 
-```{r lri-scheme, echo=FALSE, fig.cap="Derivation of the Limiting Rooting Index: (left) soil pH values and corresponding LRI, (right) coarse fragments and corresponding LRI [@Leenaars2018].", out.width="90%"}
+```{r lri-scheme, echo=FALSE, fig.cap="Derivation of the Limiting Rooting Index: (left) soil pH values and corresponding LRI, (right) coarse fragments and corresponding LRI. Based on Leenaars et al. (2018) doi: 10.1016/j.geoderma.2018.02.046.", out.width="90%"}
 knitr::include_graphics("figures/Fig_LRI_scheme.png")
 ```
 
@@ -591,7 +591,7 @@ studies as a reference method against which to calibrate other methods
 of the distribution of soil organic carbon is shown in
 Fig. \@ref(fig:sprofs-soil-carbon).
 
-```{r sprofs-soil-carbon, echo=FALSE, fig.cap="Histogram and soil-depth density distribution for a global compilation of measurements of soil organic carbon content in permilles. Based on the records from WOSIS [@Batjes2017ESSD]. The log-transformation is used to ensure close-to-normal distribution in the histogram.", out.width="100%"}
+```{r sprofs-soil-carbon, echo=FALSE, fig.cap="Histogram and soil-depth density distribution for a global compilation of measurements of soil organic carbon content in permilles. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/). The log-transformation is used to ensure close-to-normal distribution in the histogram.", out.width="100%"}
 knitr::include_graphics("figures/Fig_sprofs_ORCDRC.png")
 ```
 
@@ -653,11 +653,11 @@ alkalinity. It also provides information on nutrient availability, metal
 dissolution chemistry, and the activity of microorganisms
 [@Miller2010SSSAJ].
 
-```{r sprops-phiho5, echo=FALSE, fig.cap="Histogram and soil-depth density distribution for a global compilation of measurements of soil pH (suspension of soil in H$_2$O). Based on the records from WOSIS [@Batjes2017ESSD].", out.width="100%"}
+```{r sprops-phiho5, echo=FALSE, fig.cap="Histogram and soil-depth density distribution for a global compilation of measurements of soil pH (suspension of soil in H2O). Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/).", out.width="100%"}
 knitr::include_graphics("figures/Fig_sprofs_PHIHO5.png")
 ```
 
-```{r sprops-phikcl, echo=FALSE, fig.cap="Histogram and soil-depth density distribution for a global compilation of measurements of soil pH (suspension of soil in KCl). Based on the records from WOSIS [@Batjes2017ESSD].", out.width="100%"}
+```{r sprops-phikcl, echo=FALSE, fig.cap="Histogram and soil-depth density distribution for a global compilation of measurements of soil pH (suspension of soil in KCl). Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/).", out.width="100%"}
 knitr::include_graphics("figures/Fig_sprofs_PHIKCL.png")
 ```
 
@@ -856,7 +856,7 @@ effective soil depth and generally also for depth to bedrock. An
 estimated global distribution of coarse fragments and soil textures is
 given in Fig. \@ref(fig:sprofs-crfvol).
 
-```{r sprofs-crfvol, echo=FALSE, fig.cap="Histogram and soil-depth density distribution for a global compilation of measurements of coarse fragments in percent. Based on the records from WOSIS [@Batjes2017ESSD]. This variable in principle follows a zero inflated distribution.", out.width="100%"}
+```{r sprofs-crfvol, echo=FALSE, fig.cap="Histogram and soil-depth density distribution for a global compilation of measurements of coarse fragments in percent. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/). This variable in principle follows a zero inflated distribution.", out.width="100%"}
 knitr::include_graphics("figures/Fig_sprofs_CRFVOL.png")
 ```
 
@@ -902,19 +902,19 @@ p.347]. An estimated global distribution of sand, silt, and clay is
 given in Figs. \@ref(fig:sprofs-snd), \@ref(fig:sprofs-slt) and
 \@ref(fig:sprofs-cly).
 
-```{r texture-limits, echo=FALSE, fig.cap="Particle size limits used in European countries, Australia and America. Image source: @Minasny2001AJSR.", out.width="100%"}
+```{r texture-limits, echo=FALSE, fig.cap="Particle size limits used in European countries, Australia and America. Image source: Minasny and McBratney (2001) doi: 10.1071/SR00065.", out.width="100%"}
 knitr::include_graphics("figures/Fig_texture_limits_Minasny2001.jpg")
 ```
 
-```{r sprofs-snd, echo=FALSE, fig.cap="Histogram and soil-depth density distribution for a global compilation of measurements of sand content in percent. Based on the records from WOSIS [@Batjes2017ESSD].", out.width="100%"}
+```{r sprofs-snd, echo=FALSE, fig.cap="Histogram and soil-depth density distribution for a global compilation of measurements of sand content in percent. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/).", out.width="100%"}
 knitr::include_graphics("figures/Fig_sprofs_SNDPPT.png")
 ```
 
-```{r sprofs-slt, echo=FALSE, fig.cap="Histogram and soil-depth density distribution for a global compilation of measurements of silt content in percent. Based on the records from WOSIS [@Batjes2017ESSD].", out.width="100%"}
+```{r sprofs-slt, echo=FALSE, fig.cap="Histogram and soil-depth density distribution for a global compilation of measurements of silt content in percent. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/).", out.width="100%"}
 knitr::include_graphics("figures/Fig_sprofs_SLTPPT.png")
 ```
 
-```{r sprofs-cly, echo=FALSE, fig.cap="Histogram and soil-depth density distribution for a global compilation of measurements of clay content in percent. Based on the records from WOSIS [@Batjes2017ESSD].", out.width="100%"}
+```{r sprofs-cly, echo=FALSE, fig.cap="Histogram and soil-depth density distribution for a global compilation of measurements of clay content in percent. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/).", out.width="100%"}
 knitr::include_graphics("figures/Fig_sprofs_CLYPPT.png")
 ```
 
@@ -1111,7 +1111,7 @@ of the fine earth fraction alone is measured and reported even less
 frequently than bulk density for the whole soil
 (Fig. \@ref(fig:sprofs-bld)).
 
-```{r sprofs-bld, echo=FALSE, fig.cap="Histogram and soil-depth density distribution for a global compilation of measurements of bulk density (tonnes per cubic metre). Based on the records from WOSIS [@Batjes2017ESSD].", out.width="100%"}
+```{r sprofs-bld, echo=FALSE, fig.cap="Histogram and soil-depth density distribution for a global compilation of measurements of bulk density (tonnes per cubic metre). Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/).", out.width="100%"}
 knitr::include_graphics("figures/Fig_sprofs_BLD.png")
 ```
 
@@ -1180,7 +1180,7 @@ mass fraction in permilles, `HOT` is horizon thickness in , `BLD` is
 soil bulk density in and `CRF` is volumetric fraction of coarse
 fragments ($>$ 2 mm) in percent.
 
-```{r ocs-calculus-scheme, echo=FALSE, fig.cap="Soil organic carbon stock calculus scheme. Example of how total soil organic carbon stock (OCS), and its propagated error, can be estimated for a given volume of soil using organic carbon content (ORC), bulk density (BLD), thickness of horizon (HOT), and percentage of coarse fragments (CRF). Image source: @Hengl2014SoilGrids1km. OCSKGM function also available via the [GSIF package](http://gsif.r-forge.r-project.org/OCSKGM.html).", out.width="100%"}
+```{r ocs-calculus-scheme, echo=FALSE, fig.cap="Soil organic carbon stock calculus scheme. Example of how total soil organic carbon stock (OCS), and its propagated error, can be estimated for a given volume of soil using organic carbon content (ORC), bulk density (BLD), thickness of horizon (HOT), and percentage of coarse fragments (CRF). Image source: Hengl et al. (2014) doi: 10.1371/journal.pone.0169748. OCSKGM function also available via the GSIF package.", out.width="100%"}
 knitr::include_graphics("figures/Fig_OCS_calculus_scheme.png")
 ```
 
@@ -1699,7 +1699,7 @@ so that it is relatively easy to distribute and use that GIS layer.
 
 In the following example we look at how to convert texture-by-hand estimated classes to texture fractions i.e. sand, silt and clay content in %. We focus on the USDA texture-by-hand classes. There classes are embedded in the [soiltexture package](http://cran.r-project.org/web/packages/soiltexture/) kindly contributed by Julien Moeys. The USDA texture triangle can be accessed by:
 
-```{r plot-tt-triangle, fig.width=10, dpi=300, fig.cap="Soil texture triangle based on the USDA system. Generated using the [soiltexture package](http://cran.r-project.org/web/packages/soiltexture/) in R."}
+```{r plot-tt-triangle, fig.width=10, dpi=300, fig.cap="Soil texture triangle based on the USDA system. Generated using the soiltexture package (http://cran.r-project.org/web/packages/soiltexture/)."}
 library(soiltexture)
 TT.plot(class.sys = "USDA.TT")
 ```
@@ -1793,7 +1793,7 @@ for(i in c("CLYPPT", "SLTPPT", "SNDPPT")) { tdf[,i] <- tdf[,i]/tdf$Sum * 100 }
 names(tdf)[1:3] <- c("CLAY", "SILT", "SAND")
 ```
 
-```{r plot-tt-afsis, fig.width=10, dpi=300, fig.cap="Distribution of observed soil textures for the [Africa Soil Profiles](http://gsif.r-forge.r-project.org/afsp.html)."}
+```{r plot-tt-afsis, fig.width=10, dpi=300, fig.cap="Distribution of observed soil textures for the Africa Soil Profiles (http://gsif.r-forge.r-project.org/afsp.html)."}
 TT.plot(class.sys = "USDA.TT", tri.data = tdf, 
         grid.show = FALSE, pch="+", cex=.4, col="red")
 ```
@@ -1878,7 +1878,7 @@ mcol.RGB <- mcol.RGB[mcol.RGB$depth>0 & mcol.RGB$depth<30 & !is.na(mcol.RGB$col)
 coordinates(mcol.RGB) <- ~ LONWGS84+LATWGS84
 ```
 
-```{r plot-af-soil-cols, fig.width=5, fig.cap="Actual observed soil colors (moist) for the top soil based on the [Africa Soil Profiles Database](http://gsif.r-forge.r-project.org/afsp.html)."}
+```{r plot-af-soil-cols, fig.width=5, fig.cap="Actual observed soil colors (moist) for the top soil based on the Africa Soil Profiles Database (http://gsif.r-forge.r-project.org/afsp.html)."}
 load("extdata/admin.af.rda")
 proj4string(admin.af) <- "+proj=longlat +datum=WGS84"
 country <- as(admin.af, "SpatialLines")

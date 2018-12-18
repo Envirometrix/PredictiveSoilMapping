@@ -1,4 +1,5 @@
 
+
 # Machine Learning Algorithms for soil mapping {#soilmapping-using-mla}
 
 *Edited by: T. Hengl*
@@ -115,9 +116,9 @@ TAXGRSC.rf <- randomForest(x=m[-s,paste0("PC",1:10)], y=m$soiltype[-s],
 ## accuracy:
 TAXGRSC.rf$test$confusion[,"class.error"]
 #>     Auenboden     Braunerde          Gley    Kolluvisol Parabraunerde 
-#>         0.400         0.526         0.786         0.781         0.546 
+#>         0.500         0.448         0.818         0.773         0.570 
 #>  Pararendzina       Pelosol    Pseudogley        Ranker       Regosol 
-#>         0.629         0.674         0.683         1.000         0.745 
+#>         0.559         0.638         0.711         1.000         0.660 
 #>      Rendzina 
 #>         0.500
 ```
@@ -197,9 +198,9 @@ eberg_soiltype$cl <- as.factor(apply(eberg_soiltype@data,1,which.max))
 levels(eberg_soiltype$cl) = attr(probs, "dimnames")[[2]][as.integer(levels(eberg_soiltype$cl))]
 summary(eberg_soiltype$cl)
 #>     Auenboden     Braunerde          Gley    Kolluvisol Parabraunerde 
-#>            39          2323           151            65          2232 
+#>            41          2326           147            60          2251 
 #>  Pararendzina       Pelosol    Pseudogley       Regosol      Rendzina 
-#>           765           455          1301           305          2364
+#>           739           457          1304           294          2381
 ```
 
 ### Modelling numeric soil properties using h2o
@@ -215,14 +216,14 @@ localH2O = h2o.init(startH2O=FALSE)
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         18 seconds 221 milliseconds 
+#>     H2O cluster uptime:         1 hours 18 minutes 
 #>     H2O cluster timezone:       Europe/Amsterdam 
 #>     H2O data parsing timezone:  UTC 
 #>     H2O cluster version:        3.20.0.2 
 #>     H2O cluster version age:    6 months and 2 days !!! 
 #>     H2O cluster name:           H2O_started_from_R_tomislav_het448 
 #>     H2O cluster total nodes:    1 
-#>     H2O cluster total memory:   3.89 GB 
+#>     H2O cluster total memory:   3.82 GB 
 #>     H2O cluster total cores:    8 
 #>     H2O cluster allowed cores:  8 
 #>     H2O cluster healthy:        TRUE 
@@ -254,29 +255,29 @@ We can now fit a random forest model by using all the computing power available 
 RF.m <- h2o.randomForest(y = which(names(m)=="SNDMHT_A"), 
                         x = which(names(m) %in% paste0("PC",1:10)), 
                         training_frame = eberg.hex, ntree = 50)
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=====================================================            |  82%  |                                                                         |=================================================================| 100%
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=====                                                            |   8%  |                                                                         |=================================================================| 100%
 RF.m
 #> Model Details:
 #> ==============
 #> 
 #> H2ORegressionModel: drf
-#> Model ID:  DRF_model_R_1545136645002_1 
+#> Model ID:  DRF_model_R_1545136645002_11 
 #> Model Summary: 
 #>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#> 1              50                       50              642463        20
+#> 1              50                       50              647111        20
 #>   max_depth mean_depth min_leaves max_leaves mean_leaves
-#> 1        20   20.00000        965       1065  1018.96000
+#> 1        20   20.00000        963       1084  1026.58000
 #> 
 #> 
 #> H2ORegressionMetrics: drf
 #> ** Reported on training data. **
 #> ** Metrics reported on Out-Of-Bag training samples **
 #> 
-#> MSE:  220
-#> RMSE:  14.8
+#> MSE:  222
+#> RMSE:  14.9
 #> MAE:  10.1
-#> RMSLE:  0.43
-#> Mean Residual Deviance :  220
+#> RMSLE:  0.433
+#> Mean Residual Deviance :  222
 ```
 
 This shows that the model fitting R-square is about 50%. This is also indicated by the predicted vs observed plot:
@@ -326,29 +327,29 @@ DL.m
 #> ==============
 #> 
 #> H2ORegressionModel: deeplearning
-#> Model ID:  DeepLearning_model_R_1545136645002_2 
+#> Model ID:  DeepLearning_model_R_1545136645002_12 
 #> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1
 #>   layer units      type dropout       l1       l2 mean_rate rate_rms
 #> 1     1    10     Input  0.00 %                                     
-#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.013224 0.007567
-#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.157603 0.193595
-#> 4     4     1    Linear         0.000000 0.000000  0.001305 0.000952
+#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.013758 0.008405
+#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.138262 0.184080
+#> 4     4     1    Linear         0.000000 0.000000  0.001414 0.002542
 #>   momentum mean_weight weight_rms mean_bias bias_rms
 #> 1                                                   
-#> 2 0.000000   -0.002052   0.112147  0.386134 0.052485
-#> 3 0.000000   -0.017935   0.071046  0.957706 0.016447
-#> 4 0.000000    0.003729   0.053765  0.137227 0.000000
+#> 2 0.000000    0.005690   0.106252  0.372136 0.061386
+#> 3 0.000000   -0.017770   0.071265  0.958353 0.017744
+#> 4 0.000000   -0.001888   0.051385  0.095168 0.000000
 #> 
 #> 
 #> H2ORegressionMetrics: deeplearning
 #> ** Reported on training data. **
 #> ** Metrics reported on full training frame **
 #> 
-#> MSE:  212
-#> RMSE:  14.6
-#> MAE:  10.2
-#> RMSLE:  0.416
-#> Mean Residual Deviance :  212
+#> MSE:  228
+#> RMSE:  15.1
+#> MAE:  10.7
+#> RMSLE:  0.445
+#> Mean Residual Deviance :  228
 ```
 
 Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. \@ref(fig:map-snd) and Fig. \@ref(fig:map-snd-dl)).
@@ -573,16 +574,16 @@ str(test.ORC)
 #> List of 2
 #>  $ CV_residuals:'data.frame':	4972 obs. of  4 variables:
 #>   ..$ Observed : num [1:4972] 22.3 6.5 5.2 4.9 2.9 ...
-#>   ..$ Predicted: num [1:4972] 9.88 6.55 5.95 3.94 2.98 ...
+#>   ..$ Predicted: num [1:4972] 11.02 6.71 6.22 4.05 3.05 ...
 #>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed002_1" "399_EDGEROI_ed002_1" "399_EDGEROI_ed002_1" "399_EDGEROI_ed002_1" ...
 #>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ Summary     :'data.frame':	1 obs. of  6 variables:
-#>   ..$ ME          : num -0.0901
-#>   ..$ MAE         : num 2.13
-#>   ..$ RMSE        : num 3.66
-#>   ..$ R.squared   : num 0.561
-#>   ..$ logRMSE     : num 0.483
-#>   ..$ logR.squared: num 0.65
+#>   ..$ ME          : num -0.069
+#>   ..$ MAE         : num 2.1
+#>   ..$ RMSE        : num 3.63
+#>   ..$ R.squared   : num 0.569
+#>   ..$ logRMSE     : num 0.478
+#>   ..$ logR.squared: num 0.656
 ```
 
 Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about $\pm 4$ g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:
@@ -601,14 +602,14 @@ Ensemble models often outperform single models. There is certainly opportunity f
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         6 minutes 23 seconds 
+#>     H2O cluster uptime:         1 hours 20 minutes 
 #>     H2O cluster timezone:       Europe/Amsterdam 
 #>     H2O data parsing timezone:  UTC 
 #>     H2O cluster version:        3.20.0.2 
 #>     H2O cluster version age:    6 months and 2 days !!! 
 #>     H2O cluster name:           H2O_started_from_R_tomislav_het448 
 #>     H2O cluster total nodes:    1 
-#>     H2O cluster total memory:   3.88 GB 
+#>     H2O cluster total memory:   3.82 GB 
 #>     H2O cluster total cores:    8 
 #>     H2O cluster allowed cores:  8 
 #>     H2O cluster healthy:        TRUE 
@@ -646,9 +647,9 @@ fit <- h2o.ensemble(x = which(names(m2) %in% all.vars(formulaStringP2)[-1]),
 #> Warning in h2o.randomForest(x = x, y = y, training_frame =
 #> training_frame, : Argument offset_column is deprecated and has no use for
 #> Random Forest.
-#>   |                                                                         |                                                                 |   0%  |                                                                         |==========                                                       |  15%  |                                                                         |======================================                           |  58%  |                                                                         |===========================================================      |  91%  |                                                                         |=================================================================| 100%
+#>   |                                                                         |                                                                 |   0%  |                                                                         |                                                                 |   1%  |                                                                         |=====================================                            |  57%  |                                                                         |=========================================================        |  87%  |                                                                         |=================================================================| 100%
 #> [1] "Cross-validating and training base learner 2: h2o.gbm.wrapper"
-#>   |                                                                         |                                                                 |   0%  |                                                                         |========================================================         |  86%  |                                                                         |=================================================================| 100%
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=========                                                        |  13%  |                                                                         |=================================================================| 100%
 #> [1] "Metalearning"
 #>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 perf <- h2o.ensemble_performance(fit, newdata = edgeroi_v.hex)
@@ -665,14 +666,14 @@ perf
 #> Base learner performance, sorted by specified metric:
 #>                    learner  MSE
 #> 2          h2o.gbm.wrapper 8.55
-#> 1 h2o.randomForest.wrapper 7.23
+#> 1 h2o.randomForest.wrapper 7.47
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 7.22317020521794
+#> Ensemble performance (MSE): 7.35968387861012
 ```
 
 which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.
@@ -752,11 +753,11 @@ fit3 <- h2o.ensemble(x = which(names(mP3) %in% all.vars(fm.PHI)[-1]),
 #> Warning in h2o.randomForest(x = x, y = y, training_frame =
 #> training_frame, : Argument offset_column is deprecated and has no use for
 #> Random Forest.
-#>   |                                                                         |                                                                 |   0%  |                                                                         |======                                                           |   9%  |                                                                         |===========================================================      |  91%  |                                                                         |=================================================================| 100%
+#>   |                                                                         |                                                                 |   0%  |                                                                         |========                                                         |  13%  |                                                                         |=================================================================| 100%
 #> [1] "Cross-validating and training base learner 3: h2o.gbm.wrapper"
-#>   |                                                                         |                                                                 |   0%  |                                                                         |==========                                                       |  15%  |                                                                         |=================================================================| 100%
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=================                                                |  26%  |                                                                         |=================================================================| 100%
 #> [1] "Cross-validating and training base learner 4: h2o.deeplearning.wrapper"
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=========                                                        |  13%  |                                                                         |=====================                                            |  32%  |                                                                         |====================================                             |  55%  |                                                                         |=================================================                |  75%  |                                                                         |============================================================     |  92%  |                                                                         |=================================================================| 100%
+#>   |                                                                         |                                                                 |   0%  |                                                                         |==========                                                       |  15%  |                                                                         |========================                                         |  37%  |                                                                         |=====================================                            |  57%  |                                                                         |==================================================               |  77%  |                                                                         |============================================================     |  92%  |                                                                         |=================================================================| 100%
 #> [1] "Metalearning"
 #>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 perf3 <- h2o.ensemble_performance(fit3, newdata = cookfarm_v.hex)
@@ -781,16 +782,16 @@ perf3
 #> Base learner performance, sorted by specified metric:
 #>                    learner    MSE
 #> 1          h2o.glm.wrapper 0.2827
-#> 4 h2o.deeplearning.wrapper 0.1590
+#> 4 h2o.deeplearning.wrapper 0.1889
 #> 3          h2o.gbm.wrapper 0.0971
-#> 2 h2o.randomForest.wrapper 0.0781
+#> 2 h2o.randomForest.wrapper 0.0841
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 0.0767682744078366
+#> Ensemble performance (MSE): 0.0802485949291254
 ```
 
 In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.
@@ -864,12 +865,12 @@ sl
 #>     SL.library = sl.l) 
 #> 
 #> 
-#>                  Risk   Coef
-#> SL.mean_All    0.7540 0.0000
-#> SL.xgboost_All 0.0598 0.8232
-#> SL.ksvm_All    0.1289 0.0183
-#> SL.glmnet_All  0.3074 0.0000
-#> SL.ranger_All  0.0859 0.1585
+#>                  Risk    Coef
+#> SL.mean_All    0.7540 0.00000
+#> SL.xgboost_All 0.0598 0.80625
+#> SL.ksvm_All    0.1289 0.00546
+#> SL.glmnet_All  0.3080 0.00000
+#> SL.ranger_All  0.0841 0.18829
 ```
 
 This shows that `SL.xgboost_All` outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by `SL.xgboost_All` is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:
@@ -889,9 +890,9 @@ sl2
 #> 
 #> 
 #>                  Risk  Coef
-#> SL.xgboost_All 0.0603 0.814
-#> SL.ranger_All  0.0836 0.186
-#> SL.ksvm_All    0.1310 0.000
+#> SL.xgboost_All 0.0603 0.813
+#> SL.ranger_All  0.0835 0.187
+#> SL.ksvm_All    0.1302 0.000
 ```
 
 again `SL.xgboost` dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where entire profiles are taken out of the training dataset:
@@ -918,11 +919,11 @@ summary(cv_sl)
 #> All risk estimates are based on V =  5 
 #> 
 #>       Algorithm  Ave    se   Min  Max
-#>   Super Learner 0.16 0.014 0.095 0.26
-#>     Discrete SL 0.17 0.014 0.112 0.25
+#>   Super Learner 0.16 0.014 0.094 0.26
+#>     Discrete SL 0.17 0.015 0.116 0.25
 #>  SL.xgboost_All 0.19 0.016 0.135 0.27
-#>   SL.ranger_All 0.16 0.014 0.102 0.25
-#>     SL.ksvm_All 0.18 0.015 0.109 0.30
+#>   SL.ranger_All 0.17 0.015 0.105 0.25
+#>     SL.ksvm_All 0.18 0.014 0.109 0.29
 ```
 
 where `V=5` specifies number of folds, and `id=rm.cookfarm$SOURCEID` forces that entire profiles are removed from training and cross-validation. This gives a more realistic RMSE of about ±0.35. Note that this time `SL.xgboost_All` is even somewhat worse than the random forest model, and the ensemble model (`Super Learner`) is slightly better than each individual model. This matches our previous results with `h20.ensemble`. 
@@ -947,8 +948,8 @@ sl2
 #> 
 #>                 Risk  Coef
 #> SL.xgboost_All 0.215 0.000
-#> SL.ranger_All  0.166 0.477
-#> SL.ksvm_All    0.164 0.523
+#> SL.ranger_All  0.166 0.474
+#> SL.ksvm_All    0.163 0.526
 new.data <- grid10m@data
 pred.PHI <- list(NULL)
 depths = c(10,30,50,70,90)
@@ -958,7 +959,7 @@ for(j in 1:length(depths)){
 }
 str(pred.PHI[[1]])
 #> List of 2
-#>  $ pred           : num [1:3865, 1] 4.66 4.73 4.86 4.83 4.76 ...
+#>  $ pred           : num [1:3865, 1] 4.69 4.77 4.92 4.89 4.8 ...
 #>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...
 #>   ..- attr(*, "dimnames")=List of 2
 #>   .. ..$ : NULL
@@ -1108,8 +1109,8 @@ SAGA GIS [@gmd-8-1991-2015] offers a wide variety of DEM derivatives
 that can be derived per location of interest.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_distances_examples.png" alt="Examples of distance maps to some location in space (yellow dot) based on different derivation algorithms: (a) simple Euclidean distances, (b) complex speed-based distances based on the package and Digital Elevation Model (DEM) [@vanEtten2017r], and (c) upslope area derived based on the DEM in SAGA GIS [@gmd-8-1991-2015]. Case study: Ebergötzen [@bohner2006saga]." width="100%" />
-<p class="caption">(\#fig:distances-examples)Examples of distance maps to some location in space (yellow dot) based on different derivation algorithms: (a) simple Euclidean distances, (b) complex speed-based distances based on the package and Digital Elevation Model (DEM) [@vanEtten2017r], and (c) upslope area derived based on the DEM in SAGA GIS [@gmd-8-1991-2015]. Case study: Ebergötzen [@bohner2006saga].</p>
+<img src="figures/Fig_distances_examples.png" alt="Examples of distance maps to some location in space (yellow dot) based on different derivation algorithms: (a) simple Euclidean distances, (b) complex speed-based distances based on the package and Digital Elevation Model (DEM), and (c) upslope area derived based on the DEM in SAGA GIS. Image source: Hengl et al. (2018) doi: 10.7717/peerj.5518." width="100%" />
+<p class="caption">(\#fig:distances-examples)Examples of distance maps to some location in space (yellow dot) based on different derivation algorithms: (a) simple Euclidean distances, (b) complex speed-based distances based on the package and Digital Elevation Model (DEM), and (c) upslope area derived based on the DEM in SAGA GIS. Image source: Hengl et al. (2018) doi: 10.7717/peerj.5518.</p>
 </div>
 
 Here, we only illustrate predictive performance using Euclidean buffer distances 
@@ -1292,8 +1293,8 @@ meuse.grid$zinc_ok_range <- sqrt(zinc.ok$krige.var)
 in this case geoR automatically back-transforms values to the original scale, which is a recommended feature. Comparison of predictions and prediction error maps produced using geoR (ordinary kriging) and RFsp (with buffer distances and by just using coordinates) is given in Fig. \@ref(fig:comparison-OK-RF-zinc-meuse).
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_comparison_OK_RF_zinc_meuse.png" alt="Comparison of predictions based on ordinary kriging as implemented in the geoR package (left) and random forest (right) for Zinc concentrations, Meuse data set: (first row) predicted concentrations in log-scale and (second row) standard deviation of the prediction errors for OK and RF methods. After @Hengl2018RFsp." width="100%" />
-<p class="caption">(\#fig:comparison-OK-RF-zinc-meuse)Comparison of predictions based on ordinary kriging as implemented in the geoR package (left) and random forest (right) for Zinc concentrations, Meuse data set: (first row) predicted concentrations in log-scale and (second row) standard deviation of the prediction errors for OK and RF methods. After @Hengl2018RFsp.</p>
+<img src="figures/Fig_comparison_OK_RF_zinc_meuse.png" alt="Comparison of predictions based on ordinary kriging as implemented in the geoR package (left) and random forest (right) for Zinc concentrations, Meuse data set: (first row) predicted concentrations in log-scale and (second row) standard deviation of the prediction errors for OK and RF methods. Image source: Hengl et al. (2018) doi: 10.7717/peerj.5518." width="100%" />
+<p class="caption">(\#fig:comparison-OK-RF-zinc-meuse)Comparison of predictions based on ordinary kriging as implemented in the geoR package (left) and random forest (right) for Zinc concentrations, Meuse data set: (first row) predicted concentrations in log-scale and (second row) standard deviation of the prediction errors for OK and RF methods. Image source: Hengl et al. (2018) doi: 10.7717/peerj.5518.</p>
 </div>
 
 From the plot above, it can be concluded that RFsp yields very similar results to those produced using ordinary kriging via geoR. There are differences between geoR and RFsp, however. These are:
