@@ -143,7 +143,7 @@ In principle, all submitted chapters should also follow closely the [five pillar
 To reproduce the book, you need a recent version of [R](https://cran.r-project.org/), and [RStudio](http://www.rstudio.com/products/RStudio/) and up-to-date packages, which can be installed with the following command (which requires [**devtools**](https://github.com/hadley/devtools)):
 
 ```{r, eval=FALSE}
-devtools::install_github("envirometrix/PredictiveSoilMapping")
+devtools::install_github("nowosad/PSMpkg")
 ```
 
 To build the book locally, clone or [download](https://github.com/envirometrix/PredictiveSoilMapping/archive/master.zip) the [PredictiveSoilMapping repo](https://github.com/envirometrix/PredictiveSoilMapping/), load R in root directory (e.g. by opening [PredictiveSoilMapping.Rproj](https://github.com/envirometrix/PredictiveSoilMapping/blob/master/PredictiveSoilMapping.Rproj) in RStudio) and run the following lines:
