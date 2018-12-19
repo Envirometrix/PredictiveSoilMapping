@@ -412,10 +412,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 \tag{7.4}
 \end{equation}\]</span>
 <p>While OCS is a summary measure of SOC, always associated with a specific depth interval, OCD is a relative measure of soil organic carbon distribution and can be associated with any support size i.e. to an arbitrary depth. In principle, OCD (kg/m<span class="math inline">\(^3\)</span>) is strongly correlated with ORC (g/kg) as indicated in the figure below. However, depending on soil mineralogy and coarse fragment content, OCD can be lower or higher than what the smoothed line indicates (notice the range of values around the smoothed line is relatively wide). It is important to understand, however, that, as long as ORC, BLD and CRF are known, one can convert the values from ORC to OCD and OCS and <em>vice versa</em>, without loosing any information about the soil organic carbon stock.</p>
-<div class="figure" style="text-align: center"><span id="fig:scheme-solum"></span>
+<div class="figure" style="text-align: center"><span id="fig:carbon-density-plot"></span>
 <img src="figures/rplot_soilcarbon_density_vs_orc.png" alt="Correlation between soil organic carbon density and soil organic carbon content (displayed on a log-scale) created using a global compilations of soil profile data (WoSIS). Values 1, 2, 3, 4, 5 and 6 in the plot (log scale) correspond to values 2, 6, 19, 54, 147 and 402. Note that for ORC &gt;12%, the OCD line flattens, which means that, organic carbon density practically stops to increase with the increase of ORC content." width="55%" />
 <p class="caption">
-Figure 3.3: Correlation between soil organic carbon density and soil organic carbon content (displayed on a log-scale) created using a global compilations of soil profile data (WoSIS). Values 1, 2, 3, 4, 5 and 6 in the plot (log scale) correspond to values 2, 6, 19, 54, 147 and 402. Note that for ORC &gt;12%, the OCD line flattens, which means that, organic carbon density practically stops to increase with the increase of ORC content.
+Figure 7.1: Correlation between soil organic carbon density and soil organic carbon content (displayed on a log-scale) created using a global compilations of soil profile data (WoSIS). Values 1, 2, 3, 4, 5 and 6 in the plot (log scale) correspond to values 2, 6, 19, 54, 147 and 402. Note that for ORC &gt;12%, the OCD line flattens, which means that, organic carbon density practically stops to increase with the increase of ORC content.
 </p>
 </div>
 <p>In summary, there are four main variables used to represent soil organic carbon:</p>
@@ -437,9 +437,9 @@ The average Organic Carbon Stock for the 0–100 cm depth interval for the land 
 <div id="derivation-of-ocs-and-ocd-using-soil-profile-data" class="section level2">
 <h2><span class="header-section-number">7.3</span> Derivation of OCS and OCD using soil profile data</h2>
 <p>As mentioned previously, OCS stock is most commonly derived from measurements of the organic carbon (ORC) content, soil bulk density (BLD) and the volume fraction of gravel (CRF). These are usually sampled either per soil layers or soil <strong>horizons</strong> (a sequence of horizons makes a soil profile), which can refer to variable soil depth intervals i.e. are non-standard. That means that, before one can determine OCS for standard fixed depth intervals (e.g. 0–30 cm or 0–100 cm), values of ORC, BLD and CRF need to be standardized so they refer to common depth intervals.</p>
-<p>Consider, for example, the following two real life examples of soil profile data for a standard agricultural soil and an organic soil. In the first example, <a href="http://www.asris.csiro.au/mapping/hyperdocs/NatSoil/399%5EEDGEROI%5Eed079.pdf">profile from Australia</a>, the soil profile data shows:</p>
+<p>Consider, for example, the following two real life examples of soil profile data for a standard agricultural soil and an organic soil. In the first example, <a href="http://www.asris.csiro.au/mapping/hyperdocs/NatSoil/399%5EEDGEROI%5Eed079.pdf">profile from Australia</a>, the soil profile data shows <span class="citation">(Karssies <a href="#ref-Karssies2011CSIRO">2011</a>)</span>:</p>
 <table>
-<caption><span id="tab:profile-edgeroi">Table 7.1: </span>Laboratory data for a profile <em>399 EDGEROI ed079</em> from Australia <span class="citation">(Karssies <a href="#ref-Karssies2011CSIRO">2011</a>)</span>.</caption>
+<caption><span id="tab:profile-edgeroi">Table 7.1: </span>Laboratory data for a profile <em>399 EDGEROI ed079</em> from Australia (Karssies 2011).</caption>
 <thead>
 <tr class="header">
 <th align="right">upper_limit</th>
@@ -557,7 +557,7 @@ CRF.s &lt;-<span class="st"> </span><span class="kw">mpspline</span>(prof1, <spa
 <span class="co">#&gt; [1] 9.18</span>
 <span class="co">#&gt; attr(,&quot;units&quot;)</span>
 <span class="co">#&gt; [1] &quot;kilograms per square-meter&quot;</span></code></pre></div>
-<p>Note that the OCSKGM function requires soil organic carbon content in g/kg. If one has contents measured in % then first multiply the values by 10. Bulk density data should be provided in kg/m3, gravel content in %, and layer depth in cm. Running the OCSKGM function for the Edgeroi profile gives the following estimates of OCS for standard depth intervals (Fig. <a href="SOC-chapter.html#fig:scheme-soc-prof1">7.1</a>):</p>
+<p>Note that the OCSKGM function requires soil organic carbon content in g/kg. If one has contents measured in % then first multiply the values by 10. Bulk density data should be provided in kg/m3, gravel content in %, and layer depth in cm. Running the OCSKGM function for the Edgeroi profile gives the following estimates of OCS for standard depth intervals (Fig. <a href="SOC-chapter.html#fig:scheme-soc-prof1">7.2</a>):</p>
 <ul>
 <li><p>0–30 cm: 2.9 kg / m-square</p></li>
 <li><p>0–100 cm: 6.5 kg / m-square</p></li>
@@ -573,12 +573,12 @@ Organic Carbon Stock for standard depths can be determined from legacy soil prof
 <div class="figure" style="text-align: center"><span id="fig:scheme-soc-prof1"></span>
 <img src="figures/fig_2_profiles_ocs_edgeroi.png" alt="Determination of soil organic carbon density and stock for standard depth intervals: example of a mineral soil profile from Australia." width="90%" />
 <p class="caption">
-Figure 7.1: Determination of soil organic carbon density and stock for standard depth intervals: example of a mineral soil profile from Australia.
+Figure 7.2: Determination of soil organic carbon density and stock for standard depth intervals: example of a mineral soil profile from Australia.
 </p>
 </div>
-<p>In the second example we look at a profile from Canada (a histosol with &gt;40% of organic carbon):</p>
+<p>In the second example we look at a profile from Canada (a histosol with &gt;40% of organic carbon; <span class="citation">Shaw, Bhatti, and Sabourin (<a href="#ref-shaw2005ecosystem">2005</a>)</span>):</p>
 <table>
-<caption><span id="tab:profile-can">Table 7.2: </span>Laboratory data for an organic soil profile from Canada <span class="citation">(Shaw, Bhatti, and Sabourin <a href="#ref-shaw2005ecosystem">2005</a>)</span>.</caption>
+<caption><span id="tab:profile-can">Table 7.2: </span>Laboratory data for an organic soil profile from Canada (Shaw, Bhatti, and Sabourin 2005).</caption>
 <thead>
 <tr class="header">
 <th align="right">upper_limit</th>
@@ -643,7 +643,7 @@ BLD = -0.32 * log({\rm ORC}[\%]) + 1.38
 \tag{7.5}
 \end{equation}\]</span>
 <p>which gives slightly lower bulk density values. Another useful source for PTFs for organic soils is work by <span class="citation">Hossain, Chen, and Zhang (<a href="#ref-hossain2015bulk">2015</a>)</span>. For illustrative purposes, we have here used only one PTF for all soil layers.</p>
-<p>We can again fit mass-preserving splines and determine OCS for standard depth intervals by using the functions applied to profile 1. This ultimately gives the following estimates (Fig. <a href="SOC-chapter.html#fig:scheme-soc-prof2">7.2</a>):</p>
+<p>We can again fit mass-preserving splines and determine OCS for standard depth intervals by using the functions applied to profile 1. This ultimately gives the following estimates (Fig. <a href="SOC-chapter.html#fig:scheme-soc-prof2">7.3</a>):</p>
 <ul>
 <li><p>0–30 cm: 24.8 kg / m-square</p></li>
 <li><p>0–100 cm: 75.3 kg / m-square</p></li>
@@ -652,7 +652,7 @@ BLD = -0.32 * log({\rm ORC}[\%]) + 1.38
 <div class="figure" style="text-align: center"><span id="fig:scheme-soc-prof2"></span>
 <img src="figures/fig_2_profiles_ocs_organic.png" alt="Determination of soil organic carbon density and stock for standard depth intervals: example of an organic soil profile from Canada." width="90%" />
 <p class="caption">
-Figure 7.2: Determination of soil organic carbon density and stock for standard depth intervals: example of an organic soil profile from Canada.
+Figure 7.3: Determination of soil organic carbon density and stock for standard depth intervals: example of an organic soil profile from Canada.
 </p>
 </div>
 <p>Note that only 3–4% of the total soil profiles in the world have organic carbon content above 8% (soils with ORC &gt;12% are classified as organic soils or histosols in USDA and/or WRB classifications and are even less frequent), hence soil-depth functions of organic carbon content and derivation of OCS for organic soils are specific for patches of organic soils. On the other hand, organic soils carry much more total OCS. Precise processing and mapping of organic soils is, therefore, often crucial for accurate estimation of total OCS for large areas. Therefore, it is fairly important to use a good PTF to fill in missing values for BLD for organic soils. As a rule of thumb, organic soil will rarely exhibit a density greater than some minimum value e.g. 120 kg/m<span class="math inline">\(^3\)</span> because even though SOC content can be &gt;50%, bulk density of such soil gets proportionally lower and bulk density is physically bound with how material is organized in soil (unless soils is artificially compacted). Also, using correct estimates for coarse fragments is important as otherwise, if CRF is ignored, total stock will be over-estimated <span class="citation">(Poeplau, Vos, and Axel <a href="#ref-poeplau2017soil">2017</a>)</span>.</p>
@@ -661,12 +661,12 @@ Figure 7.2: Determination of soil organic carbon density and stock for standard 
 <li>Fill in bulk densities using some PTF or global data,</li>
 <li>Use information about the depth to bedrock to correct for shallow soils,</li>
 <li>Use information on CRF to correct stocks for stony / skeletoidal component,</li>
-<li>Aggregate non-standard horizon depth values using some simple rules (Fig. <a href="SOC-chapter.html#fig:scheme-profiles-ocs">7.3</a>).</li>
+<li>Aggregate non-standard horizon depth values using some simple rules (Fig. <a href="SOC-chapter.html#fig:scheme-profiles-ocs">7.4</a>).</li>
 </ol>
 <div class="figure" style="text-align: center"><span id="fig:scheme-profiles-ocs"></span>
 <img src="figures/Fig_standard_soil_profiles_SOC_calc.png" alt="Estimation of OCS values 0–30 cm using some typical soil profile data without fitting splines." width="95%" />
 <p class="caption">
-Figure 7.3: Estimation of OCS values 0–30 cm using some typical soil profile data without fitting splines.
+Figure 7.4: Estimation of OCS values 0–30 cm using some typical soil profile data without fitting splines.
 </p>
 </div>
 </div>
@@ -724,11 +724,11 @@ Soil Bulk density (BLD) is an important soil property that is required to estima
 <div class="figure" style="text-align: center"><span id="fig:plot-bld-soc"></span>
 <img src="figures/rplot_bulk_dens_function_of_soc.png" alt="Correlation plot between soil organic carbon density and bulk density (fine earth), created using the global compilations of soil profile data (http://www.isric.org/content/wosis-data-sets). Black line indicates fitted loess polynomial surface (stats::loess). There is still quite some scatter around the fitted line: many combinations of BLD and ORC, that do not fall close to the correlation line, can still be observed." width="60%" />
 <p class="caption">
-Figure 7.4: Correlation plot between soil organic carbon density and bulk density (fine earth), created using the global compilations of soil profile data (<a href="http://www.isric.org/content/wosis-data-sets" class="uri">http://www.isric.org/content/wosis-data-sets</a>). Black line indicates fitted loess polynomial surface (stats::loess). There is still quite some scatter around the fitted line: many combinations of BLD and ORC, that do not fall close to the correlation line, can still be observed.
+Figure 7.5: Correlation plot between soil organic carbon density and bulk density (fine earth), created using the global compilations of soil profile data (<a href="http://www.isric.org/content/wosis-data-sets" class="uri">http://www.isric.org/content/wosis-data-sets</a>). Black line indicates fitted loess polynomial surface (stats::loess). There is still quite some scatter around the fitted line: many combinations of BLD and ORC, that do not fall close to the correlation line, can still be observed.
 </p>
 </div>
 <p>To fill-in missing values for BLD, a combination of two global Pedo-Transfer functions can be used for example: (1) PTF fitted using random forest model that locally predicts BLD as a function of organic carbon content, clay and sand content, pH and coarse fragments, and (2) a simpler model that predicts BLD based on only ORC. The average RMSE of these PTFs for BLD is about ±150 kg/m<span class="math inline">\(^3\)</span>.</p>
-<p>For mineral soils the relationship between soil organic carbon and soil depth follows a log-log relationship which can be also approximated with the following (global) model (R-square: 0.36; see Fig. <a href="SOC-chapter.html#fig:soc-depth-plot">7.5</a>):</p>
+<p>For mineral soils the relationship between soil organic carbon and soil depth follows a log-log relationship which can be also approximated with the following (global) model (R-square: 0.36; see Fig. <a href="SOC-chapter.html#fig:soc-depth-plot">7.6</a>):</p>
 <span class="math display" id="eq:orc-depth">\[\begin{equation}
 ORC (depth) = exp[ 4.1517 −0.60934 \cdot log(depth) ]
 \tag{7.6}
@@ -737,7 +737,7 @@ ORC (depth) = exp[ 4.1517 −0.60934 \cdot log(depth) ]
 <div class="figure" style="text-align: center"><span id="fig:soc-depth-plot"></span>
 <img src="figures/journal_pone_0105992_g005.png" alt=" Globally fitted regression model for predicting soil organic carbon using depth only (log-log regression) and (a) individual soil profile from the ISRIC soil monolith collection. Image source: Hengl et al. (2014) doi: 10.1371/journal.pone.0105992." width="90%" />
 <p class="caption">
-Figure 7.5:  Globally fitted regression model for predicting soil organic carbon using depth only (log-log regression) and (a) individual soil profile from the ISRIC soil monolith collection. Image source: Hengl et al. (2014) doi: 10.1371/journal.pone.0105992.
+Figure 7.6:  Globally fitted regression model for predicting soil organic carbon using depth only (log-log regression) and (a) individual soil profile from the ISRIC soil monolith collection. Image source: Hengl et al. (2014) doi: 10.1371/journal.pone.0105992.
 </p>
 </div>
 <p>In summary, PTFs can be used to efficiently estimate missing BLD values (BLD is usually highly correlated with organic carbon content and depth, texture fractions, soil classification and soil pH can also help improve accuracy of the PTFs). However, for organic soils there is, in general, less calibration data and therefore errors are potentially higher. Mistakes in estimating BLD can result in systematic and significant over/under-estimations of the actual carbon stock. On the other hand, removing all soil horizons from OCS assessment that lack BLD measurements leads also to reduced accuracy as fewer points are then available for training of the spatial prediction models. Especially for organic soils (&gt;12% organic carbon), there is no easy solution for estimating missing values for BLD. Collecting additional (local) calibration points might become unavoidable. <span class="citation">Lobsey and Viscarra Rossel (<a href="#ref-lobsey2016sensing">2016</a>)</span> recently proposed a method that combines gamma-ray attenuation and visible–near infrared (vis–NIR) spectroscopy to measure bulk density <em>ex situ</em> using samples that are freshly collected under wet field conditions. Hopefully BLD measurements (or their complete absence) will become less of a problem in the future.</p>
@@ -745,7 +745,7 @@ Figure 7.5:  Globally fitted regression model for predicting soil organic carbon
 <div id="generating-maps-of-ocs" class="section level2">
 <h2><span class="header-section-number">7.5</span> Generating maps of OCS</h2>
 <p>Most projects focused on monitoring OCS require an estimate of OCS to be provided for the entire area of interest, so that users can visually explore spatial patterns of OCS. In this tutorial we demonstrate how to generate maps of OCS using point samples and RS based covariates. The output of this process is usually a gridded map (<code>SpatialPixelsDataFrame</code>) covering the entire area of interest (plot, farm, administrative unit or similar). Once OCS is mapped, we can multiply OCS densities by the area of each pixel and summing up all numbers we can compute the total OCS in total tonnes using the formula above. Predicted OCS values can also be aggregated per land cover class or similar. If a series of OCS maps is produced for the same area of interest (time-series of OCS), these can then be used to derive OCS change through time per pixel.</p>
-<p>In principle, there are three main approaches to estimating total OCS for an area of interest (Fig. <a href="SOC-chapter.html#fig:ocs-three-approaches">7.6</a>):</p>
+<p>In principle, there are three main approaches to estimating total OCS for an area of interest (Fig. <a href="SOC-chapter.html#fig:ocs-three-approaches">7.7</a>):</p>
 <ul>
 <li><p>By directly predicting OCS, here called the <strong>the 2D approach to OCS mapping</strong> (this often requires vertical aggregation / modeling of soil variable depth curves as indicated above),</p></li>
 <li><p>By predicting ORC, BLD and CRF, and then deriving OCS per layer, here called <strong>the 3D approach to OCS mapping with ORC, BLD and CRF mapped separately</strong>,</p></li>
@@ -759,7 +759,7 @@ Soil Organic Carbon stock can be mapped by using at least differing approaches: 
 <div class="figure" style="text-align: center"><span id="fig:ocs-three-approaches"></span>
 <img src="figures/fig_derivation_socs_scheme.png" alt="Three main computational paths (2D and 3D) to producing maps of organic carbon stock." width="100%" />
 <p class="caption">
-Figure 7.6: Three main computational paths (2D and 3D) to producing maps of organic carbon stock.
+Figure 7.7: Three main computational paths (2D and 3D) to producing maps of organic carbon stock.
 </p>
 </div>
 <p>Although 2D prediction of OCS from point data seems to be more straightforward, many soil profiles contain measurements at non-standard depth intervals (varying support sizes also) and therefore 2D modeling of OCS can often be a cumbersome. In most situations where legacy soil profile data are used, 3D modeling of OCD is probably the most elegant solution to mapping OCS because:</p>
@@ -787,7 +787,7 @@ Figure 7.6: Three main computational paths (2D and 3D) to producing maps of orga
 <span class="co">#&gt;  $ COSha30   : num  49.2 64 59.8 43.1 44.2 ...</span>
 <span class="co">#&gt;  $ Cor4DAidep: num  43.3 56.3 54 37.9 39.9 ...</span>
 <span class="co">#&gt;  $ CorT      : num  1.37 1.39 1.38 1.36 1.36 ...</span></code></pre></div>
-<p>where <code>COSha10</code> = 0–10 cm, <code>COSha30</code> = 0–30 cm in tons / ha are values for OCS aggregated to standard soil depth intervals, so there is no need to do any spline fitting and/or vertical aggregation. We can also load the raster map for the area by using (Fig. <a href="SOC-chapter.html#fig:libertad-soc">7.7</a>):</p>
+<p>where <code>COSha10</code> = 0–10 cm, <code>COSha30</code> = 0–30 cm in tons / ha are values for OCS aggregated to standard soil depth intervals, so there is no need to do any spline fitting and/or vertical aggregation. We can also load the raster map for the area by using (Fig. <a href="SOC-chapter.html#fig:libertad-soc">7.8</a>):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">load</span>(<span class="st">&quot;extdata/COSha30map.rda&quot;</span>)
 <span class="kw">proj4string</span>(COSha30map) =<span class="st"> &quot;+proj=utm +zone=18 +ellps=WGS84 +datum=WGS84 +units=m +no_defs&quot;</span>
 <span class="kw">str</span>(COSha30map<span class="op">@</span>data)
@@ -798,7 +798,7 @@ Figure 7.6: Three main computational paths (2D and 3D) to producing maps of orga
 <div class="figure" style="text-align: center"><span id="fig:libertad-soc"></span>
 <img src="figures/fig_la_libertad_research_center_socs.jpg" alt="Example of a data set with OCS samples (for 2D prediction). Case study in Colombia available via the geospt package (https://cran.r-project.org/package=geospt)." width="75%" />
 <p class="caption">
-Figure 7.7: Example of a data set with OCS samples (for 2D prediction). Case study in Colombia available via the geospt package (<a href="https://cran.r-project.org/package=geospt" class="uri">https://cran.r-project.org/package=geospt</a>).
+Figure 7.8: Example of a data set with OCS samples (for 2D prediction). Case study in Colombia available via the geospt package (<a href="https://cran.r-project.org/package=geospt" class="uri">https://cran.r-project.org/package=geospt</a>).
 </p>
 </div>
 <p>We can import a number of RS-based covariates into R by (these were derived from the global 30 m layers listed previously):</p>
@@ -951,7 +951,7 @@ mFit2
 <div class="figure" style="text-align: center"><span id="fig:plot-cosha30map-rf"></span>
 <img src="Soil_organic_carbon_files/figure-html/plot-cosha30map-rf-1.png" alt="Comparison of predictions generated using ordinary kriging (left) and machine learning with the help of 30 m resolution covariates and buffer distances (right)." width="100%" />
 <p class="caption">
-Figure 7.8: Comparison of predictions generated using ordinary kriging (left) and machine learning with the help of 30 m resolution covariates and buffer distances (right).
+Figure 7.9: Comparison of predictions generated using ordinary kriging (left) and machine learning with the help of 30 m resolution covariates and buffer distances (right).
 </p>
 </div>
 <p>We can compare the difference between mean predicted OCS and measured OCS:</p>
@@ -986,7 +986,7 @@ edgeroi.sp &lt;-<span class="st"> </span><span class="kw">spTransform</span>(edg
 <div class="figure" style="text-align: center"><span id="fig:edgeroi-overview"></span>
 <img src="figures/edgeroi_overview.jpeg" alt="Edgeroi data set: locations of soil profiles and Australian soil classification codes. For more details see Malone et al. (2009)." width="100%" />
 <p class="caption">
-Figure 7.9: Edgeroi data set: locations of soil profiles and Australian soil classification codes. For more details see Malone et al. (2009).
+Figure 7.10: Edgeroi data set: locations of soil profiles and Australian soil classification codes. For more details see Malone et al. (2009).
 </p>
 </div>
 <p>Note that Edgeroi completely lacks any BLD values, therefore before we can compute OCD values, we need to estimate BLD values for each corresponding horizon. Here the easiest option is probably to use BLD values sourced from LandGIS predictions (and which you can download from <a href="https://landgis.opengeohub.org" class="uri">https://landgis.opengeohub.org</a>).</p>
@@ -1057,7 +1057,7 @@ m.OCD
 <span class="co">#&gt; Splitrule:                        variance </span>
 <span class="co">#&gt; OOB prediction error (MSE):       18.6 </span>
 <span class="co">#&gt; R squared (OOB):                  0.694</span></code></pre></div>
-<p>Which shows that the average error with Out-of-bag training points is ±4.2 kg/m-cubic. Note that setting <code>quantreg = TRUE</code> allows us to derive also a map of the prediction errors (Fig. <a href="SOC-chapter.html#fig:plot-edgeroi-ocd">7.10</a>), following the method of <span class="citation">Meinshausen (<a href="#ref-meinshausen2006quantile">2006</a>)</span>.</p>
+<p>Which shows that the average error with Out-of-bag training points is ±4.2 kg/m-cubic. Note that setting <code>quantreg = TRUE</code> allows us to derive also a map of the prediction errors (Fig. <a href="SOC-chapter.html#fig:plot-edgeroi-ocd">7.11</a>), following the method of <span class="citation">Meinshausen (<a href="#ref-meinshausen2006quantile">2006</a>)</span>.</p>
 <p>To derive OCS in tons/ha we can compute OCD at two depths (0 and 30 cm) and then take the mean value to produce a more representative value:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">30</span>)){
    edgeroi.spc<span class="op">@</span>predicted<span class="op">$</span>DEPTH =<span class="st"> </span>i
@@ -1080,7 +1080,7 @@ m.OCD
 <div class="figure" style="text-align: center"><span id="fig:plot-edgeroi-ocd"></span>
 <img src="Soil_organic_carbon_files/figure-html/plot-edgeroi-ocd-1.png" alt="Predicted organic carbon stock for 0–30 cm depth and error map for the Edgeroi data set. All values expressed in tons/ha." width="100%" />
 <p class="caption">
-Figure 7.10: Predicted organic carbon stock for 0–30 cm depth and error map for the Edgeroi data set. All values expressed in tons/ha.
+Figure 7.11: Predicted organic carbon stock for 0–30 cm depth and error map for the Edgeroi data set. All values expressed in tons/ha.
 </p>
 </div>
 <p>Note that deriving the error map in the ranger package can be computationally intensive, especially if the number of covariates is high. It is therefore not yet recommended for large rasters.</p>
@@ -1142,7 +1142,7 @@ OCS_agg.lu[OCS_agg.lu<span class="op">$</span>Area_km2<span class="op">&gt;</spa
 <div class="figure" style="text-align: center"><span id="fig:thist-usa48"></span>
 <img src="Soil_organic_carbon_files/figure-html/thist-usa48-1.png" alt="Distribution of soil observations based on sampling year." width="100%" />
 <p class="caption">
-Figure 7.11: Distribution of soil observations based on sampling year.
+Figure 7.12: Distribution of soil observations based on sampling year.
 </p>
 </div>
 <p>In fact, because the data set above represents values of OCD at variable depths, we can use this data to fit a full 3D+T spatiotemporal model in the form:</p>
@@ -1172,13 +1172,13 @@ rf0.OCD_st &lt;-<span class="st"> </span><span class="kw">ranger</span>(fm0.st, 
 <div class="figure" style="text-align: center"><span id="fig:usa48-ocd-2014"></span>
 <img src="figures/usa48_ocd_10cm_year2014.png" alt="Predicted OCD (in kg/cubic-m) at 10 cm depth for the year 2014. Blue colors indicate low values, red high values." width="100%" />
 <p class="caption">
-Figure 7.12: Predicted OCD (in kg/cubic-m) at 10 cm depth for the year 2014. Blue colors indicate low values, red high values.
+Figure 7.13: Predicted OCD (in kg/cubic-m) at 10 cm depth for the year 2014. Blue colors indicate low values, red high values.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:usa48-ocd-1925"></span>
 <img src="figures/usa48_ocd_10cm_year1925.png" alt="Predicted OCD (in kg/cubic-m) at 10 cm depth for the year 1925." width="100%" />
 <p class="caption">
-Figure 7.13: Predicted OCD (in kg/cubic-m) at 10 cm depth for the year 1925.
+Figure 7.14: Predicted OCD (in kg/cubic-m) at 10 cm depth for the year 1925.
 </p>
 </div>
 <p>This demonstrates that, as long as there is enough training data spread through time, and as long as covariates are available for the corresponding time ranges, machine learning can also be used to fit full 3D+T spatiotemporal prediction models <span class="citation">(Gasch et al. <a href="#ref-Gasch2015SPASTA">2015</a>)</span>. Once we produce a time-series of images for some target soil variable of interest, the next step would be to implement time-series analysis methods to e.g. detect temporal trends and areas of highest apparent soil degradation. An R package that is fairly useful for such analysis is the <a href="http://greenbrown.r-forge.r-project.org/">greenbrown</a> package, primarily used to map and quantify degradation of land cover <span class="citation">(Forkel et al. <a href="#ref-forkel2015codominant">2015</a>)</span>.</p>
@@ -1210,7 +1210,7 @@ g10km.b =<span class="st"> </span>raster<span class="op">::</span><span class="k
 <div class="figure" style="text-align: center"><span id="fig:time-series-texas"></span>
 <img src="figures/rplot_timeseries_ocd_maps_texas.png" alt="Time-series of predictions of organic carbon density for Texas." width="100%" />
 <p class="caption">
-Figure 7.14: Time-series of predictions of organic carbon density for Texas.
+Figure 7.15: Time-series of predictions of organic carbon density for Texas.
 </p>
 </div>
 <p>We can analyze this time-series data to see where the decrease in organic carbon is most significant, for example the slope of the change:</p>
@@ -1222,7 +1222,7 @@ Figure 7.14: Time-series of predictions of organic carbon density for Texas.
 <div class="figure" style="text-align: center"><span id="fig:ocd-slope-texas"></span>
 <img src="figures/rplot_splope_ocd_change.png" alt="Predicted slope of change of soil organic carbon density for Texas for the period 1935–2014. Negative values indicate loss of soil organic carbon." width="80%" />
 <p class="caption">
-Figure 7.15: Predicted slope of change of soil organic carbon density for Texas for the period 1935–2014. Negative values indicate loss of soil organic carbon.
+Figure 7.16: Predicted slope of change of soil organic carbon density for Texas for the period 1935–2014. Negative values indicate loss of soil organic carbon.
 </p>
 </div>
 <p>which shows that loss of soil organic carbon is especially distinct in the southern part of Texas. The slope coefficient map is, on average, negative, which indicates that most of the state has lost organic carbon for the period of interest. Note that running such time-series analysis is not trivial as a sufficient number of observations in time (if possible: repetitions) is needed to be able to extract significant patterns. Also <code>TrendRaster</code> function can be quite computationally intensive, hence some careful planning of the processing steps / processing infrastructure is usually recommended.</p>

@@ -427,40 +427,6 @@ knitr::include_graphics("figures/dem_derivatives_plot.png")
 
 This function can now be used with any DEM to derive a standard set of 7-8 DEM parameters consisting of slope and curvature, TWI and MrVBF, positive and negative openess, valley depth and deviation from mean value. You could easily add more parameters to this function and then test if some of the other DEM derivatives can help improve mapping soil properties and classes. Note that SAGA GIS will by default optimize computing of DEM derivatives by using most of the available cores to compute (parallelization is turned on automatically).
 
-<!-- 
-### Deriving DEM parameters using LITAP
-
-To derive unique hydrological parameters that can potentially help soil mapping we can also use the LITAP (Landscape Integrated Terrain Analysis Package) package originally implemented as FlowMapR program [@macmillan2003landmapr], and compiled for R users by Stefanie LaZerte and Li Sheng from the Agriculture and Agri-Food Canada. We can install this package from github by using:
-
-```{r, eval=FALSE}
-if(!require("LITAP")){ devtools::install_github("steffilazerte/LITAP") }
-```
-
-A suite of hydrological flow DEM derivatives can be derived by using the generic command:
-
-```{r, eval=FALSE}
-library(LITAP)
-library(rgdal)
-writeGDAL(eberg_grid["DEMSRT6"], "extdata/DEMSRT6.tif", type="Int16", mvFlag=-32768)
-LITAP::complete_run(file = "extdata/DEMSRT6.tif", folder_out = "extdata/", 
-                    report = FALSE)
-```
-
-which will unblock a DEM and then derive a number of hydrological parameters 
-and that are maybe not available in other packages and that can be used 
-to quantify soil deposition / accumulation processes. To plot for example 
-watersheds by flow paths we can run:
-
-```{r watersheds-by-flow-paths, echo=FALSE, fig.width=8, fig.cap="Watersheds by flow paths dervied using the [LITAP](https://steffilazerte.github.io/LITAP/) package."}
-initial_dem <- readRDS(list.files("extdata/final", 
-                            pattern = "dem_fill.rds", full.names = TRUE))
-LITAP::flow_plot(db = initial_dem, type = "elevation", shed = TRUE, 
-          shed_type = "fill", dir = TRUE)
-```
-
-Which shows all watersheds and individual streams derived using the unblocked DEM (after pit removal).
- -->
-
 ### Filtering out missing pixels and artifacts
 
 After bringing all covariates to the same grid definition, remaining problems for using covariates in spatial modelling may include:

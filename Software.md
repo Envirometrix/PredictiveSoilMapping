@@ -204,7 +204,7 @@ To install all required R packages used in this tutorial at once, you can use:
 
 
 ```r
-ls <- c("rgdal", "raster", "GSIF", "plotKML", 
+ls <- c("rgdal", "raster", "sf", "GSIF", "plotKML", 
         "nnet", "plyr", "ROCR", "randomForest", "quantregForest", 
         "psych", "mda", "h2o", "h2oEnsemble", "dismo", "grDevices", 
         "snowfall", "hexbin", "lattice", "ranger", 
@@ -212,7 +212,7 @@ ls <- c("rgdal", "raster", "GSIF", "plotKML",
         "randomForestSRC", "ggRandomForests", "scales",
         "xgboost", "parallel", "doParallel", "caret", 
         "gam", "glmnet", "matrixStats", "SuperLearner",
-        "quantregForest", "LITAP", "intamap")
+        "quantregForest", "LITAP", "intamap", "fasterize")
 new.packages <- ls[!(ls %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
 ```

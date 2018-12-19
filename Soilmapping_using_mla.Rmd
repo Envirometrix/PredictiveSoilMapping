@@ -159,7 +159,7 @@ In the following example we look at mapping sand content for the upper horizons.
 
 ```{r, message=FALSE}
 library(h2o)
-localH2O = h2o.init(startH2O=TRUE)
+localH2O = h2o.init(startH2O=FALSE)
 ```
 
 This shows that multiple cores will be used for computing (to control the number of cores you can use the `nthreads` argument). Next, we need to prepare the regression matrix and prediction locations using the `as.h2o` function so that they are visible to h2o:
@@ -186,7 +186,7 @@ library(lattice)
 SDN.pred <- as.data.frame(h2o.predict(RF.m, eberg.hex, na.action=na.pass))$predict
 plt1 <- xyplot(m$SNDMHT_A ~ SDN.pred, asp=1, 
                par.settings=list(
-                 plot.symbol = list(col=alpha("black", 0.6), 
+                 plot.symbol = list(col=scales::alpha("black", 0.6), 
                  fill=alpha("red", 0.6), pch=21, cex=0.8)),
                  ylab="measured", xlab="predicted (machine learning)")
 plt1
@@ -383,7 +383,7 @@ str(test.ORC)
 Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about $\pm 4$ g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:
 
 ```{r plot-measured-predicted, echo=FALSE, fig.width=7, fig.cap="Predicted vs observed plot for soil organic carbon ML-based model (Edgeroi data set)."}
-plt0 <- xyplot(test.ORC[[1]]$Observed ~ test.ORC[[1]]$Predicted, asp=1, par.settings=list(plot.symbol = list(col=alpha("black", 0.6), fill=alpha("red", 0.6), pch=21, cex=0.6)), scales=list(x=list(log=TRUE, equispaced.log=FALSE), y=list(log=TRUE, equispaced.log=FALSE)), ylab="measured", xlab="predicted (machine learning)")
+plt0 <- xyplot(test.ORC[[1]]$Observed ~ test.ORC[[1]]$Predicted, asp=1, par.settings=list(plot.symbol = list(col=scales::alpha("black", 0.6), fill=scales::alpha("red", 0.6), pch=21, cex=0.6)), scales=list(x=list(log=TRUE, equispaced.log=FALSE), y=list(log=TRUE, equispaced.log=FALSE)), ylab="measured", xlab="predicted (machine learning)")
 plt0
 ```
 
@@ -396,7 +396,6 @@ Ensemble models often outperform single models. There is certainly opportunity f
 library(h2o)
 #devtools::install_github("h2oai/h2o-3/h2o-r/ensemble/h2oEnsemble-package")
 library(h2oEnsemble)
-h2o.init()
 ```
 
 we first specify all learners (MLA methods) of interest:

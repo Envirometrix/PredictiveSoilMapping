@@ -54,7 +54,7 @@ While OCS is a summary measure of SOC, always associated with a specific depth i
 
 <div class="figure" style="text-align: center">
 <img src="figures/rplot_soilcarbon_density_vs_orc.png" alt="Correlation between soil organic carbon density and soil organic carbon content (displayed on a log-scale) created using a global compilations of soil profile data (WoSIS). Values 1, 2, 3, 4, 5 and 6 in the plot (log scale) correspond to values 2, 6, 19, 54, 147 and 402. Note that for ORC &gt;12%, the OCD line flattens, which means that, organic carbon density practically stops to increase with the increase of ORC content." width="55%" />
-<p class="caption">(\#fig:scheme-solum)Correlation between soil organic carbon density and soil organic carbon content (displayed on a log-scale) created using a global compilations of soil profile data (WoSIS). Values 1, 2, 3, 4, 5 and 6 in the plot (log scale) correspond to values 2, 6, 19, 54, 147 and 402. Note that for ORC >12%, the OCD line flattens, which means that, organic carbon density practically stops to increase with the increase of ORC content.</p>
+<p class="caption">(\#fig:carbon-density-plot)Correlation between soil organic carbon density and soil organic carbon content (displayed on a log-scale) created using a global compilations of soil profile data (WoSIS). Values 1, 2, 3, 4, 5 and 6 in the plot (log scale) correspond to values 2, 6, 19, 54, 147 and 402. Note that for ORC >12%, the OCD line flattens, which means that, organic carbon density practically stops to increase with the increase of ORC content.</p>
 </div>
 
 In summary, there are four main variables used to represent soil organic carbon:
@@ -78,10 +78,10 @@ Land use and agriculture, in particular, have led to dramatic decreases in soil 
 
 As mentioned previously, OCS stock is most commonly derived from measurements of the organic carbon (ORC) content, soil bulk density (BLD) and the volume fraction of gravel (CRF). These are usually sampled either per soil layers or soil **horizons** (a sequence of horizons makes a soil profile), which can refer to variable soil depth intervals i.e. are non-standard. That means that, before one can determine OCS for standard fixed depth intervals (e.g. 0–30 cm or 0–100 cm), values of ORC, BLD and CRF need to be standardized so they refer to common depth intervals.
 
-Consider, for example, the following two real life examples of soil profile data for a standard agricultural soil and an organic soil. In the first example, [profile from Australia](http://www.asris.csiro.au/mapping/hyperdocs/NatSoil/399%5EEDGEROI%5Eed079.pdf), the soil profile data shows:
+Consider, for example, the following two real life examples of soil profile data for a standard agricultural soil and an organic soil. In the first example, [profile from Australia](http://www.asris.csiro.au/mapping/hyperdocs/NatSoil/399%5EEDGEROI%5Eed079.pdf), the soil profile data shows [@Karssies2011CSIRO]:
 
 
-Table: (\#tab:profile-edgeroi)Laboratory data for a profile *399 EDGEROI ed079* from Australia [@Karssies2011CSIRO].
+Table: (\#tab:profile-edgeroi)Laboratory data for a profile *399 EDGEROI ed079* from Australia (Karssies 2011).
 
  upper_limit   lower_limit   carbon_content   bulk_density   CF   SOCS
 ------------  ------------  ---------------  -------------  ---  -----
@@ -180,10 +180,10 @@ Note that the measurement error is computed from default uncertainty values (exp
 <p class="caption">(\#fig:scheme-soc-prof1)Determination of soil organic carbon density and stock for standard depth intervals: example of a mineral soil profile from Australia.</p>
 </div>
 
-In the second example we look at a profile from Canada (a histosol with >40% of organic carbon):
+In the second example we look at a profile from Canada (a histosol with >40% of organic carbon; @shaw2005ecosystem):
 
 
-Table: (\#tab:profile-can)Laboratory data for an organic soil profile from Canada [@shaw2005ecosystem].
+Table: (\#tab:profile-can)Laboratory data for an organic soil profile from Canada  (Shaw, Bhatti, and Sabourin 2005).
 
  upper_limit   lower_limit   carbon_content   bulk_density   CF   SOCS
 ------------  ------------  ---------------  -------------  ---  -----

@@ -1,0 +1,17 @@
+base
+microbenchmark
+GSIF
+sp
+boot
+aqp
+plyr
+rpart
+gstat
+randomForest
+RColorBrewer
+quantregForest
+plotKML
+rgdal
+raster
+RevoUtilsMath
+RevoUtils
