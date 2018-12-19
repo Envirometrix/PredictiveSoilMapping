@@ -11,7 +11,7 @@ before_install:
   - sudo apt-get install --yes libjq-dev libprotobuf-dev libprotoc-dev protobuf-compiler
 
 install:
-  - cp fonts -r ~/usr/local/share/fonts
+  - cp fonts -r /usr/local/share/fonts
   - fc-cache -f -v
   - R -e "install.packages('devtools')"
   - R -e "install.packages('bookdown')"
