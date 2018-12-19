@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Preface | Predictive Soil Mapping with R</title>
+  <meta name="description" content="Predictive Soil Mapping aims to produce the most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement common soil mapping procedures within the R programming language.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Preface | Predictive Soil Mapping with R" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://soilmapper.org" />
+  <meta property="og:image" content="http://soilmapper.orgfigures/f0_web.png" />
+  <meta property="og:description" content="Predictive Soil Mapping aims to produce the most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement common soil mapping procedures within the R programming language." />
+  <meta name="github-repo" content="envirometrix/PredictiveSoilMapping" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Preface | Predictive Soil Mapping with R" />
+  <meta name="twitter:site" content="@tom_hengl" />
+  <meta name="twitter:description" content="Predictive Soil Mapping aims to produce the most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement common soil mapping procedures within the R programming language." />
+  <meta name="twitter:image" content="http://soilmapper.orgfigures/f0_web.png" />
+
+<meta name="author" content="Tomislav Hengl and Robert A. MacMillan">
+
+
+<meta name="date" content="2018-12-19">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="introduction.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-120633517-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Predictive Soil Mapping with R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Predictive Soil Mapping for advanced R users</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#editors"><i class="fa fa-check"></i>Editors</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#connected-publications"><i class="fa fa-check"></i>Connected publications</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#contributions"><i class="fa fa-check"></i>Contributions</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#reproducibility"><i class="fa fa-check"></i>Reproducibility</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Soil resource inventories and soil maps</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#soils-and-soil-inventories"><i class="fa fa-check"></i><b>1.2</b> Soils and soil inventories</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#soil-a-definition"><i class="fa fa-check"></i><b>1.2.1</b> Soil: a definition</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#soil-variables"><i class="fa fa-check"></i><b>1.2.2</b> Soil variables</a></li>
+<li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#primary-and-secondary-soil-variables"><i class="fa fa-check"></i><b>1.2.3</b> Primary and secondary soil variables</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#soil-mapping"><i class="fa fa-check"></i><b>1.3</b> Soil mapping</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="introduction.html"><a href="introduction.html#what-are-soil-resource-inventories"><i class="fa fa-check"></i><b>1.3.1</b> What are soil resource inventories?</a></li>
+<li class="chapter" data-level="1.3.2" data-path="introduction.html"><a href="introduction.html#soil-mapping-approaches-and-concepts"><i class="fa fa-check"></i><b>1.3.2</b> Soil mapping approaches and concepts</a></li>
+<li class="chapter" data-level="1.3.3" data-path="introduction.html"><a href="introduction.html#soil-mapping-theory"><i class="fa fa-check"></i><b>1.3.3</b> Theoretical basis of soil mapping: in context of the universal model of spatial variation</a></li>
+<li class="chapter" data-level="1.3.4" data-path="introduction.html"><a href="introduction.html#conventional-mapping"><i class="fa fa-check"></i><b>1.3.4</b> Traditional (conventional) soil mapping</a></li>
+<li class="chapter" data-level="1.3.5" data-path="introduction.html"><a href="introduction.html#variants-of-soil-maps"><i class="fa fa-check"></i><b>1.3.5</b> Variants of soil maps</a></li>
+<li class="chapter" data-level="1.3.6" data-path="introduction.html"><a href="introduction.html#pedometric-mapping"><i class="fa fa-check"></i><b>1.3.6</b> Predictive and automated soil mapping</a></li>
+<li class="chapter" data-level="1.3.7" data-path="introduction.html"><a href="introduction.html#comparison-conventional-pm"><i class="fa fa-check"></i><b>1.3.7</b> Comparison of conventional and pedometric or predictive soil mapping</a></li>
+<li class="chapter" data-level="1.3.8" data-path="introduction.html"><a href="introduction.html#top-down"><i class="fa fa-check"></i><b>1.3.8</b> Top-down versus bottom-up approaches: subdivision versus agglomeration</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#sources-of-soil-data-for-soil-mapping"><i class="fa fa-check"></i><b>1.4</b> Sources of soil data for soil mapping</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="introduction.html"><a href="introduction.html#soil-data-sources-targeted-by-psm"><i class="fa fa-check"></i><b>1.4.1</b> Soil data sources targeted by PSM</a></li>
+<li class="chapter" data-level="1.4.2" data-path="introduction.html"><a href="introduction.html#field-observations"><i class="fa fa-check"></i><b>1.4.2</b> Field observations of soil properties</a></li>
+<li class="chapter" data-level="1.4.3" data-path="introduction.html"><a href="introduction.html#legacy-soil-profile-data"><i class="fa fa-check"></i><b>1.4.3</b> Legacy soil profile data</a></li>
+<li class="chapter" data-level="1.4.4" data-path="introduction.html"><a href="introduction.html#soil-covariates"><i class="fa fa-check"></i><b>1.4.4</b> Soil covariates</a></li>
+<li class="chapter" data-level="1.4.5" data-path="introduction.html"><a href="introduction.html#soil-delineations"><i class="fa fa-check"></i><b>1.4.5</b> Soil delineations</a></li>
+<li class="chapter" data-level="1.4.6" data-path="introduction.html"><a href="introduction.html#advantages-and-disadvantages-of-using-soil-delineations"><i class="fa fa-check"></i><b>1.4.6</b> Advantages and disadvantages of using soil delineations</a></li>
+<li class="chapter" data-level="1.4.7" data-path="introduction.html"><a href="introduction.html#accuracy-of-conventional-soil-polygon-maps"><i class="fa fa-check"></i><b>1.4.7</b> Accuracy of conventional soil polygon maps</a></li>
+<li class="chapter" data-level="1.4.8" data-path="introduction.html"><a href="introduction.html#tacit-knowledge"><i class="fa fa-check"></i><b>1.4.8</b> Legacy soil expertise (tacit knowledge)</a></li>
+<li class="chapter" data-level="1.4.9" data-path="introduction.html"><a href="introduction.html#pseudo-observations"><i class="fa fa-check"></i><b>1.4.9</b> Pseudo-observations</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#soil-databases"><i class="fa fa-check"></i><b>1.5</b> Soil databases and soil information systems</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="introduction.html"><a href="introduction.html#soil-databases"><i class="fa fa-check"></i><b>1.5.1</b> Soil databases</a></li>
+<li class="chapter" data-level="1.5.2" data-path="introduction.html"><a href="introduction.html#a-soil-information-system"><i class="fa fa-check"></i><b>1.5.2</b> A Soil Information System</a></li>
+<li class="chapter" data-level="1.5.3" data-path="introduction.html"><a href="introduction.html#soil-information-users"><i class="fa fa-check"></i><b>1.5.3</b> Soil information users</a></li>
+<li class="chapter" data-level="1.5.4" data-path="introduction.html"><a href="introduction.html#usability-of-soil-geographical-database"><i class="fa fa-check"></i><b>1.5.4</b> Usability of soil geographical database</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#uncertainty-soil-variables"><i class="fa fa-check"></i><b>1.6</b> Uncertainty of soil variables</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="introduction.html"><a href="introduction.html#basic-concepts"><i class="fa fa-check"></i><b>1.6.1</b> Basic concepts</a></li>
+<li class="chapter" data-level="1.6.2" data-path="introduction.html"><a href="introduction.html#sources-uncertainty"><i class="fa fa-check"></i><b>1.6.2</b> Sources of uncertainty</a></li>
+<li class="chapter" data-level="1.6.3" data-path="introduction.html"><a href="introduction.html#quantifying-the-uncertainty-in-soil-data-products"><i class="fa fa-check"></i><b>1.6.3</b> Quantifying the uncertainty in soil data products</a></li>
+<li class="chapter" data-level="1.6.4" data-path="introduction.html"><a href="introduction.html#common-uncertainty-levels-in-soil-maps"><i class="fa fa-check"></i><b>1.6.4</b> Common uncertainty levels in soil maps</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="introduction.html"><a href="introduction.html#summary-and-conclusions"><i class="fa fa-check"></i><b>1.7</b> Summary and conclusions</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="software.html"><a href="software.html"><i class="fa fa-check"></i><b>2</b> Software installation and first steps</a><ul>
+<li class="chapter" data-level="2.1" data-path="software.html"><a href="software.html#list-of-software-in-use"><i class="fa fa-check"></i><b>2.1</b> List of software in use</a></li>
+<li class="chapter" data-level="2.2" data-path="software.html"><a href="software.html#installing-software-on-ubuntu-os"><i class="fa fa-check"></i><b>2.2</b> Installing software on Ubuntu OS</a></li>
+<li class="chapter" data-level="2.3" data-path="software.html"><a href="software.html#installing-gis-software"><i class="fa fa-check"></i><b>2.3</b> Installing GIS software</a></li>
+<li class="chapter" data-level="2.4" data-path="software.html"><a href="software.html#Whitebox"><i class="fa fa-check"></i><b>2.4</b> WhiteboxTools</a></li>
+<li class="chapter" data-level="2.5" data-path="software.html"><a href="software.html#Rstudio"><i class="fa fa-check"></i><b>2.5</b> RStudio</a></li>
+<li class="chapter" data-level="2.6" data-path="software.html"><a href="software.html#plotkml-and-gsif-packages"><i class="fa fa-check"></i><b>2.6</b> plotKML and GSIF packages</a></li>
+<li class="chapter" data-level="2.7" data-path="software.html"><a href="software.html#connecting-r-and-saga-gis"><i class="fa fa-check"></i><b>2.7</b> Connecting R and SAGA GIS</a></li>
+<li class="chapter" data-level="2.8" data-path="software.html"><a href="software.html#connecting-r-and-gdal"><i class="fa fa-check"></i><b>2.8</b> Connecting R and GDAL</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html"><i class="fa fa-check"></i><b>3</b> Soil observations and variables</a><ul>
+<li class="chapter" data-level="3.1" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#basic-concepts-1"><i class="fa fa-check"></i><b>3.1</b> Basic concepts</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#types-of-soil-observations"><i class="fa fa-check"></i><b>3.1.1</b> Types of soil observations</a></li>
+<li class="chapter" data-level="3.1.2" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#soil-properties-of-interest-for-global-soil-mapping"><i class="fa fa-check"></i><b>3.1.2</b> Soil properties of interest for global soil mapping</a></li>
+<li class="chapter" data-level="3.1.3" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#reference-methods"><i class="fa fa-check"></i><b>3.1.3</b> Reference methods</a></li>
+<li class="chapter" data-level="3.1.4" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#standard-soil-variables-of-interest-for-soil-mapping"><i class="fa fa-check"></i><b>3.1.4</b> Standard soil variables of interest for soil mapping</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#descriptive-soil-profile-observations"><i class="fa fa-check"></i><b>3.2</b> Descriptive soil profile observations</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#depth-to-bedrock"><i class="fa fa-check"></i><b>3.2.1</b> Depth to bedrock</a></li>
+<li class="chapter" data-level="3.2.2" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#effective-soil-depth-and-rooting-depth"><i class="fa fa-check"></i><b>3.2.2</b> Effective soil depth and rooting depth</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#chemical-soil-properties"><i class="fa fa-check"></i><b>3.3</b> Chemical soil properties</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#soil-organic-carbon"><i class="fa fa-check"></i><b>3.3.1</b> Soil organic carbon</a></li>
+<li class="chapter" data-level="3.3.2" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#soil-ph"><i class="fa fa-check"></i><b>3.3.2</b> Soil pH</a></li>
+<li class="chapter" data-level="3.3.3" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#soil-nutrients"><i class="fa fa-check"></i><b>3.3.3</b> Soil nutrients</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#physical-and-hydrological-soil-properties"><i class="fa fa-check"></i><b>3.4</b> Physical and hydrological soil properties</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#coarse-fragments"><i class="fa fa-check"></i><b>3.4.1</b> Coarse fragments</a></li>
+<li class="chapter" data-level="3.4.2" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#particle-size-class-distribution-sand-silt-and-clay"><i class="fa fa-check"></i><b>3.4.2</b> Particle size class distribution: sand, silt and clay</a></li>
+<li class="chapter" data-level="3.4.3" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#bulk-density"><i class="fa fa-check"></i><b>3.4.3</b> Bulk density</a></li>
+<li class="chapter" data-level="3.4.4" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#soil-organic-carbon-stock"><i class="fa fa-check"></i><b>3.4.4</b> Soil organic carbon stock</a></li>
+<li class="chapter" data-level="3.4.5" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#available-water-capacity"><i class="fa fa-check"></i><b>3.4.5</b> Available Water Capacity</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#harmonisation-of-soil-data-and-pedo-transfer-functions"><i class="fa fa-check"></i><b>3.5</b> Harmonisation of soil data and pedo-transfer functions</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#basic-concepts-of-harmonisation-of-soil-property-values"><i class="fa fa-check"></i><b>3.5.1</b> Basic concepts of harmonisation of soil property values</a></li>
+<li class="chapter" data-level="3.5.2" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#example-of-harmonization-using-texture-by-hand-classes"><i class="fa fa-check"></i><b>3.5.2</b> Example of harmonization using texture-by-hand classes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#soil-class-data"><i class="fa fa-check"></i><b>3.6</b> Soil class data</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#soil-types"><i class="fa fa-check"></i><b>3.6.1</b> Soil types</a></li>
+<li class="chapter" data-level="3.6.2" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#other-factor-type-variables"><i class="fa fa-check"></i><b>3.6.2</b> Other factor-type variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#importing-and-formatting-soil-data-in-r"><i class="fa fa-check"></i><b>3.7</b> Importing and formatting soil data in R</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#converting-texture-by-hand-classes-to-fractions"><i class="fa fa-check"></i><b>3.7.1</b> Converting texture-by-hand classes to fractions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#converting-munsell-color-codes-to-other-color-systems"><i class="fa fa-check"></i><b>3.8</b> Converting Munsell color codes to other color systems</a></li>
+<li class="chapter" data-level="3.9" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#mla-ptfs"><i class="fa fa-check"></i><b>3.9</b> Using Machine Learning to build Pedo-Transfer-Functions</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#ptf-for-bulk-density"><i class="fa fa-check"></i><b>3.9.1</b> PTF for Bulk Density</a></li>
+<li class="chapter" data-level="3.9.2" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#ptf-for-correlating-classification-systems"><i class="fa fa-check"></i><b>3.9.2</b> PTF for correlating classification systems</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#summary-points"><i class="fa fa-check"></i><b>3.10</b> Summary points</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html"><i class="fa fa-check"></i><b>4</b> Preparation of soil covariates for soil mapping</a><ul>
+<li class="chapter" data-level="4.1" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#soil-covariate-data-sources"><i class="fa fa-check"></i><b>4.1</b> Soil covariate data sources</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#types-of-soil-covariates"><i class="fa fa-check"></i><b>4.1.1</b> Types of soil covariates</a></li>
+<li class="chapter" data-level="4.1.2" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#soil-covs-30m"><i class="fa fa-check"></i><b>4.1.2</b> Soil covariate data sources (30–100 m resolution)</a></li>
+<li class="chapter" data-level="4.1.3" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#soil-covs-250m"><i class="fa fa-check"></i><b>4.1.3</b> Soil covariate data sources (250 m resolution or coarser)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#preparing-soil-covariate-layers"><i class="fa fa-check"></i><b>4.2</b> Preparing soil covariate layers</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#converting-polygon-maps-to-rasters"><i class="fa fa-check"></i><b>4.2.1</b> Converting polygon maps to rasters</a></li>
+<li class="chapter" data-level="4.2.2" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#downscaling-upscaling"><i class="fa fa-check"></i><b>4.2.2</b> Downscaling or upscaling (aggregating) rasters</a></li>
+<li class="chapter" data-level="4.2.3" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#deriving-dem-parameters-using-saga-gis"><i class="fa fa-check"></i><b>4.2.3</b> Deriving DEM parameters using SAGA GIS</a></li>
+<li class="chapter" data-level="4.2.4" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#filtering-out-missing-pixels-and-artifacts"><i class="fa fa-check"></i><b>4.2.4</b> Filtering out missing pixels and artifacts</a></li>
+<li class="chapter" data-level="4.2.5" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#overlaying-and-subsetting-raster-stacks-and-points"><i class="fa fa-check"></i><b>4.2.5</b> Overlaying and subsetting raster stacks and points</a></li>
+<li class="chapter" data-level="4.2.6" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#working-with-larger-rasters"><i class="fa fa-check"></i><b>4.2.6</b> Working with large(r) rasters</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#summary-points-1"><i class="fa fa-check"></i><b>4.3</b> Summary points</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="statistical-theory.html"><a href="statistical-theory.html"><i class="fa fa-check"></i><b>5</b> Statistical theory for predictive soil mapping</a><ul>
+<li class="chapter" data-level="5.1" data-path="statistical-theory.html"><a href="statistical-theory.html#aspects-variability"><i class="fa fa-check"></i><b>5.1</b> Aspects of spatial variability of soil variables</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="statistical-theory.html"><a href="statistical-theory.html#modelling-soil-variability"><i class="fa fa-check"></i><b>5.1.1</b> Modelling soil variability</a></li>
+<li class="chapter" data-level="5.1.2" data-path="statistical-theory.html"><a href="statistical-theory.html#umsv"><i class="fa fa-check"></i><b>5.1.2</b> Universal model of soil variation</a></li>
+<li class="chapter" data-level="5.1.3" data-path="statistical-theory.html"><a href="statistical-theory.html#soil-depth-models"><i class="fa fa-check"></i><b>5.1.3</b> Modelling the variation of soil with depth</a></li>
+<li class="chapter" data-level="5.1.4" data-path="statistical-theory.html"><a href="statistical-theory.html#vertical-aggregation"><i class="fa fa-check"></i><b>5.1.4</b> Vertical aggregation of soil properties</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="statistical-theory.html"><a href="statistical-theory.html#spatial-prediction-of-soil-variables"><i class="fa fa-check"></i><b>5.2</b> Spatial prediction of soil variables</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="statistical-theory.html"><a href="statistical-theory.html#main-principles"><i class="fa fa-check"></i><b>5.2.1</b> Main principles</a></li>
+<li class="chapter" data-level="5.2.2" data-path="statistical-theory.html"><a href="statistical-theory.html#soil-sampling"><i class="fa fa-check"></i><b>5.2.2</b> Soil sampling</a></li>
+<li class="chapter" data-level="5.2.3" data-path="statistical-theory.html"><a href="statistical-theory.html#sec:expertsystems"><i class="fa fa-check"></i><b>5.2.3</b> Knowledge-driven soil mapping</a></li>
+<li class="chapter" data-level="5.2.4" data-path="statistical-theory.html"><a href="statistical-theory.html#regression-kriging"><i class="fa fa-check"></i><b>5.2.4</b> Geostatistics-driven soil mapping (pedometric mapping)</a></li>
+<li class="chapter" data-level="5.2.5" data-path="statistical-theory.html"><a href="statistical-theory.html#RK-generic"><i class="fa fa-check"></i><b>5.2.5</b> Regression-kriging (generic model)</a></li>
+<li class="chapter" data-level="5.2.6" data-path="statistical-theory.html"><a href="statistical-theory.html#spatial-prediction-using-multiple-linear-regression"><i class="fa fa-check"></i><b>5.2.6</b> Spatial Prediction using multiple linear regression</a></li>
+<li class="chapter" data-level="5.2.7" data-path="statistical-theory.html"><a href="statistical-theory.html#universal-kriging-prediction-error"><i class="fa fa-check"></i><b>5.2.7</b> Universal kriging prediction error</a></li>
+<li class="chapter" data-level="5.2.8" data-path="statistical-theory.html"><a href="statistical-theory.html#regression-kriging-examples"><i class="fa fa-check"></i><b>5.2.8</b> Regression-kriging examples</a></li>
+<li class="chapter" data-level="5.2.9" data-path="statistical-theory.html"><a href="statistical-theory.html#regression-kriging-examples-using-the-gsif-package"><i class="fa fa-check"></i><b>5.2.9</b> Regression-kriging examples using the GSIF package</a></li>
+<li class="chapter" data-level="5.2.10" data-path="statistical-theory.html"><a href="statistical-theory.html#regression-kriging-and-polygon-averaging"><i class="fa fa-check"></i><b>5.2.10</b> Regression-kriging and polygon averaging</a></li>
+<li class="chapter" data-level="5.2.11" data-path="statistical-theory.html"><a href="statistical-theory.html#block-support"><i class="fa fa-check"></i><b>5.2.11</b> Predictions at point vs block support</a></li>
+<li class="chapter" data-level="5.2.12" data-path="statistical-theory.html"><a href="statistical-theory.html#gstat-sims"><i class="fa fa-check"></i><b>5.2.12</b> Geostatistical simulations</a></li>
+<li class="chapter" data-level="5.2.13" data-path="statistical-theory.html"><a href="statistical-theory.html#automated-mapping"><i class="fa fa-check"></i><b>5.2.13</b> Automated mapping</a></li>
+<li class="chapter" data-level="5.2.14" data-path="statistical-theory.html"><a href="statistical-theory.html#selecting-spatial-prediction-models"><i class="fa fa-check"></i><b>5.2.14</b> Selecting spatial prediction models</a></li>
+<li class="chapter" data-level="5.2.15" data-path="statistical-theory.html"><a href="statistical-theory.html#regression-kriging-3D"><i class="fa fa-check"></i><b>5.2.15</b> 3D regression-kriging</a></li>
+<li class="chapter" data-level="5.2.16" data-path="statistical-theory.html"><a href="statistical-theory.html#multiscale"><i class="fa fa-check"></i><b>5.2.16</b> Predicting with multiscale and multisource data</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="statistical-theory.html"><a href="statistical-theory.html#accuracy-assessment"><i class="fa fa-check"></i><b>5.3</b> Accuracy assessment and the mapping efficiency</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="statistical-theory.html"><a href="statistical-theory.html#mapping-accuracy"><i class="fa fa-check"></i><b>5.3.1</b> Mapping accuracy and numeric resolution</a></li>
+<li class="chapter" data-level="5.3.2" data-path="statistical-theory.html"><a href="statistical-theory.html#accuracy-assessment-methods"><i class="fa fa-check"></i><b>5.3.2</b> Accuracy assessment methods</a></li>
+<li class="chapter" data-level="5.3.3" data-path="statistical-theory.html"><a href="statistical-theory.html#cross-validation-and-its-limitations"><i class="fa fa-check"></i><b>5.3.3</b> Cross-validation and its limitations</a></li>
+<li class="chapter" data-level="5.3.4" data-path="statistical-theory.html"><a href="statistical-theory.html#accuracy-of-the-predicted-model-uncertainty"><i class="fa fa-check"></i><b>5.3.4</b> Accuracy of the predicted model uncertainty</a></li>
+<li class="chapter" data-level="5.3.5" data-path="statistical-theory.html"><a href="statistical-theory.html#derivation-and-interpretation-of-prediction-interval"><i class="fa fa-check"></i><b>5.3.5</b> Derivation and interpretation of prediction interval</a></li>
+<li class="chapter" data-level="5.3.6" data-path="statistical-theory.html"><a href="statistical-theory.html#universal-measures-of-mapping-accuracy"><i class="fa fa-check"></i><b>5.3.6</b> Universal measures of mapping accuracy</a></li>
+<li class="chapter" data-level="5.3.7" data-path="statistical-theory.html"><a href="statistical-theory.html#mapping-accuracy-and-soil-survey-costs"><i class="fa fa-check"></i><b>5.3.7</b> Mapping accuracy and soil survey costs</a></li>
+<li class="chapter" data-level="5.3.8" data-path="statistical-theory.html"><a href="statistical-theory.html#summary-points-2"><i class="fa fa-check"></i><b>5.3.8</b> Summary points</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html"><i class="fa fa-check"></i><b>6</b> Machine Learning Algorithms for soil mapping</a><ul>
+<li class="chapter" data-level="6.1" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#spatial-prediction-of-soil-properties-and-classes-using-mlas"><i class="fa fa-check"></i><b>6.1</b> Spatial prediction of soil properties and classes using MLA’s</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#loading-the-packages-and-data"><i class="fa fa-check"></i><b>6.1.1</b> Loading the packages and data</a></li>
+<li class="chapter" data-level="6.1.2" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#spatial-prediction-of-soil-classes-using-mlas"><i class="fa fa-check"></i><b>6.1.2</b> Spatial prediction of soil classes using MLA’s</a></li>
+<li class="chapter" data-level="6.1.3" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#modelling-numeric-soil-properties-using-h2o"><i class="fa fa-check"></i><b>6.1.3</b> Modelling numeric soil properties using h2o</a></li>
+<li class="chapter" data-level="6.1.4" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#prediction-3D"><i class="fa fa-check"></i><b>6.1.4</b> Spatial prediction of 3D (numeric) variables</a></li>
+<li class="chapter" data-level="6.1.5" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#ensemble-predictions-using-h2oensemble"><i class="fa fa-check"></i><b>6.1.5</b> Ensemble predictions using h2oEnsemble</a></li>
+<li class="chapter" data-level="6.1.6" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#ensemble-predictions-using-superlearner-package"><i class="fa fa-check"></i><b>6.1.6</b> Ensemble predictions using SuperLearner package</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#a-generic-framework-for-spatial-prediction-using-random-forest"><i class="fa fa-check"></i><b>6.2</b> A generic framework for spatial prediction using Random Forest</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#general-principle-of-rfsp"><i class="fa fa-check"></i><b>6.2.1</b> General principle of RFsp</a></li>
+<li class="chapter" data-level="6.2.2" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#geographical-covariates"><i class="fa fa-check"></i><b>6.2.2</b> Geographical covariates</a></li>
+<li class="chapter" data-level="6.2.3" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#spatial-prediction-2d-continuous-variable-using-rfsp"><i class="fa fa-check"></i><b>6.2.3</b> Spatial prediction 2D continuous variable using RFsp</a></li>
+<li class="chapter" data-level="6.2.4" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#spatial-prediction-2d-variable-with-covariates-using-rfsp"><i class="fa fa-check"></i><b>6.2.4</b> Spatial prediction 2D variable with covariates using RFsp</a></li>
+<li class="chapter" data-level="6.2.5" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#spatial-prediction-of-binomial-variables"><i class="fa fa-check"></i><b>6.2.5</b> Spatial prediction of binomial variables</a></li>
+<li class="chapter" data-level="6.2.6" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#spatial-prediction-of-soil-types"><i class="fa fa-check"></i><b>6.2.6</b> Spatial prediction of soil types</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#summary-points-3"><i class="fa fa-check"></i><b>6.3</b> Summary points</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="SOC-chapter.html"><a href="SOC-chapter.html"><i class="fa fa-check"></i><b>7</b> Spatial prediction and assessment of Soil Organic Carbon</a><ul>
+<li class="chapter" data-level="7.1" data-path="SOC-chapter.html"><a href="SOC-chapter.html#introduction-1"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="SOC-chapter.html"><a href="SOC-chapter.html#measurement-and-derivation-of-soil-organic-carbon"><i class="fa fa-check"></i><b>7.2</b> Measurement and derivation of soil organic carbon</a></li>
+<li class="chapter" data-level="7.3" data-path="SOC-chapter.html"><a href="SOC-chapter.html#derivation-of-ocs-and-ocd-using-soil-profile-data"><i class="fa fa-check"></i><b>7.3</b> Derivation of OCS and OCD using soil profile data</a></li>
+<li class="chapter" data-level="7.4" data-path="SOC-chapter.html"><a href="SOC-chapter.html#estimation-of-bulk-density-using-a-globally-calibrated-ptf"><i class="fa fa-check"></i><b>7.4</b> Estimation of Bulk Density using a globally-calibrated PTF</a></li>
+<li class="chapter" data-level="7.5" data-path="SOC-chapter.html"><a href="SOC-chapter.html#generating-maps-of-ocs"><i class="fa fa-check"></i><b>7.5</b> Generating maps of OCS</a></li>
+<li class="chapter" data-level="7.6" data-path="SOC-chapter.html"><a href="SOC-chapter.html#predicting-ocs-from-point-data-the-2d-approach"><i class="fa fa-check"></i><b>7.6</b> Predicting OCS from point data (the 2D approach)</a></li>
+<li class="chapter" data-level="7.7" data-path="SOC-chapter.html"><a href="SOC-chapter.html#ocs-3d-approach"><i class="fa fa-check"></i><b>7.7</b> Deriving OCS from soil profile data (the 3D approach)</a></li>
+<li class="chapter" data-level="7.8" data-path="SOC-chapter.html"><a href="SOC-chapter.html#deriving-ocs-using-spatiotemporal-models"><i class="fa fa-check"></i><b>7.8</b> Deriving OCS using spatiotemporal models</a></li>
+<li class="chapter" data-level="7.9" data-path="SOC-chapter.html"><a href="SOC-chapter.html#summary-points-4"><i class="fa fa-check"></i><b>7.9</b> Summary points</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="practical-tips.html"><a href="practical-tips.html"><i class="fa fa-check"></i><b>8</b> Practical tips for organizing Predictive Soil Mapping</a><ul>
+<li class="chapter" data-level="8.1" data-path="practical-tips.html"><a href="practical-tips.html#critical-aspects-of-predictive-soil-mapping"><i class="fa fa-check"></i><b>8.1</b> Critical aspects of Predictive Soil Mapping</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="practical-tips.html"><a href="practical-tips.html#psm-main-steps"><i class="fa fa-check"></i><b>8.1.1</b> PSM main steps</a></li>
+<li class="chapter" data-level="8.1.2" data-path="practical-tips.html"><a href="practical-tips.html#psm-input-and-output-spatial-data-layers"><i class="fa fa-check"></i><b>8.1.2</b> PSM input and output spatial data layers</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="practical-tips.html"><a href="practical-tips.html#technical-specifications-affecting-the-majority-of-production-costs"><i class="fa fa-check"></i><b>8.2</b> Technical specifications affecting the majority of production costs</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="practical-tips.html"><a href="practical-tips.html#field-observations-and-measurements"><i class="fa fa-check"></i><b>8.2.1</b> Field observations and measurements</a></li>
+<li class="chapter" data-level="8.2.2" data-path="practical-tips.html"><a href="practical-tips.html#preparation-of-point-data"><i class="fa fa-check"></i><b>8.2.2</b> Preparation of point data</a></li>
+<li class="chapter" data-level="8.2.3" data-path="practical-tips.html"><a href="practical-tips.html#preparation-of-covariates"><i class="fa fa-check"></i><b>8.2.3</b> Preparation of covariates</a></li>
+<li class="chapter" data-level="8.2.4" data-path="practical-tips.html"><a href="practical-tips.html#soil-mask-and-the-grid-system"><i class="fa fa-check"></i><b>8.2.4</b> Soil mask and the grid system</a></li>
+<li class="chapter" data-level="8.2.5" data-path="practical-tips.html"><a href="practical-tips.html#uncertainty-of-psm-maps"><i class="fa fa-check"></i><b>8.2.5</b> Uncertainty of PSM maps</a></li>
+<li class="chapter" data-level="8.2.6" data-path="practical-tips.html"><a href="practical-tips.html#computing-costs"><i class="fa fa-check"></i><b>8.2.6</b> Computing costs</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="practical-tips.html"><a href="practical-tips.html#final-delivery-of-maps"><i class="fa fa-check"></i><b>8.3</b> Final delivery of maps</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="practical-tips.html"><a href="practical-tips.html#delivery-data-formats"><i class="fa fa-check"></i><b>8.3.1</b> Delivery data formats</a></li>
+<li class="chapter" data-level="8.3.2" data-path="practical-tips.html"><a href="practical-tips.html#general-recommendations"><i class="fa fa-check"></i><b>8.3.2</b> General recommendations</a></li>
+<li class="chapter" data-level="8.3.3" data-path="practical-tips.html"><a href="practical-tips.html#technical-specifications-psm-project"><i class="fa fa-check"></i><b>8.3.3</b> Technical specifications PSM project</a></li>
+<li class="chapter" data-level="8.3.4" data-path="practical-tips.html"><a href="practical-tips.html#standard-soil-data-production-costs"><i class="fa fa-check"></i><b>8.3.4</b> Standard soil data production costs</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="practical-tips.html"><a href="practical-tips.html#summary-notes"><i class="fa fa-check"></i><b>8.4</b> Summary notes</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html"><i class="fa fa-check"></i><b>9</b> The future of predictive soil mapping</a><ul>
+<li class="chapter" data-level="9.1" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#introduction-2"><i class="fa fa-check"></i><b>9.1</b> Introduction</a></li>
+<li class="chapter" data-level="9.2" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#past-conventional-terrestrial-resource-inventories"><i class="fa fa-check"></i><b>9.2</b> Past conventional terrestrial resource inventories</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#why-have-most-national-resource-inventories-been-discontinued"><i class="fa fa-check"></i><b>9.2.1</b> Why have most national resource inventories been discontinued?</a></li>
+<li class="chapter" data-level="9.2.2" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#is-there-a-future-for-conventional-terrestrial-inventory-programs"><i class="fa fa-check"></i><b>9.2.2</b> Is there a future for conventional terrestrial inventory programs ?</a></li>
+<li class="chapter" data-level="9.2.3" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#can-terrestrial-inventory-programs-be-renewed-and-revived"><i class="fa fa-check"></i><b>9.2.3</b> Can terrestrial inventory programs be renewed and revived?</a></li>
+<li class="chapter" data-level="9.2.4" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#how-can-terrestrial-inventory-programs-be-renewed-and-revived-and-by-whom"><i class="fa fa-check"></i><b>9.2.4</b> How can terrestrial inventory programs be renewed and revived and by whom?</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#the-future-of-psm-embracing-scientific-and-technical-advances"><i class="fa fa-check"></i><b>9.3</b> The future of PSM: Embracing scientific and technical advances</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#overview"><i class="fa fa-check"></i><b>9.3.1</b> Overview</a></li>
+<li class="chapter" data-level="9.3.2" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#collection-of-field-observations-and-samples"><i class="fa fa-check"></i><b>9.3.2</b> Collection of field observations and samples</a></li>
+<li class="chapter" data-level="9.3.3" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#collecting-new-field-om-data"><i class="fa fa-check"></i><b>9.3.3</b> Collecting New Field O&amp;M Data</a></li>
+<li class="chapter" data-level="9.3.4" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#characterization-of-soils-in-the-field-and-the-laboratory"><i class="fa fa-check"></i><b>9.3.4</b> Characterization of soils in the field and the laboratory</a></li>
+<li class="chapter" data-level="9.3.5" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#creation-collation-and-distribution-of-effective-environmental-covariates"><i class="fa fa-check"></i><b>9.3.5</b> Creation, collation and distribution of effective environmental covariates,</a></li>
+<li class="chapter" data-level="9.3.6" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#automated-spatial-prediction-models-psm"><i class="fa fa-check"></i><b>9.3.6</b> Automated spatial prediction models (PSM)</a></li>
+<li class="chapter" data-level="9.3.7" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#hosting-publishing-sharing-and-using-spatial-data"><i class="fa fa-check"></i><b>9.3.7</b> Hosting, publishing, sharing and using spatial data</a></li>
+<li class="chapter" data-level="9.3.8" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#new-visualization-and-data-analysis-tools"><i class="fa fa-check"></i><b>9.3.8</b> New visualization and data analysis tools</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#the-future-of-psm-embracing-new-organizational-and-governance-models"><i class="fa fa-check"></i><b>9.4</b> The future of PSM: Embracing new organizational and governance models</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#overview-1"><i class="fa fa-check"></i><b>9.4.1</b> Overview</a></li>
+<li class="chapter" data-level="9.4.2" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#open-data-and-platforms-and-procedures-for-acquiring-and-sharing-it"><i class="fa fa-check"></i><b>9.4.2</b> Open data and platforms and procedures for acquiring and sharing it</a></li>
+<li class="chapter" data-level="9.4.3" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#open-cloud-based-processing-capabilities"><i class="fa fa-check"></i><b>9.4.3</b> Open cloud-based processing capabilities</a></li>
+<li class="chapter" data-level="9.4.4" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#collaborative-production-of-inputs-and-new-outputs"><i class="fa fa-check"></i><b>9.4.4</b> Collaborative production of inputs and new outputs</a></li>
+<li class="chapter" data-level="9.4.5" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#crowdsourcing-and-voluntary-collaboration"><i class="fa fa-check"></i><b>9.4.5</b> Crowdsourcing and voluntary collaboration,</a></li>
+<li class="chapter" data-level="9.4.6" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#sponsorship-subscription-crowdfunding-and-blockchain-funding-systems"><i class="fa fa-check"></i><b>9.4.6</b> Sponsorship, subscription, crowdfunding and blockchain funding systems,</a></li>
+<li class="chapter" data-level="9.4.7" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#a-proposal-for-organizing-and-managing-a-new-open-collective"><i class="fa fa-check"></i><b>9.4.7</b> A proposal for organizing and managing a new open collective</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://opengeohub.org/people/tom-hengl">T. (Tom) Hengl and R.A. (Bob) MacMillan</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Predictive Soil Mapping with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="preface" class="section level1 unnumbered">
+<h1>Preface</h1>
+<p>Predictive Soil Mapping (PSM) is based on applying statistical and/or machine learning techniques to fit models for the purpose of producing spatial and/or spatiotemporal predictions of soil variables i.e. maps of soil properties and classes at different resolutions. It is a multidisciplinary field combining statistics, data science, soil science, physical geography, remote sensing, geoinformation science and a number of other sciences <span class="citation">(Scull et al. <a href="#ref-Scul01">2003</a>; McBratney, Mendonça Santos, and Minasny <a href="#ref-MCBRATNEY20033">2003</a>; Henderson et al. <a href="#ref-Henderson2004Geoderma">2004</a>; Boettinger et al. <a href="#ref-Boettinger2010Springer">2010</a>; Zhu et al. <a href="#ref-Zhu2015PSM">2015</a>)</span>. <em>Predictive Soil Mapping with R</em> is about understanding the main concepts behind soil mapping, mastering R packages that can be used to produce high quality soil maps, and about optimizing all processes involved so that also the production costs can be reduced.</p>
+<p>The main idea behind predictive vs traditional expert-based soil mapping is that the production of maps: (a) is based on using state-of-the-art statistical methods to ensure objectivity of maps (including objective uncertainty assessment vs expert judgment), and (b) is driven by automation of the processes so that overall soil data production costs can be reduced and updates of the maps implemented without a need for large investments. R, in that sense, is a logical platform to develop PSM workflows and applications, especially thanks to the vibrant and productive R spatial interest group activities and also thanks to the increasingly professional soil data packages such as the soiltexture, aqp, soilprofile, soilDB and similar.</p>
+<p>The book is divided into sections covering theoretical concepts, preparation of covariates, model selection and evaluation, prediction and visualization and distribution of final maps. Most of the chapters contain R code examples that try to illustrate the main processing steps and give practical instructions to developers and applied users.</p>
+<div id="connected-publications" class="section level2 unnumbered">
+<h2>Connected publications</h2>
+<p>Most of methods described in this book are based on the following publications:</p>
+<ul>
+<li><p>Hengl, T., Nussbaum, M., Wright, M. N., Heuvelink, G. B., and Gräler, B. (2018) <a href="https://doi.org/10.7717/peerj.5518">Random Forest as a generic framework for predictive modeling of spatial and spatio-temporal variables</a>. PeerJ 6:e5518.</p></li>
+<li><p>Sanderman, J., Hengl, T., Fiske, G., (2017) <a href="http://www.pnas.org/content/early/2017/08/15/1706103114.full">The soil carbon debt of 12,000 years of human land use</a>. PNAS, <a href="doi:10.1073/pnas.1706103114" class="uri">doi:10.1073/pnas.1706103114</a></p></li>
+<li><p>Ramcharan, A., Hengl, T., Nauman, T., Brungard, C., Waltman, S., Wills, S., &amp; Thompson, J. (2018). <a href="https://dl.sciencesocieties.org/publications/sssaj/abstracts/82/1/186">Soil Property and Class Maps of the Conterminous United States at 100-Meter Spatial Resolution</a>. Soil Science Society of America Journal, 82(1), 186–201.</p></li>
+<li><p>Hengl, T., Leenaars, J. G., Shepherd, K. D., Walsh, M. G., Heuvelink, G. B., Mamo, T., et al. (2017) <a href="https://link.springer.com/article/10.1007/s10705-017-9870-x">Soil nutrient maps of Sub-Saharan Africa: assessment of soil nutrient content at 250 m spatial resolution using machine learning</a>. Nutrient Cycling in Agroecosystems, 109(1), 77–102.</p></li>
+<li><p>Hengl T, Mendes de Jesus J, Heuvelink GBM, Ruiperez Gonzalez M, Kilibarda M, Blagotic A, et al. (2017) <a href="http://dx.doi.org/10.1371/journal.pone.0169748">SoilGrids250m: Global gridded soil information based on machine learning</a>. PLoS ONE 12(2): e0169748. <a href="doi:10.1371/journal.pone.0169748" class="uri">doi:10.1371/journal.pone.0169748</a></p></li>
+<li><p>Shangguan, W., Hengl, T., de Jesus, J. M., Yuan, H., &amp; Dai, Y. (2017). <a href="https://doi.org/10.1002/2016MS000686">Mapping the global depth to bedrock for land surface modeling</a>. Journal of Advances in Modeling Earth Systems, 9(1), 65-88.</p></li>
+<li><p>Hengl, T., Roudier, P., Beaudette, D., &amp; Pebesma, E. (2015) <a href="https://www.jstatsoft.org/article/view/v063i05">plotKML: scientific visualization of spatio-temporal data</a>. Journal of Statistical Software, 63(5).</p></li>
+<li><p>Gasch, C. K., Hengl, T., Gräler, B., Meyer, H., Magney, T. S., &amp; Brown, D. J. (2015) <a href="https://doi.org/10.1016/j.spasta.2015.04.001">Spatio-temporal interpolation of soil water, temperature, and electrical conductivity in 3D+ T: The Cook Agronomy Farm data set</a>. Spatial Statistics, 14, 70–90.</p></li>
+<li><p>Hengl, T., Nikolic, M., &amp; MacMillan, R. A. (2013) <a href="https://doi.org/10.1016/j.jag.2012.02.005">Mapping efficiency and information content</a>. International Journal of Applied Earth Observation and Geoinformation, 22, 127–138.</p></li>
+<li><p>Hengl, T., Heuvelink, G. B., &amp; Rossiter, D. G. (2007) <a href="https://doi.org/10.1016/j.cageo.2007.05.001">About regression-kriging: from equations to case studies</a>. Computers &amp; geosciences, 33(10), 1301-1315.</p></li>
+<li><p>Hengl, T. (2006) <a href="https://doi.org/10.1016/j.cageo.2005.11.008">Finding the right pixel size</a>. Computers &amp; geosciences, 32(9), 1283–1298.</p></li>
+</ul>
+<p>Some other publications / books on the subject of Predictive Soil Mapping and Data Science in general include:</p>
+<ul>
+<li><p>Malone, B.P, Minasny, B., McBratney, A.B., (2016) <a href="https://www.springer.com/gp/book/9783319443256">Using R for Digital Soil Mapping</a>. Progress in Soil Science ISBN: 9783319443270, 262 pages.</p></li>
+<li><p>Hengl, T., &amp; MacMillan, R. A. (2009). <a href="https://doi.org/10.1016/S0166-2481(08)00019-6">Geomorphometry—a key to landscape mapping and modelling</a>. Developments in Soil Science, 33, 433–460.</p></li>
+<li><p>California Soil Resource Lab, (2017) <a href="https://casoilresource.lawr.ucdavis.edu/software/">Open Source Software Tools for Soil Scientists</a>, UC Davis.</p></li>
+<li><p>McBratney, A.B., Minasny, B., Stockmann, U. (Eds) (2018) <a href="https://www.springer.com/gp/book/9783319634371">Pedometrics</a>. Progress in Soil Science ISBN: 9783319634395, 720 pages.</p></li>
+<li><p>FAO, (2018) <a href="https://github.com/FAO-GSP/SOC-Mapping-Cookbook">Soil Organic Carbon Mapping Cookbook</a>. 2nd edt. ISBN: 9789251304402</p></li>
+</ul>
+<p>Readers are also encouraged to obtain and study the following R books before following some of the more complex exercises in this book:</p>
+<ul>
+<li><p>Bivand, R., Pebesma, E., Rubio, V., (2013) <a href="http://www.asdar-book.org/">Applied Spatial Data Analysis with R</a>. Use R Series, Springer, Heidelberg, 2nd Ed. 400 pages.</p></li>
+<li><p>Irizarry, R.A., (2018) <a href="https://rafalab.github.io/dsbook/">Introduction to Data Science: Data Analysis and Prediction Algorithms with R</a>. HarvardX Data Science Series.</p></li>
+<li><p>Kabacoff, R.I., (2011) <a href="http://www.manning.com/kabacoff/">R in Action: Data Analysis and Graphics with R</a>. Manning publications, ISBN: 9781935182399, 472 pages.</p></li>
+<li><p>Kuhn, M., Johnson, K. (2013) <a href="http://appliedpredictivemodeling.com/">Applied Predictive Modeling</a>. Springer Science, ISBN: 9781461468493, 600 pages.</p></li>
+<li><p>Lovelace, R., Nowosad, J., Muenchow, J., (2018) <a href="https://geocompr.robinlovelace.net/">Geocomputation with R</a>. R Series, CRC Press, ISBN: 9781138304512, 338 pages.</p></li>
+<li><p>Reimann, C., Filzmoser, P., Garrett, R., Dutter, R., (2008) <a href="https://onlinelibrary.wiley.com/doi/book/10.1002/9780470987605">Statistical Data Analysis Explained Applied Environmental Statistics with R</a>. Wiley, Chichester, 337 pages.</p></li>
+</ul>
+<p>For the most recent developments in the R-spatial community refer to <a href="https://r-spatial.github.io" class="uri">https://r-spatial.github.io</a>, the R-sig-geo mailing list and/or <a href="https://opengeohub.org" class="uri">https://opengeohub.org</a>.</p>
+</div>
+<div id="contributions" class="section level2 unnumbered">
+<h2>Contributions</h2>
+<p>This book is constantly updated and contributions are welcome (through pull requests, but also through adding new chapters) provided that some minimum requirements are met. To contribute a complete new chapter please contact the editors first. Some minimum requirements to contribute a chapter are:</p>
+<ol style="list-style-type: decimal">
+<li>The data needs to be available for the majority tutorials presented in a chapter. Best is if this is via some R package or web-source.</li>
+<li>A chapter should focus on implementing some computing in R (it should be written as an R tutorial).</li>
+<li>All examples should be computationally efficient requiring not more than 30 secs of computing time per process on a single core system.</li>
+<li>The theoretical basis for methods and interpretation of results should be based on peer-review publications. This book is not intended to report on primary research / experimental results, but only to supplement existing research publications.</li>
+<li>A chapter should consist of at least 1500 words and at most 3500 words.</li>
+<li>The topic of the chapter must be closely connected to theme of soil mapping, soil geographical databases, methods for processing spatial soil data and similar.</li>
+</ol>
+<p>In principle, all submitted chapters should also follow closely the <a href="https://en.wikipedia.org/wiki/Wikipedia:Five_pillars">five pillars of Wikipedia</a>, especially: Verifiability, Reproducibility, No original research, Neutral point of view, Good faith, No conflict of interest, and no personal attacks.</p>
+</div>
+<div id="reproducibility" class="section level2 unnumbered">
+<h2>Reproducibility</h2>
+<p>To reproduce the book, you need a recent version of <a href="https://cran.r-project.org/">R</a>, and <a href="http://www.rstudio.com/products/RStudio/">RStudio</a> and up-to-date packages, which can be installed with the following command (which requires <a href="https://github.com/hadley/devtools"><strong>devtools</strong></a>):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;envirometrix/PredictiveSoilMapping&quot;</span>)</code></pre></div>
+<p>To build the book locally, clone or <a href="https://github.com/envirometrix/PredictiveSoilMapping/archive/master.zip">download</a> the <a href="https://github.com/envirometrix/PredictiveSoilMapping/">PredictiveSoilMapping repo</a>, load R in root directory (e.g. by opening <a href="https://github.com/envirometrix/PredictiveSoilMapping/blob/master/PredictiveSoilMapping.Rproj">PredictiveSoilMapping.Rproj</a> in RStudio) and run the following lines:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;index.Rmd&quot;</span>) <span class="co"># to build the book</span>
+<span class="kw">browseURL</span>(<span class="st">&quot;docs/index.html&quot;</span>) <span class="co"># to view it</span></code></pre></div>
+</div>
+<div id="acknowledgements" class="section level2 unnumbered">
+<h2>Acknowledgements</h2>
+<p>The authors are grateful to numerous contributions from colleagues around the world, especially for the contributions by the current and former ISRIC — World Soil Information colleagues: Gerard Heuvelink, Johan Leenaars, Jorge Mendes de Jesus, Wei Shangguan, David G. Rossiter, and many others. The authors are grateful to Dutch and European citizens for financing ISRIC and Wageningen University. The authors are also grateful to the support received via the <a href="http://africasoils.net">AfSIS project</a>, which has been funded by the Bill and Melinda Gates Foundation (BMGF) and the Alliance for a Green Revolution in Africa (AGRA). Many soil data processing examples in the book are based on the R code developed by Dylan Beuadette, Pierre Roudier, Alessandro Samuel Rosa, Marcos E. Angelini, Guillermo Federico Olmedo, Julian Moeys, Brandon Malone, and many other developers. Author is also grateful to comments and suggestions to the methods explained in the book by Travis Nauman, Amanda Ramcharan, David G. Rossiter and <a href="http://julienmoeys.info/">Julian Moeys</a>.</p>
+<p>LandGIS and SoilGrids are based on numerous soil profile data sets that have been kindly contributed by various national and international agencies: the USA National Cooperative Soil Survey Soil Characterization database (<a href="http://ncsslabdatamart.sc.egov.usda.gov/" class="uri">http://ncsslabdatamart.sc.egov.usda.gov/</a>) and profiles from the USA National Soil Information System, Land Use/Land Cover Area Frame Survey (LUCAS) Topsoil Survey database <span class="citation">(Tóth, Jones, and Montanarella <a href="#ref-Toth2013LUCAS">2013</a>)</span>, Repositório Brasileiro Livre para Dados Abertos do Solo (<a href="https://github.com/febr-team">FEBR</a>), Sistema de Información de Suelos de Latinoamérica y el Caribe (SISLAC), Africa Soil Profiles database <span class="citation">(Leenaars <a href="#ref-Leenaars2012">2014</a>)</span>, Australian National Soil Information by CSIRO Land and Water <span class="citation">(Karssies <a href="#ref-Karssies2011CSIRO">2011</a>; Searle <a href="#ref-searle2014australian">2014</a>)</span>, Mexican National soil profile database <span class="citation">(Instituto Nacional de Estadística y Geografía (INEGI) <a href="#ref-INEGI2000">2000</a>)</span> provided by the Mexican Instituto Nacional de Estadística y Geografía / CONABIO, Brazilian national soil profile database <span class="citation">(Cooper et al. <a href="#ref-cooper2005national">2005</a>)</span> provided by the University of São Paulo, Chinese National Soil Profile database <span class="citation">(Shangguan et al. <a href="#ref-shangguan2013china">2013</a>)</span> provided by the Institute of Soil Science, Chinese Academy of Sciences, soil profile archive from the Canadian Soil Information System <span class="citation">(MacDonald and Valentine <a href="#ref-macdonald1992cansis">1992</a>)</span> and Forest Ecosystem Carbon Database (FECD), ISRIC-WISE <span class="citation">(Batjes <a href="#ref-Batjes2009SUM">2009</a>)</span>, The Northern Circumpolar Soil Carbon Database <span class="citation">(Hugelius et al. <a href="#ref-essd-5-3-2013">2013</a>)</span>, eSOTER profiles <span class="citation">(Van Engelen and Dijkshoorn <a href="#ref-VanEngelen2012">2012</a>)</span>, SPADE <span class="citation">(Hollis et al. <a href="#ref-hollis2006spade">2006</a>)</span>, Unified State Register of soil resources RUSSIA (Version 1.0. Moscow — 2014), National Database of Iran provided by the Tehran University, points from the Dutch Soil Information System (BIS) prepared by Wageningen Environmental Research, and others. We are also grateful to USA’s NASA, USGS and USDA agencies, European Space Agency Copernicus projects, JAXA (Japan Aerospace Exploration Agency) for distributing vast amounts of remote sensing data (especially MODIS, Landsat, Copernicus land products and elevation data), and to the Open Source software developers of the packages rgdal, sp, raster, caret, mlr, ranger, h2o and similar, and without which predictive soil mapping would most likely not be possible.</p>
+<p>This book has been inspired by the <a href="https://geocompr.robinlovelace.net/">the Geocomputation with R book</a>, an Open Access book edited by Robin Lovelace, Jakub Nowosad and Jannes Muenchow. Many thanks to Robin Lovelace for helping with rmarkdown and for giving some initial tips for compiling and organizing book. The authors are also grateful to the numerous software/package developers, especially Edzer Pebesma, Roger Bivand, Robert Hijmans, Markus Neteler, Tim Appelhans, and Hadley Wickham, that have enabled a generation of researchers and applied projects.</p>
+<p>OpenGeoHub is a not-for-profit research foundation with headquarters in Wageningen, the Netherlands (Stichting OpenGeoHub, KvK 71844570). The main goal of the OpenGeoHub is to promote publishing and sharing of Open Geographical and Geoscientific Data and using and developing of Open Source Software. We believe that the key measure of quality of research in all sciences (and especially in geographical information sciences) is in transparency and reproducibility of the computer code used to generate results. Transparency and reproducibility increase trust in information so that it is eventually also the fastest path to optimal decision making.</p>
+<p>Every effort has been made to trace copyright holders of the materials used in these materials. Should we, despite all our efforts have overlooked contributors please contact the author and we shall correct this unintentional omission without any delay and will acknowledge any overlooked contributions and contributors in future updates.</p>
+<p><strong>Data availability</strong>: All data used in this book is either available through R packages or is available via the github repository. If not mentioned otherwise, all code presented is available under the <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html">GNU General Public License v2.0</a>.</p>
+<p><strong>Copyright</strong>: © 2018 Authors.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. LandGIS and OpenGeoHub are registered trademarks of the OpenGeoHub Foundation.</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-Scul01">
+<p>Scull, P., J. Franklin, O. A. Chadwick, and D. McArthur. 2003. “Predictive Soil Mapping: A Review.” <em>Progress in Physical Geography</em> 27 (2): 171–97.</p>
+</div>
+<div id="ref-MCBRATNEY20033">
+<p>McBratney, A.B, M.L Mendonça Santos, and B Minasny. 2003. “On Digital Soil Mapping.” <em>Geoderma</em> 117 (1): 3–52. doi:<a href="https://doi.org/10.1016/S0016-7061(03)00223-4">10.1016/S0016-7061(03)00223-4</a>.</p>
+</div>
+<div id="ref-Henderson2004Geoderma">
+<p>Henderson, B. L., E. N. Bui, C. J. Moran, and D. A. P. Simon. 2004. “Australia-wide predictions of soil properties using decision trees.” <em>Geoderma</em> 124 (3-4): 383–98.</p>
+</div>
+<div id="ref-Boettinger2010Springer">
+<p>Boettinger, J. L., D. W. Howell, A. C. Moore, A. E. Hartemink, and S. Kienast-Brown, eds. 2010. <em>Digital Soil Mapping: Bridging Research, Environmental Application, and Operation</em>. Vol. 2. Progress in Soil Science. Springer.</p>
+</div>
+<div id="ref-Zhu2015PSM">
+<p>Zhu, A.X., J. Liu, F. Du, S.J. Zhang, C.Z. Qin, J. Burt, T. Behrens, and T. Scholten. 2015. “Predictive Soil Mapping with Limited Sample Data.” <em>European Journal of Soil Science</em>. doi:<a href="https://doi.org/10.1111/ejss.12244">10.1111/ejss.12244</a>.</p>
+</div>
+<div id="ref-Toth2013LUCAS">
+<p>Tóth, G., A. Jones, and L. Montanarella, eds. 2013. <em>LUCAS Topsoil Survey. Methodology, Data and Results</em>. JRC Technical Reports Eur 26102. Luxembourg: Publications Office of the European Union.</p>
+</div>
+<div id="ref-Leenaars2012">
+<p>Leenaars, Johan G.B. 2014. <em>Africa Soil Profiles Database, Version 1.2. a Compilation of Geo-Referenced and Standardized Legacy Soil Profile Data for Sub Saharan Africa (with Dataset)</em>. Wageningen, the Netherlands: Africa Soil Information Service (AfSIS) project; ISRIC — World Soil Information.</p>
+</div>
+<div id="ref-Karssies2011CSIRO">
+<p>Karssies, Linda. 2011. <em>CSIRO National Soil Archive and the National Soil Database (Natsoil)</em>. Data Collection v1. Canberra: CSIRO.</p>
+</div>
+<div id="ref-searle2014australian">
+<p>Searle, R. 2014. “The Australian Site Data Collation to Support the Globalsoilmap.” <em>GlobalSoilMap: Basis of the Global Spatial Soil Information System</em>. CRC Press, 127.</p>
+</div>
+<div id="ref-INEGI2000">
+<p>Instituto Nacional de Estadística y Geografía (INEGI). 2000. <em>Conjunto de Datos de Perfiles de Suelos, Escala 1: 250 000 Serie Ii</em>. (Continuo Nacional). Aguascalientes, Ags. México: INEGI.</p>
+</div>
+<div id="ref-cooper2005national">
+<p>Cooper, Miguel, Lúcia Maria Silveira Mendes, Wellinton Luiz Costa Silva, and Gerd Sparovek. 2005. “A National Soil Profile Database for Brazil Available to International Scientists.” <em>Soil Science Society of America Journal</em> 69 (3). Soil Science Society: 649–52.</p>
+</div>
+<div id="ref-shangguan2013china">
+<p>Shangguan, Wei, Yongjiu Dai, Baoyuan Liu, Axing Zhu, Qingyun Duan, Lizong Wu, Duoying Ji, et al. 2013. “A China Data Set of Soil Properties for Land Surface Modeling.” <em>Journal of Advances in Modeling Earth Systems</em> 5 (2): 212–24. doi:<a href="https://doi.org/10.1002/jame.20026">10.1002/jame.20026</a>.</p>
+</div>
+<div id="ref-macdonald1992cansis">
+<p>MacDonald, K. B., and K. W. G. Valentine. 1992. <em>CanSIS/Nsdb. a General Description</em>. Ottawa: Centre for Land; Biological Resources Research, Research Branch, Agriculture Canada.</p>
+</div>
+<div id="ref-Batjes2009SUM">
+<p>Batjes, N. H. 2009. “Harmonized soil profile data for applications at global and continental scales: Updates to the WISE database.” <em>Soil Use and Management</em> 25 (2): 124–27. doi:<a href="https://doi.org/10.1111/j.1475-2743.2009.00202.x">10.1111/j.1475-2743.2009.00202.x</a>.</p>
+</div>
+<div id="ref-essd-5-3-2013">
+<p>Hugelius, G., C. Tarnocai, G. Broll, J. G. Canadell, P. Kuhry, and D. K. Swanson. 2013. “The Northern Circumpolar Soil Carbon Database: Spatially Distributed Datasets of Soil Coverage and Soil Carbon Storage in the Northern Permafrost Regions.” <em>Earth System Science Data</em> 5 (1): 3–13. doi:<a href="https://doi.org/10.5194/essd-5-3-2013">10.5194/essd-5-3-2013</a>.</p>
+</div>
+<div id="ref-VanEngelen2012">
+<p>Van Engelen, V.W.P., and J.A. Dijkshoorn, eds. 2012. <em>Global and National Soils and Terrain Digital Databases (SOTER), Procedures Manual, version 2.0</em>. ISRIC Report 2012/04. Wageningen, the Netherlands: ISRIC - World Soil Information.</p>
+</div>
+<div id="ref-hollis2006spade">
+<p>Hollis, J. M., R. J. A. Jones, C. J. Marshall, A. Holden, J. R. Van de Veen, and L. Montanarella. 2006. <em>SPADE-2: The soil profile analytical database for Europe, version 1.0</em>. Luxembourg: Office for official publications of the European Communities.</p>
+</div>
+</div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://https-envirometrix-github-io-predictivesoilmapping.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="introduction.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/envirometrix/PredictiveSoilMapping/edit/master/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

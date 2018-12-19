@@ -1,3 +1,4 @@
+
 # Spatial prediction and assessment of Soil Organic Carbon {#SOC-chapter}
 
 *Edited by: Hengl T. & Sanderman J.*
@@ -51,9 +52,10 @@ Another way to express soil organic carbon is through **soil organic carbon dens
 
 While OCS is a summary measure of SOC, always associated with a specific depth interval, OCD is a relative measure of soil organic carbon distribution and can be associated with any support size i.e. to an arbitrary depth. In principle, OCD (kg/m$^3$) is strongly correlated with ORC (g/kg) as indicated in the figure below. However, depending on soil mineralogy and coarse fragment content, OCD can be lower or higher than what the smoothed line indicates (notice the range of values around the smoothed line is relatively wide). It is important to understand, however, that, as long as ORC, BLD and CRF are known, one can convert the values from ORC to OCD and OCS and *vice versa*, without loosing any information about the soil organic carbon stock.
 
-```{r carbon-density-plot, echo=FALSE, fig.cap="Correlation between soil organic carbon density and soil organic carbon content (displayed on a log-scale) created using a global compilations of soil profile data (WoSIS). Values 1, 2, 3, 4, 5 and 6 in the plot (log scale) correspond to values 2, 6, 19, 54, 147 and 402. Note that for ORC >12%, the OCD line flattens, which means that, organic carbon density practically stops to increase with the increase of ORC content.", out.width="55%"}
-knitr::include_graphics("figures/rplot_soilcarbon_density_vs_orc.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/rplot_soilcarbon_density_vs_orc.png" alt="Correlation between soil organic carbon density and soil organic carbon content (displayed on a log-scale) created using a global compilations of soil profile data (WoSIS). Values 1, 2, 3, 4, 5 and 6 in the plot (log scale) correspond to values 2, 6, 19, 54, 147 and 402. Note that for ORC &gt;12%, the OCD line flattens, which means that, organic carbon density practically stops to increase with the increase of ORC content." width="55%" />
+<p class="caption">(\#fig:carbon-density-plot)Correlation between soil organic carbon density and soil organic carbon content (displayed on a log-scale) created using a global compilations of soil profile data (WoSIS). Values 1, 2, 3, 4, 5 and 6 in the plot (log scale) correspond to values 2, 6, 19, 54, 147 and 402. Note that for ORC >12%, the OCD line flattens, which means that, organic carbon density practically stops to increase with the increase of ORC content.</p>
+</div>
 
 In summary, there are four main variables used to represent soil organic carbon:
 
@@ -64,9 +66,9 @@ In summary, there are four main variables used to represent soil organic carbon:
 
 Global estimates of the total soil organic carbon stock are highly variable [@Scharlemann2014CM]. Current estimates of the present total soil organic carbon stock range between 800–2100 Pg C (for 0–100 cm), with a median estimate of about 1500 Pg C (for 0–100 cm). This means that the average OCS for the 0–100 cm depth interval for the global land mask (148,940,000 km$^2$) is about 11 kg/m$^2$ or 110 tons/ha, and that average soil organic carbon density (OCD) is about 11 kg/m$^3$ (compare to the standard bulk density of fine earth of 1250 kg/m$^3$); standard OCS for 0–30 cm depth interval is 7 kg/m$^2$ i.e. the average OCD is about 13 kg/m$^3$. 
 
-```{block, type="rmdnote"}
-The average Organic Carbon Stock for the 0–100 cm depth interval for the land mask (148,940,000 km$^2$) is about 11 kg/m$^2$ or 110 tons/ha. The average soil Organic Carbon Density (OCD) is about 11 kg/m$^3$ (compared to the standard bulk density of fine earth of 1250 kg/m$^3$). Standard Organic Carbon Stock for 0–30 cm depth interval is 7 kg/m$^2$ i.e. the average OCD is about 13 kg/m$^3$.
-```
+<div class="rmdnote">
+<p>The average Organic Carbon Stock for the 0–100 cm depth interval for the land mask (148,940,000 km<span class="math inline">\(^2\)</span>) is about 11 kg/m<span class="math inline">\(^2\)</span> or 110 tons/ha. The average soil Organic Carbon Density (OCD) is about 11 kg/m<span class="math inline">\(^3\)</span> (compared to the standard bulk density of fine earth of 1250 kg/m<span class="math inline">\(^3\)</span>). Standard Organic Carbon Stock for 0–30 cm depth interval is 7 kg/m<span class="math inline">\(^2\)</span> i.e. the average OCD is about 13 kg/m<span class="math inline">\(^3\)</span>.</p>
+</div>
 
 The distribution of soil organic carbon in the world is, however, highly patchy with large areas with OCS $\ll 100$ tons/ha, and then some *pockets* of accumulated organic material i.e. organic soil types (histosols) with OCS up to 850tons/ha (for 0–30 cm depth interval). The world's soil organic matter accumulation areas are usually found in the following biomes / land cover classes: wetlands and peatlands, mangroves, tundras and taigas. 
 
@@ -78,20 +80,28 @@ As mentioned previously, OCS stock is most commonly derived from measurements of
 
 Consider, for example, the following two real life examples of soil profile data for a standard agricultural soil and an organic soil. In the first example, [profile from Australia](http://www.asris.csiro.au/mapping/hyperdocs/NatSoil/399%5EEDGEROI%5Eed079.pdf), the soil profile data shows [@Karssies2011CSIRO]:
 
-```{r profile-edgeroi, echo=FALSE}
-knitr::kable(
-  head(read.csv("extdata/profile_399_EDGEROI_ed079.csv", header = TRUE, stringsAsFactors = FALSE), 10), booktabs = TRUE,
-  caption = 'Laboratory data for a profile *399 EDGEROI ed079* from Australia (Karssies 2011).'
-)
-```
+
+Table: (\#tab:profile-edgeroi)Laboratory data for a profile *399 EDGEROI ed079* from Australia (Karssies 2011).
+
+ upper_limit   lower_limit   carbon_content   bulk_density   CF   SOCS
+------------  ------------  ---------------  -------------  ---  -----
+           0            10              8.2           1340    6    1.1
+          10            20              7.5           1367    6    1.0
+          20            55              6.1           1382    7    3.0
+          55            90              3.3           1433    8    1.7
+          90           116              1.6           1465    8    0.6
 
 Note that BLD data were not given for the described horizons (the original soil profile description / laboratory data indicates that no BLD were recorded for this profile). In the absence of measured field BLD we can substitute BLD estimated using LandGIS data. It (unfortunately) commonly happens that soil profile observations lack BLD measurements, and consequently BLD needs to be generated using a Pedo-Transfer function or estimated from soil maps.
 
 To determine OCS for standard depth intervals 0–30, 0–100 and 0–200 cm, we first fit a mass-preserving spline [@Malone2009Geoderma]:
 
-```{r}
+
+```r
 library(GSIF)
+#> GSIF version 0.5-4 (2017-04-25)
+#> URL: http://gsif.r-forge.r-project.org/
 library(aqp)
+#> This is aqp 1.16-3
 library(sp)
 library(plyr)
 lon = 149.73; lat = -30.09; 
@@ -104,29 +114,49 @@ CRF = c(6, 6, 7, 8, 8)
 #OCS = OCSKGM(ORC, BLD, CRF, HSIZE=bottom-top)
 prof1 <- join(data.frame(id, top, bottom, ORC, BLD, CRF), 
                data.frame(id, lon, lat, TIMESTRR), type='inner')
+#> Joining by: id
 depths(prof1) <- id ~ top + bottom
+#> Warning: converting IDs from factor to character
 site(prof1) <- ~ lon + lat + TIMESTRR
 coordinates(prof1) <- ~ lon + lat
 proj4string(prof1) <- CRS("+proj=longlat +datum=WGS84")
 ORC.s <- mpspline(prof1, var.name="ORC", d=t(c(0,30,100,200)), vhigh = 2200)
+#> Fitting mass preserving splines per profile...
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 BLD.s <- mpspline(prof1, var.name="BLD", d=t(c(0,30,100,200)), vhigh = 2200)
+#> Fitting mass preserving splines per profile...
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 CRF.s <- mpspline(prof1, var.name="CRF", d=t(c(0,30,100,200)), vhigh = 2200)
+#> Fitting mass preserving splines per profile...
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=================================================================| 100%
 ```
 
 now we can derive OCS for top-soil by using:
 
-```{r}
+
+```r
 OCSKGM(ORC.s$var.std$`0-30 cm`, 
        BLD.s$var.std$`0-30 cm`, 
        CRF.s$var.std$`0-30 cm`, HSIZE=30)
+#> [1] 2.88
+#> attr(,"measurementError")
+#> [1] 3.84
+#> attr(,"units")
+#> [1] "kilograms per square-meter"
 ```
 
 and for sub-soil using:
 
-```{r}
+
+```r
 OCSKGM(ORC.s$var.std$`30-100 cm`, 
        BLD.s$var.std$`30-100 cm`, 
        CRF.s$var.std$`30-100 cm`, HSIZE=70)
+#> [1] 3.62
+#> attr(,"measurementError")
+#> [1] 9.18
+#> attr(,"units")
+#> [1] "kilograms per square-meter"
 ```
 
 Note that the OCSKGM function requires soil organic carbon content in g/kg. If one has contents measured in % then first multiply the values by 10. Bulk density data should be provided in kg/m3, gravel content in %, and layer depth in cm. Running the OCSKGM function for the Edgeroi profile gives the following estimates of OCS for standard depth intervals (Fig. \@ref(fig:scheme-soc-prof1)):
@@ -139,24 +169,29 @@ Note that the OCSKGM function requires soil organic carbon content in g/kg. If o
 
 Values of OCS between 5–35 kg/m$^2$ for 0–100 cm are commonly reported for a variety of mineral soils with e.g. 1–3% of soil organic carbon.
 
-```{block, type="rmdnote"}
-Organic Carbon Stock for standard depths can be determined from legacy soil profile data either by fitting a spline function to organic carbon, bulk density values, or by aggregating data using simple conversion formulas. A standard mineral soil with 1–3% soil organic carbon for the 0–100 cm depth interval should have about 5–35 kg/m$^2$ or 50–350 tonnes/ha. An organic soil with >30% soil organic carbon may have as much as 60–90 kg/m$^2$ for the 0–100 cm depth interval.
-```
+<div class="rmdnote">
+<p>Organic Carbon Stock for standard depths can be determined from legacy soil profile data either by fitting a spline function to organic carbon, bulk density values, or by aggregating data using simple conversion formulas. A standard mineral soil with 1–3% soil organic carbon for the 0–100 cm depth interval should have about 5–35 kg/m<span class="math inline">\(^2\)</span> or 50–350 tonnes/ha. An organic soil with &gt;30% soil organic carbon may have as much as 60–90 kg/m<span class="math inline">\(^2\)</span> for the 0–100 cm depth interval.</p>
+</div>
 
 Note that the measurement error is computed from default uncertainty values (expressed in standard deviations) for organic carbon (10 g/kg), bulk density (100 kg/m3) and coarse fraction content (5%). When these are not provided by the user, the outcome should be interpreted with care. 
 
-```{r scheme-soc-prof1, echo=FALSE, fig.cap="Determination of soil organic carbon density and stock for standard depth intervals: example of a mineral soil profile from Australia.", out.width="90%"}
-knitr::include_graphics("figures/fig_2_profiles_ocs_edgeroi.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/fig_2_profiles_ocs_edgeroi.png" alt="Determination of soil organic carbon density and stock for standard depth intervals: example of a mineral soil profile from Australia." width="90%" />
+<p class="caption">(\#fig:scheme-soc-prof1)Determination of soil organic carbon density and stock for standard depth intervals: example of a mineral soil profile from Australia.</p>
+</div>
 
 In the second example we look at a profile from Canada (a histosol with >40% of organic carbon; @shaw2005ecosystem):
 
-```{r profile-can, echo=FALSE}
-knitr::kable(
-  head(read.csv("extdata/profile_CAN_organic.csv", header = TRUE, stringsAsFactors = FALSE), 10), booktabs = TRUE,
-  caption = 'Laboratory data for an organic soil profile from Canada  (Shaw, Bhatti, and Sabourin 2005).'
-)
-```
+
+Table: (\#tab:profile-can)Laboratory data for an organic soil profile from Canada  (Shaw, Bhatti, and Sabourin 2005).
+
+ upper_limit   lower_limit   carbon_content   bulk_density   CF   SOCS
+------------  ------------  ---------------  -------------  ---  -----
+           0            31              472            185    5   25.7
+          31            61              492            172    6   23.9
+          61            91              487            175    6   24.1
+          91           122              502            166    6   24.3
+         122           130               59            830    6    3.7
 
 Here also BLD values were not provided and so had to be estimated. To estimate BLD, we use a simple Pedo-Transfer rule e.g. from @kochy2015global:
 
@@ -182,9 +217,10 @@ We can again fit mass-preserving splines and determine OCS for standard depth in
 
 *  0–200 cm: 114.5 kg / m-square (1145 tonnes / ha)
 
-```{r scheme-soc-prof2, echo=FALSE, fig.cap="Determination of soil organic carbon density and stock for standard depth intervals: example of an organic soil profile from Canada.", out.width="90%"}
-knitr::include_graphics("figures/fig_2_profiles_ocs_organic.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/fig_2_profiles_ocs_organic.png" alt="Determination of soil organic carbon density and stock for standard depth intervals: example of an organic soil profile from Canada." width="90%" />
+<p class="caption">(\#fig:scheme-soc-prof2)Determination of soil organic carbon density and stock for standard depth intervals: example of an organic soil profile from Canada.</p>
+</div>
 
 Note that only 3–4% of the total soil profiles in the world have organic carbon content above 8% (soils with ORC >12% are classified as organic soils or histosols in USDA and/or WRB classifications and are even less frequent), hence soil-depth functions of organic carbon content and derivation of OCS for organic soils are specific for patches of organic soils. On the other hand, organic soils carry much more total OCS. Precise processing and mapping of organic soils is, therefore, often crucial for accurate estimation of total OCS for large areas. Therefore, it is fairly important to use a good PTF to fill in missing values for BLD for organic soils. As a rule of thumb, organic soil will rarely exhibit a density greater than some minimum value e.g. 120 kg/m$^3$ because even though SOC content can be >50%, bulk density of such soil gets proportionally lower and bulk density is physically bound with how material is organized in soil (unless soils is artificially compacted). Also, using correct estimates for coarse fragments is important as otherwise, if CRF is ignored, total stock will be over-estimated [@poeplau2017soil].
 
@@ -195,15 +231,17 @@ A somewhat more straightforward way to estimate OCS for a list of soil profiles 
 3. Use information on CRF to correct stocks for stony / skeletoidal component,
 4. Aggregate non-standard horizon depth values using some simple rules (Fig. \@ref(fig:scheme-profiles-ocs)).
 
-```{r scheme-profiles-ocs, echo=FALSE, fig.cap="Estimation of OCS values 0–30 cm using some typical soil profile data without fitting splines.", out.width="95%"}
-knitr::include_graphics("figures/Fig_standard_soil_profiles_SOC_calc.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_standard_soil_profiles_SOC_calc.png" alt="Estimation of OCS values 0–30 cm using some typical soil profile data without fitting splines." width="95%" />
+<p class="caption">(\#fig:scheme-profiles-ocs)Estimation of OCS values 0–30 cm using some typical soil profile data without fitting splines.</p>
+</div>
 
 ## Estimation of Bulk Density using a globally-calibrated PTF
 
 Where values for bulk density are missing, and no local PTF exists, WoSIS points (global compilation of soil profiles) can be used to fit a PTF that can fill-in gaps in bulk density measurements globally. A regression matrix extracted on 15th of May 2017 (and which contains harmonized values for BD, organic carbon content, pH, sand and clay content, depth of horizon and USDA soil type at some 20,000 soil profiles world-wide), can be fitted using a random forest model (see also @ramcharan2017soil):
 
-```{r}
+
+```r
 dfs_tbl = readRDS("extdata/wosis_tbl.rds")
 ind.tax = readRDS("extdata/ov_taxousda.rds")
 library(ranger)
@@ -212,44 +250,67 @@ fm.BLD = as.formula(
         paste(names(ind.tax), collapse="+")))
 m.BLD_PTF <- ranger(fm.BLD, dfs_tbl, num.trees = 85, importance='impurity')
 m.BLD_PTF
+#> Ranger result
+#> 
+#> Call:
+#>  ranger(fm.BLD, dfs_tbl, num.trees = 85, importance = "impurity") 
+#> 
+#> Type:                             Regression 
+#> Number of trees:                  85 
+#> Sample size:                      98650 
+#> Number of independent variables:  70 
+#> Mtry:                             8 
+#> Target node size:                 5 
+#> Variable importance mode:         impurity 
+#> Splitrule:                        variance 
+#> OOB prediction error (MSE):       32379 
+#> R squared (OOB):                  0.549
 ```
 
 This shows somewhat lower accuracy i.e. an RMSE of ±180 kg/m$^3$ (R squared (OOB) = 0.54), but is still probably preferable to completely excluding all observations without bulk density from SOC assessment. A disadvantage of this model is that, in order to predict BD for new locations, we need to also have measurements of texture fractions, pH and organic carbon of course. For example, an Udalf with 1.1% organic carbon, 22% clay, pH of 6.5, sand content of 35% and at depth of 5 cm would result in an estimate for bulk density of:
 
-```{r}
+
+```r
 ind.tax.new = ind.tax[which(ind.tax$TAXOUSDA84==1)[1],]
 predict(m.BLD_PTF, cbind(data.frame(ORCDRC=11, 
                                     CLYPPT=22, 
                                     PHIHOX=6.5, 
                                     SNDPPT=35, 
                                     DEPTH.f=5), ind.tax.new))$predictions
+#> [1] 1526
 ```
 
 Note also that the PTF above needs USDA suborder values per point location following the LandGIS legend for USDA suborders, and formatted as in the `ind.tax` object. Unfortunately, the model above probably over-estimates bulk density for organic soils as these are usually under-represented i.e. often not available (consider for example a Saprist with 32% organic carbon):
 
-```{r}
+
+```r
 ind.tax.new = ind.tax[which(ind.tax$TAXOUSDA13==1)[1],]
 predict(m.BLD_PTF, 
         cbind(data.frame(ORCDRC=320, CLYPPT=8, PHIHOX=5.5, 
                          SNDPPT=45, DEPTH.f=10), ind.tax.new))$predictions
+#> [1] 773
 ```
 
 An alternative to estimating BLD is to just use ORC values, e.g. (see plot below):
 
-```{r}
+
+```r
 m.BLD_ls = loess(BLD ~ ORCDRC, dfs_tbl, span=1/18)
 predict(m.BLD_ls, data.frame(ORCDRC=320))
+#>   1 
+#> 664
 ```
 
 This gives about 30% lower value than the random forest-based PTF from above. Over-estimating BLD will always result in higher OCS, hence clearly accurate information on BLD can be crucial for any OCS monitoring project. This means that the PTF fitted using random forest above is likely over-estimating BLD values for organic soils, mainly because there are not enough training points in organic soils that have measurements data for all of ORC, BLD, soil pH and texture fractions (if ANY of the calibration measurements are missing, the whole horizons are taken out of calibration and hence different ranges of BLD could be completely misrepresented).
 
-```{block, type="rmdnote"}
-Soil Bulk density (BLD) is an important soil property that is required to estimate stocks of nutrients especially soil organic carbon. Measurements of BLD are often not available and need to be estimated using some PTF or similar. Most PTF's for BLD are based on correlating BLD with soil organic carbon, clay and sand content, pH, soil type and climate zone.
-```
+<div class="rmdnote">
+<p>Soil Bulk density (BLD) is an important soil property that is required to estimate stocks of nutrients especially soil organic carbon. Measurements of BLD are often not available and need to be estimated using some PTF or similar. Most PTF’s for BLD are based on correlating BLD with soil organic carbon, clay and sand content, pH, soil type and climate zone.</p>
+</div>
 
-```{r plot-bld-soc, echo=FALSE, fig.cap="Correlation plot between soil organic carbon density and bulk density (fine earth), created using the global compilations of soil profile data (http://www.isric.org/content/wosis-data-sets). Black line indicates fitted loess polynomial surface (stats::loess). There is still quite some scatter around the fitted line: many combinations of BLD and ORC, that do not fall close to the correlation line, can still be observed.", out.width="60%"}
-knitr::include_graphics("figures/rplot_bulk_dens_function_of_soc.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/rplot_bulk_dens_function_of_soc.png" alt="Correlation plot between soil organic carbon density and bulk density (fine earth), created using the global compilations of soil profile data (http://www.isric.org/content/wosis-data-sets). Black line indicates fitted loess polynomial surface (stats::loess). There is still quite some scatter around the fitted line: many combinations of BLD and ORC, that do not fall close to the correlation line, can still be observed." width="60%" />
+<p class="caption">(\#fig:plot-bld-soc)Correlation plot between soil organic carbon density and bulk density (fine earth), created using the global compilations of soil profile data (http://www.isric.org/content/wosis-data-sets). Black line indicates fitted loess polynomial surface (stats::loess). There is still quite some scatter around the fitted line: many combinations of BLD and ORC, that do not fall close to the correlation line, can still be observed.</p>
+</div>
 
 To fill-in missing values for BLD, a combination of two global Pedo-Transfer functions can be used for example: (1) PTF fitted using random forest model that locally predicts BLD as a function of organic carbon content, clay and sand content, pH and coarse fragments, and (2) a simpler model that predicts BLD based on only ORC. The average RMSE of these PTFs for BLD is about ±150 kg/m$^3$.
 
@@ -262,9 +323,10 @@ ORC (depth) = exp[ 4.1517 −0.60934 \cdot log(depth) ]
 
 This also illustrates that any organic carbon spatial prediction model can significantly profit from including depth in the statistical modelling.
 
-```{r soc-depth-plot, echo=FALSE, fig.cap=" Globally fitted regression model for predicting soil organic carbon using depth only (log-log regression) and (a) individual soil profile from the ISRIC soil monolith collection. Image source: Hengl et al. (2014) doi: 10.1371/journal.pone.0105992.", out.width="90%"}
-knitr::include_graphics("figures/journal_pone_0105992_g005.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/journal_pone_0105992_g005.png" alt=" Globally fitted regression model for predicting soil organic carbon using depth only (log-log regression) and (a) individual soil profile from the ISRIC soil monolith collection. Image source: Hengl et al. (2014) doi: 10.1371/journal.pone.0105992." width="90%" />
+<p class="caption">(\#fig:soc-depth-plot) Globally fitted regression model for predicting soil organic carbon using depth only (log-log regression) and (a) individual soil profile from the ISRIC soil monolith collection. Image source: Hengl et al. (2014) doi: 10.1371/journal.pone.0105992.</p>
+</div>
 
 In summary, PTFs can be used to efficiently estimate missing BLD values (BLD is usually highly correlated with organic carbon content and depth, texture fractions, soil classification and soil pH can also help improve accuracy of the PTFs). However, for organic soils there is, in general, less calibration data and therefore errors are potentially higher. Mistakes in estimating BLD can result in systematic and significant over/under-estimations of the actual carbon stock. On the other hand, removing all soil horizons from OCS assessment that lack BLD measurements leads also to reduced accuracy as fewer points are then available for training of the spatial prediction models. Especially for organic soils (>12% organic carbon), there is no easy solution for estimating missing values for BLD. Collecting additional (local) calibration points might become unavoidable. @lobsey2016sensing recently proposed a method that combines gamma-ray attenuation and visible–near infrared (vis–NIR) spectroscopy to measure bulk density *ex situ* using samples that are freshly collected under wet field conditions. Hopefully BLD measurements (or their complete absence) will become less of a problem in the future.
 
@@ -280,13 +342,14 @@ In principle, there are three main approaches to estimating total OCS for an are
 
 *  By deriving OCD (organic carbon density) and then directly predicting OCD and converting it to OCS, here called **the 3D approach to OCS mapping via direct modeling of OCD**,
 
-```{block, type="rmdnote"}
-Soil Organic Carbon stock can be mapped by using at least differing approaches: (1) the 2D approach where estimation of OCS is done at the site level, (2) the 3D approach where soil organic carbon content, bulk density and coarse fragments are mapped separately, then used to derive OCS for standard depths at each grid cell, and (3) the 3D approach based on mapping Organic Carbon Density, then converting to stocks.
-```
+<div class="rmdnote">
+<p>Soil Organic Carbon stock can be mapped by using at least differing approaches: (1) the 2D approach where estimation of OCS is done at the site level, (2) the 3D approach where soil organic carbon content, bulk density and coarse fragments are mapped separately, then used to derive OCS for standard depths at each grid cell, and (3) the 3D approach based on mapping Organic Carbon Density, then converting to stocks.</p>
+</div>
 
-```{r ocs-three-approaches, echo=FALSE, fig.cap="Three main computational paths (2D and 3D) to producing maps of organic carbon stock.", out.width="100%"}
-knitr::include_graphics("figures/fig_derivation_socs_scheme.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/fig_derivation_socs_scheme.png" alt="Three main computational paths (2D and 3D) to producing maps of organic carbon stock." width="100%" />
+<p class="caption">(\#fig:ocs-three-approaches)Three main computational paths (2D and 3D) to producing maps of organic carbon stock.</p>
+</div>
 
 Although 2D prediction of OCS from point data seems to be more straightforward, many soil profiles contain measurements at non-standard depth intervals (varying support sizes also) and therefore 2D modeling of OCS can often be a cumbersome. In most situations where legacy soil profile data are used, 3D modeling of OCD is probably the most elegant solution to mapping OCS because:
 
@@ -302,37 +365,74 @@ A disadvantage of doing 3D modeling of OCD is, however, that correlation with co
 
 The [geospt package](https://cran.r-project.org/package=geospt) contains 125 samples of OCS from Colombia already at standard depth intervals, hence this data set is suitable and ready for 2D mapping of OCS. The data set consists of tabular values for points and a raster map containing the borders of the study area:
 
-```{r}
+
+```r
 load("extdata/COSha10.rda")
 load("extdata/COSha30.rda")
 str(COSha30)
+#> 'data.frame':	118 obs. of  10 variables:
+#>  $ ID        : Factor w/ 118 levels "S1","S10","S100",..: 1 44 61 89 100 110 2 9 15 21 ...
+#>  $ x         : int  669030 669330 670292 669709 671321 670881 670548 671340 671082 670862 ...
+#>  $ y         : int  448722 448734 448697 448952 448700 448699 448700 448969 448966 448968 ...
+#>  $ DA30      : num  1.65 1.6 1.5 1.32 1.41 1.39 1.51 1.39 1.55 1.63 ...
+#>  $ CO30      : num  0.99 1.33 1.33 1.09 1.04 1.19 1.21 1.36 1.09 1.19 ...
+#>  $ COB1r     : Factor w/ 6 levels "Az","Ci","Cpf",..: 5 5 2 5 2 5 2 2 2 5 ...
+#>  $ S_UDS     : Factor w/ 19 levels "BJa1","BQa1",..: 12 5 12 5 11 12 12 12 12 12 ...
+#>  $ COSha30   : num  49.2 64 59.8 43.1 44.2 ...
+#>  $ Cor4DAidep: num  43.3 56.3 54 37.9 39.9 ...
+#>  $ CorT      : num  1.37 1.39 1.38 1.36 1.36 ...
 ```
 
 where `COSha10` = 0–10 cm, `COSha30` = 0–30 cm in tons / ha are values for OCS aggregated to standard soil depth intervals, so there is no need to do any spline fitting and/or vertical aggregation. We can also load the raster map for the area by using (Fig. \@ref(fig:libertad-soc)):
 
-```{r}
+
+```r
 load("extdata/COSha30map.rda")
 proj4string(COSha30map) = "+proj=utm +zone=18 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"
 str(COSha30map@data)
+#> 'data.frame':	10000 obs. of  2 variables:
+#>  $ var1.pred: num  39.9 39.8 39.9 40.3 40.7 ...
+#>  $ var1.var : num  1.91e-05 6.39e-05 1.05e-04 1.39e-04 1.66e-04 ...
 ```
 
 which shows predictions and kriging variances for `COSha30`.
 
-```{r libertad-soc, echo=FALSE, fig.cap="Example of a data set with OCS samples (for 2D prediction). Case study in Colombia available via the geospt package (https://cran.r-project.org/package=geospt).", out.width="75%"}
-knitr::include_graphics("figures/fig_la_libertad_research_center_socs.jpg")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/fig_la_libertad_research_center_socs.jpg" alt="Example of a data set with OCS samples (for 2D prediction). Case study in Colombia available via the geospt package (https://cran.r-project.org/package=geospt)." width="75%" />
+<p class="caption">(\#fig:libertad-soc)Example of a data set with OCS samples (for 2D prediction). Case study in Colombia available via the geospt package (https://cran.r-project.org/package=geospt).</p>
+</div>
 
 We can import a number of RS-based covariates into R by (these were derived from the global 30 m layers listed previously):
 
-```{r, warning=FALSE}
+
+```r
 covs30m = readRDS("extdata/covs30m.rds")
 proj4string(covs30m) = proj4string(COSha30map)
 names(covs30m)
+#>  [1] "SRTMGL1_SRTMGL1.2_cprof"                  
+#>  [2] "SRTMGL1_SRTMGL1.2_devmean"                
+#>  [3] "SRTMGL1_SRTMGL1.2_openn"                  
+#>  [4] "SRTMGL1_SRTMGL1.2_openp"                  
+#>  [5] "SRTMGL1_SRTMGL1.2_slope"                  
+#>  [6] "SRTMGL1_SRTMGL1.2_twi"                    
+#>  [7] "SRTMGL1_SRTMGL1.2_vbf"                    
+#>  [8] "SRTMGL1_SRTMGL1.2_vdepth"                 
+#>  [9] "SRTMGL1_SRTMGL1.2"                        
+#> [10] "COSha30map_var1pred_"                     
+#> [11] "GlobalForestChange2000.2014_first_NIRL00" 
+#> [12] "GlobalForestChange2000.2014_first_REDL00" 
+#> [13] "GlobalForestChange2000.2014_first_SW1L00" 
+#> [14] "GlobalForestChange2000.2014_first_SW2L00" 
+#> [15] "GlobalForestChange2000.2014_treecover2000"
+#> [16] "GlobalSurfaceWater_extent"                
+#> [17] "GlobalSurfaceWater_occurrence"            
+#> [18] "Landsat_bare2010"
 ```
 
 This contains a number of covariates from SRTM DEM derivatives, to Global Surface Water occurrence values and similar (see section \@ref(soil-covs-30m) for more details). All these could potentially prove useful for mapping OCS. We can also derive buffer distances from observations points and use these (as measures of spatial context) to improve predictions [@Hengl2018RFsp]:
 
-```{r}
+
+```r
 proj4string(COSha30map) = "+proj=utm +zone=18 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"
 coordinates(COSha30) = ~ x+y
 proj4string(COSha30) = proj4string(COSha30map)
@@ -341,7 +441,8 @@ covs30mdist = GSIF::buffer.dist(COSha30["COSha30"], covs30m[1], as.factor(1:nrow
 
 We can convert the original covariates to Principal Components, also to fill in all missing pixels:
 
-```{r}
+
+```r
 covs30m@data = cbind(covs30m@data, covs30mdist@data)
 sel.rm = c("GlobalSurfaceWater_occurrence", "GlobalSurfaceWater_extent",
            "Landsat_bare2010", "COSha30map_var1pred_")
@@ -349,16 +450,36 @@ rr = which(names(covs30m@data) %in% sel.rm)
 fm.spc = as.formula(paste(" ~ ", paste(names(covs30m)[-rr], collapse = "+")))
 proj4string(covs30m) = proj4string(COSha30)
 covs30m.spc = GSIF::spc(covs30m, fm.spc)
+#> Converting covariates to principal components...
 ov.COSha30 = cbind(as.data.frame(COSha30), over(COSha30, covs30m.spc@predicted))
 ```
 
 By using the above listed covariates, we can fit a spatial prediction 2D model using an available model, such as [ranger](https://cran.r-project.org/package=ranger) [@wright2017ranger], [xgboost](https://cran.r-project.org/package=xgboost) and/or [gamboost](https://cran.r-project.org/package=GAMBoost): 
 
-```{r}
+
+```r
 library(caret)
+#> Loading required package: lattice
+#> Loading required package: ggplot2
 library(ranger)
 fm.COSha30 = as.formula(paste("COSha30 ~ ", paste(names(covs30m.spc@predicted), collapse = "+")))
 fm.COSha30
+#> COSha30 ~ PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + PC9 + 
+#>     PC10 + PC11 + PC12 + PC13 + PC14 + PC15 + PC16 + PC17 + PC18 + 
+#>     PC19 + PC20 + PC21 + PC22 + PC23 + PC24 + PC25 + PC26 + PC27 + 
+#>     PC28 + PC29 + PC30 + PC31 + PC32 + PC33 + PC34 + PC35 + PC36 + 
+#>     PC37 + PC38 + PC39 + PC40 + PC41 + PC42 + PC43 + PC44 + PC45 + 
+#>     PC46 + PC47 + PC48 + PC49 + PC50 + PC51 + PC52 + PC53 + PC54 + 
+#>     PC55 + PC56 + PC57 + PC58 + PC59 + PC60 + PC61 + PC62 + PC63 + 
+#>     PC64 + PC65 + PC66 + PC67 + PC68 + PC69 + PC70 + PC71 + PC72 + 
+#>     PC73 + PC74 + PC75 + PC76 + PC77 + PC78 + PC79 + PC80 + PC81 + 
+#>     PC82 + PC83 + PC84 + PC85 + PC86 + PC87 + PC88 + PC89 + PC90 + 
+#>     PC91 + PC92 + PC93 + PC94 + PC95 + PC96 + PC97 + PC98 + PC99 + 
+#>     PC100 + PC101 + PC102 + PC103 + PC104 + PC105 + PC106 + PC107 + 
+#>     PC108 + PC109 + PC110 + PC111 + PC112 + PC113 + PC114 + PC115 + 
+#>     PC116 + PC117 + PC118 + PC119 + PC120 + PC121 + PC122 + PC123 + 
+#>     PC124 + PC125 + PC126 + PC127 + PC128 + PC129 + PC130 + PC131 + 
+#>     PC132
 rf.tuneGrid <- expand.grid(.mtry = seq(2, 60, by=5),
                            .splitrule = "maxstat",
                            .min.node.size = c(10, 20))
@@ -372,33 +493,105 @@ mFit1 <- train(fm.COSha30, data=ov.COSha30, method="ranger",
                trControl=fitControl, importance='impurity', 
                tuneGrid=rf.tuneGrid)
 mFit1
+#> Random Forest 
+#> 
+#> 118 samples
+#> 132 predictors
+#> 
+#> No pre-processing
+#> Resampling: Cross-Validated (4 fold, repeated 1 times) 
+#> Summary of sample sizes: 87, 88, 89, 90 
+#> Resampling results across tuning parameters:
+#> 
+#>   mtry  min.node.size  RMSE  Rsquared  MAE 
+#>    2    10             11.0  0.0225    8.75
+#>    2    20             11.0  0.0450    8.69
+#>    7    10             11.0  0.0442    8.66
+#>    7    20             11.0  0.0442    8.68
+#>   12    10             11.0  0.0608    8.61
+#>   12    20             10.9  0.0588    8.62
+#>   17    10             11.0  0.0519    8.65
+#>   17    20             11.0  0.0583    8.60
+#>   22    10             10.9  0.0684    8.59
+#>   22    20             10.9  0.0699    8.59
+#>   27    10             10.9  0.0710    8.57
+#>   27    20             10.9  0.0737    8.57
+#>   32    10             10.9  0.0836    8.55
+#>   32    20             10.9  0.0836    8.56
+#>   37    10             10.9  0.0887    8.63
+#>   37    20             10.9  0.0739    8.57
+#>   42    10             10.9  0.0606    8.64
+#>   42    20             10.8  0.0930    8.50
+#>   47    10             10.9  0.0731    8.58
+#>   47    20             10.9  0.0753    8.60
+#>   52    10             10.9  0.0848    8.55
+#>   52    20             10.9  0.0849    8.53
+#>   57    10             10.9  0.0748    8.61
+#>   57    20             10.9  0.0772    8.61
+#> 
+#> Tuning parameter 'splitrule' was held constant at a value of maxstat
+#> RMSE was used to select the optimal model using the smallest value.
+#> The final values used for the model were mtry = 42, splitrule =
+#>  maxstat and min.node.size = 20.
 mFit2 <- train(fm.COSha30, data=ov.COSha30, method="xgbTree", 
                trControl=fitControl, tuneGrid=gb.tuneGrid)
 mFit2
+#> eXtreme Gradient Boosting 
+#> 
+#> 118 samples
+#> 132 predictors
+#> 
+#> No pre-processing
+#> Resampling: Cross-Validated (4 fold, repeated 1 times) 
+#> Summary of sample sizes: 87, 89, 89, 89 
+#> Resampling results across tuning parameters:
+#> 
+#>   eta  max_depth  nrounds  RMSE  Rsquared  MAE 
+#>   0.3  2           50      11.8  0.0361    9.33
+#>   0.3  2          100      11.8  0.0367    9.33
+#>   0.3  3           50      11.7  0.0366    9.48
+#>   0.3  3          100      11.7  0.0367    9.48
+#>   0.4  2           50      11.9  0.0480    9.53
+#>   0.4  2          100      11.9  0.0478    9.54
+#>   0.4  3           50      12.1  0.0429    9.56
+#>   0.4  3          100      12.1  0.0429    9.56
+#> 
+#> Tuning parameter 'gamma' was held constant at a value of 0
+#>  0.8
+#> Tuning parameter 'min_child_weight' was held constant at a value of
+#>  1
+#> Tuning parameter 'subsample' was held constant at a value of 1
+#> RMSE was used to select the optimal model using the smallest value.
+#> The final values used for the model were nrounds = 100, max_depth = 3,
+#>  eta = 0.3, gamma = 0, colsample_bytree = 0.8, min_child_weight = 1
+#>  and subsample = 1.
 ```
 
 This example illustrates that no significant spatial prediction models (with an R-square exceeding 10%) can be fitted using these data. It is very common in soil mapping projects for models to explain only low amounts of the total variation, resulting in large average errors of prediction and/or wide prediction intervals. This can occur because of high measurement errors, and/or because there are missing covariates, but it could also happen because the natural complexity of soils in the area is simply high.
 
 Note that the absolute values of our predictions of OCS are somewhat different than those produced by the [geospt package](https://cran.r-project.org/package=geospt) authors, although the main patterns are comparable.
 
-```{r plot-cosha30map-rf, echo=FALSE, fig.width=7, fig.cap="Comparison of predictions generated using ordinary kriging (left) and machine learning with the help of 30 m resolution covariates and buffer distances (right)."}
-COSha30.pr = covs30m["COSha30map_var1pred_"]
-COSha30.pr@data[,"COSha30map_RF"] = predict(mFit1, covs30m.spc@predicted@data)
-spplot(COSha30.pr, col.regions=plotKML::SAGA_pal[[1]], 
-       sp.layout = list("sp.points", COSha30, pch = "+", col="black", cex=1.5))
-```
+<div class="figure" style="text-align: center">
+<img src="Soil_organic_carbon_files/figure-html/plot-cosha30map-rf-1.png" alt="Comparison of predictions generated using ordinary kriging (left) and machine learning with the help of 30 m resolution covariates and buffer distances (right)." width="100%" />
+<p class="caption">(\#fig:plot-cosha30map-rf)Comparison of predictions generated using ordinary kriging (left) and machine learning with the help of 30 m resolution covariates and buffer distances (right).</p>
+</div>
 
 We can compare the difference between mean predicted OCS and measured OCS:
 
-```{r}
+
+```r
 mean(COSha30.pr$COSha30map_RF, na.rm=TRUE); mean(COSha30$COSha30, na.rm=TRUE)
+#> [1] 48.6
+#> [1] 50.6
 ## 48 tonnes/ha vs 51 tonnes / ha
 ```
 
 and derive the total SOC in tonnes:
 
-```{r}
+
+```r
 sum(COSha30.pr$COSha30map_RF*30^2/1e4, na.rm=TRUE)
+#> [1] 102089
 ```
 
 ## Deriving OCS from soil profile data (the 3D approach) {#ocs-3d-approach}
@@ -407,7 +600,8 @@ In the following example, we will demonstrate, using a known data set, ([Edgeroi
 
 The Edgeroi data set can be loaded from the GSIF package:
 
-```{r}
+
+```r
 library(GSIF)
 data(edgeroi)
 edgeroi.sp = edgeroi$sites
@@ -418,26 +612,33 @@ edgeroi.sp <- spTransform(edgeroi.sp, CRS("+init=epsg:28355"))
 
 This data set comes with a list of covariate layers which can be used to model the distribution of soil organic carbon:
 
-```{r}
+
+```r
 load("extdata/edgeroi.grids.rda")
 gridded(edgeroi.grids) <- ~x+y
 proj4string(edgeroi.grids) <- CRS("+init=epsg:28355")
 names(edgeroi.grids)
+#> [1] "DEMSRT5" "TWISRT5" "PMTGEO5" "EV1MOD5" "EV2MOD5" "EV3MOD5"
 ```
 
 Because some of the covariate layers are factors e.g. `PMTGEO5` (parent material map) and because random forest requires numeric covariates, we can convert factors to numeric PCs by using: 
 
-```{r}
+
+```r
 edgeroi.spc = spc(edgeroi.grids, ~DEMSRT5+TWISRT5+PMTGEO5+EV1MOD5+EV2MOD5+EV3MOD5)
+#> Converting PMTGEO5 to indicators...
+#> Converting covariates to principal components...
 ```
 
-```{r edgeroi-overview, echo=FALSE, fig.cap="Edgeroi data set: locations of soil profiles and Australian soil classification codes. For more details see Malone et al. (2009).", out.width="100%"}
-knitr::include_graphics("figures/edgeroi_overview.jpeg")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/edgeroi_overview.jpeg" alt="Edgeroi data set: locations of soil profiles and Australian soil classification codes. For more details see Malone et al. (2009)." width="100%" />
+<p class="caption">(\#fig:edgeroi-overview)Edgeroi data set: locations of soil profiles and Australian soil classification codes. For more details see Malone et al. (2009).</p>
+</div>
 
 Note that Edgeroi completely lacks any BLD values, therefore before we can compute OCD values, we need to estimate BLD values for each corresponding horizon. Here the easiest option is probably to use BLD values sourced from LandGIS predictions (and which you can download from https://landgis.opengeohub.org). 
 
-```{r, eval=FALSE}
+
+```r
 landgis.bld = list.files("/mnt/DATA/LandGIS/predicted250m", 
                      pattern=glob2rx("sol_bulkdens.fineearth_usda.4a1h_m_*.tif$"), full.names=TRUE)
 for(j in 1:length(landgis.bld)){
@@ -449,7 +650,8 @@ for(j in 1:length(landgis.bld)){
 
 Matching between the irregularly distributed soil horizons and LandGIS bulk density at standard depths can be implemented in three steps. First, we overlay the points and LandGIS GeoTIFFs to get the BLD values in kg / cubic-m at standard depths:
 
-```{r}
+
+```r
 sg <- list.files("extdata", "edgeroi_sol_bulkdens.fineearth", full.names = TRUE)
 ov <- as.data.frame(raster::extract(stack(sg), edgeroi.sp)*10)
 ov.edgeroi.BLD = ov[,c(grep("b0..", names(ov), fixed = TRUE), grep("b10..", names(ov), fixed = TRUE), 
@@ -459,74 +661,94 @@ ov.edgeroi.BLD = ov[,c(grep("b0..", names(ov), fixed = TRUE), grep("b10..", name
 
 Second, we derive averaged estimates of BLD for standard depth intervals:
 
-```{r}
+
+```r
 ov.edgeroi.BLDm = data.frame(BLD.f=as.vector(sapply(2:ncol(ov.edgeroi.BLD),                                                function(i){rowMeans(ov.edgeroi.BLD[,c(i-1,i)])})),
                     DEPTH.c=as.vector(sapply(1:5, function(i){rep(paste0("sd",i),
                         nrow(edgeroi$sites))})), SOURCEID=rep(edgeroi$sites$SOURCEID, 5))
 str(ov.edgeroi.BLDm)
+#> 'data.frame':	1795 obs. of  3 variables:
+#>  $ BLD.f   : num  1370 1335 1310 1500 1490 ...
+#>  $ DEPTH.c : Factor w/ 5 levels "sd1","sd2","sd3",..: 1 1 1 1 1 1 1 1 1 1 ...
+#>  $ SOURCEID: Factor w/ 359 levels "199_CAN_CP111_1",..: 1 2 3 4 5 6 7 8 9 10 ...
 ```
 
 Third, we match BLD values by matching horizon depths (center of horizon) with the standard depth intervals `sd1` to `sd5`:
 
-```{r}
+
+```r
 edgeroi$horizons$DEPTH = edgeroi$horizons$UHDICM + (edgeroi$horizons$LHDICM - edgeroi$horizons$UHDICM)/2
 edgeroi$horizons$DEPTH.c = cut(edgeroi$horizons$DEPTH, include.lowest=TRUE,
                                breaks=c(0,10,30,60,100,1000), labels=paste0("sd",1:5))
 summary(edgeroi$horizons$DEPTH.c)
+#> sd1 sd2 sd3 sd4 sd5 
+#> 391 379 408 391 769
 edgeroi$horizons$BLD.f = plyr::join(edgeroi$horizons[,c("SOURCEID","DEPTH.c")], ov.edgeroi.BLDm)$BLD.f
+#> Joining by: SOURCEID, DEPTH.c
 ```
 
 which shows relatively equal distribution of soil horizons for within the standard depths. 
 Now that we have a rough estimate of the bulk density for all horizons, we can derive OCD in kg/m-cubic by using:
 
-```{r}
+
+```r
 edgeroi$horizons$OCD = edgeroi$horizons$ORCDRC/1000 * edgeroi$horizons$BLD.f
 summary(edgeroi$horizons$OCD)
+#>    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+#>     0.1     2.4     7.2     9.5    13.2   124.9     262
 ```
 
 This shows that OCD values range from 0–110 kg/m-cubic, with an average of 9.5 kg/m-cubic (this corresponds to an average organic carbon content of about 0.8%).
 
 For further 3D spatial prediction of OCD we use the ranger package, which fits a random forest model to this 3D data. We start by overlaying points and rasters so that we can create a regression matrix:
 
-```{r, echo=FALSE}
-leg = c("#0000ff", "#0028d7", "#0050af", "#007986", "#00a15e", "#00ca35", "#00f20d", 
-        "#1aff00", "#43ff00", "#6bff00", "#94ff00", "#bcff00", "#e5ff00", "#fff200", 
-        "#ffca00", "#ffa100", "#ff7900", "#ff5000", "#ff2800", "#ff0000")
-hor2xyd = function(x, U="UHDICM", L="LHDICM", treshold.T=15){
-  x$DEPTH <- x[,U] + (x[,L] - x[,U])/2
-  x$THICK <- x[,L] - x[,U]
-  sel = x$THICK < treshold.T
-  ## begin and end of the horizon:
-  x1 = x[!sel,]; x1$DEPTH = x1[,L]
-  x2 = x[!sel,]; x2$DEPTH = x1[,U]
-  y = do.call(rbind, list(x, x1, x2))
-  return(y)
-}
-```
 
 
-```{r}
+
+
+```r
 ov2 <- over(edgeroi.sp, edgeroi.spc@predicted)
 ov2$SOURCEID = edgeroi.sp$SOURCEID
 h2 = hor2xyd(edgeroi$horizons)
 m2 <- plyr::join_all(dfs = list(edgeroi$sites, h2, ov2))
+#> Joining by: SOURCEID
+#> Joining by: SOURCEID
 ```
 
 The spatial prediction model can be fitted using:
 
-```{r}
+
+```r
 fm.OCD = as.formula(paste0("OCD ~ DEPTH + ", paste(names(edgeroi.spc@predicted), collapse = "+")))
 fm.OCD
+#> OCD ~ DEPTH + PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + 
+#>     PC9 + PC10 + PC11 + PC12
 m.OCD <- ranger(fm.OCD, m2[complete.cases(m2[,all.vars(fm.OCD)]),], 
                 quantreg = TRUE, importance = "impurity")
 m.OCD
-``` 
+#> Ranger result
+#> 
+#> Call:
+#>  ranger(fm.OCD, m2[complete.cases(m2[, all.vars(fm.OCD)]), ],      quantreg = TRUE, importance = "impurity") 
+#> 
+#> Type:                             Regression 
+#> Number of trees:                  500 
+#> Sample size:                      4972 
+#> Number of independent variables:  13 
+#> Mtry:                             3 
+#> Target node size:                 5 
+#> Variable importance mode:         impurity 
+#> Splitrule:                        variance 
+#> OOB prediction error (MSE):       18.6 
+#> R squared (OOB):                  0.694
+```
 
 Which shows that the average error with Out-of-bag training points is ±4.2 kg/m-cubic. Note that setting `quantreg = TRUE` allows us to derive also a map of the prediction errors (Fig. \@ref(fig:plot-edgeroi-ocd)), following the method of @meinshausen2006quantile. 
 
 To derive OCS in tons/ha we can compute OCD at two depths (0 and 30 cm) and then take the mean value to produce a more representative value:
 
-```{r}
+
+```r
 for(i in c(0,30)){
    edgeroi.spc@predicted$DEPTH = i
    OCD.rf <- predict(m.OCD, edgeroi.spc@predicted@data)
@@ -541,35 +763,72 @@ for(i in c(0,30)){
 
 so that the final Organic carbon stocks in t/ha is:
 
-```{r plot-edgeroi-ocd, echo=FALSE, fig.width=9, fig.cap="Predicted organic carbon stock for 0–30 cm depth and error map for the Edgeroi data set. All values expressed in tons/ha."}
-library(raster)
-edgeroi.grids$OCS.30cm = rowMeans(edgeroi.grids@data[,paste0("OCD.", c(0,30), "cm")]) * 0.3 * 10
-summary(edgeroi.grids$OCS.30cm)
-edgeroi.grids$OCS.30cm.f = ifelse(edgeroi.grids$OCS.30cm>76, 76, ifelse(edgeroi.grids$OCS.30cm<28, 28, edgeroi.grids$OCS.30cm))
-## plot OCS 0-30 cm and the error map:
-par(mfrow=c(1,2), oma=c(0,0,0,1), mar=c(0,0,3.5,1.5))
-plot(raster(edgeroi.grids["OCS.30cm.f"]), col=leg, main=paste0("Organic carbon stock 0", "\U2012", "30 cm (t/ha)"), axes=FALSE, box=FALSE, zlim=c(28,76))
-points(edgeroi.sp, pch=21, bg="white", cex=.8)
-plot(raster(edgeroi.grids["OCD.30cm_se"])*0.3*10, col=rev(bpy.colors()), main="Standard prediction error (t/ha)", axes=FALSE, box=FALSE)
-points(edgeroi.sp, pch=21, bg="white", cex=.8)
+
 ```
+#> 
+#> Attaching package: 'raster'
+#> The following objects are masked from 'package:aqp':
+#> 
+#>     metadata, metadata<-
+#>    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+#>    20.7    39.5    47.6    48.5    56.4   105.7
+```
+
+<div class="figure" style="text-align: center">
+<img src="Soil_organic_carbon_files/figure-html/plot-edgeroi-ocd-1.png" alt="Predicted organic carbon stock for 0–30 cm depth and error map for the Edgeroi data set. All values expressed in tons/ha." width="100%" />
+<p class="caption">(\#fig:plot-edgeroi-ocd)Predicted organic carbon stock for 0–30 cm depth and error map for the Edgeroi data set. All values expressed in tons/ha.</p>
+</div>
 
 Note that deriving the error map in the ranger package can be computationally intensive, especially if the number of covariates is high.  It is therefore not yet recommended for large rasters.
 
 Next, we can derive the total soil organic carbon stock per [land use class](http://data.environment.nsw.gov.au/dataset/nsw-landuseac11c) (2007). For this we can use the aggregation function from the plyr package:
 
-```{r}
+
+```r
 library(rgdal)
+#> rgdal: version: 1.3-6, (SVN revision 773)
+#>  Geospatial Data Abstraction Library extensions to R successfully loaded
+#>  Loaded GDAL runtime: GDAL 2.3.2, released 2018/09/21
+#>  Path to GDAL shared files: /usr/share/gdal
+#>  GDAL binary built with GEOS: TRUE 
+#>  Loaded PROJ.4 runtime: Rel. 4.9.3, 15 August 2016, [PJ_VERSION: 493]
+#>  Path to PROJ.4 shared files: (autodetected)
+#>  Linking to sp version: 1.3-1
 edgeroi.grids$LandUse = readGDAL("extdata/edgeroi_LandUse.sdat")$band1
+#> extdata/edgeroi_LandUse.sdat has GDAL driver SAGA 
+#> and has 128 rows and 190 columns
 lu.leg = read.csv("extdata/LandUse.csv")
 edgeroi.grids$LandUseClass = paste(join(data.frame(LandUse=edgeroi.grids$LandUse), 
                                         lu.leg, match="first")$LU_NSWDeta)
+#> Joining by: LandUse
 OCS_agg.lu <- plyr::ddply(edgeroi.grids@data, .(LandUseClass), summarize,
                           Total_OCS_kt=round(sum(OCS.30cm*250^2/1e4, na.rm=TRUE)/1e3),
                           Area_km2=round(sum(!is.na(OCS.30cm))*250^2/1e6))
 OCS_agg.lu$LandUseClass.f = strtrim(OCS_agg.lu$LandUseClass, 34)
 OCS_agg.lu$OCH_t_ha_M = round(OCS_agg.lu$Total_OCS_kt*1000/(OCS_agg.lu$Area_km2*100))
 OCS_agg.lu[OCS_agg.lu$Area_km2>5,c("LandUseClass.f","Total_OCS_kt","Area_km2","OCH_t_ha_M")]
+#>                        LandUseClass.f Total_OCS_kt Area_km2 OCH_t_ha_M
+#> 2  Constructed grass waterway for wat           55       11         50
+#> 3                              Cotton           42        8         52
+#> 4                  Cotton - irrigated          828      203         41
+#> 5   Cropping - continuous or rotation         1788      402         44
+#> 6  Cropping - continuous or rotation           235       59         40
+#> 10                           Farm dam           54       10         54
+#> 11 Farm Infrastructure - house, machi           90       18         50
+#> 12 Grazing - Residual strips (block o           49       10         49
+#> 13 Grazing of native vegetation. Graz          685      129         53
+#> 14 Grazing of native vegetation. Graz           68       13         52
+#> 16                     Irrigation dam           66       16         41
+#> 21                      Native forest          226       37         61
+#> 26                  Research facility           40        9         44
+#> 27 River, creek or other incised drai           69       11         63
+#> 28               Road or road reserve          117       23         51
+#> 29                       State forest          407       83         49
+#> 32 Volunteer, naturalised, native or          1378      238         58
+#> 33 Volunteer, naturalised, native or            64       16         40
+#> 34 Volunteer, naturalised, native or            75       14         54
+#> 35 Volunteer, naturalised, native or           471       99         48
+#> 37 Wide road reserve or TSR, with som          468       90         52
 ```
 
 Which shows that, for the `Cropping - continuous or rotation`, which is the dominant land use class in the area, the average OCS is 43 tons/ha for the 0–30 cm depth. In this case, the total soil organic carbon stock for the whole area (for all land use classes) is ca 7154 thousand tons of C. There do not appear to be large differences in OCS between the natural vegetation and croplands.
@@ -578,16 +837,24 @@ Which shows that, for the `Cropping - continuous or rotation`, which is the domi
 
 Assuming that measurements of ORC have also been referenced temporally (at least to the year of sampling), point data can be used to build spatiotemporal models of soil organic carbon. Consider, for example, the soil profile data available for the conterminous USA:
 
-```{r}
+
+```r
 OCD_stN <- readRDS("extdata/usa48.OCD_spacetime_matrix.rds")
 dim(OCD_stN)
+#> [1] 250428    134
 ```
 
 This data shows that there are actually sufficient observations spread through time (last 60+ years) to fit a spatiotemporal model:
 
-```{r thist-usa48, fig.width=7, fig.cap="Distribution of soil observations based on sampling year."}
+
+```r
 hist(OCD_stN$YEAR, xlab="Year", main="", col="darkgrey")
 ```
+
+<div class="figure" style="text-align: center">
+<img src="Soil_organic_carbon_files/figure-html/thist-usa48-1.png" alt="Distribution of soil observations based on sampling year." width="100%" />
+<p class="caption">(\#fig:thist-usa48)Distribution of soil observations based on sampling year.</p>
+</div>
 
 In fact, because the data set above represents values of OCD at variable depths, we can use this data to fit a full 3D+T spatiotemporal model in the form:
 
@@ -606,7 +873,8 @@ where $d$ is the depth, $X_k (xy)$ are static covariates i.e. the covariates tha
 
 All these layers are available only at a relatively coarse resolution of 10 km, but then cover longer time spans. Note also that, since these are time-series images, spatiotemporal overlay can take time as spatial overlay must be repeated for each time period. The spatiotemporal matrix file already contains the results of overlay, so that we can focus directly on building spatiotemporal models of OCD e.g.: 
 
-```{r, eval=FALSE}
+
+```r
 pr.lst <- names(OCD_stN)[-which(names(OCD_stN) %in% c("SOURCEID", "DEPTH.f", "OCDENS", 
                                                       "YEAR", "YEAR_c", "LONWGS84", "LATWGS84"))]
 fm0.st <- as.formula(paste('OCDENS ~ DEPTH.f + ', paste(pr.lst, collapse="+")))
@@ -618,7 +886,8 @@ rf0.OCD_st <- ranger(fm0.st, data=OCD_stN[sel0.m,all.vars(fm0.st)],
 
 the most important covariates being:
 
-```{r, eval=FALSE}
+
+```r
 xl <- as.list(ranger::importance(rf0.OCD_st))
 print(t(data.frame(xl[order(unlist(xl), decreasing=TRUE)[1:10]])))
 ```
@@ -627,19 +896,22 @@ which shows that the most important soil covariate by far is soil depth, followe
 
 Finally, based on this model, we can generate predictions for 3–4 specific time periods and for some arbitrary depth e.g. 10 cm. The maps below clearly show that ca 8% of soil organic carbon has been lost in the last 90 years, most likely due to increases in grazing and croplands. The maps also show, however, that some areas in the northern latitudes are experiencing an increase in SOC, possibly due to higher rainfall i.e. based on the CRU data set.
 
-```{r usa48-ocd-2014, echo=FALSE, fig.cap="Predicted OCD (in kg/cubic-m) at 10 cm depth for the year 2014. Blue colors indicate low values, red high values.", out.width="100%"}
-knitr::include_graphics("figures/usa48_ocd_10cm_year2014.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/usa48_ocd_10cm_year2014.png" alt="Predicted OCD (in kg/cubic-m) at 10 cm depth for the year 2014. Blue colors indicate low values, red high values." width="100%" />
+<p class="caption">(\#fig:usa48-ocd-2014)Predicted OCD (in kg/cubic-m) at 10 cm depth for the year 2014. Blue colors indicate low values, red high values.</p>
+</div>
 
-```{r usa48-ocd-1925, echo=FALSE, fig.cap="Predicted OCD (in kg/cubic-m) at 10 cm depth for the year 1925.", out.width="100%"}
-knitr::include_graphics("figures/usa48_ocd_10cm_year1925.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/usa48_ocd_10cm_year1925.png" alt="Predicted OCD (in kg/cubic-m) at 10 cm depth for the year 1925." width="100%" />
+<p class="caption">(\#fig:usa48-ocd-1925)Predicted OCD (in kg/cubic-m) at 10 cm depth for the year 1925.</p>
+</div>
 
 This demonstrates that, as long as there is enough training data spread through time, and as long as covariates are available for the corresponding time ranges, machine learning can also be used to fit full 3D+T spatiotemporal prediction models [@Gasch2015SPASTA]. Once we produce a time-series of images for some target soil variable of interest, the next step would be to implement time-series analysis methods to e.g. detect temporal trends and areas of highest apparent soil degradation. An R package that is fairly useful for such analysis is the [greenbrown](http://greenbrown.r-forge.r-project.org/) package, primarily used to map and quantify degradation of land cover [@forkel2015codominant].
 
 We can focus on the time-series of predicted organic carbon density for USA48:
 
-```{r, eval=FALSE}
+
+```r
 library(greenbrown)
 library(raster)
 setwd()
@@ -654,7 +926,8 @@ proj4string(g10km) = "+proj=longlat +datum=WGS84"
 
 to speed up processing we can subset grids and focus on the State of Texas:
 
-```{r, eval=FALSE}
+
+```r
 library(maps)
 library(maptools)
 states <- map('state', plot=FALSE, fill=TRUE)
@@ -670,13 +943,15 @@ spplot(log1p(stack(txg10km)), col.regions=SAGA_pal[[1]])
 g10km.b = raster::brick(txg10km)
 ```
 
-```{r time-series-texas, echo=FALSE, fig.cap="Time-series of predictions of organic carbon density for Texas.", out.width="100%"}
-knitr::include_graphics("figures/rplot_timeseries_ocd_maps_texas.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/rplot_timeseries_ocd_maps_texas.png" alt="Time-series of predictions of organic carbon density for Texas." width="100%" />
+<p class="caption">(\#fig:time-series-texas)Time-series of predictions of organic carbon density for Texas.</p>
+</div>
 
 We can analyze this time-series data to see where the decrease in organic carbon is most significant, for example the slope of the change:
 
-```{r, eval=FALSE}
+
+```r
 trendmap <- TrendRaster(g10km.b, start=c(1935, 1), freq=1, breaks=1) 
 ## can be computationally intensive
 plot(trendmap[["SlopeSEG1"]], 
@@ -684,9 +959,10 @@ plot(trendmap[["SlopeSEG1"]],
      zlim=c(-1.5,1.5), main="Slope SEG1")
 ```
 
-```{r ocd-slope-texas, echo=FALSE, fig.cap="Predicted slope of change of soil organic carbon density for Texas for the period 1935–2014. Negative values indicate loss of soil organic carbon.", out.width="80%"}
-knitr::include_graphics("figures/rplot_splope_ocd_change.png")
-```
+<div class="figure" style="text-align: center">
+<img src="figures/rplot_splope_ocd_change.png" alt="Predicted slope of change of soil organic carbon density for Texas for the period 1935–2014. Negative values indicate loss of soil organic carbon." width="80%" />
+<p class="caption">(\#fig:ocd-slope-texas)Predicted slope of change of soil organic carbon density for Texas for the period 1935–2014. Negative values indicate loss of soil organic carbon.</p>
+</div>
 
 which shows that loss of soil organic carbon is especially distinct in the southern part of Texas. The slope coefficient map is, on average, negative, which indicates that most of the state has lost organic carbon for the period of interest. Note that running such time-series analysis is not trivial as a sufficient number of observations in time (if possible: repetitions) is needed to be able to extract significant patterns. Also `TrendRaster` function can be quite computationally intensive, hence some careful planning of the processing steps / processing infrastructure is usually recommended. 
 

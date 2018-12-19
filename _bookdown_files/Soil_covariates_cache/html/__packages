@@ -1,9 +1,0 @@
-base
-microbenchmark
-sp
-rgdal
-raster
-plotKML
-sf
-fasterize
-bindrcpp
