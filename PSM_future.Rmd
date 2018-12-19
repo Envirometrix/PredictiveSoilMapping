@@ -1324,7 +1324,7 @@ the landpotential.org project or similar, so that a top-down, bottom-up
 verification and adjustments; Fig. \@ref(fig:scheme-soc-prof1)), can be 
 generated. 
 
-```{r mobile-phone-scheme, echo=FALSE, fig.cap="Future Global Land Information System (built on the top of the LandGIS concept) and targeted functionality: users on ground send local O&M through their mobile phones, which are then used to run and re-callibrate global models.", out.width="100%"}
+```{r mobile-phone-scheme, echo=FALSE, fig.cap="Future Global Land Information System (built on the top of the LandGIS concept) and targeted functionality: users on ground send local O and M through their mobile phones, which are then used to run and re-callibrate global models.", out.width="100%"}
 knitr::include_graphics("figures/Fig_future_mobile_phone.png")
 ```
 
