@@ -9,8 +9,10 @@ before_install:
   - sudo apt-get --yes --force-yes update -qq
   - sudo apt-get install --yes libudunits2-dev libproj-dev libgeos-dev libgdal-dev libv8-dev
   - sudo apt-get install --yes libjq-dev libprotobuf-dev libprotoc-dev protobuf-compiler
-  
+
 install:
+  - cp fonts -r ~/usr/local/share/fonts
+  - fc-cache -f -v
   - R -e "install.packages('devtools')"
   - R -e "install.packages('bookdown')"
   - R -e "install.packages('microbenchmark')"
