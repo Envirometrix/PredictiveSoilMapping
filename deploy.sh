@@ -8,13 +8,14 @@ update_website() {
   git config user.name "Tom Hengl"
   git config user.email "tom.hengl@gmail.com"
   git config --global push.default simple
-  git remote add upstream "https://$GH_TOKEN@github.com/envirometrix/PredictiveSoilMapping.git"
+  git remote add upstream "https://$GH_TOKEN@github.com/Envirometrix/PredictiveSoilMapping.git"
   git fetch upstream 2>err.txt
   git checkout gh-pages
   
   cp -fvr $BASE_REPO/docs/* .
-  git add *.html; git add libs/; git add figures/; git add style.css; git add images/;
-  git add _main_files/*; git add *.json; git add main.md
+  # git add *.html; git add libs/; git add figures/; git add style.css; git add images/;
+  # git add _main_files/*; git add *.json; git add main.md
+  git add --all
   git commit -a -m "Updating book (${TRAVIS_BUILD_NUMBER})"
   git status
   git push 2>err.txt
