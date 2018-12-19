@@ -21,7 +21,7 @@ install:
   - R -e "devtools::install_github('nowosad/PSMpkg')"
 
 script:
-  - make all
+  - make pdf
 
 after_success:
   - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash deploy.sh
