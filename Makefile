@@ -9,7 +9,7 @@ build:
 	Rscript -e 'browseURL("_book/index.html")'
 
 pdf:
-	Rscript -e 'bookdown::render_book("index.Rmd", output_format = "bookdown::pdf_book")'
+	Rscript -e 'bookdown::render_book("index.Rmd", output_format = "bookdown::pdf_book", output_file = "psm.pdf")'
 
 md:
 	Rscript -e 'bookdown::render_book("index.Rmd", output_format = "bookdown::pdf_book", clean = FALSE)'
