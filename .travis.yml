@@ -13,6 +13,8 @@ install:
   - R -e "install.packages('devtools')"
   - R -e "install.packages('bookdown')"
   - R -e "install.packages('microbenchmark')"
+  - R -e "install.packages('tinytex')"
+  - R -e "tinytex::install_tinytex()"
   - R -e "devtools::install_github('nowosad/PSMpkg')"
 
 script:
