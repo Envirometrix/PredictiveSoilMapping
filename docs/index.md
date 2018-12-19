@@ -2,7 +2,7 @@
 ---
 title: "Predictive Soil Mapping with R"
 author: ["Tomislav Hengl and Robert A. MacMillan"]
-date: "2018-12-18"
+date: "2018-12-19"
 #layout: default
 #comments: true
 knit: bookdown::render_book
@@ -45,7 +45,7 @@ Hard copies of this book from will be made available in early 2019.
 
 ## Editors {-}
 
-[Tom Hengl](https://opengeohub.org/people/tom-hengl) is a Senior Researchers and Vice Chair of the OpenGeoHub Foundation / technical director at Envirometrix Ltd. 
+[**Tom Hengl**](https://opengeohub.org/people/tom-hengl) is a Senior Researchers and Vice Chair of the OpenGeoHub Foundation / technical director at Envirometrix Ltd. 
 He has more than 20 years of experience as an environmental modeler, data scientist and spatial analyst. 
 Tom is a passionate advocate for, and supporter of, open data, reproducible science and career development 
 for young scientists. He has designed and implemented the global [SoilGrids](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0169748) data set, 
@@ -54,7 +54,7 @@ and global climate mapping projects. He has been teaching predictive soil mappin
 ISRIC within the “Hands-on-GSIF” block courses. Video tutorials of the soil mapping with R can also be 
 found at http://youtube.com/c/ISRICorg. Tom currently leads production of a web mapping system called “LandGIS” (https://landgis.opengeohub.org) and which is envisaged as *“an OpenStreetMap-type system”* for land-related environmental data. The system hosts global, fine spatial resolution data (250 m to 1 km) including various soil classes and soil properties, and is intended for eventual integration with farm-scale data and beyond.
 
-[Bob MacMillan](https://opengeohub.org/people/bob-macmillan) is a retired environmental consultant with over 40 years of experience in creating, packaging, delivering and using environmental information on soils, ecosystems, landforms and hydrology. Bob spent 19 years working in public sector research with the Alberta Research Council and Agriculture and Agri-Food Canada and a second 20 years as a private sector consultant offering services in predictive soil and ecological mapping. Since retiring, Bob has remained an active supporter, promoter, advocate, mentor and technical contributor to several continental to global scale efforts to advance the science and technology of mapping soils and other ecosystem components. As Science Coordinator for the GlobalSoilMap project, Bob helped to articulate the vision for the project and led initial activities aimed at achieving this, including authoring technical specifications, promoting the project, recruiting participants/cooperators, and liaising with representatives of national and international soil agencies. Bob continues to contribute on a voluntary basis to OpenGeoHub (https://opengeohub.org/), Africa Soil Information Servicce (AfSIS) (http://africasoils.net/) and the Canadian Digital Soil Data Consortium (CDSDC): (http://soilinfo.ca). Throughout his career, Bob has shared his expertise and his enthusiasm freely with dozens of younger scientists interested in learning about, and becoming, practitioners of digital soil mapping. Bob continues to support the next generation of digital soil mappers through his involvement with OpenGeoHub. 
+[**Bob MacMillan**](https://opengeohub.org/people/bob-macmillan) is a retired environmental consultant with over 40 years of experience in creating, packaging, delivering and using environmental information on soils, ecosystems, landforms and hydrology. Bob spent 19 years working in public sector research with the Alberta Research Council and Agriculture and Agri-Food Canada and a second 20 years as a private sector consultant offering services in predictive soil and ecological mapping. Since retiring, Bob has remained an active supporter, promoter, advocate, mentor and technical contributor to several continental to global scale efforts to advance the science and technology of mapping soils and other ecosystem components. As Science Coordinator for the GlobalSoilMap project, Bob helped to articulate the vision for the project and led initial activities aimed at achieving this, including authoring technical specifications, promoting the project, recruiting participants/cooperators, and liaising with representatives of national and international soil agencies. Bob continues to contribute on a voluntary basis to OpenGeoHub (https://opengeohub.org/), Africa Soil Information Servicce (AfSIS) (http://africasoils.net/) and the Canadian Digital Soil Data Consortium (CDSDC): (http://soilinfo.ca). Throughout his career, Bob has shared his expertise and his enthusiasm freely with dozens of younger scientists interested in learning about, and becoming, practitioners of digital soil mapping. Bob continues to support the next generation of digital soil mappers through his involvement with OpenGeoHub. 
 
 # Preface {-}
 
@@ -195,4 +195,4 @@ Every effort has been made to trace copyright holders of the materials used in t
 
 **Copyright**: &copy; 2018 Authors.
 
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. LandGIS and OpenGeoHub are registered trademarks of the OpenGeoHub Foundation.

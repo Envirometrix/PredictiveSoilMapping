@@ -34,8 +34,8 @@ topmost layer of the Earth’s surface [@chesworth2008encyclopedia]. The
 upper limit of the soil is either air, shallow water, live plants or
 plant materials that have not begun to decompose. The lower limit is
 defined by the presence of hard rock or the lower limit of biologic
-activity [@richter1995deep; @SSDS1993]. Although soil profiles up to tens
-of meters depths can be found in some tropical areas [@richter1995deep], for
+activity [@Richter1995; @SSDS1993]. Although soil profiles up to tens
+of meters depths can be found in some tropical areas [@Richter1995], for
 soil classification and mapping purposes, the lower limit soil is often
 arbitrarily set to 2 m (http://soils.usda.gov/education/facts/soil.html). Soils are rarely described to depths beyond 2 m and
 many soil sampling projects put primary focus on the upper
@@ -699,7 +699,7 @@ those that are free and publicly distributed such as MODIS products,
 SRTM DEM and similar (Fig. \@ref(fig:new-technologies)). PSM can be compared to, and shares similar concepts with, other applications of statistics and machine learning in physical geography, for example Predictive Vegetation Mapping [@Fran01; @Hengl2018PNV].
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_new_technologies.png" alt="Evolution of digital soil mapping parallels the emergence of new technologies and global, publicly available data sources." width="45%" angle=0 />
+<img src="figures/Fig_new_technologies.png" alt="Evolution of digital soil mapping parallels the emergence of new technologies and global, publicly available data sources." width="60%" angle=0 />
 <p class="caption">(\#fig:new-technologies)Evolution of digital soil mapping parallels the emergence of new technologies and global, publicly available data sources.</p>
 </div>
 
@@ -750,8 +750,8 @@ We promote in this book specifically the Class E soil mapping approach
 i.e. which we refer to as the *predictive* and/or *automated soil mapping*.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_pedometric_mapping_vs_DSM.png" alt="A classification of approaches to soil mapping: from purely expert driven, to various types of digital soil mapping." width="85%" />
-<p class="caption">(\#fig:pedometric-mapping-vs-dsm)A classification of approaches to soil mapping: from purely expert driven, to various types of digital soil mapping.</p>
+<img src="figures/Fig_pedometric_mapping_vs_DSM.png" alt="A classification of approaches to soil mapping: from purely expert driven (Class A), to various types of digital soil mapping including fully automated soil mapping (Class E)." width="85%" />
+<p class="caption">(\#fig:pedometric-mapping-vs-dsm)A classification of approaches to soil mapping: from purely expert driven (Class A), to various types of digital soil mapping including fully automated soil mapping (Class E).</p>
 </div>
 
 Some key advantages of the pedometric (statistical) approach to soil
@@ -806,7 +806,7 @@ spaced, direct field observation and sampling is capable of detecting
 the spatial pattern of variation in soils because there is no, or only a
 very weak, correlation with available covariates [@kondolf2003tools].
 
-### Comparison of conventional and pedometric soil mapping {#comparison-conventional-pm}
+### Comparison of conventional and pedometric or predictive soil mapping {#comparison-conventional-pm}
 
 There has been a tendency to view conventional soil mapping and
 automated soil mapping as competing and non-complementary approaches. In
@@ -1175,7 +1175,7 @@ an accuracy of better than 50–100 m. Some widely used profile data from
 developing countries cannot be reliably located to within 1 km [@Leenaars2012].
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_GPS_evolution.png" alt="Evolution of the Open Access Navigation and positioning technologies (left) and the open access remote sensing monitoring systems (right). API — Aerial photo-interpretation; S.A. — Selective Availability; L.R.S.P.A. — Land Remote Sensing Policy Act (made Landsat digital data and images available at the lowest possible cost)." width="100%" />
+<img src="figures/Fig_GPS_evolution.png" alt="Evolution of the Open Access Navigation and positioning technologies (left) and the open access remote sensing monitoring systems (right). API — Aerial photo-interpretation; S.A. — Selective Availability; L.R.S.P.A. — Land Remote Sensing Policy Act (made Landsat digital data and images available at the lowest possible cost)." width="85%" />
 <p class="caption">(\#fig:gps-evolution)Evolution of the Open Access Navigation and positioning technologies (left) and the open access remote sensing monitoring systems (right). API — Aerial photo-interpretation; S.A. — Selective Availability; L.R.S.P.A. — Land Remote Sensing Policy Act (made Landsat digital data and images available at the lowest possible cost).</p>
 </div>
 
@@ -1992,7 +1992,7 @@ number of factors (Fig. \@ref(fig:usability-scheme)):
     the data at the same time? Are the data free and easily obtained?
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_usability_scheme.png" alt="Usability of a Soil Information System is basically a function of a number of data usability measures from which the following four (C’s) are essential: completeness, consistency, correctness and currency." width="60%" angle=0 />
+<img src="figures/Fig_usability_scheme.png" alt="Usability of a Soil Information System is basically a function of a number of data usability measures from which the following four (C’s) are essential: completeness, consistency, correctness and currency." width="70%" angle=0 />
 <p class="caption">(\#fig:usability-scheme)Usability of a Soil Information System is basically a function of a number of data usability measures from which the following four (C’s) are essential: completeness, consistency, correctness and currency.</p>
 </div>
 
@@ -2111,8 +2111,8 @@ data the sources of error are for example:
 7.  *data interpretation error*;
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_lines_Legros1997.png" alt="20 photo-interpretations done independently using the same aerial photograph overlaid on top of each other. Image credit: @Legros1997ESG." width="50%" />
-<p class="caption">(\#fig:lines-legros1997)20 photo-interpretations done independently using the same aerial photograph overlaid on top of each other. Image credit: @Legros1997ESG.</p>
+<img src="figures/Fig_lines_Legros1997.png" alt="20 photo-interpretations done independently using the same aerial photograph overlaid on top of each other. Image credit: Legros (1997)." width="50%" />
+<p class="caption">(\#fig:lines-legros1997)20 photo-interpretations done independently using the same aerial photograph overlaid on top of each other. Image credit: Legros (1997).</p>
 </div>
 
 For soil delineations, the common sources of error (as illustrated in

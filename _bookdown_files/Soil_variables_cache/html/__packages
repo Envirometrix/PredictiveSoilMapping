@@ -10,3 +10,5 @@ randomForestSRC
 ggRandomForests
 ggplot2
 scales
+RevoUtilsMath
+RevoUtils

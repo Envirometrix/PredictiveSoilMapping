@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Predictive Soil Mapping with R</title>
+  <title>7 Spatial prediction and assessment of Soil Organic Carbon | Predictive Soil Mapping with R</title>
   <meta name="description" content="Predictive Soil Mapping aims to produce the most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement common soil mapping procedures within the R programming language.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Predictive Soil Mapping with R" />
+  <meta property="og:title" content="7 Spatial prediction and assessment of Soil Organic Carbon | Predictive Soil Mapping with R" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://soilmapper.org" />
   <meta property="og:image" content="http://soilmapper.orgfigures/f0_web.png" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="envirometrix/PredictiveSoilMapping" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Predictive Soil Mapping with R" />
+  <meta name="twitter:title" content="7 Spatial prediction and assessment of Soil Organic Carbon | Predictive Soil Mapping with R" />
   <meta name="twitter:site" content="@tom_hengl" />
   <meta name="twitter:description" content="Predictive Soil Mapping aims to produce the most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement common soil mapping procedures within the R programming language." />
   <meta name="twitter:image" content="http://soilmapper.orgfigures/f0_web.png" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl and Robert A. MacMillan">
 
 
-<meta name="date" content="2018-12-18">
+<meta name="date" content="2018-12-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="references.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -60,67 +61,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -149,7 +124,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Soil resource inventories and soil maps</a><ul>
-<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#introduction-1"><i class="fa fa-check"></i><b>1.1</b> Introduction</a></li>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a></li>
 <li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#soils-and-soil-inventories"><i class="fa fa-check"></i><b>1.2</b> Soils and soil inventories</a><ul>
 <li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#soil-a-definition"><i class="fa fa-check"></i><b>1.2.1</b> Soil: a definition</a></li>
 <li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#soil-variables"><i class="fa fa-check"></i><b>1.2.2</b> Soil variables</a></li>
@@ -162,7 +137,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.3.4" data-path="introduction.html"><a href="introduction.html#conventional-mapping"><i class="fa fa-check"></i><b>1.3.4</b> Traditional (conventional) soil mapping</a></li>
 <li class="chapter" data-level="1.3.5" data-path="introduction.html"><a href="introduction.html#variants-of-soil-maps"><i class="fa fa-check"></i><b>1.3.5</b> Variants of soil maps</a></li>
 <li class="chapter" data-level="1.3.6" data-path="introduction.html"><a href="introduction.html#pedometric-mapping"><i class="fa fa-check"></i><b>1.3.6</b> Predictive and automated soil mapping</a></li>
-<li class="chapter" data-level="1.3.7" data-path="introduction.html"><a href="introduction.html#comparison-conventional-pm"><i class="fa fa-check"></i><b>1.3.7</b> Comparison of conventional and pedometric soil mapping</a></li>
+<li class="chapter" data-level="1.3.7" data-path="introduction.html"><a href="introduction.html#comparison-conventional-pm"><i class="fa fa-check"></i><b>1.3.7</b> Comparison of conventional and pedometric or predictive soil mapping</a></li>
 <li class="chapter" data-level="1.3.8" data-path="introduction.html"><a href="introduction.html#top-down"><i class="fa fa-check"></i><b>1.3.8</b> Top-down versus bottom-up approaches: subdivision versus agglomeration</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#sources-of-soil-data-for-soil-mapping"><i class="fa fa-check"></i><b>1.4</b> Sources of soil data for soil mapping</a><ul>
@@ -177,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.4.9" data-path="introduction.html"><a href="introduction.html#pseudo-observations"><i class="fa fa-check"></i><b>1.4.9</b> Pseudo-observations</a></li>
 </ul></li>
 <li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#soil-databases"><i class="fa fa-check"></i><b>1.5</b> Soil databases and soil information systems</a><ul>
-<li class="chapter" data-level="1.5.1" data-path="introduction.html"><a href="introduction.html#soil-databases-1"><i class="fa fa-check"></i><b>1.5.1</b> Soil databases</a></li>
+<li class="chapter" data-level="1.5.1" data-path="introduction.html"><a href="introduction.html#soil-databases"><i class="fa fa-check"></i><b>1.5.1</b> Soil databases</a></li>
 <li class="chapter" data-level="1.5.2" data-path="introduction.html"><a href="introduction.html#a-soil-information-system"><i class="fa fa-check"></i><b>1.5.2</b> A Soil Information System</a></li>
 <li class="chapter" data-level="1.5.3" data-path="introduction.html"><a href="introduction.html#soil-information-users"><i class="fa fa-check"></i><b>1.5.3</b> Soil information users</a></li>
 <li class="chapter" data-level="1.5.4" data-path="introduction.html"><a href="introduction.html#usability-of-soil-geographical-database"><i class="fa fa-check"></i><b>1.5.4</b> Usability of soil geographical database</a></li>
@@ -193,11 +168,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="software.html"><a href="software.html"><i class="fa fa-check"></i><b>2</b> Software installation and first steps</a><ul>
 <li class="chapter" data-level="2.1" data-path="software.html"><a href="software.html#list-of-software-in-use"><i class="fa fa-check"></i><b>2.1</b> List of software in use</a></li>
 <li class="chapter" data-level="2.2" data-path="software.html"><a href="software.html#installing-software-on-ubuntu-os"><i class="fa fa-check"></i><b>2.2</b> Installing software on Ubuntu OS</a></li>
-<li class="chapter" data-level="2.3" data-path="software.html"><a href="software.html#Whitebox"><i class="fa fa-check"></i><b>2.3</b> WhiteboxTools</a></li>
-<li class="chapter" data-level="2.4" data-path="software.html"><a href="software.html#Rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a></li>
-<li class="chapter" data-level="2.5" data-path="software.html"><a href="software.html#plotkml-and-gsif-packages"><i class="fa fa-check"></i><b>2.5</b> plotKML and GSIF packages</a></li>
-<li class="chapter" data-level="2.6" data-path="software.html"><a href="software.html#connecting-r-and-saga-gis"><i class="fa fa-check"></i><b>2.6</b> Connecting R and SAGA GIS</a></li>
-<li class="chapter" data-level="2.7" data-path="software.html"><a href="software.html#connecting-r-and-gdal"><i class="fa fa-check"></i><b>2.7</b> Connecting R and GDAL</a></li>
+<li class="chapter" data-level="2.3" data-path="software.html"><a href="software.html#installing-gis-software"><i class="fa fa-check"></i><b>2.3</b> Installing GIS software</a></li>
+<li class="chapter" data-level="2.4" data-path="software.html"><a href="software.html#Whitebox"><i class="fa fa-check"></i><b>2.4</b> WhiteboxTools</a></li>
+<li class="chapter" data-level="2.5" data-path="software.html"><a href="software.html#Rstudio"><i class="fa fa-check"></i><b>2.5</b> RStudio</a></li>
+<li class="chapter" data-level="2.6" data-path="software.html"><a href="software.html#plotkml-and-gsif-packages"><i class="fa fa-check"></i><b>2.6</b> plotKML and GSIF packages</a></li>
+<li class="chapter" data-level="2.7" data-path="software.html"><a href="software.html#connecting-r-and-saga-gis"><i class="fa fa-check"></i><b>2.7</b> Connecting R and SAGA GIS</a></li>
+<li class="chapter" data-level="2.8" data-path="software.html"><a href="software.html#connecting-r-and-gdal"><i class="fa fa-check"></i><b>2.8</b> Connecting R and GDAL</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html"><i class="fa fa-check"></i><b>3</b> Soil observations and variables</a><ul>
 <li class="chapter" data-level="3.1" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#basic-concepts-1"><i class="fa fa-check"></i><b>3.1</b> Basic concepts</a><ul>
@@ -312,7 +288,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#summary-points-3"><i class="fa fa-check"></i><b>6.3</b> Summary points</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="SOC-chapter.html"><a href="SOC-chapter.html"><i class="fa fa-check"></i><b>7</b> Spatial prediction and assessment of Soil Organic Carbon</a><ul>
-<li class="chapter" data-level="7.1" data-path="SOC-chapter.html"><a href="SOC-chapter.html#introduction-2"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.1" data-path="SOC-chapter.html"><a href="SOC-chapter.html#introduction-1"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
 <li class="chapter" data-level="7.2" data-path="SOC-chapter.html"><a href="SOC-chapter.html#measurement-and-derivation-of-soil-organic-carbon"><i class="fa fa-check"></i><b>7.2</b> Measurement and derivation of soil organic carbon</a></li>
 <li class="chapter" data-level="7.3" data-path="SOC-chapter.html"><a href="SOC-chapter.html#derivation-of-ocs-and-ocd-using-soil-profile-data"><i class="fa fa-check"></i><b>7.3</b> Derivation of OCS and OCD using soil profile data</a></li>
 <li class="chapter" data-level="7.4" data-path="SOC-chapter.html"><a href="SOC-chapter.html#estimation-of-bulk-density-using-a-globally-calibrated-ptf"><i class="fa fa-check"></i><b>7.4</b> Estimation of Bulk Density using a globally-calibrated PTF</a></li>
@@ -346,44 +322,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="SOC-chapter" class="section level1">
 <h1><span class="header-section-number">7</span> Spatial prediction and assessment of Soil Organic Carbon</h1>
 <p><em>Edited by: Hengl T. &amp; Sanderman J.</em></p>
-<div id="introduction-2" class="section level2">
+<div id="introduction-1" class="section level2">
 <h2><span class="header-section-number">7.1</span> Introduction</h2>
-<p>This chapter was prepared as supplementary material for the <span class="citation">Sanderman, Hengl, and Fiske (<a href="#ref-sanderman2018soil">2018</a>)</span> article. It explains how to map Soil Organic Carbon Stocks (OCS) using soil samples (point data). It also demonstrates derivation of values at both the site level (per profile) and by using raster calculus (per pixel). We then illustrate how to estimate total OCS for any area of interest (which can be a field plot, farm and/or administrative region). For an introduction to soil mapping using Machine Learning Algorithms refer to section <a href="soilmapping-using-mla.html#soilmapping-using-mla">6</a>. To access ISRIC’s global compilation of soil profiles please refer to: <a href="http://www.isric.org/explore/wosis">http://www.isric.org/explore/wosis</a>.</p>
+<p>This chapter was prepared as supplementary material for the <span class="citation">Sanderman, Hengl, and Fiske (<a href="#ref-sanderman2018soil">2018</a>)</span> article. It explains how to map Soil Organic Carbon Stocks (OCS) using soil samples (point data). It also demonstrates derivation of values at both the site level (per profile) and by using raster calculus (per pixel). We then illustrate how to estimate total OCS for any area of interest (which can be a field plot, farm and/or administrative region). For an introduction to soil mapping using Machine Learning Algorithms refer to section <a href="soilmapping-using-mla.html#soilmapping-using-mla">6</a>. To access ISRIC’s global compilation of soil profiles please refer to: <a href="http://www.isric.org/explore/wosis" class="uri">http://www.isric.org/explore/wosis</a>.</p>
 </div>
 <div id="measurement-and-derivation-of-soil-organic-carbon" class="section level2">
 <h2><span class="header-section-number">7.2</span> Measurement and derivation of soil organic carbon</h2>
 <p>Carbon below ground can be organic or non-organic/ mineral (usually carbonates and bicarbonates) i.e. CaCO<span class="math inline">\(_3\)</span> in the rocks. Organic carbon stocks below ground (0–2 m) in terrestrial ecosystems consist of two major components:</p>
 <ol style="list-style-type: decimal">
 <li>Living organism biomass i.e. mainly:
-* Plant roots,
-* Microbial biomass <span class="citation">(Xu, Thornton, and Post <a href="#ref-xu2013global">2013</a>)</span>,</li>
+<ul>
+<li>Plant roots,</li>
+<li>Microbial biomass <span class="citation">(Xu, Thornton, and Post <a href="#ref-xu2013global">2013</a>)</span>,</li>
+</ul></li>
 <li>Plant and animal residues at various stages of decomposition (organic matter).</li>
 </ol>
 <p><span class="citation">Xu, Thornton, and Post (<a href="#ref-xu2013global">2013</a>)</span> estimated that total global microbial biomass is about 17 Pg C, which is only about 2% of the total for organic matter. Therefore, the amounts of C in microbial biomass can reasonably be considered negligible, in comparison to the total C stock. However, if one includes all living organisms, and especially tree roots, then the portion of total C found in living organisms could be more significant, especially in areas under dense forests.</p>
 <p>Soil Organic Carbon Stock (<strong>OCS</strong>) is the mass of soil organic carbon per standard area and for a specific depth interval, usually expressed in kg/m<span class="math inline">\(^2\)</span> or t/ha. It can be derived using (laboratory and/or field) measurement of soil organic carbon content (ORC; expressed in % or g/kg of &lt;2mm mineral earth), then taking into account bulk density (BLD), thickness of the soil layer, and volume percentage of coarse fragments (CRF) <span class="citation">(Nelson and Sommers <a href="#ref-Nelson1982">1982</a>; Poeplau, Vos, and Axel <a href="#ref-poeplau2017soil">2017</a>)</span>:</p>
-<p><span class="math display" id="eq:ocs">\[\begin{equation}
+<span class="math display" id="eq:ocs">\[\begin{equation}
 {\rm OCS} [{\rm kg/m^2}] = {\rm ORC} [\%] / 100 \cdot {\rm BLD} [{\rm kg/m^3}] \cdot (1- {\rm CRF} [\%]/100) \cdot {\rm HOT} [m]
 \tag{7.1}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 <p>Note that if one has soil organic carbon content measured in g/kg then one should divide by 1000 instead of 100. A correction for gravel content is necessary because only material less than 2 mm is analyzed for ORC concentration. Ignoring the gravel content can result in an overestimation of the organic carbon stock. Note also that OCS always refers to a specific depth interval or horizon thickness (HOT), e.g.:</p>
 <ul>
 <li>kg/m<span class="math inline">\(^2\)</span> for depth 0–30 cm <span class="citation">(Berhongaray and Alvarez <a href="#ref-berhongaray2013ipcc">2013</a>)</span>,</li>
 </ul>
 <p>Values of OCS in kg/m<span class="math inline">\(^2\)</span> can also be expressed in tons/ha units, in which case a simple conversion formula can be applied:</p>
-<p><span class="math display" id="eq:kgm2">\[\begin{equation}
+<span class="math display" id="eq:kgm2">\[\begin{equation}
 1 \cdot {\rm kg/m^2} = 10 \cdot {\rm tons/ha}
 \tag{7.2}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 <p>Total OCS for an area of interest can be derived by multiplying OCS by total area e.g.:</p>
-<p><span class="math display" id="eq:tonsha">\[\begin{equation}
+<span class="math display" id="eq:tonsha">\[\begin{equation}
 120 {\rm tons/ha} \cdot 1 {\rm km^2} = 120 \cdot 100 = 12,000 {\rm tons}
 \tag{7.3}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 <p>Another way to express soil organic carbon is through <strong>soil organic carbon density</strong> (<strong>OCD</strong> in kg/m<span class="math inline">\(^3\)</span>), which is in fact equivalent to OCS divided by the horizon thickness:</p>
-<p><span class="math display" id="eq:ocd">\[\begin{equation}
+<span class="math display" id="eq:ocd">\[\begin{equation}
 {\rm OCD} [{\rm kg/m^3}] = {\rm ORC} [\%]/100 \cdot {\rm BLD} [{\rm kg/m^3}] \cdot (1- {\rm CRF} [\%]/100) = {\rm OCS} / {\rm HOT}
 \tag{7.4}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 <p>While OCS is a summary measure of SOC, always associated with a specific depth interval, OCD is a relative measure of soil organic carbon distribution and can be associated with any support size i.e. to an arbitrary depth. In principle, OCD (kg/m<span class="math inline">\(^3\)</span>) is strongly correlated with ORC (g/kg) as indicated in the figure below. However, depending on soil mineralogy and coarse fragment content, OCD can be lower or higher than what the smoothed line indicates (notice the range of values around the smoothed line is relatively wide). It is important to understand, however, that, as long as ORC, BLD and CRF are known, one can convert the values from ORC to OCD and OCS and <em>vice versa</em>, without loosing any information about the soil organic carbon stock.</p>
 <div class="figure" style="text-align: center"><span id="fig:scheme-solum"></span>
 <img src="figures/rplot_soilcarbon_density_vs_orc.png" alt="Correlation between soil organic carbon density and soil organic carbon content (displayed on a log-scale) created using a global compilations of soil profile data (WoSIS). Values 1, 2, 3, 4, 5 and 6 in the plot (log scale) correspond to values 2, 6, 19, 54, 147 and 402. Note that for ORC &gt;12%, the OCD line flattens, which means that, organic carbon density practically stops to increase with the increase of ORC content." width="55%" />
@@ -468,68 +446,68 @@ The average Organic Carbon Stock for the 0–100 cm depth interval for the land 
 </table>
 <p>Note that BLD data were not given for the described horizons (the original soil profile description / laboratory data indicates that no BLD were recorded for this profile). In the absence of measured field BLD we can substitute BLD estimated using LandGIS data. It (unfortunately) commonly happens that soil profile observations lack BLD measurements, and consequently BLD needs to be generated using a Pedo-Transfer function or estimated from soil maps.</p>
 <p>To determine OCS for standard depth intervals 0–30, 0–100 and 0–200 cm, we first fit a mass-preserving spline <span class="citation">(Malone et al. <a href="#ref-Malone2009Geoderma">2009</a>)</span>:</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" data-line-number="1"><span class="kw">library</span>(GSIF)</a>
-<a class="sourceLine" id="cb205-2" data-line-number="2"><span class="co">#&gt; GSIF version 0.5-4 (2017-04-25)</span></a>
-<a class="sourceLine" id="cb205-3" data-line-number="3"><span class="co">#&gt; URL: http://gsif.r-forge.r-project.org/</span></a>
-<a class="sourceLine" id="cb205-4" data-line-number="4"><span class="kw">library</span>(aqp)</a>
-<a class="sourceLine" id="cb205-5" data-line-number="5"><span class="co">#&gt; This is aqp 1.16-3</span></a>
-<a class="sourceLine" id="cb205-6" data-line-number="6"><span class="kw">library</span>(sp)</a>
-<a class="sourceLine" id="cb205-7" data-line-number="7"><span class="kw">library</span>(plyr)</a>
-<a class="sourceLine" id="cb205-8" data-line-number="8">lon =<span class="st"> </span><span class="fl">149.73</span>; lat =<span class="st"> </span><span class="fl">-30.09</span>; </a>
-<a class="sourceLine" id="cb205-9" data-line-number="9">id =<span class="st"> &quot;399_EDGEROI_ed079&quot;</span>; TIMESTRR =<span class="st"> &quot;1987-01-05&quot;</span></a>
-<a class="sourceLine" id="cb205-10" data-line-number="10">top =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">55</span>, <span class="dv">90</span>) </a>
-<a class="sourceLine" id="cb205-11" data-line-number="11">bottom =<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">55</span>, <span class="dv">90</span>, <span class="dv">116</span>)</a>
-<a class="sourceLine" id="cb205-12" data-line-number="12">ORC =<span class="st"> </span><span class="kw">c</span>(<span class="fl">8.2</span>, <span class="fl">7.5</span>, <span class="fl">6.1</span>, <span class="fl">3.3</span>, <span class="fl">1.6</span>)</a>
-<a class="sourceLine" id="cb205-13" data-line-number="13">BLD =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1340</span>, <span class="dv">1367</span>, <span class="dv">1382</span>, <span class="dv">1433</span>, <span class="dv">1465</span>)</a>
-<a class="sourceLine" id="cb205-14" data-line-number="14">CRF =<span class="st"> </span><span class="kw">c</span>(<span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">8</span>)</a>
-<a class="sourceLine" id="cb205-15" data-line-number="15"><span class="co">#OCS = OCSKGM(ORC, BLD, CRF, HSIZE=bottom-top)</span></a>
-<a class="sourceLine" id="cb205-16" data-line-number="16">prof1 &lt;-<span class="st"> </span><span class="kw">join</span>(<span class="kw">data.frame</span>(id, top, bottom, ORC, BLD, CRF), </a>
-<a class="sourceLine" id="cb205-17" data-line-number="17">               <span class="kw">data.frame</span>(id, lon, lat, TIMESTRR), <span class="dt">type=</span><span class="st">&#39;inner&#39;</span>)</a>
-<a class="sourceLine" id="cb205-18" data-line-number="18"><span class="co">#&gt; Joining by: id</span></a>
-<a class="sourceLine" id="cb205-19" data-line-number="19"><span class="kw">depths</span>(prof1) &lt;-<span class="st"> </span>id <span class="op">~</span><span class="st"> </span>top <span class="op">+</span><span class="st"> </span>bottom</a>
-<a class="sourceLine" id="cb205-20" data-line-number="20"><span class="co">#&gt; Warning: converting IDs from factor to character</span></a>
-<a class="sourceLine" id="cb205-21" data-line-number="21"><span class="kw">site</span>(prof1) &lt;-<span class="st"> </span><span class="er">~</span><span class="st"> </span>lon <span class="op">+</span><span class="st"> </span>lat <span class="op">+</span><span class="st"> </span>TIMESTRR</a>
-<a class="sourceLine" id="cb205-22" data-line-number="22"><span class="kw">coordinates</span>(prof1) &lt;-<span class="st"> </span><span class="er">~</span><span class="st"> </span>lon <span class="op">+</span><span class="st"> </span>lat</a>
-<a class="sourceLine" id="cb205-23" data-line-number="23"><span class="kw">proj4string</span>(prof1) &lt;-<span class="st"> </span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat +datum=WGS84&quot;</span>)</a>
-<a class="sourceLine" id="cb205-24" data-line-number="24">ORC.s &lt;-<span class="st"> </span><span class="kw">mpspline</span>(prof1, <span class="dt">var.name=</span><span class="st">&quot;ORC&quot;</span>, <span class="dt">d=</span><span class="kw">t</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">30</span>,<span class="dv">100</span>,<span class="dv">200</span>)), <span class="dt">vhigh =</span> <span class="dv">2200</span>)</a>
-<a class="sourceLine" id="cb205-25" data-line-number="25"><span class="co">#&gt; Fitting mass preserving splines per profile...</span></a>
-<a class="sourceLine" id="cb205-26" data-line-number="26"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb205-27" data-line-number="27">  <span class="op">|</span><span class="st">                                                                       </span></a>
-<a class="sourceLine" id="cb205-28" data-line-number="28"><span class="st">  </span><span class="er">|</span><span class="st">                                                                 </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%</a>
-<a class="sourceLine" id="cb205-29" data-line-number="29">  <span class="op">|</span><span class="st">                                                                       </span></a>
-<a class="sourceLine" id="cb205-30" data-line-number="30"><span class="st">  </span><span class="er">|=================================================================|</span><span class="st"> </span><span class="dv">100</span>%</a>
-<a class="sourceLine" id="cb205-31" data-line-number="31">BLD.s &lt;-<span class="st"> </span><span class="kw">mpspline</span>(prof1, <span class="dt">var.name=</span><span class="st">&quot;BLD&quot;</span>, <span class="dt">d=</span><span class="kw">t</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">30</span>,<span class="dv">100</span>,<span class="dv">200</span>)), <span class="dt">vhigh =</span> <span class="dv">2200</span>)</a>
-<a class="sourceLine" id="cb205-32" data-line-number="32"><span class="co">#&gt; Fitting mass preserving splines per profile...</span></a>
-<a class="sourceLine" id="cb205-33" data-line-number="33"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb205-34" data-line-number="34">  <span class="op">|</span><span class="st">                                                                       </span></a>
-<a class="sourceLine" id="cb205-35" data-line-number="35"><span class="st">  </span><span class="er">|</span><span class="st">                                                                 </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%</a>
-<a class="sourceLine" id="cb205-36" data-line-number="36">  <span class="op">|</span><span class="st">                                                                       </span></a>
-<a class="sourceLine" id="cb205-37" data-line-number="37"><span class="st">  </span><span class="er">|=================================================================|</span><span class="st"> </span><span class="dv">100</span>%</a>
-<a class="sourceLine" id="cb205-38" data-line-number="38">CRF.s &lt;-<span class="st"> </span><span class="kw">mpspline</span>(prof1, <span class="dt">var.name=</span><span class="st">&quot;CRF&quot;</span>, <span class="dt">d=</span><span class="kw">t</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">30</span>,<span class="dv">100</span>,<span class="dv">200</span>)), <span class="dt">vhigh =</span> <span class="dv">2200</span>)</a>
-<a class="sourceLine" id="cb205-39" data-line-number="39"><span class="co">#&gt; Fitting mass preserving splines per profile...</span></a>
-<a class="sourceLine" id="cb205-40" data-line-number="40"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb205-41" data-line-number="41">  <span class="op">|</span><span class="st">                                                                       </span></a>
-<a class="sourceLine" id="cb205-42" data-line-number="42"><span class="st">  </span><span class="er">|</span><span class="st">                                                                 </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%</a>
-<a class="sourceLine" id="cb205-43" data-line-number="43">  <span class="op">|</span><span class="st">                                                                       </span></a>
-<a class="sourceLine" id="cb205-44" data-line-number="44"><span class="st">  </span><span class="er">|=================================================================|</span><span class="st"> </span><span class="dv">100</span>%</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(GSIF)
+<span class="co">#&gt; GSIF version 0.5-4 (2017-04-25)</span>
+<span class="co">#&gt; URL: http://gsif.r-forge.r-project.org/</span>
+<span class="kw">library</span>(aqp)
+<span class="co">#&gt; This is aqp 1.16-3</span>
+<span class="kw">library</span>(sp)
+<span class="kw">library</span>(plyr)
+lon =<span class="st"> </span><span class="fl">149.73</span>; lat =<span class="st"> </span><span class="fl">-30.09</span>; 
+id =<span class="st"> &quot;399_EDGEROI_ed079&quot;</span>; TIMESTRR =<span class="st"> &quot;1987-01-05&quot;</span>
+top =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">55</span>, <span class="dv">90</span>) 
+bottom =<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">55</span>, <span class="dv">90</span>, <span class="dv">116</span>)
+ORC =<span class="st"> </span><span class="kw">c</span>(<span class="fl">8.2</span>, <span class="fl">7.5</span>, <span class="fl">6.1</span>, <span class="fl">3.3</span>, <span class="fl">1.6</span>)
+BLD =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1340</span>, <span class="dv">1367</span>, <span class="dv">1382</span>, <span class="dv">1433</span>, <span class="dv">1465</span>)
+CRF =<span class="st"> </span><span class="kw">c</span>(<span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">8</span>)
+<span class="co">#OCS = OCSKGM(ORC, BLD, CRF, HSIZE=bottom-top)</span>
+prof1 &lt;-<span class="st"> </span><span class="kw">join</span>(<span class="kw">data.frame</span>(id, top, bottom, ORC, BLD, CRF), 
+               <span class="kw">data.frame</span>(id, lon, lat, TIMESTRR), <span class="dt">type=</span><span class="st">&#39;inner&#39;</span>)
+<span class="co">#&gt; Joining by: id</span>
+<span class="kw">depths</span>(prof1) &lt;-<span class="st"> </span>id <span class="op">~</span><span class="st"> </span>top <span class="op">+</span><span class="st"> </span>bottom
+<span class="co">#&gt; Warning: converting IDs from factor to character</span>
+<span class="kw">site</span>(prof1) &lt;-<span class="st"> </span><span class="er">~</span><span class="st"> </span>lon <span class="op">+</span><span class="st"> </span>lat <span class="op">+</span><span class="st"> </span>TIMESTRR
+<span class="kw">coordinates</span>(prof1) &lt;-<span class="st"> </span><span class="er">~</span><span class="st"> </span>lon <span class="op">+</span><span class="st"> </span>lat
+<span class="kw">proj4string</span>(prof1) &lt;-<span class="st"> </span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat +datum=WGS84&quot;</span>)
+ORC.s &lt;-<span class="st"> </span><span class="kw">mpspline</span>(prof1, <span class="dt">var.name=</span><span class="st">&quot;ORC&quot;</span>, <span class="dt">d=</span><span class="kw">t</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">30</span>,<span class="dv">100</span>,<span class="dv">200</span>)), <span class="dt">vhigh =</span> <span class="dv">2200</span>)
+<span class="co">#&gt; Fitting mass preserving splines per profile...</span>
+<span class="co">#&gt; </span>
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|</span><span class="st">                                                                 </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|=================================================================|</span><span class="st"> </span><span class="dv">100</span>%
+BLD.s &lt;-<span class="st"> </span><span class="kw">mpspline</span>(prof1, <span class="dt">var.name=</span><span class="st">&quot;BLD&quot;</span>, <span class="dt">d=</span><span class="kw">t</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">30</span>,<span class="dv">100</span>,<span class="dv">200</span>)), <span class="dt">vhigh =</span> <span class="dv">2200</span>)
+<span class="co">#&gt; Fitting mass preserving splines per profile...</span>
+<span class="co">#&gt; </span>
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|</span><span class="st">                                                                 </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|=================================================================|</span><span class="st"> </span><span class="dv">100</span>%
+CRF.s &lt;-<span class="st"> </span><span class="kw">mpspline</span>(prof1, <span class="dt">var.name=</span><span class="st">&quot;CRF&quot;</span>, <span class="dt">d=</span><span class="kw">t</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">30</span>,<span class="dv">100</span>,<span class="dv">200</span>)), <span class="dt">vhigh =</span> <span class="dv">2200</span>)
+<span class="co">#&gt; Fitting mass preserving splines per profile...</span>
+<span class="co">#&gt; </span>
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|</span><span class="st">                                                                 </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%
+  <span class="op">|</span><span class="st">                                                                       </span>
+<span class="st">  </span><span class="er">|=================================================================|</span><span class="st"> </span><span class="dv">100</span>%</code></pre></div>
 <p>now we can derive OCS for top-soil by using:</p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" data-line-number="1"><span class="kw">OCSKGM</span>(ORC.s<span class="op">$</span>var.std<span class="op">$</span><span class="st">`</span><span class="dt">0-30 cm</span><span class="st">`</span>, </a>
-<a class="sourceLine" id="cb206-2" data-line-number="2">       BLD.s<span class="op">$</span>var.std<span class="op">$</span><span class="st">`</span><span class="dt">0-30 cm</span><span class="st">`</span>, </a>
-<a class="sourceLine" id="cb206-3" data-line-number="3">       CRF.s<span class="op">$</span>var.std<span class="op">$</span><span class="st">`</span><span class="dt">0-30 cm</span><span class="st">`</span>, <span class="dt">HSIZE=</span><span class="dv">30</span>)</a>
-<a class="sourceLine" id="cb206-4" data-line-number="4"><span class="co">#&gt; [1] 2.88</span></a>
-<a class="sourceLine" id="cb206-5" data-line-number="5"><span class="co">#&gt; attr(,&quot;measurementError&quot;)</span></a>
-<a class="sourceLine" id="cb206-6" data-line-number="6"><span class="co">#&gt; [1] 3.84</span></a>
-<a class="sourceLine" id="cb206-7" data-line-number="7"><span class="co">#&gt; attr(,&quot;units&quot;)</span></a>
-<a class="sourceLine" id="cb206-8" data-line-number="8"><span class="co">#&gt; [1] &quot;kilograms per square-meter&quot;</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">OCSKGM</span>(ORC.s<span class="op">$</span>var.std<span class="op">$</span><span class="st">`</span><span class="dt">0-30 cm</span><span class="st">`</span>, 
+       BLD.s<span class="op">$</span>var.std<span class="op">$</span><span class="st">`</span><span class="dt">0-30 cm</span><span class="st">`</span>, 
+       CRF.s<span class="op">$</span>var.std<span class="op">$</span><span class="st">`</span><span class="dt">0-30 cm</span><span class="st">`</span>, <span class="dt">HSIZE=</span><span class="dv">30</span>)
+<span class="co">#&gt; [1] 2.88</span>
+<span class="co">#&gt; attr(,&quot;measurementError&quot;)</span>
+<span class="co">#&gt; [1] 3.84</span>
+<span class="co">#&gt; attr(,&quot;units&quot;)</span>
+<span class="co">#&gt; [1] &quot;kilograms per square-meter&quot;</span></code></pre></div>
 <p>and for sub-soil using:</p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" data-line-number="1"><span class="kw">OCSKGM</span>(ORC.s<span class="op">$</span>var.std<span class="op">$</span><span class="st">`</span><span class="dt">30-100 cm</span><span class="st">`</span>, </a>
-<a class="sourceLine" id="cb207-2" data-line-number="2">       BLD.s<span class="op">$</span>var.std<span class="op">$</span><span class="st">`</span><span class="dt">30-100 cm</span><span class="st">`</span>, </a>
-<a class="sourceLine" id="cb207-3" data-line-number="3">       CRF.s<span class="op">$</span>var.std<span class="op">$</span><span class="st">`</span><span class="dt">30-100 cm</span><span class="st">`</span>, <span class="dt">HSIZE=</span><span class="dv">70</span>)</a>
-<a class="sourceLine" id="cb207-4" data-line-number="4"><span class="co">#&gt; [1] 3.62</span></a>
-<a class="sourceLine" id="cb207-5" data-line-number="5"><span class="co">#&gt; attr(,&quot;measurementError&quot;)</span></a>
-<a class="sourceLine" id="cb207-6" data-line-number="6"><span class="co">#&gt; [1] 9.18</span></a>
-<a class="sourceLine" id="cb207-7" data-line-number="7"><span class="co">#&gt; attr(,&quot;units&quot;)</span></a>
-<a class="sourceLine" id="cb207-8" data-line-number="8"><span class="co">#&gt; [1] &quot;kilograms per square-meter&quot;</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">OCSKGM</span>(ORC.s<span class="op">$</span>var.std<span class="op">$</span><span class="st">`</span><span class="dt">30-100 cm</span><span class="st">`</span>, 
+       BLD.s<span class="op">$</span>var.std<span class="op">$</span><span class="st">`</span><span class="dt">30-100 cm</span><span class="st">`</span>, 
+       CRF.s<span class="op">$</span>var.std<span class="op">$</span><span class="st">`</span><span class="dt">30-100 cm</span><span class="st">`</span>, <span class="dt">HSIZE=</span><span class="dv">70</span>)
+<span class="co">#&gt; [1] 3.62</span>
+<span class="co">#&gt; attr(,&quot;measurementError&quot;)</span>
+<span class="co">#&gt; [1] 9.18</span>
+<span class="co">#&gt; attr(,&quot;units&quot;)</span>
+<span class="co">#&gt; [1] &quot;kilograms per square-meter&quot;</span></code></pre></div>
 <p>Note that the OCSKGM function requires soil organic carbon content in g/kg. If one has contents measured in % then first multiply the values by 10. Bulk density data should be provided in kg/m3, gravel content in %, and layer depth in cm. Running the OCSKGM function for the Edgeroi profile gives the following estimates of OCS for standard depth intervals (Fig. <a href="SOC-chapter.html#fig:scheme-soc-prof1">7.1</a>):</p>
 <ul>
 <li><p>0–30 cm: 2.9 kg / m-square</p></li>
@@ -606,15 +584,15 @@ Figure 7.1: Determination of soil organic carbon density and stock for standard 
 </tbody>
 </table>
 <p>Here also BLD values were not provided and so had to be estimated. To estimate BLD, we use a simple Pedo-Transfer rule e.g. from <span class="citation">Köchy, Hiederer, and Freibauer (<a href="#ref-kochy2015global">2015</a>)</span>:</p>
-<p><span class="math display" id="eq:kochy">\[\begin{equation}
+<span class="math display" id="eq:kochy">\[\begin{equation}
 BLD.f = (-0.31 \cdot log(ORC/10) + 1.38) \cdot 1000
 \tag{7.5}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 <p>We divide the organic carbon content here by 10 to convert the organic carbon content from g/kg to % as required by the PTF. Note that one might want to use different PTFs for different soil layers. For mineral soils the bulk density of subsoil layers is often somewhat higher than for topsoil layers. For organic soils this typically is the inverse. For instance, <span class="citation">Köchy, Hiederer, and Freibauer (<a href="#ref-kochy2015global">2015</a>)</span> propose the following PTF for the subsoil (for layers with SOC &gt; 3%):</p>
-<p><span class="math display" id="eq:kochy">\[\begin{equation}
+<span class="math display" id="eq:kochy">\[\begin{equation}
 BLD = -0.32 * log({\rm ORC}[\%]) + 1.38
 \tag{7.5}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 <p>which gives slightly lower bulk density values. Another useful source for PTFs for organic soils is work by <span class="citation">Hossain, Chen, and Zhang (<a href="#ref-hossain2015bulk">2015</a>)</span>. For illustrative purposes, we have here used only one PTF for all soil layers.</p>
 <p>We can again fit mass-preserving splines and determine OCS for standard depth intervals by using the functions applied to profile 1. This ultimately gives the following estimates (Fig. <a href="SOC-chapter.html#fig:scheme-soc-prof2">7.2</a>):</p>
 <ul>
@@ -646,48 +624,48 @@ Figure 7.3: Estimation of OCS values 0–30 cm using some typical soil profile d
 <div id="estimation-of-bulk-density-using-a-globally-calibrated-ptf" class="section level2">
 <h2><span class="header-section-number">7.4</span> Estimation of Bulk Density using a globally-calibrated PTF</h2>
 <p>Where values for bulk density are missing, and no local PTF exists, WoSIS points (global compilation of soil profiles) can be used to fit a PTF that can fill-in gaps in bulk density measurements globally. A regression matrix extracted on 15th of May 2017 (and which contains harmonized values for BD, organic carbon content, pH, sand and clay content, depth of horizon and USDA soil type at some 20,000 soil profiles world-wide), can be fitted using a random forest model (see also <span class="citation">Ramcharan et al. (<a href="#ref-ramcharan2017soil">2018</a><a href="#ref-ramcharan2017soil">b</a>)</span>):</p>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" data-line-number="1">dfs_tbl =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;extdata/wosis_tbl.rds&quot;</span>)</a>
-<a class="sourceLine" id="cb208-2" data-line-number="2">ind.tax =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;extdata/ov_taxousda.rds&quot;</span>)</a>
-<a class="sourceLine" id="cb208-3" data-line-number="3"><span class="kw">library</span>(ranger)</a>
-<a class="sourceLine" id="cb208-4" data-line-number="4">fm.BLD =<span class="st"> </span><span class="kw">as.formula</span>(</a>
-<a class="sourceLine" id="cb208-5" data-line-number="5">  <span class="kw">paste</span>(<span class="st">&quot;BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +&quot;</span>, </a>
-<a class="sourceLine" id="cb208-6" data-line-number="6">        <span class="kw">paste</span>(<span class="kw">names</span>(ind.tax), <span class="dt">collapse=</span><span class="st">&quot;+&quot;</span>)))</a>
-<a class="sourceLine" id="cb208-7" data-line-number="7">m.BLD_PTF &lt;-<span class="st"> </span><span class="kw">ranger</span>(fm.BLD, dfs_tbl, <span class="dt">num.trees =</span> <span class="dv">85</span>, <span class="dt">importance=</span><span class="st">&#39;impurity&#39;</span>)</a>
-<a class="sourceLine" id="cb208-8" data-line-number="8">m.BLD_PTF</a>
-<a class="sourceLine" id="cb208-9" data-line-number="9"><span class="co">#&gt; Ranger result</span></a>
-<a class="sourceLine" id="cb208-10" data-line-number="10"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb208-11" data-line-number="11"><span class="co">#&gt; Call:</span></a>
-<a class="sourceLine" id="cb208-12" data-line-number="12"><span class="co">#&gt;  ranger(fm.BLD, dfs_tbl, num.trees = 85, importance = &quot;impurity&quot;) </span></a>
-<a class="sourceLine" id="cb208-13" data-line-number="13"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb208-14" data-line-number="14"><span class="co">#&gt; Type:                             Regression </span></a>
-<a class="sourceLine" id="cb208-15" data-line-number="15"><span class="co">#&gt; Number of trees:                  85 </span></a>
-<a class="sourceLine" id="cb208-16" data-line-number="16"><span class="co">#&gt; Sample size:                      98650 </span></a>
-<a class="sourceLine" id="cb208-17" data-line-number="17"><span class="co">#&gt; Number of independent variables:  70 </span></a>
-<a class="sourceLine" id="cb208-18" data-line-number="18"><span class="co">#&gt; Mtry:                             8 </span></a>
-<a class="sourceLine" id="cb208-19" data-line-number="19"><span class="co">#&gt; Target node size:                 5 </span></a>
-<a class="sourceLine" id="cb208-20" data-line-number="20"><span class="co">#&gt; Variable importance mode:         impurity </span></a>
-<a class="sourceLine" id="cb208-21" data-line-number="21"><span class="co">#&gt; Splitrule:                        variance </span></a>
-<a class="sourceLine" id="cb208-22" data-line-number="22"><span class="co">#&gt; OOB prediction error (MSE):       32379 </span></a>
-<a class="sourceLine" id="cb208-23" data-line-number="23"><span class="co">#&gt; R squared (OOB):                  0.549</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dfs_tbl =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;extdata/wosis_tbl.rds&quot;</span>)
+ind.tax =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;extdata/ov_taxousda.rds&quot;</span>)
+<span class="kw">library</span>(ranger)
+fm.BLD =<span class="st"> </span><span class="kw">as.formula</span>(
+  <span class="kw">paste</span>(<span class="st">&quot;BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +&quot;</span>, 
+        <span class="kw">paste</span>(<span class="kw">names</span>(ind.tax), <span class="dt">collapse=</span><span class="st">&quot;+&quot;</span>)))
+m.BLD_PTF &lt;-<span class="st"> </span><span class="kw">ranger</span>(fm.BLD, dfs_tbl, <span class="dt">num.trees =</span> <span class="dv">85</span>, <span class="dt">importance=</span><span class="st">&#39;impurity&#39;</span>)
+m.BLD_PTF
+<span class="co">#&gt; Ranger result</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Call:</span>
+<span class="co">#&gt;  ranger(fm.BLD, dfs_tbl, num.trees = 85, importance = &quot;impurity&quot;) </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Type:                             Regression </span>
+<span class="co">#&gt; Number of trees:                  85 </span>
+<span class="co">#&gt; Sample size:                      98650 </span>
+<span class="co">#&gt; Number of independent variables:  70 </span>
+<span class="co">#&gt; Mtry:                             8 </span>
+<span class="co">#&gt; Target node size:                 5 </span>
+<span class="co">#&gt; Variable importance mode:         impurity </span>
+<span class="co">#&gt; Splitrule:                        variance </span>
+<span class="co">#&gt; OOB prediction error (MSE):       32379 </span>
+<span class="co">#&gt; R squared (OOB):                  0.549</span></code></pre></div>
 <p>This shows somewhat lower accuracy i.e. an RMSE of ±180 kg/m<span class="math inline">\(^3\)</span> (R squared (OOB) = 0.54), but is still probably preferable to completely excluding all observations without bulk density from SOC assessment. A disadvantage of this model is that, in order to predict BD for new locations, we need to also have measurements of texture fractions, pH and organic carbon of course. For example, an Udalf with 1.1% organic carbon, 22% clay, pH of 6.5, sand content of 35% and at depth of 5 cm would result in an estimate for bulk density of:</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" data-line-number="1">ind.tax.new =<span class="st"> </span>ind.tax[<span class="kw">which</span>(ind.tax<span class="op">$</span>TAXOUSDA84<span class="op">==</span><span class="dv">1</span>)[<span class="dv">1</span>],]</a>
-<a class="sourceLine" id="cb209-2" data-line-number="2"><span class="kw">predict</span>(m.BLD_PTF, <span class="kw">cbind</span>(<span class="kw">data.frame</span>(<span class="dt">ORCDRC=</span><span class="dv">11</span>, </a>
-<a class="sourceLine" id="cb209-3" data-line-number="3">                                    <span class="dt">CLYPPT=</span><span class="dv">22</span>, </a>
-<a class="sourceLine" id="cb209-4" data-line-number="4">                                    <span class="dt">PHIHOX=</span><span class="fl">6.5</span>, </a>
-<a class="sourceLine" id="cb209-5" data-line-number="5">                                    <span class="dt">SNDPPT=</span><span class="dv">35</span>, </a>
-<a class="sourceLine" id="cb209-6" data-line-number="6">                                    <span class="dt">DEPTH.f=</span><span class="dv">5</span>), ind.tax.new))<span class="op">$</span>predictions</a>
-<a class="sourceLine" id="cb209-7" data-line-number="7"><span class="co">#&gt; [1] 1526</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ind.tax.new =<span class="st"> </span>ind.tax[<span class="kw">which</span>(ind.tax<span class="op">$</span>TAXOUSDA84<span class="op">==</span><span class="dv">1</span>)[<span class="dv">1</span>],]
+<span class="kw">predict</span>(m.BLD_PTF, <span class="kw">cbind</span>(<span class="kw">data.frame</span>(<span class="dt">ORCDRC=</span><span class="dv">11</span>, 
+                                    <span class="dt">CLYPPT=</span><span class="dv">22</span>, 
+                                    <span class="dt">PHIHOX=</span><span class="fl">6.5</span>, 
+                                    <span class="dt">SNDPPT=</span><span class="dv">35</span>, 
+                                    <span class="dt">DEPTH.f=</span><span class="dv">5</span>), ind.tax.new))<span class="op">$</span>predictions
+<span class="co">#&gt; [1] 1526</span></code></pre></div>
 <p>Note also that the PTF above needs USDA suborder values per point location following the LandGIS legend for USDA suborders, and formatted as in the <code>ind.tax</code> object. Unfortunately, the model above probably over-estimates bulk density for organic soils as these are usually under-represented i.e. often not available (consider for example a Saprist with 32% organic carbon):</p>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" data-line-number="1">ind.tax.new =<span class="st"> </span>ind.tax[<span class="kw">which</span>(ind.tax<span class="op">$</span>TAXOUSDA13<span class="op">==</span><span class="dv">1</span>)[<span class="dv">1</span>],]</a>
-<a class="sourceLine" id="cb210-2" data-line-number="2"><span class="kw">predict</span>(m.BLD_PTF, </a>
-<a class="sourceLine" id="cb210-3" data-line-number="3">        <span class="kw">cbind</span>(<span class="kw">data.frame</span>(<span class="dt">ORCDRC=</span><span class="dv">320</span>, <span class="dt">CLYPPT=</span><span class="dv">8</span>, <span class="dt">PHIHOX=</span><span class="fl">5.5</span>, </a>
-<a class="sourceLine" id="cb210-4" data-line-number="4">                         <span class="dt">SNDPPT=</span><span class="dv">45</span>, <span class="dt">DEPTH.f=</span><span class="dv">10</span>), ind.tax.new))<span class="op">$</span>predictions</a>
-<a class="sourceLine" id="cb210-5" data-line-number="5"><span class="co">#&gt; [1] 773</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ind.tax.new =<span class="st"> </span>ind.tax[<span class="kw">which</span>(ind.tax<span class="op">$</span>TAXOUSDA13<span class="op">==</span><span class="dv">1</span>)[<span class="dv">1</span>],]
+<span class="kw">predict</span>(m.BLD_PTF, 
+        <span class="kw">cbind</span>(<span class="kw">data.frame</span>(<span class="dt">ORCDRC=</span><span class="dv">320</span>, <span class="dt">CLYPPT=</span><span class="dv">8</span>, <span class="dt">PHIHOX=</span><span class="fl">5.5</span>, 
+                         <span class="dt">SNDPPT=</span><span class="dv">45</span>, <span class="dt">DEPTH.f=</span><span class="dv">10</span>), ind.tax.new))<span class="op">$</span>predictions
+<span class="co">#&gt; [1] 773</span></code></pre></div>
 <p>An alternative to estimating BLD is to just use ORC values, e.g. (see plot below):</p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb211-1" data-line-number="1">m.BLD_ls =<span class="st"> </span><span class="kw">loess</span>(BLD <span class="op">~</span><span class="st"> </span>ORCDRC, dfs_tbl, <span class="dt">span=</span><span class="dv">1</span><span class="op">/</span><span class="dv">18</span>)</a>
-<a class="sourceLine" id="cb211-2" data-line-number="2"><span class="kw">predict</span>(m.BLD_ls, <span class="kw">data.frame</span>(<span class="dt">ORCDRC=</span><span class="dv">320</span>))</a>
-<a class="sourceLine" id="cb211-3" data-line-number="3"><span class="co">#&gt;   1 </span></a>
-<a class="sourceLine" id="cb211-4" data-line-number="4"><span class="co">#&gt; 664</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m.BLD_ls =<span class="st"> </span><span class="kw">loess</span>(BLD <span class="op">~</span><span class="st"> </span>ORCDRC, dfs_tbl, <span class="dt">span=</span><span class="dv">1</span><span class="op">/</span><span class="dv">18</span>)
+<span class="kw">predict</span>(m.BLD_ls, <span class="kw">data.frame</span>(<span class="dt">ORCDRC=</span><span class="dv">320</span>))
+<span class="co">#&gt;   1 </span>
+<span class="co">#&gt; 664</span></code></pre></div>
 <p>This gives about 30% lower value than the random forest-based PTF from above. Over-estimating BLD will always result in higher OCS, hence clearly accurate information on BLD can be crucial for any OCS monitoring project. This means that the PTF fitted using random forest above is likely over-estimating BLD values for organic soils, mainly because there are not enough training points in organic soils that have measurements data for all of ORC, BLD, soil pH and texture fractions (if ANY of the calibration measurements are missing, the whole horizons are taken out of calibration and hence different ranges of BLD could be completely misrepresented).</p>
 <div class="rmdnote">
 <p>
@@ -702,10 +680,10 @@ Figure 7.4: Correlation plot between soil organic carbon density and bulk densit
 </div>
 <p>To fill-in missing values for BLD, a combination of two global Pedo-Transfer functions can be used for example: (1) PTF fitted using random forest model that locally predicts BLD as a function of organic carbon content, clay and sand content, pH and coarse fragments, and (2) a simpler model that predicts BLD based on only ORC. The average RMSE of these PTFs for BLD is about ±150 kg/m<span class="math inline">\(^3\)</span>.</p>
 <p>For mineral soils the relationship between soil organic carbon and soil depth follows a log-log relationship which can be also approximated with the following (global) model (R-square: 0.36; see Fig. <a href="SOC-chapter.html#fig:soc-depth-plot">7.5</a>):</p>
-<p><span class="math display" id="eq:orc-depth">\[\begin{equation}
+<span class="math display" id="eq:orc-depth">\[\begin{equation}
 ORC (depth) = exp[ 4.1517 −0.60934 \cdot log(depth) ]
 \tag{7.6}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 <p>This also illustrates that any organic carbon spatial prediction model can significantly profit from including depth in the statistical modelling.</p>
 <div class="figure" style="text-align: center"><span id="fig:soc-depth-plot"></span>
 <img src="figures/journal_pone_0105992_g005.png" alt=" Globally fitted regression model for predicting soil organic carbon using depth only (log-log regression) and (a) individual soil profile from the ISRIC soil monolith collection. Image source: Hengl et al. (2014) doi: 10.1371/journal.pone.0105992." width="90%" />
@@ -746,27 +724,27 @@ Figure 7.6: Three main computational paths (2D and 3D) to producing maps of orga
 <div id="predicting-ocs-from-point-data-the-2d-approach" class="section level2">
 <h2><span class="header-section-number">7.6</span> Predicting OCS from point data (the 2D approach)</h2>
 <p>The <a href="https://cran.r-project.org/package=geospt">geospt package</a> contains 125 samples of OCS from Colombia already at standard depth intervals, hence this data set is suitable and ready for 2D mapping of OCS. The data set consists of tabular values for points and a raster map containing the borders of the study area:</p>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb212-1" data-line-number="1"><span class="kw">load</span>(<span class="st">&quot;extdata/COSha10.rda&quot;</span>)</a>
-<a class="sourceLine" id="cb212-2" data-line-number="2"><span class="kw">load</span>(<span class="st">&quot;extdata/COSha30.rda&quot;</span>)</a>
-<a class="sourceLine" id="cb212-3" data-line-number="3"><span class="kw">str</span>(COSha30)</a>
-<a class="sourceLine" id="cb212-4" data-line-number="4"><span class="co">#&gt; &#39;data.frame&#39;:    118 obs. of  10 variables:</span></a>
-<a class="sourceLine" id="cb212-5" data-line-number="5"><span class="co">#&gt;  $ ID        : Factor w/ 118 levels &quot;S1&quot;,&quot;S10&quot;,&quot;S100&quot;,..: 1 44 61 89 100 110 2 9 15 21 ...</span></a>
-<a class="sourceLine" id="cb212-6" data-line-number="6"><span class="co">#&gt;  $ x         : int  669030 669330 670292 669709 671321 670881 670548 671340 671082 670862 ...</span></a>
-<a class="sourceLine" id="cb212-7" data-line-number="7"><span class="co">#&gt;  $ y         : int  448722 448734 448697 448952 448700 448699 448700 448969 448966 448968 ...</span></a>
-<a class="sourceLine" id="cb212-8" data-line-number="8"><span class="co">#&gt;  $ DA30      : num  1.65 1.6 1.5 1.32 1.41 1.39 1.51 1.39 1.55 1.63 ...</span></a>
-<a class="sourceLine" id="cb212-9" data-line-number="9"><span class="co">#&gt;  $ CO30      : num  0.99 1.33 1.33 1.09 1.04 1.19 1.21 1.36 1.09 1.19 ...</span></a>
-<a class="sourceLine" id="cb212-10" data-line-number="10"><span class="co">#&gt;  $ COB1r     : Factor w/ 6 levels &quot;Az&quot;,&quot;Ci&quot;,&quot;Cpf&quot;,..: 5 5 2 5 2 5 2 2 2 5 ...</span></a>
-<a class="sourceLine" id="cb212-11" data-line-number="11"><span class="co">#&gt;  $ S_UDS     : Factor w/ 19 levels &quot;BJa1&quot;,&quot;BQa1&quot;,..: 12 5 12 5 11 12 12 12 12 12 ...</span></a>
-<a class="sourceLine" id="cb212-12" data-line-number="12"><span class="co">#&gt;  $ COSha30   : num  49.2 64 59.8 43.1 44.2 ...</span></a>
-<a class="sourceLine" id="cb212-13" data-line-number="13"><span class="co">#&gt;  $ Cor4DAidep: num  43.3 56.3 54 37.9 39.9 ...</span></a>
-<a class="sourceLine" id="cb212-14" data-line-number="14"><span class="co">#&gt;  $ CorT      : num  1.37 1.39 1.38 1.36 1.36 ...</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">load</span>(<span class="st">&quot;extdata/COSha10.rda&quot;</span>)
+<span class="kw">load</span>(<span class="st">&quot;extdata/COSha30.rda&quot;</span>)
+<span class="kw">str</span>(COSha30)
+<span class="co">#&gt; &#39;data.frame&#39;:    118 obs. of  10 variables:</span>
+<span class="co">#&gt;  $ ID        : Factor w/ 118 levels &quot;S1&quot;,&quot;S10&quot;,&quot;S100&quot;,..: 1 44 61 89 100 110 2 9 15 21 ...</span>
+<span class="co">#&gt;  $ x         : int  669030 669330 670292 669709 671321 670881 670548 671340 671082 670862 ...</span>
+<span class="co">#&gt;  $ y         : int  448722 448734 448697 448952 448700 448699 448700 448969 448966 448968 ...</span>
+<span class="co">#&gt;  $ DA30      : num  1.65 1.6 1.5 1.32 1.41 1.39 1.51 1.39 1.55 1.63 ...</span>
+<span class="co">#&gt;  $ CO30      : num  0.99 1.33 1.33 1.09 1.04 1.19 1.21 1.36 1.09 1.19 ...</span>
+<span class="co">#&gt;  $ COB1r     : Factor w/ 6 levels &quot;Az&quot;,&quot;Ci&quot;,&quot;Cpf&quot;,..: 5 5 2 5 2 5 2 2 2 5 ...</span>
+<span class="co">#&gt;  $ S_UDS     : Factor w/ 19 levels &quot;BJa1&quot;,&quot;BQa1&quot;,..: 12 5 12 5 11 12 12 12 12 12 ...</span>
+<span class="co">#&gt;  $ COSha30   : num  49.2 64 59.8 43.1 44.2 ...</span>
+<span class="co">#&gt;  $ Cor4DAidep: num  43.3 56.3 54 37.9 39.9 ...</span>
+<span class="co">#&gt;  $ CorT      : num  1.37 1.39 1.38 1.36 1.36 ...</span></code></pre></div>
 <p>where <code>COSha10</code> = 0–10 cm, <code>COSha30</code> = 0–30 cm in tons / ha are values for OCS aggregated to standard soil depth intervals, so there is no need to do any spline fitting and/or vertical aggregation. We can also load the raster map for the area by using (Fig. <a href="SOC-chapter.html#fig:libertad-soc">7.7</a>):</p>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb213-1" data-line-number="1"><span class="kw">load</span>(<span class="st">&quot;extdata/COSha30map.rda&quot;</span>)</a>
-<a class="sourceLine" id="cb213-2" data-line-number="2"><span class="kw">proj4string</span>(COSha30map) =<span class="st"> &quot;+proj=utm +zone=18 +ellps=WGS84 +datum=WGS84 +units=m +no_defs&quot;</span></a>
-<a class="sourceLine" id="cb213-3" data-line-number="3"><span class="kw">str</span>(COSha30map<span class="op">@</span>data)</a>
-<a class="sourceLine" id="cb213-4" data-line-number="4"><span class="co">#&gt; &#39;data.frame&#39;:    10000 obs. of  2 variables:</span></a>
-<a class="sourceLine" id="cb213-5" data-line-number="5"><span class="co">#&gt;  $ var1.pred: num  39.9 39.8 39.9 40.3 40.7 ...</span></a>
-<a class="sourceLine" id="cb213-6" data-line-number="6"><span class="co">#&gt;  $ var1.var : num  1.91e-05 6.39e-05 1.05e-04 1.39e-04 1.66e-04 ...</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">load</span>(<span class="st">&quot;extdata/COSha30map.rda&quot;</span>)
+<span class="kw">proj4string</span>(COSha30map) =<span class="st"> &quot;+proj=utm +zone=18 +ellps=WGS84 +datum=WGS84 +units=m +no_defs&quot;</span>
+<span class="kw">str</span>(COSha30map<span class="op">@</span>data)
+<span class="co">#&gt; &#39;data.frame&#39;:    10000 obs. of  2 variables:</span>
+<span class="co">#&gt;  $ var1.pred: num  39.9 39.8 39.9 40.3 40.7 ...</span>
+<span class="co">#&gt;  $ var1.var : num  1.91e-05 6.39e-05 1.05e-04 1.39e-04 1.66e-04 ...</span></code></pre></div>
 <p>which shows predictions and kriging variances for <code>COSha30</code>.</p>
 <div class="figure" style="text-align: center"><span id="fig:libertad-soc"></span>
 <img src="figures/fig_la_libertad_research_center_socs.jpg" alt="Example of a data set with OCS samples (for 2D prediction). Case study in Colombia available via the geospt package (https://cran.r-project.org/package=geospt)." width="75%" />
@@ -775,150 +753,150 @@ Figure 7.7: Example of a data set with OCS samples (for 2D prediction). Case stu
 </p>
 </div>
 <p>We can import a number of RS-based covariates into R by (these were derived from the global 30 m layers listed previously):</p>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb214-1" data-line-number="1">covs30m =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;extdata/covs30m.rds&quot;</span>)</a>
-<a class="sourceLine" id="cb214-2" data-line-number="2"><span class="kw">proj4string</span>(covs30m) =<span class="st"> </span><span class="kw">proj4string</span>(COSha30map)</a>
-<a class="sourceLine" id="cb214-3" data-line-number="3"><span class="kw">names</span>(covs30m)</a>
-<a class="sourceLine" id="cb214-4" data-line-number="4"><span class="co">#&gt;  [1] &quot;SRTMGL1_SRTMGL1.2_cprof&quot;                  </span></a>
-<a class="sourceLine" id="cb214-5" data-line-number="5"><span class="co">#&gt;  [2] &quot;SRTMGL1_SRTMGL1.2_devmean&quot;                </span></a>
-<a class="sourceLine" id="cb214-6" data-line-number="6"><span class="co">#&gt;  [3] &quot;SRTMGL1_SRTMGL1.2_openn&quot;                  </span></a>
-<a class="sourceLine" id="cb214-7" data-line-number="7"><span class="co">#&gt;  [4] &quot;SRTMGL1_SRTMGL1.2_openp&quot;                  </span></a>
-<a class="sourceLine" id="cb214-8" data-line-number="8"><span class="co">#&gt;  [5] &quot;SRTMGL1_SRTMGL1.2_slope&quot;                  </span></a>
-<a class="sourceLine" id="cb214-9" data-line-number="9"><span class="co">#&gt;  [6] &quot;SRTMGL1_SRTMGL1.2_twi&quot;                    </span></a>
-<a class="sourceLine" id="cb214-10" data-line-number="10"><span class="co">#&gt;  [7] &quot;SRTMGL1_SRTMGL1.2_vbf&quot;                    </span></a>
-<a class="sourceLine" id="cb214-11" data-line-number="11"><span class="co">#&gt;  [8] &quot;SRTMGL1_SRTMGL1.2_vdepth&quot;                 </span></a>
-<a class="sourceLine" id="cb214-12" data-line-number="12"><span class="co">#&gt;  [9] &quot;SRTMGL1_SRTMGL1.2&quot;                        </span></a>
-<a class="sourceLine" id="cb214-13" data-line-number="13"><span class="co">#&gt; [10] &quot;COSha30map_var1pred_&quot;                     </span></a>
-<a class="sourceLine" id="cb214-14" data-line-number="14"><span class="co">#&gt; [11] &quot;GlobalForestChange2000.2014_first_NIRL00&quot; </span></a>
-<a class="sourceLine" id="cb214-15" data-line-number="15"><span class="co">#&gt; [12] &quot;GlobalForestChange2000.2014_first_REDL00&quot; </span></a>
-<a class="sourceLine" id="cb214-16" data-line-number="16"><span class="co">#&gt; [13] &quot;GlobalForestChange2000.2014_first_SW1L00&quot; </span></a>
-<a class="sourceLine" id="cb214-17" data-line-number="17"><span class="co">#&gt; [14] &quot;GlobalForestChange2000.2014_first_SW2L00&quot; </span></a>
-<a class="sourceLine" id="cb214-18" data-line-number="18"><span class="co">#&gt; [15] &quot;GlobalForestChange2000.2014_treecover2000&quot;</span></a>
-<a class="sourceLine" id="cb214-19" data-line-number="19"><span class="co">#&gt; [16] &quot;GlobalSurfaceWater_extent&quot;                </span></a>
-<a class="sourceLine" id="cb214-20" data-line-number="20"><span class="co">#&gt; [17] &quot;GlobalSurfaceWater_occurrence&quot;            </span></a>
-<a class="sourceLine" id="cb214-21" data-line-number="21"><span class="co">#&gt; [18] &quot;Landsat_bare2010&quot;</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">covs30m =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;extdata/covs30m.rds&quot;</span>)
+<span class="kw">proj4string</span>(covs30m) =<span class="st"> </span><span class="kw">proj4string</span>(COSha30map)
+<span class="kw">names</span>(covs30m)
+<span class="co">#&gt;  [1] &quot;SRTMGL1_SRTMGL1.2_cprof&quot;                  </span>
+<span class="co">#&gt;  [2] &quot;SRTMGL1_SRTMGL1.2_devmean&quot;                </span>
+<span class="co">#&gt;  [3] &quot;SRTMGL1_SRTMGL1.2_openn&quot;                  </span>
+<span class="co">#&gt;  [4] &quot;SRTMGL1_SRTMGL1.2_openp&quot;                  </span>
+<span class="co">#&gt;  [5] &quot;SRTMGL1_SRTMGL1.2_slope&quot;                  </span>
+<span class="co">#&gt;  [6] &quot;SRTMGL1_SRTMGL1.2_twi&quot;                    </span>
+<span class="co">#&gt;  [7] &quot;SRTMGL1_SRTMGL1.2_vbf&quot;                    </span>
+<span class="co">#&gt;  [8] &quot;SRTMGL1_SRTMGL1.2_vdepth&quot;                 </span>
+<span class="co">#&gt;  [9] &quot;SRTMGL1_SRTMGL1.2&quot;                        </span>
+<span class="co">#&gt; [10] &quot;COSha30map_var1pred_&quot;                     </span>
+<span class="co">#&gt; [11] &quot;GlobalForestChange2000.2014_first_NIRL00&quot; </span>
+<span class="co">#&gt; [12] &quot;GlobalForestChange2000.2014_first_REDL00&quot; </span>
+<span class="co">#&gt; [13] &quot;GlobalForestChange2000.2014_first_SW1L00&quot; </span>
+<span class="co">#&gt; [14] &quot;GlobalForestChange2000.2014_first_SW2L00&quot; </span>
+<span class="co">#&gt; [15] &quot;GlobalForestChange2000.2014_treecover2000&quot;</span>
+<span class="co">#&gt; [16] &quot;GlobalSurfaceWater_extent&quot;                </span>
+<span class="co">#&gt; [17] &quot;GlobalSurfaceWater_occurrence&quot;            </span>
+<span class="co">#&gt; [18] &quot;Landsat_bare2010&quot;</span></code></pre></div>
 <p>This contains a number of covariates from SRTM DEM derivatives, to Global Surface Water occurrence values and similar (see section <a href="soil-covs-chapter.html#soil-covs-30m">4.1.2</a> for more details). All these could potentially prove useful for mapping OCS. We can also derive buffer distances from observations points and use these (as measures of spatial context) to improve predictions <span class="citation">(T. Hengl, Nussbaum, et al. <a href="#ref-Hengl2018RFsp">2018</a>)</span>:</p>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb215-1" data-line-number="1"><span class="kw">proj4string</span>(COSha30map) =<span class="st"> &quot;+proj=utm +zone=18 +ellps=WGS84 +datum=WGS84 +units=m +no_defs&quot;</span></a>
-<a class="sourceLine" id="cb215-2" data-line-number="2"><span class="kw">coordinates</span>(COSha30) =<span class="st"> </span><span class="er">~</span><span class="st"> </span>x<span class="op">+</span>y</a>
-<a class="sourceLine" id="cb215-3" data-line-number="3"><span class="kw">proj4string</span>(COSha30) =<span class="st"> </span><span class="kw">proj4string</span>(COSha30map)</a>
-<a class="sourceLine" id="cb215-4" data-line-number="4">covs30mdist =<span class="st"> </span>GSIF<span class="op">::</span><span class="kw">buffer.dist</span>(COSha30[<span class="st">&quot;COSha30&quot;</span>], covs30m[<span class="dv">1</span>], <span class="kw">as.factor</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(COSha30)))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">proj4string</span>(COSha30map) =<span class="st"> &quot;+proj=utm +zone=18 +ellps=WGS84 +datum=WGS84 +units=m +no_defs&quot;</span>
+<span class="kw">coordinates</span>(COSha30) =<span class="st"> </span><span class="er">~</span><span class="st"> </span>x<span class="op">+</span>y
+<span class="kw">proj4string</span>(COSha30) =<span class="st"> </span><span class="kw">proj4string</span>(COSha30map)
+covs30mdist =<span class="st"> </span>GSIF<span class="op">::</span><span class="kw">buffer.dist</span>(COSha30[<span class="st">&quot;COSha30&quot;</span>], covs30m[<span class="dv">1</span>], <span class="kw">as.factor</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(COSha30)))</code></pre></div>
 <p>We can convert the original covariates to Principal Components, also to fill in all missing pixels:</p>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb216-1" data-line-number="1">covs30m<span class="op">@</span>data =<span class="st"> </span><span class="kw">cbind</span>(covs30m<span class="op">@</span>data, covs30mdist<span class="op">@</span>data)</a>
-<a class="sourceLine" id="cb216-2" data-line-number="2">sel.rm =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;GlobalSurfaceWater_occurrence&quot;</span>, <span class="st">&quot;GlobalSurfaceWater_extent&quot;</span>,</a>
-<a class="sourceLine" id="cb216-3" data-line-number="3">           <span class="st">&quot;Landsat_bare2010&quot;</span>, <span class="st">&quot;COSha30map_var1pred_&quot;</span>)</a>
-<a class="sourceLine" id="cb216-4" data-line-number="4">rr =<span class="st"> </span><span class="kw">which</span>(<span class="kw">names</span>(covs30m<span class="op">@</span>data) <span class="op">%in%</span><span class="st"> </span>sel.rm)</a>
-<a class="sourceLine" id="cb216-5" data-line-number="5">fm.spc =<span class="st"> </span><span class="kw">as.formula</span>(<span class="kw">paste</span>(<span class="st">&quot; ~ &quot;</span>, <span class="kw">paste</span>(<span class="kw">names</span>(covs30m)[<span class="op">-</span>rr], <span class="dt">collapse =</span> <span class="st">&quot;+&quot;</span>)))</a>
-<a class="sourceLine" id="cb216-6" data-line-number="6"><span class="kw">proj4string</span>(covs30m) =<span class="st"> </span><span class="kw">proj4string</span>(COSha30)</a>
-<a class="sourceLine" id="cb216-7" data-line-number="7">covs30m.spc =<span class="st"> </span>GSIF<span class="op">::</span><span class="kw">spc</span>(covs30m, fm.spc)</a>
-<a class="sourceLine" id="cb216-8" data-line-number="8"><span class="co">#&gt; Converting covariates to principal components...</span></a>
-<a class="sourceLine" id="cb216-9" data-line-number="9">ov.COSha30 =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">as.data.frame</span>(COSha30), <span class="kw">over</span>(COSha30, covs30m.spc<span class="op">@</span>predicted))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">covs30m<span class="op">@</span>data =<span class="st"> </span><span class="kw">cbind</span>(covs30m<span class="op">@</span>data, covs30mdist<span class="op">@</span>data)
+sel.rm =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;GlobalSurfaceWater_occurrence&quot;</span>, <span class="st">&quot;GlobalSurfaceWater_extent&quot;</span>,
+           <span class="st">&quot;Landsat_bare2010&quot;</span>, <span class="st">&quot;COSha30map_var1pred_&quot;</span>)
+rr =<span class="st"> </span><span class="kw">which</span>(<span class="kw">names</span>(covs30m<span class="op">@</span>data) <span class="op">%in%</span><span class="st"> </span>sel.rm)
+fm.spc =<span class="st"> </span><span class="kw">as.formula</span>(<span class="kw">paste</span>(<span class="st">&quot; ~ &quot;</span>, <span class="kw">paste</span>(<span class="kw">names</span>(covs30m)[<span class="op">-</span>rr], <span class="dt">collapse =</span> <span class="st">&quot;+&quot;</span>)))
+<span class="kw">proj4string</span>(covs30m) =<span class="st"> </span><span class="kw">proj4string</span>(COSha30)
+covs30m.spc =<span class="st"> </span>GSIF<span class="op">::</span><span class="kw">spc</span>(covs30m, fm.spc)
+<span class="co">#&gt; Converting covariates to principal components...</span>
+ov.COSha30 =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">as.data.frame</span>(COSha30), <span class="kw">over</span>(COSha30, covs30m.spc<span class="op">@</span>predicted))</code></pre></div>
 <p>By using the above listed covariates, we can fit a spatial prediction 2D model using an available model, such as <a href="https://cran.r-project.org/package=ranger">ranger</a> <span class="citation">(Wright and Ziegler <a href="#ref-wright2017ranger">2017</a>)</span>, <a href="https://cran.r-project.org/package=xgboost">xgboost</a> and/or <a href="https://cran.r-project.org/package=GAMBoost">gamboost</a>:</p>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb217-1" data-line-number="1"><span class="kw">library</span>(caret)</a>
-<a class="sourceLine" id="cb217-2" data-line-number="2"><span class="co">#&gt; Loading required package: lattice</span></a>
-<a class="sourceLine" id="cb217-3" data-line-number="3"><span class="co">#&gt; Loading required package: ggplot2</span></a>
-<a class="sourceLine" id="cb217-4" data-line-number="4"><span class="kw">library</span>(ranger)</a>
-<a class="sourceLine" id="cb217-5" data-line-number="5">fm.COSha30 =<span class="st"> </span><span class="kw">as.formula</span>(<span class="kw">paste</span>(<span class="st">&quot;COSha30 ~ &quot;</span>, <span class="kw">paste</span>(<span class="kw">names</span>(covs30m.spc<span class="op">@</span>predicted), <span class="dt">collapse =</span> <span class="st">&quot;+&quot;</span>)))</a>
-<a class="sourceLine" id="cb217-6" data-line-number="6">fm.COSha30</a>
-<a class="sourceLine" id="cb217-7" data-line-number="7"><span class="co">#&gt; COSha30 ~ PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + PC9 + </span></a>
-<a class="sourceLine" id="cb217-8" data-line-number="8"><span class="co">#&gt;     PC10 + PC11 + PC12 + PC13 + PC14 + PC15 + PC16 + PC17 + PC18 + </span></a>
-<a class="sourceLine" id="cb217-9" data-line-number="9"><span class="co">#&gt;     PC19 + PC20 + PC21 + PC22 + PC23 + PC24 + PC25 + PC26 + PC27 + </span></a>
-<a class="sourceLine" id="cb217-10" data-line-number="10"><span class="co">#&gt;     PC28 + PC29 + PC30 + PC31 + PC32 + PC33 + PC34 + PC35 + PC36 + </span></a>
-<a class="sourceLine" id="cb217-11" data-line-number="11"><span class="co">#&gt;     PC37 + PC38 + PC39 + PC40 + PC41 + PC42 + PC43 + PC44 + PC45 + </span></a>
-<a class="sourceLine" id="cb217-12" data-line-number="12"><span class="co">#&gt;     PC46 + PC47 + PC48 + PC49 + PC50 + PC51 + PC52 + PC53 + PC54 + </span></a>
-<a class="sourceLine" id="cb217-13" data-line-number="13"><span class="co">#&gt;     PC55 + PC56 + PC57 + PC58 + PC59 + PC60 + PC61 + PC62 + PC63 + </span></a>
-<a class="sourceLine" id="cb217-14" data-line-number="14"><span class="co">#&gt;     PC64 + PC65 + PC66 + PC67 + PC68 + PC69 + PC70 + PC71 + PC72 + </span></a>
-<a class="sourceLine" id="cb217-15" data-line-number="15"><span class="co">#&gt;     PC73 + PC74 + PC75 + PC76 + PC77 + PC78 + PC79 + PC80 + PC81 + </span></a>
-<a class="sourceLine" id="cb217-16" data-line-number="16"><span class="co">#&gt;     PC82 + PC83 + PC84 + PC85 + PC86 + PC87 + PC88 + PC89 + PC90 + </span></a>
-<a class="sourceLine" id="cb217-17" data-line-number="17"><span class="co">#&gt;     PC91 + PC92 + PC93 + PC94 + PC95 + PC96 + PC97 + PC98 + PC99 + </span></a>
-<a class="sourceLine" id="cb217-18" data-line-number="18"><span class="co">#&gt;     PC100 + PC101 + PC102 + PC103 + PC104 + PC105 + PC106 + PC107 + </span></a>
-<a class="sourceLine" id="cb217-19" data-line-number="19"><span class="co">#&gt;     PC108 + PC109 + PC110 + PC111 + PC112 + PC113 + PC114 + PC115 + </span></a>
-<a class="sourceLine" id="cb217-20" data-line-number="20"><span class="co">#&gt;     PC116 + PC117 + PC118 + PC119 + PC120 + PC121 + PC122 + PC123 + </span></a>
-<a class="sourceLine" id="cb217-21" data-line-number="21"><span class="co">#&gt;     PC124 + PC125 + PC126 + PC127 + PC128 + PC129 + PC130 + PC131 + </span></a>
-<a class="sourceLine" id="cb217-22" data-line-number="22"><span class="co">#&gt;     PC132</span></a>
-<a class="sourceLine" id="cb217-23" data-line-number="23">rf.tuneGrid &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(<span class="dt">.mtry =</span> <span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">60</span>, <span class="dt">by=</span><span class="dv">5</span>),</a>
-<a class="sourceLine" id="cb217-24" data-line-number="24">                           <span class="dt">.splitrule =</span> <span class="st">&quot;maxstat&quot;</span>,</a>
-<a class="sourceLine" id="cb217-25" data-line-number="25">                           <span class="dt">.min.node.size =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>))</a>
-<a class="sourceLine" id="cb217-26" data-line-number="26">gb.tuneGrid &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(<span class="dt">eta =</span> <span class="kw">c</span>(<span class="fl">0.3</span>,<span class="fl">0.4</span>), </a>
-<a class="sourceLine" id="cb217-27" data-line-number="27">                           <span class="dt">nrounds =</span> <span class="kw">c</span>(<span class="dv">50</span>,<span class="dv">100</span>), </a>
-<a class="sourceLine" id="cb217-28" data-line-number="28">                           <span class="dt">max_depth =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">gamma =</span> <span class="dv">0</span>, </a>
-<a class="sourceLine" id="cb217-29" data-line-number="29">                           <span class="dt">colsample_bytree =</span> <span class="fl">0.8</span>, </a>
-<a class="sourceLine" id="cb217-30" data-line-number="30">                           <span class="dt">min_child_weight =</span> <span class="dv">1</span>, <span class="dt">subsample=</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb217-31" data-line-number="31">fitControl &lt;-<span class="st"> </span><span class="kw">trainControl</span>(<span class="dt">method=</span><span class="st">&quot;repeatedcv&quot;</span>, <span class="dt">number=</span><span class="dv">4</span>, <span class="dt">repeats=</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb217-32" data-line-number="32">mFit1 &lt;-<span class="st"> </span><span class="kw">train</span>(fm.COSha30, <span class="dt">data=</span>ov.COSha30, <span class="dt">method=</span><span class="st">&quot;ranger&quot;</span>, </a>
-<a class="sourceLine" id="cb217-33" data-line-number="33">               <span class="dt">trControl=</span>fitControl, <span class="dt">importance=</span><span class="st">&#39;impurity&#39;</span>, </a>
-<a class="sourceLine" id="cb217-34" data-line-number="34">               <span class="dt">tuneGrid=</span>rf.tuneGrid)</a>
-<a class="sourceLine" id="cb217-35" data-line-number="35">mFit1</a>
-<a class="sourceLine" id="cb217-36" data-line-number="36"><span class="co">#&gt; Random Forest </span></a>
-<a class="sourceLine" id="cb217-37" data-line-number="37"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb217-38" data-line-number="38"><span class="co">#&gt; 118 samples</span></a>
-<a class="sourceLine" id="cb217-39" data-line-number="39"><span class="co">#&gt; 132 predictors</span></a>
-<a class="sourceLine" id="cb217-40" data-line-number="40"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb217-41" data-line-number="41"><span class="co">#&gt; No pre-processing</span></a>
-<a class="sourceLine" id="cb217-42" data-line-number="42"><span class="co">#&gt; Resampling: Cross-Validated (4 fold, repeated 1 times) </span></a>
-<a class="sourceLine" id="cb217-43" data-line-number="43"><span class="co">#&gt; Summary of sample sizes: 87, 88, 89, 90 </span></a>
-<a class="sourceLine" id="cb217-44" data-line-number="44"><span class="co">#&gt; Resampling results across tuning parameters:</span></a>
-<a class="sourceLine" id="cb217-45" data-line-number="45"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb217-46" data-line-number="46"><span class="co">#&gt;   mtry  min.node.size  RMSE  Rsquared  MAE </span></a>
-<a class="sourceLine" id="cb217-47" data-line-number="47"><span class="co">#&gt;    2    10             11.0  0.0225    8.75</span></a>
-<a class="sourceLine" id="cb217-48" data-line-number="48"><span class="co">#&gt;    2    20             11.0  0.0450    8.69</span></a>
-<a class="sourceLine" id="cb217-49" data-line-number="49"><span class="co">#&gt;    7    10             11.0  0.0442    8.66</span></a>
-<a class="sourceLine" id="cb217-50" data-line-number="50"><span class="co">#&gt;    7    20             11.0  0.0442    8.68</span></a>
-<a class="sourceLine" id="cb217-51" data-line-number="51"><span class="co">#&gt;   12    10             11.0  0.0608    8.61</span></a>
-<a class="sourceLine" id="cb217-52" data-line-number="52"><span class="co">#&gt;   12    20             10.9  0.0588    8.62</span></a>
-<a class="sourceLine" id="cb217-53" data-line-number="53"><span class="co">#&gt;   17    10             11.0  0.0519    8.65</span></a>
-<a class="sourceLine" id="cb217-54" data-line-number="54"><span class="co">#&gt;   17    20             11.0  0.0583    8.60</span></a>
-<a class="sourceLine" id="cb217-55" data-line-number="55"><span class="co">#&gt;   22    10             10.9  0.0684    8.59</span></a>
-<a class="sourceLine" id="cb217-56" data-line-number="56"><span class="co">#&gt;   22    20             10.9  0.0699    8.59</span></a>
-<a class="sourceLine" id="cb217-57" data-line-number="57"><span class="co">#&gt;   27    10             10.9  0.0710    8.57</span></a>
-<a class="sourceLine" id="cb217-58" data-line-number="58"><span class="co">#&gt;   27    20             10.9  0.0737    8.57</span></a>
-<a class="sourceLine" id="cb217-59" data-line-number="59"><span class="co">#&gt;   32    10             10.9  0.0836    8.55</span></a>
-<a class="sourceLine" id="cb217-60" data-line-number="60"><span class="co">#&gt;   32    20             10.9  0.0836    8.56</span></a>
-<a class="sourceLine" id="cb217-61" data-line-number="61"><span class="co">#&gt;   37    10             10.9  0.0887    8.63</span></a>
-<a class="sourceLine" id="cb217-62" data-line-number="62"><span class="co">#&gt;   37    20             10.9  0.0739    8.57</span></a>
-<a class="sourceLine" id="cb217-63" data-line-number="63"><span class="co">#&gt;   42    10             10.9  0.0606    8.64</span></a>
-<a class="sourceLine" id="cb217-64" data-line-number="64"><span class="co">#&gt;   42    20             10.8  0.0930    8.50</span></a>
-<a class="sourceLine" id="cb217-65" data-line-number="65"><span class="co">#&gt;   47    10             10.9  0.0731    8.58</span></a>
-<a class="sourceLine" id="cb217-66" data-line-number="66"><span class="co">#&gt;   47    20             10.9  0.0753    8.60</span></a>
-<a class="sourceLine" id="cb217-67" data-line-number="67"><span class="co">#&gt;   52    10             10.9  0.0848    8.55</span></a>
-<a class="sourceLine" id="cb217-68" data-line-number="68"><span class="co">#&gt;   52    20             10.9  0.0849    8.53</span></a>
-<a class="sourceLine" id="cb217-69" data-line-number="69"><span class="co">#&gt;   57    10             10.9  0.0748    8.61</span></a>
-<a class="sourceLine" id="cb217-70" data-line-number="70"><span class="co">#&gt;   57    20             10.9  0.0772    8.61</span></a>
-<a class="sourceLine" id="cb217-71" data-line-number="71"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb217-72" data-line-number="72"><span class="co">#&gt; Tuning parameter &#39;splitrule&#39; was held constant at a value of maxstat</span></a>
-<a class="sourceLine" id="cb217-73" data-line-number="73"><span class="co">#&gt; RMSE was used to select the optimal model using the smallest value.</span></a>
-<a class="sourceLine" id="cb217-74" data-line-number="74"><span class="co">#&gt; The final values used for the model were mtry = 42, splitrule =</span></a>
-<a class="sourceLine" id="cb217-75" data-line-number="75"><span class="co">#&gt;  maxstat and min.node.size = 20.</span></a>
-<a class="sourceLine" id="cb217-76" data-line-number="76">mFit2 &lt;-<span class="st"> </span><span class="kw">train</span>(fm.COSha30, <span class="dt">data=</span>ov.COSha30, <span class="dt">method=</span><span class="st">&quot;xgbTree&quot;</span>, </a>
-<a class="sourceLine" id="cb217-77" data-line-number="77">               <span class="dt">trControl=</span>fitControl, <span class="dt">tuneGrid=</span>gb.tuneGrid)</a>
-<a class="sourceLine" id="cb217-78" data-line-number="78">mFit2</a>
-<a class="sourceLine" id="cb217-79" data-line-number="79"><span class="co">#&gt; eXtreme Gradient Boosting </span></a>
-<a class="sourceLine" id="cb217-80" data-line-number="80"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb217-81" data-line-number="81"><span class="co">#&gt; 118 samples</span></a>
-<a class="sourceLine" id="cb217-82" data-line-number="82"><span class="co">#&gt; 132 predictors</span></a>
-<a class="sourceLine" id="cb217-83" data-line-number="83"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb217-84" data-line-number="84"><span class="co">#&gt; No pre-processing</span></a>
-<a class="sourceLine" id="cb217-85" data-line-number="85"><span class="co">#&gt; Resampling: Cross-Validated (4 fold, repeated 1 times) </span></a>
-<a class="sourceLine" id="cb217-86" data-line-number="86"><span class="co">#&gt; Summary of sample sizes: 87, 89, 89, 89 </span></a>
-<a class="sourceLine" id="cb217-87" data-line-number="87"><span class="co">#&gt; Resampling results across tuning parameters:</span></a>
-<a class="sourceLine" id="cb217-88" data-line-number="88"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb217-89" data-line-number="89"><span class="co">#&gt;   eta  max_depth  nrounds  RMSE  Rsquared  MAE </span></a>
-<a class="sourceLine" id="cb217-90" data-line-number="90"><span class="co">#&gt;   0.3  2           50      11.8  0.0361    9.33</span></a>
-<a class="sourceLine" id="cb217-91" data-line-number="91"><span class="co">#&gt;   0.3  2          100      11.8  0.0367    9.33</span></a>
-<a class="sourceLine" id="cb217-92" data-line-number="92"><span class="co">#&gt;   0.3  3           50      11.7  0.0366    9.48</span></a>
-<a class="sourceLine" id="cb217-93" data-line-number="93"><span class="co">#&gt;   0.3  3          100      11.7  0.0367    9.48</span></a>
-<a class="sourceLine" id="cb217-94" data-line-number="94"><span class="co">#&gt;   0.4  2           50      11.9  0.0480    9.53</span></a>
-<a class="sourceLine" id="cb217-95" data-line-number="95"><span class="co">#&gt;   0.4  2          100      11.9  0.0478    9.54</span></a>
-<a class="sourceLine" id="cb217-96" data-line-number="96"><span class="co">#&gt;   0.4  3           50      12.1  0.0429    9.56</span></a>
-<a class="sourceLine" id="cb217-97" data-line-number="97"><span class="co">#&gt;   0.4  3          100      12.1  0.0429    9.56</span></a>
-<a class="sourceLine" id="cb217-98" data-line-number="98"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb217-99" data-line-number="99"><span class="co">#&gt; Tuning parameter &#39;gamma&#39; was held constant at a value of 0</span></a>
-<a class="sourceLine" id="cb217-100" data-line-number="100"><span class="co">#&gt;  0.8</span></a>
-<a class="sourceLine" id="cb217-101" data-line-number="101"><span class="co">#&gt; Tuning parameter &#39;min_child_weight&#39; was held constant at a value of</span></a>
-<a class="sourceLine" id="cb217-102" data-line-number="102"><span class="co">#&gt;  1</span></a>
-<a class="sourceLine" id="cb217-103" data-line-number="103"><span class="co">#&gt; Tuning parameter &#39;subsample&#39; was held constant at a value of 1</span></a>
-<a class="sourceLine" id="cb217-104" data-line-number="104"><span class="co">#&gt; RMSE was used to select the optimal model using the smallest value.</span></a>
-<a class="sourceLine" id="cb217-105" data-line-number="105"><span class="co">#&gt; The final values used for the model were nrounds = 100, max_depth = 3,</span></a>
-<a class="sourceLine" id="cb217-106" data-line-number="106"><span class="co">#&gt;  eta = 0.3, gamma = 0, colsample_bytree = 0.8, min_child_weight = 1</span></a>
-<a class="sourceLine" id="cb217-107" data-line-number="107"><span class="co">#&gt;  and subsample = 1.</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(caret)
+<span class="co">#&gt; Loading required package: lattice</span>
+<span class="co">#&gt; Loading required package: ggplot2</span>
+<span class="kw">library</span>(ranger)
+fm.COSha30 =<span class="st"> </span><span class="kw">as.formula</span>(<span class="kw">paste</span>(<span class="st">&quot;COSha30 ~ &quot;</span>, <span class="kw">paste</span>(<span class="kw">names</span>(covs30m.spc<span class="op">@</span>predicted), <span class="dt">collapse =</span> <span class="st">&quot;+&quot;</span>)))
+fm.COSha30
+<span class="co">#&gt; COSha30 ~ PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + PC9 + </span>
+<span class="co">#&gt;     PC10 + PC11 + PC12 + PC13 + PC14 + PC15 + PC16 + PC17 + PC18 + </span>
+<span class="co">#&gt;     PC19 + PC20 + PC21 + PC22 + PC23 + PC24 + PC25 + PC26 + PC27 + </span>
+<span class="co">#&gt;     PC28 + PC29 + PC30 + PC31 + PC32 + PC33 + PC34 + PC35 + PC36 + </span>
+<span class="co">#&gt;     PC37 + PC38 + PC39 + PC40 + PC41 + PC42 + PC43 + PC44 + PC45 + </span>
+<span class="co">#&gt;     PC46 + PC47 + PC48 + PC49 + PC50 + PC51 + PC52 + PC53 + PC54 + </span>
+<span class="co">#&gt;     PC55 + PC56 + PC57 + PC58 + PC59 + PC60 + PC61 + PC62 + PC63 + </span>
+<span class="co">#&gt;     PC64 + PC65 + PC66 + PC67 + PC68 + PC69 + PC70 + PC71 + PC72 + </span>
+<span class="co">#&gt;     PC73 + PC74 + PC75 + PC76 + PC77 + PC78 + PC79 + PC80 + PC81 + </span>
+<span class="co">#&gt;     PC82 + PC83 + PC84 + PC85 + PC86 + PC87 + PC88 + PC89 + PC90 + </span>
+<span class="co">#&gt;     PC91 + PC92 + PC93 + PC94 + PC95 + PC96 + PC97 + PC98 + PC99 + </span>
+<span class="co">#&gt;     PC100 + PC101 + PC102 + PC103 + PC104 + PC105 + PC106 + PC107 + </span>
+<span class="co">#&gt;     PC108 + PC109 + PC110 + PC111 + PC112 + PC113 + PC114 + PC115 + </span>
+<span class="co">#&gt;     PC116 + PC117 + PC118 + PC119 + PC120 + PC121 + PC122 + PC123 + </span>
+<span class="co">#&gt;     PC124 + PC125 + PC126 + PC127 + PC128 + PC129 + PC130 + PC131 + </span>
+<span class="co">#&gt;     PC132</span>
+rf.tuneGrid &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(<span class="dt">.mtry =</span> <span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">60</span>, <span class="dt">by=</span><span class="dv">5</span>),
+                           <span class="dt">.splitrule =</span> <span class="st">&quot;maxstat&quot;</span>,
+                           <span class="dt">.min.node.size =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>))
+gb.tuneGrid &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(<span class="dt">eta =</span> <span class="kw">c</span>(<span class="fl">0.3</span>,<span class="fl">0.4</span>), 
+                           <span class="dt">nrounds =</span> <span class="kw">c</span>(<span class="dv">50</span>,<span class="dv">100</span>), 
+                           <span class="dt">max_depth =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">gamma =</span> <span class="dv">0</span>, 
+                           <span class="dt">colsample_bytree =</span> <span class="fl">0.8</span>, 
+                           <span class="dt">min_child_weight =</span> <span class="dv">1</span>, <span class="dt">subsample=</span><span class="dv">1</span>)
+fitControl &lt;-<span class="st"> </span><span class="kw">trainControl</span>(<span class="dt">method=</span><span class="st">&quot;repeatedcv&quot;</span>, <span class="dt">number=</span><span class="dv">4</span>, <span class="dt">repeats=</span><span class="dv">1</span>)
+mFit1 &lt;-<span class="st"> </span><span class="kw">train</span>(fm.COSha30, <span class="dt">data=</span>ov.COSha30, <span class="dt">method=</span><span class="st">&quot;ranger&quot;</span>, 
+               <span class="dt">trControl=</span>fitControl, <span class="dt">importance=</span><span class="st">&#39;impurity&#39;</span>, 
+               <span class="dt">tuneGrid=</span>rf.tuneGrid)
+mFit1
+<span class="co">#&gt; Random Forest </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; 118 samples</span>
+<span class="co">#&gt; 132 predictors</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; No pre-processing</span>
+<span class="co">#&gt; Resampling: Cross-Validated (4 fold, repeated 1 times) </span>
+<span class="co">#&gt; Summary of sample sizes: 87, 88, 89, 90 </span>
+<span class="co">#&gt; Resampling results across tuning parameters:</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;   mtry  min.node.size  RMSE  Rsquared  MAE </span>
+<span class="co">#&gt;    2    10             11.0  0.0225    8.75</span>
+<span class="co">#&gt;    2    20             11.0  0.0450    8.69</span>
+<span class="co">#&gt;    7    10             11.0  0.0442    8.66</span>
+<span class="co">#&gt;    7    20             11.0  0.0442    8.68</span>
+<span class="co">#&gt;   12    10             11.0  0.0608    8.61</span>
+<span class="co">#&gt;   12    20             10.9  0.0588    8.62</span>
+<span class="co">#&gt;   17    10             11.0  0.0519    8.65</span>
+<span class="co">#&gt;   17    20             11.0  0.0583    8.60</span>
+<span class="co">#&gt;   22    10             10.9  0.0684    8.59</span>
+<span class="co">#&gt;   22    20             10.9  0.0699    8.59</span>
+<span class="co">#&gt;   27    10             10.9  0.0710    8.57</span>
+<span class="co">#&gt;   27    20             10.9  0.0737    8.57</span>
+<span class="co">#&gt;   32    10             10.9  0.0836    8.55</span>
+<span class="co">#&gt;   32    20             10.9  0.0836    8.56</span>
+<span class="co">#&gt;   37    10             10.9  0.0887    8.63</span>
+<span class="co">#&gt;   37    20             10.9  0.0739    8.57</span>
+<span class="co">#&gt;   42    10             10.9  0.0606    8.64</span>
+<span class="co">#&gt;   42    20             10.8  0.0930    8.50</span>
+<span class="co">#&gt;   47    10             10.9  0.0731    8.58</span>
+<span class="co">#&gt;   47    20             10.9  0.0753    8.60</span>
+<span class="co">#&gt;   52    10             10.9  0.0848    8.55</span>
+<span class="co">#&gt;   52    20             10.9  0.0849    8.53</span>
+<span class="co">#&gt;   57    10             10.9  0.0748    8.61</span>
+<span class="co">#&gt;   57    20             10.9  0.0772    8.61</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Tuning parameter &#39;splitrule&#39; was held constant at a value of maxstat</span>
+<span class="co">#&gt; RMSE was used to select the optimal model using the smallest value.</span>
+<span class="co">#&gt; The final values used for the model were mtry = 42, splitrule =</span>
+<span class="co">#&gt;  maxstat and min.node.size = 20.</span>
+mFit2 &lt;-<span class="st"> </span><span class="kw">train</span>(fm.COSha30, <span class="dt">data=</span>ov.COSha30, <span class="dt">method=</span><span class="st">&quot;xgbTree&quot;</span>, 
+               <span class="dt">trControl=</span>fitControl, <span class="dt">tuneGrid=</span>gb.tuneGrid)
+mFit2
+<span class="co">#&gt; eXtreme Gradient Boosting </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; 118 samples</span>
+<span class="co">#&gt; 132 predictors</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; No pre-processing</span>
+<span class="co">#&gt; Resampling: Cross-Validated (4 fold, repeated 1 times) </span>
+<span class="co">#&gt; Summary of sample sizes: 87, 89, 89, 89 </span>
+<span class="co">#&gt; Resampling results across tuning parameters:</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;   eta  max_depth  nrounds  RMSE  Rsquared  MAE </span>
+<span class="co">#&gt;   0.3  2           50      11.8  0.0361    9.33</span>
+<span class="co">#&gt;   0.3  2          100      11.8  0.0367    9.33</span>
+<span class="co">#&gt;   0.3  3           50      11.7  0.0366    9.48</span>
+<span class="co">#&gt;   0.3  3          100      11.7  0.0367    9.48</span>
+<span class="co">#&gt;   0.4  2           50      11.9  0.0480    9.53</span>
+<span class="co">#&gt;   0.4  2          100      11.9  0.0478    9.54</span>
+<span class="co">#&gt;   0.4  3           50      12.1  0.0429    9.56</span>
+<span class="co">#&gt;   0.4  3          100      12.1  0.0429    9.56</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Tuning parameter &#39;gamma&#39; was held constant at a value of 0</span>
+<span class="co">#&gt;  0.8</span>
+<span class="co">#&gt; Tuning parameter &#39;min_child_weight&#39; was held constant at a value of</span>
+<span class="co">#&gt;  1</span>
+<span class="co">#&gt; Tuning parameter &#39;subsample&#39; was held constant at a value of 1</span>
+<span class="co">#&gt; RMSE was used to select the optimal model using the smallest value.</span>
+<span class="co">#&gt; The final values used for the model were nrounds = 100, max_depth = 3,</span>
+<span class="co">#&gt;  eta = 0.3, gamma = 0, colsample_bytree = 0.8, min_child_weight = 1</span>
+<span class="co">#&gt;  and subsample = 1.</span></code></pre></div>
 <p>This example illustrates that no significant spatial prediction models (with an R-square exceeding 10%) can be fitted using these data. It is very common in soil mapping projects for models to explain only low amounts of the total variation, resulting in large average errors of prediction and/or wide prediction intervals. This can occur because of high measurement errors, and/or because there are missing covariates, but it could also happen because the natural complexity of soils in the area is simply high.</p>
 <p>Note that the absolute values of our predictions of OCS are somewhat different than those produced by the <a href="https://cran.r-project.org/package=geospt">geospt package</a> authors, although the main patterns are comparable.</p>
 <div class="figure" style="text-align: center"><span id="fig:plot-cosha30map-rf"></span>
@@ -928,34 +906,34 @@ Figure 7.8: Comparison of predictions generated using ordinary kriging (left) an
 </p>
 </div>
 <p>We can compare the difference between mean predicted OCS and measured OCS:</p>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb218-1" data-line-number="1"><span class="kw">mean</span>(COSha30.pr<span class="op">$</span>COSha30map_RF, <span class="dt">na.rm=</span><span class="ot">TRUE</span>); <span class="kw">mean</span>(COSha30<span class="op">$</span>COSha30, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb218-2" data-line-number="2"><span class="co">#&gt; [1] 48.6</span></a>
-<a class="sourceLine" id="cb218-3" data-line-number="3"><span class="co">#&gt; [1] 50.6</span></a>
-<a class="sourceLine" id="cb218-4" data-line-number="4"><span class="co">## 48 tonnes/ha vs 51 tonnes / ha</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(COSha30.pr<span class="op">$</span>COSha30map_RF, <span class="dt">na.rm=</span><span class="ot">TRUE</span>); <span class="kw">mean</span>(COSha30<span class="op">$</span>COSha30, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)
+<span class="co">#&gt; [1] 48.6</span>
+<span class="co">#&gt; [1] 50.6</span>
+## 48 tonnes/ha vs 51 tonnes / ha</code></pre></div>
 <p>and derive the total SOC in tonnes:</p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb219-1" data-line-number="1"><span class="kw">sum</span>(COSha30.pr<span class="op">$</span>COSha30map_RF<span class="op">*</span><span class="dv">30</span><span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="fl">1e4</span>, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb219-2" data-line-number="2"><span class="co">#&gt; [1] 102089</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(COSha30.pr<span class="op">$</span>COSha30map_RF<span class="op">*</span><span class="dv">30</span><span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="fl">1e4</span>, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)
+<span class="co">#&gt; [1] 102089</span></code></pre></div>
 </div>
 <div id="ocs-3d-approach" class="section level2">
 <h2><span class="header-section-number">7.7</span> Deriving OCS from soil profile data (the 3D approach)</h2>
 <p>In the following example, we will demonstrate, using a known data set, (<a href="http://gsif.r-forge.r-project.org/edgeroi.html">Edgeroi</a>, from Australia) which has been well documented in the literature <span class="citation">(Malone et al. <a href="#ref-Malone2009Geoderma">2009</a>)</span>, how to derive OCS in t/ha using soil profile data and a 3D approach to spatial prediction based on mapping the Organic Carbon Density (OCD) in kg/m-cubic. The Edgeroi data set is a typical example of a soil profile data set that is relatively comprehensive, but still missing BLD measurements.</p>
 <p>The Edgeroi data set can be loaded from the GSIF package:</p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb220-1" data-line-number="1"><span class="kw">library</span>(GSIF)</a>
-<a class="sourceLine" id="cb220-2" data-line-number="2"><span class="kw">data</span>(edgeroi)</a>
-<a class="sourceLine" id="cb220-3" data-line-number="3">edgeroi.sp =<span class="st"> </span>edgeroi<span class="op">$</span>sites</a>
-<a class="sourceLine" id="cb220-4" data-line-number="4"><span class="kw">coordinates</span>(edgeroi.sp) &lt;-<span class="st"> </span><span class="er">~</span><span class="st"> </span>LONGDA94 <span class="op">+</span><span class="st"> </span>LATGDA94</a>
-<a class="sourceLine" id="cb220-5" data-line-number="5"><span class="kw">proj4string</span>(edgeroi.sp) &lt;-<span class="st"> </span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +no_defs&quot;</span>)</a>
-<a class="sourceLine" id="cb220-6" data-line-number="6">edgeroi.sp &lt;-<span class="st"> </span><span class="kw">spTransform</span>(edgeroi.sp, <span class="kw">CRS</span>(<span class="st">&quot;+init=epsg:28355&quot;</span>))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(GSIF)
+<span class="kw">data</span>(edgeroi)
+edgeroi.sp =<span class="st"> </span>edgeroi<span class="op">$</span>sites
+<span class="kw">coordinates</span>(edgeroi.sp) &lt;-<span class="st"> </span><span class="er">~</span><span class="st"> </span>LONGDA94 <span class="op">+</span><span class="st"> </span>LATGDA94
+<span class="kw">proj4string</span>(edgeroi.sp) &lt;-<span class="st"> </span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +no_defs&quot;</span>)
+edgeroi.sp &lt;-<span class="st"> </span><span class="kw">spTransform</span>(edgeroi.sp, <span class="kw">CRS</span>(<span class="st">&quot;+init=epsg:28355&quot;</span>))</code></pre></div>
 <p>This data set comes with a list of covariate layers which can be used to model the distribution of soil organic carbon:</p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" data-line-number="1"><span class="kw">load</span>(<span class="st">&quot;extdata/edgeroi.grids.rda&quot;</span>)</a>
-<a class="sourceLine" id="cb221-2" data-line-number="2"><span class="kw">gridded</span>(edgeroi.grids) &lt;-<span class="st"> </span><span class="er">~</span>x<span class="op">+</span>y</a>
-<a class="sourceLine" id="cb221-3" data-line-number="3"><span class="kw">proj4string</span>(edgeroi.grids) &lt;-<span class="st"> </span><span class="kw">CRS</span>(<span class="st">&quot;+init=epsg:28355&quot;</span>)</a>
-<a class="sourceLine" id="cb221-4" data-line-number="4"><span class="kw">names</span>(edgeroi.grids)</a>
-<a class="sourceLine" id="cb221-5" data-line-number="5"><span class="co">#&gt; [1] &quot;DEMSRT5&quot; &quot;TWISRT5&quot; &quot;PMTGEO5&quot; &quot;EV1MOD5&quot; &quot;EV2MOD5&quot; &quot;EV3MOD5&quot;</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">load</span>(<span class="st">&quot;extdata/edgeroi.grids.rda&quot;</span>)
+<span class="kw">gridded</span>(edgeroi.grids) &lt;-<span class="st"> </span><span class="er">~</span>x<span class="op">+</span>y
+<span class="kw">proj4string</span>(edgeroi.grids) &lt;-<span class="st"> </span><span class="kw">CRS</span>(<span class="st">&quot;+init=epsg:28355&quot;</span>)
+<span class="kw">names</span>(edgeroi.grids)
+<span class="co">#&gt; [1] &quot;DEMSRT5&quot; &quot;TWISRT5&quot; &quot;PMTGEO5&quot; &quot;EV1MOD5&quot; &quot;EV2MOD5&quot; &quot;EV3MOD5&quot;</span></code></pre></div>
 <p>Because some of the covariate layers are factors e.g. <code>PMTGEO5</code> (parent material map) and because random forest requires numeric covariates, we can convert factors to numeric PCs by using:</p>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb222-1" data-line-number="1">edgeroi.spc =<span class="st"> </span><span class="kw">spc</span>(edgeroi.grids, <span class="op">~</span>DEMSRT5<span class="op">+</span>TWISRT5<span class="op">+</span>PMTGEO5<span class="op">+</span>EV1MOD5<span class="op">+</span>EV2MOD5<span class="op">+</span>EV3MOD5)</a>
-<a class="sourceLine" id="cb222-2" data-line-number="2"><span class="co">#&gt; Converting PMTGEO5 to indicators...</span></a>
-<a class="sourceLine" id="cb222-3" data-line-number="3"><span class="co">#&gt; Converting covariates to principal components...</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">edgeroi.spc =<span class="st"> </span><span class="kw">spc</span>(edgeroi.grids, <span class="op">~</span>DEMSRT5<span class="op">+</span>TWISRT5<span class="op">+</span>PMTGEO5<span class="op">+</span>EV1MOD5<span class="op">+</span>EV2MOD5<span class="op">+</span>EV3MOD5)
+<span class="co">#&gt; Converting PMTGEO5 to indicators...</span>
+<span class="co">#&gt; Converting covariates to principal components...</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:edgeroi-overview"></span>
 <img src="figures/edgeroi_overview.jpeg" alt="Edgeroi data set: locations of soil profiles and Australian soil classification codes. For more details see Malone et al. (2009)." width="100%" />
 <p class="caption">
@@ -963,86 +941,85 @@ Figure 7.9: Edgeroi data set: locations of soil profiles and Australian soil cla
 </p>
 </div>
 <p>Note that Edgeroi completely lacks any BLD values, therefore before we can compute OCD values, we need to estimate BLD values for each corresponding horizon. Here the easiest option is probably to use BLD values sourced from LandGIS predictions (and which you can download from <a href="https://landgis.opengeohub.org" class="uri">https://landgis.opengeohub.org</a>).</p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" data-line-number="1">landgis.bld =<span class="st"> </span><span class="kw">list.files</span>(<span class="st">&quot;/mnt/DATA/LandGIS/predicted250m&quot;</span>, </a>
-<a class="sourceLine" id="cb223-2" data-line-number="2">                     <span class="dt">pattern=</span><span class="kw">glob2rx</span>(<span class="st">&quot;sol_bulkdens.fineearth_usda.4a1h_m_*.tif$&quot;</span>), <span class="dt">full.names=</span><span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb223-3" data-line-number="3"><span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(landgis.bld)){</a>
-<a class="sourceLine" id="cb223-4" data-line-number="4">  <span class="kw">system</span>(<span class="kw">paste0</span>(<span class="st">&#39;gdalwarp &#39;</span>, landgis.bld[j], <span class="st">&#39; extdata/edgeroi_&#39;</span>, <span class="kw">basename</span>(landgis.bld[j]), </a>
-<a class="sourceLine" id="cb223-5" data-line-number="5">         <span class="st">&#39; -t_srs </span><span class="ch">\&quot;</span><span class="st">&#39;</span>, <span class="kw">proj4string</span>(edgeroi.grids), <span class="st">&#39;</span><span class="ch">\&quot;</span><span class="st"> -tr 250 250 -co </span><span class="ch">\&quot;</span><span class="st">COMPRESS=DEFLATE</span><span class="ch">\&quot;</span><span class="st">&#39;</span>, </a>
-<a class="sourceLine" id="cb223-6" data-line-number="6">         <span class="st">&#39; -te &#39;</span>, <span class="kw">paste</span>(<span class="kw">as.vector</span>(edgeroi.grids<span class="op">@</span>bbox), <span class="dt">collapse =</span> <span class="st">&quot; &quot;</span>)))</a>
-<a class="sourceLine" id="cb223-7" data-line-number="7">}</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">landgis.bld =<span class="st"> </span><span class="kw">list.files</span>(<span class="st">&quot;/mnt/DATA/LandGIS/predicted250m&quot;</span>, 
+                     <span class="dt">pattern=</span><span class="kw">glob2rx</span>(<span class="st">&quot;sol_bulkdens.fineearth_usda.4a1h_m_*.tif$&quot;</span>), <span class="dt">full.names=</span><span class="ot">TRUE</span>)
+<span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(landgis.bld)){
+  <span class="kw">system</span>(<span class="kw">paste0</span>(<span class="st">&#39;gdalwarp &#39;</span>, landgis.bld[j], <span class="st">&#39; extdata/edgeroi_&#39;</span>, <span class="kw">basename</span>(landgis.bld[j]), 
+         <span class="st">&#39; -t_srs </span><span class="ch">\&quot;</span><span class="st">&#39;</span>, <span class="kw">proj4string</span>(edgeroi.grids), <span class="st">&#39;</span><span class="ch">\&quot;</span><span class="st"> -tr 250 250 -co </span><span class="ch">\&quot;</span><span class="st">COMPRESS=DEFLATE</span><span class="ch">\&quot;</span><span class="st">&#39;</span>, 
+         <span class="st">&#39; -te &#39;</span>, <span class="kw">paste</span>(<span class="kw">as.vector</span>(edgeroi.grids<span class="op">@</span>bbox), <span class="dt">collapse =</span> <span class="st">&quot; &quot;</span>)))
+}</code></pre></div>
 <p>Matching between the irregularly distributed soil horizons and LandGIS bulk density at standard depths can be implemented in three steps. First, we overlay the points and LandGIS GeoTIFFs to get the BLD values in kg / cubic-m at standard depths:</p>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb224-1" data-line-number="1">sg &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;edgeroi_sol_bulkdens.fineearth&quot;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb224-2" data-line-number="2">ov &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(raster<span class="op">::</span><span class="kw">extract</span>(<span class="kw">stack</span>(sg), edgeroi.sp)<span class="op">*</span><span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb224-3" data-line-number="3">ov.edgeroi.BLD =<span class="st"> </span>ov[,<span class="kw">c</span>(<span class="kw">grep</span>(<span class="st">&quot;b0..&quot;</span>, <span class="kw">names</span>(ov), <span class="dt">fixed =</span> <span class="ot">TRUE</span>), <span class="kw">grep</span>(<span class="st">&quot;b10..&quot;</span>, <span class="kw">names</span>(ov), <span class="dt">fixed =</span> <span class="ot">TRUE</span>), </a>
-<a class="sourceLine" id="cb224-4" data-line-number="4">                       <span class="kw">grep</span>(<span class="st">&quot;b30..&quot;</span>, <span class="kw">names</span>(ov), <span class="dt">fixed =</span> <span class="ot">TRUE</span>), <span class="kw">grep</span>(<span class="st">&quot;b60..&quot;</span>, <span class="kw">names</span>(ov), <span class="dt">fixed =</span> <span class="ot">TRUE</span>), </a>
-<a class="sourceLine" id="cb224-5" data-line-number="5">                       <span class="kw">grep</span>(<span class="st">&quot;b100..&quot;</span>, <span class="kw">names</span>(ov), <span class="dt">fixed =</span> <span class="ot">TRUE</span>), <span class="kw">grep</span>(<span class="st">&quot;b200..&quot;</span>, <span class="kw">names</span>(ov), <span class="dt">fixed =</span> <span class="ot">TRUE</span>))]</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sg &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;edgeroi_sol_bulkdens.fineearth&quot;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)
+ov &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(raster<span class="op">::</span><span class="kw">extract</span>(<span class="kw">stack</span>(sg), edgeroi.sp)<span class="op">*</span><span class="dv">10</span>)
+ov.edgeroi.BLD =<span class="st"> </span>ov[,<span class="kw">c</span>(<span class="kw">grep</span>(<span class="st">&quot;b0..&quot;</span>, <span class="kw">names</span>(ov), <span class="dt">fixed =</span> <span class="ot">TRUE</span>), <span class="kw">grep</span>(<span class="st">&quot;b10..&quot;</span>, <span class="kw">names</span>(ov), <span class="dt">fixed =</span> <span class="ot">TRUE</span>), 
+                       <span class="kw">grep</span>(<span class="st">&quot;b30..&quot;</span>, <span class="kw">names</span>(ov), <span class="dt">fixed =</span> <span class="ot">TRUE</span>), <span class="kw">grep</span>(<span class="st">&quot;b60..&quot;</span>, <span class="kw">names</span>(ov), <span class="dt">fixed =</span> <span class="ot">TRUE</span>), 
+                       <span class="kw">grep</span>(<span class="st">&quot;b100..&quot;</span>, <span class="kw">names</span>(ov), <span class="dt">fixed =</span> <span class="ot">TRUE</span>), <span class="kw">grep</span>(<span class="st">&quot;b200..&quot;</span>, <span class="kw">names</span>(ov), <span class="dt">fixed =</span> <span class="ot">TRUE</span>))]</code></pre></div>
 <p>Second, we derive averaged estimates of BLD for standard depth intervals:</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" data-line-number="1">ov.edgeroi.BLDm =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">BLD.f=</span><span class="kw">as.vector</span>(<span class="kw">sapply</span>(<span class="dv">2</span><span class="op">:</span><span class="kw">ncol</span>(ov.edgeroi.BLD),                                                <span class="cf">function</span>(i){<span class="kw">rowMeans</span>(ov.edgeroi.BLD[,<span class="kw">c</span>(i<span class="dv">-1</span>,i)])})),</a>
-<a class="sourceLine" id="cb225-2" data-line-number="2">                    <span class="dt">DEPTH.c=</span><span class="kw">as.vector</span>(<span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="cf">function</span>(i){<span class="kw">rep</span>(<span class="kw">paste0</span>(<span class="st">&quot;sd&quot;</span>,i),</a>
-<a class="sourceLine" id="cb225-3" data-line-number="3">                        <span class="kw">nrow</span>(edgeroi<span class="op">$</span>sites))})), <span class="dt">SOURCEID=</span><span class="kw">rep</span>(edgeroi<span class="op">$</span>sites<span class="op">$</span>SOURCEID, <span class="dv">5</span>))</a>
-<a class="sourceLine" id="cb225-4" data-line-number="4"><span class="kw">str</span>(ov.edgeroi.BLDm)</a>
-<a class="sourceLine" id="cb225-5" data-line-number="5"><span class="co">#&gt; &#39;data.frame&#39;:    1795 obs. of  3 variables:</span></a>
-<a class="sourceLine" id="cb225-6" data-line-number="6"><span class="co">#&gt;  $ BLD.f   : num  1370 1335 1310 1500 1490 ...</span></a>
-<a class="sourceLine" id="cb225-7" data-line-number="7"><span class="co">#&gt;  $ DEPTH.c : Factor w/ 5 levels &quot;sd1&quot;,&quot;sd2&quot;,&quot;sd3&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</span></a>
-<a class="sourceLine" id="cb225-8" data-line-number="8"><span class="co">#&gt;  $ SOURCEID: Factor w/ 359 levels &quot;199_CAN_CP111_1&quot;,..: 1 2 3 4 5 6 7 8 9 10 ...</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ov.edgeroi.BLDm =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">BLD.f=</span><span class="kw">as.vector</span>(<span class="kw">sapply</span>(<span class="dv">2</span><span class="op">:</span><span class="kw">ncol</span>(ov.edgeroi.BLD),                                                <span class="cf">function</span>(i){<span class="kw">rowMeans</span>(ov.edgeroi.BLD[,<span class="kw">c</span>(i<span class="dv">-1</span>,i)])})),
+                    <span class="dt">DEPTH.c=</span><span class="kw">as.vector</span>(<span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="cf">function</span>(i){<span class="kw">rep</span>(<span class="kw">paste0</span>(<span class="st">&quot;sd&quot;</span>,i),
+                        <span class="kw">nrow</span>(edgeroi<span class="op">$</span>sites))})), <span class="dt">SOURCEID=</span><span class="kw">rep</span>(edgeroi<span class="op">$</span>sites<span class="op">$</span>SOURCEID, <span class="dv">5</span>))
+<span class="kw">str</span>(ov.edgeroi.BLDm)
+<span class="co">#&gt; &#39;data.frame&#39;:    1795 obs. of  3 variables:</span>
+<span class="co">#&gt;  $ BLD.f   : num  1370 1335 1310 1500 1490 ...</span>
+<span class="co">#&gt;  $ DEPTH.c : Factor w/ 5 levels &quot;sd1&quot;,&quot;sd2&quot;,&quot;sd3&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</span>
+<span class="co">#&gt;  $ SOURCEID: Factor w/ 359 levels &quot;199_CAN_CP111_1&quot;,..: 1 2 3 4 5 6 7 8 9 10 ...</span></code></pre></div>
 <p>Third, we match BLD values by matching horizon depths (center of horizon) with the standard depth intervals <code>sd1</code> to <code>sd5</code>:</p>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" data-line-number="1">edgeroi<span class="op">$</span>horizons<span class="op">$</span>DEPTH =<span class="st"> </span>edgeroi<span class="op">$</span>horizons<span class="op">$</span>UHDICM <span class="op">+</span><span class="st"> </span>(edgeroi<span class="op">$</span>horizons<span class="op">$</span>LHDICM <span class="op">-</span><span class="st"> </span>edgeroi<span class="op">$</span>horizons<span class="op">$</span>UHDICM)<span class="op">/</span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb226-2" data-line-number="2">edgeroi<span class="op">$</span>horizons<span class="op">$</span>DEPTH.c =<span class="st"> </span><span class="kw">cut</span>(edgeroi<span class="op">$</span>horizons<span class="op">$</span>DEPTH, <span class="dt">include.lowest=</span><span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb226-3" data-line-number="3">                               <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">30</span>,<span class="dv">60</span>,<span class="dv">100</span>,<span class="dv">1000</span>), <span class="dt">labels=</span><span class="kw">paste0</span>(<span class="st">&quot;sd&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>))</a>
-<a class="sourceLine" id="cb226-4" data-line-number="4"><span class="kw">summary</span>(edgeroi<span class="op">$</span>horizons<span class="op">$</span>DEPTH.c)</a>
-<a class="sourceLine" id="cb226-5" data-line-number="5"><span class="co">#&gt; sd1 sd2 sd3 sd4 sd5 </span></a>
-<a class="sourceLine" id="cb226-6" data-line-number="6"><span class="co">#&gt; 391 379 408 391 769</span></a>
-<a class="sourceLine" id="cb226-7" data-line-number="7">edgeroi<span class="op">$</span>horizons<span class="op">$</span>BLD.f =<span class="st"> </span>plyr<span class="op">::</span><span class="kw">join</span>(edgeroi<span class="op">$</span>horizons[,<span class="kw">c</span>(<span class="st">&quot;SOURCEID&quot;</span>,<span class="st">&quot;DEPTH.c&quot;</span>)], ov.edgeroi.BLDm)<span class="op">$</span>BLD.f</a>
-<a class="sourceLine" id="cb226-8" data-line-number="8"><span class="co">#&gt; Joining by: SOURCEID, DEPTH.c</span></a></code></pre></div>
-<p>which shows relatively equal distribution of soil horizons for within the standard depths.
-Now that we have a rough estimate of the bulk density for all horizons, we can derive OCD in kg/m-cubic by using:</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" data-line-number="1">edgeroi<span class="op">$</span>horizons<span class="op">$</span>OCD =<span class="st"> </span>edgeroi<span class="op">$</span>horizons<span class="op">$</span>ORCDRC<span class="op">/</span><span class="dv">1000</span> <span class="op">*</span><span class="st"> </span>edgeroi<span class="op">$</span>horizons<span class="op">$</span>BLD.f</a>
-<a class="sourceLine" id="cb227-2" data-line-number="2"><span class="kw">summary</span>(edgeroi<span class="op">$</span>horizons<span class="op">$</span>OCD)</a>
-<a class="sourceLine" id="cb227-3" data-line-number="3"><span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s </span></a>
-<a class="sourceLine" id="cb227-4" data-line-number="4"><span class="co">#&gt;     0.1     2.4     7.2     9.5    13.2   124.9     262</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">edgeroi<span class="op">$</span>horizons<span class="op">$</span>DEPTH =<span class="st"> </span>edgeroi<span class="op">$</span>horizons<span class="op">$</span>UHDICM <span class="op">+</span><span class="st"> </span>(edgeroi<span class="op">$</span>horizons<span class="op">$</span>LHDICM <span class="op">-</span><span class="st"> </span>edgeroi<span class="op">$</span>horizons<span class="op">$</span>UHDICM)<span class="op">/</span><span class="dv">2</span>
+edgeroi<span class="op">$</span>horizons<span class="op">$</span>DEPTH.c =<span class="st"> </span><span class="kw">cut</span>(edgeroi<span class="op">$</span>horizons<span class="op">$</span>DEPTH, <span class="dt">include.lowest=</span><span class="ot">TRUE</span>,
+                               <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">30</span>,<span class="dv">60</span>,<span class="dv">100</span>,<span class="dv">1000</span>), <span class="dt">labels=</span><span class="kw">paste0</span>(<span class="st">&quot;sd&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>))
+<span class="kw">summary</span>(edgeroi<span class="op">$</span>horizons<span class="op">$</span>DEPTH.c)
+<span class="co">#&gt; sd1 sd2 sd3 sd4 sd5 </span>
+<span class="co">#&gt; 391 379 408 391 769</span>
+edgeroi<span class="op">$</span>horizons<span class="op">$</span>BLD.f =<span class="st"> </span>plyr<span class="op">::</span><span class="kw">join</span>(edgeroi<span class="op">$</span>horizons[,<span class="kw">c</span>(<span class="st">&quot;SOURCEID&quot;</span>,<span class="st">&quot;DEPTH.c&quot;</span>)], ov.edgeroi.BLDm)<span class="op">$</span>BLD.f
+<span class="co">#&gt; Joining by: SOURCEID, DEPTH.c</span></code></pre></div>
+<p>which shows relatively equal distribution of soil horizons for within the standard depths. Now that we have a rough estimate of the bulk density for all horizons, we can derive OCD in kg/m-cubic by using:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">edgeroi<span class="op">$</span>horizons<span class="op">$</span>OCD =<span class="st"> </span>edgeroi<span class="op">$</span>horizons<span class="op">$</span>ORCDRC<span class="op">/</span><span class="dv">1000</span> <span class="op">*</span><span class="st"> </span>edgeroi<span class="op">$</span>horizons<span class="op">$</span>BLD.f
+<span class="kw">summary</span>(edgeroi<span class="op">$</span>horizons<span class="op">$</span>OCD)
+<span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s </span>
+<span class="co">#&gt;     0.1     2.4     7.2     9.5    13.2   124.9     262</span></code></pre></div>
 <p>This shows that OCD values range from 0–110 kg/m-cubic, with an average of 9.5 kg/m-cubic (this corresponds to an average organic carbon content of about 0.8%).</p>
 <p>For further 3D spatial prediction of OCD we use the ranger package, which fits a random forest model to this 3D data. We start by overlaying points and rasters so that we can create a regression matrix:</p>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" data-line-number="1">ov2 &lt;-<span class="st"> </span><span class="kw">over</span>(edgeroi.sp, edgeroi.spc<span class="op">@</span>predicted)</a>
-<a class="sourceLine" id="cb228-2" data-line-number="2">ov2<span class="op">$</span>SOURCEID =<span class="st"> </span>edgeroi.sp<span class="op">$</span>SOURCEID</a>
-<a class="sourceLine" id="cb228-3" data-line-number="3">h2 =<span class="st"> </span><span class="kw">hor2xyd</span>(edgeroi<span class="op">$</span>horizons)</a>
-<a class="sourceLine" id="cb228-4" data-line-number="4">m2 &lt;-<span class="st"> </span>plyr<span class="op">::</span><span class="kw">join_all</span>(<span class="dt">dfs =</span> <span class="kw">list</span>(edgeroi<span class="op">$</span>sites, h2, ov2))</a>
-<a class="sourceLine" id="cb228-5" data-line-number="5"><span class="co">#&gt; Joining by: SOURCEID</span></a>
-<a class="sourceLine" id="cb228-6" data-line-number="6"><span class="co">#&gt; Joining by: SOURCEID</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ov2 &lt;-<span class="st"> </span><span class="kw">over</span>(edgeroi.sp, edgeroi.spc<span class="op">@</span>predicted)
+ov2<span class="op">$</span>SOURCEID =<span class="st"> </span>edgeroi.sp<span class="op">$</span>SOURCEID
+h2 =<span class="st"> </span><span class="kw">hor2xyd</span>(edgeroi<span class="op">$</span>horizons)
+m2 &lt;-<span class="st"> </span>plyr<span class="op">::</span><span class="kw">join_all</span>(<span class="dt">dfs =</span> <span class="kw">list</span>(edgeroi<span class="op">$</span>sites, h2, ov2))
+<span class="co">#&gt; Joining by: SOURCEID</span>
+<span class="co">#&gt; Joining by: SOURCEID</span></code></pre></div>
 <p>The spatial prediction model can be fitted using:</p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb229-1" data-line-number="1">fm.OCD =<span class="st"> </span><span class="kw">as.formula</span>(<span class="kw">paste0</span>(<span class="st">&quot;OCD ~ DEPTH + &quot;</span>, <span class="kw">paste</span>(<span class="kw">names</span>(edgeroi.spc<span class="op">@</span>predicted), <span class="dt">collapse =</span> <span class="st">&quot;+&quot;</span>)))</a>
-<a class="sourceLine" id="cb229-2" data-line-number="2">fm.OCD</a>
-<a class="sourceLine" id="cb229-3" data-line-number="3"><span class="co">#&gt; OCD ~ DEPTH + PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + </span></a>
-<a class="sourceLine" id="cb229-4" data-line-number="4"><span class="co">#&gt;     PC9 + PC10 + PC11 + PC12</span></a>
-<a class="sourceLine" id="cb229-5" data-line-number="5">m.OCD &lt;-<span class="st"> </span><span class="kw">ranger</span>(fm.OCD, m2[<span class="kw">complete.cases</span>(m2[,<span class="kw">all.vars</span>(fm.OCD)]),], </a>
-<a class="sourceLine" id="cb229-6" data-line-number="6">                <span class="dt">quantreg =</span> <span class="ot">TRUE</span>, <span class="dt">importance =</span> <span class="st">&quot;impurity&quot;</span>)</a>
-<a class="sourceLine" id="cb229-7" data-line-number="7">m.OCD</a>
-<a class="sourceLine" id="cb229-8" data-line-number="8"><span class="co">#&gt; Ranger result</span></a>
-<a class="sourceLine" id="cb229-9" data-line-number="9"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb229-10" data-line-number="10"><span class="co">#&gt; Call:</span></a>
-<a class="sourceLine" id="cb229-11" data-line-number="11"><span class="co">#&gt;  ranger(fm.OCD, m2[complete.cases(m2[, all.vars(fm.OCD)]), ],      quantreg = TRUE, importance = &quot;impurity&quot;) </span></a>
-<a class="sourceLine" id="cb229-12" data-line-number="12"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb229-13" data-line-number="13"><span class="co">#&gt; Type:                             Regression </span></a>
-<a class="sourceLine" id="cb229-14" data-line-number="14"><span class="co">#&gt; Number of trees:                  500 </span></a>
-<a class="sourceLine" id="cb229-15" data-line-number="15"><span class="co">#&gt; Sample size:                      4972 </span></a>
-<a class="sourceLine" id="cb229-16" data-line-number="16"><span class="co">#&gt; Number of independent variables:  13 </span></a>
-<a class="sourceLine" id="cb229-17" data-line-number="17"><span class="co">#&gt; Mtry:                             3 </span></a>
-<a class="sourceLine" id="cb229-18" data-line-number="18"><span class="co">#&gt; Target node size:                 5 </span></a>
-<a class="sourceLine" id="cb229-19" data-line-number="19"><span class="co">#&gt; Variable importance mode:         impurity </span></a>
-<a class="sourceLine" id="cb229-20" data-line-number="20"><span class="co">#&gt; Splitrule:                        variance </span></a>
-<a class="sourceLine" id="cb229-21" data-line-number="21"><span class="co">#&gt; OOB prediction error (MSE):       18.6 </span></a>
-<a class="sourceLine" id="cb229-22" data-line-number="22"><span class="co">#&gt; R squared (OOB):                  0.694</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fm.OCD =<span class="st"> </span><span class="kw">as.formula</span>(<span class="kw">paste0</span>(<span class="st">&quot;OCD ~ DEPTH + &quot;</span>, <span class="kw">paste</span>(<span class="kw">names</span>(edgeroi.spc<span class="op">@</span>predicted), <span class="dt">collapse =</span> <span class="st">&quot;+&quot;</span>)))
+fm.OCD
+<span class="co">#&gt; OCD ~ DEPTH + PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + </span>
+<span class="co">#&gt;     PC9 + PC10 + PC11 + PC12</span>
+m.OCD &lt;-<span class="st"> </span><span class="kw">ranger</span>(fm.OCD, m2[<span class="kw">complete.cases</span>(m2[,<span class="kw">all.vars</span>(fm.OCD)]),], 
+                <span class="dt">quantreg =</span> <span class="ot">TRUE</span>, <span class="dt">importance =</span> <span class="st">&quot;impurity&quot;</span>)
+m.OCD
+<span class="co">#&gt; Ranger result</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Call:</span>
+<span class="co">#&gt;  ranger(fm.OCD, m2[complete.cases(m2[, all.vars(fm.OCD)]), ],      quantreg = TRUE, importance = &quot;impurity&quot;) </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Type:                             Regression </span>
+<span class="co">#&gt; Number of trees:                  500 </span>
+<span class="co">#&gt; Sample size:                      4972 </span>
+<span class="co">#&gt; Number of independent variables:  13 </span>
+<span class="co">#&gt; Mtry:                             3 </span>
+<span class="co">#&gt; Target node size:                 5 </span>
+<span class="co">#&gt; Variable importance mode:         impurity </span>
+<span class="co">#&gt; Splitrule:                        variance </span>
+<span class="co">#&gt; OOB prediction error (MSE):       18.6 </span>
+<span class="co">#&gt; R squared (OOB):                  0.694</span></code></pre></div>
 <p>Which shows that the average error with Out-of-bag training points is ±4.2 kg/m-cubic. Note that setting <code>quantreg = TRUE</code> allows us to derive also a map of the prediction errors (Fig. <a href="SOC-chapter.html#fig:plot-edgeroi-ocd">7.10</a>), following the method of <span class="citation">Meinshausen (<a href="#ref-meinshausen2006quantile">2006</a>)</span>.</p>
 <p>To derive OCS in tons/ha we can compute OCD at two depths (0 and 30 cm) and then take the mean value to produce a more representative value:</p>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" data-line-number="1"><span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">30</span>)){</a>
-<a class="sourceLine" id="cb230-2" data-line-number="2">   edgeroi.spc<span class="op">@</span>predicted<span class="op">$</span>DEPTH =<span class="st"> </span>i</a>
-<a class="sourceLine" id="cb230-3" data-line-number="3">   OCD.rf &lt;-<span class="st"> </span><span class="kw">predict</span>(m.OCD, edgeroi.spc<span class="op">@</span>predicted<span class="op">@</span>data)</a>
-<a class="sourceLine" id="cb230-4" data-line-number="4">   nm1 =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;OCD.&quot;</span>, i, <span class="st">&quot;cm&quot;</span>)</a>
-<a class="sourceLine" id="cb230-5" data-line-number="5">   edgeroi.grids<span class="op">@</span>data[,nm1] =<span class="st"> </span>OCD.rf<span class="op">$</span>predictions</a>
-<a class="sourceLine" id="cb230-6" data-line-number="6">   OCD.qrf &lt;-<span class="st"> </span><span class="kw">predict</span>(m.OCD, edgeroi.spc<span class="op">@</span>predicted<span class="op">@</span>data, </a>
-<a class="sourceLine" id="cb230-7" data-line-number="7">                      <span class="dt">type=</span><span class="st">&quot;quantiles&quot;</span>, <span class="dt">quantiles=</span><span class="kw">c</span>((<span class="dv">1</span><span class="fl">-.682</span>)<span class="op">/</span><span class="dv">2</span>, <span class="dv">1</span><span class="op">-</span>(<span class="dv">1</span><span class="fl">-.682</span>)<span class="op">/</span><span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb230-8" data-line-number="8">   nm2 =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;OCD.&quot;</span>, i, <span class="st">&quot;cm_se&quot;</span>)</a>
-<a class="sourceLine" id="cb230-9" data-line-number="9">   edgeroi.grids<span class="op">@</span>data[,nm2] =<span class="st"> </span>(OCD.qrf<span class="op">$</span>predictions[,<span class="dv">2</span>] <span class="op">-</span><span class="st"> </span>OCD.qrf<span class="op">$</span>predictions[,<span class="dv">1</span>])<span class="op">/</span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb230-10" data-line-number="10">}</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">30</span>)){
+   edgeroi.spc<span class="op">@</span>predicted<span class="op">$</span>DEPTH =<span class="st"> </span>i
+   OCD.rf &lt;-<span class="st"> </span><span class="kw">predict</span>(m.OCD, edgeroi.spc<span class="op">@</span>predicted<span class="op">@</span>data)
+   nm1 =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;OCD.&quot;</span>, i, <span class="st">&quot;cm&quot;</span>)
+   edgeroi.grids<span class="op">@</span>data[,nm1] =<span class="st"> </span>OCD.rf<span class="op">$</span>predictions
+   OCD.qrf &lt;-<span class="st"> </span><span class="kw">predict</span>(m.OCD, edgeroi.spc<span class="op">@</span>predicted<span class="op">@</span>data, 
+                      <span class="dt">type=</span><span class="st">&quot;quantiles&quot;</span>, <span class="dt">quantiles=</span><span class="kw">c</span>((<span class="dv">1</span><span class="fl">-.682</span>)<span class="op">/</span><span class="dv">2</span>, <span class="dv">1</span><span class="op">-</span>(<span class="dv">1</span><span class="fl">-.682</span>)<span class="op">/</span><span class="dv">2</span>))
+   nm2 =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;OCD.&quot;</span>, i, <span class="st">&quot;cm_se&quot;</span>)
+   edgeroi.grids<span class="op">@</span>data[,nm2] =<span class="st"> </span>(OCD.qrf<span class="op">$</span>predictions[,<span class="dv">2</span>] <span class="op">-</span><span class="st"> </span>OCD.qrf<span class="op">$</span>predictions[,<span class="dv">1</span>])<span class="op">/</span><span class="dv">2</span>
+}</code></pre></div>
 <p>so that the final Organic carbon stocks in t/ha is:</p>
 <pre><code>#&gt; 
 #&gt; Attaching package: &#39;raster&#39;
@@ -1059,60 +1036,60 @@ Figure 7.10: Predicted organic carbon stock for 0–30 cm depth and error map fo
 </div>
 <p>Note that deriving the error map in the ranger package can be computationally intensive, especially if the number of covariates is high. It is therefore not yet recommended for large rasters.</p>
 <p>Next, we can derive the total soil organic carbon stock per <a href="http://data.environment.nsw.gov.au/dataset/nsw-landuseac11c">land use class</a> (2007). For this we can use the aggregation function from the plyr package:</p>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" data-line-number="1"><span class="kw">library</span>(rgdal)</a>
-<a class="sourceLine" id="cb232-2" data-line-number="2"><span class="co">#&gt; rgdal: version: 1.3-6, (SVN revision 773)</span></a>
-<a class="sourceLine" id="cb232-3" data-line-number="3"><span class="co">#&gt;  Geospatial Data Abstraction Library extensions to R successfully loaded</span></a>
-<a class="sourceLine" id="cb232-4" data-line-number="4"><span class="co">#&gt;  Loaded GDAL runtime: GDAL 2.3.2, released 2018/09/21</span></a>
-<a class="sourceLine" id="cb232-5" data-line-number="5"><span class="co">#&gt;  Path to GDAL shared files: /usr/share/gdal</span></a>
-<a class="sourceLine" id="cb232-6" data-line-number="6"><span class="co">#&gt;  GDAL binary built with GEOS: TRUE </span></a>
-<a class="sourceLine" id="cb232-7" data-line-number="7"><span class="co">#&gt;  Loaded PROJ.4 runtime: Rel. 4.9.3, 15 August 2016, [PJ_VERSION: 493]</span></a>
-<a class="sourceLine" id="cb232-8" data-line-number="8"><span class="co">#&gt;  Path to PROJ.4 shared files: (autodetected)</span></a>
-<a class="sourceLine" id="cb232-9" data-line-number="9"><span class="co">#&gt;  Linking to sp version: 1.3-1</span></a>
-<a class="sourceLine" id="cb232-10" data-line-number="10">edgeroi.grids<span class="op">$</span>LandUse =<span class="st"> </span><span class="kw">readGDAL</span>(<span class="st">&quot;extdata/edgeroi_LandUse.sdat&quot;</span>)<span class="op">$</span>band1</a>
-<a class="sourceLine" id="cb232-11" data-line-number="11"><span class="co">#&gt; extdata/edgeroi_LandUse.sdat has GDAL driver SAGA </span></a>
-<a class="sourceLine" id="cb232-12" data-line-number="12"><span class="co">#&gt; and has 128 rows and 190 columns</span></a>
-<a class="sourceLine" id="cb232-13" data-line-number="13">lu.leg =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;extdata/LandUse.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb232-14" data-line-number="14">edgeroi.grids<span class="op">$</span>LandUseClass =<span class="st"> </span><span class="kw">paste</span>(<span class="kw">join</span>(<span class="kw">data.frame</span>(<span class="dt">LandUse=</span>edgeroi.grids<span class="op">$</span>LandUse), </a>
-<a class="sourceLine" id="cb232-15" data-line-number="15">                                        lu.leg, <span class="dt">match=</span><span class="st">&quot;first&quot;</span>)<span class="op">$</span>LU_NSWDeta)</a>
-<a class="sourceLine" id="cb232-16" data-line-number="16"><span class="co">#&gt; Joining by: LandUse</span></a>
-<a class="sourceLine" id="cb232-17" data-line-number="17">OCS_agg.lu &lt;-<span class="st"> </span>plyr<span class="op">::</span><span class="kw">ddply</span>(edgeroi.grids<span class="op">@</span>data, .(LandUseClass), summarize,</a>
-<a class="sourceLine" id="cb232-18" data-line-number="18">                          <span class="dt">Total_OCS_kt=</span><span class="kw">round</span>(<span class="kw">sum</span>(OCS<span class="fl">.30</span>cm<span class="op">*</span><span class="dv">250</span><span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="fl">1e4</span>, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)<span class="op">/</span><span class="fl">1e3</span>),</a>
-<a class="sourceLine" id="cb232-19" data-line-number="19">                          <span class="dt">Area_km2=</span><span class="kw">round</span>(<span class="kw">sum</span>(<span class="op">!</span><span class="kw">is.na</span>(OCS<span class="fl">.30</span>cm))<span class="op">*</span><span class="dv">250</span><span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="fl">1e6</span>))</a>
-<a class="sourceLine" id="cb232-20" data-line-number="20">OCS_agg.lu<span class="op">$</span>LandUseClass.f =<span class="st"> </span><span class="kw">strtrim</span>(OCS_agg.lu<span class="op">$</span>LandUseClass, <span class="dv">34</span>)</a>
-<a class="sourceLine" id="cb232-21" data-line-number="21">OCS_agg.lu<span class="op">$</span>OCH_t_ha_M =<span class="st"> </span><span class="kw">round</span>(OCS_agg.lu<span class="op">$</span>Total_OCS_kt<span class="op">*</span><span class="dv">1000</span><span class="op">/</span>(OCS_agg.lu<span class="op">$</span>Area_km2<span class="op">*</span><span class="dv">100</span>))</a>
-<a class="sourceLine" id="cb232-22" data-line-number="22">OCS_agg.lu[OCS_agg.lu<span class="op">$</span>Area_km2<span class="op">&gt;</span><span class="dv">5</span>,<span class="kw">c</span>(<span class="st">&quot;LandUseClass.f&quot;</span>,<span class="st">&quot;Total_OCS_kt&quot;</span>,<span class="st">&quot;Area_km2&quot;</span>,<span class="st">&quot;OCH_t_ha_M&quot;</span>)]</a>
-<a class="sourceLine" id="cb232-23" data-line-number="23"><span class="co">#&gt;                        LandUseClass.f Total_OCS_kt Area_km2 OCH_t_ha_M</span></a>
-<a class="sourceLine" id="cb232-24" data-line-number="24"><span class="co">#&gt; 2  Constructed grass waterway for wat           55       11         50</span></a>
-<a class="sourceLine" id="cb232-25" data-line-number="25"><span class="co">#&gt; 3                              Cotton           42        8         52</span></a>
-<a class="sourceLine" id="cb232-26" data-line-number="26"><span class="co">#&gt; 4                  Cotton - irrigated          828      203         41</span></a>
-<a class="sourceLine" id="cb232-27" data-line-number="27"><span class="co">#&gt; 5   Cropping - continuous or rotation         1788      402         44</span></a>
-<a class="sourceLine" id="cb232-28" data-line-number="28"><span class="co">#&gt; 6  Cropping - continuous or rotation           235       59         40</span></a>
-<a class="sourceLine" id="cb232-29" data-line-number="29"><span class="co">#&gt; 10                           Farm dam           54       10         54</span></a>
-<a class="sourceLine" id="cb232-30" data-line-number="30"><span class="co">#&gt; 11 Farm Infrastructure - house, machi           90       18         50</span></a>
-<a class="sourceLine" id="cb232-31" data-line-number="31"><span class="co">#&gt; 12 Grazing - Residual strips (block o           49       10         49</span></a>
-<a class="sourceLine" id="cb232-32" data-line-number="32"><span class="co">#&gt; 13 Grazing of native vegetation. Graz          685      129         53</span></a>
-<a class="sourceLine" id="cb232-33" data-line-number="33"><span class="co">#&gt; 14 Grazing of native vegetation. Graz           68       13         52</span></a>
-<a class="sourceLine" id="cb232-34" data-line-number="34"><span class="co">#&gt; 16                     Irrigation dam           66       16         41</span></a>
-<a class="sourceLine" id="cb232-35" data-line-number="35"><span class="co">#&gt; 21                      Native forest          226       37         61</span></a>
-<a class="sourceLine" id="cb232-36" data-line-number="36"><span class="co">#&gt; 26                  Research facility           40        9         44</span></a>
-<a class="sourceLine" id="cb232-37" data-line-number="37"><span class="co">#&gt; 27 River, creek or other incised drai           69       11         63</span></a>
-<a class="sourceLine" id="cb232-38" data-line-number="38"><span class="co">#&gt; 28               Road or road reserve          117       23         51</span></a>
-<a class="sourceLine" id="cb232-39" data-line-number="39"><span class="co">#&gt; 29                       State forest          407       83         49</span></a>
-<a class="sourceLine" id="cb232-40" data-line-number="40"><span class="co">#&gt; 32 Volunteer, naturalised, native or          1378      238         58</span></a>
-<a class="sourceLine" id="cb232-41" data-line-number="41"><span class="co">#&gt; 33 Volunteer, naturalised, native or            64       16         40</span></a>
-<a class="sourceLine" id="cb232-42" data-line-number="42"><span class="co">#&gt; 34 Volunteer, naturalised, native or            75       14         54</span></a>
-<a class="sourceLine" id="cb232-43" data-line-number="43"><span class="co">#&gt; 35 Volunteer, naturalised, native or           471       99         48</span></a>
-<a class="sourceLine" id="cb232-44" data-line-number="44"><span class="co">#&gt; 37 Wide road reserve or TSR, with som          468       90         52</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rgdal)
+<span class="co">#&gt; rgdal: version: 1.3-6, (SVN revision 773)</span>
+<span class="co">#&gt;  Geospatial Data Abstraction Library extensions to R successfully loaded</span>
+<span class="co">#&gt;  Loaded GDAL runtime: GDAL 2.3.2, released 2018/09/21</span>
+<span class="co">#&gt;  Path to GDAL shared files: /usr/share/gdal</span>
+<span class="co">#&gt;  GDAL binary built with GEOS: TRUE </span>
+<span class="co">#&gt;  Loaded PROJ.4 runtime: Rel. 4.9.3, 15 August 2016, [PJ_VERSION: 493]</span>
+<span class="co">#&gt;  Path to PROJ.4 shared files: (autodetected)</span>
+<span class="co">#&gt;  Linking to sp version: 1.3-1</span>
+edgeroi.grids<span class="op">$</span>LandUse =<span class="st"> </span><span class="kw">readGDAL</span>(<span class="st">&quot;extdata/edgeroi_LandUse.sdat&quot;</span>)<span class="op">$</span>band1
+<span class="co">#&gt; extdata/edgeroi_LandUse.sdat has GDAL driver SAGA </span>
+<span class="co">#&gt; and has 128 rows and 190 columns</span>
+lu.leg =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;extdata/LandUse.csv&quot;</span>)
+edgeroi.grids<span class="op">$</span>LandUseClass =<span class="st"> </span><span class="kw">paste</span>(<span class="kw">join</span>(<span class="kw">data.frame</span>(<span class="dt">LandUse=</span>edgeroi.grids<span class="op">$</span>LandUse), 
+                                        lu.leg, <span class="dt">match=</span><span class="st">&quot;first&quot;</span>)<span class="op">$</span>LU_NSWDeta)
+<span class="co">#&gt; Joining by: LandUse</span>
+OCS_agg.lu &lt;-<span class="st"> </span>plyr<span class="op">::</span><span class="kw">ddply</span>(edgeroi.grids<span class="op">@</span>data, .(LandUseClass), summarize,
+                          <span class="dt">Total_OCS_kt=</span><span class="kw">round</span>(<span class="kw">sum</span>(OCS<span class="fl">.30</span>cm<span class="op">*</span><span class="dv">250</span><span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="fl">1e4</span>, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)<span class="op">/</span><span class="fl">1e3</span>),
+                          <span class="dt">Area_km2=</span><span class="kw">round</span>(<span class="kw">sum</span>(<span class="op">!</span><span class="kw">is.na</span>(OCS<span class="fl">.30</span>cm))<span class="op">*</span><span class="dv">250</span><span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="fl">1e6</span>))
+OCS_agg.lu<span class="op">$</span>LandUseClass.f =<span class="st"> </span><span class="kw">strtrim</span>(OCS_agg.lu<span class="op">$</span>LandUseClass, <span class="dv">34</span>)
+OCS_agg.lu<span class="op">$</span>OCH_t_ha_M =<span class="st"> </span><span class="kw">round</span>(OCS_agg.lu<span class="op">$</span>Total_OCS_kt<span class="op">*</span><span class="dv">1000</span><span class="op">/</span>(OCS_agg.lu<span class="op">$</span>Area_km2<span class="op">*</span><span class="dv">100</span>))
+OCS_agg.lu[OCS_agg.lu<span class="op">$</span>Area_km2<span class="op">&gt;</span><span class="dv">5</span>,<span class="kw">c</span>(<span class="st">&quot;LandUseClass.f&quot;</span>,<span class="st">&quot;Total_OCS_kt&quot;</span>,<span class="st">&quot;Area_km2&quot;</span>,<span class="st">&quot;OCH_t_ha_M&quot;</span>)]
+<span class="co">#&gt;                        LandUseClass.f Total_OCS_kt Area_km2 OCH_t_ha_M</span>
+<span class="co">#&gt; 2  Constructed grass waterway for wat           55       11         50</span>
+<span class="co">#&gt; 3                              Cotton           42        8         52</span>
+<span class="co">#&gt; 4                  Cotton - irrigated          828      203         41</span>
+<span class="co">#&gt; 5   Cropping - continuous or rotation         1788      402         44</span>
+<span class="co">#&gt; 6  Cropping - continuous or rotation           235       59         40</span>
+<span class="co">#&gt; 10                           Farm dam           54       10         54</span>
+<span class="co">#&gt; 11 Farm Infrastructure - house, machi           90       18         50</span>
+<span class="co">#&gt; 12 Grazing - Residual strips (block o           49       10         49</span>
+<span class="co">#&gt; 13 Grazing of native vegetation. Graz          685      129         53</span>
+<span class="co">#&gt; 14 Grazing of native vegetation. Graz           68       13         52</span>
+<span class="co">#&gt; 16                     Irrigation dam           66       16         41</span>
+<span class="co">#&gt; 21                      Native forest          226       37         61</span>
+<span class="co">#&gt; 26                  Research facility           40        9         44</span>
+<span class="co">#&gt; 27 River, creek or other incised drai           69       11         63</span>
+<span class="co">#&gt; 28               Road or road reserve          117       23         51</span>
+<span class="co">#&gt; 29                       State forest          407       83         49</span>
+<span class="co">#&gt; 32 Volunteer, naturalised, native or          1378      238         58</span>
+<span class="co">#&gt; 33 Volunteer, naturalised, native or            64       16         40</span>
+<span class="co">#&gt; 34 Volunteer, naturalised, native or            75       14         54</span>
+<span class="co">#&gt; 35 Volunteer, naturalised, native or           471       99         48</span>
+<span class="co">#&gt; 37 Wide road reserve or TSR, with som          468       90         52</span></code></pre></div>
 <p>Which shows that, for the <code>Cropping - continuous or rotation</code>, which is the dominant land use class in the area, the average OCS is 43 tons/ha for the 0–30 cm depth. In this case, the total soil organic carbon stock for the whole area (for all land use classes) is ca 7154 thousand tons of C. There do not appear to be large differences in OCS between the natural vegetation and croplands.</p>
 </div>
 <div id="deriving-ocs-using-spatiotemporal-models" class="section level2">
 <h2><span class="header-section-number">7.8</span> Deriving OCS using spatiotemporal models</h2>
 <p>Assuming that measurements of ORC have also been referenced temporally (at least to the year of sampling), point data can be used to build spatiotemporal models of soil organic carbon. Consider, for example, the soil profile data available for the conterminous USA:</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" data-line-number="1">OCD_stN &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;extdata/usa48.OCD_spacetime_matrix.rds&quot;</span>)</a>
-<a class="sourceLine" id="cb233-2" data-line-number="2"><span class="kw">dim</span>(OCD_stN)</a>
-<a class="sourceLine" id="cb233-3" data-line-number="3"><span class="co">#&gt; [1] 250428    134</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">OCD_stN &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;extdata/usa48.OCD_spacetime_matrix.rds&quot;</span>)
+<span class="kw">dim</span>(OCD_stN)
+<span class="co">#&gt; [1] 250428    134</span></code></pre></div>
 <p>This data shows that there are actually sufficient observations spread through time (last 60+ years) to fit a spatiotemporal model:</p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" data-line-number="1"><span class="kw">hist</span>(OCD_stN<span class="op">$</span>YEAR, <span class="dt">xlab=</span><span class="st">&quot;Year&quot;</span>, <span class="dt">main=</span><span class="st">&quot;&quot;</span>, <span class="dt">col=</span><span class="st">&quot;darkgrey&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(OCD_stN<span class="op">$</span>YEAR, <span class="dt">xlab=</span><span class="st">&quot;Year&quot;</span>, <span class="dt">main=</span><span class="st">&quot;&quot;</span>, <span class="dt">col=</span><span class="st">&quot;darkgrey&quot;</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:thist-usa48"></span>
 <img src="Soil_organic_carbon_files/figure-html/thist-usa48-1.png" alt="Distribution of soil observations based on sampling year." width="100%" />
 <p class="caption">
@@ -1120,10 +1097,10 @@ Figure 7.11: Distribution of soil observations based on sampling year.
 </p>
 </div>
 <p>In fact, because the data set above represents values of OCD at variable depths, we can use this data to fit a full 3D+T spatiotemporal model in the form:</p>
-<p><span class="math display" id="eq:stmodel">\[\begin{equation}
+<span class="math display" id="eq:stmodel">\[\begin{equation}
 {\rm OCD}(xydt) = d + X_1 (xy) + \ldots + X_k (xy) + \ldots + X_p (xyt)
 \tag{7.7}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 <p>where <span class="math inline">\(d\)</span> is the depth, <span class="math inline">\(X_k (xy)\)</span> are static covariates i.e. the covariates that do not change in time, and <span class="math inline">\(X_p (xyt)\)</span> are spatiotemporal covariates i.e. covariates that change with time. Here we can assume that the static covariates are mainly landform and lithology: these have probably not changed significantly in the last 100 years. Land cover, land use and climate, on the other hand, have probably changed drastically in the last 100 years and have to be represented with a time-series of images. There are, indeed, several time-series data sets now available that can be used to represent land cover dynamics:</p>
 <ul>
 <li><p><a href="ftp://ftp.pbl.nl/hyde/hyde3.2/">HYDE 3.2 Historic land use data set</a> <span class="citation">(Klein Goldewijk et al. <a href="#ref-klein2011hyde">2011</a>)</span>: portrays the distribution of major agricultural systems from 10,000 BC (pre-historic no land-use condition) to the present time. 10 categories of land use have been represented: total cropping, total grazing, pasture (improved grazing-land), rangeland (unimproved grazing-land), total rainfed cropping, total irrigated cropping, with further subdivisions for rice and non-rice cropping systems for both rainfed and irrigated cropping.</p></li>
@@ -1131,16 +1108,16 @@ Figure 7.11: Distribution of soil observations based on sampling year.
 <li><p><a href="http://www.unep-wcmc.org/resources-and-data/generalised-original-and-current-forest">UNEP-WCMC Generalized Original and Current Forest cover map</a> showing global dynamics of forest cover.</p></li>
 </ul>
 <p>All these layers are available only at a relatively coarse resolution of 10 km, but then cover longer time spans. Note also that, since these are time-series images, spatiotemporal overlay can take time as spatial overlay must be repeated for each time period. The spatiotemporal matrix file already contains the results of overlay, so that we can focus directly on building spatiotemporal models of OCD e.g.:</p>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb235-1" data-line-number="1">pr.lst &lt;-<span class="st"> </span><span class="kw">names</span>(OCD_stN)[<span class="op">-</span><span class="kw">which</span>(<span class="kw">names</span>(OCD_stN) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;SOURCEID&quot;</span>, <span class="st">&quot;DEPTH.f&quot;</span>, <span class="st">&quot;OCDENS&quot;</span>, </a>
-<a class="sourceLine" id="cb235-2" data-line-number="2">                                                      <span class="st">&quot;YEAR&quot;</span>, <span class="st">&quot;YEAR_c&quot;</span>, <span class="st">&quot;LONWGS84&quot;</span>, <span class="st">&quot;LATWGS84&quot;</span>))]</a>
-<a class="sourceLine" id="cb235-3" data-line-number="3">fm0.st &lt;-<span class="st"> </span><span class="kw">as.formula</span>(<span class="kw">paste</span>(<span class="st">&#39;OCDENS ~ DEPTH.f + &#39;</span>, <span class="kw">paste</span>(pr.lst, <span class="dt">collapse=</span><span class="st">&quot;+&quot;</span>)))</a>
-<a class="sourceLine" id="cb235-4" data-line-number="4">sel0.m =<span class="st"> </span><span class="kw">complete.cases</span>(OCD_stN[,<span class="kw">all.vars</span>(fm0.st)])</a>
-<a class="sourceLine" id="cb235-5" data-line-number="5"><span class="co">## takes &gt;2 mins</span></a>
-<a class="sourceLine" id="cb235-6" data-line-number="6">rf0.OCD_st &lt;-<span class="st"> </span><span class="kw">ranger</span>(fm0.st, <span class="dt">data=</span>OCD_stN[sel0.m,<span class="kw">all.vars</span>(fm0.st)], </a>
-<a class="sourceLine" id="cb235-7" data-line-number="7">                     <span class="dt">importance=</span><span class="st">&quot;impurity&quot;</span>, <span class="dt">write.forest=</span><span class="ot">TRUE</span>, <span class="dt">num.trees=</span><span class="dv">120</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pr.lst &lt;-<span class="st"> </span><span class="kw">names</span>(OCD_stN)[<span class="op">-</span><span class="kw">which</span>(<span class="kw">names</span>(OCD_stN) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;SOURCEID&quot;</span>, <span class="st">&quot;DEPTH.f&quot;</span>, <span class="st">&quot;OCDENS&quot;</span>, 
+                                                      <span class="st">&quot;YEAR&quot;</span>, <span class="st">&quot;YEAR_c&quot;</span>, <span class="st">&quot;LONWGS84&quot;</span>, <span class="st">&quot;LATWGS84&quot;</span>))]
+fm0.st &lt;-<span class="st"> </span><span class="kw">as.formula</span>(<span class="kw">paste</span>(<span class="st">&#39;OCDENS ~ DEPTH.f + &#39;</span>, <span class="kw">paste</span>(pr.lst, <span class="dt">collapse=</span><span class="st">&quot;+&quot;</span>)))
+sel0.m =<span class="st"> </span><span class="kw">complete.cases</span>(OCD_stN[,<span class="kw">all.vars</span>(fm0.st)])
+## takes &gt;2 mins
+rf0.OCD_st &lt;-<span class="st"> </span><span class="kw">ranger</span>(fm0.st, <span class="dt">data=</span>OCD_stN[sel0.m,<span class="kw">all.vars</span>(fm0.st)], 
+                     <span class="dt">importance=</span><span class="st">&quot;impurity&quot;</span>, <span class="dt">write.forest=</span><span class="ot">TRUE</span>, <span class="dt">num.trees=</span><span class="dv">120</span>)</code></pre></div>
 <p>the most important covariates being:</p>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" data-line-number="1">xl &lt;-<span class="st"> </span><span class="kw">as.list</span>(ranger<span class="op">::</span><span class="kw">importance</span>(rf0.OCD_st))</a>
-<a class="sourceLine" id="cb236-2" data-line-number="2"><span class="kw">print</span>(<span class="kw">t</span>(<span class="kw">data.frame</span>(xl[<span class="kw">order</span>(<span class="kw">unlist</span>(xl), <span class="dt">decreasing=</span><span class="ot">TRUE</span>)[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]])))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xl &lt;-<span class="st"> </span><span class="kw">as.list</span>(ranger<span class="op">::</span><span class="kw">importance</span>(rf0.OCD_st))
+<span class="kw">print</span>(<span class="kw">t</span>(<span class="kw">data.frame</span>(xl[<span class="kw">order</span>(<span class="kw">unlist</span>(xl), <span class="dt">decreasing=</span><span class="ot">TRUE</span>)[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]])))</code></pre></div>
 <p>which shows that the most important soil covariate by far is soil depth, followed by elevation, grazing, MODIS cloud fraction images, cropland and similar. For a full description of codes please refer to <span class="citation">Sanderman, Hengl, and Fiske (<a href="#ref-sanderman2018soil">2018</a>)</span> (also available in <a href="https://github.com/whrc/Soil-Carbon-Debt/blob/master/SOCS/WHRC_soilcarbon_list_of_covariates.csv">this table</a>).</p>
 <p>Finally, based on this model, we can generate predictions for 3–4 specific time periods and for some arbitrary depth e.g. 10 cm. The maps below clearly show that ca 8% of soil organic carbon has been lost in the last 90 years, most likely due to increases in grazing and croplands. The maps also show, however, that some areas in the northern latitudes are experiencing an increase in SOC, possibly due to higher rainfall i.e. based on the CRU data set.</p>
 <div class="figure" style="text-align: center"><span id="fig:usa48-ocd-2014"></span>
@@ -1157,30 +1134,30 @@ Figure 7.13: Predicted OCD (in kg/cubic-m) at 10 cm depth for the year 1925.
 </div>
 <p>This demonstrates that, as long as there is enough training data spread through time, and as long as covariates are available for the corresponding time ranges, machine learning can also be used to fit full 3D+T spatiotemporal prediction models <span class="citation">(Gasch et al. <a href="#ref-Gasch2015SPASTA">2015</a>)</span>. Once we produce a time-series of images for some target soil variable of interest, the next step would be to implement time-series analysis methods to e.g. detect temporal trends and areas of highest apparent soil degradation. An R package that is fairly useful for such analysis is the <a href="http://greenbrown.r-forge.r-project.org/">greenbrown</a> package, primarily used to map and quantify degradation of land cover <span class="citation">(Forkel et al. <a href="#ref-forkel2015codominant">2015</a>)</span>.</p>
 <p>We can focus on the time-series of predicted organic carbon density for USA48:</p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb237-1" data-line-number="1"><span class="kw">library</span>(greenbrown)</a>
-<a class="sourceLine" id="cb237-2" data-line-number="2"><span class="kw">library</span>(raster)</a>
-<a class="sourceLine" id="cb237-3" data-line-number="3"><span class="kw">setwd</span>()</a>
-<a class="sourceLine" id="cb237-4" data-line-number="4">tif.lst &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="st">&quot;extdata/USA48&quot;</span>, <span class="dt">pattern=</span><span class="st">&quot;_10km.tif&quot;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb237-5" data-line-number="5">g10km &lt;-<span class="st"> </span><span class="kw">as</span>(<span class="kw">readGDAL</span>(tif.lst[<span class="dv">1</span>]), <span class="st">&quot;SpatialPixelsDataFrame&quot;</span>)</a>
-<a class="sourceLine" id="cb237-6" data-line-number="6"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="kw">length</span>(tif.lst)){ g10km<span class="op">@</span>data[,i] =<span class="st"> </span><span class="kw">readGDAL</span>(tif.lst[i], <span class="dt">silent=</span><span class="ot">TRUE</span>)<span class="op">$</span>band1[g10km<span class="op">@</span>grid.index] }</a>
-<a class="sourceLine" id="cb237-7" data-line-number="7"><span class="kw">names</span>(g10km) =<span class="st"> </span><span class="kw">basename</span>(tif.lst)</a>
-<a class="sourceLine" id="cb237-8" data-line-number="8">g10km =<span class="st"> </span><span class="kw">as.data.frame</span>(g10km)</a>
-<a class="sourceLine" id="cb237-9" data-line-number="9"><span class="kw">gridded</span>(g10km) =<span class="st"> </span><span class="er">~</span>x<span class="op">+</span>y</a>
-<a class="sourceLine" id="cb237-10" data-line-number="10"><span class="kw">proj4string</span>(g10km) =<span class="st"> &quot;+proj=longlat +datum=WGS84&quot;</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(greenbrown)
+<span class="kw">library</span>(raster)
+<span class="kw">setwd</span>()
+tif.lst &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="st">&quot;extdata/USA48&quot;</span>, <span class="dt">pattern=</span><span class="st">&quot;_10km.tif&quot;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)
+g10km &lt;-<span class="st"> </span><span class="kw">as</span>(<span class="kw">readGDAL</span>(tif.lst[<span class="dv">1</span>]), <span class="st">&quot;SpatialPixelsDataFrame&quot;</span>)
+<span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="kw">length</span>(tif.lst)){ g10km<span class="op">@</span>data[,i] =<span class="st"> </span><span class="kw">readGDAL</span>(tif.lst[i], <span class="dt">silent=</span><span class="ot">TRUE</span>)<span class="op">$</span>band1[g10km<span class="op">@</span>grid.index] }
+<span class="kw">names</span>(g10km) =<span class="st"> </span><span class="kw">basename</span>(tif.lst)
+g10km =<span class="st"> </span><span class="kw">as.data.frame</span>(g10km)
+<span class="kw">gridded</span>(g10km) =<span class="st"> </span><span class="er">~</span>x<span class="op">+</span>y
+<span class="kw">proj4string</span>(g10km) =<span class="st"> &quot;+proj=longlat +datum=WGS84&quot;</span></code></pre></div>
 <p>to speed up processing we can subset grids and focus on the State of Texas:</p>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" data-line-number="1"><span class="kw">library</span>(maps)</a>
-<a class="sourceLine" id="cb238-2" data-line-number="2"><span class="kw">library</span>(maptools)</a>
-<a class="sourceLine" id="cb238-3" data-line-number="3">states &lt;-<span class="st"> </span><span class="kw">map</span>(<span class="st">&#39;state&#39;</span>, <span class="dt">plot=</span><span class="ot">FALSE</span>, <span class="dt">fill=</span><span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb238-4" data-line-number="4">states =<span class="st"> </span><span class="kw">SpatialPolygonsDataFrame</span>(<span class="kw">map2SpatialPolygons</span>(states, <span class="dt">IDs=</span><span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(states<span class="op">$</span>names)),</a>
-<a class="sourceLine" id="cb238-5" data-line-number="5">                                  <span class="kw">data.frame</span>(<span class="dt">names=</span>states<span class="op">$</span>names))</a>
-<a class="sourceLine" id="cb238-6" data-line-number="6"><span class="kw">proj4string</span>(states) =<span class="st"> &quot;+proj=longlat +datum=WGS84&quot;</span></a>
-<a class="sourceLine" id="cb238-7" data-line-number="7">ov.g10km =<span class="st"> </span><span class="kw">over</span>(<span class="dt">y=</span>states, <span class="dt">x=</span>g10km)</a>
-<a class="sourceLine" id="cb238-8" data-line-number="8">txg10km =<span class="st"> </span>g10km[<span class="kw">which</span>(ov.g10km<span class="op">$</span>names<span class="op">==</span><span class="st">&quot;texas&quot;</span>),]</a>
-<a class="sourceLine" id="cb238-9" data-line-number="9">txg10km =<span class="st"> </span><span class="kw">as.data.frame</span>(txg10km)</a>
-<a class="sourceLine" id="cb238-10" data-line-number="10"><span class="kw">gridded</span>(txg10km) =<span class="st"> </span><span class="er">~</span>x<span class="op">+</span>y</a>
-<a class="sourceLine" id="cb238-11" data-line-number="11"><span class="kw">proj4string</span>(txg10km) =<span class="st"> &quot;+proj=longlat +datum=WGS84&quot;</span></a>
-<a class="sourceLine" id="cb238-12" data-line-number="12"><span class="kw">spplot</span>(<span class="kw">log1p</span>(<span class="kw">stack</span>(txg10km)), <span class="dt">col.regions=</span>SAGA_pal[[<span class="dv">1</span>]])</a>
-<a class="sourceLine" id="cb238-13" data-line-number="13">g10km.b =<span class="st"> </span>raster<span class="op">::</span><span class="kw">brick</span>(txg10km)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(maps)
+<span class="kw">library</span>(maptools)
+states &lt;-<span class="st"> </span><span class="kw">map</span>(<span class="st">&#39;state&#39;</span>, <span class="dt">plot=</span><span class="ot">FALSE</span>, <span class="dt">fill=</span><span class="ot">TRUE</span>)
+states =<span class="st"> </span><span class="kw">SpatialPolygonsDataFrame</span>(<span class="kw">map2SpatialPolygons</span>(states, <span class="dt">IDs=</span><span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(states<span class="op">$</span>names)),
+                                  <span class="kw">data.frame</span>(<span class="dt">names=</span>states<span class="op">$</span>names))
+<span class="kw">proj4string</span>(states) =<span class="st"> &quot;+proj=longlat +datum=WGS84&quot;</span>
+ov.g10km =<span class="st"> </span><span class="kw">over</span>(<span class="dt">y=</span>states, <span class="dt">x=</span>g10km)
+txg10km =<span class="st"> </span>g10km[<span class="kw">which</span>(ov.g10km<span class="op">$</span>names<span class="op">==</span><span class="st">&quot;texas&quot;</span>),]
+txg10km =<span class="st"> </span><span class="kw">as.data.frame</span>(txg10km)
+<span class="kw">gridded</span>(txg10km) =<span class="st"> </span><span class="er">~</span>x<span class="op">+</span>y
+<span class="kw">proj4string</span>(txg10km) =<span class="st"> &quot;+proj=longlat +datum=WGS84&quot;</span>
+<span class="kw">spplot</span>(<span class="kw">log1p</span>(<span class="kw">stack</span>(txg10km)), <span class="dt">col.regions=</span>SAGA_pal[[<span class="dv">1</span>]])
+g10km.b =<span class="st"> </span>raster<span class="op">::</span><span class="kw">brick</span>(txg10km)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:time-series-texas"></span>
 <img src="figures/rplot_timeseries_ocd_maps_texas.png" alt="Time-series of predictions of organic carbon density for Texas." width="100%" />
 <p class="caption">
@@ -1188,11 +1165,11 @@ Figure 7.14: Time-series of predictions of organic carbon density for Texas.
 </p>
 </div>
 <p>We can analyze this time-series data to see where the decrease in organic carbon is most significant, for example the slope of the change:</p>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb239-1" data-line-number="1">trendmap &lt;-<span class="st"> </span><span class="kw">TrendRaster</span>(g10km.b, <span class="dt">start=</span><span class="kw">c</span>(<span class="dv">1935</span>, <span class="dv">1</span>), <span class="dt">freq=</span><span class="dv">1</span>, <span class="dt">breaks=</span><span class="dv">1</span>) </a>
-<a class="sourceLine" id="cb239-2" data-line-number="2"><span class="co">## can be computationally intensive</span></a>
-<a class="sourceLine" id="cb239-3" data-line-number="3"><span class="kw">plot</span>(trendmap[[<span class="st">&quot;SlopeSEG1&quot;</span>]], </a>
-<a class="sourceLine" id="cb239-4" data-line-number="4">     <span class="dt">col=</span><span class="kw">rev</span>(SAGA_pal[[<span class="st">&quot;SG_COLORS_GREEN_GREY_RED&quot;</span>]]), </a>
-<a class="sourceLine" id="cb239-5" data-line-number="5">     <span class="dt">zlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">1.5</span>,<span class="fl">1.5</span>), <span class="dt">main=</span><span class="st">&quot;Slope SEG1&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">trendmap &lt;-<span class="st"> </span><span class="kw">TrendRaster</span>(g10km.b, <span class="dt">start=</span><span class="kw">c</span>(<span class="dv">1935</span>, <span class="dv">1</span>), <span class="dt">freq=</span><span class="dv">1</span>, <span class="dt">breaks=</span><span class="dv">1</span>) 
+## can be computationally intensive
+<span class="kw">plot</span>(trendmap[[<span class="st">&quot;SlopeSEG1&quot;</span>]], 
+     <span class="dt">col=</span><span class="kw">rev</span>(SAGA_pal[[<span class="st">&quot;SG_COLORS_GREEN_GREY_RED&quot;</span>]]), 
+     <span class="dt">zlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="fl">1.5</span>,<span class="fl">1.5</span>), <span class="dt">main=</span><span class="st">&quot;Slope SEG1&quot;</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:ocd-slope-texas"></span>
 <img src="figures/rplot_splope_ocd_change.png" alt="Predicted slope of change of soil organic carbon density for Texas for the period 1935–2014. Negative values indicate loss of soil organic carbon." width="80%" />
 <p class="caption">
@@ -1234,10 +1211,10 @@ Figure 7.15: Predicted slope of change of soil organic carbon density for Texas 
 <p>Berhongaray, Gonzalo, and Roberto Alvarez. 2013. “The Ipcc Tool for Predicting Soil Organic Carbon Changes Evaluated for the Pampas, Argentina.” <em>Agriculture, Ecosystems &amp; Environment</em> 181. Elsevier: 241–45.</p>
 </div>
 <div id="ref-Scharlemann2014CM">
-<p>Scharlemann, Jörn P. W., Edmund V. J. Tanner, Roland Hiederer, and Valerie Kapos. 2014. “Global Soil Carbon: Understanding and Managing the Largest Terrestrial Carbon Pool.” <em>Carbon Management</em> 5 (1). Future Science: 81–91. <a href="https://doi.org/10.4155/cmt.13.77">https://doi.org/10.4155/cmt.13.77</a>.</p>
+<p>Scharlemann, Jörn P. W., Edmund V. J. Tanner, Roland Hiederer, and Valerie Kapos. 2014. “Global Soil Carbon: Understanding and Managing the Largest Terrestrial Carbon Pool.” <em>Carbon Management</em> 5 (1). Future Science: 81–91. doi:<a href="https://doi.org/10.4155/cmt.13.77">10.4155/cmt.13.77</a>.</p>
 </div>
 <div id="ref-Lal2004Science">
-<p>Lal, R. 2004. “Soil Carbon Sequestration Impacts on Global Climate Change and Food Security.” <em>Science</em> 304 (5677): 1623–7. <a href="https://doi.org/10.1126/science.1097396">https://doi.org/10.1126/science.1097396</a>.</p>
+<p>Lal, R. 2004. “Soil Carbon Sequestration Impacts on Global Climate Change and Food Security.” <em>Science</em> 304 (5677): 1623–7. doi:<a href="https://doi.org/10.1126/science.1097396">10.1126/science.1097396</a>.</p>
 </div>
 <div id="ref-wei2014global">
 <p>Wei, Xiaorong, Mingan Shao, William Gale, and Linhai Li. 2014. “Global Pattern of Soil Carbon Losses Due to the Conversion of Forests to Agricultural Land.” <em>Scientific Reports</em> 4. Nature Publishing Group: 4062.</p>
@@ -1246,7 +1223,7 @@ Figure 7.15: Predicted slope of change of soil organic carbon density for Texas 
 <p>Karssies, Linda. 2011. <em>CSIRO National Soil Archive and the National Soil Database (Natsoil)</em>. Data Collection v1. Canberra: CSIRO.</p>
 </div>
 <div id="ref-Malone2009Geoderma">
-<p>Malone, B.P., A. B. McBratney, B. Minasny, and G.M. Laslett. 2009. “Mapping Continuous Depth Functions of Soil Carbon Storage and Available Water Capacity.” <em>Geoderma</em> 154 (1-2): 138–52. <a href="https://doi.org/10.1016/j.geoderma.2009.10.007">https://doi.org/10.1016/j.geoderma.2009.10.007</a>.</p>
+<p>Malone, B.P., A. B. McBratney, B. Minasny, and G.M. Laslett. 2009. “Mapping Continuous Depth Functions of Soil Carbon Storage and Available Water Capacity.” <em>Geoderma</em> 154 (1-2): 138–52. doi:<a href="https://doi.org/10.1016/j.geoderma.2009.10.007">10.1016/j.geoderma.2009.10.007</a>.</p>
 </div>
 <div id="ref-shaw2005ecosystem">
 <p>Shaw, C., J.S. Bhatti, and K.J. Sabourin. 2005. <em>An Ecosystem Carbon Database for Canadian Forests</em>. Information Report. Edmonton, Alberta: Canadian Forest Service, Northern Forestry Centre.</p>
@@ -1258,13 +1235,13 @@ Figure 7.15: Predicted slope of change of soil organic carbon density for Texas 
 <p>Hossain, MF, W Chen, and Yu Zhang. 2015. “Bulk Density of Mineral and Organic Soils in the Canada’s Arctic and Sub-Arctic.” <em>Information Processing in Agriculture</em> 2 (3-4). Elsevier: 183–90.</p>
 </div>
 <div id="ref-ramcharan2017soil">
-<p>Ramcharan, Amanda, Tomislav Hengl, Travis Nauman, Colby Brungard, Sharon Waltman, Skye Wills, and James Thompson. 2018b. “Soil Property and Class Maps of the Conterminous Us at 100 Meter Spatial Resolution Based on a Compilation of National Soil Point Observations and Machine Learning.” <em>Soil Science Society of America Journal</em> 82: 186–201. <a href="https://doi.org/10.2136/sssaj2017.04.0122">https://doi.org/10.2136/sssaj2017.04.0122</a>.</p>
+<p>Ramcharan, Amanda, Tomislav Hengl, Travis Nauman, Colby Brungard, Sharon Waltman, Skye Wills, and James Thompson. 2018b. “Soil Property and Class Maps of the Conterminous Us at 100 Meter Spatial Resolution Based on a Compilation of National Soil Point Observations and Machine Learning.” <em>Soil Science Society of America Journal</em> 82: 186–201. doi:<a href="https://doi.org/10.2136/sssaj2017.04.0122">10.2136/sssaj2017.04.0122</a>.</p>
 </div>
 <div id="ref-lobsey2016sensing">
 <p>Lobsey, CR, and RA Viscarra Rossel. 2016. “Sensing of Soil Bulk Density for More Accurate Carbon Accounting.” <em>European Journal of Soil Science</em> 67 (4). Wiley Online Library: 504–13.</p>
 </div>
 <div id="ref-Hengl2018RFsp">
-<p>Hengl, Tomislav, Madlene Nussbaum, Marvin N Wright, Gerard B.M. Heuvelink, and Benedikt Gräler. 2018. “Random Forest as a Generic Framework for Predictive Modeling of Spatial and Spatio-Temporal Variables.” <em>PeerJ</em> 6 (August): e5518. <a href="https://doi.org/10.7717/peerj.5518">https://doi.org/10.7717/peerj.5518</a>.</p>
+<p>Hengl, Tomislav, Madlene Nussbaum, Marvin N Wright, Gerard B.M. Heuvelink, and Benedikt Gräler. 2018. “Random Forest as a Generic Framework for Predictive Modeling of Spatial and Spatio-Temporal Variables.” <em>PeerJ</em> 6 (August): e5518. doi:<a href="https://doi.org/10.7717/peerj.5518">10.7717/peerj.5518</a>.</p>
 </div>
 <div id="ref-wright2017ranger">
 <p>Wright, Marvin N, and Andreas Ziegler. 2017. “ranger: A Fast Implementation of Random Forests for High Dimensional Data in C++ and R.” <em>Journal of Statistical Software</em> 77 (1): 1–17.</p>
@@ -1279,7 +1256,7 @@ Figure 7.15: Predicted slope of change of soil organic carbon density for Texas 
 <p>Harris, IPDJ, PD Jones, TJ Osborn, and DH Lister. 2014. “Updated High-Resolution Grids of Monthly Climatic Observations–the Cru Ts3. 10 Dataset.” <em>International Journal of Climatology</em> 34 (3). Wiley Online Library: 623–42.</p>
 </div>
 <div id="ref-Gasch2015SPASTA">
-<p>Gasch, Caley, Tomislav Hengl, Benedikt Gräler, Hanna Meyer, Troy Magney, and David Brown. 2015. “Spatio-temporal interpolation of soil water, temperature, and electrical conductivity in 3D+T: The Cook Agronomy Farm data set.” <em>Spatial Statistics</em> 14 (Part A): 70–90. <a href="https://doi.org/10.1016/j.spasta.2015.04.001">https://doi.org/10.1016/j.spasta.2015.04.001</a>.</p>
+<p>Gasch, Caley, Tomislav Hengl, Benedikt Gräler, Hanna Meyer, Troy Magney, and David Brown. 2015. “Spatio-temporal interpolation of soil water, temperature, and electrical conductivity in 3D+T: The Cook Agronomy Farm data set.” <em>Spatial Statistics</em> 14 (Part A): 70–90. doi:<a href="https://doi.org/10.1016/j.spasta.2015.04.001">10.1016/j.spasta.2015.04.001</a>.</p>
 </div>
 <div id="ref-forkel2015codominant">
 <p>Forkel, Matthias, Mirco Migliavacca, Kirsten Thonicke, Markus Reichstein, Sibyll Schaphoff, Ulrich Weber, and Nuno Carvalhais. 2015. “Codominant Water Control on Global Interannual Variability and Trends in Land Surface Phenology and Greenness.” <em>Global Change Biology</em> 21 (9). Wiley Online Library: 3414–35.</p>
@@ -1334,7 +1311,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -1346,6 +1323,10 @@ gitbook.start({
 "edit": {
 "link": "https://github.com/envirometrix/PredictiveSoilMapping/edit/master/Soil_organic_carbon.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["_main.pdf"],
 "toc": {
@@ -1360,8 +1341,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

@@ -485,7 +485,7 @@ micro-organisms are active in the soil, where roots can develop and
 where soil moisture can be stored [@FAO2006].
 
 
-Table: (\#tab:rootingdepths)Summary of maximum rooting depth by biome (after @Canadell1996Oecologia). MMRD = Mean maximum rooting depth in m; HVRD = Highest value for rooting depth in m.
+Table: (\#tab:rootingdepths)Summary of maximum rooting depth by biome (after Canadell et al. (1996)). MMRD = Mean maximum rooting depth in m; HVRD = Highest value for rooting depth in m.
 
 Biome                                   N  MMRD          HVRD
 ------------------------------------  ---  -----------  -----
@@ -642,7 +642,7 @@ is the volumetric percentage of water.
 
 For this specific profile, the most limiting soil property is `tetaS`, but
 because none of the soil properties got <20 points, we can conclude
-that the maximum rooting depth is (MISSING VALUE HERE!). Note that the threshold values in
+that the maximum rooting depth is >180 cm. Note that the threshold values in
 the `LRI` function used to derive Limiting Rootability scores are set
 based on common soil agricultural productivity tresholds (e.g. for
 maize; see also Fig. \@ref(fig:lri-scheme)), and can be adjusted via the
@@ -714,15 +714,7 @@ percentage and for GSIF in grams per kilogram fine earth fraction or
 permilles. The standard method of determining the soil organic carbon
 content is by dry combustion method (Leco at 1000&deg;C).</div>\EndKnitrBlock{rmdnote}
 
-In the dry combustion method, all carbon present in the soil is oxidized
-to carbon dioxide (CO$_2$) by heating the soil to at least (WHAT TEMP HERE? 1000 c?) in a flow of
-oxygen-containing gas that is free from carbon dioxide. The amount of
-carbon dioxide released is then measured by titrimetry, gravimetry,
-conductometry, gas chromatography or using an infrared detection method,
-depending on the apparatus used. When the soil is heated to a
-temperature of at least (WHAT TEMP HERE? 1000 c?), in addition to organic carbon any inorganic
-carbon present as carbonate is also completely decomposed. Total organic
-carbon can be determined directly or indirectly. Direct determination
+Total organic carbon can be determined directly or indirectly. Direct determination
 consists of previous removal of any carbonates present by treating the
 soil with hydrochloric acid. Indirect determination consists of applying
 an empirical correction to the total carbon content to account for for

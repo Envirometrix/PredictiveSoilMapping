@@ -69,8 +69,17 @@ sudo rm rstudio-1.1.447-amd64.deb
 ```
 
 Again, RStudio is constantly updated so you might have to adjust the rstudio version and distribution.
+To learn more about doing first steps in R and RStudio and to learn to improve your scripting skills more efficiently, consider studying the following two Open Access books:
 
-Predictive soil mapping is about making maps, and working with maps requires use of GIS software to open, view overlay and analyze the data sptially. GIS software recommended for soil mapping in this book consists of SAGA GIS, QGIS, GRASS GIS and Google Earth. To, install SAGA GIS on Ubuntu we can use:
+* Grolemund, G., (2014) [Hands-On Programming with R](https://rstudio-education.github.io/hopr/). O’Reilly, ISBN: 9781449359010, 236 pages.
+
+* Gillespie, C., Lovelace, R., (2016) [Efficient R programming](https://csgillespie.github.io/efficientR/). O’Reilly, ISBN: 9781491950753, 222 pages.
+
+## Installing GIS software
+
+Predictive soil mapping is about making maps, and working with maps requires use of GIS software to open, view overlay and analyze the data sptially. GIS software recommended for soil mapping in this book consists of SAGA GIS, QGIS, GRASS GIS and Google Earth. QGIS comes with an [extensive literature](https://www.qgis.org/en/docs/) and can be used to publish maps and combine layers served by various organizations. 
+SAGA GIS, being implemented in C++, is highly suited to run geoprocessing on large data sets. 
+To, install SAGA GIS on Ubuntu we can use:
 
 ```{bash, eval=FALSE}
 sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
@@ -261,7 +270,7 @@ knitr::include_graphics("figures/rstudio_saga_gis.png")
 
 ## Connecting R and GDAL
 
-Another very important software for handling spatial data (and especially for exchanging / converting spatial data) is GDAL. GDAL also needs to be installed separately (for Windows machines use e.g. ["gdal-201-1800-x64-core.msi"](http://download.gisinternals.com/sdk/downloads/release-1800-x64-gdal-2-1-3-mapserver-7-0-4/gdal-201-1800-x64-core.msi)) and then can be called from command line:
+Another very important software for handling spatial data (and especially for exchanging / converting spatial data) is GDAL. GDAL also needs to be installed separately (for Windows machines use e.g. ["gdal-201-1800-x64-core.msi"](http://download.gisinternals.com/sdk/downloads/)) and then can be called from command line:
 
 ```{r}
 if(.Platform$OS.type == "windows"){
@@ -283,3 +292,9 @@ system(paste('gdalwarp ./extdata/DEMSRT6.sdat ./extdata/DEMSRT6_ll.tif',
 library(raster)
 plot(raster("./extdata/DEMSRT6_ll.tif"))
 ```
+
+The following two books are highly recommended for improving programming skills in R and specially for the purpose of geographical computing:
+
+* Bivand, R., Pebesma, E., Rubio, V., (2013) [Applied Spatial Data Analysis with R](http://www.asdar-book.org/). Use R Series, Springer, Heidelberg, 2nd Ed. 400 pages.
+
+* Lovelace, R., Nowosad, J., Muenchow, J., (2018) [Geocomputation with R](https://geocompr.robinlovelace.net/). R Series, CRC Press, ISBN: 9781138304512, 338 pages.

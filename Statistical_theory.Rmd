@@ -2655,7 +2655,7 @@ studies permit us to determine the best performing, and most cost
 effective, pedometric method for an area of interest and a list of
 target variables.
 
-```{r cost-methods-scheme, echo=FALSE, fig.cap="An schematic example of a performance plot (*‘predictogram’*) for comparing spatial prediction models. For more details see: Hengl et al. (2013) doi: 10.1016/j.jag.2012.02.005.", out.width="80%"}
+```{r cost-methods-scheme, echo=FALSE, fig.cap="An schematic example of a performance plot (‘predictogram’) for comparing spatial prediction models. For more details see: Hengl et al. (2013) doi: 10.1016/j.jag.2012.02.005.", out.width="80%"}
 knitr::include_graphics("figures/Fig_costs_RMSE_scheme-2.png")
 ```
 

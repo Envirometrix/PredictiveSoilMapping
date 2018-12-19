@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Predictive Soil Mapping with R</title>
+  <title>References | Predictive Soil Mapping with R</title>
   <meta name="description" content="Predictive Soil Mapping aims to produce the most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement common soil mapping procedures within the R programming language.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Predictive Soil Mapping with R" />
+  <meta property="og:title" content="References | Predictive Soil Mapping with R" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://soilmapper.org" />
   <meta property="og:image" content="http://soilmapper.orgfigures/f0_web.png" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="envirometrix/PredictiveSoilMapping" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Predictive Soil Mapping with R" />
+  <meta name="twitter:title" content="References | Predictive Soil Mapping with R" />
   <meta name="twitter:site" content="@tom_hengl" />
   <meta name="twitter:description" content="Predictive Soil Mapping aims to produce the most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement common soil mapping procedures within the R programming language." />
   <meta name="twitter:image" content="http://soilmapper.orgfigures/f0_web.png" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl and Robert A. MacMillan">
 
 
-<meta name="date" content="2018-12-18">
+<meta name="date" content="2018-12-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -60,67 +61,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -149,7 +124,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Soil resource inventories and soil maps</a><ul>
-<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#introduction-1"><i class="fa fa-check"></i><b>1.1</b> Introduction</a></li>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a></li>
 <li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#soils-and-soil-inventories"><i class="fa fa-check"></i><b>1.2</b> Soils and soil inventories</a><ul>
 <li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#soil-a-definition"><i class="fa fa-check"></i><b>1.2.1</b> Soil: a definition</a></li>
 <li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#soil-variables"><i class="fa fa-check"></i><b>1.2.2</b> Soil variables</a></li>
@@ -162,7 +137,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.3.4" data-path="introduction.html"><a href="introduction.html#conventional-mapping"><i class="fa fa-check"></i><b>1.3.4</b> Traditional (conventional) soil mapping</a></li>
 <li class="chapter" data-level="1.3.5" data-path="introduction.html"><a href="introduction.html#variants-of-soil-maps"><i class="fa fa-check"></i><b>1.3.5</b> Variants of soil maps</a></li>
 <li class="chapter" data-level="1.3.6" data-path="introduction.html"><a href="introduction.html#pedometric-mapping"><i class="fa fa-check"></i><b>1.3.6</b> Predictive and automated soil mapping</a></li>
-<li class="chapter" data-level="1.3.7" data-path="introduction.html"><a href="introduction.html#comparison-conventional-pm"><i class="fa fa-check"></i><b>1.3.7</b> Comparison of conventional and pedometric soil mapping</a></li>
+<li class="chapter" data-level="1.3.7" data-path="introduction.html"><a href="introduction.html#comparison-conventional-pm"><i class="fa fa-check"></i><b>1.3.7</b> Comparison of conventional and pedometric or predictive soil mapping</a></li>
 <li class="chapter" data-level="1.3.8" data-path="introduction.html"><a href="introduction.html#top-down"><i class="fa fa-check"></i><b>1.3.8</b> Top-down versus bottom-up approaches: subdivision versus agglomeration</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#sources-of-soil-data-for-soil-mapping"><i class="fa fa-check"></i><b>1.4</b> Sources of soil data for soil mapping</a><ul>
@@ -177,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.4.9" data-path="introduction.html"><a href="introduction.html#pseudo-observations"><i class="fa fa-check"></i><b>1.4.9</b> Pseudo-observations</a></li>
 </ul></li>
 <li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#soil-databases"><i class="fa fa-check"></i><b>1.5</b> Soil databases and soil information systems</a><ul>
-<li class="chapter" data-level="1.5.1" data-path="introduction.html"><a href="introduction.html#soil-databases-1"><i class="fa fa-check"></i><b>1.5.1</b> Soil databases</a></li>
+<li class="chapter" data-level="1.5.1" data-path="introduction.html"><a href="introduction.html#soil-databases"><i class="fa fa-check"></i><b>1.5.1</b> Soil databases</a></li>
 <li class="chapter" data-level="1.5.2" data-path="introduction.html"><a href="introduction.html#a-soil-information-system"><i class="fa fa-check"></i><b>1.5.2</b> A Soil Information System</a></li>
 <li class="chapter" data-level="1.5.3" data-path="introduction.html"><a href="introduction.html#soil-information-users"><i class="fa fa-check"></i><b>1.5.3</b> Soil information users</a></li>
 <li class="chapter" data-level="1.5.4" data-path="introduction.html"><a href="introduction.html#usability-of-soil-geographical-database"><i class="fa fa-check"></i><b>1.5.4</b> Usability of soil geographical database</a></li>
@@ -193,11 +168,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="software.html"><a href="software.html"><i class="fa fa-check"></i><b>2</b> Software installation and first steps</a><ul>
 <li class="chapter" data-level="2.1" data-path="software.html"><a href="software.html#list-of-software-in-use"><i class="fa fa-check"></i><b>2.1</b> List of software in use</a></li>
 <li class="chapter" data-level="2.2" data-path="software.html"><a href="software.html#installing-software-on-ubuntu-os"><i class="fa fa-check"></i><b>2.2</b> Installing software on Ubuntu OS</a></li>
-<li class="chapter" data-level="2.3" data-path="software.html"><a href="software.html#Whitebox"><i class="fa fa-check"></i><b>2.3</b> WhiteboxTools</a></li>
-<li class="chapter" data-level="2.4" data-path="software.html"><a href="software.html#Rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a></li>
-<li class="chapter" data-level="2.5" data-path="software.html"><a href="software.html#plotkml-and-gsif-packages"><i class="fa fa-check"></i><b>2.5</b> plotKML and GSIF packages</a></li>
-<li class="chapter" data-level="2.6" data-path="software.html"><a href="software.html#connecting-r-and-saga-gis"><i class="fa fa-check"></i><b>2.6</b> Connecting R and SAGA GIS</a></li>
-<li class="chapter" data-level="2.7" data-path="software.html"><a href="software.html#connecting-r-and-gdal"><i class="fa fa-check"></i><b>2.7</b> Connecting R and GDAL</a></li>
+<li class="chapter" data-level="2.3" data-path="software.html"><a href="software.html#installing-gis-software"><i class="fa fa-check"></i><b>2.3</b> Installing GIS software</a></li>
+<li class="chapter" data-level="2.4" data-path="software.html"><a href="software.html#Whitebox"><i class="fa fa-check"></i><b>2.4</b> WhiteboxTools</a></li>
+<li class="chapter" data-level="2.5" data-path="software.html"><a href="software.html#Rstudio"><i class="fa fa-check"></i><b>2.5</b> RStudio</a></li>
+<li class="chapter" data-level="2.6" data-path="software.html"><a href="software.html#plotkml-and-gsif-packages"><i class="fa fa-check"></i><b>2.6</b> plotKML and GSIF packages</a></li>
+<li class="chapter" data-level="2.7" data-path="software.html"><a href="software.html#connecting-r-and-saga-gis"><i class="fa fa-check"></i><b>2.7</b> Connecting R and SAGA GIS</a></li>
+<li class="chapter" data-level="2.8" data-path="software.html"><a href="software.html#connecting-r-and-gdal"><i class="fa fa-check"></i><b>2.8</b> Connecting R and GDAL</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html"><i class="fa fa-check"></i><b>3</b> Soil observations and variables</a><ul>
 <li class="chapter" data-level="3.1" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#basic-concepts-1"><i class="fa fa-check"></i><b>3.1</b> Basic concepts</a><ul>
@@ -312,7 +288,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3" data-path="soilmapping-using-mla.html"><a href="soilmapping-using-mla.html#summary-points-3"><i class="fa fa-check"></i><b>6.3</b> Summary points</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="SOC-chapter.html"><a href="SOC-chapter.html"><i class="fa fa-check"></i><b>7</b> Spatial prediction and assessment of Soil Organic Carbon</a><ul>
-<li class="chapter" data-level="7.1" data-path="SOC-chapter.html"><a href="SOC-chapter.html#introduction-2"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.1" data-path="SOC-chapter.html"><a href="SOC-chapter.html#introduction-1"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
 <li class="chapter" data-level="7.2" data-path="SOC-chapter.html"><a href="SOC-chapter.html#measurement-and-derivation-of-soil-organic-carbon"><i class="fa fa-check"></i><b>7.2</b> Measurement and derivation of soil organic carbon</a></li>
 <li class="chapter" data-level="7.3" data-path="SOC-chapter.html"><a href="SOC-chapter.html#derivation-of-ocs-and-ocd-using-soil-profile-data"><i class="fa fa-check"></i><b>7.3</b> Derivation of OCS and OCD using soil profile data</a></li>
 <li class="chapter" data-level="7.4" data-path="SOC-chapter.html"><a href="SOC-chapter.html#estimation-of-bulk-density-using-a-globally-calibrated-ptf"><i class="fa fa-check"></i><b>7.4</b> Estimation of Bulk Density using a globally-calibrated PTF</a></li>
@@ -357,7 +333,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Alexander, E.B. 1980. “Bulk density of Californian soils in relation to other soil properties.” <em>Soil Science Society of America Journal</em> 44: 689–92.</p>
 </div>
 <div>
-<p>Arrouays, Dominique, Michael G. Grundy, Alfred E. Hartemink, Jonathan W. Hempel, Gerard B.M. Heuvelink, S. Young Hong, Philippe Lagacherie, et al. 2014. “Chapter Three — GlobalSoilMap: Toward a Fine-Resolution Global Grid of Soil Properties.” In <em>Soil Carbon</em>, edited by Donald L. Sparks, 125:93–134. Advances in Agronomy. Academic Press. <a href="https://doi.org/10.1016/B978-0-12-800137-0.00003-0">https://doi.org/10.1016/B978-0-12-800137-0.00003-0</a>.</p>
+<p>Arrouays, Dominique, Michael G. Grundy, Alfred E. Hartemink, Jonathan W. Hempel, Gerard B.M. Heuvelink, S. Young Hong, Philippe Lagacherie, et al. 2014. “Chapter Three — GlobalSoilMap: Toward a Fine-Resolution Global Grid of Soil Properties.” In <em>Soil Carbon</em>, edited by Donald L. Sparks, 125:93–134. Advances in Agronomy. Academic Press. doi:<a href="https://doi.org/10.1016/B978-0-12-800137-0.00003-0">10.1016/B978-0-12-800137-0.00003-0</a>.</p>
 </div>
 <div>
 <p>Arya, L.M., and J.F. Paris. 1981. “A physico-empirical approach to predict the soil water moisture characteristic from particle size distribution and bulk density data.” <em>Soil Science Society of America Journal</em> 45: 1023–30.</p>
@@ -366,19 +342,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Avery, B. 1987. <em>Soil Survey Methods: A Review</em>. Technical Monograph No. 18. Silsoe: Soil Survey &amp; Land Resource Centre.</p>
 </div>
 <div>
-<p>Baritz, Rainer, Guenther Seufert, Luca Montanarella, and Eric Van Ranst. 2010. “Carbon Concentrations and Stocks in Forest Soils of Europe.” <em>Forest Ecology and Management</em> 260: 262–77. <a href="https://doi.org/10.1016/j.foreco.2010.03.025">https://doi.org/10.1016/j.foreco.2010.03.025</a>.</p>
+<p>Baritz, Rainer, Guenther Seufert, Luca Montanarella, and Eric Van Ranst. 2010. “Carbon Concentrations and Stocks in Forest Soils of Europe.” <em>Forest Ecology and Management</em> 260 (06/2010): 262–77. doi:<a href="https://doi.org/10.1016/j.foreco.2010.03.025">10.1016/j.foreco.2010.03.025</a>.</p>
 </div>
 <div>
-<p>Batjes, N. H. 2009. “Harmonized soil profile data for applications at global and continental scales: Updates to the WISE database.” <em>Soil Use and Management</em> 25 (2): 124–27. <a href="https://doi.org/10.1111/j.1475-2743.2009.00202.x">https://doi.org/10.1111/j.1475-2743.2009.00202.x</a>.</p>
-</div>
-<div>
-<p>Beaudette, D.E., P. Roudier, and A.T. O’Geen. 2013. “Algorithms for Quantitative Pedology: A Toolkit for Soil Scientists.” <em>Computers &amp; Geosciences</em> 52 (0): 258–68. <a href="https://doi.org/10.1016/j.cageo.2012.10.020">https://doi.org/10.1016/j.cageo.2012.10.020</a>.</p>
+<p>Batjes, N. H. 2009. “Harmonized soil profile data for applications at global and continental scales: Updates to the WISE database.” <em>Soil Use and Management</em> 25 (2): 124–27. doi:<a href="https://doi.org/10.1111/j.1475-2743.2009.00202.x">10.1111/j.1475-2743.2009.00202.x</a>.</p>
 </div>
 <div>
 <p>Beaudette, D., and A.T. O’Geen. 2009. “Soil-web: An online soil survey for California, Arizona, and Nevada.” <em>Computers &amp; Geosciences</em> 35: 2119–28.</p>
 </div>
 <div>
-<p>Behrens, T., K. Schmidt, R.A. MacMillan, and R.A. Viscarra Rossel. 2018. “Multiscale Contextual Spatial Modelling with the Gaussian Scale Space.” <em>Geoderma</em> 310: 128–37. <a href="https://doi.org/10.1016/j.geoderma.2017.09.015">https://doi.org/10.1016/j.geoderma.2017.09.015</a>.</p>
+<p>Beaudette, D.E., P. Roudier, and A.T. O’Geen. 2013. “Algorithms for Quantitative Pedology: A Toolkit for Soil Scientists.” <em>Computers &amp; Geosciences</em> 52 (0): 258–68. doi:<a href="https://doi.org/10.1016/j.cageo.2012.10.020">10.1016/j.cageo.2012.10.020</a>.</p>
+</div>
+<div>
+<p>Behrens, T., K. Schmidt, R.A. MacMillan, and R.A. Viscarra Rossel. 2018. “Multiscale Contextual Spatial Modelling with the Gaussian Scale Space.” <em>Geoderma</em> 310: 128–37. doi:<a href="https://doi.org/10.1016/j.geoderma.2017.09.015">10.1016/j.geoderma.2017.09.015</a>.</p>
 </div>
 <div>
 <p>Berhongaray, Gonzalo, and Roberto Alvarez. 2013. “The Ipcc Tool for Predicting Soil Organic Carbon Changes Evaluated for the Pampas, Argentina.” <em>Agriculture, Ecosystems &amp; Environment</em> 181. Elsevier: 241–45.</p>
@@ -387,7 +363,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Bernoux, M., D. Arrouays, C. Cerri, B. Valkoff, and C. Jolivet. 1998. “Bulk densities of Brazilian Amazon soils related to other soil properties.” <em>Soil Science Society of America Journal</em> 62: 743–49.</p>
 </div>
 <div>
-<p>Biau, Gérard, and Erwan Scornet. 2016. “A Random Forest Guided Tour.” <em>TEST</em> 25 (2). Springer: 197–227. <a href="https://doi.org/10.1007/s11749-016-0481-7">https://doi.org/10.1007/s11749-016-0481-7</a>.</p>
+<p>Biau, Gérard, and Erwan Scornet. 2016. “A Random Forest Guided Tour.” <em>TEST</em> 25 (2). Springer: 197–227. doi:<a href="https://doi.org/10.1007/s11749-016-0481-7">10.1007/s11749-016-0481-7</a>.</p>
 </div>
 <div>
 <p>Bie, S.W., and A. Ulph. 1972. “The Economic Value of Survey Information.” <em>Journal of Agricultural Economics</em> 13: 285–97.</p>
@@ -423,52 +399,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>———. 2001. “Random Forests.” <em>Machine Learning</em> 45 (1). Springer: 5–32.</p>
 </div>
 <div>
-<p>Brennan, R.F., and M.D.A. Bolland. 1998. “Relationship Between Ph Measured in Water and Calcium Chloride for Soils of Southwestern Australia.” <em>Communications in Soil Science and Plant Analysis</em> 29 (17-18). Taylor &amp; Francis: 2683–9. <a href="https://doi.org/10.1080/00103629809370143">https://doi.org/10.1080/00103629809370143</a>.</p>
+<p>Brennan, R.F., and M.D.A. Bolland. 1998. “Relationship Between Ph Measured in Water and Calcium Chloride for Soils of Southwestern Australia.” <em>Communications in Soil Science and Plant Analysis</em> 29 (17-18). Taylor &amp; Francis: 2683–9. doi:<a href="https://doi.org/10.1080/00103629809370143">10.1080/00103629809370143</a>.</p>
 </div>
 <div>
-<p>Brenning, A. 2012. “Spatial cross-validation and bootstrap for the assessment of prediction rules in remote sensing: The R package sperrorest.” In <em>2012 Ieee International Geoscience and Remote Sensing Symposium</em>, 5372–5. <a href="https://doi.org/10.1109/IGARSS.2012.6352393">https://doi.org/10.1109/IGARSS.2012.6352393</a>.</p>
+<p>Brenning, A. 2012. “Spatial cross-validation and bootstrap for the assessment of prediction rules in remote sensing: The R package sperrorest.” In <em>2012 Ieee International Geoscience and Remote Sensing Symposium</em>, 5372–5. doi:<a href="https://doi.org/10.1109/IGARSS.2012.6352393">10.1109/IGARSS.2012.6352393</a>.</p>
 </div>
 <div>
 <p>Brodlie, Ken, Rodolfo Allendes Osorio, and Adriano Lopes. 2012. “A Review of Uncertainty in Data Visualization.” In <em>Expanding the Frontiers of Visual Analytics and Visualization</em>, 81–109. Springer.</p>
 </div>
 <div>
-<p>Brown, Patrick E. 2015. “Model-Based Geostatistics the Easy Way.” <em>Journal of Statistical Software</em> 63 (12). <a href="http://www.jstatsoft.org/v63/i12">http://www.jstatsoft.org/v63/i12</a>.</p>
+<p>Brown, Patrick E. 2015. “Model-Based Geostatistics the Easy Way.” <em>Journal of Statistical Software</em> 63 (12). <a href="http://www.jstatsoft.org/v63/i12" class="uri">http://www.jstatsoft.org/v63/i12</a>.</p>
 </div>
 <div>
 <p>Brus, D. J., and G. B. M. Heuvelink. 2007. “Optimization of sample patterns for universal kriging of environmental variables.” <em>Geoderma</em> 138 (1-2). Elsevier: 86–95.</p>
 </div>
 <div>
-<p>Brus, D.J., B. Kempen, and G.B.M. Heuvelink. 2011. “Sampling for Validation of Digital Soil Maps.” <em>European Journal of Soil Science</em> 62 (3). Blackwell Publishing Ltd: 394–407. <a href="https://doi.org/10.1111/j.1365-2389.2011.01364.x">https://doi.org/10.1111/j.1365-2389.2011.01364.x</a>.</p>
+<p>Brus, D.J., B. Kempen, and G.B.M. Heuvelink. 2011. “Sampling for Validation of Digital Soil Maps.” <em>European Journal of Soil Science</em> 62 (3). Blackwell Publishing Ltd: 394–407. doi:<a href="https://doi.org/10.1111/j.1365-2389.2011.01364.x">10.1111/j.1365-2389.2011.01364.x</a>.</p>
 </div>
 <div>
 <p>Brye, K.R., and N.A. Slaton. 2003. “Carbon and Nitrogen Storage in a Typic Albaqualf as Affected by Assessment Method.” <em>Communications in Soil Science and Plant Analysis</em> 34: 1637–55.</p>
 </div>
 <div>
-<p>Bui, E. 2003. “A Strategy to Fill Gaps in Soil Survey over Large Spatial Extents: An Example from the Murray-Darling Basin of Australia.” <em>Geoderma</em> 111: 21–44. <a href="https://doi.org/10.1016/S0016-7061(02)00238-0">https://doi.org/10.1016/S0016-7061(02)00238-0</a>.</p>
+<p>Bui, E. 2004. “Soil Survey as a Knowledge System.” <em>Geoderma</em> 120 (05/2004): 17–26. doi:<a href="https://doi.org/10.1016/j.geoderma.2003.07.006">10.1016/j.geoderma.2003.07.006</a>.</p>
 </div>
 <div>
-<p>Bui, E. 2004. “Soil Survey as a Knowledge System.” <em>Geoderma</em> 120: 17–26. <a href="https://doi.org/10.1016/j.geoderma.2003.07.006">https://doi.org/10.1016/j.geoderma.2003.07.006</a>.</p>
+<p>Bui, E. 2003. “A Strategy to Fill Gaps in Soil Survey over Large Spatial Extents: An Example from the Murray-Darling Basin of Australia.” <em>Geoderma</em> 111 (01/2003): 21–44. doi:<a href="https://doi.org/10.1016/S0016-7061(02)00238-0">10.1016/S0016-7061(02)00238-0</a>.</p>
 </div>
 <div>
 <p>Buol, S.W., R.J. Southard, R.C. Graham, and P. A. McDaniel. 2011. <em>Soil Genesis and Classification</em>. Wiley.</p>
 </div>
 <div>
-<p>Burrough, P. A. 1989. “Fuzzy Mathematical Methods for Soil Survey and Land Evaluation.” <em>Journal of Soil Science</em> 40 (3): 477–92. <a href="https://doi.org/10.1111/j.1365-2389.1989.tb01290.x">https://doi.org/10.1111/j.1365-2389.1989.tb01290.x</a>.</p>
-</div>
-<div>
-<p>Burrough, P. A., P.H. T. Beckett, and M.G. Jarvis. 1971. “The Relation Between Cost and Utility in Soil Survey (I–Iii).” <em>Journal of Soil Science</em> 22 (3). Blackwell Publishing Ltd: 359–94. <a href="https://doi.org/10.1111/j.1365-2389.1971.tb01624.x">https://doi.org/10.1111/j.1365-2389.1971.tb01624.x</a>.</p>
+<p>Burrough, P. A. 1989. “Fuzzy Mathematical Methods for Soil Survey and Land Evaluation.” <em>Journal of Soil Science</em> 40 (3): 477–92. doi:<a href="https://doi.org/10.1111/j.1365-2389.1989.tb01290.x">10.1111/j.1365-2389.1989.tb01290.x</a>.</p>
 </div>
 <div>
 <p>Burrough, P. A., and R. A. McDonnell. 1998. <em>Principles of Geographical Information Systems</em>. 2nd ed. Oxford: Oxford University Press.</p>
+</div>
+<div>
+<p>Burrough, P. A., P.H. T. Beckett, and M.G. Jarvis. 1971. “The Relation Between Cost and Utility in Soil Survey (I–Iii).” <em>Journal of Soil Science</em> 22 (3). Blackwell Publishing Ltd: 359–94. doi:<a href="https://doi.org/10.1111/j.1365-2389.1971.tb01624.x">10.1111/j.1365-2389.1971.tb01624.x</a>.</p>
 </div>
 <div>
 <p>Campbell, Andrew. 2008. <em>Managing Australia’s Soils: A policy discussion paper</em>. Canberra: CSIRO.</p>
 </div>
 <div>
 <p>Campbell, G.S., and S. Shiozawa. 1989. “Prediction of hydraulic properties of soils using particle-size distribution and bulk density data.” In <em>Proc. Int. Worksh. On Indirect Methods for Estimating the Hydraulic Properties of Unsaturated Soils</em>, edited by van Genuchten, M.Th. et al., 317–28. Riverside, CA: Univ. of California, Riverside.</p>
-</div>
-<div>
-<p>Canadell, J., R.B. Jackson, J.R. Ehleringer, H.A. Mooney, O.E. Sala, and E.-D. Schulze. 1996. “Maximum Rooting Depth of Vegetation Types at the Global Scale.” <em>Oecologia</em> 108: 583–95.</p>
 </div>
 <div>
 <p>Canarache, A. 1993. “Physical-technological soil maps — A possible product of soil survey for direct use in agriculture.” <em>Soil Technology</em> 6: 3–15.</p>
@@ -480,13 +453,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Carter, M.R., and E.G. Gregorich. 2007. <em>Soil Sampling and Methods of Analysis</em>. CRC PRESS.</p>
 </div>
 <div>
-<p>Caubet, Manon, Mercedes Román Dobarco, Dominique Arrouays, Budiman Minasny, and Nicolas P.A. Saby. 2019. “Merging Country, Continental and Global Predictions of Soil Texture: Lessons from Ensemble Modelling in France.” <em>Geoderma</em> 337: 99–110. <a href="https://doi.org/10.1016/j.geoderma.2018.09.007">https://doi.org/10.1016/j.geoderma.2018.09.007</a>.</p>
+<p>Caubet, Manon, Mercedes Román Dobarco, Dominique Arrouays, Budiman Minasny, and Nicolas P.A. Saby. 2019. “Merging Country, Continental and Global Predictions of Soil Texture: Lessons from Ensemble Modelling in France.” <em>Geoderma</em> 337: 99–110. doi:<a href="https://doi.org/10.1016/j.geoderma.2018.09.007">10.1016/j.geoderma.2018.09.007</a>.</p>
 </div>
 <div>
 <p>Chang, Chih-Chung, and Chih-Jen Lin. 2011. “LIBSVM: a library for support vector machines.” <em>ACM Transactions on Intelligent Systems and Technology (TIST)</em> 2 (3). Acm: 27.</p>
 </div>
 <div>
-<p>Chen, Jun, Jin Chen, Anping Liao, Xin Cao, Lijun Chen, Xuehong Chen, Chaoying He, et al. 2015. “Global land cover mapping at 30 m resolution: A POK-based operational approach.” <em>ISPRS Journal of Photogrammetry and Remote Sensing</em> 103: 7–27. <a href="https://doi.org/10.1016/j.isprsjprs.2014.09.002">https://doi.org/10.1016/j.isprsjprs.2014.09.002</a>.</p>
+<p>Chen, Jun, Jin Chen, Anping Liao, Xin Cao, Lijun Chen, Xuehong Chen, Chaoying He, et al. 2015. “Global land cover mapping at 30 m resolution: A POK-based operational approach.” <em>ISPRS Journal of Photogrammetry and Remote Sensing</em> 103: 7–27. doi:<a href="https://doi.org/10.1016/j.isprsjprs.2014.09.002">10.1016/j.isprsjprs.2014.09.002</a>.</p>
 </div>
 <div>
 <p>Chen, T., and C. Guestrin. 2016. “XGBoost: A Scalable Tree Boosting System.” <em>ArXiv E-Prints</em>, March.</p>
@@ -501,10 +474,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Christensen, R. 2001. <em>Linear Models for Multivariate, Time Series, and Spatial Data</em>. 2nd ed. New York: Springer Verlag.</p>
 </div>
 <div>
-<p>Conant, Richard T, Stephen M Ogle, Eldor A Paul, and Keith Paustian. 2010. “Measuring and Monitoring Soil Organic Carbon Stocks in Agricultural Lands for Climate Mitigation.” <em>Frontiers in Ecology and the Environment</em> 9 (3). Ecological Society of America: 169–73. <a href="http://dx.doi.org/10.1890/090153">http://dx.doi.org/10.1890/090153</a>.</p>
+<p>Conant, Richard T, Stephen M Ogle, Eldor A Paul, and Keith Paustian. 2010. “Measuring and Monitoring Soil Organic Carbon Stocks in Agricultural Lands for Climate Mitigation.” <em>Frontiers in Ecology and the Environment</em> 9 (3). Ecological Society of America: 169–73. <a href="http://dx.doi.org/10.1890/090153" class="uri">http://dx.doi.org/10.1890/090153</a>.</p>
 </div>
 <div>
-<p>Conrad, O., B. Bechtel, M. Bock, H. Dietrich, E. Fischer, L. Gerlitz, J. Wehberg, V. Wichmann, and J. Böhner. 2015. “System for Automated Geoscientific Analyses (Saga) V. 2.1.4.” <em>Geoscientific Model Development</em> 8 (7). Copernicus GmbH: 1991–2007. <a href="https://doi.org/10.5194/gmd-8-1991-2015">https://doi.org/10.5194/gmd-8-1991-2015</a>.</p>
+<p>Conrad, O., B. Bechtel, M. Bock, H. Dietrich, E. Fischer, L. Gerlitz, J. Wehberg, V. Wichmann, and J. Böhner. 2015. “System for Automated Geoscientific Analyses (Saga) V. 2.1.4.” <em>Geoscientific Model Development</em> 8 (7). Copernicus GmbH: 1991–2007. doi:<a href="https://doi.org/10.5194/gmd-8-1991-2015">10.5194/gmd-8-1991-2015</a>.</p>
 </div>
 <div>
 <p>Cooper, Miguel, Lúcia Maria Silveira Mendes, Wellinton Luiz Costa Silva, and Gerd Sparovek. 2005. “A National Soil Profile Database for Brazil Available to International Scientists.” <em>Soil Science Society of America Journal</em> 69 (3). Soil Science Society: 649–52.</p>
@@ -519,25 +492,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Curtis, R.O., and B.W. Post. 1964. “Estimating bulk density from organic matter content in some Vermont forest soils.” <em>Soil Science Society of America Proceedings</em> 28: 285–86.</p>
 </div>
 <div>
-<p>Danielson, J.J., and D.B. and Gesch. 2011. <em>Global multi-resolution terrain elevation data 2010 (GMTED2010)</em>. Open-File Report 2011-1073. U.S. Geological Survey.</p>
+<p>D’Avello, T.P., and R.L. McLeese. 1998. “Why Are Those Lines Placed Where They Are? An Investigation of Soil Map Recompilation Methods.” <em>Soil Survey Horiz.</em> 39: 119–26.</p>
 </div>
 <div>
-<p>D’Avello, T.P., and R.L. McLeese. 1998. “Why Are Those Lines Placed Where They Are? An Investigation of Soil Map Recompilation Methods.” <em>Soil Survey Horiz.</em> 39: 119–26.</p>
+<p>Danielson, J.J., and D.B. and Gesch. 2011. <em>Global multi-resolution terrain elevation data 2010 (GMTED2010)</em>. Open-File Report 2011-1073. U.S. Geological Survey.</p>
 </div>
 <div>
 <p>Davis, L.E. 1943. “Measurements of pH with the Glass Electrode as Affected by Soil Moisture.” <em>Soil Science</em> 56 (6): 405–22.</p>
 </div>
 <div>
-<p>de Gruijter, J.J., D.J. Brus, M.F.P. Bierkens, and M. Knotters. 2006. <em>Sampling for Natural Resource Monitoring</em>. London: Springer.</p>
-</div>
-<div>
 <p>de Gruijter, J. J., D. J. J. Walvoort, and P. F. M. van Gaans. 1997. “Continuous Soil Maps — a Fuzzy Set Approach to Bridge the Gap Between Aggregation Levels of Process and Distribution Models.” <em>Geoderma</em> 77 (2-4): 169–95.</p>
 </div>
 <div>
-<p>Desaules, André, Stefan Ammann, and Peter Schwab. 2010. “Advances in Long-Term Soil-Pollution Monitoring of Switzerland.” <em>Journal of Plant Nutrition and Soil Science</em> 173 (4). WILEY-VCH Verlag: 525–35. <a href="https://doi.org/10.1002/jpln.200900269">https://doi.org/10.1002/jpln.200900269</a>.</p>
+<p>de Gruijter, J.J., D.J. Brus, M.F.P. Bierkens, and M. Knotters. 2006. <em>Sampling for Natural Resource Monitoring</em>. London: Springer.</p>
 </div>
 <div>
 <p>De Vos, B., S. Lettens, B. Muys, and J.A. Deckers. 2007. “Walkley-Black analysis of forest soil organic carbon: Recovery,limitations and uncertainty.” <em>Soil Use and Management</em> 23: 221–29.</p>
+</div>
+<div>
+<p>Desaules, André, Stefan Ammann, and Peter Schwab. 2010. “Advances in Long-Term Soil-Pollution Monitoring of Switzerland.” <em>Journal of Plant Nutrition and Soil Science</em> 173 (4). WILEY-VCH Verlag: 525–35. doi:<a href="https://doi.org/10.1002/jpln.200900269">10.1002/jpln.200900269</a>.</p>
 </div>
 <div>
 <p>Diggle, P. J., and P. J. Ribeiro Jr. 2007. <em>Model-based Geostatistics</em>. Springer Series in Statistics. Springer.</p>
@@ -549,7 +522,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Driessen, Paul M, and Nicolaas T Konijn. 1992. <em>Land-Use Systems Analysis</em>. Wageningen Agricultural University.</p>
 </div>
 <div>
-<p>Durana, Patricia J. 2008. “Appendix A: Chronology of the U.S.Soil Survey.” In <em>Profiles in the History of the U.s.soil Survey</em>, 315–20. Iowa State Press. <a href="https://doi.org/10.1002/9780470376959.app1">https://doi.org/10.1002/9780470376959.app1</a>.</p>
+<p>Durana, Patricia J. 2008. “Appendix A: Chronology of the U.S. Soil Survey.” In <em>Profiles in the History of the U.s. Soil Survey</em>, 315–20. Iowa State Press. doi:<a href="https://doi.org/10.1002/9780470376959.app1">10.1002/9780470376959.app1</a>.</p>
 </div>
 <div>
 <p>Eswaran, H., R. Ahrens, T.J. Rice, and B.A. Stewart. 2010. <em>Soil Classification: A Global Desk Reference</em>. Taylor &amp; Francis.</p>
@@ -576,10 +549,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Finke, P. 2006. “Quality assessment of digital soil maps: producers and users perspectives.” In <em>Digital Soil Mapping: An Introductory Perspective</em>, edited by P. Lagacherie, A. B. McBratney, and M. Voltz, 523–41. Developments in Soil Science. Amsterdam: Elsevier.</p>
 </div>
 <div>
-<p>Finke, Peter A., and John L. Hutson. 2008. “Modelling Soil Genesis in Calcareous Loess.” <em>Geoderma</em> 145 (3?4): 462–79. <a href="https://doi.org/10.1016/j.geoderma.2008.01.017">https://doi.org/10.1016/j.geoderma.2008.01.017</a>.</p>
+<p>Finke, Peter A., and John L. Hutson. 2008. “Modelling Soil Genesis in Calcareous Loess.” <em>Geoderma</em> 145 (3?4): 462–79. doi:<a href="https://doi.org/10.1016/j.geoderma.2008.01.017">10.1016/j.geoderma.2008.01.017</a>.</p>
 </div>
 <div>
-<p>Florinsky, I. V. 2012. “The Dokuchaev Hypothesis as a Basis for Predictive Digital Soil Mapping (on the 125th Anniversary of Its Publication).” <em>Eurasian Soil Science</em> 45 (4): 445–51. <a href="https://doi.org/10.1134/S1064229312040047">https://doi.org/10.1134/S1064229312040047</a>.</p>
+<p>Florinsky, I. V. 2012. “The Dokuchaev Hypothesis as a Basis for Predictive Digital Soil Mapping (on the 125th Anniversary of Its Publication).” <em>Eurasian Soil Science</em> 45 (4): 445–51. doi:<a href="https://doi.org/10.1134/S1064229312040047">10.1134/S1064229312040047</a>.</p>
 </div>
 <div>
 <p>Food, Development Agriculture Organization of the United Nations. Soil Resources, and Conservation Service. 1977. <em>A Framework for Land Evaluation</em>. Publication (International Institute for Land Reclamation and Improvement). International Institute for Land Reclamation; Improvement.</p>
@@ -597,10 +570,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Frossard, E., W.E.H. Blum, B.P. Warkentin, and Geological Society of London. 2006. <em>Function of soils for human societies and the environment</em>. Special Publication — Geological Society of London. Geological Society.</p>
 </div>
 <div>
-<p>Gasch, Caley, Tomislav Hengl, Benedikt Gräler, Hanna Meyer, Troy Magney, and David Brown. 2015. “Spatio-temporal interpolation of soil water, temperature, and electrical conductivity in 3D+T: The Cook Agronomy Farm data set.” <em>Spatial Statistics</em> 14 (Part A): 70–90. <a href="https://doi.org/10.1016/j.spasta.2015.04.001">https://doi.org/10.1016/j.spasta.2015.04.001</a>.</p>
+<p>Gasch, Caley, Tomislav Hengl, Benedikt Gräler, Hanna Meyer, Troy Magney, and David Brown. 2015. “Spatio-temporal interpolation of soil water, temperature, and electrical conductivity in 3D+T: The Cook Agronomy Farm data set.” <em>Spatial Statistics</em> 14 (Part A): 70–90. doi:<a href="https://doi.org/10.1016/j.spasta.2015.04.001">10.1016/j.spasta.2015.04.001</a>.</p>
 </div>
 <div>
-<p>Gehl, RonaldJ., and CharlesW. Rice. 2007. “Emerging Technologies for in Situ Measurement of Soil Carbon.” <em>Climatic Change</em> 80 (1-2). Kluwer Academic Publishers: 43–54. <a href="https://doi.org/10.1007/s10584-006-9150-2">https://doi.org/10.1007/s10584-006-9150-2</a>.</p>
+<p>Gehl, RonaldJ., and CharlesW. Rice. 2007. “Emerging Technologies for in Situ Measurement of Soil Carbon.” <em>Climatic Change</em> 80 (1-2). Kluwer Academic Publishers: 43–54. doi:<a href="https://doi.org/10.1007/s10584-006-9150-2">10.1007/s10584-006-9150-2</a>.</p>
 </div>
 <div>
 <p>Gibbons, Frank R., Ronald Geoffrey Downes, and others. 1964. <em>A study of the land in south-western Victoria</em>. Soil Conservation Authority Melbourne.</p>
@@ -627,10 +600,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Grewal, K.S., G.D. Buchan, and R.R. Sherlock. 1991. “A comparison of three methods of organic carbon determination in some New Zealand soils.” <em>Journal of Soil Science</em> 42: 251–57.</p>
 </div>
 <div>
-<p>Grinand, C., D. Arrouays, B. Laroche, and M. Martin. 2008. “Extrapolating regional soil landscapes from an existing soil map: Sampling intensity, validation procedures, and integration of spatialcontext.” <em>Geoderma</em> 143: 180–90. <a href="https://doi.org/10.1016/j.geoderma.2007.11.004">https://doi.org/10.1016/j.geoderma.2007.11.004</a>.</p>
+<p>Grinand, C., D. Arrouays, B. Laroche, and M. Martin. 2008. “Extrapolating regional soil landscapes from an existing soil map: Sampling intensity, validation procedures, and integration of spatialcontext.” <em>Geoderma</em> 143 (01/2008): 180–90. doi:<a href="https://doi.org/10.1016/j.geoderma.2007.11.004">10.1016/j.geoderma.2007.11.004</a>.</p>
 </div>
 <div>
-<p>Gruber, S., and S. Peckham. 2009. “Chapter 7 Land-Surface Parameters and Objects in Hydrology.” In <em>Geomorphometry</em>, edited by Tomislav Hengl and Hannes I. Reuter, 33:171–94. Developments in Soil Science. Elsevier. <a href="https://doi.org/10.1016/S0166-2481(08)00007-X">https://doi.org/10.1016/S0166-2481(08)00007-X</a>.</p>
+<p>Gruber, S., and S. Peckham. 2009. “Chapter 7 Land-Surface Parameters and Objects in Hydrology.” In <em>Geomorphometry</em>, edited by Tomislav Hengl and Hannes I. Reuter, 33:171–94. Developments in Soil Science. Elsevier. doi:<a href="https://doi.org/10.1016/S0166-2481(08)00007-X">10.1016/S0166-2481(08)00007-X</a>.</p>
 </div>
 <div>
 <p>Grunwald, S. 2005a. <em>Environmental Soil-Landscape Modeling: Geographic Information Technologies and Pedometrics</em>. Books in Soils, Plants, and the Environment Series. Taylor &amp; Francis.</p>
@@ -639,7 +612,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>———. 2005b. “What do we really know about the space-time continuum of soil-landscapes.” In <em>Environmental Soil-Landscape Modeling: Geographic Information Technologies and Pedometrics</em>, edited by S. Grunwald, 3–36. Boca Raton, Florida: CRC Press.</p>
 </div>
 <div>
-<p>Haining, Robert P., Ruth Kerry, and Margaret A. Oliver. 2010. “Geography, Spatial Data Analysis, and Geostatistics: An Overview.” <em>Geographical Analysis</em> 42 (1). Blackwell Publishing Inc: 7–31. <a href="https://doi.org/10.1111/j.1538-4632.2009.00780.x">https://doi.org/10.1111/j.1538-4632.2009.00780.x</a>.</p>
+<p>Haining, Robert P., Ruth Kerry, and Margaret A. Oliver. 2010. “Geography, Spatial Data Analysis, and Geostatistics: An Overview.” <em>Geographical Analysis</em> 42 (1). Blackwell Publishing Inc: 7–31. doi:<a href="https://doi.org/10.1111/j.1538-4632.2009.00780.x">10.1111/j.1538-4632.2009.00780.x</a>.</p>
 </div>
 <div>
 <p>Hall, D.G., M.J. Reeve, A.J. Thomasson, and V.F. Wright. 1977. <em>Water Retention, Porosity and Density of Field Soils</em>. Soil Survey of England and Wales. Harpenden: Transport; Road Research Laboratory.</p>
@@ -663,13 +636,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Hartemink, A. E., J. Hempel, P. Lagacherie, A. B. McBratney, N. McKenzie, R. A. MacMillan, B. Minasny, et al. 2010. “GlobalSoilMap.net — A New Digital Soil Map of the World.” In <em>Digital Soil Mapping: Bridging Research, Environmental Application, and Operation</em>, edited by J. L. Boettinger, D. W. Howell, A. C. Moore, A. E. Hartemink, and S. Kienast-Brown, 2:423–27. Progress in Soil Science. Springer.</p>
 </div>
 <div>
-<p>Hartemink, Alfred. 2008. “Soil Map Density and a Nation’s Wealth and Income.” In <em>Digital Soil Mapping with Limited Data</em>, edited by Alfred Hartemink, Alex McBratney, and Mariade Lourdes Mendonça-Santos, 53–66. Springer Netherlands. <a href="https://doi.org/10.1007/978-1-4020-8592-5_1">https://doi.org/10.1007/978-1-4020-8592-5_1</a>.</p>
+<p>Hartemink, Alfred. 2008. “Soil Map Density and a Nation’s Wealth and Income.” In <em>Digital Soil Mapping with Limited Data</em>, edited by Alfred Hartemink, Alex McBratney, and Mariade Lourdes Mendonça-Santos, 53–66. Springer Netherlands. doi:<a href="https://doi.org/10.1007/978-1-4020-8592-5_1">10.1007/978-1-4020-8592-5_1</a>.</p>
 </div>
 <div>
 <p>Hartemink, Alfred E., Alex McBratney, and Maria de Lourdes Mendonça-Santos, eds. 2008. <em>Digital Soil Mapping with Limited Data</em>. Vol. 1. Progress in Soil Science. Springer.</p>
 </div>
 <div>
-<p>Hartmann, Jens, and Nils Moosdorf. 2012. “The new global lithological map database GLiM: A representation of rock properties at the Earth surface.” <em>Geochemistry, Geophysics, Geosystems</em> 13 (12): n/a–n/a. <a href="https://doi.org/10.1029/2012GC004370">https://doi.org/10.1029/2012GC004370</a>.</p>
+<p>Hartmann, Jens, and Nils Moosdorf. 2012. “The new global lithological map database GLiM: A representation of rock properties at the Earth surface.” <em>Geochemistry, Geophysics, Geosystems</em> 13 (12): n/a–n/a. doi:<a href="https://doi.org/10.1029/2012GC004370">10.1029/2012GC004370</a>.</p>
 </div>
 <div>
 <p>Hastie, T.J., R.J. Tibshirani, and J.J.H. Friedman. 2009. <em>The Elements of Statistical Learning: Data Mining, Inference, and Prediction</em>. Springer Series in Statistics. Springer-Verlag New York.</p>
@@ -681,10 +654,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Henderson, B. L., E. N. Bui, C. J. Moran, and D. A. P. Simon. 2004. “Australia-wide predictions of soil properties using decision trees.” <em>Geoderma</em> 124 (3-4): 383–98.</p>
 </div>
 <div>
-<p>Hengl, Gerard B.M. AND Kempen, Tomislav AND Heuvelink. 2015. “Mapping Soil Properties of Africa at 250 m Resolution: Random Forests Significantly Improve Current Predictions.” <em>PLoS ONE</em> 10 (e0125814). Public Library of Science. <a href="https://doi.org/10.1371/journal.pone.0125814">https://doi.org/10.1371/journal.pone.0125814</a>.</p>
+<p>Hengl, Gerard B.M. AND Kempen, Tomislav AND Heuvelink. 2015. “Mapping Soil Properties of Africa at 250 m Resolution: Random Forests Significantly Improve Current Predictions.” <em>PLoS ONE</em> 10 (e0125814). Public Library of Science. doi:<a href="https://doi.org/10.1371/journal.pone.0125814">10.1371/journal.pone.0125814</a>.</p>
 </div>
 <div>
-<p>Hengl, Jorge AND MacMillan, Tomislav AND Mendes de Jesus. 2014. “SoilGrids1km — Global Soil Information Based on Automated Mapping.” <em>PLoS ONE</em> 9 (e105992). Public Library of Science. <a href="https://doi.org/10.1371/journal.pone.0105992">https://doi.org/10.1371/journal.pone.0105992</a>.</p>
+<p>Hengl, Jorge AND MacMillan, Tomislav AND Mendes de Jesus. 2014. “SoilGrids1km — Global Soil Information Based on Automated Mapping.” <em>PLoS ONE</em> 9 (e105992). Public Library of Science. doi:<a href="https://doi.org/10.1371/journal.pone.0105992">10.1371/journal.pone.0105992</a>.</p>
 </div>
 <div>
 <p>Hengl, T. 2006. “Finding the right pixel size.” <em>Computers &amp; Geosciences</em> 32 (9): 1283–98.</p>
@@ -696,46 +669,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Hengl, T., J. Mendes de Jesus, G. B. M. Heuvelink, M. Ruiperez Gonzalez, M. Kilibarda, A. Blagotic, W. Shangguan, et al. 2017. “SoilGrids250m: Global Gridded Soil Information Based on Machine Learning.” <em>PLoS One</em> 12 (2): e0169748.</p>
 </div>
 <div>
-<p>Hengl, T., M. Nikolić, and R. A. MacMillan. 2013. “Mapping Efficiency and Information Content.” <em>International Journal of Applied Earth Observation and Geoinformation</em> 22: 127–38. <a href="https://doi.org/10.1016/j.jag.2012.02.005">https://doi.org/10.1016/j.jag.2012.02.005</a>.</p>
+<p>Hengl, T., M. Nikolić, and R. A. MacMillan. 2013. “Mapping Efficiency and Information Content.” <em>International Journal of Applied Earth Observation and Geoinformation</em> 22: 127–38. doi:<a href="https://doi.org/10.1016/j.jag.2012.02.005">10.1016/j.jag.2012.02.005</a>.</p>
+</div>
+<div>
+<p>Hengl, Tomislav, and Stjepan Husnjak. 2006. “Evaluating Adequacy and Usability of Soil Maps in Croatia.” <em>Soil Science Society of America Journal</em> 70 (3): 920–29. doi:<a href="https://doi.org/10.2136/sssaj2004.0141">10.2136/sssaj2004.0141</a>.</p>
 </div>
 <div>
 <p>Hengl, Tomislav, Gerard Heuvelink, and David G Rossiter. 2007. “About Regression-Kriging: From Equations to Case Studies.” <em>Computers &amp; Geosciences</em> 33 (10). Elsevier: 1301–15.</p>
 </div>
 <div>
-<p>Hengl, Tomislav, and Stjepan Husnjak. 2006. “Evaluating Adequacy and Usability of Soil Maps in Croatia.” <em>Soil Science Society of America Journal</em> 70 (3): 920–29. <a href="https://doi.org/10.2136/sssaj2004.0141">https://doi.org/10.2136/sssaj2004.0141</a>.</p>
+<p>Hengl, Tomislav, Madlene Nussbaum, Marvin N Wright, Gerard B.M. Heuvelink, and Benedikt Gräler. 2018. “Random Forest as a Generic Framework for Predictive Modeling of Spatial and Spatio-Temporal Variables.” <em>PeerJ</em> 6 (August): e5518. doi:<a href="https://doi.org/10.7717/peerj.5518">10.7717/peerj.5518</a>.</p>
 </div>
 <div>
-<p>Hengl, Tomislav, Madlene Nussbaum, Marvin N Wright, Gerard B.M. Heuvelink, and Benedikt Gräler. 2018. “Random Forest as a Generic Framework for Predictive Modeling of Spatial and Spatio-Temporal Variables.” <em>PeerJ</em> 6 (August): e5518. <a href="https://doi.org/10.7717/peerj.5518">https://doi.org/10.7717/peerj.5518</a>.</p>
+<p>Hengl, Tomislav, Norair Toomanian, Hannes I. Reuter, and Mohammad J. Malakouti. 2007. “Methods to Interpolate Soil Categorical Variables from Profile Observations: Lessons from Iran.” <em>Geoderma</em> 140 (4). Elsevier: 417–27. doi:<a href="https://doi.org/10.1016/j.geoderma.2007.04.022">10.1016/j.geoderma.2007.04.022</a>.</p>
 </div>
 <div>
-<p>Hengl, Tomislav, Norair Toomanian, Hannes I. Reuter, and Mohammad J. Malakouti. 2007. “Methods to Interpolate Soil Categorical Variables from Profile Observations: Lessons from Iran.” <em>Geoderma</em> 140 (4). Elsevier: 417–27. <a href="https://doi.org/10.1016/j.geoderma.2007.04.022">https://doi.org/10.1016/j.geoderma.2007.04.022</a>.</p>
+<p>Hengl, Tomislav, Markus G. Walsh, Jonathan Sanderman, Ichsani Wheeler, Sandy P. Harrison, and Iain C. Prentice. 2018. “Global Mapping of Potential Natural Vegetation: An Assessment of Machine Learning Algorithms for Estimating Land Potential.” <em>PeerJ</em> 6 (August): e5457. doi:<a href="https://doi.org/10.7717/peerj.5457">10.7717/peerj.5457</a>.</p>
 </div>
 <div>
-<p>Hengl, Tomislav, Markus G. Walsh, Jonathan Sanderman, Ichsani Wheeler, Sandy P. Harrison, and Iain C. Prentice. 2018. “Global Mapping of Potential Natural Vegetation: An Assessment of Machine Learning Algorithms for Estimating Land Potential.” <em>PeerJ</em> 6 (August): e5457. <a href="https://doi.org/10.7717/peerj.5457">https://doi.org/10.7717/peerj.5457</a>.</p>
-</div>
-<div>
-<p>Herold, Martin, Linda See, Nandin-Erdene Tsendbazar, and Steffen Fritz. 2016. “Towards an Integrated Global Land Cover Monitoring and Mapping System.” <em>Remote Sensing</em> 8 (12). <a href="https://doi.org/10.3390/rs8121036">https://doi.org/10.3390/rs8121036</a>.</p>
+<p>Herold, Martin, Linda See, Nandin-Erdene Tsendbazar, and Steffen Fritz. 2016. “Towards an Integrated Global Land Cover Monitoring and Mapping System.” <em>Remote Sensing</em> 8 (12). doi:<a href="https://doi.org/10.3390/rs8121036">10.3390/rs8121036</a>.</p>
 </div>
 <div>
 <p>Heuscher, S.A., C.C. Brandt, and P.M. Jardine. 2005. “Using Soil Physical and Chemical Properties to Estimate Bulk Density.” <em>Soil Science Society of America Journal</em> 69: 1–7.</p>
 </div>
 <div>
+<p>Heuvelink, G. B. M., and E. J. Pebesma. 1999. “Spatial aggregation and soil process modelling.” <em>Geoderma</em> 89 (1-2): 47–65.</p>
+</div>
+<div>
 <p>Heuvelink, G.B.M. 1998. <em>Error Propagation in Environmental Modelling with Gis</em>. London, UK: Taylor &amp; Francis.</p>
 </div>
 <div>
-<p>Heuvelink, G.B.M., and M.F.P. Bierkens. 1992. “Combining Soil Maps with Interpolations from Point Observations to Predict Quantitative Soil Properties.” <em>Geoderma</em> 55 (1-2): 1–15. <a href="https://doi.org/10.1016/0016-7061(92)90002-O">https://doi.org/10.1016/0016-7061(92)90002-O</a>.</p>
+<p>Heuvelink, G.B.M., and M.F.P. Bierkens. 1992. “Combining Soil Maps with Interpolations from Point Observations to Predict Quantitative Soil Properties.” <em>Geoderma</em> 55 (1-2): 1–15. doi:<a href="https://doi.org/10.1016/0016-7061(92)90002-O">10.1016/0016-7061(92)90002-O</a>.</p>
 </div>
 <div>
 <p>Heuvelink, G.B.M., and J. Brown. 2006. “Towards a Soil Information System for Uncertain Soil Data.” In <em>Digital Soil Mapping: An Introductory Perspective</em>, edited by P. Lagacherie, A. B. McBratney, and M. Voltz, 112–18. Developments in Soil Science. Amsterdam: Elsevier.</p>
 </div>
 <div>
-<p>Heuvelink, GBM, DJ Brus, F De Vries, R Vašát, DJJ Walvoort, B Kempen, and M Knotters. 2010. “Implications of Digital Soil Mapping for Soil Information Systems.” In <em>4th Global Workshop on Digital Soil Mapping, Rome</em>, 24–26.</p>
-</div>
-<div>
-<p>Heuvelink, G. B. M., and E. J. Pebesma. 1999. “Spatial aggregation and soil process modelling.” <em>Geoderma</em> 89 (1-2): 47–65.</p>
-</div>
-<div>
 <p>Heuvelink, G.B.M., and R. Webster. 2001. “Modelling soil variation: past, present, and future.” <em>Geoderma</em> 100 (3-4).</p>
+</div>
+<div>
+<p>Heuvelink, GBM, DJ Brus, F De Vries, R Vašát, DJJ Walvoort, B Kempen, and M Knotters. 2010. “Implications of Digital Soil Mapping for Soil Information Systems.” In <em>4th Global Workshop on Digital Soil Mapping, Rome</em>, 24–26.</p>
 </div>
 <div>
 <p>Heuvelink, Gerard BM. 2014. “Uncertainty Quantification of Globalsoilmap Products.” In <em>GlobalSoilMap: Basis of the Global Spatial Soil Information System</em>, edited by D. Arrouays, N. McKenzie, J. Hempel, A.R. de Forges, and A.B. McBratney, 327–32. Taylor &amp; Francis.</p>
@@ -744,7 +717,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Hijmans, R. J., S. E. Cameron, J. L. Parra, P. G. Jones, and A. Jarvis. 2005. “Very High Resolution Interpolated Climate Surfaces for Global Land Areas.” <em>International Journal of Climatology</em> 25: 1965–78.</p>
 </div>
 <div>
-<p>Hijmans, Robert J., and Jacob van Etten. 2017. <em>Raster: Geographic Data Analysis and Modeling</em>. <a href="http://CRAN.R-project.org/package=raster">http://CRAN.R-project.org/package=raster</a>.</p>
+<p>Hijmans, Robert J., and Jacob van Etten. 2017. <em>Raster: Geographic Data Analysis and Modeling</em>. <a href="http://CRAN.R-project.org/package=raster" class="uri">http://CRAN.R-project.org/package=raster</a>.</p>
 </div>
 <div>
 <p>Hodnett, M.G., and J. Tomasella. 2002. “Marked differences between van Genuchten soil water-retention parameters for temperate and tropical soils: a new water-retention pedo-transfer functions developed for tropical soils.” <em>Geoderma</em> 108 (3). Elsevier: 155–80.</p>
@@ -762,10 +735,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Huffman, George J, and David T Bolvin. 2009. <em>GPCP version 2 combined precipitation data set documentation</em>. Vol. 1. Laboratory for Atmospheres, NASA Goddard Space Flight Center; Science Systems; Applications.</p>
 </div>
 <div>
-<p>Hugelius, G., C. Tarnocai, G. Broll, J. G. Canadell, P. Kuhry, and D. K. Swanson. 2013. “The Northern Circumpolar Soil Carbon Database: Spatially Distributed Datasets of Soil Coverage and Soil Carbon Storage in the Northern Permafrost Regions.” <em>Earth System Science Data</em> 5 (1): 3–13. <a href="https://doi.org/10.5194/essd-5-3-2013">https://doi.org/10.5194/essd-5-3-2013</a>.</p>
+<p>Hugelius, G., C. Tarnocai, G. Broll, J. G. Canadell, P. Kuhry, and D. K. Swanson. 2013. “The Northern Circumpolar Soil Carbon Database: Spatially Distributed Datasets of Soil Coverage and Soil Carbon Storage in the Northern Permafrost Regions.” <em>Earth System Science Data</em> 5 (1): 3–13. doi:<a href="https://doi.org/10.5194/essd-5-3-2013">10.5194/essd-5-3-2013</a>.</p>
 </div>
 <div>
-<p>Instituto Nacional de Estadı'stica y Geografı'a (INEGI). 2000. <em>Conjunto de Datos de Perfiles de Suelos, Escala 1: 250 000 Serie Ii</em>. (Continuo Nacional). Aguascalientes, Ags. México: INEGI.</p>
+<p>Instituto Nacional de Estadística y Geografía (INEGI). 2000. <em>Conjunto de Datos de Perfiles de Suelos, Escala 1: 250 000 Serie Ii</em>. (Continuo Nacional). Aguascalientes, Ags. México: INEGI.</p>
 </div>
 <div>
 <p>IUSS Working Group WRB. 2006. <em>World reference base for soil resources 2006: a framework for international classification, correlation and communication</em>. World Soil Resources Reports No. 103. Rome: Food; Agriculture Organization of the United Nations.</p>
@@ -801,16 +774,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Karssies, Linda. 2011. <em>CSIRO National Soil Archive and the National Soil Database (Natsoil)</em>. Data Collection v1. Canberra: CSIRO.</p>
 </div>
 <div>
-<p>Kempen, B. 2011. “Updating Soil Information with Digital Soil Mapping.” PhD thesis, Wageningen: Wageningen University. <a href="http://edepot.wur.nl/187198">http://edepot.wur.nl/187198</a>.</p>
+<p>Kempen, B. 2011. “Updating Soil Information with Digital Soil Mapping.” PhD thesis, Wageningen: Wageningen University. <a href="http://edepot.wur.nl/187198" class="uri">http://edepot.wur.nl/187198</a>.</p>
 </div>
 <div>
-<p>Kempen, B., D.J. Brus, G.B.M. Heuvelink, and J.J. Stoorvogel. 2009. “Updating the 1:50,000 Dutch soil map using legacy soil data: A multinomial logistic regression approach.” <em>Geoderma</em> 151 (3-4): 311–26. <a href="https://doi.org/10.1016/j.geoderma.2009.04.023">https://doi.org/10.1016/j.geoderma.2009.04.023</a>.</p>
+<p>Kempen, B., D.J. Brus, and J.J. Stoorvogel. 2011. “Three-Dimensional Mapping of Soil Organic Matter Content Using Soil Type-Specific Depth Functions.” <em>Geoderma</em> 162 (1-2): 107–23. doi:<a href="https://doi.org/10.1016/j.geoderma.2011.01.010">10.1016/j.geoderma.2011.01.010</a>.</p>
 </div>
 <div>
-<p>Kempen, B., D.J. Brus, and J.J. Stoorvogel. 2011. “Three-Dimensional Mapping of Soil Organic Matter Content Using Soil Type-Specific Depth Functions.” <em>Geoderma</em> 162 (1-2): 107–23. <a href="https://doi.org/10.1016/j.geoderma.2011.01.010">https://doi.org/10.1016/j.geoderma.2011.01.010</a>.</p>
+<p>Kempen, B., D.J. Brus, G.B.M. Heuvelink, and J.J. Stoorvogel. 2009. “Updating the 1:50,000 Dutch soil map using legacy soil data: A multinomial logistic regression approach.” <em>Geoderma</em> 151 (3-4): 311–26. doi:<a href="https://doi.org/10.1016/j.geoderma.2009.04.023">10.1016/j.geoderma.2009.04.023</a>.</p>
 </div>
 <div>
 <p>Klein Goldewijk, Kees, Arthur Beusen, Gerard Van Drecht, and Martine De Vos. 2011. “The Hyde 3.1 Spatially Explicit Database of Human-Induced Global Land-Use Change over the Past 12,000 Years.” <em>Global Ecology and Biogeography</em> 20 (1). Wiley Online Library: 73–86.</p>
+</div>
+<div>
+<p>Köchy, M, R Hiederer, and A Freibauer. 2015. “Global Distribution of Soil Organic Carbon–Part 1: Masses and Frequency Distributions of Soc Stocks for the Tropics, Permafrost Regions, Wetlands, and the World.” <em>Soil</em> 1 (1). Copernicus GmbH: 351–65.</p>
 </div>
 <div>
 <p>Kondolf, G.M., and H. Piégay. 2003. <em>Tools in Fluvial Geomorphology</em>. Wiley.</p>
@@ -819,19 +795,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Konen, M.E., P.M. Jacobs, C.L. Burras, B.J. Talaga, and J.A. Mason. 2002. “Equations for Predicting Soil Organic Carbon Using Loss-on-Ignitionfor North Central U.S. Soils.” <em>Soil Science Society of America Journal</em> 66: 1878–81.</p>
 </div>
 <div>
-<p>Köchy, M, R Hiederer, and A Freibauer. 2015. “Global Distribution of Soil Organic Carbon–Part 1: Masses and Frequency Distributions of Soc Stocks for the Tropics, Permafrost Regions, Wetlands, and the World.” <em>Soil</em> 1 (1). Copernicus GmbH: 351–65.</p>
-</div>
-<div>
 <p>Krasilnikov, P., J.J.I. Marti, R. Arnold, and S. Shoba, eds. 2009. <em>A Handbook of Soil Terminology, Correlation and Classification</em>. Earthscan LLC.</p>
 </div>
 <div>
 <p>Kuhn, Max, and Kjell Johnson. 2013. <em>Applied Predictive Modeling</em>. Vol. 810. Springer.</p>
 </div>
 <div>
-<p>Kuhn, Max, Steve Weston, Chris Keefer, and Nathan Coulter. 2012. <em>Cubist Models for Regression</em>. <a href="https://cran.r-project.org/package=cubist">https://cran.r-project.org/package=cubist</a>.</p>
+<p>Kuhn, Max, Steve Weston, Chris Keefer, and Nathan Coulter. 2012. <em>Cubist Models for Regression</em>. <a href="https://cran.r-project.org/package=cubist" class="uri">https://cran.r-project.org/package=cubist</a>.</p>
 </div>
 <div>
-<p>Kuhn, Max, Steve Weston, Chris Keefer, Nathan Coulter, and R Quinlan. 2014. <em>Cubist: Rule-and Instance-Based Regression Modeling</em>. <a href="http://CRAN.R-project.org/package=Cubist">http://CRAN.R-project.org/package=Cubist</a>.</p>
+<p>Kuhn, Max, Steve Weston, Chris Keefer, Nathan Coulter, and R Quinlan. 2014. <em>Cubist: Rule-and Instance-Based Regression Modeling</em>. <a href="http://CRAN.R-project.org/package=Cubist" class="uri">http://CRAN.R-project.org/package=Cubist</a>.</p>
 </div>
 <div>
 <p>Kutner, M. H., C. J. Nachtsheim, J. Neter, and W. Li, eds. 2004. <em>Applied Linear Statistical Models</em>. 5th ed. McGraw-Hill.</p>
@@ -840,73 +813,70 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Kutner, M.H., J. Neter, C.J. Nachtsheim, and W. Li. 2005. <em>Applied Linear Statistical Models</em>. Operations and Decision Sciences Series. McGraw-Hill Irwin.</p>
 </div>
 <div>
-<p>Kyriakidis, Phaedon C. 2004. “A Geostatistical Framework for Area-to-Point Spatial Interpolation.” <em>Geographical Analysis</em> 36 (3). Blackwell Publishing Ltd: 259–89. <a href="https://doi.org/10.1111/j.1538-4632.2004.tb01135.x">https://doi.org/10.1111/j.1538-4632.2004.tb01135.x</a>.</p>
+<p>Kyriakidis, Phaedon C. 2004. “A Geostatistical Framework for Area-to-Point Spatial Interpolation.” <em>Geographical Analysis</em> 36 (3). Blackwell Publishing Ltd: 259–89. doi:<a href="https://doi.org/10.1111/j.1538-4632.2004.tb01135.x">10.1111/j.1538-4632.2004.tb01135.x</a>.</p>
 </div>
 <div>
 <p>Lagacherie, P. 1992. “Formalisation Des Lois de Distribution Des Sols Pour Automatiser La Cartographie Pédologique à Partir d’un Secteur Pris Comme Référence. Cas de La Petite Région ‘Moyenne Vallée de L’Hérault’.” PhD thesis, Montpellier: Université des Sciences et Techniques du Languedoc.</p>
 </div>
 <div>
-<p>———. 1995. “A Soil Survey Procedure Using the Knowledge of Soil Pattern Established on a Previously Mapped Reference Area.” <em>Geoderma</em> 65: 283–301. <a href="https://doi.org/10.1016/0016-7061(94)00040-H">https://doi.org/10.1016/0016-7061(94)00040-H</a>.</p>
+<p>———. 1995. “A Soil Survey Procedure Using the Knowledge of Soil Pattern Established on a Previously Mapped Reference Area.” <em>Geoderma</em> 65 (03/1995): 283–301. doi:<a href="https://doi.org/10.1016/0016-7061(94)00040-H">10.1016/0016-7061(94)00040-H</a>.</p>
 </div>
 <div>
-<p>———. 2001. “Mapping of Reference Area Representativity Using a Mathematical Soilscape Distance.” <em>Geoderma</em> 101: 105–18. <a href="https://doi.org/10.1016/S0016-7061(00)00101-4">https://doi.org/10.1016/S0016-7061(00)00101-4</a>.</p>
+<p>———. 2001. “Mapping of Reference Area Representativity Using a Mathematical Soilscape Distance.” <em>Geoderma</em> 101: 105–18. doi:<a href="https://doi.org/10.1016/S0016-7061(00)00101-4">10.1016/S0016-7061(00)00101-4</a>.</p>
 </div>
 <div>
 <p>Lagacherie, P., A. B. McBratney, and M. Voltz, eds. 2006. <em>Digital Soil Mapping: An Introductory Perspective</em>. Developments in Soil Science. Amsterdam: Elsevier.</p>
 </div>
 <div>
-<p>Lal, R. 2004. “Soil Carbon Sequestration Impacts on Global Climate Change and Food Security.” <em>Science</em> 304 (5677): 1623–7. <a href="https://doi.org/10.1126/science.1097396">https://doi.org/10.1126/science.1097396</a>.</p>
-</div>
-<div>
-<p>Lark, RM, BR Cullis, and SJ Welham. 2006. “On spatial prediction of soil properties in the presence of a spatial trend: the empirical best linear unbiased predictor (E-BLUP) with REML.” <em>European Journal of Soil Science</em> 57 (6). Wiley Online Library: 787–99.</p>
+<p>Lal, R. 2004. “Soil Carbon Sequestration Impacts on Global Climate Change and Food Security.” <em>Science</em> 304 (5677): 1623–7. doi:<a href="https://doi.org/10.1126/science.1097396">10.1126/science.1097396</a>.</p>
 </div>
 <div>
 <p>Lark, R. M., and A. Papritz. 2003. “Fitting a Linear Model of Coregionalization for Soil Properties Using Simulated Annealing.” <em>Geoderma</em> 115 (3). Elsevier: 245–60.</p>
 </div>
 <div>
-<p>Lathrop Jr., Richard G., John D. Aber, and John A. Bognar. 1995. “Spatial Variability of Digital Soil Maps and Its Impact on Regional Ecosystem Modeling.” <em>Ecological Modelling</em> 82 (1): 1–10. <a href="https://doi.org/10.1016/0304-3800(94)00068-S">https://doi.org/10.1016/0304-3800(94)00068-S</a>.</p>
+<p>Lark, RM, BR Cullis, and SJ Welham. 2006. “On spatial prediction of soil properties in the presence of a spatial trend: the empirical best linear unbiased predictor (E-BLUP) with REML.” <em>European Journal of Soil Science</em> 57 (6). Wiley Online Library: 787–99.</p>
+</div>
+<div>
+<p>Lathrop Jr., Richard G., John D. Aber, and John A. Bognar. 1995. “Spatial Variability of Digital Soil Maps and Its Impact on Regional Ecosystem Modeling.” <em>Ecological Modelling</em> 82 (1): 1–10. doi:<a href="https://doi.org/10.1016/0304-3800(94)00068-S">10.1016/0304-3800(94)00068-S</a>.</p>
 </div>
 <div>
 <p>LeDell, Erin E. 2015. <em>Scalable Ensemble Learning and Computationally Efficient Variance Estimation</em>. University of California, Berkeley.</p>
 </div>
 <div>
-<p>Leenaars, Johan G.B. 2014. <em>Africa Soil Profiles Database, Version 1.2. A Compilation of Geo-Referenced and Standardized Legacy Soil Profile Data for Sub Saharan Africa (with Dataset)</em>. Wageningen, the Netherlands: Africa Soil Information Service (AfSIS) project; ISRIC — World Soil Information.</p>
+<p>Leenaars, Johan G.B. 2014. <em>Africa Soil Profiles Database, Version 1.2. a Compilation of Geo-Referenced and Standardized Legacy Soil Profile Data for Sub Saharan Africa (with Dataset)</em>. Wageningen, the Netherlands: Africa Soil Information Service (AfSIS) project; ISRIC — World Soil Information.</p>
 </div>
 <div>
 <p>Legros, J.-P. 2006. <em>Mapping of the Soil</em>. 1st ed. Enfield, New Hampshire: Science Publishers.</p>
 </div>
 <div>
-<p>Legros, J.-P., C. Emery, and P. Falipou. 1997. “Exploitation Simultanée de Plusieurs Missions Photographiques En Cartographie Des Sols. Analyse, Modélisation et Application.” <em>EGS</em> 4: 265–77.</p>
-</div>
-<div>
 <p>Lei, Simon A. 1998. “Soil Properties of the Kelso Sand Dunes in the Mojave Desert.” <em>The Southwestern Naturalist</em> 43 (1). Southwestern Association of Naturalists: 47–52.</p>
 </div>
 <div>
-<p>Li, Jin, and Andrew D. Heap. 2010. “A Review of Comparative Studies of Spatial Interpolation Methods in Environmental Sciences: Performance and Impact Factors.” <em>Ecological Informatics</em> 6 (3, 3-4). Elsevier: 228–41. <a href="https://doi.org/10.1016/j.ecoinf.2010.12.003">https://doi.org/10.1016/j.ecoinf.2010.12.003</a>.</p>
+<p>Li, Jin, and Andrew D. Heap. 2010. “A Review of Comparative Studies of Spatial Interpolation Methods in Environmental Sciences: Performance and Impact Factors.” <em>Ecological Informatics</em> 6 (3, 3-4). Elsevier: 228–41. doi:<a href="https://doi.org/10.1016/j.ecoinf.2010.12.003">10.1016/j.ecoinf.2010.12.003</a>.</p>
 </div>
 <div>
 <p>Lindsay, John B. 2016. “Whitebox GAT: A case study in geomorphometric analysis.” <em>Computers &amp; Geosciences</em> 95. Elsevier: 75–84.</p>
 </div>
 <div>
-<p>Liu, Jian, and A-Xing Zhu. 2009. “Mapping with Words: A New Approach to Automated Digital Soil Survey.” <em>International Journal of Intelligent Systems</em> 24 (3). Wiley Subscription Services, Inc., A Wiley Company: 293–311. <a href="https://doi.org/10.1002/int.20337">https://doi.org/10.1002/int.20337</a>.</p>
+<p>Liu, Jian, and A-Xing Zhu. 2009. “Mapping with Words: A New Approach to Automated Digital Soil Survey.” <em>International Journal of Intelligent Systems</em> 24 (3). Wiley Subscription Services, Inc., A Wiley Company: 293–311. doi:<a href="https://doi.org/10.1002/int.20337">10.1002/int.20337</a>.</p>
 </div>
 <div>
 <p>Lobsey, CR, and RA Viscarra Rossel. 2016. “Sensing of Soil Bulk Density for More Accurate Carbon Accounting.” <em>European Journal of Soil Science</em> 67 (4). Wiley Online Library: 504–13.</p>
 </div>
 <div>
-<p>MacDonald, K. B., and K. W. G. Valentine. 1992. <em>CanSIS/Nsdb. A General Description</em>. Ottawa: Centre for Land; Biological Resources Research, Research Branch, Agriculture Canada.</p>
+<p>MacDonald, K. B., and K. W. G. Valentine. 1992. <em>CanSIS/Nsdb. a General Description</em>. Ottawa: Centre for Land; Biological Resources Research, Research Branch, Agriculture Canada.</p>
 </div>
 <div>
-<p>MacMillan, R. A., D.E. Moon, R. A. Coupé, and N. Phillips. 2010. “Predictive Ecosystem Mapping (Pem) for 8.2 Million Ha of Forestland,British Columbia, Canada.” In <em>Digital Soil Mapping: Bridging Research, Environmental Application, and Operation</em>, edited by J. L. Boettinger et al., 2:335–54. Progress in Soil Science. Springer. <a href="https://doi.org/10.1007/978-90-481-8863-5_27">https://doi.org/10.1007/978-90-481-8863-5_27</a>.</p>
+<p>MacMillan, R. A., D.E. Moon, R. A. Coupé, and N. Phillips. 2010. “Predictive Ecosystem Mapping (Pem) for 8.2 Million Ha of Forestland,British Columbia, Canada.” In <em>Digital Soil Mapping: Bridging Research, Environmental Application, and Operation</em>, edited by J. L. Boettinger et al., 2:335–54. Progress in Soil Science. Springer. doi:<a href="https://doi.org/10.1007/978-90-481-8863-5_27">10.1007/978-90-481-8863-5_27</a>.</p>
 </div>
 <div>
-<p>MacMillan, R. A., W. W. Pettapiece, and J. A. Brierley. 2005. “An Expert System for Allocating Soils to Landforms Through the Application of Soil Survey Tacit Knowledge.” <em>Canadian Journal of Soil Science</em>, 103–12.</p>
+<p>MacMillan, R. A., W. W. Pettapiece, and J. A. Brierley. 2005. “An Expert System for Allocating Soils to Landforms Through the Application of Soil Survey Tacit Knowledge.” <em>Canadian Journal of Soil Science</em>, 7/2005, 103–12.</p>
 </div>
 <div>
-<p>Mallavan, B.P., B. Minasny, and A. B. McBratney. 2010. “Homosoil, a Methodology for Quantitative Extrapolation of Soil Information Across the Globe.” In <em>Digital Soil Mapping</em>, edited by J. L. Boettinger, 2:137–49. Progress in Soil Science. Elsevier; Elsevier. <a href="https://doi.org/10.1007/978-90-481-8863-5_12">https://doi.org/10.1007/978-90-481-8863-5_12</a>.</p>
+<p>Mallavan, B.P., B. Minasny, and A. B. McBratney. 2010. “Homosoil, a Methodology for Quantitative Extrapolation of Soil Information Across the Globe.” In <em>Digital Soil Mapping</em>, edited by J. L. Boettinger, 2:137–49. Progress in Soil Science. Elsevier; Elsevier. doi:<a href="https://doi.org/10.1007/978-90-481-8863-5_12">10.1007/978-90-481-8863-5_12</a>.</p>
 </div>
 <div>
-<p>Malone, B.P., A. B. McBratney, B. Minasny, and G.M. Laslett. 2009. “Mapping Continuous Depth Functions of Soil Carbon Storage and Available Water Capacity.” <em>Geoderma</em> 154 (1-2): 138–52. <a href="https://doi.org/10.1016/j.geoderma.2009.10.007">https://doi.org/10.1016/j.geoderma.2009.10.007</a>.</p>
+<p>Malone, B.P., A. B. McBratney, B. Minasny, and G.M. Laslett. 2009. “Mapping Continuous Depth Functions of Soil Carbon Storage and Available Water Capacity.” <em>Geoderma</em> 154 (1-2): 138–52. doi:<a href="https://doi.org/10.1016/j.geoderma.2009.10.007">10.1016/j.geoderma.2009.10.007</a>.</p>
 </div>
 <div>
 <p>Malone, B.P., B. Minasny, and A.B. McBratney. 2016. <em>Using R for Digital Soil Mapping</em>. Progress in Soil Science. Springer International Publishing.</p>
@@ -915,10 +885,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Manrique, L.A., and C.A. Jones. 1991. “Bulk-density of soils in relation to soil physical and chemical properties.” <em>Soil Science Society of America Journal</em> 55: 476–81.</p>
 </div>
 <div>
-<p>Mansuy, Nicolas, Evelyne Thiffault, David Pare, Pierre Bernier, Luc Guindon, Philippe Villemaire, Vincent Poirier, and Andre Beaudoin. 2014. “Digital Mapping of Soil Properties in Canadian Managed Forests at 250 M of Resolution Using the K-Nearest Neighbor Method.” <em>Geoderma</em> 235-236 (0): 59–73. <a href="https://doi.org/10.1016/j.geoderma.2014.06.032">https://doi.org/10.1016/j.geoderma.2014.06.032</a>.</p>
+<p>Mansuy, Nicolas, Evelyne Thiffault, David Pare, Pierre Bernier, Luc Guindon, Philippe Villemaire, Vincent Poirier, and Andre Beaudoin. 2014. “Digital Mapping of Soil Properties in Canadian Managed Forests at 250 M of Resolution Using the K-Nearest Neighbor Method.” <em>Geoderma</em> 235-236 (0): 59–73. doi:<a href="https://doi.org/10.1016/j.geoderma.2014.06.032">10.1016/j.geoderma.2014.06.032</a>.</p>
 </div>
 <div>
-<p>Markus, Julie, and Alex B. McBratney. 2001. “A Review of the Contamination of Soil with Lead: II. Spatial Distribution and Risk Assessment of Soil Lead.” <em>Environment International</em> 27 (5): 399–411. <a href="https://doi.org/10.1016/S0160-4120(01)00049-6">https://doi.org/10.1016/S0160-4120(01)00049-6</a>.</p>
+<p>Markus, Julie, and Alex B. McBratney. 2001. “A Review of the Contamination of Soil with Lead: II. Spatial Distribution and Risk Assessment of Soil Lead.” <em>Environment International</em> 27 (5): 399–411. doi:<a href="https://doi.org/10.1016/S0160-4120(01)00049-6">10.1016/S0160-4120(01)00049-6</a>.</p>
 </div>
 <div>
 <p>Marsman, B.A., and J.J. de Gruijter. 1986. <em>Quality of Soil Maps: A Comparison of Soil Survey Methods in a Sandyarea</em>. Vol. 15. Soil Survey Papers. Wageningen: Netherlands Soil Survey Institute.</p>
@@ -930,13 +900,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>McBratney, A. B., M. L. Mendoça Santos, and B. Minasny. 2003. “On digital soil mapping.” <em>Geoderma</em> 117 (1-2): 3–52.</p>
 </div>
 <div>
-<p>McBratney, A.B, M.L Mendonça Santos, and B Minasny. 2003. “On Digital Soil Mapping.” <em>Geoderma</em> 117 (1): 3–52. <a href="https://doi.org/10.1016/S0016-7061(03)00223-4">https://doi.org/10.1016/S0016-7061(03)00223-4</a>.</p>
-</div>
-<div>
 <p>McBratney, A. B., B. Minasny, S.R. Cattle, and R.W. Vervoort. 2002. “From Pedotransfer Functions to Soil Inference Systems.” <em>Geoderma</em> 109: 41–73.</p>
 </div>
 <div>
 <p>McBratney, A. B., B. Minasny, R. A. MacMillan, and F. Carré. 2011. “Digital Soil Mapping.” In <em>Handbook of Soil Science</em>, edited by H. Li and M.E. Sumner, 37:1–45. CRC Press.</p>
+</div>
+<div>
+<p>McBratney, A.B, M.L Mendonça Santos, and B Minasny. 2003. “On Digital Soil Mapping.” <em>Geoderma</em> 117 (1): 3–52. doi:<a href="https://doi.org/10.1016/S0016-7061(03)00223-4">10.1016/S0016-7061(03)00223-4</a>.</p>
 </div>
 <div>
 <p>McBratney, A.B., B. Minasny, and U. Stockmann. 2018. <em>Pedometrics</em>. Progress in Soil Science. Springer International Publishing.</p>
@@ -975,7 +945,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>———. 2007. “Spatial prediction of soil properties using EBLUP with Matérn covariance function.” <em>Geoderma</em> 140: 324–36.</p>
 </div>
 <div>
-<p>Minasny, Budiman, Alex B. McBratney, and S. Salvador-Blanes. 2008. “Quantitative Models for Pedogenesis — a Review.” <em>Geoderma</em> 144 (1?2): 140–57. <a href="https://doi.org/10.1016/j.geoderma.2007.12.013">https://doi.org/10.1016/j.geoderma.2007.12.013</a>.</p>
+<p>Minasny, Budiman, Alex B. McBratney, and S. Salvador-Blanes. 2008. “Quantitative Models for Pedogenesis — a Review.” <em>Geoderma</em> 144 (1?2): 140–57. doi:<a href="https://doi.org/10.1016/j.geoderma.2007.12.013">10.1016/j.geoderma.2007.12.013</a>.</p>
 </div>
 <div>
 <p>Mira, Maria, Marie Weiss, Frédéric Baret, Dominique Courault, Olivier Hagolle, Belen Gallego-Elvira, and Albert Olioso. 2015. “The Modis (Collection V006) Brdf/Albedo Product Mcd43d: Temporal Course Evaluated over Agricultural Landscape.” <em>Remote Sensing of Environment</em> 170. Elsevier: 216–28.</p>
@@ -987,7 +957,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Moran, C.J., and E.N. Bui. 2002. “Spatial Data Mining for Enhanced Soil Map Modelling.” <em>International Journal of Geographical Information Science</em> 16 (6). Taylor &amp; Francis: 533–49.</p>
 </div>
 <div>
-<p>Morel, J. L., C. Schwartz, L. Florentin, and C. de Kimpe. 2005. “Urban Soils.” In <em>Encyclopedia of Soils in the Environment</em>, edited by Daniel Hillel, 202–8. Oxford: Elsevier. <a href="https://doi.org/10.1016/B0-12-348530-4/00305-2">https://doi.org/10.1016/B0-12-348530-4/00305-2</a>.</p>
+<p>Morel, J. L., C. Schwartz, L. Florentin, and C. de Kimpe. 2005. “Urban Soils.” In <em>Encyclopedia of Soils in the Environment</em>, edited by Daniel Hillel, 202–8. Oxford: Elsevier. doi:<a href="https://doi.org/10.1016/B0-12-348530-4/00305-2">10.1016/B0-12-348530-4/00305-2</a>.</p>
 </div>
 <div>
 <p>Mowrer, H. T., and R.G. Congalton. 2000. <em>Quantifying spatial uncertainty in natural resources: theory and applications for GIS and remote sensing</em>. Ann Arbor Press.</p>
@@ -1011,16 +981,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Nemes, A., J.H.M. Wösten, A. Lilly, and J.H. Oude Voshaar. 1999. “Evaluation of different procedures to interpolate particle-size distributions to achieve compatibility within soil databases.” <em>Geoderma</em> 90: 187–202.</p>
 </div>
 <div>
-<p>Ng, Wartini, Budiman Minasny, Brendan Malone, and Patrick Filippi. 2018. “In Search of an Optimum Sampling Algorithm for Prediction of Soil Properties from Infrared Spectra.” <em>PeerJ</em> 6 (October): e5722. <a href="https://doi.org/10.7717/peerj.5722">https://doi.org/10.7717/peerj.5722</a>.</p>
+<p>Ng, Wartini, Budiman Minasny, Brendan Malone, and Patrick Filippi. 2018. “In Search of an Optimum Sampling Algorithm for Prediction of Soil Properties from Infrared Spectra.” <em>PeerJ</em> 6 (October): e5722. doi:<a href="https://doi.org/10.7717/peerj.5722">10.7717/peerj.5722</a>.</p>
 </div>
 <div>
 <p>Nussbaum, Madlene, Kay Spiess, Andri Baltensweiler, Urs Grob, Armin Keller, Lucie Greiner, Michael E Schaepman, and Andreas Papritz. 2018. “Evaluation of Digital Soil Mapping Approaches with Large Sets of Environmental Covariates.” <em>Soil</em> 4 (1): 1.</p>
 </div>
 <div>
-<p>Odgers, Nathan P., Alex B. McBratney, and Budiman Minasny. 2011. “Bottom-up Digital Soil Mapping. II. Soil Series Classes.” <em>Geoderma</em> 163 (1-2): 30–37. <a href="https://doi.org/10.1016/j.geoderma.2011.03.013">https://doi.org/10.1016/j.geoderma.2011.03.013</a>.</p>
+<p>O’Geen, Anthony, Mike Walkinshaw, and Dylan Beaudette. 2017. “SoilWeb: A Multifaceted Interface to Soil Survey Information.” <em>Soil Science Society of America Journal</em> 81 (4). The Soil Science Society of America, Inc.: 853–62.</p>
 </div>
 <div>
-<p>O’Geen, Anthony, Mike Walkinshaw, and Dylan Beaudette. 2017. “SoilWeb: A Multifaceted Interface to Soil Survey Information.” <em>Soil Science Society of America Journal</em> 81 (4). The Soil Science Society of America, Inc.: 853–62.</p>
+<p>Odgers, Nathan P., Alex B. McBratney, and Budiman Minasny. 2011. “Bottom-up Digital Soil Mapping. Ii. Soil Series Classes.” <em>Geoderma</em> 163 (1-2): 30–37. doi:<a href="https://doi.org/10.1016/j.geoderma.2011.03.013">10.1016/j.geoderma.2011.03.013</a>.</p>
 </div>
 <div>
 <p>Omuto, C., F. Nachtergaele, and R. Vargas Rojas. 2012. <em>State of the Art Report on Global and Regional Soil Information: Where are we? Where to go?</em> Global Soil Partnership Technical Report. Rome: FAO.</p>
@@ -1029,40 +999,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Oosterveld, M., and C. Chang. 1980. “Empirical relationship between laboratory determinations of soil texture and moisture retention.” <em>Can. Agric. Eng.</em> 22: 149–51.</p>
 </div>
 <div>
-<p>Oreskes, Naomi, Kristin Shrader-Frechette, and Kenneth Belitz. 1994. “Verification, Validation, and Confirmation of Numerical Models in the Earth Sciences.” <em>Science</em> 263 (5147): 641–46. <a href="https://doi.org/10.1126/science.263.5147.641">https://doi.org/10.1126/science.263.5147.641</a>.</p>
+<p>Oreskes, Naomi, Kristin Shrader-Frechette, and Kenneth Belitz. 1994. “Verification, Validation, and Confirmation of Numerical Models in the Earth Sciences.” <em>Science</em> 263 (5147): 641–46. doi:<a href="https://doi.org/10.1126/science.263.5147.641">10.1126/science.263.5147.641</a>.</p>
 </div>
 <div>
-<p>Panagos, Panos, Roland Hiederer, Marc Van Liedekerke, and Francesca Bampa. 2013. “Estimating soil organic carbon in Europe based on data collected through an European network.” <em>Ecological Indicators</em> 24 (0): 439–50. <a href="https://doi.org/10.1016/j.ecolind.2012.07.020">https://doi.org/10.1016/j.ecolind.2012.07.020</a>.</p>
+<p>Panagos, Panos, Roland Hiederer, Marc Van Liedekerke, and Francesca Bampa. 2013. “Estimating soil organic carbon in Europe based on data collected through an European network.” <em>Ecological Indicators</em> 24 (0): 439–50. doi:<a href="https://doi.org/10.1016/j.ecolind.2012.07.020">10.1016/j.ecolind.2012.07.020</a>.</p>
 </div>
 <div>
 <p>Pansu, M., J. Gautheyrou, and J.Y. Loyer. 2001. <em>Soil Analysis: Sampling, Instrumentation and Quality Control</em>. A.A. Balkema Publishers.</p>
 </div>
 <div>
-<p>Pebesma, Edzer, Dan Cornford, Gregoire Dubois, Gerard B.M. Heuvelink, Dionisis Hristopulos, Jürgen Pilz, Ulrich Stöhlker, Gary Morin, and Jon O. Skøien. 2011. “INTAMAP: The design and implementation of an interoperable automated interpolation web service.” <em>Computers &amp; Geosciences</em> 37 (3). Elsevier: 343–52. <a href="https://doi.org/10.1016/j.cageo.2010.03.019">https://doi.org/10.1016/j.cageo.2010.03.019</a>.</p>
-</div>
-<div>
-<p>Pebesma, Edzer J. 2004. “Multivariable geostatistics in S: the gstat package.” <em>Computers &amp; Geosciences</em> 30 (7). Elsevier: 683–91.</p>
+<p>Pebesma, E.J. 2006. “The Role of External Variables and GIS Databases in Geostatistical Analysis.” <em>Transactions in GIS</em> 10 (4): 615–32.</p>
 </div>
 <div>
 <p>Pebesma, Edzer J, and Roger S Bivand. 2005. “Classes and Methods for Spatial Data in R.” <em>R News</em> 5 (2): 9–13.</p>
 </div>
 <div>
-<p>Pebesma, E.J. 2006. “The Role of External Variables and GIS Databases in Geostatistical Analysis.” <em>Transactions in GIS</em> 10 (4): 615–32.</p>
+<p>Pebesma, Edzer J. 2004. “Multivariable geostatistics in S: the gstat package.” <em>Computers &amp; Geosciences</em> 30 (7). Elsevier: 683–91.</p>
+</div>
+<div>
+<p>Pebesma, Edzer, Dan Cornford, Gregoire Dubois, Gerard B.M. Heuvelink, Dionisis Hristopulos, Jürgen Pilz, Ulrich Stöhlker, Gary Morin, and Jon O. Skøien. 2011. “INTAMAP: The design and implementation of an interoperable automated interpolation web service.” <em>Computers &amp; Geosciences</em> 37 (3). Elsevier: 343–52. doi:<a href="https://doi.org/10.1016/j.cageo.2010.03.019">10.1016/j.cageo.2010.03.019</a>.</p>
 </div>
 <div>
 <p>Pekel, Jean-François, Andrew Cottam, Noel Gorelick, and Alan S Belward. 2016. “High-Resolution Mapping of Global Surface Water and Its Long-Term Changes.” <em>Nature</em> 504. Nature Research: 418–22.</p>
 </div>
 <div>
-<p>Pelletier, J. D., P. D. Broxton, P. Hazenberg, X. Zeng, P. A. Troch, G.-Y. Niu, Z. Williams, M. A. Brunke, and D. Gochis. 2016. “A Gridded Global Data Set of Soil, Immobile Regolith, and Sedimentary Deposit Thicknesses for Regional and Global Land Surface Modeling.” <em>Journal of Advances in Modeling Earth Systems</em> 8. <a href="https://doi.org/10.1002/2015MS000526">https://doi.org/10.1002/2015MS000526</a>.</p>
+<p>Pelletier, J. D., P. D. Broxton, P. Hazenberg, X. Zeng, P. A. Troch, G.-Y. Niu, Z. Williams, M. A. Brunke, and D. Gochis. 2016. “A Gridded Global Data Set of Soil, Immobile Regolith, and Sedimentary Deposit Thicknesses for Regional and Global Land Surface Modeling.” <em>Journal of Advances in Modeling Earth Systems</em> 8. doi:<a href="https://doi.org/10.1002/2015MS000526">10.1002/2015MS000526</a>.</p>
 </div>
 <div>
-<p>Pete Smith, Pete Falloon, and Werner L. Kutsch. 2010. “The role of soils in the Kyoto Protocol.” In <em>Soil Carbon Dynamics</em>, edited by M. Bahn, 245–56. Cambridge University Press. <a href="https://doi.org/10.1017/CBO9780511711794.014">https://doi.org/10.1017/CBO9780511711794.014</a>.</p>
+<p>Pete Smith, Pete Falloon, and Werner L. Kutsch. 2010. “The role of soils in the Kyoto Protocol.” In <em>Soil Carbon Dynamics</em>, edited by M. Bahn, 245–56. Cambridge University Press. doi:<a href="https://doi.org/10.1017/CBO9780511711794.014">10.1017/CBO9780511711794.014</a>.</p>
 </div>
 <div>
 <p>Peverill, K.I., L.A. Sparrow, and D.J. Reuter. 1999. <em>Soil analysis: an interpretation manual</em>. CSIRO Publishing.</p>
 </div>
 <div>
-<p>Pimentel, David. 2006. “Soil Erosion: A Food and Environmental Threat.” <em>Environment, Development and Sustainability</em> 8 (1). Kluwer Academic Publishers: 119–37. <a href="https://doi.org/10.1007/s10668-005-1262-8">https://doi.org/10.1007/s10668-005-1262-8</a>.</p>
+<p>Pimentel, David. 2006. “Soil Erosion: A Food and Environmental Threat.” <em>Environment, Development and Sustainability</em> 8 (1). Kluwer Academic Publishers: 119–37. doi:<a href="https://doi.org/10.1007/s10668-005-1262-8">10.1007/s10668-005-1262-8</a>.</p>
 </div>
 <div>
 <p>Pinheiro, J.C., and D. Bates. 2009. <em>Mixed-Effects Models in S and S-PLUS</em>. Statistics and Computing. Springer.</p>
@@ -1083,13 +1053,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Polley, Eric C, and Mark J Van Der Laan. 2010. <em>Super Learner in Prediction</em>. Working Paper Series. U.C. Berkeley Division of Biostatistics.</p>
 </div>
 <div>
-<p>Qi, Feng, A-Xing Zhu, Mark Harrower, and James E. Burt. 2006. “Fuzzy Soil Mapping Based on Prototype Category Theory.” <em>Geoderma</em> 136 (3-4): 774–87. <a href="https://doi.org/10.1016/j.geoderma.2006.06.001">https://doi.org/10.1016/j.geoderma.2006.06.001</a>.</p>
+<p>Qi, Feng, A-Xing Zhu, Mark Harrower, and James E. Burt. 2006. “Fuzzy Soil Mapping Based on Prototype Category Theory.” <em>Geoderma</em> 136 (3-4): 774–87. doi:<a href="https://doi.org/10.1016/j.geoderma.2006.06.001">10.1016/j.geoderma.2006.06.001</a>.</p>
 </div>
 <div>
 <p>Ramcharan, Amanda, Tomislav Hengl, Travis Nauman, Colby Brungard, Sharon Waltman, Skye Wills, and James Thompson. 2018a. “Soil Property and Class Maps of the Conterminous United States at 100-Meter Spatial Resolution.” <em>Soil Science Society of America Journal</em> 82. The Soil Science Society of America, Inc.: 186–201.</p>
 </div>
 <div>
-<p>———. 2018b. “Soil Property and Class Maps of the Conterminous Us at 100 Meter Spatial Resolution Based on a Compilation of National Soil Point Observations and Machine Learning.” <em>Soil Science Society of America Journal</em> 82: 186–201. <a href="https://doi.org/10.2136/sssaj2017.04.0122">https://doi.org/10.2136/sssaj2017.04.0122</a>.</p>
+<p>———. 2018b. “Soil Property and Class Maps of the Conterminous Us at 100 Meter Spatial Resolution Based on a Compilation of National Soil Point Observations and Machine Learning.” <em>Soil Science Society of America Journal</em> 82: 186–201. doi:<a href="https://doi.org/10.2136/sssaj2017.04.0122">10.2136/sssaj2017.04.0122</a>.</p>
 </div>
 <div>
 <p>Raup, Bruce, Adina Racoviteanu, Siri Jodha Singh Khalsa, Christopher Helm, Richard Armstrong, and Yves Arnaud. 2007. “The GLIMS geospatial glacier database: a new tool for studying glacier change.” <em>Global and Planetary Change</em> 56 (1). Elsevier: 101–10.</p>
@@ -1101,13 +1071,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Rawls, W.J., and D.L. Brakensiek. 1982. “Estimating soil water retention from soil properties.” <em>J. Irrig. Drainage Div. Am. Soc. Civ. Eng.</em> 108: 166–71.</p>
 </div>
 <div>
-<p>———. 1989. “Estimation of soil water retention and hydraulic properties.” In <em>Unsaturated flow in hydrologic modeling; theory and practice</em>, edited by H.J. Morel-Seytoux, 275–300. Proc. NATO Adv. Res. Worksh. Hydrology. Dordrecht, the Netherlands: Kluwer Acad. Publ.</p>
+<p>———. 1989. “Estimation of soil water retention and hydraulic properties.” In <em>Unsaturated flow in hydrologic modeling; theory and practice</em>, edited by H.J. Morel-Seytoux, 275–300. Proc. Nato Adv. Res. Worksh. Hydrology. Dordrecht, the Netherlands: Kluwer Acad. Publ.</p>
 </div>
 <div>
 <p>Rawls, W.J., T.J. Gish, and D.L. Brakensiek. 1991. “Estimating soil water retention from soil physical properties and characteristics.” <em>Advances in Agronomy</em> 16: 213–34.</p>
 </div>
 <div>
-<p>Refsgaard, Jens Christian, Jeroen P. van der Sluijs, Anker Lajer Højberg, and Peter A. Vanrolleghem. 2007. “Uncertainty in the environmental modelling process — A framework and guidance.” <em>Environ. Model. Softw.</em> 22 (11): 1543–56. <a href="https://doi.org/10.1016/j.envsoft.2007.02.004">https://doi.org/10.1016/j.envsoft.2007.02.004</a>.</p>
+<p>Refsgaard, Jens Christian, Jeroen P. van der Sluijs, Anker Lajer Højberg, and Peter A. Vanrolleghem. 2007. “Uncertainty in the environmental modelling process — A framework and guidance.” <em>Environ. Model. Softw.</em> 22 (11): 1543–56. doi:<a href="https://doi.org/10.1016/j.envsoft.2007.02.004">10.1016/j.envsoft.2007.02.004</a>.</p>
 </div>
 <div>
 <p>Reimann, C., P. Filzmoser, R. Garrett, and R. Dutter. 2011. <em>Statistical Data Analysis Explained: Applied Environmental Statistics with R</em>. Wiley.</p>
@@ -1116,28 +1086,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Richter, Aaron N, Taghi M Khoshgoftaar, Sara Landset, and Tawfiq Hasanin. 2015. “A Multi-Dimensional Comparison of Toolkits for Machine Learning with Big Data.” In <em>Information Reuse and Integration (Iri), 2015 Ieee International Conference</em>, 1–8. IEEE.</p>
 </div>
 <div>
-<p>Richter, Daniel D., and Daniel Markewitz. 1995. “How Deep Is Soil?” <em>BioScience</em> 45 (9). University of California Press on behalf of the American Institute of Biological Sciences: 600–609. <a href="http://www.jstor.org/stable/1312764">http://www.jstor.org/stable/1312764</a>.</p>
+<p>Richter, Daniel D., and Daniel Markewitz. 1995. “How Deep Is Soil?” <em>BioScience</em> 45 (9). University of California Press on behalf of the American Institute of Biological Sciences: 600–609. <a href="http://www.jstor.org/stable/1312764" class="uri">http://www.jstor.org/stable/1312764</a>.</p>
 </div>
 <div>
-<p>Ridgeway, G. 2018. <em>Gbm: Generalized Boosted Regression Models</em>. <a href="http://CRAN.R-project.org/package=gbm">http://CRAN.R-project.org/package=gbm</a>.</p>
+<p>Ridgeway, G. 2018. <em>Gbm: Generalized Boosted Regression Models</em>. <a href="http://CRAN.R-project.org/package=gbm" class="uri">http://CRAN.R-project.org/package=gbm</a>.</p>
 </div>
 <div>
 <p>Rijsberman, Frank R, and M Gordon Wolman. 1985. “Effect of Erosion on Soil Productivity: An International Comparison.” <em>Journal of Soil and Water Conservation</em> 40 (4). Soil; Water Conservation Society: 349–54.</p>
 </div>
 <div>
-<p>Rodrı'guez-Lado, Luis, Guifan Sun, Michael Berg, Qiang Zhang, Hanbin Xue, Quanmei Zheng, and C. Annette Johnson. 2013. “Groundwater Arsenic Contamination Throughout China.” <em>Science</em> 341 (6148): 866–68. <a href="https://doi.org/10.1126/science.1237484">https://doi.org/10.1126/science.1237484</a>.</p>
+<p>Rodríguez-Lado, Luis, Guifan Sun, Michael Berg, Qiang Zhang, Hanbin Xue, Quanmei Zheng, and C. Annette Johnson. 2013. “Groundwater Arsenic Contamination Throughout China.” <em>Science</em> 341 (6148): 866–68. doi:<a href="https://doi.org/10.1126/science.1237484">10.1126/science.1237484</a>.</p>
 </div>
 <div>
-<p>Rosenbaum, U., H. R. Bogena, M. Herbst, J. A. Huisman, T. J. Peterson, A. Weuthen, A. W. Western, and H. Vereecken. 2012. “Seasonal and Event Dynamics of Spatial Soil Moisture Patterns at the Small Catchment Scale.” <em>Water Resources Research</em> 48 (10): 1–22. <a href="https://doi.org/10.1029/2011WR011518">https://doi.org/10.1029/2011WR011518</a>.</p>
+<p>Rosenbaum, U., H. R. Bogena, M. Herbst, J. A. Huisman, T. J. Peterson, A. Weuthen, A. W. Western, and H. Vereecken. 2012. “Seasonal and Event Dynamics of Spatial Soil Moisture Patterns at the Small Catchment Scale.” <em>Water Resources Research</em> 48 (10): 1–22. doi:<a href="https://doi.org/10.1029/2011WR011518">10.1029/2011WR011518</a>.</p>
 </div>
 <div>
-<p>Rossel, R.A. Viscarra, B. Minasny, P. Roudier, and A.B. McBratney. 2006. “Colour Space Models for Soil Science.” <em>Geoderma</em> 133 (3): 320–37. <a href="https://doi.org/https://doi.org/10.1016/j.geoderma.2005.07.017">https://doi.org/https://doi.org/10.1016/j.geoderma.2005.07.017</a>.</p>
+<p>Rossel, R.A. Viscarra, B. Minasny, P. Roudier, and A.B. McBratney. 2006. “Colour Space Models for Soil Science.” <em>Geoderma</em> 133 (3): 320–37. doi:<a href="https://doi.org/https://doi.org/10.1016/j.geoderma.2005.07.017">https://doi.org/10.1016/j.geoderma.2005.07.017</a>.</p>
 </div>
 <div>
 <p>Rossiter, D.G. 2003. <em>Methodology for Soil Resource Inventories</em>. 3rd ed. ITC Lecture Notes Sol.27. Enschede, the Netherlands: ITC.</p>
 </div>
 <div>
-<p>———. 2004. “Digital Soil Resource Inventories: Status and Prospects.” <em>Soil Use and Management</em> 20 (3). Blackwell Publishing Ltd: 296–301. <a href="https://doi.org/10.1111/j.1475-2743.2004.tb00372.x">https://doi.org/10.1111/j.1475-2743.2004.tb00372.x</a>.</p>
+<p>———. 2004. “Digital Soil Resource Inventories: Status and Prospects.” <em>Soil Use and Management</em> 20 (3). Blackwell Publishing Ltd: 296–301. doi:<a href="https://doi.org/10.1111/j.1475-2743.2004.tb00372.x">10.1111/j.1475-2743.2004.tb00372.x</a>.</p>
 </div>
 <div>
 <p>Rowan, James Niall. 1990. <em>Land Systems of Victoria</em>. Land Protection Division.</p>
@@ -1155,7 +1125,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Sanderman, Jonathan, Tomislav Hengl, and Gregory J Fiske. 2018. “Soil Carbon Debt of 12,000 Years of Human Land Use.” <em>PROCEEDINGS OF THE NATIONAL ACADEMY OF SCIENCES OF THE UNITED STATES OF AMERICA</em> 115 (7). NATL ACAD SCIENCES 2101 CONSTITUTION AVE NW, WASHINGTON, DC 20418 USA: E1700–E1700.</p>
 </div>
 <div>
-<p>Savtchenko, A., D. Ouzounov, S. Ahmad, J. Acker, G. Leptoukh, J. Koziana, and D. Nickless. 2004. “Terra and Aqua MODIS products available from NASA GES DAAC.” <em>Advances in Space Research</em> 34 (4): 710–14. <a href="https://doi.org/10.1016/j.asr.2004.03.012">https://doi.org/10.1016/j.asr.2004.03.012</a>.</p>
+<p>Savtchenko, A., D. Ouzounov, S. Ahmad, J. Acker, G. Leptoukh, J. Koziana, and D. Nickless. 2004. “Terra and Aqua MODIS products available from NASA GES DAAC.” <em>Advances in Space Research</em> 34 (4): 710–14. doi:<a href="https://doi.org/10.1016/j.asr.2004.03.012">10.1016/j.asr.2004.03.012</a>.</p>
 </div>
 <div>
 <p>Saxton, K.E., W.J. Rawls, J.S. Romberger, and R.I. Papendick. 1986. “Estimating generalized soil-water characteristics from texture.” <em>Soil Science Society of America Journal</em> 50: 1031–6.</p>
@@ -1167,10 +1137,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Schabenberger, O., and C. A. Gotway. 2005. <em>Statistical Methods for Spatial Data Analysis</em>. Texts in Statistical Science. Chapman &amp; Hall/CRC.</p>
 </div>
 <div>
-<p>Scharlemann, Jörn P. W., Edmund V. J. Tanner, Roland Hiederer, and Valerie Kapos. 2014. “Global Soil Carbon: Understanding and Managing the Largest Terrestrial Carbon Pool.” <em>Carbon Management</em> 5 (1). Future Science: 81–91. <a href="https://doi.org/10.4155/cmt.13.77">https://doi.org/10.4155/cmt.13.77</a>.</p>
+<p>Scharlemann, Jörn P. W., Edmund V. J. Tanner, Roland Hiederer, and Valerie Kapos. 2014. “Global Soil Carbon: Understanding and Managing the Largest Terrestrial Carbon Pool.” <em>Carbon Management</em> 5 (1). Future Science: 81–91. doi:<a href="https://doi.org/10.4155/cmt.13.77">10.4155/cmt.13.77</a>.</p>
 </div>
 <div>
-<p>Schelling, J. 1970. “Soil Genesis, Soil Classification and Soil Survey.” <em>Geoderma</em> 4 (3): 165–93. <a href="https://doi.org/10.1016/0016-7061(70)90002-9">https://doi.org/10.1016/0016-7061(70)90002-9</a>.</p>
+<p>Schelling, J. 1970. “Soil Genesis, Soil Classification and Soil Survey.” <em>Geoderma</em> 4 (3): 165–93. doi:<a href="https://doi.org/10.1016/0016-7061(70)90002-9">10.1016/0016-7061(70)90002-9</a>.</p>
 </div>
 <div>
 <p>Schoeneberger, P.J., D.A. Wysocki, E.C. Benham, and W.D. Broderson. 1998. <em>Field Book for Describing and Sampling Soils</em>. Lincoln, Nebraska: Natural Resources Conservation Service, USDA, National Soil Survey Centre.</p>
@@ -1182,7 +1152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Searle, R. 2014. “The Australian Site Data Collation to Support the Globalsoilmap.” <em>GlobalSoilMap: Basis of the Global Spatial Soil Information System</em>. CRC Press, 127.</p>
 </div>
 <div>
-<p>Shangguan, Wei, Yongjiu Dai, Baoyuan Liu, Axing Zhu, Qingyun Duan, Lizong Wu, Duoying Ji, et al. 2013. “A China Data Set of Soil Properties for Land Surface Modeling.” <em>Journal of Advances in Modeling Earth Systems</em> 5 (2): 212–24. <a href="https://doi.org/10.1002/jame.20026">https://doi.org/10.1002/jame.20026</a>.</p>
+<p>Shangguan, Wei, Yongjiu Dai, Baoyuan Liu, Axing Zhu, Qingyun Duan, Lizong Wu, Duoying Ji, et al. 2013. “A China Data Set of Soil Properties for Land Surface Modeling.” <em>Journal of Advances in Modeling Earth Systems</em> 5 (2): 212–24. doi:<a href="https://doi.org/10.1002/jame.20026">10.1002/jame.20026</a>.</p>
 </div>
 <div>
 <p>Shaw, C., J.S. Bhatti, and K.J. Sabourin. 2005. <em>An Ecosystem Carbon Database for Canadian Forests</em>. Information Report. Edmonton, Alberta: Canadian Forest Service, Northern Forestry Centre.</p>
@@ -1197,7 +1167,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Shirazi, M.A., L. Boersma, and C.B. Johnson. 2001. “Particle size distributions: comparing texture systems, adding rock, and predicting soil properties.” <em>Soil Science Society of America Journal</em> 65: 300–310.</p>
 </div>
 <div>
-<p>Simonson, Roy W. 1968. “Concept of Soil.” In <em>Prepared Under the Auspices of the American Society of Agronomy</em>, edited by A.G. Norman, 20:1–47. Advances in Agronomy. Academic Press. <a href="https://doi.org/10.1016/S0065-2113(08)60853-6">https://doi.org/10.1016/S0065-2113(08)60853-6</a>.</p>
+<p>Simonson, Roy W. 1968. “Concept of Soil.” In <em>Prepared Under the Auspices of the American Society of Agronomy</em>, edited by A.G. Norman, 20:1–47. Advances in Agronomy. Academic Press. doi:<a href="https://doi.org/10.1016/S0065-2113(08)60853-6">10.1016/S0065-2113(08)60853-6</a>.</p>
 </div>
 <div>
 <p>Sleutel, S., S. De Neve, B. Singier, and G. Hofman. 2007. “Quantification of Organic Carbon in Soils: A Comparison of Methodologies and Assessment of the Carbon Content of Organic Matter.” <em>Communications in Soil Science and Plant Analysis</em> 38: 2647–57.</p>
@@ -1206,7 +1176,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Smith, G.D. 1986. <em>The Guy Smith interviews: Rationale for Concepts in Soil Taxonomy</em>. SMSS Technical Monograph No.11. Cornell University: Soil Management Support Services, USDA.</p>
 </div>
 <div>
-<p>Smith, P., P. Falloon, and L. Kutsch. 2004. “Soils as Carbon Sinks: The Global Context.” <em>Soil Use and Management</em> 20 (2). Blackwell Publishing Ltd: 212–18. <a href="https://doi.org/10.1111/j.1475-2743.2004.tb00361.x">https://doi.org/10.1111/j.1475-2743.2004.tb00361.x</a>.</p>
+<p>Smith, P., P. Falloon, and L. Kutsch. 2004. “Soils as Carbon Sinks: The Global Context.” <em>Soil Use and Management</em> 20 (2). Blackwell Publishing Ltd: 212–18. doi:<a href="https://doi.org/10.1111/j.1475-2743.2004.tb00361.x">10.1111/j.1475-2743.2004.tb00361.x</a>.</p>
 </div>
 <div>
 <p>Snepvangers, J. J. J. C., G. B. M. Heuvelink, and J. A. Huisman. 2003. “Soil Water Content Interpolation Using Spatio-Temporal Kriging with External Drift.” <em>Geoderma</em> 112 (3). Elsevier: 253–71.</p>
@@ -1221,13 +1191,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Sollich, Peter, and Anders Krogh. 1996. “Learning with Ensembles: How over-Fitting Can Be Useful.” In <em>Advances in Neural Information Processing Systems</em>, 8:190.</p>
 </div>
 <div>
-<p>Sommer, M., H.H. Gerke, and D. Deumlich. 2008. “Modelling Soil Landscape Genesis — a ‘Time Split’ Approach for Hummocky Agricultural Landscapes.” <em>Geoderma</em> 145 (3?4): 480–93. <a href="https://doi.org/10.1016/j.geoderma.2008.01.012">https://doi.org/10.1016/j.geoderma.2008.01.012</a>.</p>
+<p>Sommer, M., H.H. Gerke, and D. Deumlich. 2008. “Modelling Soil Landscape Genesis — a ‘Time Split’ Approach for Hummocky Agricultural Landscapes.” <em>Geoderma</em> 145 (3?4): 480–93. doi:<a href="https://doi.org/10.1016/j.geoderma.2008.01.012">10.1016/j.geoderma.2008.01.012</a>.</p>
 </div>
 <div>
 <p>Soon, Y.K., and S. Abboud. 1991. “A comparison of some methods for soil organic carbon determination.” <em>Communications in Soil Science and Plant Analysis</em> 22: 943–54.</p>
 </div>
 <div>
-<p>Statnikov, Alexander, Lily Wang, and Constantin Aliferis. 2008. “A Comprehensive Comparison of Random Forests and Support Vector Machines for Microarray-Based Cancer Classification.” <em>BMC Bioinformatics</em> 9 (1): 319. <a href="https://doi.org/10.1186/1471-2105-9-319">https://doi.org/10.1186/1471-2105-9-319</a>.</p>
+<p>Statnikov, Alexander, Lily Wang, and Constantin Aliferis. 2008. “A Comprehensive Comparison of Random Forests and Support Vector Machines for Microarray-Based Cancer Classification.” <em>BMC Bioinformatics</em> 9 (1): 319. doi:<a href="https://doi.org/10.1186/1471-2105-9-319">10.1186/1471-2105-9-319</a>.</p>
 </div>
 <div>
 <p>Steichen, Thomas J, and Nicholas J Cox. 2002. “A Note on the Concordance Correlation Coefficient.” <em>Stata J</em> 2 (2): 183–89.</p>
@@ -1266,7 +1236,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Van Reeuwijk, L.P., ed. 2002. <em>Procedures for Soil Analysis</em>. Technical Paper 9. Wageningen, the Netherlands: ISRIC - World Soil Information.</p>
 </div>
 <div>
-<p>van Reeuwijk, L.R. 1982. “Laboratory Methods and Data Quality. Program for Soil Characterization: A Report on the Pilot Round. Part I. CEC and Texture.” In <em>Proceedings of 5th International Classification Workshop</em>. Khartoum, Sudan: ISRIC.</p>
+<p>van Reeuwijk, L.R. 1982. “Laboratory Methods and Data Quality. Program for Soil Characterization: A Report on the Pilot Round. Part I. Cec and Texture.” In <em>Proceedings of 5th International Classification Workshop</em>. Khartoum, Sudan: ISRIC.</p>
 </div>
 <div>
 <p>Vanwalleghem, Tom, Jean Poesen, A McBratney, and J Deckers. 2010. “Spatial Variability of Soil Horizon Depth in Natural Loess-Derived Soils.” <em>Geoderma</em> 157 (1). Elsevier: 37–45.</p>
@@ -1287,7 +1257,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Walker, W.E., P. Harremoës, J. Rotmans, J.P. van der Sluijs, M.B.A. van Asselt, P. Janssen, and M.P.K von Krauss. 2003. “Defining Uncertainty: A Conceptual Basis for Uncertainty Management in Model-Based Decision Support.” <em>Integrated Assessment</em> 4 (1): 5–17.</p>
 </div>
 <div>
-<p>Walter, C., P. Lagacherie, and S. Follain. 2006. “Integrating Pedological Knowledge into Digital Soil Mapping.” In <em>Digital Soil Mapping — an Introductory Perspective</em>, edited by P. Lagacherie, A. B. McBratney, and M. Voltz, 31:281–300, 615. Developments in Soil Science. Elsevier. <a href="https://doi.org/10.1016/S0166-2481(06)31022-7">https://doi.org/10.1016/S0166-2481(06)31022-7</a>.</p>
+<p>Walter, C., P. Lagacherie, and S. Follain. 2006. “Integrating Pedological Knowledge into Digital Soil Mapping.” In <em>Digital Soil Mapping — an Introductory Perspective</em>, edited by P. Lagacherie, A. B. McBratney, and M. Voltz, 31:281–300, 615. Developments in Soil Science. Elsevier. doi:<a href="https://doi.org/10.1016/S0166-2481(06)31022-7">10.1016/S0166-2481(06)31022-7</a>.</p>
 </div>
 <div>
 <p>Wan, Zhengming. 2006. <em>MODIS land surface temperature products users’ guide</em>. ICESS, University of California.</p>
@@ -1326,7 +1296,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Wösten, J.H.M., Y.A. Pachepsky, and W.J. Rawls. 2001. “Pedotransfer functions: Bridging the gap between available basic soil data and missing soil hydraulic functions.” <em>Journal of Hydrology</em> 251: 123–50.</p>
 </div>
 <div>
-<p>Wösten, J.H.M., S.J.E. Verzandvoort, J.G.B. Leenaars, T. Hoogland, and J.G. Wesseling. 2013. “Soil Hydraulic Information for River Basin Studies in Semi-Arid Regions.” <em>Geoderma</em> 195. Elsevier: 79–86. <a href="https://doi.org/10.1016/j.geoderma.2012.11.021">https://doi.org/10.1016/j.geoderma.2012.11.021</a>.</p>
+<p>Wösten, J.H.M., S.J.E. Verzandvoort, J.G.B. Leenaars, T. Hoogland, and J.G. Wesseling. 2013. “Soil Hydraulic Information for River Basin Studies in Semi-Arid Regions.” <em>Geoderma</em> 195. Elsevier: 79–86. doi:<a href="https://doi.org/10.1016/j.geoderma.2012.11.021">10.1016/j.geoderma.2012.11.021</a>.</p>
 </div>
 <div>
 <p>Wright, Marvin N, and Andreas Ziegler. 2017. “ranger: A Fast Implementation of Random Forests for High Dimensional Data in C++ and R.” <em>Journal of Statistical Software</em> 77 (1): 1–17.</p>
@@ -1338,7 +1308,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Xu, Xiaofeng, Peter E Thornton, and Wilfred M Post. 2013. “A Global Analysis of Soil Microbial Biomass Carbon, Nitrogen and Phosphorus in Terrestrial Ecosystems.” <em>Global Ecology and Biogeography</em> 22 (6). Wiley Online Library: 737–49.</p>
 </div>
 <div>
-<p>Yamamoto, JorgeKazuo. 2008. “Estimation or Simulation? That Is the Question.” <em>Computational Geosciences</em> 12 (4). Springer Netherlands: 573–91. <a href="https://doi.org/10.1007/s10596-008-9096-8">https://doi.org/10.1007/s10596-008-9096-8</a>.</p>
+<p>Yamamoto, JorgeKazuo. 2008. “Estimation or Simulation? That Is the Question.” <em>Computational Geosciences</em> 12 (4). Springer Netherlands: 573–91. doi:<a href="https://doi.org/10.1007/s10596-008-9096-8">10.1007/s10596-008-9096-8</a>.</p>
 </div>
 <div>
 <p>Yegnanarayana, B. 2004. <em>Artificial Neural Networks</em>. PHI Learning Pvt. Ltd.</p>
@@ -1347,19 +1317,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Zacharias, S., and G. Wessolek. 2007. “Excluding Organic Matter Content from Pedotransfer Predictors of Soil Water Retention.” <em>Soil Science Society of America Journal</em> 71: 43–50.</p>
 </div>
 <div>
-<p>Zhong, B., and Y.J. Xu. 2011. “Scale Effects of Geographical Soil Datasets on Soil Carbon Estimation in Louisiana, Usa: A Comparison of Statsgo and Ssurgo.” <em>Pedosphere</em> 21 (4): 491–501. <a href="https://doi.org/10.1016/S1002-0160(11)60151-3">https://doi.org/10.1016/S1002-0160(11)60151-3</a>.</p>
+<p>Zhong, B., and Y.J. Xu. 2011. “Scale Effects of Geographical Soil Datasets on Soil Carbon Estimation in Louisiana, Usa: A Comparison of Statsgo and Ssurgo.” <em>Pedosphere</em> 21 (4): 491–501. doi:<a href="https://doi.org/10.1016/S1002-0160(11)60151-3">10.1016/S1002-0160(11)60151-3</a>.</p>
 </div>
 <div>
-<p>Zhou, Bin, Xin-gang Zhang, and Ren-chao Wang. 2004. “Automated Soil Resources Mapping Based on Decision Tree and Bayesian Predictive Modeling.” <em>Journal of Zhejiang University Science</em> 5: 782–95. <a href="https://doi.org/10.1631/jzus.2004.0782">https://doi.org/10.1631/jzus.2004.0782</a>.</p>
+<p>Zhou, Bin, Xin-gang Zhang, and Ren-chao Wang. 2004. “Automated Soil Resources Mapping Based on Decision Tree and Bayesian Predictive Modeling.” <em>Journal of Zhejiang University Science</em> 5 (7/2004): 782–95. doi:<a href="https://doi.org/10.1631/jzus.2004.0782">10.1631/jzus.2004.0782</a>.</p>
+</div>
+<div>
+<p>Zhu, A-Xing, Feng Qi, Amanda Moore, and James E. Burt. 2010. “Prediction of Soil Properties Using Fuzzy Membership Values.” <em>Geoderma</em> 158 (3-4): 199–206. doi:<a href="https://doi.org/10.1016/j.geoderma.2010.05.001">10.1016/j.geoderma.2010.05.001</a>.</p>
 </div>
 <div>
 <p>Zhu, A.X., B. Hudson, J. Burt, K. Lubich, and D. Simonson. 2001. “Soil Mapping Using Gis, Expert Knowledge, and Fuzzy Logic.” <em>Soil Science Society of America Journal</em> 65: 1463–72.</p>
 </div>
 <div>
-<p>Zhu, A-Xing, Feng Qi, Amanda Moore, and James E. Burt. 2010. “Prediction of Soil Properties Using Fuzzy Membership Values.” <em>Geoderma</em> 158 (3-4): 199–206. <a href="https://doi.org/10.1016/j.geoderma.2010.05.001">https://doi.org/10.1016/j.geoderma.2010.05.001</a>.</p>
-</div>
-<div>
-<p>Zhu, A.X., J. Liu, F. Du, S.J. Zhang, C.Z. Qin, J. Burt, T. Behrens, and T. Scholten. 2015. “Predictive Soil Mapping with Limited Sample Data.” <em>European Journal of Soil Science</em>. <a href="https://doi.org/10.1111/ejss.12244">https://doi.org/10.1111/ejss.12244</a>.</p>
+<p>Zhu, A.X., J. Liu, F. Du, S.J. Zhang, C.Z. Qin, J. Burt, T. Behrens, and T. Scholten. 2015. “Predictive Soil Mapping with Limited Sample Data.” <em>European Journal of Soil Science</em>. doi:<a href="https://doi.org/10.1111/ejss.12244">10.1111/ejss.12244</a>.</p>
 </div>
 </div>
 </div>
@@ -1409,7 +1379,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -1421,6 +1391,10 @@ gitbook.start({
 "edit": {
 "link": "https://github.com/envirometrix/PredictiveSoilMapping/edit/master/references.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["_main.pdf"],
 "toc": {
@@ -1435,8 +1409,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

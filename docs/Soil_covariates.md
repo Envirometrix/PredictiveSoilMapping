@@ -8,7 +8,7 @@
 ### Types of soil covariates
 
 Soils (and vegetation + ecosystem) form under complex interactions between climate, living organism and anthropogenic influences, modified by relief and hydrological processes and run through long periods of time. 
-This has been clearly identified first by @jenny1994factors with his CLORPT factors of soil formation and later on by @MCBRATNEY20033 with his SCORPAN formulation (see [Introduction chapter](#soil-mapping-theory)).
+This has been clearly identified first by @jenny1994factors with his CLORPT factors of soil formation and later on by @MCBRATNEY20033 with the SCORPAN formulation (see [Introduction chapter](#soil-mapping-theory)).
 
 In general, the following list of covariates are commonly used in Predictive Soil Mapping:
 

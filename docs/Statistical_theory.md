@@ -3093,8 +3093,8 @@ effective, pedometric method for an area of interest and a list of
 target variables.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_costs_RMSE_scheme-2.png" alt="An schematic example of a performance plot (*‘predictogram’*) for comparing spatial prediction models. For more details see: Hengl et al. (2013) doi: 10.1016/j.jag.2012.02.005." width="80%" />
-<p class="caption">(\#fig:cost-methods-scheme)An schematic example of a performance plot (*‘predictogram’*) for comparing spatial prediction models. For more details see: Hengl et al. (2013) doi: 10.1016/j.jag.2012.02.005.</p>
+<img src="figures/Fig_costs_RMSE_scheme-2.png" alt="An schematic example of a performance plot (‘predictogram’) for comparing spatial prediction models. For more details see: Hengl et al. (2013) doi: 10.1016/j.jag.2012.02.005." width="80%" />
+<p class="caption">(\#fig:cost-methods-scheme)An schematic example of a performance plot (‘predictogram’) for comparing spatial prediction models. For more details see: Hengl et al. (2013) doi: 10.1016/j.jag.2012.02.005.</p>
 </div>
 
 In summary, gauging the success of soil mapping basically boils down to
