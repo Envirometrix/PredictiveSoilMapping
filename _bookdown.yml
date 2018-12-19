@@ -11,5 +11,7 @@ rmd_files:
   - "Statistical_theory.Rmd"
   - "Soilmapping_using_mla.Rmd"
   - "Soil_organic_carbon.Rmd"
+  - "PSM_practical_tips.Rmd"
+  - "PSM_future.Rmd"
   - "references.Rmd"
 

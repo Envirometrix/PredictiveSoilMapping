@@ -1,3 +1,28 @@
+```{r include=FALSE, cache=FALSE}
+## Needed for Rscript
+library("methods")
+library("microbenchmark")
+## load data sets
+
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  cache = TRUE, 
+  fig.pos = "H",
+  fig.align = "center",
+  #auto_pdf = FALSE,
+  fig.show = "hold",
+  out.width = "100%"
+)
+set.seed(2016)
+options(digits = 3)
+options(dplyr.print_min = 4, dplyr.print_max = 4)
+options(knitr.graphics.auto_pdf = TRUE)
+
+figs.lst = list.files("figures", pattern=glob2rx("*.pdf$"), full.names = TRUE)
+for(i in 1:length(figs.lst)){ if(!file.exists(gsub(".pdf", ".png", figs.lst[i]))) system(paste0("convert -density 200 ", figs.lst[i], " -quality 90 ", gsub(".pdf", ".png", figs.lst[i]))) }
+#for(i in 1:length(figs.lst)){ if(!file.exists(gsub(".pdf", ".png", figs.lst[i]))) system(paste0('inkscape \"', figs.lst[i], '\" -z --export-dpi=200 --export-area-drawing --export-png="', gsub(".pdf", ".png", figs.lst[i]), '"')) }
+```
 # Soil resource inventories and soil maps {#introduction}
 
 *Edited by: Hengl T. & MacMillan R.A.*
@@ -2298,9 +2323,11 @@ and distribution of global maps of soil properties and soil classes using PSM.
 
 The main point of this chapter is to provide full documentation of, and
 justification for, the choices that have been made in designing and
-implementing the PSM framework. At present, PSM is designed to produce
-local to global maps of soil properties and soil classes using legacy soil data
-(point profile data, maps and expert knowledge), along with available
+implementing the PSM framework (a more practical steps on how to organize 
+PSM projects are further given in chapter \@ref(practical-tips)). 
+At present, PSM is designed to produce local to global maps of soil properties 
+and soil classes using legacy soil data (point profile data, maps 
+and expert knowledge), along with available
 global covariate data, as inputs to multi-scale, hierarchical,
 quantitative, global prediction models. At some future date, it is
 hoped, and expected, that PSM will be able to make increasing use of

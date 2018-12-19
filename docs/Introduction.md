@@ -1,4 +1,5 @@
 
+
 # Soil resource inventories and soil maps {#introduction}
 
 *Edited by: Hengl T. & MacMillan R.A.*
@@ -2273,9 +2274,11 @@ and distribution of global maps of soil properties and soil classes using PSM.
 
 The main point of this chapter is to provide full documentation of, and
 justification for, the choices that have been made in designing and
-implementing the PSM framework. At present, PSM is designed to produce
-local to global maps of soil properties and soil classes using legacy soil data
-(point profile data, maps and expert knowledge), along with available
+implementing the PSM framework (a more practical steps on how to organize 
+PSM projects are further given in chapter \@ref(practical-tips)). 
+At present, PSM is designed to produce local to global maps of soil properties 
+and soil classes using legacy soil data (point profile data, maps 
+and expert knowledge), along with available
 global covariate data, as inputs to multi-scale, hierarchical,
 quantitative, global prediction models. At some future date, it is
 hoped, and expected, that PSM will be able to make increasing use of

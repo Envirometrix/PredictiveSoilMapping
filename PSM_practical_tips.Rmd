@@ -1,3 +1,28 @@
+```{r include=FALSE, cache=FALSE}
+## Needed for Rscript
+library("methods")
+library("microbenchmark")
+## load data sets
+
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  cache = TRUE, 
+  fig.pos = "H",
+  fig.align = "center",
+  #auto_pdf = FALSE,
+  fig.show = "hold",
+  out.width = "100%"
+)
+set.seed(2016)
+options(digits = 3)
+options(dplyr.print_min = 4, dplyr.print_max = 4)
+options(knitr.graphics.auto_pdf = TRUE)
+
+figs.lst = list.files("figures", pattern=glob2rx("*.pdf$"), full.names = TRUE)
+for(i in 1:length(figs.lst)){ if(!file.exists(gsub(".pdf", ".png", figs.lst[i]))) system(paste0("convert -density 200 ", figs.lst[i], " -quality 90 ", gsub(".pdf", ".png", figs.lst[i]))) }
+#for(i in 1:length(figs.lst)){ if(!file.exists(gsub(".pdf", ".png", figs.lst[i]))) system(paste0('inkscape \"', figs.lst[i], '\" -z --export-dpi=200 --export-area-drawing --export-png="', gsub(".pdf", ".png", figs.lst[i]), '"')) }
+```
 # Practical tips for organizing Predictive Soil Mapping {#practical-tips}
 
 *Edited by: T. Hengl, R. A. MacMillan and I. Wheeler*
@@ -52,7 +77,7 @@ any PSM project budget (PSM projects type A). Otherwise, if point data
 are already available (and only need to be imported and harmonized), the
 most time consuming part of PSM will likely be preparation of covariate
 data layers (PSM projects type B). Predictions can also take a long time
-and computing costs per update can be significant (see further).
+and computing costs per update can be significant (see further sections).
 Personnel costs can be more significant than server costs as programming
 can demand weeks of staff time. However, if programming is done at a
 high level (e.g. through generic functions and objects), subsequent
@@ -78,16 +103,15 @@ and instead tries to pretend that soil properties are static and persist
 through time virtually unaltered. Increasingly, however, new generation
 PSM projects aim to monitor changes in soil resources, with special
 focus given to changes in soil organic carbon, soil nutrients and
-similar. For PSM project type III spatio-temporal prediction models can
+similar (Fig. \@ref(fig:psm-types-monitoring)). For PSM project 
+type III spatio-temporal prediction models can
 be used (as in meteorology for example), but then this requires that
 sufficient training data are available in the time domain e.g. at least
 five measurement intervals / repetitions.
 
-![](media/image3.png){width="4.230323709536308in"
-height="5.046875546806649in"}
-
-Image 1: Types of PSM projects depending on whether maps are generated
-for single usage, or for detecting change or soil monitoring.
+```{r psm-types-monitoring, echo=FALSE, fig.cap="Types of PSM projects depending on whether maps are generated for single usage, or for detecting change or soil monitoring.", out.width="75%"}
+knitr::include_graphics("figures/Fig_types_of_PSM_projects.png")
+```
 
 ### PSM input and output spatial data layers
 
@@ -163,12 +187,7 @@ are known for all pixels within the soil mask. A SIS should ideally
 provide information that can directly support input to modeling,
 planning and decision-making.
 
-![](media/image4.png){width="6.313385826771653in"
-height="3.6180555555555554in"}
-
-Image 2: General Soil Information System scheme.
-
-### Technical specifications affecting the majority of production costs
+## Technical specifications affecting the majority of production costs
 
 The majority of the costs of a PSM project are controlled by the following:
 
@@ -236,7 +255,7 @@ The majority of the costs of a PSM project are controlled by the following:
 
 ### Field observations and measurements
 
-Observations and measurements (O&M) are at the heart of all advances in
+**Observations and measurements** (O&M) are at the heart of all advances in
 scientific endeavour. One cannot describe, or attempt to understand,
 what one cannot see, or measure. Great leaps in scientific understanding
 have always followed from major improvements in the ability to see, and
@@ -397,8 +416,9 @@ made features such as roads, bridges and buildings. A generic definition
 of a soil mask can differ somewhat from the one we use, but this has
 been our practice.
 
-> ![](media/image2.png){width="6.4375in" height="1.5520833333333333in"}\
-> Image 3: Example of a soil mask scheme.
+```{r soil-mask-scheme, echo=FALSE, fig.cap="Example of a soil mask scheme.", out.width="100%"}
+knitr::include_graphics("figures/Fig_soil_mask_scheme.png")
+```
 
 From the perspective of global soil mapping, any place on terrestrial
 Earth can be considered to belong to one and only one of six categories
@@ -456,20 +476,10 @@ Another important technical consideration for a PSM project is the
 **grid system**. The grid system is defined by the bounding box, pixel
 size and number of rows and columns:
 
-  -------------------------------------------------------------------------
-                    Ymax                                  
-                                                          
-                    Maximum northing                      
-  ----------------- ------------------------------------- -----------------
-  Xmin\             Spatial resolution in m (projected)   Xmax
-  Minimum easting                                         
-                    Spatial resolution in DD              Maximum easting
-                                                          
-                    Rows and columns                      
-
-                    Ymin\                                 
-                    Minimum northing                      
-  -------------------------------------------------------------------------
+  * Xmin, Xmax, Ymin, Ymax,
+  * Spatial resolution in m (projected),
+  * Spatial resolution in DD,
+  * Number of rows (X) and columns (Y),
 
 Maps referenced by geographical coordinates
 ([*EPSG:4326*](http://spatialreference.org/ref/epsg/wgs-84/); used by
@@ -583,24 +593,31 @@ grids with a large number of evidence points is e.g. the [OVH server](https://ww
     (512GB RAM takes 3 weeks of computing; costs ca € 950,00
     per month)
 
-An alternative to using OVH is the Amazon AWS. Amazon AWS server, with a
-similar configuration, might appear to cost much more than an OVH server
+An alternative to using OVH is the Amazon AWS (Fig. \@ref(fig:aws-htop-server)). 
+Amazon AWS server, with a similar configuration, might appear to cost much more than an OVH server
 (especially if used continuously over a month period), but Amazon offers
 computing costs to be paid by the hour, which provides more flexibility
 for less intensive users. As a rule of thumb, a dedicated server at
-Amazon AWS, if used continuously 100% for the whole month, would cost
-about 2.5 times more than OVH server. The recommended server for running
-PSM on Amazon AWS is:
+Amazon AWS, if used continuously 100% for the whole month, could cost
+up to 2.5 times more than an OVH server. 
+
+The recommended server for running PSM on Amazon AWS to produce predictions for billions of pixels is:
 
 -   [*AWS m4.16xlarge*](https://aws.amazon.com/ec2/pricing/on-demand/)
     (\$3.84 per Hour);
+
+```{r aws-htop-server, echo=FALSE, fig.cap="Example of an AWS dedicated server running spatial predictions on 96 threads and using almost 500GB or RAM. Renting out this server can costs up to 8 USD per hour.", out.width="100%"}
+knitr::include_graphics("figures/Fig_htop_96treads.png")
+```
 
 A HPC server should also have at least 2–3TB of hard disk space to host
 all input and output data. In addition to computing costs, one also
 needs to carefully consider web hosting and web traffic costs. For large
 datasets these can almost equal actual computing production costs.
 
-### Final delivery of maps
+## Final delivery of maps
+
+### Delivery data formats
 
 A highly suitable and flexible data format for delivering raster images
 of soil variables is GeoTIFF. We prefer using this format for sharing
@@ -633,6 +650,8 @@ property of interest by 10 or 100, in order to maintain precision and
 accuracy (e.g. multiply pH values by 10 before exporting your raster
 into integer GeoTIFF format).
 
+### General recommendations
+
 Even maps of perfect quality might still not attract users, if they are
 not properly designed. Some things to consider to increase both use and
 usability of map data are:
@@ -663,185 +682,65 @@ usability of map data are:
     theoretically able to reproduce all examples shown in the text.
     Transparency increases trust.
 
-### Technical specifications PSM project (order forms)
+### Technical specifications PSM project
 
-General specifications of the study area:
+A way to increase planning of a PSM project is to spend more time on preparing
+the technical aspects of data production. This includes listing the general
+specifications of the study area, listing target variables and their 
+collection methods, listing covariate layers of interest to be used to improve
+mapping accuracy and listing targeted spatial prediction algorithms to be
+compared.
 
-G.1 Project title:
-G.2 PSM project type:
- - PSM project in a new area
- - PSM project using legacy points
- - PSM project aiming at optimizing predictions and usability
-G.3 Target spatial resolution:
- - 10 m
- - 30 m
- - 100 m
- - 250 m
- - 1000 m
-G.4 Target temporal span:
- - Begin date:
- - End date:
-G.5 Soil mask:
- - *raster image or land cover classes in the referent land cover map covering the study area*
-G.6 Grid definition:
- - Xmin:
- - Ymin:
- - Xmax:
- - Ymax:
-G.7 Target projection system ([*proj4*](https://proj4.org/) code):
-G.8 Total area:
- - in square-km
-G.9 Inspection density:
- - Detailed soil profiles: (observations per square-km)
- - Soil semi-profiles:
- - Top-soil / sub-soil samples (with laboratory analysis):
- - Quick observations (no lab data):
-G.10 Total budget (planned):
-G.11 Total pixels in millions:
- - amount of pixels for all predictions
-G.12 Total planned production costs per 1M pixels (divide G.10 by G.11):
-G.13 Target data license:
-G.14 Target [*user groups*](https://envirometrix.github.io/PredictiveSoilMapping/introduction.html#soil-information-users) and workflows (targeted services):
-G.15 Further updates of maps:
- - Continuous updates in regular intervals
- - Two prediction time intervals (start, end period)
- - No updates required except fixes and corrections
-G.16 Commercialization of the PSM outputs:
- - No commercial data nor services
- - Commercial data products
- - Commercial services
- - Not considered
-G.17 Support options:
- - Dedicated staff / live contact
- - Mailing list
- - Github / code repository issues
- 
-### Target soil variables
+General specifications of the study area includes:
 
-Table 2: List of suggested and recommended target soil variables (3D
-mapping). Codes based on the "National Soil Carbon Network Templates".
-Complete list of variables available
-[*here*](https://docs.google.com/spreadsheets/d/1ZmFa2R9mfiMxoOOP_ISAF6Ca5QMFJYL54pV-b_4zHTU/edit#gid=468368665).
-Note: complete list can be even longer, up to 200+ soil variables can be
-mapped using PSM.
-
-  Soil variable   Unit         Lower   Mean   Upper   0   5   15   30   60   100   200
-  --------------- ------------ ------- ------ ------- --- --- ---- ---- ---- ----- -----
-  carbonates      %wt          ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  cn\_ratio                    ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  n\_tot          %wt          ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  bd              g/cc         ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  structgrade                  ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  structsize                   ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  structclass                  ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  hzn\_desg                    ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  soc\_content    %wt          ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  text\_class                  ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  rock\_percent   %wt          ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  sand            %wt          ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  clay            %wt          ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  silt            %wt          ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  exch\_ca        cmol(+)/kg   ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  exch\_mg        cmol(+)/kg   ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  exch\_k         cmol(+)/kg   ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  exch\_na        cmol(+)/kg   ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  pot\_acidity    cmol(+)/kg   ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  ph\_cacl2                    ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  ph\_h2o                      ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  base\_sum       cmol(+)/kg   ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  exch\_al        cmol(+)/kg   ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  cec\_ph7        cmol(+)/kg   ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  cec\_ph8.2      cmol(+)/kg   ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  ecec            cmol(+)/kg   ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  s               ppm          ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  b               ppm          ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  cu              ppm          ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  zn              ppm          ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  mn              ppm          ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  fe              ppm          ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  ca              ppm          ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  mg              ppm          ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  na              ppm          ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  k               ppm          ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  vw\_sat         %vt          ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  vw\_f1          %vt          ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  vw\_f2          %vt          ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  vw\_wp          %vt          ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  awc\_f1         %vt          ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-  awc\_f2         %vt          ❑       ❑      ❑       ❑   ❑   ❑    ❑    ❑    ❑     ❑
-
-Table 3: List of suggested and recommended target soil variables (2D
-mapping).
-
-  Soil variable     Unit    Lower   Mean   Upper
-  ----------------- ------- ------- ------ -------
-  soc\_stock        kg/m3   ❑       ❑      ❑
-  bedrock\_depth    cm      ❑       ❑      ❑
-  depth\_water      cm      ❑       ❑      ❑
-  drainage\_class                   ❑      
-  tax\_organic                      ❑      
-  tax\_order                        ❑      
-  tax\_grtgrp                       ❑      
-  tax\_suborder                     ❑      
-  tax\_subgrp                       ❑      
-  tax\_family                       ❑      
-  tax\_cecclass                     ❑      
-  tax\_minerology                   ❑      
-  tax\_carbonate                    ❑      
-  tax\_temp                         ❑      
-  tax\_moist                        ❑      
-
-### Covariates of interest
-
-Table 4: List of recommended covariates of interest (publicly available
-covariates listed only). Complete list available
-[*here*](https://envirometrix.github.io/PredictiveSoilMapping/soil-covs-chapter.html#soil-covariate-data-sources).
-
-### Spatial prediction methods
-
-Table 5: Statistical and machine learning approaches of interest (see
-e.g. Kuhn and Johnson, 2013 and [*Nussbaum et al,
-2017*](https://www.soil-journal.net/4/1/2018/soil-4-1-2018.pdf)) and
-connected R packages.
-
-  Method                      Package        Type                          Prediction   Comparison   Production
-  --------------------------- -------------- ----------------------------- ------------ ------------ ------------
-  Random forest               ranger         regression / classification   ❑            ❑            ❑
-  SVM                         kernlab        regression / classification   ❑            ❑            ❑
-  Cubist                      cubist         regression / classification   ❑            ❑            ❑
-  XGBoost                     xgboost        regression                    ❑            ❑            ❑
-  Gradient Boosting Machine   gbm            regression                    ❑            ❑            ❑
-  Extreme Learning Machine    elmNNRcpp      regression / classification   ❑            ❑            ❑
-  Deep learning               h2o            regression / classification   ❑            ❑            ❑
-  GeoGAM                      geoGAM         regression                    ❑            ❑            ❑
-  Kriging                     geoR / gstat   regression                    ❑            ❑            ❑
-
-### Delivery and hosting of maps
-
-Table 6: Possibilities for hosting the produced data.
-
-
-
-
-  ----------------------------------------------------------------------------------------------------------
-  Layers                                         Size category   FTP   WMS   WCS   REST API   SDT   Inter.
-                                                                                                    
-                                                                                                    Apps
-  ---------------------------------------------- --------------- ----- ----- ----- ---------- ----- --------
-  Soil samples (SPDB)                            \*              ❑     ❑     ❑     ❑          ❑     ❑
-
-  Covariate layers                               \*\*\*\*\*      ❑     ❑     ❑     ❑          ❑     ❑
-
-  Primary predictions of soil variables          \*\*\*\*        ❑     ❑     ❑     ❑          ❑     ❑
-
-  Secondary soil variables                       \*\*\*          ❑     ❑     ❑     ❑          ❑     ❑
-
-  Uncertainty maps (lower and upper intervals)   \*\*\*\*\*      ❑     ❑     ❑     ❑          ❑     ❑
-
-  Decision ready maps                            \*\*\*          ❑     ❑     ❑     ❑          ❑     ❑
-  ----------------------------------------------------------------------------------------------------------
-
-\*SDT = Scalable download traffic
+  * G.1 Project title:
+  * G.2 PSM project type:
+    - PSM project in a new area
+    - PSM project using legacy points
+    - PSM project aiming at optimizing predictions and usability
+  * G.3 Target spatial resolution:
+    - 10 m
+    - 30 m
+    - 100 m
+    - 250 m
+    - 1000 m
+  * G.4 Target temporal span:
+    - Begin date,
+    - End date,
+  * G.5 Soil mask:
+    - *raster image or land cover classes in the referent land cover map covering the study area*
+  * G.6 Grid definition:
+    - Xmin,
+    - Ymin,
+    - Xmax,
+    - Ymax,
+  * G.7 Target projection system: 
+     - [*proj4*](https://proj4.org/) code,
+  * G.8 Total area:
+    - in square-km,
+  * G.9 Inspection density (observations per square-km):
+    - Detailed soil profiles,
+    - Soil semi-profiles,
+    - Top-soil / sub-soil samples (with laboratory analysis),
+    - Quick observations (no lab data),
+  * G.10 Total budget (planned):
+  * G.11 Total pixels in millions:
+    - amount of pixels for all predictions
+  * G.12 Total planned production costs per 1M pixels (divide G.10 by G.11):
+  * G.13 Target data license:
+  * G.14 Target user groups and workflows (targeted services):
+  * G.15 Further updates of maps:
+    - Continuous updates in regular intervals,
+    - Two prediction time intervals (start, end period),
+    - No updates required except fixes and corrections,
+  * G.16 Commercialization of the PSM outputs:
+    - No commercial data nor services,
+    - Commercial data products,
+    - Commercial services,
+  * G.17 Support options:
+    - Dedicated staff / live contact,
+    - Mailing list,
+    - Github / code repository issues,
 
 ### Standard soil data production costs
 
@@ -851,45 +750,49 @@ categories:
 -   Fixed costs (e.g. project initiation, equipment, materials,
     workshops etc),
 
--   Data production costs expressed per M pixels of data,
+-   Data production costs expressed per M (million) of pixels of data produced,
 
 -   Data maintenance and web-serving costs, usually expressed as
     monthly/yearly costs,
 
-Table 7: Standard soil data production costs (approximate estimates) per
-soil data quality category (see below). L0 = initial product with only
-few soil properties, no quality/accuracy requirements, L1 = final
-complete product with no quality/accuracy requirements, L2 = final
-complete product matching standard accuracy requirements, L3 = final
-complete certified product according to the ISO or similar standards.
-For more info see also Hengl et al. (2014).
+Although in the introduction chapter we have mentioned that the production costs are mainly function of 
+resolution i.e. cartographic scale, in practice several other factors determine the total costs. 
+Standard soil data production costs (approximate estimates) per
+soil data quality category (see below) is connected to the quality level of the output maps.
+Consider that there are four main quality levels:
 
-  *Type of PSM project*                                                        Output data quality level
-  ---------------------------------------------------------------------------- --------------------------- ----------------------- -------------------------- ------------------------
-                                                                               L0
-  PSM projects in new area (single state)                                      &gt;500 US\$ / Mpix
-  PSM projects using legacy points (single state)                              0.8 US\$ / Mpix
-  PSM projects aiming at optimizing predictions and usability (single state)   0.5 US\$ / Mpix
-  PSM change detection project (two states)                                    NA
-  PSM monitoring projects (multiple states)                                    NA
+  * L0 = initial product with only few soil properties, no quality/accuracy requirements, 
+
+  * L1 = final complete product with no quality/accuracy requirements, 
+
+  * L2 = final complete product matching standard accuracy requirements, 
+
+  * L3 = final complete certified product according to the ISO or similar standards.
+
+```{r psm-table-costs, echo=FALSE}
+knitr::kable(
+  head(read.csv("extdata/psm_table_costs.csv", header = TRUE, stringsAsFactors = FALSE), 10), booktabs = TRUE,
+  caption = 'Example of a costs table for various quality levels PSM products. Prices expressed per M (million) of pixels produced.'
+)
+```
 
 To convert average costs / M pixels to total costs we run the following
 calculus:
 
-Pixel resolution = 100 m
+  - Pixel resolution = 100 m
 
-USA48 area = 8,080,464.3 square-km
+  - USA48 area = 8,080,464.3 square-km
 
-Total pixels 6 depths 3 soil properties = 14,544 Mpix
+  - Total pixels 6 depths 3 soil properties = 14,544 Mpix
 
-Average production costs (L1) = 0.8 US\$ / Mpix
+  - Average production costs (L1) = 0.8 US\$ / Mpix
 
-Total production costs PSM projects using legacy points (single state,
+  - Total production costs PSM projects using legacy points (single state,
 L1) = 11,635 US\$
 
-Average production costs (L2) = 2 US\$ / Mpix
+  - Average production costs (L2) = 2 US\$ / Mpix
 
-Total production costs PSM projects using legacy points (single state,
+  - Total production costs PSM projects using legacy points (single state,
  L2) = 29,088 US\$
 
 Note: this is a very generic estimate of the production costs and actual
@@ -900,13 +803,13 @@ for the web hosting, support and costs of updates.
 Compare this costs with the following standard estimated costs to
 deliver completed soil survey products:
 
--   USDA estimate of the total soil survey costs: 4 US\$ per ha for
+  - USDA estimate of the total soil survey costs: 4 US\$ per ha for
     1:20,000 scale maps [@Durana2008] to map USA48 area = 3.2 billion
     US\$,
 
--   New Zealand: 4 US\$ per ha for 1:20,000 scale maps [@Carrick2010WCSS],
+  - New Zealand: 4 US\$ per ha for 1:20,000 scale maps [@Carrick2010WCSS],
 
--   Canada: 3–10 CA\$ per ha for 1:20,000 scale maps [@MacMillan2010DSM],
+  - Canada: 3–10 CA\$ per ha for 1:20,000 scale maps [@MacMillan2010DSM],
 
 ## Summary notes 
 
