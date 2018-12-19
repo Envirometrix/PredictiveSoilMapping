@@ -51,7 +51,7 @@ Another way to express soil organic carbon is through **soil organic carbon dens
 
 While OCS is a summary measure of SOC, always associated with a specific depth interval, OCD is a relative measure of soil organic carbon distribution and can be associated with any support size i.e. to an arbitrary depth. In principle, OCD (kg/m$^3$) is strongly correlated with ORC (g/kg) as indicated in the figure below. However, depending on soil mineralogy and coarse fragment content, OCD can be lower or higher than what the smoothed line indicates (notice the range of values around the smoothed line is relatively wide). It is important to understand, however, that, as long as ORC, BLD and CRF are known, one can convert the values from ORC to OCD and OCS and *vice versa*, without loosing any information about the soil organic carbon stock.
 
-```{r carbon-density-plot, echo=FALSE, fig.cap="Correlation between soil organic carbon density and soil organic carbon content (displayed on a log-scale) created using a global compilations of soil profile data (WoSIS). Values 1, 2, 3, 4, 5 and 6 in the plot (log scale) correspond to values 2, 6, 19, 54, 147 and 402. Note that for ORC >12%, the OCD line flattens, which means that, organic carbon density practically stops to increase with the increase of ORC content.", out.width="55%"}
+```{r carbon-density-plot, echo=FALSE, fig.cap="Correlation between soil organic carbon density and soil organic carbon content (displayed on a log-scale) created using a global compilations of soil profile data (WoSIS). Values 1, 2, 3, 4, 5 and 6 in the plot (log scale) correspond to values 2, 6, 19, 54, 147 and 402. Note that for ORC >12 percent, the OCD line flattens, which means that, organic carbon density practically stops to increase with the increase of ORC content.", out.width="55%"}
 knitr::include_graphics("figures/rplot_soilcarbon_density_vs_orc.png")
 ```
 
@@ -81,7 +81,7 @@ Consider, for example, the following two real life examples of soil profile data
 ```{r profile-edgeroi, echo=FALSE}
 knitr::kable(
   head(read.csv("extdata/profile_399_EDGEROI_ed079.csv", header = TRUE, stringsAsFactors = FALSE), 10), booktabs = TRUE,
-  caption = 'Laboratory data for a profile *399 EDGEROI ed079* from Australia (Karssies 2011).'
+  caption = 'Laboratory data for a profile 399 EDGEROI ed079 from Australia (Karssies 2011).'
 )
 ```
 
@@ -243,7 +243,7 @@ predict(m.BLD_ls, data.frame(ORCDRC=320))
 
 This gives about 30% lower value than the random forest-based PTF from above. Over-estimating BLD will always result in higher OCS, hence clearly accurate information on BLD can be crucial for any OCS monitoring project. This means that the PTF fitted using random forest above is likely over-estimating BLD values for organic soils, mainly because there are not enough training points in organic soils that have measurements data for all of ORC, BLD, soil pH and texture fractions (if ANY of the calibration measurements are missing, the whole horizons are taken out of calibration and hence different ranges of BLD could be completely misrepresented).
 
-```{block, type="rmdnote"}
+```{block2, type="rmdnote"}
 Soil Bulk density (BLD) is an important soil property that is required to estimate stocks of nutrients especially soil organic carbon. Measurements of BLD are often not available and need to be estimated using some PTF or similar. Most PTF's for BLD are based on correlating BLD with soil organic carbon, clay and sand content, pH, soil type and climate zone.
 ```
 
@@ -262,7 +262,7 @@ ORC (depth) = exp[ 4.1517 −0.60934 \cdot log(depth) ]
 
 This also illustrates that any organic carbon spatial prediction model can significantly profit from including depth in the statistical modelling.
 
-```{r soc-depth-plot, echo=FALSE, fig.cap=" Globally fitted regression model for predicting soil organic carbon using depth only (log-log regression) and (a) individual soil profile from the ISRIC soil monolith collection. Image source: Hengl et al. (2014) doi: 10.1371/journal.pone.0105992.", out.width="90%"}
+```{r soc-depth-plot, echo=FALSE, fig.cap="Globally fitted regression model for predicting soil organic carbon using depth only (log-log regression) and (a) individual soil profile from the ISRIC soil monolith collection. Image source: Hengl et al. (2014) doi: 10.1371/journal.pone.0105992.", out.width="90%"}
 knitr::include_graphics("figures/journal_pone_0105992_g005.png")
 ```
 

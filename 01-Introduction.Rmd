@@ -1,28 +1,3 @@
-```{r include=FALSE, cache=FALSE}
-## Needed for Rscript
-library("methods")
-library("microbenchmark")
-## load data sets
-
-knitr::opts_chunk$set(
-  comment = "#>",
-  collapse = TRUE,
-  cache = TRUE, 
-  fig.pos = "H",
-  fig.align = "center",
-  #auto_pdf = FALSE,
-  fig.show = "hold",
-  out.width = "100%"
-)
-set.seed(2016)
-options(digits = 3)
-options(dplyr.print_min = 4, dplyr.print_max = 4)
-options(knitr.graphics.auto_pdf = TRUE)
-
-figs.lst = list.files("figures", pattern=glob2rx("*.pdf$"), full.names = TRUE)
-for(i in 1:length(figs.lst)){ if(!file.exists(gsub(".pdf", ".png", figs.lst[i]))) system(paste0("convert -density 200 ", figs.lst[i], " -quality 90 ", gsub(".pdf", ".png", figs.lst[i]))) }
-#for(i in 1:length(figs.lst)){ if(!file.exists(gsub(".pdf", ".png", figs.lst[i]))) system(paste0('inkscape \"', figs.lst[i], '\" -z --export-dpi=200 --export-area-drawing --export-png="', gsub(".pdf", ".png", figs.lst[i]), '"')) }
-```
 # Soil resource inventories and soil maps {#introduction}
 
 *Edited by: Hengl T. & MacMillan R.A.*
@@ -727,7 +702,7 @@ developing technologies and newly available global data layers, especially
 those that are free and publicly distributed such as MODIS products,
 SRTM DEM and similar (Fig. \@ref(fig:new-technologies)). PSM can be compared to, and shares similar concepts with, other applications of statistics and machine learning in physical geography, for example Predictive Vegetation Mapping [@Fran01; @Hengl2018PNV].
 
-```{r new-technologies, echo=FALSE, fig.cap="Evolution of digital soil mapping parallels the emergence of new technologies and global, publicly available data sources.", out.width="60%",out.extra="angle=0"}
+```{r new-technologies, echo=FALSE, fig.cap="Evolution of digital soil mapping parallels the emergence of new technologies and global, publicly available data sources.", out.width="100%",out.extra="angle=0"}
 knitr::include_graphics("figures/Fig_new_technologies.png")
 ```
 
@@ -1324,7 +1299,7 @@ interest for pedometric soil mapping:
     prepared); empirical maps of soil processes and features (e.g.
     catena sequences etc).
 
-```{r dem-evolution, echo=FALSE, fig.cap="Evolution of global DEM data sources: (right) SRTM DEM released in 2002, as compared to (left) WorldDEM released in 2014 (Baade et al., 2014). Sample data set for city of Quorn in South Australia. As with many digital technologies, the level of detail and accuracy of GIS and remote sensing data is exhibiting exponential growth.", out.width="100%"}
+```{r dem-evolution, echo=FALSE, fig.cap="Evolution of global DEM data sources: (right) SRTM DEM released in 2002, as compared to (left) WorldDEM released in 2014 (Baade et al., 2014). Sample data set for city of Quorn in South Australia. As with many digital technologies, the level of detail and accuracy of GIS and remote sensing data is exhibiting exponential growth.", out.width="80%"}
 knitr::include_graphics("figures/Fig_DEM_evolution.png")
 ```
 
@@ -2039,7 +2014,7 @@ number of factors (Fig. \@ref(fig:usability-scheme)):
     for download and are they easy to obtain? How many users can access
     the data at the same time? Are the data free and easily obtained?
 
-```{r usability-scheme, echo=FALSE, fig.cap="Usability of a Soil Information System is basically a function of a number of data usability measures from which the following four (C’s) are essential: completeness, consistency, correctness and currency.", out.width="70%", out.extra="angle=0"}
+```{r usability-scheme, echo=FALSE, fig.cap="Usability of a Soil Information System is basically a function of a number of data usability measures from which the following four (C’s) are essential: completeness, consistency, correctness and currency.", out.width="90%", out.extra="angle=0"}
 knitr::include_graphics("figures/Fig_usability_scheme.png")
 ```
 
@@ -2266,13 +2241,13 @@ greater than previously suspected.
 As mentioned previously, if all other sources of error in the soil
 mapping framework have been reduced, the only remaining strategy to
 reduce uncertainty in soil maps is to increase sampling intensity
-(Fig. \@ref(fig:lagacherie1992)). This is again possible only up to a
+(Fig. \@ref(fig:lagacherie1992), @Lagacherie1992PhD). This is again possible only up to a
 certain degree — even if we would sample the whole study area with an
 infinite number of points, we would still not be able to explain some
 significant portion of uncertainty. A map can never be 100% valid
 [@Oreskes04021994].
 
-```{r lagacherie1992, echo=FALSE, fig.cap="Reduction of prediction error as a function of sampling intensity (for three control areas). Based on @Lagacherie1992PhD.", out.width="85%", out.extra="angle=0"}
+```{r lagacherie1992, echo=FALSE, fig.cap="Reduction of prediction error as a function of sampling intensity (for three control areas). Based on Lagacherie (1992).", out.width="85%", out.extra="angle=0"}
 knitr::include_graphics("figures/Fig_Lagacherie1992.png")
 ```
 

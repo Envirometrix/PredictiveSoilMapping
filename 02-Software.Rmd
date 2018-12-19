@@ -89,7 +89,7 @@ sudo apt-get install saga
 
 If installation was successful, you should be able to access SAGA command line also from R by using:
 
-```{r}
+```{r, eval=FALSE}
 system("saga_cmd --version")
 ```
 
@@ -132,7 +132,7 @@ knitr::include_graphics("figures/whiteboxtools-preview.jpg")
 
 The function `FlowAccumulationFullWorkflow` is, for example, a wrapper function to filter out all spurious sinks and to derive a hydrological flow accumulation map in the same step. To run it from command line we can use:
 
-```{r}
+```{r, eval=FALSE}
 system(paste0('"/home/tomislav/software/WBT/whitebox_tools" ',
   '--run=FlowAccumulationFullWorkflow --dem="./extdata/DEMTOPx.tif" ',
   '--out_type="Specific Contributing Area" --log="False" --clip="False" --esri_pntr="False" ',
@@ -286,7 +286,7 @@ system(paste(gdalwarp, "--help"))
 
 We can use GDAL to reproject the grid from the previous example:
 
-```{r plot-eberg-ll, fig.width=7, fig.cap="Ebergotzen DEM reprojected in geographical coordinates."}
+```{r plot-eberg-ll, fig.width=7, fig.cap="Ebergotzen DEM reprojected in geographical coordinates.", out.width="80%"}
 system(paste('gdalwarp ./extdata/DEMSRT6.sdat ./extdata/DEMSRT6_ll.tif',  
              '-t_srs \"+proj=longlat +datum=WGS84\"'))
 library(raster)
