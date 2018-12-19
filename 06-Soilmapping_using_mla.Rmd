@@ -187,7 +187,7 @@ SDN.pred <- as.data.frame(h2o.predict(RF.m, eberg.hex, na.action=na.pass))$predi
 plt1 <- xyplot(m$SNDMHT_A ~ SDN.pred, asp=1, 
                par.settings=list(
                  plot.symbol = list(col=scales::alpha("black", 0.6), 
-                 fill=alpha("red", 0.6), pch=21, cex=0.8)),
+                 fill=scales::alpha("red", 0.6), pch=21, cex=0.8)),
                  ylab="measured", xlab="predicted (machine learning)")
 plt1
 ```

@@ -2136,10 +2136,6 @@ data the sources of error are for example:
 
 7.  *data interpretation error*;
 
-```{r lines-legros1997, echo=FALSE, fig.cap="20 photo-interpretations done independently using the same aerial photograph overlaid on top of each other. Image credit: Legros (1997).", out.width="50%"}
-knitr::include_graphics("figures/Fig_lines_Legros1997.png")
-```
-
 For soil delineations, the common sources of error (as illustrated in
 Fig. \@ref(fig:lines-legros1997)) are:
 
@@ -2157,6 +2153,10 @@ Fig. \@ref(fig:lines-legros1997)) are:
 5.  *digitizing error*;
 
 6.  *polygonization (mapping unit assignment) error*;
+
+```{r lines-legros1997, echo=FALSE, fig.cap="20 photo-interpretations done independently using the same aerial photograph overlaid on top of each other. Image credit: Legros (1997).", out.width="50%"}
+knitr::include_graphics("figures/Fig_lines_Legros1997.png")
+```
 
 Another important source of uncertainty is the diversity of laboratory
 methods (see further chapter \@ref(statistical-theory)). Many columns in
@@ -2247,7 +2247,7 @@ infinite number of points, we would still not be able to explain some
 significant portion of uncertainty. A map can never be 100% valid
 [@Oreskes04021994].
 
-```{r lagacherie1992, echo=FALSE, fig.cap="Reduction of prediction error as a function of sampling intensity (for three control areas). Based on Lagacherie (1992).", out.width="85%", out.extra="angle=0"}
+```{r lagacherie1992, echo=FALSE, fig.cap="Reduction of prediction error as a function of sampling intensity (for three control areas). Based on Lagacherie (1992).", out.width="70%", out.extra="angle=0"}
 knitr::include_graphics("figures/Fig_Lagacherie1992.png")
 ```
 
@@ -2263,7 +2263,7 @@ means that commonly, at the site level, we might encounter a significant
 short-range variability, which is unmappable at a feasible resolution resolution, that we will
 not be able to model even with the most sophisticated methods.
 
-```{r sigma-rmse-relationship, echo=FALSE, fig.cap="Relationship between the numeric resolution (visualized using a histogram plot on the left) and amount of variation explained by the model for soil pH.", out.width="100%"}
+```{r sigma-rmse-relationship, echo=FALSE, fig.cap="Relationship between the numeric resolution (visualized using a histogram plot on the left) and amount of variation explained by the model for soil pH.", out.width="90%"}
 knitr::include_graphics("figures/Fig_sigma_RMSE_relationship.png")
 ```
 

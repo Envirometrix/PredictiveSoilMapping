@@ -543,7 +543,7 @@ plot(raster(fn), col=bpy.colors(20))
 lines(tile.pol, lwd=2)
 ```
 
-```{r rplot-large-raster-tiles, echo=FALSE, fig.cap="Example of a tiling system derived using the `GSIF::getSpatialTiles` function.", out.width="80%"}
+```{r rplot-large-raster-tiles, echo=FALSE, fig.cap="Example of a tiling system derived using the `GSIF::getSpatialTiles` function.", out.width="60%"}
 knitr::include_graphics("figures/rplot_large_raster_tiles.png")
 ```
 
@@ -595,7 +595,7 @@ system('gdalwarp SP27GTIF.vrt SP27GTIF_mask.tif -ot \"Byte\"',
 
 Note we use a few important settings here for GDAL e.g. `-overwrite -co "COMPRESS=DEFLATE"` to overwrite the GeoTiff and internally compress it to save space and `-r "near"` basically no resampling just binding tiles together. Also, if the output GeoTiff is HUGE, you will most likely have to turn on `-co "BIGTIFF=YES"` otherwise `gdalwarp` would not run through. The output mosaic looks like this:
 
-```{r sp27gtif-mask, echo=FALSE, fig.cap="Final processed output.", out.width="80%"}
+```{r sp27gtif-mask, echo=FALSE, fig.cap="Final processed output.", out.width="60%"}
 knitr::include_graphics("figures/sp27gtif_mask.png")
 ```
 

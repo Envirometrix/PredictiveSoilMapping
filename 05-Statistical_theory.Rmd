@@ -1222,7 +1222,7 @@ regression-kriging approach discussed above (Eq.\@ref(eq:RKgeneral)).
 
 ### Regression-kriging examples using the GSIF package
 
-In the (***GSIF?***) package, most of the steps described above (regression modelling
+In the GSIF package, most of the steps described above (regression modelling
 and variogram modelling) used to fit regression-kriging models are
 wrapped into generic functions. A regression-kriging model can be fitted
 in one step by running:
