@@ -54,7 +54,7 @@ and global climate mapping projects. He has been teaching predictive soil mappin
 ISRIC within the “Hands-on-GSIF” block courses. Video tutorials of the soil mapping with R can also be 
 found at http://youtube.com/c/ISRICorg. Tom currently leads production of a web mapping system called “LandGIS” (https://landgis.opengeohub.org) and which is envisaged as *“an OpenStreetMap-type system”* for land-related environmental data. The system hosts global, fine spatial resolution data (250 m to 1 km) including various soil classes and soil properties, and is intended for eventual integration with farm-scale data and beyond.
 
-[**Bob MacMillan**](https://opengeohub.org/people/bob-macmillan) is a retired environmental consultant with over 40 years of experience in creating, packaging, delivering and using environmental information on soils, ecosystems, landforms and hydrology. Bob spent 19 years working in public sector research with the Alberta Research Council and Agriculture and Agri-Food Canada and a second 20 years as a private sector consultant offering services in predictive soil and ecological mapping. Since retiring, Bob has remained an active supporter, promoter, advocate, mentor and technical contributor to several continental to global scale efforts to advance the science and technology of mapping soils and other ecosystem components. As Science Coordinator for the GlobalSoilMap project, Bob helped to articulate the vision for the project and led initial activities aimed at achieving this, including authoring technical specifications, promoting the project, recruiting participants/cooperators, and liaising with representatives of national and international soil agencies. Bob continues to contribute on a voluntary basis to OpenGeoHub (https://opengeohub.org/), Africa Soil Information Servicce (AfSIS) (http://africasoils.net/) and the Canadian Digital Soil Data Consortium (CDSDC): (http://soilinfo.ca). Throughout his career, Bob has shared his expertise and his enthusiasm freely with dozens of younger scientists interested in learning about, and becoming, practitioners of digital soil mapping. Bob continues to support the next generation of digital soil mappers through his involvement with OpenGeoHub. 
+[**Bob MacMillan**](https://opengeohub.org/people/bob-macmillan) is a retired environmental consultant with over 40 years of experience in creating, packaging, delivering and using environmental information on soils, ecosystems, landforms and hydrology. Bob spent 19 years working in public sector research with the Alberta Research Council and Agriculture and Agri-Food Canada and a second 20 years as a private sector consultant offering services in predictive soil and ecological mapping. Since retiring, Bob has remained an active supporter, promoter, advocate, mentor and technical contributor to several continental to global scale efforts to advance the science and technology of mapping soils and other ecosystem components. As Science Coordinator for the GlobalSoilMap project, Bob helped to articulate the vision for the project and led initial activities aimed at achieving this, including authoring technical specifications, promoting the project, recruiting participants/cooperators, and liaising with representatives of national and international soil agencies. Bob continues to contribute on a voluntary basis to OpenGeoHub (https://opengeohub.org), Africa Soil Information Servicce (AfSIS) (http://africasoils.net) and the Canadian Digital Soil Data Consortium (CDSDC): (http://soilinfo.ca). Throughout his career, Bob has shared his expertise and his enthusiasm freely with dozens of younger scientists interested in learning about, and becoming, practitioners of digital soil mapping. Bob continues to support the next generation of digital soil mappers through his involvement with OpenGeoHub. 
 
 # Preface {-}
 
@@ -107,15 +107,15 @@ ISBN: 9783319634395, 720 pages.
 
 Readers are also encouraged to obtain and study the following R books before following some of the more complex exercises in this book:
 
-* Bivand, R., Pebesma, E., Rubio, V., (2013) [Applied Spatial Data Analysis with R](http://www.asdar-book.org/). Use R Series, Springer, Heidelberg, 2nd Ed. 400 pages.
+* Bivand, R., Pebesma, E., Rubio, V., (2013) [Applied Spatial Data Analysis with R](http://www.asdar-book.org). Use R Series, Springer, Heidelberg, 2nd Ed. 400 pages.
 
 * Irizarry, R.A., (2018) [Introduction to Data Science: Data Analysis and Prediction Algorithms with R](https://rafalab.github.io/dsbook/). HarvardX Data Science Series.
 
 * Kabacoff, R.I., (2011) [R in Action: Data Analysis and Graphics with R](http://www.manning.com/kabacoff/). Manning publications, ISBN: 9781935182399, 472 pages.
 
-* Kuhn, M., Johnson, K. (2013) [Applied Predictive Modeling](http://appliedpredictivemodeling.com/). Springer Science, ISBN: 9781461468493, 600 pages.
+* Kuhn, M., Johnson, K. (2013) [Applied Predictive Modeling](http://appliedpredictivemodeling.com). Springer Science, ISBN: 9781461468493, 600 pages.
 
-* Lovelace, R., Nowosad, J., Muenchow, J., (2018) [Geocomputation with R](https://geocompr.robinlovelace.net/). R Series, CRC Press, ISBN: 9781138304512, 338 pages.
+* Lovelace, R., Nowosad, J., Muenchow, J., (2018) [Geocomputation with R](https://geocompr.robinlovelace.net). R Series, CRC Press, ISBN: 9781138304512, 338 pages.
 
 * Reimann, C., Filzmoser, P., Garrett, R., Dutter, R., (2008) [Statistical Data Analysis Explained Applied Environmental Statistics with R](https://onlinelibrary.wiley.com/doi/book/10.1002/9780470987605). Wiley, Chichester, 337 pages.
 
@@ -136,7 +136,7 @@ In principle, all submitted chapters should also follow closely the [five pillar
 
 ## Reproducibility {-}
 
-To reproduce the book, you need a recent version of [R](https://cran.r-project.org/), and [RStudio](http://www.rstudio.com/products/RStudio/) and up-to-date packages, which can be installed with the following command (which requires [**devtools**](https://github.com/hadley/devtools)):
+To reproduce the book, you need a recent version of [R](https://cran.r-project.org), and [RStudio](http://www.rstudio.com/products/RStudio/) and up-to-date packages, which can be installed with the following command (which requires [**devtools**](https://github.com/hadley/devtools)):
 
 
 ```r
@@ -153,12 +153,12 @@ browseURL("docs/index.html") # to view it
 
 ## Acknowledgements {-}
 
-The authors are grateful to numerous contributions from colleagues around the world, especially for the contributions by the current and former ISRIC — World Soil Information colleagues: Gerard Heuvelink, Johan Leenaars, Jorge Mendes de Jesus, Wei Shangguan, David G. Rossiter, and many others. The authors are grateful to Dutch and European citizens for financing ISRIC and Wageningen University. The authors are also grateful to the support received via the [AfSIS project](http://africasoils.net), which has been funded by the Bill and Melinda Gates Foundation (BMGF) and the Alliance for a Green Revolution in Africa (AGRA). Many soil data processing examples in the book are based on the R code developed by Dylan Beuadette, Pierre Roudier, Alessandro Samuel Rosa, Marcos E. Angelini, Guillermo Federico Olmedo, Julian Moeys, Brandon Malone, and many other developers. Author is also grateful to comments and suggestions to the methods explained in the book by Travis Nauman, Amanda Ramcharan, David G. Rossiter and [Julian Moeys](http://julienmoeys.info/). 
+The authors are grateful to numerous contributions from colleagues around the world, especially for the contributions by the current and former ISRIC — World Soil Information colleagues: Gerard Heuvelink, Johan Leenaars, Jorge Mendes de Jesus, Wei Shangguan, David G. Rossiter, and many others. The authors are grateful to Dutch and European citizens for financing ISRIC and Wageningen University. The authors are also grateful to the support received via the [AfSIS project](http://africasoils.net), which has been funded by the Bill and Melinda Gates Foundation (BMGF) and the Alliance for a Green Revolution in Africa (AGRA). Many soil data processing examples in the book are based on the R code developed by Dylan Beuadette, Pierre Roudier, Alessandro Samuel Rosa, Marcos E. Angelini, Guillermo Federico Olmedo, Julian Moeys, Brandon Malone, and many other developers. Author is also grateful to comments and suggestions to the methods explained in the book by Travis Nauman, Amanda Ramcharan, David G. Rossiter and [Julian Moeys](http://julienmoeys.info). 
 
 LandGIS and SoilGrids are based on numerous soil profile data sets that have been
 kindly contributed by various national and international agencies: the
 USA National Cooperative Soil Survey Soil Characterization database
-(http://ncsslabdatamart.sc.egov.usda.gov/) and profiles from the USA
+(http://ncsslabdatamart.sc.egov.usda.gov) and profiles from the USA
 National Soil Information System, Land Use/Land Cover Area
 Frame Survey (LUCAS) Topsoil Survey database [@Toth2013LUCAS], 
 Repositório Brasileiro Livre para Dados Abertos do Solo ([FEBR](https://github.com/febr-team)), 
@@ -185,7 +185,7 @@ land products and elevation data), and to the Open Source software developers
 of the packages rgdal, sp, raster, caret, mlr, ranger, h2o and similar, 
 and without which predictive soil mapping would most likely not be possible.
 
-This book has been inspired by the [the Geocomputation with R book](https://geocompr.robinlovelace.net/), an Open Access book edited by Robin Lovelace, Jakub Nowosad and Jannes Muenchow. Many thanks to Robin Lovelace for helping with rmarkdown and for giving some initial tips for compiling and organizing book. The authors are also grateful to the numerous software/package developers, especially Edzer Pebesma, Roger Bivand, Robert Hijmans, Markus Neteler, Tim Appelhans, and Hadley Wickham, that have enabled a generation of researchers and applied projects. 
+This book has been inspired by the [the Geocomputation with R book](https://geocompr.robinlovelace.net), an Open Access book edited by Robin Lovelace, Jakub Nowosad and Jannes Muenchow. Many thanks to Robin Lovelace for helping with rmarkdown and for giving some initial tips for compiling and organizing book. The authors are also grateful to the numerous software/package developers, especially Edzer Pebesma, Roger Bivand, Robert Hijmans, Markus Neteler, Tim Appelhans, and Hadley Wickham, that have enabled a generation of researchers and applied projects. 
 
 We are especially grateful to Jakub Nowosad for helping with preparing this publication for press and with setting up all code so that it passes automatic checks.
 

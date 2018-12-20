@@ -1342,7 +1342,7 @@ om.rk <- predict(omm, meuse.grid)
 #> Subsetting observations to fit the prediction domain in 2D...
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
-#>  16% done100% done
+#> 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
 om.rk
@@ -1662,7 +1662,7 @@ om.rk.p <- predict(omm, meuse.grid, block=c(0,0))
 #> Subsetting observations to fit the prediction domain in 2D...
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
-#>  74% done100% done
+#> 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
 om.rksim.p <- predict(omm, meuse.grid, nsim=20, block=c(0,0))
@@ -1670,7 +1670,7 @@ om.rksim.p <- predict(omm, meuse.grid, nsim=20, block=c(0,0))
 #> Generating 20 conditional simulations using the trend model (RK method)...
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
-#> 100% done
+#>  87% done100% done
 #> Creating an object of class "RasterBrickSimulations"
 #> Loading required package: raster
 #> 
@@ -1957,13 +1957,13 @@ library(intamap)
 demo(meuse, echo=FALSE)
 meuse$value = meuse$zinc
 output <- interpolate(meuse, meuse.grid, list(mean=TRUE, variance=TRUE))
-#> R 2018-12-20 14:14:40 interpolating 155 observations, 3103 prediction locations
+#> R 2018-12-20 14:55:37 interpolating 155 observations, 3103 prediction locations
 #> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : 
 #>  using standard model for estimating time. For better 
 #>  platform spesific predictions, please run 
 #>  timeModels <- generateTimeModels()
 #>   and save the workspace
-#> [1] "estimated time for  copula 228.289203324011"
+#> [1] "estimated time for  copula 160.715679466821"
 #> Checking object ... OK
 ```
 
@@ -1977,7 +1977,7 @@ str(output, max.level = 2)
 #> List of 16
 #>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
 #>  $ formulaString      :Class 'formula'  language value ~ 1
-#>   .. ..- attr(*, ".Environment")=<environment: 0x15380708> 
+#>   .. ..- attr(*, ".Environment")=<environment: 0x160cbc88> 
 #>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
 #>  $ params             :List of 18
 #>   ..$ doAnisotropy     : logi TRUE

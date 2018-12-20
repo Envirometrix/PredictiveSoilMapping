@@ -84,7 +84,7 @@ The most relevant (global) publicly available remote sensing-based covariates th
 
 *  [JAXA's ALOS](http://www.eorc.jaxa.jp/ALOS/en/dataset/dataset_index.htm) (PALSAR/PALSAR-2) radar images at 20 m resolution [@shimada2014new]; radar images, bands HH: -27.7 (5.3) dB and HV: -35.8 (3.0) dB, from the JAXA's ALOS project are especially interesting for mapping rock outcrops and exposed bedrock but are also to distinguish between bare soil and dense vegetation;
 
-Note that the download time for 30 m global RS data can be significant if the data are needed for a larger area (hence you might consider using some RS data processing hub such as [Sentinel hub](http://www.sentinel-hub.com/), [Google Earth Engine](https://earthengine.google.com/) and/or [Amazon Web Services](https://aws.amazon.com/public-datasets/) instead of trying to download large mosaics yourself). 
+Note that the download time for 30 m global RS data can be significant if the data are needed for a larger area (hence you might consider using some RS data processing hub such as [Sentinel hub](http://www.sentinel-hub.com), [Google Earth Engine](https://earthengine.google.com) and/or [Amazon Web Services](https://aws.amazon.com/public-datasets/) instead of trying to download large mosaics yourself). 
 
 ### Soil covariate data sources (250 m resolution or coarser) {#soil-covs-250m}
 

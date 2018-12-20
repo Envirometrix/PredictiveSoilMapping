@@ -399,8 +399,8 @@ of a soil mask can differ somewhat from the one we use, but this has
 been our practice.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_soil_mask_scheme.png" alt="Example of a soil mask scheme." width="100%" />
-<p class="caption">(\#fig:soil-mask-scheme)Example of a soil mask scheme.</p>
+<img src="figures/Fig_soil_mask_scheme.png" alt="Example of a soil (land) mask scheme." width="100%" />
+<p class="caption">(\#fig:soil-mask-scheme)Example of a soil (land) mask scheme.</p>
 </div>
 
 From the perspective of global soil mapping, any place on terrestrial
@@ -757,7 +757,7 @@ Consider that there are four main quality levels:
   * L3 = final complete certified product according to the ISO or similar standards.
 
 
-Table: (\#tab:psm-table-costs)Example of a costs table for various quality levels PSM products. Prices expressed in US$ / Mpix (million of pixels produced).
+Table: (\#tab:psm-table-costs)Example of a costs table for various quality levels PSM products. Prices expressed in USD / Mpix (million of pixels produced).
 
 X.Type.of.PSM.project                     L0         L1            L2             L3      
 ----------------------------------------  ---------  ------------  -------------  --------

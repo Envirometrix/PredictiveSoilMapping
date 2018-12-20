@@ -133,13 +133,13 @@ the 4 Cs and are:
 -   **Complete** (e.g. cover entire areas of interest),
 
 -   **Consistent** (e.g. are made using a single methodology, applied at a
-    single scale and over a single short period of time)
+    single scale and over a single short period of time),
 
 -   **Current** (e.g. represent conditions as they are today, at a specific
-    moment in time)
+    moment in time),
 
 -   **Correct** (e.g. are as accurate as is possible to achieve given
-    available data and methods)
+    available data and methods),
 
 We consider that it is also now possible to redesign any new output maps
 so that they are capable of acting directly as inputs to well
@@ -183,48 +183,48 @@ We consider that any new, future collaborative PSM activity should take
 advantage of recent scientific and technical advances in the following
 areas:
 
--   Collection of field observations and samples
+-   Collection of field observations and samples:
 
-    -   Collating and harmonizing existing legacy soils data
+    -   Collating and harmonizing existing legacy soils data,
 
     -   New field sampling designs and programs and new data collection
-        strategies
+        strategies,
 
--   Characterization of soils in the field and in the laboratory
+-   Characterization of soils in the field and in the laboratory:
 
-    -   New field sensors for characterizing soils in situ
+    -   New field sensors for characterizing soils in situ,
 
     -   New faster, cheaper and more accurate methods of laboratory
-        analysis
+        analysis,
 
 -   Creation, collation and distribution of comprehensive sets of
-    environmental covariates
+    environmental covariates:
 
     -   Introduce new covariate data sets based on new remote, air and
-        space sensors
+        space sensors,
 
     -   Include new varieties and resolutions of DEM and other
-        environmental covariate data
+        environmental covariate data,
 
     -   Maximize use and relevance of existing data sets of
-        environmental covariates
+        environmental covariates,
 
--   Automated spatial prediction models.
+-   Automated spatial prediction models:
 
     -   Replace previous qualitative and subjective mental models with
-        new quantitative and objective statistical models
+        new quantitative and objective statistical models,
 
     -   Adopt new methods of automated space-time modelling and
-        prediction
+        prediction,
 
 -   New options for hosting, publishing, sharing and using spatial data
-    via cloud services
+    via cloud services:
 
     -   Develop new platforms for collaborative data sharing and
-        geo-publishing
+        geo-publishing,
 
     -   Develop open services to deliver on-demand, real time online
-        mapping
+        mapping,
 
 ### Collection of field observations and samples
 
@@ -254,19 +254,19 @@ make their use for producing new inventory map products problematic.
 Some common limitations of legacy field data are:
 
 -   They are rarely collected using any kind of rigorous, statistically
-    valid, sampling design
+    valid, sampling design,
 
 -   Their locations in space (geolocations) are often not measured or
-    reported accurately
+    reported accurately,
 
 -   Their locations in time (sampling dates) are often unknown or are
-    spread over decades
+    spread over decades,
 
 -   The methods used in description or analysis can vary greatly by
-    source, location or time
+    source, location or time,
 
 -   They can be difficult and costly to find, to obtain, to digitize and
-    to harmonize
+    to harmonize,
 
 Despite these limitations, legacy field data have other attributes that
 make them useful and worth assembling, collating, harmonizing and using.
@@ -274,48 +274,48 @@ The advantages associated with using legacy field data can be summarized
 as follows:
 
 -   Legacy point data provide the only source of baseline information
-    about past time periods
+    about past time periods:
 
     -   We can’t go back in time to collect new samples or make new
-        observations applicable to past time periods
+        observations applicable to past time periods,
 
     -   They establish prior probabilities which are essentially
         starting points that describe what we know now before we start
-        making new predictions and new maps using new data
+        making new predictions and new maps using new data,
 
 -   Legacy point data are all we have initially to work with until new
-    field data can be obtained
+    field data can be obtained:
 
     -   Use of legacy field data can help us to learn and to improve
-        methods and approaches.
+        methods and approaches,
 
     -   Working through the full cycle required to produce predictive
         maps lets us learn a lot about how to do it and, more
-        importantly, how we might do it better the next time around.
+        importantly, how we might do it better the next time around,
 
     -   They give us something to work with to provide real-world,
         worked examples, for ourselves and for potential users, of the
         kinds of maps and other products that can now be produced
-        using modern automated prediction methods
+        using modern automated prediction methods,
 
 -   Legacy point data help us to illustrate problems, weaknesses and
-    opportunities for improvement
+    opportunities for improvement:
 
     -   Gaps in existing legacy data (missing data in space and time)
         help to illustrate the need to have samples that
-        comprehensively cover all areas of space and time of interest.
+        comprehensively cover all areas of space and time of interest,
 
     -   Errors and uncertainties in initial predictive maps based on
         legacy field data provide a clear illustration of the need for
-        more and better field data to improve future mapping
+        more and better field data to improve future mapping,
 
     -   The spatial distribution of uncertainties computed for initial
         maps created using legacy data can identify locations where
         new observations and samples are most needed and will
-        contribute most to improving subsequent predictions.
+        contribute most to improving subsequent predictions,
 
 Legacy point data can be surprisingly difficult and costly to find,
-obtain, harmonize and digitize. One can only imagine how many hundreds
+obtain, harmonize and digitize [@arrouays2017soil]. One can only imagine how many hundreds
 of thousands, even millions, of site observations may have been made by
 field personnel undertaking many different types of inventories for many
 different agencies over the years. Similarly, laboratories have
@@ -356,10 +356,6 @@ interested parties.
 
 ### Collecting New Field O&M Data
 
-Next, consider the challenges and opportunities associated with
-selecting, collecting, recording and using new field observations and
-laboratory measurements.
-
 The Africa Soil Information Service (AfSIS) project
 (http://www.africasoils.net) provides a
 powerful example of how new field observations and laboratory analysed
@@ -377,36 +373,36 @@ considerations for how the collection of new field O&M data can be made
 both more affordable and more effective.
 
 -   Select locations for field sampling using a formal, rigorous
-    sampling design
+    sampling design,
 
-    -   Design based sampling schemes
+    -   Design based sampling schemes:
 
-        -   Random sampling
+        -   Random sampling,
 
-        -   Stratified random sampling
+        -   Stratified random sampling,
 
-        -   Systematic sampling (confluence point or grid sampling)
+        -   Systematic sampling (confluence point or grid sampling),
 
-        -   Nested, multi-scale hierarchical sampling
+        -   Nested, multi-scale hierarchical sampling,
 
-    -   Model based sampling schemes
+    -   Model based sampling schemes:
 
-        -   Conditioned Latin Hypercube (cLHC) sampling
+        -   Conditioned Latin Hypercube (cLHC) sampling,
 
-        -   Multi-stage sampling at locations of maximum uncertainty
+        -   Multi-stage sampling at locations of maximum uncertainty,
 
 -   Systematize and automate all field sampling and recording procedures
-    as much as possible
+    as much as possible,
 
-    -   Create custom tools and apps to support
+    -   Create custom tools and apps to support:
 
-        -   Locating sample sites and recording observations
+        -   Locating sample sites and recording observations,
 
         -   Assigning unique identifier sample numbers to all locations
-            and samples
+            and samples,
 
         -   Tracking progress of samples from the field through the lab
-            to the database
+            to the database,
 
 Adopting formal sampling designs to identify where to best collect new
 field O&M samples offers several significant advantages.
@@ -815,7 +811,7 @@ Learning packages are equally applicable for processing large national or
 international data sets at resolutions of 250 m or better. LandGIS predictions
 are, for example, possible only thanks to the following packages that can be
 fully parallelized and are ready for upscaling predictions 
-(all three have been written in C++ in fact):
+(all written in C++ in fact):
 
   - **ranger** (https://github.com/imbs-hl/ranger),
 
@@ -1215,8 +1211,8 @@ estimated and counted on. These funds can also help pay for new work and
 new data.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_workflow_web_mapper.png" alt="Recommended decision tree for design of PSM. In essence, users' perspective and technical settings should be the key for most of decisions when it comes to design of PSM projects." width="95%" />
-<p class="caption">(\#fig:psm-design-users)Recommended decision tree for design of PSM. In essence, users' perspective and technical settings should be the key for most of decisions when it comes to design of PSM projects.</p>
+<img src="figures/Fig_workflow_web_mapper.png" alt="Recommended decision tree for designing a PSM project. In essence, users' perspective and technical settings should be the key for most of decisions when it comes to design of PSM projects." width="95%" />
+<p class="caption">(\#fig:psm-design-users)Recommended decision tree for designing a PSM project. In essence, users' perspective and technical settings should be the key for most of decisions when it comes to design of PSM projects.</p>
 </div>
 
 One can imagine quite a large number of potential partners, that might
@@ -1233,15 +1229,15 @@ Examples of the kinds of partners that might subscribe include:
     typically paid to collect environmental data and produce maps,
 
 -   NGOs and public interest groups that advocate for sustainability or
-    environmental protection
+    environmental protection,
 
 -   Universities and research institutions with interests in teaching or
-    conducting environmental research
+    conducting environmental research,
 
 -   Industry associations and professional certification bodies,
 
 -   Commercial companies that provide products or services in the areas
-    of computing, spatial analysis and the environment
+    of computing, spatial analysis and the environment.
 
 One would expect that partners willing to contribute a sustaining
 subscription would have something to gain from being active
@@ -1328,8 +1324,8 @@ verification and adjustments; Fig. \@ref(fig:scheme-soc-prof1)), can be
 generated. 
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_future_mobile_phone.png" alt="Future Global Land Information System (built on the top of the LandGIS concept) and targeted functionality: users on ground send local observations and measurements through their mobile phones, which are then used to run and re-callibrate global models." width="100%" />
-<p class="caption">(\#fig:mobile-phone-scheme)Future Global Land Information System (built on the top of the LandGIS concept) and targeted functionality: users on ground send local observations and measurements through their mobile phones, which are then used to run and re-callibrate global models.</p>
+<img src="figures/Fig_future_mobile_phone.png" alt="The proposed Global Land Information System (built on the top of the LandGIS concept) and targeted functionality: users on ground send local observations and measurements through their mobile phones, which are then used to run and re-callibrate global models." width="100%" />
+<p class="caption">(\#fig:mobile-phone-scheme)The proposed Global Land Information System (built on the top of the LandGIS concept) and targeted functionality: users on ground send local observations and measurements through their mobile phones, which are then used to run and re-callibrate global models.</p>
 </div>
 
 There are probably many viable ways in which a collective could be set
@@ -1356,7 +1352,7 @@ assembly, production, publishing, dissemination and use of spatial
 environmental data.
 
 This is the concept behind the newly formed OpenGeoHub Foundation
-(https://opengeohub.org/). We see OpenGeoHub as an entity that can build, 
+(https://opengeohub.org). We see OpenGeoHub as an entity that can build, 
 operate and maintain a core set of functionalities and infrastructure 
 required to support a wide variety of inventory type activities. 
 This core functionality can provide back office facilities 
