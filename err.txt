@@ -1,0 +1,5 @@
+From https://github.com/Envirometrix/PredictiveSoilMapping
+ * [new branch]      build-tests  -> upstream/build-tests
+ * [new branch]      gh-pages     -> upstream/gh-pages
+ * [new branch]      master       -> upstream/master
+ * [new branch]      styles-tests -> upstream/styles-tests
