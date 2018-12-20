@@ -7,7 +7,7 @@ bookdown::gitbook:
       before: |
         <li><a href="./">Predictive Soil Mapping with R</a></li>
       after: |
-        <li><a href="https://opengeohub.org/people/tom-hengl">T. (Tom) Hengl and R.A. (Bob) MacMillan</a></li>
+        <li><a href="https://opengeohub.org/about">T. (Tom) Hengl and R.A. (Bob) MacMillan</a></li>
     edit:
       link: https://github.com/envirometrix/PredictiveSoilMapping/edit/master/%s
       text: "Edit"

@@ -395,7 +395,7 @@ made features such as roads, bridges and buildings. A generic definition
 of a soil mask can differ somewhat from the one we use, but this has
 been our practice.
 
-```{r soil-mask-scheme, echo=FALSE, fig.cap="Example of a soil mask scheme.", out.width="100%"}
+```{r soil-mask-scheme, echo=FALSE, fig.cap="Example of a soil (land) mask scheme.", out.width="100%"}
 knitr::include_graphics("figures/Fig_soil_mask_scheme.png")
 ```
 
@@ -754,7 +754,7 @@ Consider that there are four main quality levels:
 ```{r psm-table-costs, echo=FALSE}
 knitr::kable(
   head(read.csv("extdata/psm_table_costs.csv", header = TRUE, stringsAsFactors = FALSE), 10), booktabs = TRUE,
-  caption = 'Example of a costs table for various quality levels PSM products. Prices expressed in US$ / Mpix (million of pixels produced).'
+  caption = 'Example of a costs table for various quality levels PSM products. Prices expressed in USD / Mpix (million of pixels produced).'
 )
 ```
 
