@@ -1,5 +1,4 @@
-"
-Type of PSM project","L0","L1","L2","L3"
+"Project_type","L0","L1","L2","L3"
 "New area (single state)","500-1000","1,000-5,000","5,000-50,000",">50,000"
 "Using legacy points (single state)","0.8","2","2–50",">50"
 "Aiming at optimizing predictions","0.5","0.8","NA","NA"
