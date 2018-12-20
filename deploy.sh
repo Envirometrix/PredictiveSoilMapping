@@ -14,7 +14,7 @@ update_website() {
   
   cp -fvr $BASE_REPO/docs/* .
   git add *.html; git add libs/; git add figures/; git add style.css; git add images/;
-  git add _main_files/*; git add *.json; git add main.md;
+  git add *.json; git add main.md;
   git add *.pdf; git add *.epub
   git commit -a -m "Updating book (${TRAVIS_BUILD_NUMBER})"
   git status
