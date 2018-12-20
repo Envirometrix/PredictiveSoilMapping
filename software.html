@@ -424,7 +424,7 @@ processing large data.</p>
 <li><p>R packages: GSIF, plotKML, aqp, ranger, caret, xgboost, plyr, raster, gstat, randomForest, ggplot2, e1071 (see: <a href="http://www.r-bloggers.com/installing-r-packages/">how to install R package</a>)</p></li>
 <li><p><a href="http://sourceforge.net/projects/saga-gis/">SAGA GIS</a> (on Windows machines run windows installer);</p></li>
 <li><p>Google Earth or Google Earth Pro;</p></li>
-<li><p><a href="https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries">GDAL v2.x</a> for Windows machines use e.g. <a href="http://download.gisinternals.com/sdk/downloads/release-1800-x64-gdal-2-1-3-mapserver-7-0-4/gdal-201-1800-x64-core.msi">“gdal-*-1800-x64-core.msi“</a>;</p></li>
+<li><p><a href="https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries">GDAL v2.x</a> for Windows machines use e.g. <a href="http://download.gisinternals.com/sdk/downloads/release-1800-x64-gdal-2-1-3-mapserver-7-0-4/gdal-201-1800-x64-core.msi">&quot;gdal-*-1800-x64-core.msi&quot;</a>;</p></li>
 </ul>
 <p>R script used in this tutorial can be downloaded from the <strong><a href="https://github.com/envirometrix/PredictiveSoilMapping">github</a></strong>. As a gentle introduction to the R programming language and to soil classes in R we recommend the chapter on importing and using soil data. Some more examples of SAGA GIS + R usage can be found in the soil covariates chapter. To visualize spatial predictions in a web-browser or Google Earth you could also consider following the soil web-maps tutorial. As a gentle introduction to the R programming language and spatial classes in R we recommend following <a href="https://geocompr.robinlovelace.net/">the Geocomputation with R book</a>. Obtaining also the <a href="https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf">R reference card</a> is highly recommended.</p>
 </div>
@@ -608,6 +608,7 @@ om.rk &lt;-<span class="st"> </span><span class="kw">predict</span>(omm, meuse.g
 <span class="co">#&gt; Generating predictions using the trend model (RK method)...</span>
 <span class="co">#&gt; [using ordinary kriging]</span>
 <span class="co">#&gt; </span>
+ <span class="dv">56</span>% done
 <span class="dv">100</span>% done
 <span class="co">#&gt; Running 5-fold cross validation using &#39;krige.cv&#39;...</span>
 <span class="co">#&gt; Creating an object of class &quot;SpatialPredictions&quot;</span>
@@ -722,19 +723,19 @@ Figure 2.7: Ebergotzen DEM reprojected in geographical coordinates.
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-gmd-8-1991-2015">
-<p>Conrad, O., B. Bechtel, M. Bock, H. Dietrich, E. Fischer, L. Gerlitz, J. Wehberg, V. Wichmann, and J. Böhner. 2015. “System for Automated Geoscientific Analyses (Saga) V. 2.1.4.” <em>Geoscientific Model Development</em> 8 (7). Copernicus GmbH:1991–2007. <a href="https://doi.org/10.5194/gmd-8-1991-2015" class="uri">https://doi.org/10.5194/gmd-8-1991-2015</a>.</p>
+<p>Conrad, O., B. Bechtel, M. Bock, H. Dietrich, E. Fischer, L. Gerlitz, J. Wehberg, V. Wichmann, and J. Böhner. 2015. “System for Automated Geoscientific Analyses (Saga) V. 2.1.4.” <em>Geoscientific Model Development</em> 8 (7). Copernicus GmbH: 1991–2007. <a href="https://doi.org/10.5194/gmd-8-1991-2015" class="uri">https://doi.org/10.5194/gmd-8-1991-2015</a>.</p>
 </div>
 <div id="ref-raster">
 <p>Hijmans, Robert J., and Jacob van Etten. 2017. <em>Raster: Geographic Data Analysis and Modeling</em>. <a href="http://CRAN.R-project.org/package=raster" class="uri">http://CRAN.R-project.org/package=raster</a>.</p>
 </div>
 <div id="ref-pebesma2005classes">
-<p>Pebesma, Edzer J, and Roger S Bivand. 2005. “Classes and Methods for Spatial Data in R.” <em>R News</em> 5 (2):9–13.</p>
+<p>Pebesma, Edzer J, and Roger S Bivand. 2005. “Classes and Methods for Spatial Data in R.” <em>R News</em> 5 (2): 9–13.</p>
 </div>
 <div id="ref-mitchell2014geospatial">
 <p>Mitchell, T., and GDAL Developers. 2014. <em>Geospatial Power Tools: GDAL Raster &amp; Vector Commands</em>. Locate Press.</p>
 </div>
 <div id="ref-lindsay2016whitebox">
-<p>Lindsay, John B. 2016. “Whitebox GAT: A case study in geomorphometric analysis.” <em>Computers &amp; Geosciences</em> 95. Elsevier:75–84.</p>
+<p>Lindsay, John B. 2016. “Whitebox GAT: A case study in geomorphometric analysis.” <em>Computers &amp; Geosciences</em> 95. Elsevier: 75–84.</p>
 </div>
 </div>
 <div id="disqus_thread"></div>

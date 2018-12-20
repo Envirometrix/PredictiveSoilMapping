@@ -463,10 +463,7 @@ between three major components of soil variation: (1) deterministic
 component (trend), (2) spatially correlated component and (3) pure
 noise. This is the basis of the <em>universal model of soil variation</em>
 [<span class="citation">Burrough and McDonnell (<a href="#ref-Burrough1998OUP">1998</a>)</span>;Webster2001Wiley p.133]:</p>
-<span class="math display" id="eq:ukm">\[\begin{equation}
-  Z({s}) = m({s}) + \varepsilon &#39;({s}) + \varepsilon &#39;&#39;({s})
-  \tag{5.1}
-\end{equation}\]</span>
+
 <p>where <span class="math inline">\(s\)</span> is two-dimensional location, <span class="math inline">\(m({s})\)</span> is the
 deterministic component, <span class="math inline">\(\varepsilon &#39;({s})\)</span> is the spatially
 correlated stochastic component and <span class="math inline">\(\varepsilon &#39;&#39;({s})\)</span> is the
@@ -482,13 +479,10 @@ major components of soil variation: (1) the deterministic component
 stochastic) and (3) pure noise.</p>
 </div>
 
-<p>The universal model of soil variation model (Eq.<a href="statistical-theory.html#eq:ukm">(5.1)</a>) can be
+<p>The universal model of soil variation model (Eq.<a href="#eq:ukm">(<strong>??</strong>)</a>) can be
 further generalised to three-dimensional space and the spatio-temporal
 domain (3D+T) by letting the variables also depend on depth and time:</p>
-<span class="math display" id="eq:ukm3DT">\[\begin{equation}
-Z({s}, d, t) = m({s}, d, t) + \varepsilon &#39;({s}, d, t) + \varepsilon &#39;&#39;({s}, d, t)
-\tag{5.2}
-\end{equation}\]</span>
+
 <p>where <span class="math inline">\(d\)</span> is depth expressed in meters downward from the land surface
 and <span class="math inline">\(t\)</span> is time. The deterministic component <span class="math inline">\(m\)</span> may be further
 decomposed into parts that are purely spatial, purely temporal, purely
@@ -578,10 +572,7 @@ usually originates from plant production i.e. litter or roots. Generally,
 the upper layers of the soil tend to have greater organic carbon
 content, which decreases continuously with depth, so that the soil-depth
 relationship can be modelled with a negative-exponential function:</p>
-<span class="math display" id="eq:SOMdepth">\[\begin{equation}
-{\texttt{ORC}} (d) = {\texttt{ORC}} (d_0) \cdot \exp(-\tau \cdot d)
-\tag{5.3}
-\end{equation}\]</span>
+
 <p>where <span class="math inline">\(\texttt{ORC}(d)\)</span> is the soil organic carbon content at depth
 (<span class="math inline">\(d\)</span>), <span class="math inline">\({\texttt{ORC}} (d_0)\)</span> is the organic carbon content at the soil
 surface and <span class="math inline">\(\tau\)</span> is the rate of decrease with depth. This model has
@@ -608,17 +599,14 @@ d.lm<span class="op">$</span>fitted.values
 <span class="co">#&gt; 18.1  6.3  3.5  2.4  1.7  1.2</span></code></pre>
 <p>which shows that the log-log fit comes relatively close to the actual values.
 Another possibility would be to fit a power-law model:</p>
-<span class="math display" id="eq:loglog">\[\begin{equation}
-{\texttt{ORC}} (d) = a \cdot d^b
-\tag{5.4}
-\end{equation}\]</span>
+
 <p>A disadvantage of a single parametric soil property-depth model along
 the entire soil profile is that these completely ignore stratigraphy and
 abrupt changes at the boundaries between soil horizons. For example,
 <span class="citation">B. Kempen, Brus, and Stoorvogel (<a href="#ref-Kempen2011Geoderma">2011</a>)</span> show that there are many cases where highly
 contrasting layers of peat can be found buried below the surface due to
 cultivation practices or holocene drift sand. The model given by
-Eq.<a href="statistical-theory.html#eq:loglog">(5.4)</a> illustrated in Fig. <a href="statistical-theory.html#fig:soil-depth-examples">5.2</a>
+Eq.<a href="#eq:loglog">(<strong>??</strong>)</a> illustrated in Fig. <a href="statistical-theory.html#fig:soil-depth-examples">5.2</a>
 (left) will not be able to represent such abrupt changes.</p>
 
 <div class="rmdnote">
@@ -719,13 +707,10 @@ For example, the organic carbon content is typically observed per soil
 horizon with values in e.g. g/kg or permilles
 <span class="citation">(Conant et al. <a href="#ref-Conant2010">2010</a>; Baritz et al. <a href="#ref-Rainer2010">2010</a>; Panagos et al. <a href="#ref-Panagos2013439">2013</a>)</span>. The <em>Soil Organic Carbon
 Storage</em> (or <em>Soil Organic Carbon Stock</em>) in the whole profile can be
-calculated by using Eq <a href="SOC-chapter.html#eq:ocs">(7.1)</a>. Once we have determined soil
+calculated by using Eq <a href="#eq:ocs">(<strong>??</strong>)</a>. Once we have determined soil
 organic carbon storage (<span class="math inline">\(\mathtt{OCS}\)</span>) per horizon, we can derive the
 total organic carbon in the soil by summing over all (<span class="math inline">\(H\)</span>) horizons:</p>
-<span class="math display" id="eq:ORGCsum">\[\begin{equation}
-\mathtt{OCS} = \sum\limits_{h = 1}^H { \mathtt{OCS}_h }
-\tag{5.5}
-\end{equation}\]</span>
+
 <p>Obviously, the horizon-specific soil organic carbon content
 (<span class="math inline">\(\mathtt{ORC}_h\)</span>) and total soil organic carbon content
 (<span class="math inline">\(\mathtt{OCS}\)</span>) are NOT the same variables and need to be analysed and
@@ -734,14 +719,9 @@ mapped separately.</p>
 the actual mass or quantity of hydrogen ions. To represent a soil
 profile with a single number, we may take a weighted mean of the
 measured pH values per horizon:</p>
-<span class="math display" id="eq:pHmean">\[\begin{equation}
-\mathtt{PHI} = \sum\limits_{h = 1}^H { w_h \cdot \mathtt{PHI}_h }; \qquad \sum\limits_{h = 1}^H{w_h} = 1
-\tag{5.6}
-\end{equation}\]</span>
+
 <p>where the weights can be chosen proportional to the horizon thickness:</p>
-<span class="math display">\[\begin{equation}
-w _h  = \frac{{\mathtt{HSIZE}_h}}{\sum\limits_{h = 1}^H {{\mathtt{HSIZE}}_h}}
-\end{equation}\]</span>
+
 <p>Thus, it is important to be aware that all soil variables: (A) can be
 expressed as relative (percentages) or absolute (mass / quantities)
 values, and (B) refer to specific horizons or depth intervals or to the
@@ -819,10 +799,7 @@ performing spatial prediction method.</p>
 <p>In a geostatistical framework, spatial prediction is estimation of
 values of some target variable <span class="math inline">\(Z\)</span> at a new location (<span class="math inline">\({s}_0\)</span>)
 given the input data:</p>
-<span class="math display" id="eq:sp">\[\begin{equation}
-\hat Z({s}_0) = E\left\{ Z({s}_0)|z({s}_i), \; {{X}}({s}_0), \; i=1,...,n \right\}
-\tag{5.7}
-\end{equation}\]</span>
+
 <p>where the <span class="math inline">\(z({s}_i)\)</span> are the input set of observations of the
 target variable, <span class="math inline">\({s}_i\)</span> is a geographical location, <span class="math inline">\(n\)</span> is the
 number of observations and <span class="math inline">\({{X}}({s}_0)\)</span> is a list of
@@ -831,10 +808,7 @@ locations within the study area of interest (<span class="math inline">\({s} \in
 To emphasise that the model parameters also influence the outcome of the
 prediction process, this can be made explicit by writing
 <span class="citation">(Cressie and Wikle <a href="#ref-cressie2011statistics">2011</a>)</span>:</p>
-<span class="math display" id="eq:datamodel">\[\begin{equation}
-[Z|Y,{{\theta}} ]
-\tag{5.8}
-\end{equation}\]</span>
+
 <p>where <span class="math inline">\(Z\)</span> is the data, <span class="math inline">\(Y\)</span> is the (hidden) process that we are
 predicting, and <span class="math inline">\({{\theta}}\)</span> is a list of model parameters (
 e.g. trend coefficients and variogram parameters).</p>
@@ -1008,12 +982,7 @@ as follows <span class="citation">(MacMillan, Pettapiece, and Brierley <a href="
 </ol>
 <p>In mathematical terms, soil property prediction based on fuzzy soil
 classification values using the SOLIM approach <span class="citation">Zhu et al. (<a href="#ref-Zhu2001">2001</a>, <a href="#ref-Zhu2010Geoderma">2010</a>)</span> works as follows:</p>
-<span class="math display" id="eq:solim">\[\begin{equation}
-\begin{aligned}
- \hat z({s}_0) = \sum\limits_{c_j = 1}^{c_p} {\nu _{c_j} ({s}_0) \cdot z_{c_j} }; &amp; \hspace{.6cm}
- \sum\limits_{c_j = 1}^{c_p} {\nu _j ({s}_0)}  = 1\end{aligned}
-\tag{5.9}
-\end{equation}\]</span>
+
 <p>where <span class="math inline">\(\hat z({s}_0)\)</span> is the predicted soil attribute at
 <span class="math inline">\({s}_0\)</span>, <span class="math inline">\(\nu _{c_j} ({s}_0)\)</span> is the membership value of class
 <span class="math inline">\(c_j\)</span> at location <span class="math inline">\({s}_0\)</span>, and <span class="math inline">\(z_{c_j}\)</span> is the modal (or best
@@ -1024,7 +993,7 @@ example of six soil classes <code>A</code>, <code>B</code>, <code>C</code>, <cod
 attribute table indicates that soil type <code>A</code> has 10%, <code>B</code> 10%, <code>C</code> 30%,
 <code>D</code> 40%, <code>E</code> 25%, and <code>F</code> 35% of clay. If the membership values at a
 grid position are 0.6, 0.2, 0.1, 0.05, 0.00 and 0.00, then
-Eq.<a href="statistical-theory.html#eq:solim">(5.9)</a> predicts the clay content as 13.5%.</p>
+Eq.<a href="#eq:solim">(<strong>??</strong>)</a> predicts the clay content as 13.5%.</p>
 <p>It is obvious from this work flow that the critical aspects that
 determine the accuracy of the final predictions are the selection of
 where we locate the cross-sections and the <em>representative soil
@@ -1090,13 +1059,10 @@ portable solutions. Some examples of diverse geostatistical models are
 given in <span class="citation">Brown (<a href="#ref-Brown2014JSS">2015</a>)</span>.</p>
 <p>The basic geostatistical model treats the soil property of interest as
 the sum of a deterministic trend and a stochastic residual
-(Eq.<a href="statistical-theory.html#eq:ukm">(5.1)</a>):</p>
-<span class="math display" id="eq:ukm-gstat">\[\begin{equation}
-Z({s}) = m({s}) + \varepsilon({s})
-\tag{5.10}
-\end{equation}\]</span>
+(Eq.<a href="#eq:ukm">(<strong>??</strong>)</a>):</p>
+
 <p>where <span class="math inline">\(\varepsilon\)</span> and hence <span class="math inline">\(Z\)</span> are normally distributed stochastic
-processes. This is the same model as that presented in Eq.<a href="statistical-theory.html#eq:ukm">(5.1)</a>,
+processes. This is the same model as that presented in Eq.<a href="#eq:ukm">(<strong>??</strong>)</a>,
 with in this case <span class="math inline">\(\varepsilon = \varepsilon &#39; + \varepsilon &#39;&#39;\)</span> being
 the sum of the spatially correlated and spatially uncorrelated
 stochastic components. The mean of <span class="math inline">\(\varepsilon\)</span> is taken to be zero.
@@ -1104,7 +1070,7 @@ Note that we use capital letter <span class="math inline">\(Z\)</span> because w
 model, i.e. we treat the soil property as an outcome of a stochastic
 process and define a model of that stochastic process.
 Ideally, the spatial variation of the stochastic residual
-of Eq.<a href="statistical-theory.html#eq:ukm-gstat">(5.10)</a> is much less than that of
+of Eq.<a href="#eq:ukm-gstat">(<strong>??</strong>)</a> is much less than that of
 the dependent variable.</p>
 <p>When the assumption of normality is not realistic, such as when the
 frequency distribution of the residuals at observation locations is very
@@ -1128,7 +1094,7 @@ stochastic model of the data generating mechanism. One basic
 geostatistical model of soil variation is to treat the soil property of
 interest as the sum of a deterministic trend (modelled via some
 regression function) and a zero-mean stochastic residual.</p>
-<p>The trend part of Eq.<a href="statistical-theory.html#eq:ukm-gstat">(5.10)</a> (i.e. <span class="math inline">\(m\)</span>) can take many forms.
+<p>The trend part of Eq.<a href="#eq:ukm-gstat">(<strong>??</strong>)</a> (i.e. <span class="math inline">\(m\)</span>) can take many forms.
 In the simplest case it would be a constant but usually it is taken as
 some function of known, exhaustively available covariates. This is where
 soil mapping can benefit from other sources of information and can
@@ -1146,14 +1112,11 @@ define a structure for <span class="math inline">\(m\)</span> and introduce para
 paired observations of the soil property and covariates. One of the
 simplest approaches is to use <em>multiple linear regression</em> to predict
 values at some new location <span class="math inline">\({s}_0\)</span> <span class="citation">(Kutner et al. <a href="#ref-kutner2005applied">2005</a>)</span>:</p>
-<span class="math display" id="eq:MRK2D">\[\begin{equation}
-m({s}_0 ) = \sum\limits_{j = 0}^p { \beta _j \cdot X_j ({s}_0 )}
-\tag{5.11}
-\end{equation}\]</span>
+
 <p>where <span class="math inline">\(\beta _j\)</span> are the regression model coefficients, <span class="math inline">\(\beta _0\)</span> is
 the intercept, <span class="math inline">\(j=1,\ldots,p\)</span> are <em>covariates</em> or explanatory variables
 (available at all locations within the study area of interest
-<span class="math inline">\(\mathbb{A}\)</span>), and <span class="math inline">\(p\)</span> is the number of covariates. Eq.<a href="statistical-theory.html#eq:MRK2D">(5.11)</a>
+<span class="math inline">\(\mathbb{A}\)</span>), and <span class="math inline">\(p\)</span> is the number of covariates. Eq.<a href="#eq:MRK2D">(<strong>??</strong>)</a>
 can also include categorical covariates (e.g. maps of land cover,
 geology, soil type) by representing these by as many binary dummy
 variables as there are categories (minus one, to be precise, since an
@@ -1167,7 +1130,7 @@ estimates of the regression coefficients. Also one may run the
 risk of <em>multicollinearity</em> — the property of covariates being mutually
 strongly correlated (as indicated by <span class="citation">Jenny, Salem, and Wallis (<a href="#ref-Jenny1968">1968</a>)</span> already in
 <span class="citation">(<a href="#ref-Jenny1968">1968</a>)</span>).</p>
-<p>The advantage of Eq.<a href="statistical-theory.html#eq:MRK2D">(5.11)</a> is that it is linear in the unknown
+<p>The advantage of Eq.<a href="#eq:MRK2D">(<strong>??</strong>)</a> is that it is linear in the unknown
 coefficients, which makes their estimation relatively straightforward
 and also permits derivation of the uncertainty about the regression
 coefficients (<span class="math inline">\(\beta\)</span>). However, in many practical cases, the linear
@@ -1197,30 +1160,25 @@ reprint from that book is also available). <span class="citation">A. B. McBratne
 further formulated an extension of the CLORPT model
 known as the <em>“SCORPAN”</em> model.</p>
 <p>The CLORPT model may be written as <span class="citation">(Jenny <a href="#ref-jenny1994factors">1994</a>; Florinsky <a href="#ref-Florinsky2012Dokuchaev">2012</a>)</span>:</p>
-<span class="math display" id="eq:clorpt">\[\begin{equation}
-S = f (cl, o, r, p, t)
-\tag{1.2}
-\end{equation}\]</span>
+
 <p>where <span class="math inline">\(S\)</span> stands for soil (properties and classes), <span class="math inline">\(cl\)</span> for climate,
 <span class="math inline">\(o\)</span> for organisms (including humans), <span class="math inline">\(r\)</span> is relief, <span class="math inline">\(p\)</span> is parent
 material or geology and <span class="math inline">\(t\)</span> is time. In other words, we can assume that
 the distribution of both soil and vegetation (at least in a natural system)
 can be at least partially explained by environmental conditions.
-Eq.<a href="introduction.html#eq:clorpt">(1.2)</a> suggests that soil is a result of environmental
+Eq.<a href="#eq:clorpt">(<strong>??</strong>)</a> suggests that soil is a result of environmental
 factors, while in reality there are many feedbacks and soil, in turn, influences
-many of the factors on the right-hand side of Eq.<a href="introduction.html#eq:clorpt">(1.2)</a>, such
+many of the factors on the right-hand side of Eq.<a href="#eq:clorpt">(<strong>??</strong>)</a>, such
 as <span class="math inline">\(cl\)</span>, <span class="math inline">\(o\)</span> and <span class="math inline">\(r\)</span>.</p>
 <p>Uncertainty about the estimation errors of model coefficients can fairly
 easily be taken into account in the subsequent prediction analysis if
-the model is linear in the coefficients, such as in Eq.<a href="statistical-theory.html#eq:MRK2D">(5.11)</a>.
+the model is linear in the coefficients, such as in Eq.<a href="#eq:MRK2D">(<strong>??</strong>)</a>.
 In this book we therefore restrict ourselves to this case but allow that
-the <span class="math inline">\(X_j\)</span>’s in Eq.<a href="statistical-theory.html#eq:MRK2D">(5.11)</a> are derived in various ways.</p>
-<p>Since the stochastic residual of Eq.<a href="statistical-theory.html#eq:ukm-gstat">(5.10)</a> is normally
+the <span class="math inline">\(X_j\)</span>’s in Eq.<a href="#eq:MRK2D">(<strong>??</strong>)</a> are derived in various ways.</p>
+<p>Since the stochastic residual of Eq.<a href="#eq:ukm-gstat">(<strong>??</strong>)</a> is normally
 distributed and has zero mean, only its variance-covariance remains to
 be specified:</p>
-<span class="math display">\[\begin{equation}
-C\left[Z({s}),Z({s}+{h})\right] = \sigma (s) \cdot \sigma(s+{h}) \cdot \rho ({h})
-\end{equation}\]</span>
+
 <p>where <span class="math inline">\({{h}}\)</span> is the separation distance between two locations. Note
 that here we assumed that the correlation function <span class="math inline">\(\rho\)</span> is invariant
 to geographic translation (i.e., it only depends on the distance
@@ -1230,7 +1188,7 @@ then <span class="math inline">\(C\)</span> would be <em>second-order stationary
 assumptions are needed to be able to estimate the variance-covariance
 structure of <span class="math inline">\(C\)</span> from the observations. If the standard deviation is
 allowed to vary with location, then it could be defined in a similar way
-as in Eq.<a href="statistical-theory.html#eq:MRK2D">(5.11)</a>. The correlation function <span class="math inline">\(\rho\)</span> would be
+as in Eq.<a href="#eq:MRK2D">(<strong>??</strong>)</a>. The correlation function <span class="math inline">\(\rho\)</span> would be
 parameterised to a common form (e.g. exponential, spherical, Matérn),
 thus ensuring that the model is statistically valid and
 <em>positive-definite</em>. It is also quite common to assume isotropy, meaning
@@ -1258,19 +1216,14 @@ model <span class="citation">(T. Hengl, Heuvelink, and Rossiter <a href="#ref-he
 </div>
 
 <p>The optimal spatial prediction in the case of a model
-Eq.<a href="statistical-theory.html#eq:ukm-gstat">(5.10)</a> with a linear trend Eq.<a href="statistical-theory.html#eq:MRK2D">(5.11)</a> and a
+Eq.<a href="#eq:ukm-gstat">(<strong>??</strong>)</a> with a linear trend Eq.<a href="#eq:MRK2D">(<strong>??</strong>)</a> and a
 normally distributed residual is given by the well-kown <em>Best Linear
 Unbiased Predictor</em> (BLUP):</p>
 <p><span class="math display">\[\label{E:BLUP}
 \hat z({{{s}}_0}) = {{X}}_{{0}}^{{T}}\cdot \hat{{\beta}} + \hat{{\lambda}}_{{0}}^{{T}}\cdot({{z}} - {{X}}\cdot \hat{{\beta}} )\]</span></p>
 <p>where the regression coefficients and kriging weights are estimated
 using:</p>
-<span class="math display" id="eq:betas">\[\begin{equation}
-\begin{aligned}
-\hat{{\beta}}  &amp;= {\left( {{{{X}}^{{T}}}\cdot{{{C}}^{ - {{1}}}}\cdot{{X}}} \right)^{ - {{1}}}}\cdot{{{X}}^{{T}}}\cdot{{{C}}^{ - {{1}}}}\cdot{{z}} \\
-\hat{{\lambda}}_{{0}} &amp;= {C}^{ - {{1}}} \cdot {{c}}_{{0}} \notag\end{aligned}
-\tag{5.12}
-\end{equation}\]</span>
+
 <p>and where <span class="math inline">\({{X}}\)</span> is the matrix of <span class="math inline">\(p\)</span> predictors at the <span class="math inline">\(n\)</span> sampling
 locations, <span class="math inline">\(\hat{{\beta}}\)</span> is the vector of estimated regression
 coefficients, <span class="math inline">\({C}\)</span> is the <span class="math inline">\(n\)</span><span class="math inline">\(n\)</span> variance-covariance matrix of
@@ -1319,16 +1272,7 @@ models), calculate residuals at observation locations, fit a variogram
 for these residuals, interpolate the residuals using ordinary or simple
 kriging, and add the result to the predicted regression part. This means
 that RK can, in general, be formulated as:</p>
-<span class="math display" id="eq:RKgeneral">\[\begin{equation}
-{\rm prediction} \; = \;
-\begin{matrix}
-{\rm trend} \; {\rm predicted} \\
-{\rm using} \; {\rm regression} \end{matrix} \; + \;
-\begin{matrix}
-{\rm residual} \; {\rm predicted} \\
-{\rm using} \; {\rm kriging} \end{matrix}
-\tag{5.13}
-\end{equation}\]</span>
+
 <p>Again, statistical inference and prediction is relatively simple if the
 stochastic residual, or a transformation thereof, may be assumed normally
 distributed. Error of the regression-kriging model is likewise a sum of the
@@ -1345,10 +1289,7 @@ that at any location in <span class="math inline">\(D\)</span> the dependent var
 linear combination of the covariates at that location and a zero-mean
 normally distributed residual. Thus, at the <span class="math inline">\(n\)</span> observation locations we
 have:</p>
-<span class="math display" id="eq:lm">\[\begin{equation}
-{ Y} = { X}^{{ T}} \cdot { \beta} + { \varepsilon}
-\tag{5.14}
-\end{equation}\]</span>
+
 <p>where <span class="math inline">\({ Y}\)</span> is a vector of the target variable at the <span class="math inline">\(n\)</span>
 observation locations, <span class="math inline">\({ X}\)</span> is an <span class="math inline">\(n \times p\)</span> matrix of covariates
 at the same locations and <span class="math inline">\({ \beta}\)</span> is a vector of <span class="math inline">\(p\)</span> regression
@@ -1357,37 +1298,23 @@ be independently and identically distributed. The paired observations of
 the target variable and covariates (<span class="math inline">\({ y}\)</span> and <span class="math inline">\({ X}\)</span>) are used to
 estimate the regression coefficients using, e.g., Ordinary Least Squares
 <span class="citation">(Kutner et al. <a href="#ref-Kutner2004McGraw">2004</a>)</span>:</p>
-<span class="math display" id="eq:ols-betas">\[\begin{equation}
-\hat{{ \beta}}  = \left( {{{ X}}^{{ T}} \cdot {{ X}}} \right)^{ - {{ 1}}} \cdot
-{{ X}}^{{ T}} \cdot {{ y}}
-\tag{5.15}
-\end{equation}\]</span>
+
 <p>once the coefficients are estimated, these can be used to generate a
 prediction at <span class="math inline">\({ s}_0\)</span>:</p>
-<span class="math display">\[\begin{equation}
-\hat y({ s}_0) = { x}_0^{ T} \cdot { \hat \beta}
-\end{equation}\]</span>
+
 <p>with associated prediction error variance:</p>
-<span class="math display" id="eq:ols-sigma">\[\begin{equation}
-\sigma ^2 ({ s}_0 ) = var\left[ \varepsilon ({ s}_0) \right] \cdot \left[ {1 +
-{\mathbf x}_0^{\rm T}  \cdot \left(
-{{\mathbf X}^{\rm T}  \cdot {\mathbf X}} \right)^{ -
-{\mathbf 1}}  \cdot {\mathbf x}_0 } \right]
-\tag{5.16}
-\end{equation}\]</span>
+
 <p>here, <span class="math inline">\({\mathbf x}_0\)</span> is a vector with covariates at the prediction
 location and <span class="math inline">\(var\left[ \varepsilon ({ s}_0) \right]\)</span> is the variance
 of the stochastic residual. The latter is usually estimated by the mean
 squared error (MSE):</p>
-<span class="math display">\[\begin{equation}
-{\mathrm{MSE}} = \frac{\sum\limits_{i = 1}^n {(y_i - \hat y_i)^2}}{n-p}
-\end{equation}\]</span>
-<p>The prediction error variance given by Eq.<a href="statistical-theory.html#eq:ols-sigma">(5.16)</a> is
+
+<p>The prediction error variance given by Eq.<a href="#eq:ols-sigma">(<strong>??</strong>)</a> is
 smallest at prediction points where the covariate values are in the
 center of the covariate (<em>‘feature’</em>) space and increases as predictions
 are made further away from the center. They are particularly large in
 case of extrapolation in feature space <span class="citation">(Kutner et al. <a href="#ref-Kutner2004McGraw">2004</a>)</span>. Note that
-the model defined in Eq.<a href="statistical-theory.html#eq:lm">(5.14)</a> is a non-spatial model because the
+the model defined in Eq.<a href="#eq:lm">(<strong>??</strong>)</a> is a non-spatial model because the
 observation locations and spatial-autocorrelation of the dependent
 variable are not taken into account.</p>
 </div>
@@ -1396,35 +1323,22 @@ variable are not taken into account.</p>
 <p>In the case of universal kriging, regression-kriging or Kriging with
 External Drift, the prediction error is computed as
 <span class="citation">(Christensen <a href="#ref-Christensen2001Springer">2001</a>)</span>:</p>
-<span class="math display" id="eq:UKvar">\[\begin{equation}
-\hat \sigma _{\tt{UK}}^2 ({{s}}_0 )  = (C_0  + C_1 ) - {{c}}_{{0}}^{{T}}  \cdot {{C}}^{ - {{1}}}  \cdot
-{{c}}_{{0}} + \left( {{{X}}_{{0}}  -
-{{X}}^{{T}} \cdot {{C}}^{ - {{1}}} \cdot
-{{c}}_{{0}} } \right)^{{T}}  \cdot \left( {{{X}}^{{T}}
-\cdot {{C}}^{ - {{1}}} \cdot {{X}}} \right)^{{{ - 1}}} \cdot \left( {{{X}}_{{0}}  - {{X}}^{{T}}  \cdot
-{{C}}^{ - {{1}}} \cdot {{c}}_{{0}} } \right)
-\tag{5.17}
-\end{equation}\]</span>
+
 <p>where <span class="math inline">\(C_0 + C_1\)</span> is the sill variation (variogram parameters), <span class="math inline">\({C}\)</span>
 is the covariance matrix of the residuals, and <span class="math inline">\({{c}}_0\)</span> is the
 vector of covariances of residuals at the unvisited location.</p>
 <p>Ignoring the mixed component of the prediction variance in
-Eq.<a href="statistical-theory.html#eq:UKvar">(5.17)</a>, one can also derive a simplified regression-kriging
+Eq.<a href="#eq:UKvar">(<strong>??</strong>)</a>, one can also derive a simplified regression-kriging
 variance i.e. as a sum of the kriging variance and the standard error of
 estimating the regression mean:</p>
-<span class="math display" id="eq:RKvar-simple">\[\begin{equation}
-\hat \sigma _{\tt{RK}}^2 ({{s}}_0) = (C_0  + C_1 ) -
-{{c}}_{{0}}^{{T}}  \cdot {{C}}^{ - {{1}}}  \cdot
-{{c}}_{{0}} + {\it{SEM}}^2
-\tag{5.18}
-\end{equation}\]</span>
+
 <p>which is the general approach used in the GSIF package.</p>
 <p>Note that there will always be a small difference between results of
-Eq.<a href="statistical-theory.html#eq:UKvar">(5.17)</a> and Eq.<a href="statistical-theory.html#eq:RKvar-simple">(5.18)</a>, and this is a major
+Eq.<a href="#eq:UKvar">(<strong>??</strong>)</a> and Eq.<a href="#eq:RKvar-simple">(<strong>??</strong>)</a>, and this is a major
 disadvantage of using the general regression-kriging framework for
 spatial prediction. Although the predicted mean derived by using
 regression-kriging or universal kriging approaches might not differ, the
-estimate of the prediction variance using Eq.<a href="statistical-theory.html#eq:RKvar-simple">(5.18)</a> will
+estimate of the prediction variance using Eq.<a href="#eq:RKvar-simple">(<strong>??</strong>)</a> will
 be suboptimal as it ignores product component. On the other hand, the
 advantage of running separate regression and kriging predictions is
 often worth the sacrifice as the computing time is an order of magnitude
@@ -1526,7 +1440,7 @@ m.gls
 <span class="co">#&gt; Degrees of freedom: 153 total; 149 residual</span>
 <span class="co">#&gt; Residual standard error: 0.34</span></code></pre>
 <p>In this case, the regression coefficients have been estimated using
-Eq.<a href="statistical-theory.html#eq:betas">(5.12)</a> i.e. via <em>Restricted maximum likelihood</em> (REML). The
+Eq.<a href="#eq:betas">(<strong>??</strong>)</a> i.e. via <em>Restricted maximum likelihood</em> (REML). The
 advantage of fitting the regression model and spatial autocorrelation
 structure concurrently is that both fits are adjusted: the estimation of the
 regression coefficients is adjusted for spatial autocorrelation of the
@@ -1548,7 +1462,7 @@ spatial prediction of residuals, which is a requirement in the case of
 large spatial data sets. Also, the approach does not extend to more
 complex non-linear trend models. In such cases, we recommend separating
 trend estimation from kriging of residuals by using the
-regression-kriging approach discussed above (Eq.<a href="statistical-theory.html#eq:RKgeneral">(5.13)</a>).</p>
+regression-kriging approach discussed above (Eq.<a href="#eq:RKgeneral">(<strong>??</strong>)</a>).</p>
 </div>
 <div id="regression-kriging-examples-using-the-gsif-package" class="section level3">
 <h3><span class="header-section-number">5.2.9</span> Regression-kriging examples using the GSIF package</h3>
@@ -1681,7 +1595,7 @@ Figure 5.9: Predictions of the organic carbon (log-transformed values) using ran
 </div>
 <p>Fig. <a href="statistical-theory.html#fig:rk-vs-rf-meuse">5.9</a> shows the RK variance derived
 for the random forest model using the package <span class="citation">(Meinshausen <a href="#ref-meinshausen2006quantile">2006</a>)</span>
-and the formula in Eq.<a href="statistical-theory.html#eq:RKvar-simple">(5.18)</a>. Note that the quantregForest package
+and the formula in Eq.<a href="#eq:RKvar-simple">(<strong>??</strong>)</a>. Note that the quantregForest package
 estimates a much larger prediction variance than simple linear RK for
 large parts of the study area.</p>
 </div>
@@ -1697,29 +1611,18 @@ trend is constant within mapping units and that the stochastic residual
 is spatially uncorrelated. In that case, the Best Linear Unbiased
 Predictor of the values is simple averaging of soil properties per
 unit <span class="citation">(Webster and Oliver <a href="#ref-Webster2001Wiley">2001</a>, 43)</span>:</p>
-<span class="math display" id="eq:regavg">\[\begin{equation}
-\hat z({{s}}_0 ) = \bar \mu _p  = \frac{1}{{n_p }}\sum\limits_{i = 1}^{n_p } {z({{s}}_i )}
-\tag{5.19}
-\end{equation}\]</span>
+
 <p>The output map produced by polygon averaging will exhibit abrupt changes
 at boundaries between polygon units. The prediction variance of this
 area-class prediction model is simply the sum of the within-unit
 variance and the estimation variance of the unit mean:</p>
-<span class="math display" id="eq:polvar">\[\begin{equation}
-\hat \sigma^2 ({{s}}_0 ) = \left( 1 + \frac{1}{n_p } \right) \cdot \sigma _p^2
-\tag{5.20}
-\end{equation}\]</span>
-<p>From Eq.<a href="statistical-theory.html#eq:polvar">(5.20)</a>, it is evident that the accuracy of the
+
+<p>From Eq.<a href="#eq:polvar">(<strong>??</strong>)</a>, it is evident that the accuracy of the
 prediction under this model depends on the degree of within-unit
 variation. The approach is advantageous if the within-unit variation is
 small compared to the between-unit variation. The predictions under this
 model can also be expressed as:</p>
-<span class="math display">\[\begin{equation}
-\hat z({{s}}_0 ) = \sum\limits_{i = 1}^n {w_i  \cdot z({{s}}_i)}; \qquad w_i  = \left\{ {\begin{array}{*{20}c}
-   {1/n_p } &amp; {{\rm for} \; {{s}}_i \in p}  \\
-   0 &amp; {{\rm otherwise}}  \\
- \end{array} } \right.
-\end{equation}\]</span>
+
 <p>where <span class="math inline">\(p\)</span> is the unit identifier. So, in fact, weighted averaging per
 unit is a special version of regression-kriging where spatial
 autocorrelation is ignored (assumed zero) and all covariates are
@@ -1769,12 +1672,9 @@ from the regression model, hence we use:</p>
 <pre><code>log1p(om) ~ soil</code></pre>
 <p>The RK model can also be extended to fuzzy memberships, in which case
 <span class="math inline">\({\rm{MU}}\)</span> values are binary variables with continuous values in the
-range 0–1. Hence also the SOLIM model (Eq.<a href="statistical-theory.html#eq:solim">(5.9)</a>) is in fact just
+range 0–1. Hence also the SOLIM model (Eq.<a href="#eq:solim">(<strong>??</strong>)</a>) is in fact just
 a special version of regression on mapping units:</p>
-<span class="math display" id="eq:SOLIMreg">\[\begin{equation}
-\hat z({{s}}_0 ) = \sum\limits_{c_j = 1}^{c_p} {\nu _{c_j} ({{s}}_0) \cdot z_{c_j} } = \sum\limits_{j = 1}^p { {\rm{MU}}_j \cdot \hat b_j}  \hspace{.5cm} {\rm {for}}  \hspace{.5cm}  z_{c_j} = \frac{1}{{n_p }}\sum\limits_{i = 1}^{n_p } {z({{s}}_i )}
-\tag{5.21}
-\end{equation}\]</span>
+
 <p>where <span class="math inline">\({\rm{MU}}\)</span> is the mapping unit or soil type, <span class="math inline">\(z_{c_j}\)</span> is the
 modal (or most representative) value of some soil property <span class="math inline">\(z\)</span> for the
 <span class="math inline">\(c_j\)</span> class, and <span class="math inline">\(n_p\)</span> is total number of points in some mapping unit
@@ -1867,7 +1767,6 @@ om.rksim.p &lt;-<span class="st"> </span><span class="kw">predict</span>(omm, me
 <span class="co">#&gt; drawing 20 GLS realisations of beta...</span>
 <span class="co">#&gt; [using conditional Gaussian simulation]</span>
 <span class="co">#&gt; </span>
- <span class="dv">92</span>% done
 <span class="dv">100</span>% done
 <span class="co">#&gt; Creating an object of class &quot;RasterBrickSimulations&quot;</span>
 <span class="co">#&gt; Loading required package: raster</span>
@@ -1937,7 +1836,7 @@ Figure 5.11: Predictions and simulations (2) at point (above) and block (below) 
 </p>
 </div>
 <p>which shows that the mapping accuracy at point support is ca. 53% of the
-original variance (see further Eq.<a href="statistical-theory.html#eq:normvar">(5.28)</a>).</p>
+original variance (see further Eq.<a href="#eq:normvar">(<strong>??</strong>)</a>).</p>
 <p>Note also that, cross-validation using block support in is not possible
 because the input data needed for cross-validation are only available at
 point support. This basically means that, for the Meuse example, to
@@ -2126,13 +2025,13 @@ organic matter content using the Meuse case study:</p>
 <span class="kw">demo</span>(meuse, <span class="dt">echo=</span><span class="ot">FALSE</span>)
 meuse<span class="op">$</span>value =<span class="st"> </span>meuse<span class="op">$</span>zinc
 output &lt;-<span class="st"> </span><span class="kw">interpolate</span>(meuse, meuse.grid, <span class="kw">list</span>(<span class="dt">mean=</span><span class="ot">TRUE</span>, <span class="dt">variance=</span><span class="ot">TRUE</span>))
-<span class="co">#&gt; R 2018-12-20 20:08:39 interpolating 155 observations, 3103 prediction locations</span>
+<span class="co">#&gt; R 2018-12-20 20:12:26 interpolating 155 observations, 3103 prediction locations</span>
 <span class="co">#&gt; Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : </span>
 <span class="co">#&gt;  using standard model for estimating time. For better </span>
 <span class="co">#&gt;  platform spesific predictions, please run </span>
 <span class="co">#&gt;  timeModels &lt;- generateTimeModels()</span>
 <span class="co">#&gt;   and save the workspace</span>
-<span class="co">#&gt; [1] &quot;estimated time for  copula 159.792718657115&quot;</span>
+<span class="co">#&gt; [1] &quot;estimated time for  copula 160.305154486796&quot;</span>
 <span class="co">#&gt; Checking object ... OK</span></code></pre>
 <p>which gives the (presumably) best interpolation method for the problem
 at hand (<code>value</code> column), given the time available set with
@@ -2141,7 +2040,7 @@ at hand (<code>value</code> column), given the time available set with
 <span class="co">#&gt; List of 16</span>
 <span class="co">#&gt;  $ observations       :Formal class &#39;SpatialPointsDataFrame&#39; [package &quot;sp&quot;] with 5 slots</span>
 <span class="co">#&gt;  $ formulaString      :Class &#39;formula&#39;  language value ~ 1</span>
-<span class="co">#&gt;   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x14e447d0&gt; </span>
+<span class="co">#&gt;   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x135f56d8&gt; </span>
 <span class="co">#&gt;  $ predictionLocations:Formal class &#39;SpatialPixelsDataFrame&#39; [package &quot;sp&quot;] with 7 slots</span>
 <span class="co">#&gt;  $ params             :List of 18</span>
 <span class="co">#&gt;   ..$ doAnisotropy     : logi TRUE</span>
@@ -2373,13 +2272,8 @@ been lost, plus we know that the point values do not refer to the horizon
 center but to the whole horizon block, which, in addition to everything
 else, tend to be irregular i.e. do not have constant depth and width.</p>
 <p>To predict in 3D space, we extend the regression model from
-Eq.<a href="statistical-theory.html#eq:ukm-gstat">(5.10)</a> with a soil depth function:</p>
-<span class="math display" id="eq:MRK3D">\[\begin{equation}
-\begin{split}
-\hat z({{s}}_0, d_0 ) = \sum\limits_{j = 0}^p {\hat \beta _j \cdot X_j ({{s}}_0, d_0 )} + {{\hat g}}(d_0) + \sum\limits_{i = 1}^n {\hat{\lambda}_i ({{s}}_0, d_0 ) \cdot e({{s}}_i, d_i )}
-\end{split}
-\tag{5.22}
-\end{equation}\]</span>
+Eq.<a href="#eq:ukm-gstat">(<strong>??</strong>)</a> with a soil depth function:</p>
+
 <p>where <span class="math inline">\(d\)</span> is the 3rd depth dimension expressed in meters from the land
 surface, <span class="math inline">\({{\hat g}}(d_0)\)</span> is the predicted soil depth function,
 typically modelled by a spline function. This allows prediction of soil
@@ -2398,21 +2292,10 @@ uncertainties) that should not be confused with real observations.</p>
 <p>A 3D variogram, e.g. modelled using an exponential model with three
 standard parameters (nugget <span class="math inline">\(c_0\)</span>, partial sill <span class="math inline">\(c_1\)</span>, range parameter
 <span class="math inline">\(r\)</span>):</p>
-<span class="math display" id="eq:exp">\[\begin{equation}
-\gamma \left( {{h}} \right) = \left\{
-{\begin{array}{*{20}c}
-   0 &amp; {{\rm{if}}} &amp; {h = 0}  \\
-   {c_0  + c_1  \cdot \left[ {1 - e^{ - \left( {\frac{{h}}
-{r}} \right)} } \right]} &amp; {{\rm{if}}} &amp; {h &gt; 0}  \\
- \end{array} } \right. \qquad {{h}} =  \left[ {h_x  , h_y  , h_d } \right]
-\tag{5.23}
-\end{equation}\]</span>
+
 <p>where the scalar <em>‘distance’</em> <span class="math inline">\(h\)</span> is calculated by scaling horizontal
 and vertical separation distances using three anisotropy parameters:</p>
-<span class="math display" id="eq:anisotropy">\[\begin{equation}
-h = \sqrt {\left( {\frac{{h_x  }}{{a_x  }}} \right)^2  + \left( {\frac{{h_y  }}{{a_y  }}} \right)^2  + \left( {\frac{{h_d }}{{a_d }}} \right)^2 }
-\tag{5.24}
-\end{equation}\]</span>
+
 <p>Typically, in the case of soil data, the anisotropy ratio between
 horizontal and vertical distances is high — spatial variation observed
 in a few depth changes may correspond with several or more in horizontal
@@ -2532,17 +2415,14 @@ arrived at using a significantly more accurate method.
 In the most simple terms, accuracy is the error component of the
 perfectly accurate map <span class="citation">(Mowrer and Congalton <a href="#ref-mowrer2000quantifying">2000</a>)</span>. Although we know that
 soils form under systematic environmental conditions and probably much
-of the variation is deterministic (Eq.<a href="statistical-theory.html#eq:ukm">(5.1)</a>), we do not yet have
+of the variation is deterministic (Eq.<a href="#eq:ukm">(<strong>??</strong>)</a>), we do not yet have
 tools that allow us to model soil formation and evolution processes
 perfectly (see also section <a href="introduction.html#sources-uncertainty">1.6.2</a>).
 The best we can do is to calibrate some spatial prediction model
 using field records, and then generate
 (the best possible) predictions. The resulting soil property map,
 i.e. what we know about soils, is then a sum of two <em>signals</em>:</p>
-<span class="math display" id="eq:varparts">\[\begin{equation}
-z^{\rm{map}}({{s}}) = Z({{s}}) + \varepsilon({{s}})
-\tag{5.25}
-\end{equation}\]</span>
+
 <p>where <span class="math inline">\(Z({{s}})\)</span> is the <em>true</em> variation, and <span class="math inline">\(\varepsilon({{s}})\)</span>
 is the error component i.e. what we do not know. The error component,
 also known as the <em>error budget</em>, consists of two parts: (1)
@@ -2556,29 +2436,19 @@ plan might fail to sample some hot-spots or other important local features. The
 unexplained part of variation also includes short-range variation, which
 is possibly deterministic but often not of interest or is simply not
 feasible to describe at common mapping scales.</p>
-<p>The way to determine the error part in Eq.<a href="statistical-theory.html#eq:varparts">(5.25)</a> is to
+<p>The way to determine the error part in Eq.<a href="#eq:varparts">(<strong>??</strong>)</a> is to
 collect additional samples and then determine the average error or the
 <em>Root Mean Square Error</em> <span class="citation">(Goovaerts <a href="#ref-goovaerts2001geostatistical">2001</a>; Finke <a href="#ref-Finke2006Elsevier">2006</a>; Li and Heap <a href="#ref-LiHeap2010EI">2010</a>)</span>:</p>
-<span class="math display" id="eq:RMSE">\[\begin{equation}
-{\it RMSE} = \sqrt {\frac{1}{l} \cdot \sum\limits_{i = 1}^l {\left[
-{\hat z({{s}}_i ) - z ({{s}}_i )} \right]^2 } }
-\tag{5.26}
-\end{equation}\]</span>
+
 <p>where <span class="math inline">\(l\)</span> is the number of validation points, and the expected estimate
 of prediction error at sampling locations is equal to the nugget
 variation (<span class="math inline">\(E\{ {\it RMSE} \} = \sigma({{h}}=0)\)</span>). In addition to <span class="math inline">\(\it{RMSE}\)</span>,
 it is often interesting to see also whether the errors are, on average, positive
 (over-estimation) or negative (under-estimation) i.e. whether there is possibly
 any clear bias in our predictions:</p>
-<span class="math display" id="eq:ME">\[\begin{equation}
-{\rm ME} = \frac{1}{m} \sum_{j=1}^{m} (\hat y ({ s}_j) - y ({ s}_j))
-\tag{5.27}
-\end{equation}\]</span>
+
 <p>To see how much of the global variation budget has been explained by the model we can use:</p>
-<span class="math display" id="eq:normvar">\[\begin{equation}
- {\Sigma}_{\%} = \left[ 1 - \frac{{\it{SSE}}}{{\it{SSTO}}} \right] = \left[ 1 - \frac{{\it{RMSE}}^2}{\sigma_z^2} \right] [0-100\%]
-\tag{5.28}
-\end{equation}\]</span>
+
 <p>where <span class="math inline">\(\it{SSE}\)</span> is the sum of squares for residuals at cross-validation
 points (i.e. <span class="math inline">\({\it{MSE}} \cdot n\)</span>), and <span class="math inline">\(\it{SSTO}\)</span> is the total sum of
 squares. <span class="math inline">\({\Sigma}_{\%}\)</span> is a global estimate of the map accuracy, valid
@@ -2679,7 +2549,7 @@ or over-pessimistic estimates of the true mapping accuracy.</p>
 </div>
 <div id="accuracy-of-the-predicted-model-uncertainty" class="section level3">
 <h3><span class="header-section-number">5.3.4</span> Accuracy of the predicted model uncertainty</h3>
-<p>Recall from Eq.<a href="statistical-theory.html#eq:sp">(5.7)</a> that the output of the prediction process is
+<p>Recall from Eq.<a href="#eq:sp">(<strong>??</strong>)</a> that the output of the prediction process is
 typically (1) predicted mean value at some location
 (<span class="math inline">\(\hat Z({{s}}_0)\)</span>), and (2) predicted prediction variance
 i.e. regression-kriging error (<span class="math inline">\(\hat{\sigma}({{s}}_0)\)</span>). In the previous
@@ -2701,10 +2571,7 @@ validation points (5–fold cross-validation by default), but it also
 compares the difference between the regression-kriging error estimated by
 the model and the actual error. The ratio between the actual and
 expected error is referred to as the <span class="math inline">\(z\)</span>-scores <span class="citation">(Bivand, Pebesma, and Rubio <a href="#ref-Bivand2008Springer">2008</a>, 225)</span>:</p>
-<span class="math display" id="eq:z-scores">\[\begin{equation}
- \sigma_r ({{s}}_j) = \frac{\hat z({{s}}_j ) - z^* ({{s}}_j )}{\hat{\sigma}({{s}}_j )}; \qquad  E\{var(\sigma_r)\} = 1
-\tag{5.29}
-\end{equation}\]</span>
+
 <p>Ideally, the mean value of <span class="math inline">\(z\)</span>-scores should be around 0 and
 the variance of the <span class="math inline">\(z\)</span>-scores should be around 1. If the <span class="math inline">\(z\)</span>-score variance
 is substantially smaller than <span class="math inline">\(1\)</span>, then the model overestimates the
@@ -2821,10 +2688,7 @@ Fig. <a href="statistical-theory.html#fig:hist-om-predicted-simulated">5.15</a>)
 estimating the mean value i .e. <em>standard error of the mean</em>
 (<span class="math inline">\({\rm{SE}}_{\bar{x}}\)</span>), which can be derived using samples only
 <span class="citation">(Kutner et al. <a href="#ref-kutner2005applied">2005</a>)</span>:</p>
-<span class="math display" id="eq:mean-pop">\[\begin{equation}
-{\rm{SE}}_{\bar{x}} = \frac{\sigma_x}{\sqrt{n-1}}
-\tag{5.30}
-\end{equation}\]</span>
+
 <p>or in R:</p>
 <pre class="sourceCode r"><code class="sourceCode r">sd.om &lt;-<span class="st"> </span><span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dt">df=</span><span class="kw">length</span>(meuse<span class="op">$</span>om)<span class="op">-</span><span class="dv">1</span>) <span class="op">*</span>
 <span class="st">    </span><span class="kw">sd</span>(meuse<span class="op">$</span>om, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)<span class="op">/</span><span class="kw">sqrt</span>(<span class="kw">length</span>(meuse<span class="op">$</span>om))
@@ -2912,10 +2776,7 @@ down the confidence limits, especially for class <code>3</code>.</p>
 running cross-validation and determining e.g. <span class="math inline">\(\it{RMSE}\)</span> and R-square.
 In addition to R–square, a more universal measure of prediction success is
 the Lin’s Concordance Correlation Coefficient (CCC) <span class="citation">(Steichen and Cox <a href="#ref-steichen2002note">2002</a>)</span>:</p>
-<span class="math display" id="eq:CCC">\[\begin{equation}
-\rho_c = \frac{2 \cdot \rho \cdot \sigma_{\hat y} \cdot \sigma_y }{ \sigma_{\hat y}^2 + \sigma_y^2 + (\mu_{\hat y} - \mu_y)^2}
-\tag{5.31}
-\end{equation}\]</span>
+
 <p>where <span class="math inline">\(\hat y\)</span> are the predicted values and <span class="math inline">\(y\)</span> are actual values at
 cross-validation points, <span class="math inline">\(\mu_{\hat y}\)</span> and <span class="math inline">\(\mu_y\)</span> are predicted and
 observed means and <span class="math inline">\(\rho\)</span> is the correlation coefficient between
@@ -2960,15 +2821,7 @@ costs. Undoubtedly, producing soil information costs money.
 <span class="citation">Burrough, Beckett, and Jarvis (<a href="#ref-Burrough1971">1971</a>)</span>, <span class="citation">Bie and Ulph (<a href="#ref-BieUlph1972JAE">1972</a>)</span>, and <span class="citation">Bie, Uph, and Beckett (<a href="#ref-Bie1973JSS">1973</a>)</span> postulated in the early
 70s that the survey costs are a direct function of the mapping
 scale:</p>
-<span class="math display" id="eq:burrough">\[\begin{equation}
-\log \begin{Bmatrix}
-{\rm cost} \; {\rm per} \; {\rm km}^2\\
-{\rm or}\\
-{\rm man-days} \; {\rm per} \; {\rm km}^2
-\end{Bmatrix}
-= a + b \cdot \log( {\rm map} \; {\rm scale} )
-\tag{5.32}
-\end{equation}\]</span>
+
 <p>To produce soil information costs money. On the other hand soil
 information, if used properly, can lead to significant financial
 benefits: accurate soil information is a tool to improve decision making,
@@ -2977,10 +2830,7 @@ risk and planning for environmental conservation.</p>
 <p>This model typically explains &gt;75% of the survey costs
 <span class="citation">(Burrough, Beckett, and Jarvis <a href="#ref-Burrough1971">1971</a>)</span>. Further more, for the given target scale, <em>standard soil survey costs</em>
 can be commonly expressed as:</p>
-<span class="math display" id="eq:mappingcosts">\[\begin{equation}
-\theta  = \frac{{\rm X}}{A} \qquad [{\rm USD} \; {\rm km}^{-2} ]
-\tag{5.33}
-\end{equation}\]</span>
+
 <p>where <span class="math inline">\({\rm X}\)</span> is the total costs of a survey, <span class="math inline">\(A\)</span> is the size of area
 in km-square. So for example, according to <span class="citation">Legros (<a href="#ref-Legros2006SP">2006</a>, 75)</span>, to map
 1 hectare of soil at 1:200,000 scale (at the beginning of the 21st
@@ -3030,17 +2880,14 @@ management practices that help retain nitrogen in the soil at a rate of 42.49 US
 per kg (17.30 USD per kg for farmers, 25.19 USD per kg for the
 community). This also demonstrates that soil mapping can be a profitable
 business.</p>
-<p>The formula in Eq.<a href="statistical-theory.html#eq:mappingcosts">(5.33)</a> is somewhat incomplete as it
+<p>The formula in Eq.<a href="#eq:mappingcosts">(<strong>??</strong>)</a> is somewhat incomplete as it
 tells us only about the cost of mapping per unit area. Obviously,
 mapping efficiency has to be expressed within the context of the mapping
 objective. Hence, a more informative measure of <em>mapping efficiency</em> is
 <span class="citation">(Hengl, Nikolić, and MacMillan <a href="#ref-Hengl2013JAG">2013</a>)</span>:</p>
-<span class="math display" id="eq:efficiency">\[\begin{equation}
-\theta  = \frac{{\rm X}}{{A \cdot {\Sigma}_{\%}}} \qquad [{\rm USD} \; {\rm km}^{-2} \; \%^{-1} ]
-\tag{5.34}
-\end{equation}\]</span>
+
 <p>where <span class="math inline">\({\Sigma}_{\%}\)</span> is the amount of variation explained by the
-spatial prediction model (Eq.<a href="statistical-theory.html#eq:normvar">(5.28)</a>). In other words, soil
+spatial prediction model (Eq.<a href="#eq:normvar">(<strong>??</strong>)</a>). In other words, soil
 mapping efficiency is the total cost of explaining each percent of variation
 in target soil variables for a given area of interest.</p>
 <div class="figure" style="text-align: center"><span id="fig:costs-RMSE-scheme"></span>
@@ -3050,10 +2897,7 @@ Figure 5.27: General relationship between the sampling intensity (i.e. survey c
 </p>
 </div>
 <p>An even more universal measure of mapping efficiency is the Information Production Efficiency (IPE) <span class="citation">(Hengl, Nikolić, and MacMillan <a href="#ref-Hengl2013JAG">2013</a>)</span>:</p>
-<span class="math display" id="eq:data-efficiency">\[\begin{equation}
-\Upsilon = \frac{{\rm X}}{{\rm gzip}} \qquad [{\rm EUR} \; {\rm B}^{-1}]
-\tag{5.35}
-\end{equation}\]</span>
+
 <p>where <span class="math inline">\({\rm gzip}\)</span> is the size of data (in Bytes) left after compression
 and after recoding the values to match the effective precision
 (<span class="math inline">\(\delta \approx {\rm RMSE}/2\)</span>). Information Production Efficiency is scale independent as
@@ -3140,7 +2984,7 @@ some maximum feasible <em>locked</em> variation
 (Fig. <a href="statistical-theory.html#fig:cost-methods-scheme">5.28</a>). For a given total budget and a
 list of target variables an optimal (most efficient) prediction method
 can be determined by deriving the mapping efficiency described in
-Eq.<a href="statistical-theory.html#eq:efficiency">(5.34)</a> or even better Eq.<a href="statistical-theory.html#eq:data-efficiency">(5.35)</a>.</p>
+Eq.<a href="#eq:efficiency">(<strong>??</strong>)</a> or even better Eq.<a href="#eq:data-efficiency">(<strong>??</strong>)</a>.</p>
 
 <div class="rmdnote">
 Modern soil mapping is driven by the objective assessment of
@@ -3167,19 +3011,19 @@ alternatives.</p>
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-Finke2008462">
-<p>Finke, Peter A., and John L. Hutson. 2008. “Modelling Soil Genesis in Calcareous Loess.” <em>Geoderma</em> 145 (3?4):462–79. <a href="https://doi.org/10.1016/j.geoderma.2008.01.017" class="uri">https://doi.org/10.1016/j.geoderma.2008.01.017</a>.</p>
+<p>Finke, Peter A., and John L. Hutson. 2008. “Modelling Soil Genesis in Calcareous Loess.” <em>Geoderma</em> 145 (3?4): 462–79. <a href="https://doi.org/10.1016/j.geoderma.2008.01.017" class="uri">https://doi.org/10.1016/j.geoderma.2008.01.017</a>.</p>
 </div>
 <div id="ref-Sommer2008480">
-<p>Sommer, M., H.H. Gerke, and D. Deumlich. 2008. “Modelling Soil Landscape Genesis — a ‘Time Split’ Approach for Hummocky Agricultural Landscapes.” <em>Geoderma</em> 145 (3?4):480–93. <a href="https://doi.org/10.1016/j.geoderma.2008.01.012" class="uri">https://doi.org/10.1016/j.geoderma.2008.01.012</a>.</p>
+<p>Sommer, M., H.H. Gerke, and D. Deumlich. 2008. “Modelling Soil Landscape Genesis — a ‘Time Split’ Approach for Hummocky Agricultural Landscapes.” <em>Geoderma</em> 145 (3?4): 480–93. <a href="https://doi.org/10.1016/j.geoderma.2008.01.012" class="uri">https://doi.org/10.1016/j.geoderma.2008.01.012</a>.</p>
 </div>
 <div id="ref-Minasny2008140">
-<p>Minasny, Budiman, Alex B. McBratney, and S. Salvador-Blanes. 2008. “Quantitative Models for Pedogenesis — a Review.” <em>Geoderma</em> 144 (1?2):140–57. <a href="https://doi.org/10.1016/j.geoderma.2007.12.013" class="uri">https://doi.org/10.1016/j.geoderma.2007.12.013</a>.</p>
+<p>Minasny, Budiman, Alex B. McBratney, and S. Salvador-Blanes. 2008. “Quantitative Models for Pedogenesis — a Review.” <em>Geoderma</em> 144 (1?2): 140–57. <a href="https://doi.org/10.1016/j.geoderma.2007.12.013" class="uri">https://doi.org/10.1016/j.geoderma.2007.12.013</a>.</p>
 </div>
 <div id="ref-vanwalleghem2010spatial">
-<p>Vanwalleghem, Tom, Jean Poesen, A McBratney, and J Deckers. 2010. “Spatial Variability of Soil Horizon Depth in Natural Loess-Derived Soils.” <em>Geoderma</em> 157 (1). Elsevier:37–45.</p>
+<p>Vanwalleghem, Tom, Jean Poesen, A McBratney, and J Deckers. 2010. “Spatial Variability of Soil Horizon Depth in Natural Loess-Derived Soils.” <em>Geoderma</em> 157 (1). Elsevier: 37–45.</p>
 </div>
 <div id="ref-hengl2007regression">
-<p>Hengl, Tomislav, Gerard Heuvelink, and David G Rossiter. 2007. “About Regression-Kriging: From Equations to Case Studies.” <em>Computers &amp; Geosciences</em> 33 (10). Elsevier:1301–15.</p>
+<p>Hengl, Tomislav, Gerard Heuvelink, and David G Rossiter. 2007. “About Regression-Kriging: From Equations to Case Studies.” <em>Computers &amp; Geosciences</em> 33 (10). Elsevier: 1301–15.</p>
 </div>
 <div id="ref-Burrough1998OUP">
 <p>Burrough, P. A., and R. A. McDonnell. 1998. <em>Principles of Geographical Information Systems</em>. 2nd ed. Oxford: Oxford University Press.</p>
@@ -3191,40 +3035,40 @@ alternatives.</p>
 <p>Grunwald, S. 2005b. “What do we really know about the space-time continuum of soil-landscapes.” In <em>Environmental Soil-Landscape Modeling: Geographic Information Technologies and Pedometrics</em>, edited by S. Grunwald, 3–36. Boca Raton, Florida: CRC Press.</p>
 </div>
 <div id="ref-JPLN:JPLN200900269">
-<p>Desaules, André, Stefan Ammann, and Peter Schwab. 2010. “Advances in Long-Term Soil-Pollution Monitoring of Switzerland.” <em>Journal of Plant Nutrition and Soil Science</em> 173 (4). WILEY-VCH Verlag:525–35. <a href="https://doi.org/10.1002/jpln.200900269" class="uri">https://doi.org/10.1002/jpln.200900269</a>.</p>
+<p>Desaules, André, Stefan Ammann, and Peter Schwab. 2010. “Advances in Long-Term Soil-Pollution Monitoring of Switzerland.” <em>Journal of Plant Nutrition and Soil Science</em> 173 (4). WILEY-VCH Verlag: 525–35. <a href="https://doi.org/10.1002/jpln.200900269" class="uri">https://doi.org/10.1002/jpln.200900269</a>.</p>
 </div>
 <div id="ref-snepvangers2003soil">
-<p>Snepvangers, J. J. J. C., G. B. M. Heuvelink, and J. A. Huisman. 2003. “Soil Water Content Interpolation Using Spatio-Temporal Kriging with External Drift.” <em>Geoderma</em> 112 (3). Elsevier:253–71.</p>
+<p>Snepvangers, J. J. J. C., G. B. M. Heuvelink, and J. A. Huisman. 2003. “Soil Water Content Interpolation Using Spatio-Temporal Kriging with External Drift.” <em>Geoderma</em> 112 (3). Elsevier: 253–71.</p>
 </div>
 <div id="ref-jost2005analysing">
-<p>Jost, G., G. B. M. Heuvelink, and A. Papritz. 2005. “Analysing the Space–Time Distribution of Soil Water Storage of a Forest Ecosystem Using Spatio-Temporal Kriging.” <em>Geoderma</em> 128 (3). Elsevier:258–73.</p>
+<p>Jost, G., G. B. M. Heuvelink, and A. Papritz. 2005. “Analysing the Space–Time Distribution of Soil Water Storage of a Forest Ecosystem Using Spatio-Temporal Kriging.” <em>Geoderma</em> 128 (3). Elsevier: 258–73.</p>
 </div>
 <div id="ref-Gasch2015SPASTA">
-<p>Gasch, Caley, Tomislav Hengl, Benedikt Gräler, Hanna Meyer, Troy Magney, and David Brown. 2015. “Spatio-temporal interpolation of soil water, temperature, and electrical conductivity in 3D+T: The Cook Agronomy Farm data set.” <em>Spatial Statistics</em> 14 (Part A):70–90. <a href="https://doi.org/10.1016/j.spasta.2015.04.001" class="uri">https://doi.org/10.1016/j.spasta.2015.04.001</a>.</p>
+<p>Gasch, Caley, Tomislav Hengl, Benedikt Gräler, Hanna Meyer, Troy Magney, and David Brown. 2015. “Spatio-temporal interpolation of soil water, temperature, and electrical conductivity in 3D+T: The Cook Agronomy Farm data set.” <em>Spatial Statistics</em> 14 (Part A): 70–90. <a href="https://doi.org/10.1016/j.spasta.2015.04.001" class="uri">https://doi.org/10.1016/j.spasta.2015.04.001</a>.</p>
 </div>
 <div id="ref-Kempen2011Geoderma">
-<p>Kempen, B., D.J. Brus, and J.J. Stoorvogel. 2011. “Three-Dimensional Mapping of Soil Organic Matter Content Using Soil Type-Specific Depth Functions.” <em>Geoderma</em> 162 (1-2):107–23. <a href="https://doi.org/10.1016/j.geoderma.2011.01.010" class="uri">https://doi.org/10.1016/j.geoderma.2011.01.010</a>.</p>
+<p>Kempen, B., D.J. Brus, and J.J. Stoorvogel. 2011. “Three-Dimensional Mapping of Soil Organic Matter Content Using Soil Type-Specific Depth Functions.” <em>Geoderma</em> 162 (1-2): 107–23. <a href="https://doi.org/10.1016/j.geoderma.2011.01.010" class="uri">https://doi.org/10.1016/j.geoderma.2011.01.010</a>.</p>
 </div>
 <div id="ref-Bishop1999Geoderma">
-<p>Bishop, T.F.A., A. B. McBratney, and G.M. Laslett. 1999. “Modelling Soil Attribute Depth Functions with Equal-Area Quadratic Smoothing Splines.” <em>Geoderma</em> 91 (1-2):27–45.</p>
+<p>Bishop, T.F.A., A. B. McBratney, and G.M. Laslett. 1999. “Modelling Soil Attribute Depth Functions with Equal-Area Quadratic Smoothing Splines.” <em>Geoderma</em> 91 (1-2): 27–45.</p>
 </div>
 <div id="ref-Malone2009Geoderma">
-<p>Malone, B.P., A. B. McBratney, B. Minasny, and G.M. Laslett. 2009. “Mapping Continuous Depth Functions of Soil Carbon Storage and Available Water Capacity.” <em>Geoderma</em> 154 (1-2):138–52. <a href="https://doi.org/10.1016/j.geoderma.2009.10.007" class="uri">https://doi.org/10.1016/j.geoderma.2009.10.007</a>.</p>
+<p>Malone, B.P., A. B. McBratney, B. Minasny, and G.M. Laslett. 2009. “Mapping Continuous Depth Functions of Soil Carbon Storage and Available Water Capacity.” <em>Geoderma</em> 154 (1-2): 138–52. <a href="https://doi.org/10.1016/j.geoderma.2009.10.007" class="uri">https://doi.org/10.1016/j.geoderma.2009.10.007</a>.</p>
 </div>
 <div id="ref-poggio2014national">
-<p>Poggio, Laura, and Alessandro Gimona. 2014. “National scale 3D modelling of soil organic carbon stocks with uncertainty propagation — An example from Scotland.” <em>Geoderma</em> 232. Elsevier:284–99.</p>
+<p>Poggio, Laura, and Alessandro Gimona. 2014. “National scale 3D modelling of soil organic carbon stocks with uncertainty propagation — An example from Scotland.” <em>Geoderma</em> 232. Elsevier: 284–99.</p>
 </div>
 <div id="ref-Hengl2015AfSoilGrids250m">
 <p>Hengl, Gerard B.M. AND Kempen, Tomislav AND Heuvelink. 2015. “Mapping Soil Properties of Africa at 250 m Resolution: Random Forests Significantly Improve Current Predictions.” <em>PLoS ONE</em> 10 (e0125814). Public Library of Science. <a href="https://doi.org/10.1371/journal.pone.0125814" class="uri">https://doi.org/10.1371/journal.pone.0125814</a>.</p>
 </div>
 <div id="ref-Conant2010">
-<p>Conant, Richard T, Stephen M Ogle, Eldor A Paul, and Keith Paustian. 2010. “Measuring and Monitoring Soil Organic Carbon Stocks in Agricultural Lands for Climate Mitigation.” <em>Frontiers in Ecology and the Environment</em> 9 (3). Ecological Society of America:169–73. <a href="http://dx.doi.org/10.1890/090153" class="uri">http://dx.doi.org/10.1890/090153</a>.</p>
+<p>Conant, Richard T, Stephen M Ogle, Eldor A Paul, and Keith Paustian. 2010. “Measuring and Monitoring Soil Organic Carbon Stocks in Agricultural Lands for Climate Mitigation.” <em>Frontiers in Ecology and the Environment</em> 9 (3). Ecological Society of America: 169–73. <a href="http://dx.doi.org/10.1890/090153" class="uri">http://dx.doi.org/10.1890/090153</a>.</p>
 </div>
 <div id="ref-Rainer2010">
-<p>Baritz, Rainer, Guenther Seufert, Luca Montanarella, and Eric Van Ranst. 2010. “Carbon Concentrations and Stocks in Forest Soils of Europe.” <em>Forest Ecology and Management</em> 260:262–77. <a href="https://doi.org/10.1016/j.foreco.2010.03.025" class="uri">https://doi.org/10.1016/j.foreco.2010.03.025</a>.</p>
+<p>Baritz, Rainer, Guenther Seufert, Luca Montanarella, and Eric Van Ranst. 2010. “Carbon Concentrations and Stocks in Forest Soils of Europe.” <em>Forest Ecology and Management</em> 260: 262–77. <a href="https://doi.org/10.1016/j.foreco.2010.03.025" class="uri">https://doi.org/10.1016/j.foreco.2010.03.025</a>.</p>
 </div>
 <div id="ref-Panagos2013439">
-<p>Panagos, Panos, Roland Hiederer, Marc Van Liedekerke, and Francesca Bampa. 2013. “Estimating soil organic carbon in Europe based on data collected through an European network.” <em>Ecological Indicators</em> 24 (0):439–50. <a href="https://doi.org/10.1016/j.ecolind.2012.07.020" class="uri">https://doi.org/10.1016/j.ecolind.2012.07.020</a>.</p>
+<p>Panagos, Panos, Roland Hiederer, Marc Van Liedekerke, and Francesca Bampa. 2013. “Estimating soil organic carbon in Europe based on data collected through an European network.” <em>Ecological Indicators</em> 24 (0): 439–50. <a href="https://doi.org/10.1016/j.ecolind.2012.07.020" class="uri">https://doi.org/10.1016/j.ecolind.2012.07.020</a>.</p>
 </div>
 <div id="ref-Webster2001Wiley">
 <p>Webster, R., and M.A. Oliver. 2001. <em>Geostatistics for Environmental Scientists</em>. Statistics in Practice. Chichester: Wiley.</p>
@@ -3233,25 +3077,25 @@ alternatives.</p>
 <p>Cressie, N.A. C., and C.K. Wikle. 2011. <em>Statistics for Spatio-Temporal Data</em>. Wiley Series in Probability and Statistics. Wiley.</p>
 </div>
 <div id="ref-Ng2018">
-<p>Ng, Wartini, Budiman Minasny, Brendan Malone, and Patrick Filippi. 2018. “In Search of an Optimum Sampling Algorithm for Prediction of Soil Properties from Infrared Spectra.” <em>PeerJ</em> 6 (October):e5722. <a href="https://doi.org/10.7717/peerj.5722" class="uri">https://doi.org/10.7717/peerj.5722</a>.</p>
+<p>Ng, Wartini, Budiman Minasny, Brendan Malone, and Patrick Filippi. 2018. “In Search of an Optimum Sampling Algorithm for Prediction of Soil Properties from Infrared Spectra.” <em>PeerJ</em> 6 (October): e5722. <a href="https://doi.org/10.7717/peerj.5722" class="uri">https://doi.org/10.7717/peerj.5722</a>.</p>
 </div>
 <div id="ref-Diggle2007Springer">
 <p>Diggle, P. J., and P. J. Ribeiro Jr. 2007. <em>Model-based Geostatistics</em>. Springer Series in Statistics. Springer.</p>
 </div>
 <div id="ref-lark2006spatial">
-<p>Lark, RM, BR Cullis, and SJ Welham. 2006. “On spatial prediction of soil properties in the presence of a spatial trend: the empirical best linear unbiased predictor (E-BLUP) with REML.” <em>European Journal of Soil Science</em> 57 (6). Wiley Online Library:787–99.</p>
+<p>Lark, RM, BR Cullis, and SJ Welham. 2006. “On spatial prediction of soil properties in the presence of a spatial trend: the empirical best linear unbiased predictor (E-BLUP) with REML.” <em>European Journal of Soil Science</em> 57 (6). Wiley Online Library: 787–99.</p>
 </div>
 <div id="ref-McBratney2011HSS">
 <p>McBratney, A. B., B. Minasny, R. A. MacMillan, and F. Carré. 2011. “Digital Soil Mapping.” In <em>Handbook of Soil Science</em>, edited by H. Li and M.E. Sumner, 37:1–45. CRC Press.</p>
 </div>
 <div id="ref-McBratney2003Geoderma">
-<p>McBratney, A. B., M. L. Mendoça Santos, and B. Minasny. 2003. “On digital soil mapping.” <em>Geoderma</em> 117 (1-2):3–52.</p>
+<p>McBratney, A. B., M. L. Mendoça Santos, and B. Minasny. 2003. “On digital soil mapping.” <em>Geoderma</em> 117 (1-2): 3–52.</p>
 </div>
 <div id="ref-mcbratney2018pedometrics">
 <p>McBratney, A.B., B. Minasny, and U. Stockmann. 2018. <em>Pedometrics</em>. Progress in Soil Science. Springer International Publishing.</p>
 </div>
 <div id="ref-LiHeap2010EI">
-<p>Li, Jin, and Andrew D. Heap. 2010. “A Review of Comparative Studies of Spatial Interpolation Methods in Environmental Sciences: Performance and Impact Factors.” <em>Ecological Informatics</em> 6 (3, 3-4). Elsevier:228–41. <a href="https://doi.org/10.1016/j.ecoinf.2010.12.003" class="uri">https://doi.org/10.1016/j.ecoinf.2010.12.003</a>.</p>
+<p>Li, Jin, and Andrew D. Heap. 2010. “A Review of Comparative Studies of Spatial Interpolation Methods in Environmental Sciences: Performance and Impact Factors.” <em>Ecological Informatics</em> 6 (3, 3-4). Elsevier: 228–41. <a href="https://doi.org/10.1016/j.ecoinf.2010.12.003" class="uri">https://doi.org/10.1016/j.ecoinf.2010.12.003</a>.</p>
 </div>
 <div id="ref-schabenberger2005statistical">
 <p>Schabenberger, O., and C. A. Gotway. 2005. <em>Statistical Methods for Spatial Data Analysis</em>. Texts in Statistical Science. Chapman &amp; Hall/CRC.</p>
@@ -3269,7 +3113,7 @@ alternatives.</p>
 <p>Legros, J.-P. 2006. <em>Mapping of the Soil</em>. 1st ed. Enfield, New Hampshire: Science Publishers.</p>
 </div>
 <div id="ref-Brus2007Geoderma">
-<p>Brus, D. J., and G. B. M. Heuvelink. 2007. “Optimization of sample patterns for universal kriging of environmental variables.” <em>Geoderma</em> 138 (1-2). Elsevier:86–95.</p>
+<p>Brus, D. J., and G. B. M. Heuvelink. 2007. “Optimization of sample patterns for universal kriging of environmental variables.” <em>Geoderma</em> 138 (1-2). Elsevier: 86–95.</p>
 </div>
 <div id="ref-MacMillan2005CJSS">
 <p>MacMillan, R. A., W. W. Pettapiece, and J. A. Brierley. 2005. “An Expert System for Allocating Soils to Landforms Through the Application of Soil Survey Tacit Knowledge.” <em>Canadian Journal of Soil Science</em>, 103–12.</p>
@@ -3278,7 +3122,7 @@ alternatives.</p>
 <p>Walter, C., P. Lagacherie, and S. Follain. 2006. “Integrating Pedological Knowledge into Digital Soil Mapping.” In <em>Digital Soil Mapping — an Introductory Perspective</em>, edited by P. Lagacherie, A. B. McBratney, and M. Voltz, 31:281–300, 615. Developments in Soil Science. Elsevier. <a href="https://doi.org/10.1016/S0166-2481(06)31022-7" class="uri">https://doi.org/10.1016/S0166-2481(06)31022-7</a>.</p>
 </div>
 <div id="ref-Liu2009">
-<p>Liu, Jian, and A-Xing Zhu. 2009. “Mapping with Words: A New Approach to Automated Digital Soil Survey.” <em>International Journal of Intelligent Systems</em> 24 (3). Wiley Subscription Services, Inc., A Wiley Company:293–311. <a href="https://doi.org/10.1002/int.20337" class="uri">https://doi.org/10.1002/int.20337</a>.</p>
+<p>Liu, Jian, and A-Xing Zhu. 2009. “Mapping with Words: A New Approach to Automated Digital Soil Survey.” <em>International Journal of Intelligent Systems</em> 24 (3). Wiley Subscription Services, Inc., A Wiley Company: 293–311. <a href="https://doi.org/10.1002/int.20337" class="uri">https://doi.org/10.1002/int.20337</a>.</p>
 </div>
 <div id="ref-Simonson1968AA">
 <p>Simonson, Roy W. 1968. “Concept of Soil.” In <em>Prepared Under the Auspices of the American Society of Agronomy</em>, edited by A.G. Norman, 20:1–47. Advances in Agronomy. Academic Press. <a href="https://doi.org/10.1016/S0065-2113(08)60853-6" class="uri">https://doi.org/10.1016/S0065-2113(08)60853-6</a>.</p>
@@ -3296,28 +3140,28 @@ alternatives.</p>
 <p>MacMillan, R. A., D.E. Moon, R. A. Coupé, and N. Phillips. 2010. “Predictive Ecosystem Mapping (Pem) for 8.2 Million Ha of Forestland,British Columbia, Canada.” In <em>Digital Soil Mapping: Bridging Research, Environmental Application, and Operation</em>, edited by J. L. Boettinger et al., 2:335–54. Progress in Soil Science. Springer. <a href="https://doi.org/10.1007/978-90-481-8863-5_27" class="uri">https://doi.org/10.1007/978-90-481-8863-5_27</a>.</p>
 </div>
 <div id="ref-Zhu2001">
-<p>Zhu, A.X., B. Hudson, J. Burt, K. Lubich, and D. Simonson. 2001. “Soil Mapping Using Gis, Expert Knowledge, and Fuzzy Logic.” <em>Soil Science Society of America Journal</em> 65:1463–72.</p>
+<p>Zhu, A.X., B. Hudson, J. Burt, K. Lubich, and D. Simonson. 2001. “Soil Mapping Using Gis, Expert Knowledge, and Fuzzy Logic.” <em>Soil Science Society of America Journal</em> 65: 1463–72.</p>
 </div>
 <div id="ref-Zhu2010Geoderma">
-<p>Zhu, A-Xing, Feng Qi, Amanda Moore, and James E. Burt. 2010. “Prediction of Soil Properties Using Fuzzy Membership Values.” <em>Geoderma</em> 158 (3-4):199–206. <a href="https://doi.org/10.1016/j.geoderma.2010.05.001" class="uri">https://doi.org/10.1016/j.geoderma.2010.05.001</a>.</p>
+<p>Zhu, A-Xing, Feng Qi, Amanda Moore, and James E. Burt. 2010. “Prediction of Soil Properties Using Fuzzy Membership Values.” <em>Geoderma</em> 158 (3-4): 199–206. <a href="https://doi.org/10.1016/j.geoderma.2010.05.001" class="uri">https://doi.org/10.1016/j.geoderma.2010.05.001</a>.</p>
 </div>
 <div id="ref-Qi2006Geoderma">
-<p>Qi, Feng, A-Xing Zhu, Mark Harrower, and James E. Burt. 2006. “Fuzzy Soil Mapping Based on Prototype Category Theory.” <em>Geoderma</em> 136 (3-4):774–87. <a href="https://doi.org/10.1016/j.geoderma.2006.06.001" class="uri">https://doi.org/10.1016/j.geoderma.2006.06.001</a>.</p>
+<p>Qi, Feng, A-Xing Zhu, Mark Harrower, and James E. Burt. 2006. “Fuzzy Soil Mapping Based on Prototype Category Theory.” <em>Geoderma</em> 136 (3-4): 774–87. <a href="https://doi.org/10.1016/j.geoderma.2006.06.001" class="uri">https://doi.org/10.1016/j.geoderma.2006.06.001</a>.</p>
 </div>
 <div id="ref-Haining2010GEAN780">
-<p>Haining, Robert P., Ruth Kerry, and Margaret A. Oliver. 2010. “Geography, Spatial Data Analysis, and Geostatistics: An Overview.” <em>Geographical Analysis</em> 42 (1). Blackwell Publishing Inc:7–31. <a href="https://doi.org/10.1111/j.1538-4632.2009.00780.x" class="uri">https://doi.org/10.1111/j.1538-4632.2009.00780.x</a>.</p>
+<p>Haining, Robert P., Ruth Kerry, and Margaret A. Oliver. 2010. “Geography, Spatial Data Analysis, and Geostatistics: An Overview.” <em>Geographical Analysis</em> 42 (1). Blackwell Publishing Inc: 7–31. <a href="https://doi.org/10.1111/j.1538-4632.2009.00780.x" class="uri">https://doi.org/10.1111/j.1538-4632.2009.00780.x</a>.</p>
 </div>
 <div id="ref-Bivand2008Springer">
 <p>Bivand, R., E. Pebesma, and V. Rubio. 2008. <em>Applied Spatial Data Analysis with R</em>. Use R Series. Heidelberg: Springer.</p>
 </div>
 <div id="ref-Hengl2017SoilGrids250m">
-<p>Hengl, T., J. Mendes de Jesus, G. B. M. Heuvelink, M. Ruiperez Gonzalez, M. Kilibarda, A. Blagotic, W. Shangguan, et al. 2017. “SoilGrids250m: Global Gridded Soil Information Based on Machine Learning.” <em>PLoS One</em> 12 (2):e0169748.</p>
+<p>Hengl, T., J. Mendes de Jesus, G. B. M. Heuvelink, M. Ruiperez Gonzalez, M. Kilibarda, A. Blagotic, W. Shangguan, et al. 2017. “SoilGrids250m: Global Gridded Soil Information Based on Machine Learning.” <em>PLoS One</em> 12 (2): e0169748.</p>
 </div>
 <div id="ref-Hengl2007Geoderma">
-<p>Hengl, Tomislav, Norair Toomanian, Hannes I. Reuter, and Mohammad J. Malakouti. 2007. “Methods to Interpolate Soil Categorical Variables from Profile Observations: Lessons from Iran.” <em>Geoderma</em> 140 (4). Elsevier:417–27. <a href="https://doi.org/10.1016/j.geoderma.2007.04.022" class="uri">https://doi.org/10.1016/j.geoderma.2007.04.022</a>.</p>
+<p>Hengl, Tomislav, Norair Toomanian, Hannes I. Reuter, and Mohammad J. Malakouti. 2007. “Methods to Interpolate Soil Categorical Variables from Profile Observations: Lessons from Iran.” <em>Geoderma</em> 140 (4). Elsevier: 417–27. <a href="https://doi.org/10.1016/j.geoderma.2007.04.022" class="uri">https://doi.org/10.1016/j.geoderma.2007.04.022</a>.</p>
 </div>
 <div id="ref-Kempen2009Geoderma">
-<p>Kempen, B., D.J. Brus, G.B.M. Heuvelink, and J.J. Stoorvogel. 2009. “Updating the 1:50,000 Dutch soil map using legacy soil data: A multinomial logistic regression approach.” <em>Geoderma</em> 151 (3-4):311–26. <a href="https://doi.org/10.1016/j.geoderma.2009.04.023" class="uri">https://doi.org/10.1016/j.geoderma.2009.04.023</a>.</p>
+<p>Kempen, B., D.J. Brus, G.B.M. Heuvelink, and J.J. Stoorvogel. 2009. “Updating the 1:50,000 Dutch soil map using legacy soil data: A multinomial logistic regression approach.” <em>Geoderma</em> 151 (3-4): 311–26. <a href="https://doi.org/10.1016/j.geoderma.2009.04.023" class="uri">https://doi.org/10.1016/j.geoderma.2009.04.023</a>.</p>
 </div>
 <div id="ref-Brown2014JSS">
 <p>Brown, Patrick E. 2015. “Model-Based Geostatistics the Easy Way.” <em>Journal of Statistical Software</em> 63 (12). <a href="http://www.jstatsoft.org/v63/i12" class="uri">http://www.jstatsoft.org/v63/i12</a>.</p>
@@ -3332,7 +3176,7 @@ alternatives.</p>
 <p>Heuvelink, G.B.M., and R. Webster. 2001. “Modelling soil variation: past, present, and future.” <em>Geoderma</em> 100 (3-4).</p>
 </div>
 <div id="ref-Florinsky2012Dokuchaev">
-<p>Florinsky, I. V. 2012. “The Dokuchaev Hypothesis as a Basis for Predictive Digital Soil Mapping (on the 125th Anniversary of Its Publication).” <em>Eurasian Soil Science</em> 45 (4):445–51. <a href="https://doi.org/10.1134/S1064229312040047" class="uri">https://doi.org/10.1134/S1064229312040047</a>.</p>
+<p>Florinsky, I. V. 2012. “The Dokuchaev Hypothesis as a Basis for Predictive Digital Soil Mapping (on the 125th Anniversary of Its Publication).” <em>Eurasian Soil Science</em> 45 (4): 445–51. <a href="https://doi.org/10.1134/S1064229312040047" class="uri">https://doi.org/10.1134/S1064229312040047</a>.</p>
 </div>
 <div id="ref-kutner2005applied">
 <p>Kutner, M.H., J. Neter, C.J. Nachtsheim, and W. Li. 2005. <em>Applied Linear Statistical Models</em>. Operations and Decision Sciences Series. McGraw-Hill Irwin.</p>
@@ -3344,25 +3188,25 @@ alternatives.</p>
 <p>Breiman, Leo. 1993. <em>Classification and Regression Trees</em>. CRC press.</p>
 </div>
 <div id="ref-hearst1998support">
-<p>Hearst, Marti A., S.T. Dumais, E. Osman, John Platt, and Bernhard Scholkopf. 1998. “Support Vector Machines.” <em>Intelligent Systems and Their Applications, IEEE</em> 13 (4). IEEE:18–28.</p>
+<p>Hearst, Marti A., S.T. Dumais, E. Osman, John Platt, and Bernhard Scholkopf. 1998. “Support Vector Machines.” <em>Intelligent Systems and Their Applications, IEEE</em> 13 (4). IEEE: 18–28.</p>
 </div>
 <div id="ref-breiman2001random">
-<p>Breiman, Leo. 2001. “Random Forests.” <em>Machine Learning</em> 45 (1). Springer:5–32.</p>
+<p>Breiman, Leo. 2001. “Random Forests.” <em>Machine Learning</em> 45 (1). Springer: 5–32.</p>
 </div>
 <div id="ref-meinshausen2006quantile">
-<p>Meinshausen, Nicolai. 2006. “Quantile Regression Forests.” <em>The Journal of Machine Learning Research</em> 7 (Jun). JMLR.org:983–99.</p>
+<p>Meinshausen, Nicolai. 2006. “Quantile Regression Forests.” <em>The Journal of Machine Learning Research</em> 7 (Jun). JMLR.org: 983–99.</p>
 </div>
 <div id="ref-hastie2009elements">
 <p>Hastie, T.J., R.J. Tibshirani, and J.J.H. Friedman. 2009. <em>The Elements of Statistical Learning: Data Mining, Inference, and Prediction</em>. Springer Series in Statistics. Springer-Verlag New York.</p>
 </div>
 <div id="ref-Statnikov2008">
-<p>Statnikov, Alexander, Lily Wang, and Constantin Aliferis. 2008. “A Comprehensive Comparison of Random Forests and Support Vector Machines for Microarray-Based Cancer Classification.” <em>BMC Bioinformatics</em> 9 (1):319. <a href="https://doi.org/10.1186/1471-2105-9-319" class="uri">https://doi.org/10.1186/1471-2105-9-319</a>.</p>
+<p>Statnikov, Alexander, Lily Wang, and Constantin Aliferis. 2008. “A Comprehensive Comparison of Random Forests and Support Vector Machines for Microarray-Based Cancer Classification.” <em>BMC Bioinformatics</em> 9 (1): 319. <a href="https://doi.org/10.1186/1471-2105-9-319" class="uri">https://doi.org/10.1186/1471-2105-9-319</a>.</p>
 </div>
 <div id="ref-kanevski2009machine">
 <p>Kanevski, M., V. Timonin, and A. Pozdnukhov. 2009. <em>Machine Learning for Spatial Environmental Data: Theory, Applications, and Software</em>. Environmental Sciences. EFPL Press.</p>
 </div>
 <div id="ref-lark2003fitting">
-<p>Lark, R. M., and A. Papritz. 2003. “Fitting a Linear Model of Coregionalization for Soil Properties Using Simulated Annealing.” <em>Geoderma</em> 115 (3). Elsevier:245–60.</p>
+<p>Lark, R. M., and A. Papritz. 2003. “Fitting a Linear Model of Coregionalization for Soil Properties Using Simulated Annealing.” <em>Geoderma</em> 115 (3). Elsevier: 245–60.</p>
 </div>
 <div id="ref-Stein1999Springer">
 <p>Stein, M. L. 1999. <em>Interpolation of Spatial Data: Some Theory for Kriging</em>. Series in Statistics. New York: Springer.</p>
@@ -3377,13 +3221,13 @@ alternatives.</p>
 <p>Goovaerts, P. 1997. <em>Geostatistics for Natural Resources Evaluation (Applied Geostatistics)</em>. New York: Oxford University Press.</p>
 </div>
 <div id="ref-Yamamoto2008">
-<p>Yamamoto, JorgeKazuo. 2008. “Estimation or Simulation? That Is the Question.” <em>Computational Geosciences</em> 12 (4). Springer Netherlands:573–91. <a href="https://doi.org/10.1007/s10596-008-9096-8" class="uri">https://doi.org/10.1007/s10596-008-9096-8</a>.</p>
+<p>Yamamoto, JorgeKazuo. 2008. “Estimation or Simulation? That Is the Question.” <em>Computational Geosciences</em> 12 (4). Springer Netherlands: 573–91. <a href="https://doi.org/10.1007/s10596-008-9096-8" class="uri">https://doi.org/10.1007/s10596-008-9096-8</a>.</p>
 </div>
 <div id="ref-Kutner2004McGraw">
 <p>Kutner, M. H., C. J. Nachtsheim, J. Neter, and W. Li, eds. 2004. <em>Applied Linear Statistical Models</em>. 5th ed. McGraw-Hill.</p>
 </div>
 <div id="ref-Pebesma2004CG">
-<p>Pebesma, Edzer J. 2004. “Multivariable geostatistics in S: the gstat package.” <em>Computers &amp; Geosciences</em> 30 (7). Elsevier:683–91.</p>
+<p>Pebesma, Edzer J. 2004. “Multivariable geostatistics in S: the gstat package.” <em>Computers &amp; Geosciences</em> 30 (7). Elsevier: 683–91.</p>
 </div>
 <div id="ref-Bivand2013Springer">
 <p>Bivand, R., E. Pebesma, and V. Rubio. 2008. <em>Applied Spatial Data Analysis with R</em>. Use R Series. Heidelberg: Springer.</p> 2013. <em>Applied Spatial Data Analysis with R</em>. 2nd ed. Use R Series. Heidelberg: Springer.</p>
@@ -3392,19 +3236,19 @@ alternatives.</p>
 <p>Pinheiro, J.C., and D. Bates. 2009. <em>Mixed-Effects Models in S and S-PLUS</em>. Statistics and Computing. Springer.</p>
 </div>
 <div id="ref-Minasny2007Geoderma">
-<p>Minasny, B., and A. B. McBratney. 2001. “The Australian soil texture boomerang: A comparison of the Australian and USDA/FAO soil particle-size classification systems.” <em>Australian Journal of Soil Research</em> 39:1443–51.</p> 2007. “Spatial prediction of soil properties using EBLUP with Matérn covariance function.” <em>Geoderma</em> 140:324–36.</p>
+<p>Minasny, B., and A. B. McBratney. 2001. “The Australian soil texture boomerang: A comparison of the Australian and USDA/FAO soil particle-size classification systems.” <em>Australian Journal of Soil Research</em> 39: 1443–51.</p> 2007. “Spatial prediction of soil properties using EBLUP with Matérn covariance function.” <em>Geoderma</em> 140: 324–36.</p>
 </div>
 <div id="ref-Kyriakidis2004GEAN1135">
-<p>Kyriakidis, Phaedon C. 2004. “A Geostatistical Framework for Area-to-Point Spatial Interpolation.” <em>Geographical Analysis</em> 36 (3). Blackwell Publishing Ltd:259–89. <a href="https://doi.org/10.1111/j.1538-4632.2004.tb01135.x" class="uri">https://doi.org/10.1111/j.1538-4632.2004.tb01135.x</a>.</p>
+<p>Kyriakidis, Phaedon C. 2004. “A Geostatistical Framework for Area-to-Point Spatial Interpolation.” <em>Geographical Analysis</em> 36 (3). Blackwell Publishing Ltd: 259–89. <a href="https://doi.org/10.1111/j.1538-4632.2004.tb01135.x" class="uri">https://doi.org/10.1111/j.1538-4632.2004.tb01135.x</a>.</p>
 </div>
 <div id="ref-Hengl2006CG">
-<p>Hengl, T. 2006. “Finding the right pixel size.” <em>Computers &amp; Geosciences</em> 32 (9):1283–98.</p>
+<p>Hengl, T. 2006. “Finding the right pixel size.” <em>Computers &amp; Geosciences</em> 32 (9): 1283–98.</p>
 </div>
 <div id="ref-Heuvelink1999Geoderma">
-<p>Heuvelink, G. B. M., and E. J. Pebesma. 1999. “Spatial aggregation and soil process modelling.” <em>Geoderma</em> 89 (1-2):47–65.</p>
+<p>Heuvelink, G. B. M., and E. J. Pebesma. 1999. “Spatial aggregation and soil process modelling.” <em>Geoderma</em> 89 (1-2): 47–65.</p>
 </div>
 <div id="ref-Hengl2013JAG">
-<p>Hengl, T., M. Nikolić, and R. A. MacMillan. 2013. “Mapping Efficiency and Information Content.” <em>International Journal of Applied Earth Observation and Geoinformation</em> 22:127–38. <a href="https://doi.org/10.1016/j.jag.2012.02.005" class="uri">https://doi.org/10.1016/j.jag.2012.02.005</a>.</p>
+<p>Hengl, T., M. Nikolić, and R. A. MacMillan. 2013. “Mapping Efficiency and Information Content.” <em>International Journal of Applied Earth Observation and Geoinformation</em> 22: 127–38. <a href="https://doi.org/10.1016/j.jag.2012.02.005" class="uri">https://doi.org/10.1016/j.jag.2012.02.005</a>.</p>
 </div>
 <div id="ref-Heuvelink2006Elsevier">
 <p>Heuvelink, G.B.M., and J. Brown. 2006. “Towards a Soil Information System for Uncertain Soil Data.” In <em>Digital Soil Mapping: An Introductory Perspective</em>, edited by P. Lagacherie, A. B. McBratney, and M. Voltz, 112–18. Developments in Soil Science. Amsterdam: Elsevier.</p>
@@ -3413,10 +3257,10 @@ alternatives.</p>
 <p>Heuvelink, G.B.M. 1998. <em>Error Propagation in Environmental Modelling with Gis</em>. London, UK: Taylor &amp; Francis.</p>
 </div>
 <div id="ref-Brus2011EJSS">
-<p>Brus, D.J., B. Kempen, and G.B.M. Heuvelink. 2011. “Sampling for Validation of Digital Soil Maps.” <em>European Journal of Soil Science</em> 62 (3). Blackwell Publishing Ltd:394–407. <a href="https://doi.org/10.1111/j.1365-2389.2011.01364.x" class="uri">https://doi.org/10.1111/j.1365-2389.2011.01364.x</a>.</p>
+<p>Brus, D.J., B. Kempen, and G.B.M. Heuvelink. 2011. “Sampling for Validation of Digital Soil Maps.” <em>European Journal of Soil Science</em> 62 (3). Blackwell Publishing Ltd: 394–407. <a href="https://doi.org/10.1111/j.1365-2389.2011.01364.x" class="uri">https://doi.org/10.1111/j.1365-2389.2011.01364.x</a>.</p>
 </div>
 <div id="ref-Pebesma2011CompGeoSci">
-<p>Pebesma, Edzer, Dan Cornford, Gregoire Dubois, Gerard B.M. Heuvelink, Dionisis Hristopulos, Jürgen Pilz, Ulrich Stöhlker, Gary Morin, and Jon O. Skøien. 2011. “INTAMAP: The design and implementation of an interoperable automated interpolation web service.” <em>Computers &amp; Geosciences</em> 37 (3). Elsevier:343–52. <a href="https://doi.org/10.1016/j.cageo.2010.03.019" class="uri">https://doi.org/10.1016/j.cageo.2010.03.019</a>.</p>
+<p>Pebesma, Edzer, Dan Cornford, Gregoire Dubois, Gerard B.M. Heuvelink, Dionisis Hristopulos, Jürgen Pilz, Ulrich Stöhlker, Gary Morin, and Jon O. Skøien. 2011. “INTAMAP: The design and implementation of an interoperable automated interpolation web service.” <em>Computers &amp; Geosciences</em> 37 (3). Elsevier: 343–52. <a href="https://doi.org/10.1016/j.cageo.2010.03.019" class="uri">https://doi.org/10.1016/j.cageo.2010.03.019</a>.</p>
 </div>
 <div id="ref-kuhn2013applied">
 <p>Kuhn, Max, and Kjell Johnson. 2013. <em>Applied Predictive Modeling</em>. Vol. 810. Springer.</p>
@@ -3425,43 +3269,43 @@ alternatives.</p>
 <p>Brenning, A. 2012. “Spatial cross-validation and bootstrap for the assessment of prediction rules in remote sensing: The R package sperrorest.” In <em>2012 Ieee International Geoscience and Remote Sensing Symposium</em>, 5372–5. <a href="https://doi.org/10.1109/IGARSS.2012.6352393" class="uri">https://doi.org/10.1109/IGARSS.2012.6352393</a>.</p>
 </div>
 <div id="ref-CAUBET201999">
-<p>Caubet, Manon, Mercedes Román Dobarco, Dominique Arrouays, Budiman Minasny, and Nicolas P.A. Saby. 2019. “Merging Country, Continental and Global Predictions of Soil Texture: Lessons from Ensemble Modelling in France.” <em>Geoderma</em> 337:99–110. <a href="https://doi.org/10.1016/j.geoderma.2018.09.007" class="uri">https://doi.org/10.1016/j.geoderma.2018.09.007</a>.</p>
+<p>Caubet, Manon, Mercedes Román Dobarco, Dominique Arrouays, Budiman Minasny, and Nicolas P.A. Saby. 2019. “Merging Country, Continental and Global Predictions of Soil Texture: Lessons from Ensemble Modelling in France.” <em>Geoderma</em> 337: 99–110. <a href="https://doi.org/10.1016/j.geoderma.2018.09.007" class="uri">https://doi.org/10.1016/j.geoderma.2018.09.007</a>.</p>
 </div>
 <div id="ref-Heuvelink19921">
-<p>Heuvelink, G.B.M., and M.F.P. Bierkens. 1992. “Combining Soil Maps with Interpolations from Point Observations to Predict Quantitative Soil Properties.” <em>Geoderma</em> 55 (1-2):1–15. <a href="https://doi.org/10.1016/0016-7061(92)90002-O" class="uri">https://doi.org/10.1016/0016-7061(92)90002-O</a>.</p>
+<p>Heuvelink, G.B.M., and M.F.P. Bierkens. 1992. “Combining Soil Maps with Interpolations from Point Observations to Predict Quantitative Soil Properties.” <em>Geoderma</em> 55 (1-2): 1–15. <a href="https://doi.org/10.1016/0016-7061(92)90002-O" class="uri">https://doi.org/10.1016/0016-7061(92)90002-O</a>.</p>
 </div>
 <div id="ref-mowrer2000quantifying">
 <p>Mowrer, H. T., and R.G. Congalton. 2000. <em>Quantifying spatial uncertainty in natural resources: theory and applications for GIS and remote sensing</em>. Ann Arbor Press.</p>
 </div>
 <div id="ref-goovaerts2001geostatistical">
-<p>Goovaerts, Pierre. 2001. “Geostatistical Modelling of Uncertainty in Soil Science.” <em>Geoderma</em> 103 (1). Elsevier:3–26.</p>
+<p>Goovaerts, Pierre. 2001. “Geostatistical Modelling of Uncertainty in Soil Science.” <em>Geoderma</em> 103 (1). Elsevier: 3–26.</p>
 </div>
 <div id="ref-Finke2006Elsevier">
 <p>Finke, P. 2006. “Quality assessment of digital soil maps: producers and users perspectives.” In <em>Digital Soil Mapping: An Introductory Perspective</em>, edited by P. Lagacherie, A. B. McBratney, and M. Voltz, 523–41. Developments in Soil Science. Amsterdam: Elsevier.</p>
 </div>
 <div id="ref-Oreskes04021994">
-<p>Oreskes, Naomi, Kristin Shrader-Frechette, and Kenneth Belitz. 1994. “Verification, Validation, and Confirmation of Numerical Models in the Earth Sciences.” <em>Science</em> 263 (5147):641–46. <a href="https://doi.org/10.1126/science.263.5147.641" class="uri">https://doi.org/10.1126/science.263.5147.641</a>.</p>
+<p>Oreskes, Naomi, Kristin Shrader-Frechette, and Kenneth Belitz. 1994. “Verification, Validation, and Confirmation of Numerical Models in the Earth Sciences.” <em>Science</em> 263 (5147): 641–46. <a href="https://doi.org/10.1126/science.263.5147.641" class="uri">https://doi.org/10.1126/science.263.5147.641</a>.</p>
 </div>
 <div id="ref-brodlie2012review">
 <p>Brodlie, Ken, Rodolfo Allendes Osorio, and Adriano Lopes. 2012. “A Review of Uncertainty in Data Visualization.” In <em>Expanding the Frontiers of Visual Analytics and Visualization</em>, 81–109. Springer.</p>
 </div>
 <div id="ref-steichen2002note">
-<p>Steichen, Thomas J, and Nicholas J Cox. 2002. “A Note on the Concordance Correlation Coefficient.” <em>Stata J</em> 2 (2):183–89.</p>
+<p>Steichen, Thomas J, and Nicholas J Cox. 2002. “A Note on the Concordance Correlation Coefficient.” <em>Stata J</em> 2 (2): 183–89.</p>
 </div>
 <div id="ref-goovaerts1999geostatistics">
-<p>Goovaerts, Pierre. 1999. “Geostatistics in Soil Science: State-of-the-Art and Perspectives.” <em>Geoderma</em> 89 (1). Elsevier:1–45.</p>
+<p>Goovaerts, Pierre. 1999. “Geostatistics in Soil Science: State-of-the-Art and Perspectives.” <em>Geoderma</em> 89 (1). Elsevier: 1–45.</p>
 </div>
 <div id="ref-Hengl2018RFsp">
-<p>Hengl, Tomislav, Madlene Nussbaum, Marvin N Wright, Gerard B.M. Heuvelink, and Benedikt Gräler. 2018. “Random Forest as a Generic Framework for Predictive Modeling of Spatial and Spatio-Temporal Variables.” <em>PeerJ</em> 6 (August):e5518. <a href="https://doi.org/10.7717/peerj.5518" class="uri">https://doi.org/10.7717/peerj.5518</a>.</p>
+<p>Hengl, Tomislav, Madlene Nussbaum, Marvin N Wright, Gerard B.M. Heuvelink, and Benedikt Gräler. 2018. “Random Forest as a Generic Framework for Predictive Modeling of Spatial and Spatio-Temporal Variables.” <em>PeerJ</em> 6 (August): e5518. <a href="https://doi.org/10.7717/peerj.5518" class="uri">https://doi.org/10.7717/peerj.5518</a>.</p>
 </div>
 <div id="ref-Burrough1971">
-<p>Burrough, P. A., P.H. T. Beckett, and M.G. Jarvis. 1971. “The Relation Between Cost and Utility in Soil Survey (I–Iii).” <em>Journal of Soil Science</em> 22 (3). Blackwell Publishing Ltd:359–94. <a href="https://doi.org/10.1111/j.1365-2389.1971.tb01624.x" class="uri">https://doi.org/10.1111/j.1365-2389.1971.tb01624.x</a>.</p>
+<p>Burrough, P. A., P.H. T. Beckett, and M.G. Jarvis. 1971. “The Relation Between Cost and Utility in Soil Survey (I–Iii).” <em>Journal of Soil Science</em> 22 (3). Blackwell Publishing Ltd: 359–94. <a href="https://doi.org/10.1111/j.1365-2389.1971.tb01624.x" class="uri">https://doi.org/10.1111/j.1365-2389.1971.tb01624.x</a>.</p>
 </div>
 <div id="ref-BieUlph1972JAE">
-<p>Bie, S.W., and A. Ulph. 1972. “The Economic Value of Survey Information.” <em>Journal of Agricultural Economics</em> 13:285–97.</p>
+<p>Bie, S.W., and A. Ulph. 1972. “The Economic Value of Survey Information.” <em>Journal of Agricultural Economics</em> 13: 285–97.</p>
 </div>
 <div id="ref-Bie1973JSS">
-<p>Bie, S.W., A. Uph, and P.H. T. Beckett. 1973. “Calculating the Economic Benefits of Soil Survey.” <em>Journal of Soil Science</em> 24:429–35.</p>
+<p>Bie, S.W., A. Uph, and P.H. T. Beckett. 1973. “Calculating the Economic Benefits of Soil Survey.” <em>Journal of Soil Science</em> 24: 429–35.</p>
 </div>
 <div id="ref-eltit2008">
 <p>Durana, Patricia J. 2008a. “Appendix A: Chronology of the U.S.Soil Survey.” In <em>Profiles in the History of the U.s.soil Survey</em>, 315–20. Iowa State Press. <a href="https://doi.org/10.1002/9780470376959.app1" class="uri">https://doi.org/10.1002/9780470376959.app1</a>.</p>
@@ -3473,7 +3317,7 @@ alternatives.</p>
 <p>Carrick, Sam, Éva-Terézia Vesely, and Allan Hewitt. 2010. “Economic Value of Improved Soil Natural Capital Assessment: A Case Study on Nitrogen Leaching.” In <em>19th World Congress of Soil Science</em>, 1–6. Brisbane, Australia: IUSS.</p>
 </div>
 <div id="ref-Pimentel2006Springer">
-<p>Pimentel, David. 2006. “Soil Erosion: A Food and Environmental Threat.” <em>Environment, Development and Sustainability</em> 8 (1). Kluwer Academic Publishers:119–37. <a href="https://doi.org/10.1007/s10668-005-1262-8" class="uri">https://doi.org/10.1007/s10668-005-1262-8</a>.</p>
+<p>Pimentel, David. 2006. “Soil Erosion: A Food and Environmental Threat.” <em>Environment, Development and Sustainability</em> 8 (1). Kluwer Academic Publishers: 119–37. <a href="https://doi.org/10.1007/s10668-005-1262-8" class="uri">https://doi.org/10.1007/s10668-005-1262-8</a>.</p>
 </div>
 <div id="ref-Hengl2014SoilGrids1km">
 <p>Hengl, Jorge AND MacMillan, Tomislav AND Mendes de Jesus. 2014. “SoilGrids1km — Global Soil Information Based on Automated Mapping.” <em>PLoS ONE</em> 9 (e105992). Public Library of Science. <a href="https://doi.org/10.1371/journal.pone.0105992" class="uri">https://doi.org/10.1371/journal.pone.0105992</a>.</p>
