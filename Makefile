@@ -9,7 +9,7 @@ build:
 	Rscript -e 'browseURL("_book/index.html")'
 
 pdf:
-	Rscript -e 'bookdown::render_book("index.Rmd", output_format = "bookdown::pdf_book", output_file = "psm.pdf")'
+	Rscript -e 'bookdown::render_book("index.Rmd", output_format = "bookdown::pdf_book", output_file = "PSMwR_UStrade.pdf")'
 
 md:
 	Rscript -e 'bookdown::render_book("index.Rmd", output_format = "bookdown::pdf_book", clean = FALSE)'
@@ -17,8 +17,8 @@ md:
 all:
 	Rscript -e 'bookdown::render_book("index.Rmd", output_format = "bookdown::gitbook")'
 	cp -fvr css/style.css docs/
-	Rscript -e 'bookdown::render_book("index.Rmd", output_format = "bookdown::pdf_book", output_file = "psm.pdf")'
-	Rscript -e 'bookdown::render_book("index.Rmd", output_format = "bookdown::epub_book", output_file = "psm.epub")'
+	Rscript -e 'bookdown::render_book("index.Rmd", output_format = "bookdown::pdf_book", output_file = "PSMwR_UStrade.pdf")'
+	Rscript -e 'bookdown::render_book("index.Rmd", output_format = "bookdown::epub_book", output_file = "PSMwR_UStrade.epub")'
 
 install:
 	Rscript -e 'devtools::install_github("nowosad/PSMpkg")'
