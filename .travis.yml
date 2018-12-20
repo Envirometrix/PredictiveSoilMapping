@@ -1,6 +1,7 @@
 language: r
 cache: packages
 latex: false
+pandoc_version: 2.1.2
 dist: trusty
 sudo: required
 before_install:
