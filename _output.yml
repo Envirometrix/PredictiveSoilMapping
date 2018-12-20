@@ -11,6 +11,7 @@ bookdown::gitbook:
     edit:
       link: https://github.com/envirometrix/PredictiveSoilMapping/edit/master/%s
       text: "Edit"
+    download: ["psm.pdf", "psm.epub"]
   includes:
     in_header: ga.html
     after_body: disqus.html
