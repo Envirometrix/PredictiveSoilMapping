@@ -290,7 +290,7 @@ om.rk <- predict(omm, meuse.grid)
 #> Prediction error for 'randomForest' model estimated using the 'quantreg' package.
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
-#> 100% done
+#>  48% done100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
 om.rk
