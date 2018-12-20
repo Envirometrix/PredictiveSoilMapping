@@ -15,12 +15,7 @@ bookdown::gitbook:
   includes:
     in_header: ga.html
     after_body: disqus.html
-bookdown::html_chapters:
-  css: [css/style.css, css/toc.css]
-  split_bib: no
-  comments: true
-  includes:
-    after_body: disqus.html
+  mathjax: "default"
 bookdown::pdf_book:
   includes:
     in_header: latex/preamble.tex
