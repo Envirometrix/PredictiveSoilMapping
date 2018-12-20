@@ -759,7 +759,7 @@ Consider that there are four main quality levels:
 
 Table: (\#tab:psm-table-costs)Example of a costs table for various quality levels PSM products. Prices expressed in USD / Mpix (million of pixels produced).
 
-X.Type.of.PSM.project                     L0         L1            L2             L3      
+Project_type                              L0         L1            L2             L3      
 ----------------------------------------  ---------  ------------  -------------  --------
 New area (single state)                   500-1000   1,000-5,000   5,000-50,000   >50,000 
 Using legacy points (single state)        0.8        2             2–50           >50     
