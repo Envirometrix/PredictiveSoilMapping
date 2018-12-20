@@ -43,6 +43,10 @@ This is the online version of the Open Access book: [**Predictive Soil Mapping w
 
 Hard copies of this book from will be made available in early 2019.
 
+**Cite as**:
+
+* Hengl, T., MacMillan, R.A., (2019). **Predictive Soil Mapping with R**. OpenGeoHub foundation, Wageningen, the Netherlands, 340 pages. ISBN: 978-0-359-30635-0.
+
 ## Editors {-}
 
 [**Tom Hengl**](https://opengeohub.org/people/tom-hengl) is a Senior Researchers and Vice Chair of the OpenGeoHub Foundation / technical director at Envirometrix Ltd. 
@@ -54,7 +58,7 @@ and global climate mapping projects. He has been teaching predictive soil mappin
 ISRIC within the “Hands-on-GSIF” block courses. Video tutorials of the soil mapping with R can also be 
 found at http://youtube.com/c/ISRICorg. Tom currently leads production of a web mapping system called “LandGIS” (https://landgis.opengeohub.org) and which is envisaged as *“an OpenStreetMap-type system”* for land-related environmental data. The system hosts global, fine spatial resolution data (250 m to 1 km) including various soil classes and soil properties, and is intended for eventual integration with farm-scale data and beyond.
 
-[**Bob MacMillan**](https://opengeohub.org/people/bob-macmillan) is a retired environmental consultant with over 40 years of experience in creating, packaging, delivering and using environmental information on soils, ecosystems, landforms and hydrology. Bob spent 19 years working in public sector research with the Alberta Research Council and Agriculture and Agri-Food Canada and a second 20 years as a private sector consultant offering services in predictive soil and ecological mapping. Since retiring, Bob has remained an active supporter, promoter, advocate, mentor and technical contributor to several continental to global scale efforts to advance the science and technology of mapping soils and other ecosystem components. As Science Coordinator for the GlobalSoilMap project, Bob helped to articulate the vision for the project and led initial activities aimed at achieving this, including authoring technical specifications, promoting the project, recruiting participants/cooperators, and liaising with representatives of national and international soil agencies. Bob continues to contribute on a voluntary basis to OpenGeoHub (https://opengeohub.org/), Africa Soil Information Servicce (AfSIS) (http://africasoils.net/) and the Canadian Digital Soil Data Consortium (CDSDC): (http://soilinfo.ca). Throughout his career, Bob has shared his expertise and his enthusiasm freely with dozens of younger scientists interested in learning about, and becoming, practitioners of digital soil mapping. Bob continues to support the next generation of digital soil mappers through his involvement with OpenGeoHub. 
+[**Bob MacMillan**](https://opengeohub.org/people/bob-macmillan) is a retired environmental consultant with over 40 years of experience in creating, packaging, delivering and using environmental information on soils, ecosystems, landforms and hydrology. Bob spent 19 years working in public sector research with the Alberta Research Council and Agriculture and Agri-Food Canada and a second 20 years as a private sector consultant offering services in predictive soil and ecological mapping. Since retiring, Bob has remained an active supporter, promoter, advocate, mentor and technical contributor to several continental to global scale efforts to advance the science and technology of mapping soils and other ecosystem components. As Science Coordinator for the GlobalSoilMap project, Bob helped to articulate the vision for the project and led initial activities aimed at achieving this, including authoring technical specifications, promoting the project, recruiting participants/cooperators, and liaising with representatives of national and international soil agencies. Bob continues to contribute on a voluntary basis to OpenGeoHub (https://opengeohub.org), Africa Soil Information Servicce (AfSIS) (http://africasoils.net) and the Canadian Digital Soil Data Consortium (CDSDC): (http://soilinfo.ca). Throughout his career, Bob has shared his expertise and his enthusiasm freely with dozens of younger scientists interested in learning about, and becoming, practitioners of digital soil mapping. Bob continues to support the next generation of digital soil mappers through his involvement with OpenGeoHub. 
 
 # Preface {-}
 
@@ -107,15 +111,15 @@ ISBN: 9783319634395, 720 pages.
 
 Readers are also encouraged to obtain and study the following R books before following some of the more complex exercises in this book:
 
-* Bivand, R., Pebesma, E., Rubio, V., (2013) [Applied Spatial Data Analysis with R](http://www.asdar-book.org/). Use R Series, Springer, Heidelberg, 2nd Ed. 400 pages.
+* Bivand, R., Pebesma, E., Rubio, V., (2013) [Applied Spatial Data Analysis with R](http://www.asdar-book.org). Use R Series, Springer, Heidelberg, 2nd Ed. 400 pages.
 
 * Irizarry, R.A., (2018) [Introduction to Data Science: Data Analysis and Prediction Algorithms with R](https://rafalab.github.io/dsbook/). HarvardX Data Science Series.
 
 * Kabacoff, R.I., (2011) [R in Action: Data Analysis and Graphics with R](http://www.manning.com/kabacoff/). Manning publications, ISBN: 9781935182399, 472 pages.
 
-* Kuhn, M., Johnson, K. (2013) [Applied Predictive Modeling](http://appliedpredictivemodeling.com/). Springer Science, ISBN: 9781461468493, 600 pages.
+* Kuhn, M., Johnson, K. (2013) [Applied Predictive Modeling](http://appliedpredictivemodeling.com). Springer Science, ISBN: 9781461468493, 600 pages.
 
-* Lovelace, R., Nowosad, J., Muenchow, J., (2018) [Geocomputation with R](https://geocompr.robinlovelace.net/). R Series, CRC Press, ISBN: 9781138304512, 338 pages.
+* Lovelace, R., Nowosad, J., Muenchow, J., (2018) [Geocomputation with R](https://geocompr.robinlovelace.net). R Series, CRC Press, ISBN: 9781138304512, 338 pages.
 
 * Reimann, C., Filzmoser, P., Garrett, R., Dutter, R., (2008) [Statistical Data Analysis Explained Applied Environmental Statistics with R](https://onlinelibrary.wiley.com/doi/book/10.1002/9780470987605). Wiley, Chichester, 337 pages.
 
@@ -136,7 +140,7 @@ In principle, all submitted chapters should also follow closely the [five pillar
 
 ## Reproducibility {-}
 
-To reproduce the book, you need a recent version of [R](https://cran.r-project.org/), and [RStudio](http://www.rstudio.com/products/RStudio/) and up-to-date packages, which can be installed with the following command (which requires [**devtools**](https://github.com/hadley/devtools)):
+To reproduce the book, you need a recent version of [R](https://cran.r-project.org), and [RStudio](http://www.rstudio.com/products/RStudio/) and up-to-date packages, which can be installed with the following command (which requires [**devtools**](https://github.com/hadley/devtools)):
 
 
 ```r
@@ -153,12 +157,12 @@ browseURL("docs/index.html") # to view it
 
 ## Acknowledgements {-}
 
-The authors are grateful to numerous contributions from colleagues around the world, especially for the contributions by the current and former ISRIC — World Soil Information colleagues: Gerard Heuvelink, Johan Leenaars, Jorge Mendes de Jesus, Wei Shangguan, David G. Rossiter, and many others. The authors are grateful to Dutch and European citizens for financing ISRIC and Wageningen University. The authors are also grateful to the support received via the [AfSIS project](http://africasoils.net), which has been funded by the Bill and Melinda Gates Foundation (BMGF) and the Alliance for a Green Revolution in Africa (AGRA). Many soil data processing examples in the book are based on the R code developed by Dylan Beuadette, Pierre Roudier, Alessandro Samuel Rosa, Marcos E. Angelini, Guillermo Federico Olmedo, Julian Moeys, Brandon Malone, and many other developers. Author is also grateful to comments and suggestions to the methods explained in the book by Travis Nauman, Amanda Ramcharan, David G. Rossiter and [Julian Moeys](http://julienmoeys.info/). 
+The authors are grateful to numerous contributions from colleagues around the world, especially for the contributions by the current and former ISRIC — World Soil Information colleagues: Gerard Heuvelink, Johan Leenaars, Jorge Mendes de Jesus, Wei Shangguan, David G. Rossiter, and many others. The authors are grateful to Dutch and European citizens for financing ISRIC and Wageningen University. The authors are also grateful to the support received via the [AfSIS project](http://africasoils.net), which has been funded by the Bill and Melinda Gates Foundation (BMGF) and the Alliance for a Green Revolution in Africa (AGRA). Many soil data processing examples in the book are based on the R code developed by Dylan Beuadette, Pierre Roudier, Alessandro Samuel Rosa, Marcos E. Angelini, Guillermo Federico Olmedo, Julian Moeys, Brandon Malone, and many other developers. Author is also grateful to comments and suggestions to the methods explained in the book by Travis Nauman, Amanda Ramcharan, David G. Rossiter and [Julian Moeys](http://julienmoeys.info). 
 
 LandGIS and SoilGrids are based on numerous soil profile data sets that have been
 kindly contributed by various national and international agencies: the
 USA National Cooperative Soil Survey Soil Characterization database
-(http://ncsslabdatamart.sc.egov.usda.gov/) and profiles from the USA
+(http://ncsslabdatamart.sc.egov.usda.gov) and profiles from the USA
 National Soil Information System, Land Use/Land Cover Area
 Frame Survey (LUCAS) Topsoil Survey database [@Toth2013LUCAS], 
 Repositório Brasileiro Livre para Dados Abertos do Solo ([FEBR](https://github.com/febr-team)), 
@@ -185,7 +189,7 @@ land products and elevation data), and to the Open Source software developers
 of the packages rgdal, sp, raster, caret, mlr, ranger, h2o and similar, 
 and without which predictive soil mapping would most likely not be possible.
 
-This book has been inspired by the [the Geocomputation with R book](https://geocompr.robinlovelace.net/), an Open Access book edited by Robin Lovelace, Jakub Nowosad and Jannes Muenchow. Many thanks to Robin Lovelace for helping with rmarkdown and for giving some initial tips for compiling and organizing book. The authors are also grateful to the numerous software/package developers, especially Edzer Pebesma, Roger Bivand, Robert Hijmans, Markus Neteler, Tim Appelhans, and Hadley Wickham, that have enabled a generation of researchers and applied projects. 
+This book has been inspired by the [the Geocomputation with R book](https://geocompr.robinlovelace.net), an Open Access book edited by Robin Lovelace, Jakub Nowosad and Jannes Muenchow. Many thanks to Robin Lovelace for helping with rmarkdown and for giving some initial tips for compiling and organizing book. The authors are also grateful to the numerous software/package developers, especially Edzer Pebesma, Roger Bivand, Robert Hijmans, Markus Neteler, Tim Appelhans, and Hadley Wickham, that have enabled a generation of researchers and applied projects. 
 
 We are especially grateful to Jakub Nowosad for helping with preparing this publication for press and with setting up all code so that it passes automatic checks.
 
@@ -2797,7 +2801,6 @@ om.rk <- predict(omm, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 17% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -5485,7 +5488,7 @@ The most relevant (global) publicly available remote sensing-based covariates th
 
 *  [JAXA's ALOS](http://www.eorc.jaxa.jp/ALOS/en/dataset/dataset_index.htm) (PALSAR/PALSAR-2) radar images at 20 m resolution [@shimada2014new]; radar images, bands HH: -27.7 (5.3) dB and HV: -35.8 (3.0) dB, from the JAXA's ALOS project are especially interesting for mapping rock outcrops and exposed bedrock but are also to distinguish between bare soil and dense vegetation;
 
-Note that the download time for 30 m global RS data can be significant if the data are needed for a larger area (hence you might consider using some RS data processing hub such as [Sentinel hub](http://www.sentinel-hub.com/), [Google Earth Engine](https://earthengine.google.com/) and/or [Amazon Web Services](https://aws.amazon.com/public-datasets/) instead of trying to download large mosaics yourself). 
+Note that the download time for 30 m global RS data can be significant if the data are needed for a larger area (hence you might consider using some RS data processing hub such as [Sentinel hub](http://www.sentinel-hub.com), [Google Earth Engine](https://earthengine.google.com) and/or [Amazon Web Services](https://aws.amazon.com/public-datasets/) instead of trying to download large mosaics yourself). 
 
 ### Soil covariate data sources (250 m resolution or coarser) {#soil-covs-250m}
 
@@ -6205,8 +6208,8 @@ noise. This is the basis of the *universal model of soil variation*
 [@Burrough1998OUP;Webster2001Wiley p.133]:
 
 \begin{equation}
-Z({s}) = m({s}) + \varepsilon '({s}) + \varepsilon ''({s})
-(\#eq:ukm)
+  Z({s}) = m({s}) + \varepsilon '({s}) + \varepsilon ''({s})
+  (\#eq:ukm)
 \end{equation}
 
 where $s$ is two-dimensional location, $m({s})$ is the
@@ -7807,7 +7810,7 @@ om.rksim.p <- predict(omm, meuse.grid, nsim=20, block=c(0,0))
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
 #> 
- 93% done
+ 92% done
 100% done
 #> Creating an object of class "RasterBrickSimulations"
 #> Loading required package: raster
@@ -8097,13 +8100,13 @@ library(intamap)
 demo(meuse, echo=FALSE)
 meuse$value = meuse$zinc
 output <- interpolate(meuse, meuse.grid, list(mean=TRUE, variance=TRUE))
-#> R 2018-12-20 12:16:15 interpolating 155 observations, 3103 prediction locations
+#> R 2018-12-20 20:08:39 interpolating 155 observations, 3103 prediction locations
 #> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : 
 #>  using standard model for estimating time. For better 
 #>  platform spesific predictions, please run 
 #>  timeModels <- generateTimeModels()
 #>   and save the workspace
-#> [1] "estimated time for  copula 159.486551818001"
+#> [1] "estimated time for  copula 159.792718657115"
 #> Checking object ... OK
 ```
 
@@ -8117,7 +8120,7 @@ str(output, max.level = 2)
 #> List of 16
 #>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
 #>  $ formulaString      :Class 'formula'  language value ~ 1
-#>   .. ..- attr(*, ".Environment")=<environment: 0x143f3f08> 
+#>   .. ..- attr(*, ".Environment")=<environment: 0x14e447d0> 
 #>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
 #>  $ params             :List of 18
 #>   ..$ doAnisotropy     : logi TRUE
@@ -9507,18 +9510,18 @@ localH2O = h2o.init(startH2O=TRUE)
 #> H2O is not running yet, starting it now...
 #> 
 #> Note:  In case of errors look at the following log files:
-#>     /tmp/Rtmpt7TJVs/h2o_travis_started_from_r.out
-#>     /tmp/Rtmpt7TJVs/h2o_travis_started_from_r.err
+#>     /tmp/RtmpdN6KNo/h2o_travis_started_from_r.out
+#>     /tmp/RtmpdN6KNo/h2o_travis_started_from_r.err
 #> 
 #> 
 #> Starting H2O JVM and connecting: .. Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         1 seconds 941 milliseconds 
+#>     H2O cluster uptime:         2 seconds 138 milliseconds 
 #>     H2O cluster timezone:       UTC 
 #>     H2O data parsing timezone:  UTC 
 #>     H2O cluster version:        3.20.0.8 
-#>     H2O cluster version age:    2 months and 28 days  
+#>     H2O cluster version age:    2 months and 29 days  
 #>     H2O cluster name:           H2O_started_from_R_travis_lqb476 
 #>     H2O cluster total nodes:    1 
 #>     H2O cluster total memory:   1.62 GB 
@@ -9553,23 +9556,23 @@ RF.m
 #> ==============
 #> 
 #> H2ORegressionModel: drf
-#> Model ID:  DRF_model_R_1545308233027_1 
+#> Model ID:  DRF_model_R_1545336577974_1 
 #> Model Summary: 
 #>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#> 1              50                       50              644466        20
+#> 1              50                       50              644688        20
 #>   max_depth mean_depth min_leaves max_leaves mean_leaves
-#> 1        20   20.00000        959       1071  1022.06000
+#> 1        20   20.00000        971       1074  1022.56000
 #> 
 #> 
 #> H2ORegressionMetrics: drf
 #> ** Reported on training data. **
 #> ** Metrics reported on Out-Of-Bag training samples **
 #> 
-#> MSE:  221
-#> RMSE:  14.9
+#> MSE:  219
+#> RMSE:  14.8
 #> MAE:  10.1
-#> RMSLE:  0.432
-#> Mean Residual Deviance :  221
+#> RMSLE:  0.428
+#> Mean Residual Deviance :  219
 ```
 
 This shows that the model fitting R-square is about 50%. This is also indicated by the predicted vs observed plot:
@@ -9616,29 +9619,29 @@ DL.m
 #> ==============
 #> 
 #> H2ORegressionModel: deeplearning
-#> Model ID:  DeepLearning_model_R_1545308233027_2 
+#> Model ID:  DeepLearning_model_R_1545336577974_2 
 #> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1
 #>   layer units      type dropout       l1       l2 mean_rate rate_rms
 #> 1     1    10     Input  0.00 %       NA       NA        NA       NA
-#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.015261 0.009464
-#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.139301 0.171381
-#> 4     4     1    Linear      NA 0.000000 0.000000  0.001359 0.001027
+#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.015586 0.010020
+#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.135829 0.187480
+#> 4     4     1    Linear      NA 0.000000 0.000000  0.001352 0.000881
 #>   momentum mean_weight weight_rms mean_bias bias_rms
 #> 1       NA          NA         NA        NA       NA
-#> 2 0.000000    0.005544   0.102835  0.363200 0.066976
-#> 3 0.000000   -0.018449   0.071364  0.955461 0.018502
-#> 4 0.000000    0.000413   0.049370  0.116748 0.000000
+#> 2 0.000000    0.003987   0.102350  0.356767 0.065519
+#> 3 0.000000   -0.018315   0.071533  0.954316 0.020149
+#> 4 0.000000    0.003568   0.050009  0.097430 0.000000
 #> 
 #> 
 #> H2ORegressionMetrics: deeplearning
 #> ** Reported on training data. **
 #> ** Metrics reported on full training frame **
 #> 
-#> MSE:  262
-#> RMSE:  16.2
-#> MAE:  12.2
-#> RMSLE:  0.497
-#> Mean Residual Deviance :  262
+#> MSE:  267
+#> RMSE:  16.3
+#> MAE:  12.3
+#> RMSLE:  0.502
+#> Mean Residual Deviance :  267
 ```
 
 Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. \@ref(fig:map-snd) and Fig. \@ref(fig:map-snd-dl)).
@@ -9874,16 +9877,16 @@ str(test.ORC)
 #> List of 2
 #>  $ CV_residuals:'data.frame':	4972 obs. of  4 variables:
 #>   ..$ Observed : num [1:4972] 14.5 13.6 10.1 12.1 7.1 ...
-#>   ..$ Predicted: num [1:4972] 14.34 10.45 8.76 5.57 3.35 ...
+#>   ..$ Predicted: num [1:4972] 14.24 10.69 9.36 6.41 3.34 ...
 #>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" ...
 #>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ Summary     :'data.frame':	1 obs. of  6 variables:
-#>   ..$ ME          : num -0.107
-#>   ..$ MAE         : num 2.12
-#>   ..$ RMSE        : num 3.62
-#>   ..$ R.squared   : num 0.571
-#>   ..$ logRMSE     : num 0.48
-#>   ..$ logR.squared: num 0.656
+#>   ..$ ME          : num -0.124
+#>   ..$ MAE         : num 2.13
+#>   ..$ RMSE        : num 3.6
+#>   ..$ R.squared   : num 0.576
+#>   ..$ logRMSE     : num 0.482
+#>   ..$ logR.squared: num 0.654
 ```
 
 Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about $\pm 4$ g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:
@@ -9938,14 +9941,14 @@ perf
 #> Base learner performance, sorted by specified metric:
 #>                    learner  MSE
 #> 2          h2o.gbm.wrapper 9.81
-#> 1 h2o.randomForest.wrapper 8.40
+#> 1 h2o.randomForest.wrapper 8.61
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 8.42920113713453
+#> Ensemble performance (MSE): 8.4236644610295
 ```
 
 which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.
@@ -10045,16 +10048,16 @@ perf3
 #> Base learner performance, sorted by specified metric:
 #>                    learner    MSE
 #> 1          h2o.glm.wrapper 0.2827
-#> 4 h2o.deeplearning.wrapper 0.1384
+#> 4 h2o.deeplearning.wrapper 0.1473
 #> 3          h2o.gbm.wrapper 0.0971
-#> 2 h2o.randomForest.wrapper 0.0779
+#> 2 h2o.randomForest.wrapper 0.0809
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 0.0777078716296586
+#> Ensemble performance (MSE): 0.0789246085247819
 ```
 
 In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.
@@ -10137,12 +10140,12 @@ sl
 #>     SL.library = sl.l) 
 #> 
 #> 
-#>                  Risk    Coef
-#> SL.mean_All    0.7540 0.00000
-#> SL.xgboost_All 0.0598 0.81131
-#> SL.ksvm_All    0.1288 0.00846
-#> SL.glmnet_All  0.3080 0.00000
-#> SL.ranger_All  0.0847 0.18023
+#>                  Risk   Coef
+#> SL.mean_All    0.7540 0.0000
+#> SL.xgboost_All 0.0598 0.8137
+#> SL.ksvm_All    0.1283 0.0116
+#> SL.glmnet_All  0.3075 0.0000
+#> SL.ranger_All  0.0849 0.1747
 ```
 
 This shows that `SL.xgboost_All` outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by `SL.xgboost_All` is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:
@@ -10162,9 +10165,9 @@ sl2
 #> 
 #> 
 #>                  Risk  Coef
-#> SL.xgboost_All 0.0603 0.819
-#> SL.ranger_All  0.0833 0.181
-#> SL.ksvm_All    0.1312 0.000
+#> SL.xgboost_All 0.0603 0.816
+#> SL.ranger_All  0.0836 0.184
+#> SL.ksvm_All    0.1310 0.000
 ```
 
 again `SL.xgboost` dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where entire profiles are taken out of the training dataset:
@@ -10191,11 +10194,11 @@ summary(cv_sl)
 #> All risk estimates are based on V =  5 
 #> 
 #>       Algorithm  Ave    se   Min  Max
-#>   Super Learner 0.16 0.014 0.095 0.26
-#>     Discrete SL 0.17 0.015 0.118 0.25
+#>   Super Learner 0.16 0.014 0.094 0.25
+#>     Discrete SL 0.17 0.014 0.109 0.25
 #>  SL.xgboost_All 0.19 0.016 0.135 0.27
-#>   SL.ranger_All 0.16 0.015 0.103 0.25
-#>     SL.ksvm_All 0.18 0.015 0.109 0.30
+#>   SL.ranger_All 0.16 0.015 0.102 0.25
+#>     SL.ksvm_All 0.18 0.014 0.109 0.29
 ```
 
 where `V=5` specifies number of folds, and `id=rm.cookfarm$SOURCEID` forces that entire profiles are removed from training and cross-validation. This gives a more realistic RMSE of about ±0.35. Note that this time `SL.xgboost_All` is even somewhat worse than the random forest model, and the ensemble model (`Super Learner`) is slightly better than each individual model. This matches our previous results with `h20.ensemble`. 
@@ -10220,8 +10223,8 @@ sl2
 #> 
 #>                 Risk  Coef
 #> SL.xgboost_All 0.215 0.000
-#> SL.ranger_All  0.165 0.474
-#> SL.ksvm_All    0.163 0.526
+#> SL.ranger_All  0.167 0.461
+#> SL.ksvm_All    0.164 0.539
 new.data <- grid10m@data
 pred.PHI <- list(NULL)
 depths = c(10,30,50,70,90)
@@ -10243,7 +10246,7 @@ for(j in 1:length(depths)){
 #>     buffer, rotated
 str(pred.PHI[[1]])
 #> List of 2
-#>  $ pred           : num [1:3865, 1] 4.67 4.74 4.87 4.85 4.78 ...
+#>  $ pred           : num [1:3865, 1] 4.72 4.8 4.94 4.9 4.82 ...
 #>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...
 #>   ..- attr(*, "dimnames")=List of 2
 #>   .. ..$ : NULL
@@ -11294,6 +11297,7 @@ fm.BLD = as.formula(
   paste("BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +", 
         paste(names(ind.tax), collapse="+")))
 m.BLD_PTF <- ranger(fm.BLD, dfs_tbl, num.trees = 85, importance='impurity')
+#> Growing trees.. Progress: 92%. Estimated remaining time: 2 seconds.
 m.BLD_PTF
 #> Ranger result
 #> 
@@ -12422,8 +12426,8 @@ of a soil mask can differ somewhat from the one we use, but this has
 been our practice.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_soil_mask_scheme.png" alt="Example of a soil mask scheme." width="100%" />
-<p class="caption">(\#fig:soil-mask-scheme)Example of a soil mask scheme.</p>
+<img src="figures/Fig_soil_mask_scheme.png" alt="Example of a soil (land) mask scheme." width="100%" />
+<p class="caption">(\#fig:soil-mask-scheme)Example of a soil (land) mask scheme.</p>
 </div>
 
 From the perspective of global soil mapping, any place on terrestrial
@@ -12780,9 +12784,9 @@ Consider that there are four main quality levels:
   * L3 = final complete certified product according to the ISO or similar standards.
 
 
-Table: (\#tab:psm-table-costs)Example of a costs table for various quality levels PSM products. Prices expressed in US$ / Mpix (million of pixels produced).
+Table: (\#tab:psm-table-costs)Example of a costs table for various quality levels PSM products. Prices expressed in USD / Mpix (million of pixels produced).
 
-X.Type.of.PSM.project                     L0         L1            L2             L3      
+Project_type                              L0         L1            L2             L3      
 ----------------------------------------  ---------  ------------  -------------  --------
 New area (single state)                   500-1000   1,000-5,000   5,000-50,000   >50,000 
 Using legacy points (single state)        0.8        2             2–50           >50     
@@ -12985,13 +12989,13 @@ the 4 Cs and are:
 -   **Complete** (e.g. cover entire areas of interest),
 
 -   **Consistent** (e.g. are made using a single methodology, applied at a
-    single scale and over a single short period of time)
+    single scale and over a single short period of time),
 
 -   **Current** (e.g. represent conditions as they are today, at a specific
-    moment in time)
+    moment in time),
 
 -   **Correct** (e.g. are as accurate as is possible to achieve given
-    available data and methods)
+    available data and methods),
 
 We consider that it is also now possible to redesign any new output maps
 so that they are capable of acting directly as inputs to well
@@ -13035,48 +13039,48 @@ We consider that any new, future collaborative PSM activity should take
 advantage of recent scientific and technical advances in the following
 areas:
 
--   Collection of field observations and samples
+-   Collection of field observations and samples:
 
-    -   Collating and harmonizing existing legacy soils data
+    -   Collating and harmonizing existing legacy soils data,
 
     -   New field sampling designs and programs and new data collection
-        strategies
+        strategies,
 
--   Characterization of soils in the field and in the laboratory
+-   Characterization of soils in the field and in the laboratory:
 
-    -   New field sensors for characterizing soils in situ
+    -   New field sensors for characterizing soils in situ,
 
     -   New faster, cheaper and more accurate methods of laboratory
-        analysis
+        analysis,
 
 -   Creation, collation and distribution of comprehensive sets of
-    environmental covariates
+    environmental covariates:
 
     -   Introduce new covariate data sets based on new remote, air and
-        space sensors
+        space sensors,
 
     -   Include new varieties and resolutions of DEM and other
-        environmental covariate data
+        environmental covariate data,
 
     -   Maximize use and relevance of existing data sets of
-        environmental covariates
+        environmental covariates,
 
--   Automated spatial prediction models.
+-   Automated spatial prediction models:
 
     -   Replace previous qualitative and subjective mental models with
-        new quantitative and objective statistical models
+        new quantitative and objective statistical models,
 
     -   Adopt new methods of automated space-time modelling and
-        prediction
+        prediction,
 
 -   New options for hosting, publishing, sharing and using spatial data
-    via cloud services
+    via cloud services:
 
     -   Develop new platforms for collaborative data sharing and
-        geo-publishing
+        geo-publishing,
 
     -   Develop open services to deliver on-demand, real time online
-        mapping
+        mapping,
 
 ### Collection of field observations and samples
 
@@ -13106,19 +13110,19 @@ make their use for producing new inventory map products problematic.
 Some common limitations of legacy field data are:
 
 -   They are rarely collected using any kind of rigorous, statistically
-    valid, sampling design
+    valid, sampling design,
 
 -   Their locations in space (geolocations) are often not measured or
-    reported accurately
+    reported accurately,
 
 -   Their locations in time (sampling dates) are often unknown or are
-    spread over decades
+    spread over decades,
 
 -   The methods used in description or analysis can vary greatly by
-    source, location or time
+    source, location or time,
 
 -   They can be difficult and costly to find, to obtain, to digitize and
-    to harmonize
+    to harmonize,
 
 Despite these limitations, legacy field data have other attributes that
 make them useful and worth assembling, collating, harmonizing and using.
@@ -13126,48 +13130,48 @@ The advantages associated with using legacy field data can be summarized
 as follows:
 
 -   Legacy point data provide the only source of baseline information
-    about past time periods
+    about past time periods:
 
     -   We can’t go back in time to collect new samples or make new
-        observations applicable to past time periods
+        observations applicable to past time periods,
 
     -   They establish prior probabilities which are essentially
         starting points that describe what we know now before we start
-        making new predictions and new maps using new data
+        making new predictions and new maps using new data,
 
 -   Legacy point data are all we have initially to work with until new
-    field data can be obtained
+    field data can be obtained:
 
     -   Use of legacy field data can help us to learn and to improve
-        methods and approaches.
+        methods and approaches,
 
     -   Working through the full cycle required to produce predictive
         maps lets us learn a lot about how to do it and, more
-        importantly, how we might do it better the next time around.
+        importantly, how we might do it better the next time around,
 
     -   They give us something to work with to provide real-world,
         worked examples, for ourselves and for potential users, of the
         kinds of maps and other products that can now be produced
-        using modern automated prediction methods
+        using modern automated prediction methods,
 
 -   Legacy point data help us to illustrate problems, weaknesses and
-    opportunities for improvement
+    opportunities for improvement:
 
     -   Gaps in existing legacy data (missing data in space and time)
         help to illustrate the need to have samples that
-        comprehensively cover all areas of space and time of interest.
+        comprehensively cover all areas of space and time of interest,
 
     -   Errors and uncertainties in initial predictive maps based on
         legacy field data provide a clear illustration of the need for
-        more and better field data to improve future mapping
+        more and better field data to improve future mapping,
 
     -   The spatial distribution of uncertainties computed for initial
         maps created using legacy data can identify locations where
         new observations and samples are most needed and will
-        contribute most to improving subsequent predictions.
+        contribute most to improving subsequent predictions,
 
 Legacy point data can be surprisingly difficult and costly to find,
-obtain, harmonize and digitize. One can only imagine how many hundreds
+obtain, harmonize and digitize [@arrouays2017soil]. One can only imagine how many hundreds
 of thousands, even millions, of site observations may have been made by
 field personnel undertaking many different types of inventories for many
 different agencies over the years. Similarly, laboratories have
@@ -13208,10 +13212,6 @@ interested parties.
 
 ### Collecting New Field O&M Data
 
-Next, consider the challenges and opportunities associated with
-selecting, collecting, recording and using new field observations and
-laboratory measurements.
-
 The Africa Soil Information Service (AfSIS) project
 (http://www.africasoils.net) provides a
 powerful example of how new field observations and laboratory analysed
@@ -13229,36 +13229,36 @@ considerations for how the collection of new field O&M data can be made
 both more affordable and more effective.
 
 -   Select locations for field sampling using a formal, rigorous
-    sampling design
+    sampling design,
 
-    -   Design based sampling schemes
+    -   Design based sampling schemes:
 
-        -   Random sampling
+        -   Random sampling,
 
-        -   Stratified random sampling
+        -   Stratified random sampling,
 
-        -   Systematic sampling (confluence point or grid sampling)
+        -   Systematic sampling (confluence point or grid sampling),
 
-        -   Nested, multi-scale hierarchical sampling
+        -   Nested, multi-scale hierarchical sampling,
 
-    -   Model based sampling schemes
+    -   Model based sampling schemes:
 
-        -   Conditioned Latin Hypercube (cLHC) sampling
+        -   Conditioned Latin Hypercube (cLHC) sampling,
 
-        -   Multi-stage sampling at locations of maximum uncertainty
+        -   Multi-stage sampling at locations of maximum uncertainty,
 
 -   Systematize and automate all field sampling and recording procedures
-    as much as possible
+    as much as possible,
 
-    -   Create custom tools and apps to support
+    -   Create custom tools and apps to support:
 
-        -   Locating sample sites and recording observations
+        -   Locating sample sites and recording observations,
 
         -   Assigning unique identifier sample numbers to all locations
-            and samples
+            and samples,
 
         -   Tracking progress of samples from the field through the lab
-            to the database
+            to the database,
 
 Adopting formal sampling designs to identify where to best collect new
 field O&M samples offers several significant advantages.
@@ -13667,7 +13667,7 @@ Learning packages are equally applicable for processing large national or
 international data sets at resolutions of 250 m or better. LandGIS predictions
 are, for example, possible only thanks to the following packages that can be
 fully parallelized and are ready for upscaling predictions 
-(all three have been written in C++ in fact):
+(all written in C++ in fact):
 
   - **ranger** (https://github.com/imbs-hl/ranger),
 
@@ -14067,8 +14067,8 @@ estimated and counted on. These funds can also help pay for new work and
 new data.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_workflow_web_mapper.png" alt="Recommended decision tree for design of PSM. In essence, users' perspective and technical settings should be the key for most of decisions when it comes to design of PSM projects." width="95%" />
-<p class="caption">(\#fig:psm-design-users)Recommended decision tree for design of PSM. In essence, users' perspective and technical settings should be the key for most of decisions when it comes to design of PSM projects.</p>
+<img src="figures/Fig_workflow_web_mapper.png" alt="Recommended decision tree for designing a PSM project. In essence, users' perspective and technical settings should be the key for most of decisions when it comes to design of PSM projects." width="95%" />
+<p class="caption">(\#fig:psm-design-users)Recommended decision tree for designing a PSM project. In essence, users' perspective and technical settings should be the key for most of decisions when it comes to design of PSM projects.</p>
 </div>
 
 One can imagine quite a large number of potential partners, that might
@@ -14085,15 +14085,15 @@ Examples of the kinds of partners that might subscribe include:
     typically paid to collect environmental data and produce maps,
 
 -   NGOs and public interest groups that advocate for sustainability or
-    environmental protection
+    environmental protection,
 
 -   Universities and research institutions with interests in teaching or
-    conducting environmental research
+    conducting environmental research,
 
 -   Industry associations and professional certification bodies,
 
 -   Commercial companies that provide products or services in the areas
-    of computing, spatial analysis and the environment
+    of computing, spatial analysis and the environment.
 
 One would expect that partners willing to contribute a sustaining
 subscription would have something to gain from being active
@@ -14180,8 +14180,8 @@ verification and adjustments; Fig. \@ref(fig:scheme-soc-prof1)), can be
 generated. 
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_future_mobile_phone.png" alt="Future Global Land Information System (built on the top of the LandGIS concept) and targeted functionality: users on ground send local observations and measurements through their mobile phones, which are then used to run and re-callibrate global models." width="100%" />
-<p class="caption">(\#fig:mobile-phone-scheme)Future Global Land Information System (built on the top of the LandGIS concept) and targeted functionality: users on ground send local observations and measurements through their mobile phones, which are then used to run and re-callibrate global models.</p>
+<img src="figures/Fig_future_mobile_phone.png" alt="The proposed Global Land Information System (built on the top of the LandGIS concept) and targeted functionality: users on ground send local observations and measurements through their mobile phones, which are then used to run and re-callibrate global models." width="100%" />
+<p class="caption">(\#fig:mobile-phone-scheme)The proposed Global Land Information System (built on the top of the LandGIS concept) and targeted functionality: users on ground send local observations and measurements through their mobile phones, which are then used to run and re-callibrate global models.</p>
 </div>
 
 There are probably many viable ways in which a collective could be set
@@ -14208,7 +14208,7 @@ assembly, production, publishing, dissemination and use of spatial
 environmental data.
 
 This is the concept behind the newly formed OpenGeoHub Foundation
-(https://opengeohub.org/). We see OpenGeoHub as an entity that can build, 
+(https://opengeohub.org). We see OpenGeoHub as an entity that can build, 
 operate and maintain a core set of functionalities and infrastructure 
 required to support a wide variety of inventory type activities. 
 This core functionality can provide back office facilities 
