@@ -10,7 +10,7 @@ update_website() {
   git config --global push.default simple
   git remote add upstream "https://$GH_TOKEN@github.com/Envirometrix/PredictiveSoilMapping.git"
   git fetch upstream 2>err.txt
-  git checkout gh-pages
+  git checkout -f gh-pages
   
   cp -fvr $BASE_REPO/docs/* .
   # git add *.html; git add libs/; git add figures/; git add style.css; git add images/;
