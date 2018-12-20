@@ -418,17 +418,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p><span class="citation">Xu, Thornton, and Post (<a href="#ref-xu2013global">2013</a>)</span> estimated that total global microbial biomass is about 17 Pg C, which is only about 2% of the total for organic matter. Therefore, the amounts of C in microbial biomass can reasonably be considered negligible, in comparison to the total C stock. However, if one includes all living organisms, and especially tree roots, then the portion of total C found in living organisms could be more significant, especially in areas under dense forests.</p>
 <p>Soil Organic Carbon Stock (<strong>OCS</strong>) is the mass of soil organic carbon per standard area and for a specific depth interval, usually expressed in kg/m<span class="math inline">\(^2\)</span> or t/ha. It can be derived using (laboratory and/or field) measurement of soil organic carbon content (ORC; expressed in % or g/kg of &lt;2mm mineral earth), then taking into account bulk density (BLD), thickness of the soil layer, and volume percentage of coarse fragments (CRF) <span class="citation">(Nelson and Sommers <a href="#ref-Nelson1982">1982</a>; Poeplau, Vos, and Axel <a href="#ref-poeplau2017soil">2017</a>)</span>:</p>
-
+<span class="math display" id="eq:ocs">\[\begin{equation}
+{\rm OCS} [{\rm kg/m^2}] = {\rm ORC} [\%] / 100 \cdot {\rm BLD} [{\rm kg/m^3}] \cdot (1- {\rm CRF} [\%]/100) \cdot {\rm HOT} [m]
+\tag{7.1}
+\end{equation}\]</span>
 <p>Note that if one has soil organic carbon content measured in g/kg then one should divide by 1000 instead of 100. A correction for gravel content is necessary because only material less than 2 mm is analyzed for ORC concentration. Ignoring the gravel content can result in an overestimation of the organic carbon stock. Note also that OCS always refers to a specific depth interval or horizon thickness (HOT), e.g.:</p>
 <ul>
 <li>kg/m<span class="math inline">\(^2\)</span> for depth 0–30 cm <span class="citation">(Berhongaray and Alvarez <a href="#ref-berhongaray2013ipcc">2013</a>)</span>,</li>
 </ul>
 <p>Values of OCS in kg/m<span class="math inline">\(^2\)</span> can also be expressed in tons/ha units, in which case a simple conversion formula can be applied:</p>
-
+<span class="math display" id="eq:kgm2">\[\begin{equation}
+1 \cdot {\rm kg/m^2} = 10 \cdot {\rm tons/ha}
+\tag{7.2}
+\end{equation}\]</span>
 <p>Total OCS for an area of interest can be derived by multiplying OCS by total area e.g.:</p>
-
+<span class="math display" id="eq:tonsha">\[\begin{equation}
+120 {\rm tons/ha} \cdot 1 {\rm km^2} = 120 \cdot 100 = 12,000 {\rm tons}
+\tag{7.3}
+\end{equation}\]</span>
 <p>Another way to express soil organic carbon is through <strong>soil organic carbon density</strong> (<strong>OCD</strong> in kg/m<span class="math inline">\(^3\)</span>), which is in fact equivalent to OCS divided by the horizon thickness:</p>
-
+<span class="math display" id="eq:ocd">\[\begin{equation}
+{\rm OCD} [{\rm kg/m^3}] = {\rm ORC} [\%]/100 \cdot {\rm BLD} [{\rm kg/m^3}] \cdot (1- {\rm CRF} [\%]/100) = {\rm OCS} / {\rm HOT}
+\tag{7.4}
+\end{equation}\]</span>
 <p>While OCS is a summary measure of SOC, always associated with a specific depth interval, OCD is a relative measure of soil organic carbon distribution and can be associated with any support size i.e. to an arbitrary depth. In principle, OCD (kg/m<span class="math inline">\(^3\)</span>) is strongly correlated with ORC (g/kg) as indicated in the figure below. However, depending on soil mineralogy and coarse fragment content, OCD can be lower or higher than what the smoothed line indicates (notice the range of values around the smoothed line is relatively wide). It is important to understand, however, that, as long as ORC, BLD and CRF are known, one can convert the values from ORC to OCD and OCS and <em>vice versa</em>, without loosing any information about the soil organic carbon stock.</p>
 <div class="figure" style="text-align: center"><span id="fig:carbon-density-plot"></span>
 <img src="figures/rplot_soilcarbon_density_vs_orc.png" alt="Correlation between soil organic carbon density and soil organic carbon content (displayed on a log-scale) created using a global compilations of soil profile data (WoSIS). Values 1, 2, 3, 4, 5 and 6 in the plot (log scale) correspond to values 2, 6, 19, 54, 147 and 402. Note that for ORC &gt;12 percent, the OCD line flattens, which means that, organic carbon density practically stops to increase with the increase of ORC content." width="55%" />
@@ -651,9 +663,15 @@ Figure 7.2: Determination of soil organic carbon density and stock for standard 
 </tbody>
 </table>
 <p>Here also BLD values were not provided and so had to be estimated. To estimate BLD, we use a simple Pedo-Transfer rule e.g. from <span class="citation">Köchy, Hiederer, and Freibauer (<a href="#ref-kochy2015global">2015</a>)</span>:</p>
-
+<span class="math display" id="eq:kochy">\[\begin{equation}
+BLD.f = (-0.31 \cdot log(ORC/10) + 1.38) \cdot 1000
+\tag{7.5}
+\end{equation}\]</span>
 <p>We divide the organic carbon content here by 10 to convert the organic carbon content from g/kg to % as required by the PTF. Note that one might want to use different PTFs for different soil layers. For mineral soils the bulk density of subsoil layers is often somewhat higher than for topsoil layers. For organic soils this typically is the inverse. For instance, <span class="citation">Köchy, Hiederer, and Freibauer (<a href="#ref-kochy2015global">2015</a>)</span> propose the following PTF for the subsoil (for layers with SOC &gt; 3%):</p>
-
+<span class="math display" id="eq:kochy">\[\begin{equation}
+BLD = -0.32 * log({\rm ORC}[\%]) + 1.38
+\tag{7.5}
+\end{equation}\]</span>
 <p>which gives slightly lower bulk density values. Another useful source for PTFs for organic soils is work by <span class="citation">Hossain, Chen, and Zhang (<a href="#ref-hossain2015bulk">2015</a>)</span>. For illustrative purposes, we have here used only one PTF for all soil layers.</p>
 <p>We can again fit mass-preserving splines and determine OCS for standard depth intervals by using the functions applied to profile 1. This ultimately gives the following estimates (Fig. <a href="SOC-chapter.html#fig:scheme-soc-prof2">7.3</a>):</p>
 <ul>
@@ -692,7 +710,7 @@ fm.BLD =<span class="st"> </span><span class="kw">as.formula</span>(
   <span class="kw">paste</span>(<span class="st">&quot;BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +&quot;</span>, 
         <span class="kw">paste</span>(<span class="kw">names</span>(ind.tax), <span class="dt">collapse=</span><span class="st">&quot;+&quot;</span>)))
 m.BLD_PTF &lt;-<span class="st"> </span><span class="kw">ranger</span>(fm.BLD, dfs_tbl, <span class="dt">num.trees =</span> <span class="dv">85</span>, <span class="dt">importance=</span><span class="st">&#39;impurity&#39;</span>)
-<span class="co">#&gt; Growing trees.. Progress: 93%. Estimated remaining time: 2 seconds.</span>
+<span class="co">#&gt; Growing trees.. Progress: 91%. Estimated remaining time: 3 seconds.</span>
 m.BLD_PTF
 <span class="co">#&gt; Ranger result</span>
 <span class="co">#&gt; </span>
@@ -742,7 +760,10 @@ Figure 7.5: Correlation plot between soil organic carbon density and bulk densit
 </div>
 <p>To fill-in missing values for BLD, a combination of two global Pedo-Transfer functions can be used for example: (1) PTF fitted using random forest model that locally predicts BLD as a function of organic carbon content, clay and sand content, pH and coarse fragments, and (2) a simpler model that predicts BLD based on only ORC. The average RMSE of these PTFs for BLD is about ±150 kg/m<span class="math inline">\(^3\)</span>.</p>
 <p>For mineral soils the relationship between soil organic carbon and soil depth follows a log-log relationship which can be also approximated with the following (global) model (R-square: 0.36; see Fig. <a href="SOC-chapter.html#fig:soc-depth-plot">7.6</a>):</p>
-
+<span class="math display" id="eq:orc-depth">\[\begin{equation}
+ORC (depth) = exp[ 4.1517 −0.60934 \cdot log(depth) ]
+\tag{7.6}
+\end{equation}\]</span>
 <p>This also illustrates that any organic carbon spatial prediction model can significantly profit from including depth in the statistical modelling.</p>
 <div class="figure" style="text-align: center"><span id="fig:soc-depth-plot"></span>
 <img src="figures/journal_pone_0105992_g005.png" alt="Globally fitted regression model for predicting soil organic carbon using depth only (log-log regression) and (a) individual soil profile from the ISRIC soil monolith collection. Image source: Hengl et al. (2014) doi: 10.1371/journal.pone.0105992." width="90%" />
@@ -1157,7 +1178,10 @@ Figure 7.12: Distribution of soil observations based on sampling year.
 </p>
 </div>
 <p>In fact, because the data set above represents values of OCD at variable depths, we can use this data to fit a full 3D+T spatiotemporal model in the form:</p>
-
+<span class="math display" id="eq:stmodel">\[\begin{equation}
+{\rm OCD}(xydt) = d + X_1 (xy) + \ldots + X_k (xy) + \ldots + X_p (xyt)
+\tag{7.7}
+\end{equation}\]</span>
 <p>where <span class="math inline">\(d\)</span> is the depth, <span class="math inline">\(X_k (xy)\)</span> are static covariates i.e. the covariates that do not change in time, and <span class="math inline">\(X_p (xyt)\)</span> are spatiotemporal covariates i.e. covariates that change with time. Here we can assume that the static covariates are mainly landform and lithology: these have probably not changed significantly in the last 100 years. Land cover, land use and climate, on the other hand, have probably changed drastically in the last 100 years and have to be represented with a time-series of images. There are, indeed, several time-series data sets now available that can be used to represent land cover dynamics:</p>
 <ul>
 <li><p><a href="ftp://ftp.pbl.nl/hyde/hyde3.2/">HYDE 3.2 Historic land use data set</a> <span class="citation">(Klein Goldewijk et al. <a href="#ref-klein2011hyde">2011</a>)</span>: portrays the distribution of major agricultural systems from 10,000 BC (pre-historic no land-use condition) to the present time. 10 categories of land use have been represented: total cropping, total grazing, pasture (improved grazing-land), rangeland (unimproved grazing-land), total rainfed cropping, total irrigated cropping, with further subdivisions for rice and non-rice cropping systems for both rainfed and irrigated cropping.</p></li>
@@ -1253,73 +1277,73 @@ Figure 7.16: Predicted slope of change of soil organic carbon density for Texas 
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-sanderman2018soil">
-<p>Sanderman, Jonathan, Tomislav Hengl, and Gregory J Fiske. 2018. “Soil Carbon Debt of 12,000 Years of Human Land Use.” <em>PROCEEDINGS OF THE NATIONAL ACADEMY OF SCIENCES OF THE UNITED STATES OF AMERICA</em> 115 (7). NATL ACAD SCIENCES 2101 CONSTITUTION AVE NW, WASHINGTON, DC 20418 USA: E1700–E1700.</p>
+<p>Sanderman, Jonathan, Tomislav Hengl, and Gregory J Fiske. 2018. “Soil Carbon Debt of 12,000 Years of Human Land Use.” <em>PROCEEDINGS OF THE NATIONAL ACADEMY OF SCIENCES OF THE UNITED STATES OF AMERICA</em> 115 (7). NATL ACAD SCIENCES 2101 CONSTITUTION AVE NW, WASHINGTON, DC 20418 USA:E1700–E1700.</p>
 </div>
 <div id="ref-xu2013global">
-<p>Xu, Xiaofeng, Peter E Thornton, and Wilfred M Post. 2013. “A Global Analysis of Soil Microbial Biomass Carbon, Nitrogen and Phosphorus in Terrestrial Ecosystems.” <em>Global Ecology and Biogeography</em> 22 (6). Wiley Online Library: 737–49.</p>
+<p>Xu, Xiaofeng, Peter E Thornton, and Wilfred M Post. 2013. “A Global Analysis of Soil Microbial Biomass Carbon, Nitrogen and Phosphorus in Terrestrial Ecosystems.” <em>Global Ecology and Biogeography</em> 22 (6). Wiley Online Library:737–49.</p>
 </div>
 <div id="ref-Nelson1982">
 <p>Nelson, D. W., and L.E. Sommers. 1982. “Total Carbon, Organic Carbon, and Organic Matter.” In <em>Methods of Soil Analysis, Part 2</em>, edited by A.L. Page, R.H. Miller, and D.R. Keeney, 2nd ed., 539–79. Agron. Monogr. 9. Madison, WI: ASA; SSSA.</p>
 </div>
 <div id="ref-poeplau2017soil">
-<p>Poeplau, Christopher, Cora Vos, and Don Axel. 2017. “Soil Organic Carbon Stocks Are Systematically Overestimated by Misuse of the Parameters Bulk Density and Rock Fragment Content.” <em>Soil</em> 3 (1). Copernicus GmbH: 61.</p>
+<p>Poeplau, Christopher, Cora Vos, and Don Axel. 2017. “Soil Organic Carbon Stocks Are Systematically Overestimated by Misuse of the Parameters Bulk Density and Rock Fragment Content.” <em>Soil</em> 3 (1). Copernicus GmbH:61.</p>
 </div>
 <div id="ref-berhongaray2013ipcc">
-<p>Berhongaray, Gonzalo, and Roberto Alvarez. 2013. “The Ipcc Tool for Predicting Soil Organic Carbon Changes Evaluated for the Pampas, Argentina.” <em>Agriculture, Ecosystems &amp; Environment</em> 181. Elsevier: 241–45.</p>
+<p>Berhongaray, Gonzalo, and Roberto Alvarez. 2013. “The Ipcc Tool for Predicting Soil Organic Carbon Changes Evaluated for the Pampas, Argentina.” <em>Agriculture, Ecosystems &amp; Environment</em> 181. Elsevier:241–45.</p>
 </div>
 <div id="ref-Scharlemann2014CM">
-<p>Scharlemann, Jörn P. W., Edmund V. J. Tanner, Roland Hiederer, and Valerie Kapos. 2014. “Global Soil Carbon: Understanding and Managing the Largest Terrestrial Carbon Pool.” <em>Carbon Management</em> 5 (1). Future Science: 81–91. <a href="https://doi.org/10.4155/cmt.13.77" class="uri">https://doi.org/10.4155/cmt.13.77</a>.</p>
+<p>Scharlemann, Jörn P. W., Edmund V. J. Tanner, Roland Hiederer, and Valerie Kapos. 2014. “Global Soil Carbon: Understanding and Managing the Largest Terrestrial Carbon Pool.” <em>Carbon Management</em> 5 (1). Future Science:81–91. <a href="https://doi.org/10.4155/cmt.13.77" class="uri">https://doi.org/10.4155/cmt.13.77</a>.</p>
 </div>
 <div id="ref-Lal2004Science">
-<p>Lal, R. 2004. “Soil Carbon Sequestration Impacts on Global Climate Change and Food Security.” <em>Science</em> 304 (5677): 1623–7. <a href="https://doi.org/10.1126/science.1097396" class="uri">https://doi.org/10.1126/science.1097396</a>.</p>
+<p>Lal, R. 2004. “Soil Carbon Sequestration Impacts on Global Climate Change and Food Security.” <em>Science</em> 304 (5677):1623–7. <a href="https://doi.org/10.1126/science.1097396" class="uri">https://doi.org/10.1126/science.1097396</a>.</p>
 </div>
 <div id="ref-wei2014global">
-<p>Wei, Xiaorong, Mingan Shao, William Gale, and Linhai Li. 2014. “Global Pattern of Soil Carbon Losses Due to the Conversion of Forests to Agricultural Land.” <em>Scientific Reports</em> 4. Nature Publishing Group: 4062.</p>
+<p>Wei, Xiaorong, Mingan Shao, William Gale, and Linhai Li. 2014. “Global Pattern of Soil Carbon Losses Due to the Conversion of Forests to Agricultural Land.” <em>Scientific Reports</em> 4. Nature Publishing Group:4062.</p>
 </div>
 <div id="ref-Karssies2011CSIRO">
 <p>Karssies, Linda. 2011. <em>CSIRO National Soil Archive and the National Soil Database (Natsoil)</em>. Data Collection v1. Canberra: CSIRO.</p>
 </div>
 <div id="ref-Malone2009Geoderma">
-<p>Malone, B.P., A. B. McBratney, B. Minasny, and G.M. Laslett. 2009. “Mapping Continuous Depth Functions of Soil Carbon Storage and Available Water Capacity.” <em>Geoderma</em> 154 (1-2): 138–52. <a href="https://doi.org/10.1016/j.geoderma.2009.10.007" class="uri">https://doi.org/10.1016/j.geoderma.2009.10.007</a>.</p>
+<p>Malone, B.P., A. B. McBratney, B. Minasny, and G.M. Laslett. 2009. “Mapping Continuous Depth Functions of Soil Carbon Storage and Available Water Capacity.” <em>Geoderma</em> 154 (1-2):138–52. <a href="https://doi.org/10.1016/j.geoderma.2009.10.007" class="uri">https://doi.org/10.1016/j.geoderma.2009.10.007</a>.</p>
 </div>
 <div id="ref-shaw2005ecosystem">
 <p>Shaw, C., J.S. Bhatti, and K.J. Sabourin. 2005. <em>An Ecosystem Carbon Database for Canadian Forests</em>. Information Report. Edmonton, Alberta: Canadian Forest Service, Northern Forestry Centre.</p>
 </div>
 <div id="ref-kochy2015global">
-<p>Köchy, M, R Hiederer, and A Freibauer. 2015. “Global Distribution of Soil Organic Carbon–Part 1: Masses and Frequency Distributions of Soc Stocks for the Tropics, Permafrost Regions, Wetlands, and the World.” <em>Soil</em> 1 (1). Copernicus GmbH: 351–65.</p>
+<p>Köchy, M, R Hiederer, and A Freibauer. 2015. “Global Distribution of Soil Organic Carbon–Part 1: Masses and Frequency Distributions of Soc Stocks for the Tropics, Permafrost Regions, Wetlands, and the World.” <em>Soil</em> 1 (1). Copernicus GmbH:351–65.</p>
 </div>
 <div id="ref-hossain2015bulk">
-<p>Hossain, MF, W Chen, and Yu Zhang. 2015. “Bulk Density of Mineral and Organic Soils in the Canada’s Arctic and Sub-Arctic.” <em>Information Processing in Agriculture</em> 2 (3-4). Elsevier: 183–90.</p>
+<p>Hossain, MF, W Chen, and Yu Zhang. 2015. “Bulk Density of Mineral and Organic Soils in the Canada’s Arctic and Sub-Arctic.” <em>Information Processing in Agriculture</em> 2 (3-4). Elsevier:183–90.</p>
 </div>
 <div id="ref-ramcharan2017soil">
-<p>Ramcharan, Amanda, Tomislav Hengl, Travis Nauman, Colby Brungard, Sharon Waltman, Skye Wills, and James Thompson. 2018b. “Soil Property and Class Maps of the Conterminous Us at 100 Meter Spatial Resolution Based on a Compilation of National Soil Point Observations and Machine Learning.” <em>Soil Science Society of America Journal</em> 82: 186–201. <a href="https://doi.org/10.2136/sssaj2017.04.0122" class="uri">https://doi.org/10.2136/sssaj2017.04.0122</a>.</p>
+<p>Ramcharan, Amanda, Tomislav Hengl, Travis Nauman, Colby Brungard, Sharon Waltman, Skye Wills, and James Thompson. 2018b. “Soil Property and Class Maps of the Conterminous Us at 100 Meter Spatial Resolution Based on a Compilation of National Soil Point Observations and Machine Learning.” <em>Soil Science Society of America Journal</em> 82:186–201. <a href="https://doi.org/10.2136/sssaj2017.04.0122" class="uri">https://doi.org/10.2136/sssaj2017.04.0122</a>.</p>
 </div>
 <div id="ref-lobsey2016sensing">
-<p>Lobsey, CR, and RA Viscarra Rossel. 2016. “Sensing of Soil Bulk Density for More Accurate Carbon Accounting.” <em>European Journal of Soil Science</em> 67 (4). Wiley Online Library: 504–13.</p>
+<p>Lobsey, CR, and RA Viscarra Rossel. 2016. “Sensing of Soil Bulk Density for More Accurate Carbon Accounting.” <em>European Journal of Soil Science</em> 67 (4). Wiley Online Library:504–13.</p>
 </div>
 <div id="ref-Hengl2018RFsp">
-<p>Hengl, Tomislav, Madlene Nussbaum, Marvin N Wright, Gerard B.M. Heuvelink, and Benedikt Gräler. 2018. “Random Forest as a Generic Framework for Predictive Modeling of Spatial and Spatio-Temporal Variables.” <em>PeerJ</em> 6 (August): e5518. <a href="https://doi.org/10.7717/peerj.5518" class="uri">https://doi.org/10.7717/peerj.5518</a>.</p>
+<p>Hengl, Tomislav, Madlene Nussbaum, Marvin N Wright, Gerard B.M. Heuvelink, and Benedikt Gräler. 2018. “Random Forest as a Generic Framework for Predictive Modeling of Spatial and Spatio-Temporal Variables.” <em>PeerJ</em> 6 (August):e5518. <a href="https://doi.org/10.7717/peerj.5518" class="uri">https://doi.org/10.7717/peerj.5518</a>.</p>
 </div>
 <div id="ref-wright2017ranger">
-<p>Wright, Marvin N, and Andreas Ziegler. 2017. “ranger: A Fast Implementation of Random Forests for High Dimensional Data in C++ and R.” <em>Journal of Statistical Software</em> 77 (1): 1–17.</p>
+<p>Wright, Marvin N, and Andreas Ziegler. 2017. “ranger: A Fast Implementation of Random Forests for High Dimensional Data in C++ and R.” <em>Journal of Statistical Software</em> 77 (1):1–17.</p>
 </div>
 <div id="ref-meinshausen2006quantile">
-<p>Meinshausen, Nicolai. 2006. “Quantile Regression Forests.” <em>The Journal of Machine Learning Research</em> 7 (Jun). JMLR.org: 983–99.</p>
+<p>Meinshausen, Nicolai. 2006. “Quantile Regression Forests.” <em>The Journal of Machine Learning Research</em> 7 (Jun). JMLR.org:983–99.</p>
 </div>
 <div id="ref-klein2011hyde">
-<p>Klein Goldewijk, Kees, Arthur Beusen, Gerard Van Drecht, and Martine De Vos. 2011. “The Hyde 3.1 Spatially Explicit Database of Human-Induced Global Land-Use Change over the Past 12,000 Years.” <em>Global Ecology and Biogeography</em> 20 (1). Wiley Online Library: 73–86.</p>
+<p>Klein Goldewijk, Kees, Arthur Beusen, Gerard Van Drecht, and Martine De Vos. 2011. “The Hyde 3.1 Spatially Explicit Database of Human-Induced Global Land-Use Change over the Past 12,000 Years.” <em>Global Ecology and Biogeography</em> 20 (1). Wiley Online Library:73–86.</p>
 </div>
 <div id="ref-harris2014updated">
-<p>Harris, IPDJ, PD Jones, TJ Osborn, and DH Lister. 2014. “Updated High-Resolution Grids of Monthly Climatic Observations–the Cru Ts3. 10 Dataset.” <em>International Journal of Climatology</em> 34 (3). Wiley Online Library: 623–42.</p>
+<p>Harris, IPDJ, PD Jones, TJ Osborn, and DH Lister. 2014. “Updated High-Resolution Grids of Monthly Climatic Observations–the Cru Ts3. 10 Dataset.” <em>International Journal of Climatology</em> 34 (3). Wiley Online Library:623–42.</p>
 </div>
 <div id="ref-Gasch2015SPASTA">
-<p>Gasch, Caley, Tomislav Hengl, Benedikt Gräler, Hanna Meyer, Troy Magney, and David Brown. 2015. “Spatio-temporal interpolation of soil water, temperature, and electrical conductivity in 3D+T: The Cook Agronomy Farm data set.” <em>Spatial Statistics</em> 14 (Part A): 70–90. <a href="https://doi.org/10.1016/j.spasta.2015.04.001" class="uri">https://doi.org/10.1016/j.spasta.2015.04.001</a>.</p>
+<p>Gasch, Caley, Tomislav Hengl, Benedikt Gräler, Hanna Meyer, Troy Magney, and David Brown. 2015. “Spatio-temporal interpolation of soil water, temperature, and electrical conductivity in 3D+T: The Cook Agronomy Farm data set.” <em>Spatial Statistics</em> 14 (Part A):70–90. <a href="https://doi.org/10.1016/j.spasta.2015.04.001" class="uri">https://doi.org/10.1016/j.spasta.2015.04.001</a>.</p>
 </div>
 <div id="ref-forkel2015codominant">
-<p>Forkel, Matthias, Mirco Migliavacca, Kirsten Thonicke, Markus Reichstein, Sibyll Schaphoff, Ulrich Weber, and Nuno Carvalhais. 2015. “Codominant Water Control on Global Interannual Variability and Trends in Land Surface Phenology and Greenness.” <em>Global Change Biology</em> 21 (9). Wiley Online Library: 3414–35.</p>
+<p>Forkel, Matthias, Mirco Migliavacca, Kirsten Thonicke, Markus Reichstein, Sibyll Schaphoff, Ulrich Weber, and Nuno Carvalhais. 2015. “Codominant Water Control on Global Interannual Variability and Trends in Land Surface Phenology and Greenness.” <em>Global Change Biology</em> 21 (9). Wiley Online Library:3414–35.</p>
 </div>
 <div id="ref-ramcharan2018soil">
-<p>Ramcharan, Amanda, Tomislav Hengl, Travis Nauman, Colby Brungard, Sharon Waltman, Skye Wills, and James Thompson. 2018a. “Soil Property and Class Maps of the Conterminous United States at 100-Meter Spatial Resolution.” <em>Soil Science Society of America Journal</em> 82. The Soil Science Society of America, Inc.: 186–201.</p>
+<p>Ramcharan, Amanda, Tomislav Hengl, Travis Nauman, Colby Brungard, Sharon Waltman, Skye Wills, and James Thompson. 2018a. “Soil Property and Class Maps of the Conterminous United States at 100-Meter Spatial Resolution.” <em>Soil Science Society of America Journal</em> 82. The Soil Science Society of America, Inc.:186–201.</p>
 </div>
 </div>
 <div id="disqus_thread"></div>
