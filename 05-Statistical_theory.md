@@ -1342,7 +1342,7 @@ om.rk <- predict(omm, meuse.grid)
 #> Subsetting observations to fit the prediction domain in 2D...
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
-#> 100% done
+#>  16% done100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
 om.rk
@@ -1662,7 +1662,7 @@ om.rk.p <- predict(omm, meuse.grid, block=c(0,0))
 #> Subsetting observations to fit the prediction domain in 2D...
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
-#> 100% done
+#>  74% done100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
 om.rksim.p <- predict(omm, meuse.grid, nsim=20, block=c(0,0))
@@ -1670,7 +1670,7 @@ om.rksim.p <- predict(omm, meuse.grid, nsim=20, block=c(0,0))
 #> Generating 20 conditional simulations using the trend model (RK method)...
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
-#>  66% done100% done
+#> 100% done
 #> Creating an object of class "RasterBrickSimulations"
 #> Loading required package: raster
 #> 
@@ -1693,7 +1693,7 @@ om.rk.b <- predict(omm, meuse.grid, block=c(40,40), nfold=0)
 #> Subsetting observations to fit the prediction domain in 2D...
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
-#>  59% done100% done
+#> 100% done
 #> Creating an object of class "SpatialPredictions"
 om.rksim.b <- predict(omm, meuse.grid, nsim=2, block=c(40,40), debug.level=0)
 #> Subsetting observations to fit the prediction domain in 2D...
@@ -1909,7 +1909,7 @@ om.rksim.p <- predict(omm, meuse.grid, block=c(0,0), nsim=20)
 #> Generating 20 conditional simulations using the trend model (RK method)...
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
-#>  12% done100% done
+#> 100% done
 #> Creating an object of class "RasterBrickSimulations"
 log1p(meuse@data[1,"om"])
 #> [1] 2.7
@@ -1957,13 +1957,13 @@ library(intamap)
 demo(meuse, echo=FALSE)
 meuse$value = meuse$zinc
 output <- interpolate(meuse, meuse.grid, list(mean=TRUE, variance=TRUE))
-#> R 2018-12-20 13:56:10 interpolating 155 observations, 3103 prediction locations
+#> R 2018-12-20 14:14:40 interpolating 155 observations, 3103 prediction locations
 #> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : 
 #>  using standard model for estimating time. For better 
 #>  platform spesific predictions, please run 
 #>  timeModels <- generateTimeModels()
 #>   and save the workspace
-#> [1] "estimated time for  copula 158.371278190103"
+#> [1] "estimated time for  copula 228.289203324011"
 #> Checking object ... OK
 ```
 
@@ -1977,7 +1977,7 @@ str(output, max.level = 2)
 #> List of 16
 #>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
 #>  $ formulaString      :Class 'formula'  language value ~ 1
-#>   .. ..- attr(*, ".Environment")=<environment: 0x159832d0> 
+#>   .. ..- attr(*, ".Environment")=<environment: 0x15380708> 
 #>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
 #>  $ params             :List of 18
 #>   ..$ doAnisotropy     : logi TRUE
@@ -2149,7 +2149,7 @@ bwplot(resamps, layout = c(2, 1), metric=c("RMSE","Rsquared"),
 ```
 
 <div class="figure" style="text-align: center">
-<img src="psm_files/figure-epub3/bwplot-meuse-1.png" alt="Comparison of spatial prediction accuracy (RMSE at cross-validation points) for simple averaging (Mean), GLM with only soil map as covariate (Soilmap), GLM and random forest (RF) models with all possible covariates. Error bars indicate range of RMSE values for repeated CV." width="100%" />
+<img src="PSMwR_UStrade_files/figure-epub3/bwplot-meuse-1.png" alt="Comparison of spatial prediction accuracy (RMSE at cross-validation points) for simple averaging (Mean), GLM with only soil map as covariate (Soilmap), GLM and random forest (RF) models with all possible covariates. Error bars indicate range of RMSE values for repeated CV." width="100%" />
 <p class="caption">(\#fig:bwplot-meuse)Comparison of spatial prediction accuracy (RMSE at cross-validation points) for simple averaging (Mean), GLM with only soil map as covariate (Soilmap), GLM and random forest (RF) models with all possible covariates. Error bars indicate range of RMSE values for repeated CV.</p>
 </div>
 
@@ -2580,7 +2580,7 @@ hist(om.rk.cv$zscore, main="Z-scores histogram",
 ```
 
 <div class="figure" style="text-align: center">
-<img src="psm_files/figure-epub3/z-scores-histogram-1.png" alt="Z-scores for the cross-validation of the soil organic carbon model." width="100%" />
+<img src="PSMwR_UStrade_files/figure-epub3/z-scores-histogram-1.png" alt="Z-scores for the cross-validation of the soil organic carbon model." width="100%" />
 <p class="caption">(\#fig:z-scores-histogram)Z-scores for the cross-validation of the soil organic carbon model.</p>
 </div>
 
@@ -2728,7 +2728,7 @@ boxplot(om.sim1~ffreq, meuse.grid, col="grey",
 ```
 
 <div class="figure" style="text-align: center">
-<img src="psm_files/figure-epub3/confidence-limits-boxplot-1.png" alt="Prediction intervals for three flooding frequency classes for sampled and predicted soil organic matter. The grey boxes show 1st and 3rd quantiles i.e. range where of data falls." width="90%" />
+<img src="PSMwR_UStrade_files/figure-epub3/confidence-limits-boxplot-1.png" alt="Prediction intervals for three flooding frequency classes for sampled and predicted soil organic matter. The grey boxes show 1st and 3rd quantiles i.e. range where of data falls." width="90%" />
 <p class="caption">(\#fig:confidence-limits-boxplot)Prediction intervals for three flooding frequency classes for sampled and predicted soil organic matter. The grey boxes show 1st and 3rd quantiles i.e. range where of data falls.</p>
 </div>
 

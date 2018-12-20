@@ -406,7 +406,7 @@ plot(raster("./extdata/DEMSRT6_ll.tif"))
 ```
 
 <div class="figure" style="text-align: center">
-<img src="psm_files/figure-epub3/plot-eberg-ll-1.png" alt="Ebergotzen DEM reprojected in geographical coordinates." width="80%" />
+<img src="PSMwR_UStrade_files/figure-epub3/plot-eberg-ll-1.png" alt="Ebergotzen DEM reprojected in geographical coordinates." width="80%" />
 <p class="caption">(\#fig:plot-eberg-ll)Ebergotzen DEM reprojected in geographical coordinates.</p>
 </div>
 

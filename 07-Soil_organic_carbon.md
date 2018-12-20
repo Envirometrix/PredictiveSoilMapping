@@ -245,7 +245,7 @@ fm.BLD = as.formula(
   paste("BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +", 
         paste(names(ind.tax), collapse="+")))
 m.BLD_PTF <- ranger(fm.BLD, dfs_tbl, num.trees = 85, importance='impurity')
-#> Growing trees.. Progress: 60%. Estimated remaining time: 20 seconds.
+#> Growing trees.. Progress: 87%. Estimated remaining time: 4 seconds.
 m.BLD_PTF
 #> Ranger result
 #> 
@@ -565,7 +565,7 @@ This example illustrates that no significant spatial prediction models (with an 
 Note that the absolute values of our predictions of OCS are somewhat different than those produced by the [geospt package](https://cran.r-project.org/package=geospt) authors, although the main patterns are comparable.
 
 <div class="figure" style="text-align: center">
-<img src="psm_files/figure-epub3/plot-cosha30map-rf-1.png" alt="Comparison of predictions generated using ordinary kriging (left) and machine learning with the help of 30 m resolution covariates and buffer distances (right)." width="100%" />
+<img src="PSMwR_UStrade_files/figure-epub3/plot-cosha30map-rf-1.png" alt="Comparison of predictions generated using ordinary kriging (left) and machine learning with the help of 30 m resolution covariates and buffer distances (right)." width="100%" />
 <p class="caption">(\#fig:plot-cosha30map-rf)Comparison of predictions generated using ordinary kriging (left) and machine learning with the help of 30 m resolution covariates and buffer distances (right).</p>
 </div>
 
@@ -768,7 +768,7 @@ so that the final Organic carbon stocks in t/ha is:
 ```
 
 <div class="figure" style="text-align: center">
-<img src="psm_files/figure-epub3/plot-edgeroi-ocd-1.png" alt="Predicted organic carbon stock for 0–30 cm depth and error map for the Edgeroi data set. All values expressed in tons/ha." width="100%" />
+<img src="PSMwR_UStrade_files/figure-epub3/plot-edgeroi-ocd-1.png" alt="Predicted organic carbon stock for 0–30 cm depth and error map for the Edgeroi data set. All values expressed in tons/ha." width="100%" />
 <p class="caption">(\#fig:plot-edgeroi-ocd)Predicted organic carbon stock for 0–30 cm depth and error map for the Edgeroi data set. All values expressed in tons/ha.</p>
 </div>
 
@@ -845,7 +845,7 @@ hist(OCD_stN$YEAR, xlab="Year", main="", col="darkgrey")
 ```
 
 <div class="figure" style="text-align: center">
-<img src="psm_files/figure-epub3/thist-usa48-1.png" alt="Distribution of soil observations based on sampling year." width="100%" />
+<img src="PSMwR_UStrade_files/figure-epub3/thist-usa48-1.png" alt="Distribution of soil observations based on sampling year." width="100%" />
 <p class="caption">(\#fig:thist-usa48)Distribution of soil observations based on sampling year.</p>
 </div>
 
