@@ -17,7 +17,7 @@ that nobody will eventually use.
 
 ### PSM main steps
 
-Based on all theory explained previously, we can say that PSM is a six-step process:
+Based on all theory explained previously, we can summarize the usual PSM processes as (Fig. \@ref(fig:psm-decision-tree)):
 
 1.  Preparation of point data (training data).
 
@@ -32,6 +32,10 @@ Based on all theory explained previously, we can say that PSM is a six-step proc
     databases and/or web services).
 
 6.  Updates and improvements (support).
+
+```{r psm-decision-tree, echo=FALSE, fig.cap="General decision tree in a Predictive Soil Mapping project.", out.width="95%"}
+knitr::include_graphics("figures/Fig_decisiontree_PSM_project.png")
+```
 
 In principle, there are three main types of PSM projects:
 
