@@ -22,7 +22,7 @@ install:
   - R -e "devtools::install_github('Envirometrix/PSMpkg')"
 
 script:
-  - make all
+  - make html
 
 after_success:
   - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash deploy.sh
