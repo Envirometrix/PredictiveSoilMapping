@@ -206,7 +206,7 @@ summary(ch)
 To plot the result we can use the raster package (Fig. \@ref(fig:plot-eberg-soiltype)):
 
 <div class="figure" style="text-align: center">
-<img src="PSMwR_UStrade_files/figure-epub3/plot-eberg-soiltype-1.png" alt="Predicted soil types for the Ebergotzen case study." width="100%" />
+<img src="06-Soilmapping_using_mla_files/figure-html/plot-eberg-soiltype-1.png" alt="Predicted soil types for the Ebergotzen case study." width="100%" />
 <p class="caption">(\#fig:plot-eberg-soiltype)Predicted soil types for the Ebergotzen case study.</p>
 </div>
 
@@ -236,7 +236,7 @@ localH2O = h2o.init(startH2O=TRUE)
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         23 minutes 37 seconds 
+#>     H2O cluster uptime:         22 minutes 45 seconds 
 #>     H2O cluster timezone:       UTC 
 #>     H2O data parsing timezone:  UTC 
 #>     H2O cluster version:        3.20.0.8 
@@ -275,12 +275,12 @@ RF.m
 #> ==============
 #> 
 #> H2ORegressionModel: drf
-#> Model ID:  DRF_model_R_1545328262795_21 
+#> Model ID:  DRF_model_R_1545329043122_21 
 #> Model Summary: 
 #>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#> 1              50                       50              641162        20
+#> 1              50                       50              645927        20
 #>   max_depth mean_depth min_leaves max_leaves mean_leaves
-#> 1        20   20.00000        949       1073  1016.82000
+#> 1        20   20.00000        966       1080  1024.42000
 #> 
 #> 
 #> H2ORegressionMetrics: drf
@@ -310,7 +310,7 @@ plt1
 ```
 
 <div class="figure" style="text-align: center">
-<img src="PSMwR_UStrade_files/figure-epub3/obs-pred-snd-1.png" alt="Measured vs predicted SAND content based on the Random Forest model." width="100%" />
+<img src="06-Soilmapping_using_mla_files/figure-html/obs-pred-snd-1.png" alt="Measured vs predicted SAND content based on the Random Forest model." width="100%" />
 <p class="caption">(\#fig:obs-pred-snd)Measured vs predicted SAND content based on the Random Forest model.</p>
 </div>
 
@@ -322,7 +322,7 @@ eberg_grid$RFx <- as.data.frame(h2o.predict(RF.m, eberg.grid, na.action=na.pass)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="PSMwR_UStrade_files/figure-epub3/map-snd-1.png" alt="Predicted sand content based on random forest." width="100%" />
+<img src="06-Soilmapping_using_mla_files/figure-html/map-snd-1.png" alt="Predicted sand content based on random forest." width="100%" />
 <p class="caption">(\#fig:map-snd)Predicted sand content based on random forest.</p>
 </div>
 
@@ -338,29 +338,29 @@ DL.m
 #> ==============
 #> 
 #> H2ORegressionModel: deeplearning
-#> Model ID:  DeepLearning_model_R_1545328262795_22 
+#> Model ID:  DeepLearning_model_R_1545329043122_22 
 #> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1
 #>   layer units      type dropout       l1       l2 mean_rate rate_rms
 #> 1     1    10     Input  0.00 %       NA       NA        NA       NA
-#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.014911 0.008500
-#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.142214 0.184824
-#> 4     4     1    Linear      NA 0.000000 0.000000  0.001386 0.000861
+#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.016156 0.010288
+#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.152353 0.196741
+#> 4     4     1    Linear      NA 0.000000 0.000000  0.001340 0.000895
 #>   momentum mean_weight weight_rms mean_bias bias_rms
 #> 1       NA          NA         NA        NA       NA
-#> 2 0.000000    0.001893   0.100969  0.347300 0.072808
-#> 3 0.000000   -0.018597   0.071838  0.952579 0.018077
-#> 4 0.000000   -0.000374   0.042564  0.103612 0.000000
+#> 2 0.000000    0.001708   0.100890  0.347687 0.068530
+#> 3 0.000000   -0.018477   0.071397  0.953750 0.019092
+#> 4 0.000000    0.008199   0.052682  0.089615 0.000000
 #> 
 #> 
 #> H2ORegressionMetrics: deeplearning
 #> ** Reported on training data. **
 #> ** Metrics reported on full training frame **
 #> 
-#> MSE:  266
-#> RMSE:  16.3
-#> MAE:  12.4
+#> MSE:  271
+#> RMSE:  16.4
+#> MAE:  12.5
 #> RMSLE:  0.505
-#> Mean Residual Deviance :  266
+#> Mean Residual Deviance :  271
 ```
 
 Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. \@ref(fig:map-snd) and Fig. \@ref(fig:map-snd-dl)).
@@ -372,7 +372,7 @@ eberg_grid$DLx <- as.data.frame(h2o.predict(DL.m, eberg.grid, na.action=na.pass)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="PSMwR_UStrade_files/figure-epub3/map-snd-dl-1.png" alt="Predicted SAND content based on deep learning." width="100%" />
+<img src="06-Soilmapping_using_mla_files/figure-html/map-snd-dl-1.png" alt="Predicted SAND content based on deep learning." width="100%" />
 <p class="caption">(\#fig:map-snd-dl)Predicted SAND content based on deep learning.</p>
 </div>
 
@@ -387,7 +387,7 @@ eberg_grid$SNDMHT_A <- rowSums(cbind(eberg_grid$RFx*rf.R2,
 ```
 
 <div class="figure" style="text-align: center">
-<img src="PSMwR_UStrade_files/figure-epub3/map-snd-ensemble-1.png" alt="Predicted SAND content based on ensemble predictions." width="100%" />
+<img src="06-Soilmapping_using_mla_files/figure-html/map-snd-ensemble-1.png" alt="Predicted SAND content based on ensemble predictions." width="100%" />
 <p class="caption">(\#fig:map-snd-ensemble)Predicted SAND content based on ensemble predictions.</p>
 </div>
 
@@ -505,7 +505,7 @@ w1 <- 100*max(tr.ORCDRC.rf$results$Rsquared)
 The variable importance plot indicates that DEPTH is by far the most important predictor:
 
 <div class="figure" style="text-align: center">
-<img src="PSMwR_UStrade_files/figure-epub3/varimp-plot-edgeroi-1.png" alt="Variable importance plot for predicting soil organic carbon content (ORC) in 3D." width="70%" />
+<img src="06-Soilmapping_using_mla_files/figure-html/varimp-plot-edgeroi-1.png" alt="Variable importance plot for predicting soil organic carbon content (ORC) in 3D." width="70%" />
 <p class="caption">(\#fig:varimp-plot-edgeroi)Variable importance plot for predicting soil organic carbon content (ORC) in 3D.</p>
 </div>
 
@@ -541,7 +541,7 @@ edgeroi.grids$ORCDRC_5cm <- (edgeroi.grids$Random_forest*w1 +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="PSMwR_UStrade_files/figure-epub3/maps-soc-edgeroi-1.png" alt="Comparison of three MLA's and final ensemble prediction (ORCDRC 5cm) of soil organic carbon content for 2.5 cm depth." width="100%" />
+<img src="06-Soilmapping_using_mla_files/figure-html/maps-soc-edgeroi-1.png" alt="Comparison of three MLA's and final ensemble prediction (ORCDRC 5cm) of soil organic carbon content for 2.5 cm depth." width="100%" />
 <p class="caption">(\#fig:maps-soc-edgeroi)Comparison of three MLA's and final ensemble prediction (ORCDRC 5cm) of soil organic carbon content for 2.5 cm depth.</p>
 </div>
 
@@ -596,22 +596,22 @@ str(test.ORC)
 #> List of 2
 #>  $ CV_residuals:'data.frame':	4972 obs. of  4 variables:
 #>   ..$ Observed : num [1:4972] 6.5 5.1 4.9 3.3 2.2 ...
-#>   ..$ Predicted: num [1:4972] 11.58 7.72 6.69 4.65 3.19 ...
+#>   ..$ Predicted: num [1:4972] 12.72 7.39 6.82 5.01 2.87 ...
 #>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" ...
 #>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ Summary     :'data.frame':	1 obs. of  6 variables:
-#>   ..$ ME          : num -0.143
-#>   ..$ MAE         : num 2.19
-#>   ..$ RMSE        : num 3.68
-#>   ..$ R.squared   : num 0.558
-#>   ..$ logRMSE     : num 0.498
+#>   ..$ ME          : num -0.116
+#>   ..$ MAE         : num 2.18
+#>   ..$ RMSE        : num 3.69
+#>   ..$ R.squared   : num 0.554
+#>   ..$ logRMSE     : num 0.497
 #>   ..$ logR.squared: num 0.631
 ```
 
 Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about $\pm 4$ g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:
 
 <div class="figure" style="text-align: center">
-<img src="PSMwR_UStrade_files/figure-epub3/plot-measured-predicted-1.png" alt="Predicted vs observed plot for soil organic carbon ML-based model (Edgeroi data set)." width="100%" />
+<img src="06-Soilmapping_using_mla_files/figure-html/plot-measured-predicted-1.png" alt="Predicted vs observed plot for soil organic carbon ML-based model (Edgeroi data set)." width="100%" />
 <p class="caption">(\#fig:plot-measured-predicted)Predicted vs observed plot for soil organic carbon ML-based model (Edgeroi data set).</p>
 </div>
 
@@ -667,7 +667,7 @@ perf
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 12.5413383650567
+#> Ensemble performance (MSE): 12.5254384220153
 ```
 
 which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.
@@ -767,16 +767,16 @@ perf3
 #> Base learner performance, sorted by specified metric:
 #>                    learner    MSE
 #> 1          h2o.glm.wrapper 0.2827
-#> 4 h2o.deeplearning.wrapper 0.1666
+#> 4 h2o.deeplearning.wrapper 0.1479
 #> 3          h2o.gbm.wrapper 0.0971
-#> 2 h2o.randomForest.wrapper 0.0759
+#> 2 h2o.randomForest.wrapper 0.0815
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 0.0728242380601994
+#> Ensemble performance (MSE): 0.078834187145367
 ```
 
 In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.
@@ -858,12 +858,12 @@ sl
 #>     SL.library = sl.l) 
 #> 
 #> 
-#>                  Risk  Coef
-#> SL.mean_All    0.7540 0.000
-#> SL.xgboost_All 0.0598 0.822
-#> SL.ksvm_All    0.1293 0.018
-#> SL.glmnet_All  0.3083 0.000
-#> SL.ranger_All  0.0854 0.160
+#>                  Risk   Coef
+#> SL.mean_All    0.7540 0.0000
+#> SL.xgboost_All 0.0598 0.8215
+#> SL.ksvm_All    0.1297 0.0143
+#> SL.glmnet_All  0.3079 0.0000
+#> SL.ranger_All  0.0858 0.1643
 ```
 
 This shows that `SL.xgboost_All` outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by `SL.xgboost_All` is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:
@@ -883,9 +883,9 @@ sl2
 #> 
 #> 
 #>                  Risk  Coef
-#> SL.xgboost_All 0.0603 0.806
-#> SL.ranger_All  0.0829 0.194
-#> SL.ksvm_All    0.1298 0.000
+#> SL.xgboost_All 0.0603 0.817
+#> SL.ranger_All  0.0838 0.183
+#> SL.ksvm_All    0.1305 0.000
 ```
 
 again `SL.xgboost` dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where entire profiles are taken out of the training dataset:
@@ -912,10 +912,10 @@ summary(cv_sl)
 #> All risk estimates are based on V =  5 
 #> 
 #>       Algorithm  Ave    se   Min  Max
-#>   Super Learner 0.16 0.014 0.096 0.25
-#>     Discrete SL 0.17 0.015 0.114 0.25
+#>   Super Learner 0.16 0.014 0.097 0.25
+#>     Discrete SL 0.17 0.014 0.121 0.25
 #>  SL.xgboost_All 0.19 0.016 0.135 0.27
-#>   SL.ranger_All 0.16 0.015 0.103 0.25
+#>   SL.ranger_All 0.17 0.014 0.102 0.25
 #>     SL.ksvm_All 0.18 0.014 0.109 0.30
 ```
 
@@ -941,8 +941,8 @@ sl2
 #> 
 #>                 Risk  Coef
 #> SL.xgboost_All 0.215 0.000
-#> SL.ranger_All  0.165 0.479
-#> SL.ksvm_All    0.163 0.521
+#> SL.ranger_All  0.165 0.471
+#> SL.ksvm_All    0.163 0.529
 new.data <- grid10m@data
 pred.PHI <- list(NULL)
 depths = c(10,30,50,70,90)
@@ -964,7 +964,7 @@ for(j in 1:length(depths)){
 #>     buffer, rotated
 str(pred.PHI[[1]])
 #> List of 2
-#>  $ pred           : num [1:3865, 1] 4.69 4.77 4.91 4.86 4.8 ...
+#>  $ pred           : num [1:3865, 1] 4.66 4.73 4.86 4.82 4.75 ...
 #>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...
 #>   ..- attr(*, "dimnames")=List of 2
 #>   .. ..$ : NULL
@@ -988,7 +988,7 @@ spplot(grid10m, paste0("PHI.", depths,"cm"),
 ```
 
 <div class="figure" style="text-align: center">
-<img src="PSMwR_UStrade_files/figure-epub3/ph-cookfarm-1.png" alt="Predicted soil pH using 3D ensemble model." width="100%" />
+<img src="06-Soilmapping_using_mla_files/figure-html/ph-cookfarm-1.png" alt="Predicted soil pH using 3D ensemble model." width="100%" />
 <p class="caption">(\#fig:ph-cookfarm)Predicted soil pH using 3D ensemble model.</p>
 </div>
 
@@ -1008,7 +1008,7 @@ spplot(grid10m, "PHI.10cm.sd", sp.layout = list(pts), col.regions=rev(bpy.colors
 ```
 
 <div class="figure" style="text-align: center">
-<img src="PSMwR_UStrade_files/figure-epub3/ph-cookfarm-var-1.png" alt="Example of variance of prediction models for soil pH." width="100%" />
+<img src="06-Soilmapping_using_mla_files/figure-html/ph-cookfarm-var-1.png" alt="Example of variance of prediction models for soil pH." width="100%" />
 <p class="caption">(\#fig:ph-cookfarm-var)Example of variance of prediction models for soil pH.</p>
 </div>
 
@@ -1435,7 +1435,7 @@ axis(2, 1:10, labels = dimnames(vv)[[1]], las = 2)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="PSMwR_UStrade_files/figure-epub3/rf-variableImportance-1.png" alt="Variable importance plot for mapping zinc content based on the Meuse data set." width="100%" />
+<img src="06-Soilmapping_using_mla_files/figure-html/rf-variableImportance-1.png" alt="Variable importance plot for mapping zinc content based on the Meuse data set." width="100%" />
 <p class="caption">(\#fig:rf-variableImportance)Variable importance plot for mapping zinc content based on the Meuse data set.</p>
 </div>
 

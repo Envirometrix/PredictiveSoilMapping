@@ -556,25 +556,17 @@ Figure 6.1: Predicted soil types for the Ebergotzen case study.
 <p>In the following example we look at mapping sand content for the upper horizons. To initiate h2o we run:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(h2o)
 localH2O =<span class="st"> </span><span class="kw">h2o.init</span>(<span class="dt">startH2O=</span><span class="ot">TRUE</span>)
-<span class="co">#&gt; </span>
-<span class="co">#&gt; H2O is not running yet, starting it now...</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Note:  In case of errors look at the following log files:</span>
-<span class="co">#&gt;     /tmp/RtmpqRJSRY/h2o_travis_started_from_r.out</span>
-<span class="co">#&gt;     /tmp/RtmpqRJSRY/h2o_travis_started_from_r.err</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Starting H2O JVM and connecting: .. Connection successful!</span>
+<span class="co">#&gt;  Connection successful!</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; R is connected to the H2O cluster: </span>
-<span class="co">#&gt;     H2O cluster uptime:         2 seconds 74 milliseconds </span>
+<span class="co">#&gt;     H2O cluster uptime:         22 minutes 45 seconds </span>
 <span class="co">#&gt;     H2O cluster timezone:       UTC </span>
 <span class="co">#&gt;     H2O data parsing timezone:  UTC </span>
 <span class="co">#&gt;     H2O cluster version:        3.20.0.8 </span>
 <span class="co">#&gt;     H2O cluster version age:    2 months and 29 days  </span>
 <span class="co">#&gt;     H2O cluster name:           H2O_started_from_R_travis_lqb476 </span>
 <span class="co">#&gt;     H2O cluster total nodes:    1 </span>
-<span class="co">#&gt;     H2O cluster total memory:   1.62 GB </span>
+<span class="co">#&gt;     H2O cluster total memory:   1.47 GB </span>
 <span class="co">#&gt;     H2O cluster total cores:    2 </span>
 <span class="co">#&gt;     H2O cluster allowed cores:  2 </span>
 <span class="co">#&gt;     H2O cluster healthy:        TRUE </span>
@@ -596,23 +588,23 @@ RF.m
 <span class="co">#&gt; ==============</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; H2ORegressionModel: drf</span>
-<span class="co">#&gt; Model ID:  DRF_model_R_1545328262795_1 </span>
+<span class="co">#&gt; Model ID:  DRF_model_R_1545329043122_21 </span>
 <span class="co">#&gt; Model Summary: </span>
 <span class="co">#&gt;   number_of_trees number_of_internal_trees model_size_in_bytes min_depth</span>
-<span class="co">#&gt; 1              50                       50              645023        20</span>
+<span class="co">#&gt; 1              50                       50              645927        20</span>
 <span class="co">#&gt;   max_depth mean_depth min_leaves max_leaves mean_leaves</span>
-<span class="co">#&gt; 1        20   20.00000        951       1087  1023.26000</span>
+<span class="co">#&gt; 1        20   20.00000        966       1080  1024.42000</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; H2ORegressionMetrics: drf</span>
 <span class="co">#&gt; ** Reported on training data. **</span>
 <span class="co">#&gt; ** Metrics reported on Out-Of-Bag training samples **</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; MSE:  219</span>
-<span class="co">#&gt; RMSE:  14.8</span>
+<span class="co">#&gt; MSE:  221</span>
+<span class="co">#&gt; RMSE:  14.9</span>
 <span class="co">#&gt; MAE:  10.1</span>
-<span class="co">#&gt; RMSLE:  0.429</span>
-<span class="co">#&gt; Mean Residual Deviance :  219</span></code></pre>
+<span class="co">#&gt; RMSLE:  0.431</span>
+<span class="co">#&gt; Mean Residual Deviance :  221</span></code></pre>
 <p>This shows that the model fitting R-square is about 50%. This is also indicated by the predicted vs observed plot:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(scales)
 <span class="kw">library</span>(lattice)
@@ -646,29 +638,29 @@ DL.m
 <span class="co">#&gt; ==============</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; H2ORegressionModel: deeplearning</span>
-<span class="co">#&gt; Model ID:  DeepLearning_model_R_1545328262795_2 </span>
+<span class="co">#&gt; Model ID:  DeepLearning_model_R_1545329043122_22 </span>
 <span class="co">#&gt; Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1</span>
 <span class="co">#&gt;   layer units      type dropout       l1       l2 mean_rate rate_rms</span>
 <span class="co">#&gt; 1     1    10     Input  0.00 %       NA       NA        NA       NA</span>
-<span class="co">#&gt; 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.015317 0.009806</span>
-<span class="co">#&gt; 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.129029 0.171565</span>
-<span class="co">#&gt; 4     4     1    Linear      NA 0.000000 0.000000  0.001246 0.000785</span>
+<span class="co">#&gt; 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.016156 0.010288</span>
+<span class="co">#&gt; 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.152353 0.196741</span>
+<span class="co">#&gt; 4     4     1    Linear      NA 0.000000 0.000000  0.001340 0.000895</span>
 <span class="co">#&gt;   momentum mean_weight weight_rms mean_bias bias_rms</span>
 <span class="co">#&gt; 1       NA          NA         NA        NA       NA</span>
-<span class="co">#&gt; 2 0.000000   -0.000202   0.093566  0.374600 0.064162</span>
-<span class="co">#&gt; 3 0.000000   -0.015767   0.070296  0.962340 0.014086</span>
-<span class="co">#&gt; 4 0.000000    0.004096   0.046632  0.019664 0.000000</span>
+<span class="co">#&gt; 2 0.000000    0.001708   0.100890  0.347687 0.068530</span>
+<span class="co">#&gt; 3 0.000000   -0.018477   0.071397  0.953750 0.019092</span>
+<span class="co">#&gt; 4 0.000000    0.008199   0.052682  0.089615 0.000000</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; H2ORegressionMetrics: deeplearning</span>
 <span class="co">#&gt; ** Reported on training data. **</span>
 <span class="co">#&gt; ** Metrics reported on full training frame **</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; MSE:  232</span>
-<span class="co">#&gt; RMSE:  15.2</span>
-<span class="co">#&gt; MAE:  11.1</span>
-<span class="co">#&gt; RMSLE:  0.436</span>
-<span class="co">#&gt; Mean Residual Deviance :  232</span></code></pre>
+<span class="co">#&gt; MSE:  271</span>
+<span class="co">#&gt; RMSE:  16.4</span>
+<span class="co">#&gt; MAE:  12.5</span>
+<span class="co">#&gt; RMSLE:  0.505</span>
+<span class="co">#&gt; Mean Residual Deviance :  271</span></code></pre>
 <p>Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. <a href="soilmapping-using-mla.html#fig:map-snd">6.3</a> and Fig. <a href="soilmapping-using-mla.html#fig:map-snd-dl">6.4</a>).</p>
 <pre class="sourceCode r"><code class="sourceCode r">## predictions:
 eberg_grid<span class="op">$</span>DLx &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">h2o.predict</span>(DL.m, eberg.grid, <span class="dt">na.action=</span>na.pass))<span class="op">$</span>predict</code></pre>
@@ -756,13 +748,13 @@ tr.ORCDRC.rf
 <span class="co">#&gt; </span>
 <span class="co">#&gt; No pre-processing</span>
 <span class="co">#&gt; Resampling: Cross-Validated (5 fold, repeated 1 times) </span>
-<span class="co">#&gt; Summary of sample sizes: 399, 401, 399, 401, 400 </span>
+<span class="co">#&gt; Summary of sample sizes: 400, 400, 400, 401, 399 </span>
 <span class="co">#&gt; Resampling results across tuning parameters:</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;   mtry  RMSE  Rsquared  MAE </span>
-<span class="co">#&gt;    2    4.36  0.525     2.83</span>
-<span class="co">#&gt;    7    4.17  0.552     2.45</span>
-<span class="co">#&gt;   12    4.36  0.527     2.51</span>
+<span class="co">#&gt;    2    3.58  0.580     2.41</span>
+<span class="co">#&gt;    7    3.14  0.630     2.04</span>
+<span class="co">#&gt;   12    3.21  0.609     2.06</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; RMSE was used to select the optimal model using the smallest value.</span>
 <span class="co">#&gt; The final value used for the model was mtry = 7.</span></code></pre>
@@ -790,7 +782,7 @@ w2 &lt;-<span class="st"> </span><span class="dv">100</span><span class="op">*</
 ORCDRC.gb &lt;-<span class="st"> </span><span class="kw">train</span>(formulaStringP2, <span class="dt">data=</span>mP2, <span class="dt">method =</span> <span class="st">&quot;xgbTree&quot;</span>, <span class="dt">trControl=</span>ctrl)
 w3 &lt;-<span class="st"> </span><span class="dv">100</span><span class="op">*</span><span class="kw">max</span>(ORCDRC.gb<span class="op">$</span>results<span class="op">$</span>Rsquared)
 <span class="kw">c</span>(w1, w2, w3)
-<span class="co">#&gt; [1] 55.2 54.9 69.4</span></code></pre>
+<span class="co">#&gt; [1] 63.0 65.9 66.6</span></code></pre>
 <p>At the end of the statistical modelling process, we can merge the predictions by using the CV R-square estimates:</p>
 <pre class="sourceCode r"><code class="sourceCode r">edgeroi.grids<span class="op">$</span>DEPTH =<span class="st"> </span><span class="fl">2.5</span>
 edgeroi.grids<span class="op">$</span>Random_forest &lt;-<span class="st"> </span><span class="kw">predict</span>(ORCDRC.rf, edgeroi.grids<span class="op">@</span>data, <span class="dt">na.action =</span> na.pass) 
@@ -846,17 +838,17 @@ test.ORC &lt;-<span class="st"> </span><span class="kw">cv_numeric</span>(formul
 <span class="kw">str</span>(test.ORC)
 <span class="co">#&gt; List of 2</span>
 <span class="co">#&gt;  $ CV_residuals:&#39;data.frame&#39;:    4972 obs. of  4 variables:</span>
-<span class="co">#&gt;   ..$ Observed : num [1:4972] 14.5 13.6 10.1 12.1 7.1 ...</span>
-<span class="co">#&gt;   ..$ Predicted: num [1:4972] 14.24 10.95 9.17 6.19 3.49 ...</span>
-<span class="co">#&gt;   ..$ SOURCEID : chr [1:4972] &quot;399_EDGEROI_ed017_1&quot; &quot;399_EDGEROI_ed017_1&quot; &quot;399_EDGEROI_ed017_1&quot; &quot;399_EDGEROI_ed017_1&quot; ...</span>
+<span class="co">#&gt;   ..$ Observed : num [1:4972] 6.5 5.1 4.9 3.3 2.2 ...</span>
+<span class="co">#&gt;   ..$ Predicted: num [1:4972] 12.72 7.39 6.82 5.01 2.87 ...</span>
+<span class="co">#&gt;   ..$ SOURCEID : chr [1:4972] &quot;399_EDGEROI_ed005_1&quot; &quot;399_EDGEROI_ed005_1&quot; &quot;399_EDGEROI_ed005_1&quot; &quot;399_EDGEROI_ed005_1&quot; ...</span>
 <span class="co">#&gt;   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...</span>
 <span class="co">#&gt;  $ Summary     :&#39;data.frame&#39;:    1 obs. of  6 variables:</span>
-<span class="co">#&gt;   ..$ ME          : num -0.127</span>
-<span class="co">#&gt;   ..$ MAE         : num 2.15</span>
-<span class="co">#&gt;   ..$ RMSE        : num 3.64</span>
-<span class="co">#&gt;   ..$ R.squared   : num 0.566</span>
-<span class="co">#&gt;   ..$ logRMSE     : num 0.489</span>
-<span class="co">#&gt;   ..$ logR.squared: num 0.643</span></code></pre>
+<span class="co">#&gt;   ..$ ME          : num -0.116</span>
+<span class="co">#&gt;   ..$ MAE         : num 2.18</span>
+<span class="co">#&gt;   ..$ RMSE        : num 3.69</span>
+<span class="co">#&gt;   ..$ R.squared   : num 0.554</span>
+<span class="co">#&gt;   ..$ logRMSE     : num 0.497</span>
+<span class="co">#&gt;   ..$ logR.squared: num 0.631</span></code></pre>
 <p>Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about <span class="math inline">\(\pm 4\)</span> g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:</p>
 <div class="figure" style="text-align: center"><span id="fig:plot-measured-predicted"></span>
 <img src="06-Soilmapping_using_mla_files/figure-html/plot-measured-predicted-1.png" alt="Predicted vs observed plot for soil organic carbon ML-based model (Edgeroi data set)." width="100%" />
@@ -901,15 +893,15 @@ perf
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Base learner performance, sorted by specified metric:</span>
 <span class="co">#&gt;                    learner  MSE</span>
-<span class="co">#&gt; 2          h2o.gbm.wrapper 9.81</span>
-<span class="co">#&gt; 1 h2o.randomForest.wrapper 8.48</span>
+<span class="co">#&gt; 1 h2o.randomForest.wrapper 13.1</span>
+<span class="co">#&gt; 2          h2o.gbm.wrapper 12.8</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; H2O Ensemble Performance on &lt;newdata&gt;:</span>
 <span class="co">#&gt; ----------------</span>
 <span class="co">#&gt; Family: gaussian</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Ensemble performance (MSE): 8.39597373343626</span></code></pre>
+<span class="co">#&gt; Ensemble performance (MSE): 12.5254384220153</span></code></pre>
 <p>which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.</p>
 <p>We can also test ensemble predictions using the cookfarm data set <span class="citation">(Gasch et al. <a href="#ref-Gasch2015SPASTA">2015</a>)</span>. This data set consists of 183 profiles, each consisting of multiple soil horizons (1050 in total). To create a regression matrix we use:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(cookfarm)
@@ -993,20 +985,19 @@ perf3
 <span class="co">#&gt; Base learner performance, sorted by specified metric:</span>
 <span class="co">#&gt;                    learner    MSE</span>
 <span class="co">#&gt; 1          h2o.glm.wrapper 0.2827</span>
-<span class="co">#&gt; 4 h2o.deeplearning.wrapper 0.1578</span>
+<span class="co">#&gt; 4 h2o.deeplearning.wrapper 0.1479</span>
 <span class="co">#&gt; 3          h2o.gbm.wrapper 0.0971</span>
-<span class="co">#&gt; 2 h2o.randomForest.wrapper 0.0838</span>
+<span class="co">#&gt; 2 h2o.randomForest.wrapper 0.0815</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; H2O Ensemble Performance on &lt;newdata&gt;:</span>
 <span class="co">#&gt; ----------------</span>
 <span class="co">#&gt; Family: gaussian</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Ensemble performance (MSE): 0.0790463921075823</span></code></pre>
+<span class="co">#&gt; Ensemble performance (MSE): 0.078834187145367</span></code></pre>
 <p>In this case Ensemble performance (MSE) seems to be <em>as bad</em> as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">h2o.shutdown</span>()
-<span class="co">#&gt; Are you sure you want to shutdown the H2O instance running at http://localhost:54321/ (Y/N)?</span>
-<span class="co">#&gt; [1] TRUE</span></code></pre>
+<span class="co">#&gt; Are you sure you want to shutdown the H2O instance running at http://localhost:54321/ (Y/N)?</span></code></pre>
 </div>
 <div id="ensemble-predictions-using-superlearner-package" class="section level3">
 <h3><span class="header-section-number">6.1.6</span> Ensemble predictions using SuperLearner package</h3>
@@ -1072,10 +1063,10 @@ sl
 <span class="co">#&gt; </span>
 <span class="co">#&gt;                  Risk   Coef</span>
 <span class="co">#&gt; SL.mean_All    0.7540 0.0000</span>
-<span class="co">#&gt; SL.xgboost_All 0.0598 0.8163</span>
-<span class="co">#&gt; SL.ksvm_All    0.1293 0.0133</span>
-<span class="co">#&gt; SL.glmnet_All  0.3080 0.0000</span>
-<span class="co">#&gt; SL.ranger_All  0.0849 0.1703</span></code></pre>
+<span class="co">#&gt; SL.xgboost_All 0.0598 0.8215</span>
+<span class="co">#&gt; SL.ksvm_All    0.1297 0.0143</span>
+<span class="co">#&gt; SL.glmnet_All  0.3079 0.0000</span>
+<span class="co">#&gt; SL.ranger_All  0.0858 0.1643</span></code></pre>
 <p>This shows that <code>SL.xgboost_All</code> outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by <code>SL.xgboost_All</code> is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:</p>
 <pre class="sourceCode r"><code class="sourceCode r">sl.l2 =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;SL.xgboost&quot;</span>, <span class="st">&quot;SL.ranger&quot;</span>, <span class="st">&quot;SL.ksvm&quot;</span>)
 sl2 &lt;-<span class="st"> </span><span class="kw">snowSuperLearner</span>(<span class="dt">Y =</span> mP3<span class="op">$</span>PHIHOX, 
@@ -1090,9 +1081,9 @@ sl2
 <span class="co">#&gt; </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;                  Risk  Coef</span>
-<span class="co">#&gt; SL.xgboost_All 0.0603 0.808</span>
-<span class="co">#&gt; SL.ranger_All  0.0827 0.192</span>
-<span class="co">#&gt; SL.ksvm_All    0.1310 0.000</span></code></pre>
+<span class="co">#&gt; SL.xgboost_All 0.0603 0.817</span>
+<span class="co">#&gt; SL.ranger_All  0.0838 0.183</span>
+<span class="co">#&gt; SL.ksvm_All    0.1305 0.000</span></code></pre>
 <p>again <code>SL.xgboost</code> dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where entire profiles are taken out of the training dataset:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(rm.cookfarm<span class="op">$</span>SOURCEID)
 <span class="co">#&gt;  Factor w/ 369 levels &quot;CAF001&quot;,&quot;CAF002&quot;,..: 3 3 3 3 3 5 5 5 5 5 ...</span>
@@ -1114,11 +1105,11 @@ cv_sl &lt;-<span class="st"> </span><span class="kw">CV.SuperLearner</span>(<spa
 <span class="co">#&gt; All risk estimates are based on V =  5 </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;       Algorithm  Ave    se   Min  Max</span>
-<span class="co">#&gt;   Super Learner 0.16 0.014 0.094 0.26</span>
-<span class="co">#&gt;     Discrete SL 0.17 0.015 0.116 0.25</span>
+<span class="co">#&gt;   Super Learner 0.16 0.014 0.097 0.25</span>
+<span class="co">#&gt;     Discrete SL 0.17 0.014 0.121 0.25</span>
 <span class="co">#&gt;  SL.xgboost_All 0.19 0.016 0.135 0.27</span>
-<span class="co">#&gt;   SL.ranger_All 0.16 0.015 0.103 0.25</span>
-<span class="co">#&gt;     SL.ksvm_All 0.18 0.015 0.109 0.30</span></code></pre>
+<span class="co">#&gt;   SL.ranger_All 0.17 0.014 0.102 0.25</span>
+<span class="co">#&gt;     SL.ksvm_All 0.18 0.014 0.109 0.30</span></code></pre>
 <p>where <code>V=5</code> specifies number of folds, and <code>id=rm.cookfarm$SOURCEID</code> forces that entire profiles are removed from training and cross-validation. This gives a more realistic RMSE of about ±0.35. Note that this time <code>SL.xgboost_All</code> is even somewhat worse than the random forest model, and the ensemble model (<code>Super Learner</code>) is slightly better than each individual model. This matches our previous results with <code>h20.ensemble</code>.</p>
 <p>To produce predictions of soil pH at 10 cm depth we can finally use:</p>
 <pre class="sourceCode r"><code class="sourceCode r">sl2 &lt;-<span class="st"> </span><span class="kw">snowSuperLearner</span>(<span class="dt">Y =</span> mP3<span class="op">$</span>PHIHOX, 
@@ -1137,8 +1128,8 @@ sl2
 <span class="co">#&gt; </span>
 <span class="co">#&gt;                 Risk  Coef</span>
 <span class="co">#&gt; SL.xgboost_All 0.215 0.000</span>
-<span class="co">#&gt; SL.ranger_All  0.166 0.476</span>
-<span class="co">#&gt; SL.ksvm_All    0.164 0.524</span>
+<span class="co">#&gt; SL.ranger_All  0.165 0.471</span>
+<span class="co">#&gt; SL.ksvm_All    0.163 0.529</span>
 new.data &lt;-<span class="st"> </span>grid10m<span class="op">@</span>data
 pred.PHI &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="ot">NULL</span>)
 depths =<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">30</span>,<span class="dv">50</span>,<span class="dv">70</span>,<span class="dv">90</span>)
@@ -1160,7 +1151,7 @@ depths =<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</
 <span class="co">#&gt;     buffer, rotated</span>
 <span class="kw">str</span>(pred.PHI[[<span class="dv">1</span>]])
 <span class="co">#&gt; List of 2</span>
-<span class="co">#&gt;  $ pred           : num [1:3865, 1] 4.69 4.76 4.91 4.87 4.8 ...</span>
+<span class="co">#&gt;  $ pred           : num [1:3865, 1] 4.66 4.73 4.86 4.82 4.75 ...</span>
 <span class="co">#&gt;  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...</span>
 <span class="co">#&gt;   ..- attr(*, &quot;dimnames&quot;)=List of 2</span>
 <span class="co">#&gt;   .. ..$ : NULL</span>

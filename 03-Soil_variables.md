@@ -1861,7 +1861,7 @@ TT.plot(class.sys = "USDA.TT")
 ```
 
 <div class="figure" style="text-align: center">
-<img src="PSMwR_UStrade_files/figure-epub3/plot-tt-triangle-1.png" alt="Soil texture triangle based on the USDA system. Generated using the soiltexture package (http://cran.r-project.org/web/packages/soiltexture/)." width="70%" />
+<img src="03-Soil_variables_files/figure-html/plot-tt-triangle-1.png" alt="Soil texture triangle based on the USDA system. Generated using the soiltexture package (http://cran.r-project.org/web/packages/soiltexture/)." width="70%" />
 <p class="caption">(\#fig:plot-tt-triangle)Soil texture triangle based on the USDA system. Generated using the soiltexture package (http://cran.r-project.org/web/packages/soiltexture/).</p>
 </div>
 
@@ -2000,7 +2000,7 @@ TT.plot(class.sys = "USDA.TT", tri.data = tdf,
 ```
 
 <div class="figure" style="text-align: center">
-<img src="PSMwR_UStrade_files/figure-epub3/plot-tt-afsis-1.png" alt="Distribution of observed soil textures for the Africa Soil Profiles (http://gsif.r-forge.r-project.org/afsp.html)." width="70%" />
+<img src="03-Soil_variables_files/figure-html/plot-tt-afsis-1.png" alt="Distribution of observed soil textures for the Africa Soil Profiles (http://gsif.r-forge.r-project.org/afsp.html)." width="70%" />
 <p class="caption">(\#fig:plot-tt-afsis)Distribution of observed soil textures for the Africa Soil Profiles (http://gsif.r-forge.r-project.org/afsp.html).</p>
 </div>
 
@@ -2141,7 +2141,7 @@ points(mcol.RGB, pch=21, bg=mcol.RGB$col, col="black")
 ```
 
 <div class="figure" style="text-align: center">
-<img src="PSMwR_UStrade_files/figure-epub3/plot-af-soil-cols-1.png" alt="Actual observed soil colors (moist) for the top soil based on the Africa Soil Profiles Database (http://gsif.r-forge.r-project.org/afsp.html)." width="100%" />
+<img src="03-Soil_variables_files/figure-html/plot-af-soil-cols-1.png" alt="Actual observed soil colors (moist) for the top soil based on the Africa Soil Profiles Database (http://gsif.r-forge.r-project.org/afsp.html)." width="100%" />
 <p class="caption">(\#fig:plot-af-soil-cols)Actual observed soil colors (moist) for the top soil based on the Africa Soil Profiles Database (http://gsif.r-forge.r-project.org/afsp.html).</p>
 </div>
 
