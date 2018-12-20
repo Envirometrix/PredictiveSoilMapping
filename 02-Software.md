@@ -290,7 +290,7 @@ om.rk <- predict(omm, meuse.grid)
 #> Prediction error for 'randomForest' model estimated using the 'quantreg' package.
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
-#>  17% done100% done
+#> 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
 om.rk
@@ -406,7 +406,7 @@ plot(raster("./extdata/DEMSRT6_ll.tif"))
 ```
 
 <div class="figure" style="text-align: center">
-<img src="02-Software_files/figure-html/plot-eberg-ll-1.png" alt="Ebergotzen DEM reprojected in geographical coordinates." width="80%" />
+<img src="psm_files/figure-epub3/plot-eberg-ll-1.png" alt="Ebergotzen DEM reprojected in geographical coordinates." width="80%" />
 <p class="caption">(\#fig:plot-eberg-ll)Ebergotzen DEM reprojected in geographical coordinates.</p>
 </div>
 

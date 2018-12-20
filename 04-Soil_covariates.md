@@ -214,7 +214,7 @@ spplot(eberg_zones[1])
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-Soil_covariates_files/figure-html/eberg-zones-spplot-1.png" alt="Ebergotzen parent material polygon map with legend." width="70%" />
+<img src="psm_files/figure-epub3/eberg-zones-spplot-1.png" alt="Ebergotzen parent material polygon map with legend." width="70%" />
 <p class="caption">(\#fig:eberg-zones-spplot)Ebergotzen parent material polygon map with legend.</p>
 </div>
 
@@ -253,7 +253,7 @@ plot(eberg_zones_r)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-Soil_covariates_files/figure-html/eberg-zones-grid-1.png" alt="Ebergotzen parent material polygon map rasterized." width="70%" />
+<img src="psm_files/figure-epub3/eberg-zones-grid-1.png" alt="Ebergotzen parent material polygon map rasterized." width="70%" />
 <p class="caption">(\#fig:eberg-zones-grid)Ebergotzen parent material polygon map rasterized.</p>
 </div>
 
