@@ -8938,7 +8938,6 @@ support:
 \CommentTok{#> drawing 20 GLS realisations of beta...}
 \CommentTok{#> [using conditional Gaussian simulation]}
 \CommentTok{#> }
- \DecValTok{15}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Creating an object of class "RasterBrickSimulations"}
 \CommentTok{#> Loading required package: raster}
@@ -8964,6 +8963,7 @@ square blocks of 40 by 40 m we run:
 \CommentTok{#> Generating predictions using the trend model (RK method)...}
 \CommentTok{#> [using ordinary kriging]}
 \CommentTok{#> }
+ \DecValTok{51}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Creating an object of class "SpatialPredictions"}
 \NormalTok{om.rksim.b <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(omm, meuse.grid, }\DataTypeTok{nsim=}\DecValTok{2}\NormalTok{, }\DataTypeTok{block=}\KeywordTok{c}\NormalTok{(}\DecValTok{40}\NormalTok{,}\DecValTok{40}\NormalTok{), }\DataTypeTok{debug.level=}\DecValTok{0}\NormalTok{)}
@@ -9209,6 +9209,7 @@ argument:
 \CommentTok{#> drawing 20 GLS realisations of beta...}
 \CommentTok{#> [using conditional Gaussian simulation]}
 \CommentTok{#> }
+ \DecValTok{72}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Creating an object of class "RasterBrickSimulations"}
 \KeywordTok{log1p}\NormalTok{(meuse}\OperatorTok{@}\NormalTok{data[}\DecValTok{1}\NormalTok{,}\StringTok{"om"}\NormalTok{])}
@@ -9260,13 +9261,13 @@ organic matter content using the Meuse case study:
 \KeywordTok{demo}\NormalTok{(meuse, }\DataTypeTok{echo=}\OtherTok{FALSE}\NormalTok{)}
 \NormalTok{meuse}\OperatorTok{$}\NormalTok{value =}\StringTok{ }\NormalTok{meuse}\OperatorTok{$}\NormalTok{zinc}
 \NormalTok{output <-}\StringTok{ }\KeywordTok{interpolate}\NormalTok{(meuse, meuse.grid, }\KeywordTok{list}\NormalTok{(}\DataTypeTok{mean=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{variance=}\OtherTok{TRUE}\NormalTok{))}
-\CommentTok{#> R 2018-12-20 12:45:55 interpolating 155 observations, 3103 prediction locations}
+\CommentTok{#> R 2018-12-20 13:42:24 interpolating 155 observations, 3103 prediction locations}
 \CommentTok{#> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : }
 \CommentTok{#>  using standard model for estimating time. For better }
 \CommentTok{#>  platform spesific predictions, please run }
 \CommentTok{#>  timeModels <- generateTimeModels()}
 \CommentTok{#>   and save the workspace}
-\CommentTok{#> [1] "estimated time for  copula 171.316964375385"}
+\CommentTok{#> [1] "estimated time for  copula 158.930546614488"}
 \CommentTok{#> Checking object ... OK}
 \end{Highlighting}
 \end{Shaded}
@@ -9281,7 +9282,7 @@ at hand (\texttt{value} column), given the time available set with
 \CommentTok{#> List of 16}
 \CommentTok{#>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots}
 \CommentTok{#>  $ formulaString      :Class 'formula'  language value ~ 1}
-\CommentTok{#>   .. ..- attr(*, ".Environment")=<environment: 0x13d456f8> }
+\CommentTok{#>   .. ..- attr(*, ".Environment")=<environment: 0x14c0d038> }
 \CommentTok{#>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots}
 \CommentTok{#>  $ params             :List of 18}
 \CommentTok{#>   ..$ doAnisotropy     : logi TRUE}
@@ -10816,14 +10817,14 @@ In the following example we look at mapping sand content for the upper horizons.
 \CommentTok{#>  Connection successful!}
 \CommentTok{#> }
 \CommentTok{#> R is connected to the H2O cluster: }
-\CommentTok{#>     H2O cluster uptime:         10 minutes 14 seconds }
+\CommentTok{#>     H2O cluster uptime:         11 minutes 22 seconds }
 \CommentTok{#>     H2O cluster timezone:       UTC }
 \CommentTok{#>     H2O data parsing timezone:  UTC }
 \CommentTok{#>     H2O cluster version:        3.20.0.8 }
 \CommentTok{#>     H2O cluster version age:    2 months and 28 days  }
 \CommentTok{#>     H2O cluster name:           H2O_started_from_R_travis_lqb476 }
 \CommentTok{#>     H2O cluster total nodes:    1 }
-\CommentTok{#>     H2O cluster total memory:   1.53 GB }
+\CommentTok{#>     H2O cluster total memory:   1.54 GB }
 \CommentTok{#>     H2O cluster total cores:    2 }
 \CommentTok{#>     H2O cluster allowed cores:  2 }
 \CommentTok{#>     H2O cluster healthy:        TRUE }
@@ -10857,12 +10858,12 @@ We can now fit a random forest model by using all the computing power available 
 \CommentTok{#> ==============}
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionModel: drf}
-\CommentTok{#> Model ID:  DRF_model_R_1545309398915_11 }
+\CommentTok{#> Model ID:  DRF_model_R_1545312721386_11 }
 \CommentTok{#> Model Summary: }
 \CommentTok{#>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth}
-\CommentTok{#> 1              50                       50              647160        20}
+\CommentTok{#> 1              50                       50              649284        19}
 \CommentTok{#>   max_depth mean_depth min_leaves max_leaves mean_leaves}
-\CommentTok{#> 1        20   20.00000        945       1080  1026.64000}
+\CommentTok{#> 1        20   19.98000        984       1089  1029.70000}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionMetrics: drf}
@@ -10871,8 +10872,8 @@ We can now fit a random forest model by using all the computing power available 
 \CommentTok{#> }
 \CommentTok{#> MSE:  222}
 \CommentTok{#> RMSE:  14.9}
-\CommentTok{#> MAE:  10.2}
-\CommentTok{#> RMSLE:  0.43}
+\CommentTok{#> MAE:  10.1}
+\CommentTok{#> RMSLE:  0.431}
 \CommentTok{#> Mean Residual Deviance :  222}
 \end{Highlighting}
 \end{Shaded}
@@ -10931,29 +10932,29 @@ h2o has another MLA of interest for soil mapping called \emph{deep learning} (a 
 \CommentTok{#> ==============}
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionModel: deeplearning}
-\CommentTok{#> Model ID:  DeepLearning_model_R_1545309398915_12 }
+\CommentTok{#> Model ID:  DeepLearning_model_R_1545312721386_12 }
 \CommentTok{#> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1}
 \CommentTok{#>   layer units      type dropout       l1       l2 mean_rate rate_rms}
 \CommentTok{#> 1     1    10     Input  0.00 %       NA       NA        NA       NA}
-\CommentTok{#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.013588 0.008222}
-\CommentTok{#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.150802 0.191056}
-\CommentTok{#> 4     4     1    Linear      NA 0.000000 0.000000  0.001416 0.000938}
+\CommentTok{#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.013980 0.009655}
+\CommentTok{#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.122292 0.177079}
+\CommentTok{#> 4     4     1    Linear      NA 0.000000 0.000000  0.001346 0.001507}
 \CommentTok{#>   momentum mean_weight weight_rms mean_bias bias_rms}
 \CommentTok{#> 1       NA          NA         NA        NA       NA}
-\CommentTok{#> 2 0.000000    0.003060   0.101754  0.351657 0.061757}
-\CommentTok{#> 3 0.000000   -0.018664   0.071016  0.953596 0.019927}
-\CommentTok{#> 4 0.000000   -0.000332   0.046190  0.118113 0.000000}
+\CommentTok{#> 2 0.000000    0.006723   0.101916  0.359228 0.063977}
+\CommentTok{#> 3 0.000000   -0.018401   0.071196  0.955391 0.020177}
+\CommentTok{#> 4 0.000000   -0.004954   0.050676  0.096368 0.000000}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionMetrics: deeplearning}
 \CommentTok{#> ** Reported on training data. **}
 \CommentTok{#> ** Metrics reported on full training frame **}
 \CommentTok{#> }
-\CommentTok{#> MSE:  303}
-\CommentTok{#> RMSE:  17.4}
-\CommentTok{#> MAE:  13.6}
-\CommentTok{#> RMSLE:  0.543}
-\CommentTok{#> Mean Residual Deviance :  303}
+\CommentTok{#> MSE:  329}
+\CommentTok{#> RMSE:  18.1}
+\CommentTok{#> MAE:  14.6}
+\CommentTok{#> RMSLE:  0.568}
+\CommentTok{#> Mean Residual Deviance :  329}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11222,16 +11223,16 @@ We can hence run 5-fold cross validation:
 \CommentTok{#> List of 2}
 \CommentTok{#>  $ CV_residuals:'data.frame':    4972 obs. of  4 variables:}
 \CommentTok{#>   ..$ Observed : num [1:4972] 6.5 5.1 4.9 3.3 2.2 ...}
-\CommentTok{#>   ..$ Predicted: num [1:4972] 11.32 7.48 6.48 4.63 3.15 ...}
+\CommentTok{#>   ..$ Predicted: num [1:4972] 12.11 7.25 6.96 5.13 2.99 ...}
 \CommentTok{#>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" ...}
 \CommentTok{#>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...}
 \CommentTok{#>  $ Summary     :'data.frame':    1 obs. of  6 variables:}
-\CommentTok{#>   ..$ ME          : num -0.132}
+\CommentTok{#>   ..$ ME          : num -0.133}
 \CommentTok{#>   ..$ MAE         : num 2.19}
-\CommentTok{#>   ..$ RMSE        : num 3.67}
-\CommentTok{#>   ..$ R.squared   : num 0.559}
-\CommentTok{#>   ..$ logRMSE     : num 0.494}
-\CommentTok{#>   ..$ logR.squared: num 0.635}
+\CommentTok{#>   ..$ RMSE        : num 3.68}
+\CommentTok{#>   ..$ R.squared   : num 0.557}
+\CommentTok{#>   ..$ logRMSE     : num 0.495}
+\CommentTok{#>   ..$ logR.squared: num 0.634}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11290,7 +11291,7 @@ we first specify all learners (MLA methods) of interest:
 \CommentTok{#> }
 \CommentTok{#> Base learner performance, sorted by specified metric:}
 \CommentTok{#>                    learner  MSE}
-\CommentTok{#> 1 h2o.randomForest.wrapper 13.1}
+\CommentTok{#> 1 h2o.randomForest.wrapper 13.2}
 \CommentTok{#> 2          h2o.gbm.wrapper 12.8}
 \CommentTok{#> }
 \CommentTok{#> }
@@ -11298,7 +11299,7 @@ we first specify all learners (MLA methods) of interest:
 \CommentTok{#> ----------------}
 \CommentTok{#> Family: gaussian}
 \CommentTok{#> }
-\CommentTok{#> Ensemble performance (MSE): 12.6022533219955}
+\CommentTok{#> Ensemble performance (MSE): 12.5760603784064}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11401,16 +11402,16 @@ We can again test fitting an ensemble model using two MLA's:
 \CommentTok{#> Base learner performance, sorted by specified metric:}
 \CommentTok{#>                    learner    MSE}
 \CommentTok{#> 1          h2o.glm.wrapper 0.2827}
-\CommentTok{#> 4 h2o.deeplearning.wrapper 0.1454}
+\CommentTok{#> 4 h2o.deeplearning.wrapper 0.1548}
 \CommentTok{#> 3          h2o.gbm.wrapper 0.0971}
-\CommentTok{#> 2 h2o.randomForest.wrapper 0.0848}
+\CommentTok{#> 2 h2o.randomForest.wrapper 0.0821}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2O Ensemble Performance on <newdata>:}
 \CommentTok{#> ----------------}
 \CommentTok{#> Family: gaussian}
 \CommentTok{#> }
-\CommentTok{#> Ensemble performance (MSE): 0.0799773439043777}
+\CommentTok{#> Ensemble performance (MSE): 0.0783755363638977}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11496,12 +11497,12 @@ A useful functionality of the SuperLearner package is that it displays how model
 \CommentTok{#>     SL.library = sl.l) }
 \CommentTok{#> }
 \CommentTok{#> }
-\CommentTok{#>                  Risk    Coef}
-\CommentTok{#> SL.mean_All    0.7540 0.00000}
-\CommentTok{#> SL.xgboost_All 0.0598 0.81092}
-\CommentTok{#> SL.ksvm_All    0.1303 0.00198}
-\CommentTok{#> SL.glmnet_All  0.3080 0.00000}
-\CommentTok{#> SL.ranger_All  0.0848 0.18710}
+\CommentTok{#>                  Risk   Coef}
+\CommentTok{#> SL.mean_All    0.7540 0.0000}
+\CommentTok{#> SL.xgboost_All 0.0598 0.8276}
+\CommentTok{#> SL.ksvm_All    0.1286 0.0248}
+\CommentTok{#> SL.glmnet_All  0.3079 0.0000}
+\CommentTok{#> SL.ranger_All  0.0862 0.1476}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11522,9 +11523,9 @@ This shows that \texttt{SL.xgboost\_All} outperforms the competition by a large 
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#>                  Risk  Coef}
-\CommentTok{#> SL.xgboost_All 0.0603 0.808}
-\CommentTok{#> SL.ranger_All  0.0826 0.192}
-\CommentTok{#> SL.ksvm_All    0.1314 0.000}
+\CommentTok{#> SL.xgboost_All 0.0603 0.812}
+\CommentTok{#> SL.ranger_All  0.0833 0.188}
+\CommentTok{#> SL.ksvm_All    0.1308 0.000}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11552,10 +11553,10 @@ again \texttt{SL.xgboost} dominates the ensemble model, which is most likely unr
 \CommentTok{#> All risk estimates are based on V =  5 }
 \CommentTok{#> }
 \CommentTok{#>       Algorithm  Ave    se   Min  Max}
-\CommentTok{#>   Super Learner 0.16 0.014 0.095 0.26}
-\CommentTok{#>     Discrete SL 0.17 0.014 0.119 0.25}
+\CommentTok{#>   Super Learner 0.16 0.014 0.095 0.25}
+\CommentTok{#>     Discrete SL 0.16 0.014 0.103 0.25}
 \CommentTok{#>  SL.xgboost_All 0.19 0.016 0.135 0.27}
-\CommentTok{#>   SL.ranger_All 0.17 0.014 0.103 0.25}
+\CommentTok{#>   SL.ranger_All 0.16 0.014 0.103 0.25}
 \CommentTok{#>     SL.ksvm_All 0.18 0.015 0.109 0.30}
 \end{Highlighting}
 \end{Shaded}
@@ -11580,10 +11581,10 @@ To produce predictions of soil pH at 10 cm depth we can finally use:
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> }
-\CommentTok{#>                 Risk  Coef}
-\CommentTok{#> SL.xgboost_All 0.215 0.000}
-\CommentTok{#> SL.ranger_All  0.166 0.468}
-\CommentTok{#> SL.ksvm_All    0.163 0.532}
+\CommentTok{#>                 Risk Coef}
+\CommentTok{#> SL.xgboost_All 0.215 0.00}
+\CommentTok{#> SL.ranger_All  0.164 0.48}
+\CommentTok{#> SL.ksvm_All    0.162 0.52}
 \NormalTok{new.data <-}\StringTok{ }\NormalTok{grid10m}\OperatorTok{@}\NormalTok{data}
 \NormalTok{pred.PHI <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\OtherTok{NULL}\NormalTok{)}
 \NormalTok{depths =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{,}\DecValTok{30}\NormalTok{,}\DecValTok{50}\NormalTok{,}\DecValTok{70}\NormalTok{,}\DecValTok{90}\NormalTok{)}
@@ -11605,7 +11606,7 @@ To produce predictions of soil pH at 10 cm depth we can finally use:
 \CommentTok{#>     buffer, rotated}
 \KeywordTok{str}\NormalTok{(pred.PHI[[}\DecValTok{1}\NormalTok{]])}
 \CommentTok{#> List of 2}
-\CommentTok{#>  $ pred           : num [1:3865, 1] 4.65 4.73 4.85 4.83 4.75 ...}
+\CommentTok{#>  $ pred           : num [1:3865, 1] 4.66 4.72 4.85 4.82 4.75 ...}
 \CommentTok{#>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...}
 \CommentTok{#>   ..- attr(*, "dimnames")=List of 2}
 \CommentTok{#>   .. ..$ : NULL}
@@ -12822,7 +12823,7 @@ Where values for bulk density are missing, and no local PTF exists, WoSIS points
   \KeywordTok{paste}\NormalTok{(}\StringTok{"BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +"}\NormalTok{, }
         \KeywordTok{paste}\NormalTok{(}\KeywordTok{names}\NormalTok{(ind.tax), }\DataTypeTok{collapse=}\StringTok{"+"}\NormalTok{)))}
 \NormalTok{m.BLD_PTF <-}\StringTok{ }\KeywordTok{ranger}\NormalTok{(fm.BLD, dfs_tbl, }\DataTypeTok{num.trees =} \DecValTok{85}\NormalTok{, }\DataTypeTok{importance=}\StringTok{'impurity'}\NormalTok{)}
-\CommentTok{#> Growing trees.. Progress: 95%. Estimated remaining time: 1 seconds.}
+\CommentTok{#> Growing trees.. Progress: 58%. Estimated remaining time: 22 seconds.}
 \NormalTok{m.BLD_PTF}
 \CommentTok{#> Ranger result}
 \CommentTok{#> }
