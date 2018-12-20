@@ -203,7 +203,7 @@ knitr::include_graphics("figures/Fig_scheme_solum.png")
 ```{r globalsoilmap, echo=FALSE}
 knitr::kable(
   head(read.csv("extdata/globalsoilmap_specs.csv", header = TRUE, stringsAsFactors = FALSE), 10), booktabs = TRUE,
-  caption = 'The GlobalSoilMap project has selected seven primary (depth to bedrock, organic carbon content, pH, soil texture fractions, coarse fragments), three derived (effective soil depth, bulk density and available water capacity) and two optional (effective cation exchange capacity and electrical conductivity) target soil properties of interest for global soil mapping and modelling.'
+  caption = 'The GlobalSoilMap project has selected seven primary (depth to bedrock, organic carbon content, pH, soil texture fractions, coarse fragments), three derived (effective soil depth, bulk density and available water capacity) and two optional (effective cation exchange capacity and electrical conductivity) target soil properties of interest for global soil mapping and modelling [@SSDS1993; @Burt2004SSIR].'
 )
 ```
 

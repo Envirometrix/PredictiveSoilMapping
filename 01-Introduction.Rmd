@@ -2154,7 +2154,7 @@ Fig. \@ref(fig:lines-legros1997)) are:
 
 6.  *polygonization (mapping unit assignment) error*;
 
-```{r lines-legros1997, echo=FALSE, fig.cap="20 photo-interpretations done independently using the same aerial photograph overlaid on top of each other. Image credit: Legros (1997).", out.width="50%"}
+```{r lines-legros1997, echo=FALSE, fig.cap="20 photo-interpretations done independently using the same aerial photograph overlaid on top of each other. This illustrates uncertainty of position of soil borders due to operator's subjective concepts. Image credit: Legros (1997).", out.width="50%"}
 knitr::include_graphics("figures/Fig_lines_Legros1997.png")
 ```
 

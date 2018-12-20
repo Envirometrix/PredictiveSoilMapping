@@ -9,7 +9,7 @@ To a statistical, following the right procedure and applying the right statistic
 the key element of success of a PSM project. In practice, 
 it is really the combination of all elements and aspects that determines a success of PSM project.
 In this chapter we provide some practical tips on how to organize work and what to be especially 
-carefull about. We refer to these as the *critical aspects of PSM projects*.
+careful about. We refer to these as the *critical aspects of PSM projects*.
 
 At the end of the chapter we also try to give a more practical tips in sense of check-lists and 
 simple economic calculus, to try to prevent from making unrealistic plans or producing maps 
@@ -84,7 +84,7 @@ be used (as in meteorology for example), but then this requires that
 sufficient training data are available in the time domain e.g. at least
 five measurement intervals / repetitions.
 
-```{r psm-types-monitoring, echo=FALSE, fig.cap="Types of PSM projects depending on whether maps are generated for single usage, or for detecting change or soil monitoring.", out.width="75%"}
+```{r psm-types-monitoring, echo=FALSE, fig.cap="Types of PSM projects depending on whether maps are generated for single usage, or for detecting change or soil monitoring.", out.width="65%"}
 knitr::include_graphics("figures/Fig_types_of_PSM_projects.png")
 ```
 
@@ -231,7 +231,7 @@ The majority of the costs of a PSM project are controlled by the following:
 ### Field observations and measurements
 
 **Observations and measurements** (O&M) are at the heart of all advances in
-scientific endeavour. One cannot describe, or attempt to understand,
+scientific endeavor. One cannot describe, or attempt to understand,
 what one cannot see, or measure. Great leaps in scientific understanding
 have always followed from major improvements in the ability to see, and
 measure, phenomenon or objects. Think of the telescope and astronomy,
@@ -336,7 +336,7 @@ Typical operations to prepare soil covariates for PSM thus include:
 
 -   Downloading the original source RS data,
 
--   Filtering missing pixels using neighbourhood filters and/or simple
+-   Filtering missing pixels using neighborhood filters and/or simple
     rules,
 
 -   Running aggregation functions (usually via some tiling system),
@@ -347,7 +347,7 @@ Typical operations to prepare soil covariates for PSM thus include:
     multiple coarser resolutions, in order to capture multi-scale
     variation at appropriate (longer range) process scales.
 
--   Preparing final mosaics to be used for PSM (e.g. convert to GeoTIFFS
+-   Preparing final mosaics to be used for PSM (e.g. convert to GeoTIFFs
     and compress using internal compression `"COMPRESS=DEFLATE"` or
     similar),
 
@@ -433,14 +433,14 @@ Some known global land cover layers are:
 
 -   300 m resolution: ESA CCI Land cover — 300 m annual global land
     cover time series from 1992 to 2015
-    ([*https://www.esa-landcover-cci.org/*](https://www.esa-landcover-cci.org/)),
+    (https://www.esa-landcover-cci.org/),
 
 -   100 m resolution: ESA PROBA-V 100 m land cover map
-    ([*http://land.copernicus.eu/global*](http://land.copernicus.eu/global)),
+    (http://land.copernicus.eu/global),
 
 -   30 m resolution: Chinese GLC data product (GlobeLand30) with 10
     classes for the years 2000 and 2010
-    ([*http://www.globallandcover.com*](http://www.globallandcover.com)),
+    (http://www.globallandcover.com),
 
 Using widely accepted, published, global land cover maps to define a
 soil mask is highly recommended. This allows users to validate the maps
@@ -520,7 +520,7 @@ consequence of extrapolation). In some cases measures of uncertainty can
 be over-optimistic or biased (which will eventually be exposed by new
 observations), which can decrease confidence in the product, hence
 providing realistic estimates of uncertainty of uncertainty is often
-equally as important as optimising predictions.
+equally as important as optimizing predictions.
 
 Common approaches to improving the accuracy of predicted maps i.e.
 narrowing down the prediction intervals are to (a) collect new
@@ -588,7 +588,7 @@ knitr::include_graphics("figures/Fig_htop_96treads.png")
 A HPC server should also have at least 2–3TB of hard disk space to host
 all input and output data. In addition to computing costs, one also
 needs to carefully consider web hosting and web traffic costs. For large
-datasets these can almost equal actual computing production costs.
+data sets these can almost equal actual computing production costs.
 
 ## Final delivery of maps
 
@@ -725,7 +725,10 @@ categories:
 -   Fixed costs (e.g. project initiation, equipment, materials,
     workshops etc),
 
--   Data production costs expressed per M (million) of pixels of data produced,
+-   Variable data production costs expressed per: 
+    - M (million) of pixels of data produced,
+    - Number of points samples,
+    - Number of variables modeled,
 
 -   Data maintenance and web-serving costs, usually expressed as
     monthly/yearly costs,
@@ -747,7 +750,7 @@ Consider that there are four main quality levels:
 ```{r psm-table-costs, echo=FALSE}
 knitr::kable(
   head(read.csv("extdata/psm_table_costs.csv", header = TRUE, stringsAsFactors = FALSE), 10), booktabs = TRUE,
-  caption = 'Example of a costs table for various quality levels PSM products. Prices expressed per M (million) of pixels produced.'
+  caption = 'Example of a costs table for various quality levels PSM products. Prices expressed in US$ / Mpix (million of pixels produced).'
 )
 ```
 

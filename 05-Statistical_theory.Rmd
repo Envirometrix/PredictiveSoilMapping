@@ -1126,7 +1126,7 @@ kriging [@hengl2007regression].
 ### Regression-kriging examples
 
 The type of regression-kriging model explained in the previous section
-can be implemented here by combining the (***WHAT***) and (***WHAT***) packages. Consider for
+can be implemented here by combining the regression and geostatistics packages. Consider for
 example the Meuse case study:
 
 ```{r}
@@ -1163,7 +1163,7 @@ With this, all model parameters (four regression coefficients and three
 variogram parameters) for regression-kriging have been estimated and the
 model can be used to generate predictions. Note that the regression
 model we fitted is significant, and the remaining residuals still show
-spatial auto-correlation. The nugget variation is about (***WHAT***) of the sill
+spatial auto-correlation. The nugget variation is about 1/3rd of the sill
 variation.
 
 Using the gstat package [@Pebesma2004CG; @Bivand2013Springer], regression and
@@ -1455,7 +1455,7 @@ om.rksim.p <- predict(omm, meuse.grid, nsim=20, block=c(0,0))
 
 where the argument `block` defines the support size for the predictions
 (in this case points). To produce predictions on block support for
-square blocks of (***WHAT***) by(***WHAT***) we run:
+square blocks of 40 by 40 m we run:
 
 ```{r}
 om.rk.b <- predict(omm, meuse.grid, block=c(40,40), nfold=0)
@@ -1477,7 +1477,7 @@ that it is more difficult (read: more expensive) to validate block
 kriging maps. In the case of point predictions, maps can be validated to
 some degree using cross-validation, which is inexpensive. For example,
 via one can estimate the cross-validation error using the `krige.cv`
-function. The (***WHAT***) package reports automatically the cross-validation error
+function. The gstat package reports automatically the cross-validation error
 [@Hengl2013JAG]:
 
 ```{r}
@@ -1696,9 +1696,8 @@ be run with little or no human interaction / intervention.
 ```
 
 The same idea of automated model fitting and prediction has been
-implemented in the package for (***WHAT***) , which extends simple point-based models
-to 2D, 3D, 2D+T regression-kriging models. Some examples of automated
-soil mapping have been already (***WHAT***) shown previously.
+implemented in the GSIF package. Some examples of automated
+soil mapping have been already shown previously.
 
 ```{r scheme-statmodels, echo=FALSE, fig.cap="A modern workflow of predictive soil mapping. This often includes state-of-the-art Machine Learning Algorithms.", out.width="60%"}
 knitr::include_graphics("figures/Fig_statmodels.png")
@@ -2322,7 +2321,7 @@ boxplot(om.sim1~ffreq, meuse.grid, col="grey",
 ```
 
 Fig. \@ref(fig:confidence-limits-boxplot) shows that the confidence
-limits for samples and (***WHAT***) based on the geostatistical model are about the
+limits for samples (based on the geostatistical model) are about the
 same width (grey boxes in the plot showing 1st and 3rd quantile), which
 should be the case because geostatistical simulations are supposed
 maintain the original variances (see also

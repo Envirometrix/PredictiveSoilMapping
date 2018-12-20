@@ -87,7 +87,7 @@ to satisfy their own desires and expectations and not those of real,
 downstream users. They became convinced of the rightness, value and
 importance of their maps and databases the way they wanted to make them
 and did not effectively listen to, or respond to, criticism of these
-products. Users would criticise conventional soil polygon maps and
+products. Users would criticize conventional soil polygon maps and
 reports filled with complicated jargon and impenetrable legends and be
 dismissed as simply not being able to understand a soil map and to
 appreciate how complicated and complex it was to portray the spatial
@@ -99,9 +99,8 @@ map.
 
 ### Is there a future for conventional terrestrial inventory programs ?
 
-We have asked ourselves, *“can conventional comprehensive soil and
-similar terrestrial inventory programs be saved or renewed?”* The short
-answer is probably no, at least not in their present format.
+We have asked ourselves, *“can conventional comprehensive soil and similar terrestrial inventory programs be saved or renewed?”* 
+The short answer is: probably no, at least not in their present format.
 Conventional resource inventory programs have become too expensive, too
 slow to deliver needed outputs and too slow to change to produce
 innovative and needed products. There is now probably insufficient will,
@@ -348,10 +347,10 @@ open repository of field observations and laboratory measurements. We
 would hope that the evidence of beneficial use of legacy point data by
 OpenGeoHub to produce concrete examples of needed and useful spatial
 outputs would encourage entities that hold field O&M data that are not
-currently publically available to contribute them for future use by a
+currently publicly available to contribute them for future use by a
 community of global mappers. Techniques developed by OpenGeoHub to
 collate and harmonize legacy point data could be applied to any new,
-previously overlooked, datasets contributed, in the future, by
+previously overlooked, data sets contributed, in the future, by
 interested parties.
 
 ### Collecting New Field O&M Data
@@ -543,7 +542,7 @@ profile can be reduced from a current cost of US\$ 2,000 to as little as
 US\$ 2-10 per profile (Need to cite something from Keith Shepherd here).
 This reduction in cost, along with the associated increase in
 reproducibility is a game changer. It makes it, once again, feasible and
-affordable to consider taking new field soil samples and analysing them
+affordable to consider taking new field soil samples and analyzing them
 in the laboratory.
 
 ### Creation, collation and distribution of effective environmental covariates,
@@ -653,12 +652,12 @@ times by multiple entities for use in a single project and then archived
 reuse. A mentality of “protecting my data” leads to limitations on
 sharing and reuse of spatial data with large resulting costs from
 redoing the same work over and over for each new project. Significant
-efficiencies could be realized if spatial datasets, once assembled,
+improvements could be realized if spatial data sets, once assembled,
 corrected and preprocessed, could be widely shared and widely used.
 
 In many PSM projects, as much as 80% of the time and effort expended can
 go into preparing and collating the environmental covariates used in the
-modelling process. If modellers could work collectively and
+modelling process. If modelers could work collectively and
 collaboratively to share entire collections of relevant covariates at
 global to regional to national scales, considerable efficiencies could
 be realized. Time and effort now spent in assembling covariates could
@@ -744,7 +743,7 @@ boundaries of some current bounded area of interest. Local, bounded
 studies can easily fail to observe and quantify this long range
 variation.
 
-```{r landgis-soil, echo=FALSE, fig.cap="General workflow of the spatial prediction system used to produce soil property and class maps via the LandGIS.", out.width="85%"}
+```{r landgis-soil, echo=FALSE, fig.cap="General workflow of the spatial prediction system used to produce soil property and class maps via the LandGIS.", out.width="100%"}
 knitr::include_graphics("figures/Fig_LandGIS_workflow_soil.png")
 ```
 
@@ -754,7 +753,7 @@ quantify that portion of the total spatial variation in soil properties
 and soil classes that occurs over longer distances in response to longer
 range soil forming processes. This longer range variation may only
 constitute some rather small percentage of the total range in spatial
-variation in some property (typically some 10-30% of total variation).
+variation in some property (typically some 10–30% of total variation).
 But it does represent a component of the total variation that would
 likely be missed, and not properly observed or accounted for, by local,
 bounded, models that do not consider patterns of spatial variation that
@@ -816,23 +815,25 @@ are, for example, possible only thanks to the following packages that can be
 fully parallelized and are ready for upscaling predictions 
 (all three have been written in C++ in fact):
 
-  - ranger (https://github.com/imbs-hl/ranger),
+  - **ranger** (https://github.com/imbs-hl/ranger),
 
-  - xgboost (https://xgboost.readthedocs.io/en/latest/),
+  - **xgboost** (https://xgboost.readthedocs.io/en/latest/),
 
-  - liquidSVM (https://github.com/liquidSVM/liquidSVM),
+  - **liquidSVM** (https://github.com/liquidSVM/liquidSVM),
 
 these can be further efficiently combined with accuracy assessment 
 and fine-tuning packages (also ready for parallelization):
 
-  - SuperLearner (https://cran.r-project.org/web/packages/SuperLearner/),
+  - **SuperLearner** (https://cran.r-project.org/web/packages/SuperLearner/),
   
-  - caret (https://topepo.github.io/caret/),
+  - **caret** (https://topepo.github.io/caret/),
   
-  - mlr (https://mlr.mlr-org.com/),
+  - **mlr** (https://mlr.mlr-org.com/),
 
 Beyond that it is not trivial to use R for production of large rasters where 
 millions of points with hundreds of covariates are used for model building.
+So it is important to realize that Open Source does not have out-of-box
+solutions for PSM projects, but requires active involvement and development.
 
 ### Hosting, publishing, sharing and using spatial data
 
@@ -875,31 +876,31 @@ and user oriented data.
 Future soil inventory projects based on application of predictive soil
 modelling will also benefit from adopting the following principles of
 OPEN Data based on the Sunlight Foundation's “Ten Principles for Opening
-up Government Information”.
-(https://open.canada.ca/en/open-data-principles#toc95)\
-\
+up Government Information”
+(https://open.canada.ca/en/open-data-principles#toc95):
+
 **1. Completeness**\
-Datasets should be as complete as possible, reflecting the entirety of
+Data sets should be as complete as possible, reflecting the entirety of
 what is recorded about a particular subject. All raw information from a
-dataset should be released to the public, unless there are Access to
+data set should be released to the public, unless there are Access to
 Information or Privacy issues. Metadata that defines and explains the
 raw data should be included, along with explanations for how the data
 was calculated.\
-\
+
 **2. Primacy**\
-Datasets should come from a primary source. This includes the original
+Data sets should come from a primary source. This includes the original
 information collected by the original sources and available details on
 how the data was collected. Public dissemination will allow users to
 verify that information was collected properly and recorded accurately.\
-\
+
 **3. Timeliness**\
-Datasets released should be made available to the public in a timely
+Data sets released should be made available to the public in a timely
 fashion. Whenever feasible, information collected by original entities
 should be released as quickly as it is gathered and collected. Priority
 should be given to data whose utility is time sensitive.\
-\
+
 **4. Ease of Physical and Electronic Access**\
-Datasets released by their producers should be as accessible as
+Data sets released by their producers should be as accessible as
 possible, with accessibility defined as the ease with which information
 can be obtained. Barriers to electronic access include making data
 accessible only via submitted forms or systems that require
@@ -907,22 +908,22 @@ browser-oriented technologies (e.g., Flash, Javascript, cookies or Java
 applets). By contrast, providing an interface for users to make specific
 calls for data through an Application Programming Interface (API) make
 data much more readily accessible.\
-\
+
 **5. Machine readability**\
 Machines can handle certain kinds of inputs much better than others.
-Datasets should be released in widely-used file formats that easily lend
+Data sets should be released in widely-used file formats that easily lend
 themselves to machine processing (e.g. CSV, XML). These files should be
 accompanied by documentation related to the format and how to use it in
 relation to the data.\
-\
+
 **6. Non-discrimination**\
 Non-discrimination refers to who can access data and how they must do
 so. Barriers to use of data can include registration or membership
-requirements. Released datasets should have as few barriers to use as
+requirements. Released data sets should have as few barriers to use as
 possible. Non-discriminatory access to data should enable any person to
 access the data at any time without having to identify him/herself or
 provide any justification for doing so.\
-\
+
 **7. Use of Commonly Owned Standards**\
 Commonly owned standards refer to who owns the format in which data is
 stored. For example, if only one company manufactures the program that
@@ -930,20 +931,20 @@ can read a file where data is stored, access to that information is
 dependent upon use of that company's program. Sometimes that program is
 unavailable to the public at any cost, or is available, but for a fee.
 Removing this cost makes the data available to a wider pool of potential
-users. Released datasets should be in freely available file formats as
+users. Released data sets should be in freely available file formats as
 often as possible.\
-\
+
 **8. Licencing**\
-All datasets should be released under a recognized Open Data Licence.
+All data sets should be released under a recognized Open Data Licence.
 Such licences are designed to increase openness and minimize
 restrictions on the use of the data.\
-\
+
 **9. Permanence**\
 The capability of finding information over time is referred to as
 permanence. For best use by the public, information made available
 online should remain online, with appropriate version-tracking and
 archiving over time.\
-\
+
 **10. Usage Costs**\
 All open data should be provided free of charge.
 
@@ -985,7 +986,7 @@ In the same way that new scientific and technological advances can be
 embraced to improve future PSM any new, future, PSM activities should
 also take advantage of newer organizational models that improve how
 collective activities can be organized and managed collaboratively and
-cooperatively through innovations such as:
+cooperatively through innovations such as [@Hengl2018OGH]:
 
 -   Open data and platforms and procedures for acquiring and sharing data,
 
@@ -1015,14 +1016,14 @@ open data.
 
 At the moment, most PSM activities take place on local computers using
 local processors. As PSM proceeds and increasingly deals with much
-larger datasets at much finer spatial resolutions, it may become less
+larger data sets at much finer spatial resolutions, it may become less
 and less viable to download all data for local processing. Imagine
 trying to download 5 to 10 m resolution raster data for an entire
 continent, or even the entire world, for tens to perhaps hundreds of
 layers of covariate data. We may rapidly arrive at a situation where it
 could take months to years to simply download such large volumes of data
 before any analyses could take place. It such a situation, it no longer
-makes sense to try to download covariate datasets to work with them
+makes sense to try to download covariate data sets to work with them
 locally.
 
 Similarly, many big data applications have now accepted that it is far
@@ -1030,10 +1031,10 @@ more efficient and affordable to conduct their processing and analysis
 in the cloud using services such as Amazon cloud services, Google Earth
 Engine or Microsoft cloud services. It has become too costly to assemble
 and maintain the massive amounts of processing power, and memory, in
-house that are increasingly required to process massive datasets using
+house that are increasingly required to process massive data sets using
 big data analytics.
 
-Modellers can easily obtain and download all available covariate data
+Modelers can easily obtain and download all available covariate data
 for all point locations for which they possess point observations or
 measurements. Typically, entire stacks of covariate data can be
 identified and downloaded for thousands of point locations within just a
@@ -1044,15 +1045,13 @@ an optimum model (or models) has been developed, the model itself can be
 uploaded to a cloud based processing service and the model can be run
 against all covariate data stored in the cloud, using cloud based memory
 and processing capabilities. This is perhaps a preferable and more
-practical way to implement PSM modelling for very large datasets.
+practical way to implement PSM modelling for very large data sets.
 
 ### Collaborative production of inputs and new outputs
 
 It is likely that it will increasingly only be possible to produce next
 generation national to state level PSM inventory products through some
-form of collaborative effort.
-
-It is very unusual for any one agency or entity to have both the mandate
+form of collaborative effort. It is very unusual for any one agency or entity to have both the mandate
 and the resources to assume responsibility for producing maps for entire
 countries or even entire provinces or states. Mapping and field data
 collection activities tend to be fragmented in response to various
@@ -1091,7 +1090,7 @@ submit analytical results for samples from point locations to some
 shared and open repository. If this were to occur, then anyone
 interested in producing maps for any area would have access to all
 potentially available and useful point data to inform and drive their
-predictive models. We offer OpoenGeoHub as an example of a physical
+predictive models. We offer OpenGeoHub as an example of a physical
 platform where all of point data, covariate data and output predictive
 maps can be widely and freely published, archived and shared.
 
@@ -1106,7 +1105,7 @@ produced.
 ### Crowdsourcing and voluntary collaboration,
 
 There is a role in PSM for crowdsourcing and voluntary contributions
-from citizen scientists. Sampling plans can be developed and volunteers
+from citizen scientists [@Hengl2018OGH]. Sampling plans can be developed and volunteers
 can be encouraged to go to identified sampling locations to collect a
 series of easy to make observations using a provided template. One
 active example of this approach is the Degree Confluence Project. This
@@ -1114,14 +1113,15 @@ project aims to have people visit each of the exact integer degree
 intersections of latitude and longitude on Earth, posting photographs
 and a narrative of each visit online
 (https://en.wikipedia.org/wiki/Degree_Confluence_Project).
-The project describes itself as “an organized sampling of the world”.
+The project describes itself as *“an organized sampling of the world”* and is
+purely based on enthusiasm.
 
 Monitoring programs can vary significantly, ranging from community based
 monitoring on a local scale, to large-scale collaborative global
 monitoring programs such as those focused on climate change [@lovett2007needs]. 
 There is a global recognition that
-“environmental issues are best handled with the participation of all
-concerned citizens”, a principal first articulated in the United
+*“environmental issues are best handled with the participation of all concerned citizens”*, 
+a principal first articulated in the United
 Nation’s Earth Summit Agenda 21 (UN, 1992). This principle was
 strengthened further in July, 2009, with the formal ratification of the
 Aarhus Convention which mandates participation by the public in
@@ -1145,7 +1145,7 @@ or structure and, possibly very soon, spectroscopic analysis of soil
 properties on-site. So, future PSM activities should look for
 opportunities to engage citizen volunteers in collecting field
 observations and measurements to extend what PSM is able to accomplish
-now using data collected data by professionals..
+now using data collected data by professionals.
 
 ### Sponsorship, subscription, crowdfunding and blockchain funding systems,
 
@@ -1157,15 +1157,15 @@ models, output maps or other end products. We can imagine several
 possible revenue streams that could be adopted to fund a collaborative
 platform in a sustainable way. These include:
 
--   Sponsorship
+-   Sponsorship,
 
--   Subscriptions by participating partners
+-   Subscriptions by participating partners,
 
--   Crowdfunding
+-   Crowdfunding,
 
--   Blockchain funding
+-   Blockchain funding,
 
--   Advertising revenue
+-   Advertising revenue,
 
 Sponsors are those who provide funds willingly to support operations and
 activities that they consider to be beneficial, possibly to themselves
@@ -1278,7 +1278,7 @@ of traffic to the site.
 
 So, what is it that we would like to promote and implement as we proceed
 into the future? The basic concept is to imagine, design and build a new, collaborative
-and cooperative framework for collecting, analysing, maintaining,
+and cooperative framework for collecting, analyzing, maintaining,
 producing and distributing spatial information about attributes and
 classes of terrestrial landscapes. The idea may be thought of as a
 virtual network for creating and supporting ongoing, comprehensive
@@ -1302,7 +1302,7 @@ Companies, such as Dupont, advertise that they are part of a global
 collaboratory, and recognize that their businesses, and profit, benefit
 greatly from sharing much of their proprietary internal research data
 with partners and even competitors. This recognizes the fact that many
-agencies and companies are in the business of collecting and analysing
+agencies and companies are in the business of collecting and analyzing
 data to try to extract useful knowledge or information from that data.
 The larger and more comprehensive the pool of data, the more likely it
 is to yield new and valuable understandings or knowledge and then, from
@@ -1324,7 +1324,7 @@ the landpotential.org project or similar, so that a top-down, bottom-up
 verification and adjustments; Fig. \@ref(fig:scheme-soc-prof1)), can be 
 generated. 
 
-```{r mobile-phone-scheme, echo=FALSE, fig.cap="Future Global Land Information System (built on the top of the LandGIS concept) and targeted functionality: users on ground send local O and M through their mobile phones, which are then used to run and re-callibrate global models.", out.width="100%"}
+```{r mobile-phone-scheme, echo=FALSE, fig.cap="Future Global Land Information System (built on the top of the LandGIS concept) and targeted functionality: users on ground send local observations and measurements through their mobile phones, which are then used to run and re-callibrate global models.", out.width="100%"}
 knitr::include_graphics("figures/Fig_future_mobile_phone.png")
 ```
 
@@ -1386,4 +1386,4 @@ not necessary to reinvent the wheel to set up a cloned franchise
 operation. Most of the design and functionality can simply be replicated
 for use at the local franchise level. We envisage OpenGeoHub as a test
 case and an incubator that, if successful, could form a template for
-many other successful spinoffs.
+many other successful spin-offs.
