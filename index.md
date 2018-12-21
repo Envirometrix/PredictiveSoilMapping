@@ -144,7 +144,7 @@ To reproduce the book, you need a recent version of [R](https://cran.r-project.o
 
 
 ```r
-devtools::install_github("nowosad/PSMpkg")
+devtools::install_github("Envirometrix/PSMpkg")
 ```
 
 To build the book locally, clone or [download](https://github.com/envirometrix/PredictiveSoilMapping/archive/master.zip) the [PredictiveSoilMapping repo](https://github.com/envirometrix/PredictiveSoilMapping/), load R in root directory (e.g. by opening [PredictiveSoilMapping.Rproj](https://github.com/envirometrix/PredictiveSoilMapping/blob/master/PredictiveSoilMapping.Rproj) in RStudio) and run the following lines:

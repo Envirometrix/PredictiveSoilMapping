@@ -459,7 +459,7 @@ ISBN: 9783319634395, 720 pages.</p></li>
 <div id="reproducibility" class="section level2 unnumbered">
 <h2>Reproducibility</h2>
 <p>To reproduce the book, you need a recent version of <a href="https://cran.r-project.org">R</a>, and <a href="http://www.rstudio.com/products/RStudio/">RStudio</a> and up-to-date packages, which can be installed with the following command (which requires <a href="https://github.com/hadley/devtools"><strong>devtools</strong></a>):</p>
-<pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;nowosad/PSMpkg&quot;</span>)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;Envirometrix/PSMpkg&quot;</span>)</code></pre>
 <p>To build the book locally, clone or <a href="https://github.com/envirometrix/PredictiveSoilMapping/archive/master.zip">download</a> the <a href="https://github.com/envirometrix/PredictiveSoilMapping/">PredictiveSoilMapping repo</a>, load R in root directory (e.g. by opening <a href="https://github.com/envirometrix/PredictiveSoilMapping/blob/master/PredictiveSoilMapping.Rproj">PredictiveSoilMapping.Rproj</a> in RStudio) and run the following lines:</p>
 <pre class="sourceCode r"><code class="sourceCode r">bookdown<span class="op">::</span><span class="kw">render_book</span>(<span class="st">&quot;index.Rmd&quot;</span>) <span class="co"># to build the book</span>
 <span class="kw">browseURL</span>(<span class="st">&quot;docs/index.html&quot;</span>) <span class="co"># to view it</span></code></pre>
