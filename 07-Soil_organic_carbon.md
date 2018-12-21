@@ -245,7 +245,7 @@ fm.BLD = as.formula(
   paste("BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +", 
         paste(names(ind.tax), collapse="+")))
 m.BLD_PTF <- ranger(fm.BLD, dfs_tbl, num.trees = 85, importance='impurity')
-#> Growing trees.. Progress: 92%. Estimated remaining time: 2 seconds.
+#> Growing trees.. Progress: 88%. Estimated remaining time: 4 seconds.
 m.BLD_PTF
 #> Ranger result
 #> 
@@ -429,7 +429,8 @@ This contains a number of covariates from SRTM DEM derivatives, to Global Surfac
 proj4string(COSha30map) = "+proj=utm +zone=18 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"
 coordinates(COSha30) = ~ x+y
 proj4string(COSha30) = proj4string(COSha30map)
-covs30mdist = GSIF::buffer.dist(COSha30["COSha30"], covs30m[1], as.factor(1:nrow(COSha30)))
+covs30mdist = GSIF::buffer.dist(COSha30["COSha30"], covs30m[1],
+                                as.factor(1:nrow(COSha30)))
 ```
 
 We can convert the original covariates to Principal Components, also to fill in all missing pixels:
@@ -455,7 +456,8 @@ library(caret)
 #> Loading required package: lattice
 #> Loading required package: ggplot2
 library(ranger)
-fm.COSha30 = as.formula(paste("COSha30 ~ ", paste(names(covs30m.spc@predicted), collapse = "+")))
+fm.COSha30 = as.formula(paste("COSha30 ~ ",
+                              paste(names(covs30m.spc@predicted), collapse = "+")))
 fm.COSha30
 #> COSha30 ~ PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + PC9 + 
 #>     PC10 + PC11 + PC12 + PC13 + PC14 + PC15 + PC16 + PC17 + PC18 + 
@@ -633,11 +635,13 @@ Note that Edgeroi completely lacks any BLD values, therefore before we can compu
 
 ```r
 landgis.bld = list.files("/mnt/DATA/LandGIS/predicted250m", 
-                     pattern=glob2rx("sol_bulkdens.fineearth_usda.4a1h_m_*.tif$"), full.names=TRUE)
+                     pattern=glob2rx("sol_bulkdens.fineearth_usda.4a1h_m_*.tif$"),
+                     full.names=TRUE)
 for(j in 1:length(landgis.bld)){
-  system(paste0('gdalwarp ', landgis.bld[j], ' extdata/edgeroi_', basename(landgis.bld[j]), 
-         ' -t_srs \"', proj4string(edgeroi.grids), '\" -tr 250 250 -co \"COMPRESS=DEFLATE\"', 
-         ' -te ', paste(as.vector(edgeroi.grids@bbox), collapse = " ")))
+  system(paste0('gdalwarp ', landgis.bld[j], ' extdata/edgeroi_',
+                basename(landgis.bld[j]), ' -t_srs \"', proj4string(edgeroi.grids), 
+                '\" -tr 250 250 -co \"COMPRESS=DEFLATE\"', 
+                ' -te ', paste(as.vector(edgeroi.grids@bbox), collapse = " ")))
 }
 ```
 
@@ -647,9 +651,12 @@ Matching between the irregularly distributed soil horizons and LandGIS bulk dens
 ```r
 sg <- list.files("extdata", "edgeroi_sol_bulkdens.fineearth", full.names = TRUE)
 ov <- as.data.frame(raster::extract(stack(sg), edgeroi.sp)*10)
-ov.edgeroi.BLD = ov[,c(grep("b0..", names(ov), fixed = TRUE), grep("b10..", names(ov), fixed = TRUE), 
-                       grep("b30..", names(ov), fixed = TRUE), grep("b60..", names(ov), fixed = TRUE), 
-                       grep("b100..", names(ov), fixed = TRUE), grep("b200..", names(ov), fixed = TRUE))]
+ov.edgeroi.BLD = ov[,c(grep("b0..", names(ov),
+                            fixed = TRUE), grep("b10..", names(ov), fixed = TRUE), 
+                       grep("b30..", names(ov), 
+                            fixed = TRUE), grep("b60..", names(ov), fixed = TRUE), 
+                       grep("b100..", names(ov), 
+                            fixed = TRUE), grep("b200..", names(ov), fixed = TRUE))]
 ```
 
 Second, we derive averaged estimates of BLD for standard depth intervals:
@@ -670,13 +677,15 @@ Third, we match BLD values by matching horizon depths (center of horizon) with t
 
 
 ```r
-edgeroi$horizons$DEPTH = edgeroi$horizons$UHDICM + (edgeroi$horizons$LHDICM - edgeroi$horizons$UHDICM)/2
+edgeroi$horizons$DEPTH = edgeroi$horizons$UHDICM +
+  (edgeroi$horizons$LHDICM - edgeroi$horizons$UHDICM)/2
 edgeroi$horizons$DEPTH.c = cut(edgeroi$horizons$DEPTH, include.lowest=TRUE,
                                breaks=c(0,10,30,60,100,1000), labels=paste0("sd",1:5))
 summary(edgeroi$horizons$DEPTH.c)
 #> sd1 sd2 sd3 sd4 sd5 
 #> 391 379 408 391 769
-edgeroi$horizons$BLD.f = plyr::join(edgeroi$horizons[,c("SOURCEID","DEPTH.c")], ov.edgeroi.BLDm)$BLD.f
+edgeroi$horizons$BLD.f = plyr::join(edgeroi$horizons[,c("SOURCEID","DEPTH.c")],
+                                    ov.edgeroi.BLDm)$BLD.f
 #> Joining by: SOURCEID, DEPTH.c
 ```
 
@@ -712,7 +721,8 @@ The spatial prediction model can be fitted using:
 
 
 ```r
-fm.OCD = as.formula(paste0("OCD ~ DEPTH + ", paste(names(edgeroi.spc@predicted), collapse = "+")))
+fm.OCD = as.formula(paste0("OCD ~ DEPTH + ", paste(names(edgeroi.spc@predicted), 
+                                                   collapse = "+")))
 fm.OCD
 #> OCD ~ DEPTH + PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + 
 #>     PC9 + PC10 + PC11 + PC12
@@ -799,7 +809,8 @@ OCS_agg.lu <- plyr::ddply(edgeroi.grids@data, .(LandUseClass), summarize,
                           Area_km2=round(sum(!is.na(OCS.30cm))*250^2/1e6))
 OCS_agg.lu$LandUseClass.f = strtrim(OCS_agg.lu$LandUseClass, 34)
 OCS_agg.lu$OCH_t_ha_M = round(OCS_agg.lu$Total_OCS_kt*1000/(OCS_agg.lu$Area_km2*100))
-OCS_agg.lu[OCS_agg.lu$Area_km2>5,c("LandUseClass.f","Total_OCS_kt","Area_km2","OCH_t_ha_M")]
+OCS_agg.lu[OCS_agg.lu$Area_km2>5,c("LandUseClass.f","Total_OCS_kt",
+                                   "Area_km2","OCH_t_ha_M")]
 #>                        LandUseClass.f Total_OCS_kt Area_km2 OCH_t_ha_M
 #> 2  Constructed grass waterway for wat           57       11         52
 #> 3                              Cotton           43        8         54
@@ -869,7 +880,8 @@ All these layers are available only at a relatively coarse resolution of 10 km, 
 
 ```r
 pr.lst <- names(OCD_stN)[-which(names(OCD_stN) %in% c("SOURCEID", "DEPTH.f", "OCDENS", 
-                                                      "YEAR", "YEAR_c", "LONWGS84", "LATWGS84"))]
+                                                      "YEAR", "YEAR_c", "LONWGS84",
+                                                      "LATWGS84"))]
 fm0.st <- as.formula(paste('OCDENS ~ DEPTH.f + ', paste(pr.lst, collapse="+")))
 sel0.m = complete.cases(OCD_stN[,all.vars(fm0.st)])
 ## takes >2 mins
@@ -910,7 +922,8 @@ library(raster)
 setwd()
 tif.lst <- list.files("extdata/USA48", pattern="_10km.tif", full.names = TRUE)
 g10km <- as(readGDAL(tif.lst[1]), "SpatialPixelsDataFrame")
-for(i in 2:length(tif.lst)){ g10km@data[,i] = readGDAL(tif.lst[i], silent=TRUE)$band1[g10km@grid.index] }
+for(i in 2:length(tif.lst)){ g10km@data[,i] = readGDAL(tif.lst[i],
+                                                       silent=TRUE)$band1[g10km@grid.index] }
 names(g10km) = basename(tif.lst)
 g10km = as.data.frame(g10km)
 gridded(g10km) = ~x+y
@@ -924,7 +937,8 @@ to speed up processing we can subset grids and focus on the State of Texas:
 library(maps)
 library(maptools)
 states <- map('state', plot=FALSE, fill=TRUE)
-states = SpatialPolygonsDataFrame(map2SpatialPolygons(states, IDs=1:length(states$names)),
+states = SpatialPolygonsDataFrame(map2SpatialPolygons(states,
+                                                      IDs=1:length(states$names)),
                                   data.frame(names=states$names))
 proj4string(states) = "+proj=longlat +datum=WGS84"
 ov.g10km = over(y=states, x=g10km)

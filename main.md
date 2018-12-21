@@ -2,7 +2,7 @@
 ---
 title: "Predictive Soil Mapping with R"
 author: ["Tomislav Hengl and Robert A. MacMillan"]
-date: "2018-12-20"
+date: "2018-12-21"
 #layout: default
 #comments: true
 knit: bookdown::render_book
@@ -16,7 +16,7 @@ classoption: graybox,natbib,nospthms,UStrade
 #    - letterpaper
 geometry: "top=1.6cm, bottom=2cm, left=2.1cm, right=2.1cm"
 monofont: "Source Code Pro"
-monofontoptions: "Scale=0.7"
+monofontoptions: "Scale=0.6"
 #linestretch: 1.15
 bibliography: refs.bib
 biblio-style: spbasic
@@ -2592,7 +2592,7 @@ sessionInfo()
 #> [1] microbenchmark_1.4-6
 #> 
 #> loaded via a namespace (and not attached):
-#>  [1] compiler_3.5.1   magrittr_1.5     bookdown_0.8     tools_3.5.1     
+#>  [1] compiler_3.5.1   magrittr_1.5     bookdown_0.9     tools_3.5.1     
 #>  [5] htmltools_0.3.6  yaml_2.2.0       Rcpp_1.0.0       codetools_0.2-15
 #>  [9] stringi_1.2.4    rmarkdown_1.11   highr_0.7        knitr_1.21      
 #> [13] stringr_1.3.1    xfun_0.4         digest_0.6.18    evaluate_0.12
@@ -2687,7 +2687,8 @@ The function `FlowAccumulationFullWorkflow` is, for example, a wrapper function 
 ```r
 system(paste0('"/home/tomislav/software/WBT/whitebox_tools" ',
   '--run=FlowAccumulationFullWorkflow --dem="./extdata/DEMTOPx.tif" ',
-  '--out_type="Specific Contributing Area" --log="False" --clip="False" --esri_pntr="False" ',
+  '--out_type="Specific Contributing Area" --log="False" --clip="False" ',
+  '--esri_pntr="False" ',
   '--out_dem="./extdata/DEMTOPx_out.tif" ',
   '--out_pntr="./extdata/DEMTOPx_pntr.tif" ',
   '--out_accum="./extdata/DEMTOPx_accum.tif" -v'))
@@ -2801,7 +2802,7 @@ om.rk <- predict(omm, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 38% done
+ 66% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -4014,7 +4015,7 @@ converting between silt fraction based on the international standard of
    & - 0.0142 \cdot P_{\mathtt{2-20}}^2  - 0.0049 \cdot P_{\mathtt{20-2000}}^2
 \end{matrix}   & \text{ if } \hat P_{\mathtt{2-50}} > 0 \\ \begin{matrix} \hat P_{\mathtt{2-50}} = & 0.8289 \cdot P_{\mathtt{2-20}} + 0.0198 \cdot P_{\mathtt{20-2000}} \end{matrix} & \text{ if } \hat P_{\mathtt{2-50}} < 0
 \end{cases}
-(\#P2_50)
+  (\#eq:P2_50)
 \end{equation}
 
 where $P_{\mathtt{20-2000}}$ is the international sand fraction. This
@@ -6054,7 +6055,8 @@ fun_mask <- function(i, tiles, dir="./tiled/", threshold=190){
                  output.dim=unlist(tiles[i,c("region.dim.y","region.dim.x")]),
                  silent = TRUE)
     x$mask = ifelse(x$band1>threshold, 1, 0)
-    writeGDAL(x["mask"], type="Byte", mvFlag = 255, out.tif, options=c("COMPRESS=DEFLATE"))
+    writeGDAL(x["mask"], type="Byte", mvFlag = 255, 
+              out.tif, options=c("COMPRESS=DEFLATE"))
   }
 }
 ```
@@ -7480,7 +7482,6 @@ om.rk <- predict(omm, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 56% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -7554,7 +7555,6 @@ om.rk2 <- predict(omm2, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 50% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -7804,6 +7804,7 @@ om.rk.p <- predict(omm, meuse.grid, block=c(0,0))
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
+ 68% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -7813,7 +7814,6 @@ om.rksim.p <- predict(omm, meuse.grid, nsim=20, block=c(0,0))
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
 #> 
- 12% done
 100% done
 #> Creating an object of class "RasterBrickSimulations"
 #> Loading required package: raster
@@ -7838,7 +7838,6 @@ om.rk.b <- predict(omm, meuse.grid, block=c(40,40), nfold=0)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 52% done
 100% done
 #> Creating an object of class "SpatialPredictions"
 om.rksim.b <- predict(omm, meuse.grid, nsim=2, block=c(40,40), debug.level=0)
@@ -8056,7 +8055,6 @@ om.rksim.p <- predict(omm, meuse.grid, block=c(0,0), nsim=20)
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
 #> 
- 28% done
 100% done
 #> Creating an object of class "RasterBrickSimulations"
 log1p(meuse@data[1,"om"])
@@ -8105,13 +8103,13 @@ library(intamap)
 demo(meuse, echo=FALSE)
 meuse$value = meuse$zinc
 output <- interpolate(meuse, meuse.grid, list(mean=TRUE, variance=TRUE))
-#> R 2018-12-20 21:08:56 interpolating 155 observations, 3103 prediction locations
+#> R 2018-12-21 11:00:28 interpolating 155 observations, 3103 prediction locations
 #> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : 
 #>  using standard model for estimating time. For better 
 #>  platform spesific predictions, please run 
 #>  timeModels <- generateTimeModels()
 #>   and save the workspace
-#> [1] "estimated time for  copula 162.280467325625"
+#> [1] "estimated time for  copula 158.915196850452"
 #> Checking object ... OK
 ```
 
@@ -8125,7 +8123,7 @@ str(output, max.level = 2)
 #> List of 16
 #>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
 #>  $ formulaString      :Class 'formula'  language value ~ 1
-#>   .. ..- attr(*, ".Environment")=<environment: 0x13b35390> 
+#>   .. ..- attr(*, ".Environment")=<environment: 0x152df378> 
 #>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
 #>  $ params             :List of 18
 #>   ..$ doAnisotropy     : logi TRUE
@@ -9514,7 +9512,7 @@ localH2O = h2o.init(startH2O=TRUE)
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         23 minutes 10 seconds 
+#>     H2O cluster uptime:         23 minutes 40 seconds 
 #>     H2O cluster timezone:       UTC 
 #>     H2O data parsing timezone:  UTC 
 #>     H2O cluster version:        3.20.0.8 
@@ -9553,23 +9551,23 @@ RF.m
 #> ==============
 #> 
 #> H2ORegressionModel: drf
-#> Model ID:  DRF_model_R_1545338803760_21 
+#> Model ID:  DRF_model_R_1545388667203_21 
 #> Model Summary: 
 #>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#> 1              50                       50              641372        20
+#> 1              50                       50              641953        20
 #>   max_depth mean_depth min_leaves max_leaves mean_leaves
-#> 1        20   20.00000        966       1058  1017.20000
+#> 1        20   20.00000        898       1064  1018.28000
 #> 
 #> 
 #> H2ORegressionMetrics: drf
 #> ** Reported on training data. **
 #> ** Metrics reported on Out-Of-Bag training samples **
 #> 
-#> MSE:  219
-#> RMSE:  14.8
-#> MAE:  10
-#> RMSLE:  0.429
-#> Mean Residual Deviance :  219
+#> MSE:  221
+#> RMSE:  14.9
+#> MAE:  10.1
+#> RMSLE:  0.431
+#> Mean Residual Deviance :  221
 ```
 
 This shows that the model fitting R-square is about 50%. This is also indicated by the predicted vs observed plot:
@@ -9616,29 +9614,29 @@ DL.m
 #> ==============
 #> 
 #> H2ORegressionModel: deeplearning
-#> Model ID:  DeepLearning_model_R_1545338803760_22 
+#> Model ID:  DeepLearning_model_R_1545388667203_22 
 #> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1
 #>   layer units      type dropout       l1       l2 mean_rate rate_rms
 #> 1     1    10     Input  0.00 %       NA       NA        NA       NA
-#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.015442 0.008944
-#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.130497 0.167496
-#> 4     4     1    Linear      NA 0.000000 0.000000  0.001317 0.000875
+#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.014169 0.008703
+#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.130795 0.181131
+#> 4     4     1    Linear      NA 0.000000 0.000000  0.001380 0.000943
 #>   momentum mean_weight weight_rms mean_bias bias_rms
 #> 1       NA          NA         NA        NA       NA
-#> 2 0.000000   -0.003239   0.101061  0.343045 0.066733
-#> 3 0.000000   -0.018721   0.071471  0.951571 0.021133
-#> 4 0.000000    0.004203   0.046379  0.095377 0.000000
+#> 2 0.000000   -0.000662   0.101747  0.346567 0.062076
+#> 3 0.000000   -0.018748   0.071333  0.952377 0.023088
+#> 4 0.000000   -0.001386   0.053918  0.116379 0.000000
 #> 
 #> 
 #> H2ORegressionMetrics: deeplearning
 #> ** Reported on training data. **
 #> ** Metrics reported on full training frame **
 #> 
-#> MSE:  268
-#> RMSE:  16.4
-#> MAE:  12.3
-#> RMSLE:  0.502
-#> Mean Residual Deviance :  268
+#> MSE:  274
+#> RMSE:  16.5
+#> MAE:  12.7
+#> RMSLE:  0.512
+#> Mean Residual Deviance :  274
 ```
 
 Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. \@ref(fig:map-snd) and Fig. \@ref(fig:map-snd-dl)).
@@ -9809,8 +9807,9 @@ At the end of the statistical modelling process, we can merge the predictions by
 
 
 ```r
-edgeroi.grids$DEPTH = 2.5
-edgeroi.grids$Random_forest <- predict(ORCDRC.rf, edgeroi.grids@data, na.action = na.pass) 
+edgeroi.grids$DEPTH <- 2.5
+edgeroi.grids$Random_forest <- predict(ORCDRC.rf, edgeroi.grids@data, 
+                                       na.action = na.pass) 
 edgeroi.grids$Cubist <- predict(ORCDRC.cb, edgeroi.grids@data, na.action = na.pass)
 edgeroi.grids$XGBoost <- predict(ORCDRC.gb, edgeroi.grids@data, na.action = na.pass)
 edgeroi.grids$ORCDRC_5cm <- (edgeroi.grids$Random_forest*w1 + 
@@ -9874,16 +9873,16 @@ str(test.ORC)
 #> List of 2
 #>  $ CV_residuals:'data.frame':	4972 obs. of  4 variables:
 #>   ..$ Observed : num [1:4972] 6.5 5.1 4.9 3.3 2.2 ...
-#>   ..$ Predicted: num [1:4972] 12.09 7.25 6.97 4.98 3 ...
+#>   ..$ Predicted: num [1:4972] 11.56 7.26 6.5 5.38 2.93 ...
 #>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" ...
 #>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ Summary     :'data.frame':	1 obs. of  6 variables:
-#>   ..$ ME          : num -0.123
-#>   ..$ MAE         : num 2.18
+#>   ..$ ME          : num -0.131
+#>   ..$ MAE         : num 2.19
 #>   ..$ RMSE        : num 3.66
-#>   ..$ R.squared   : num 0.562
-#>   ..$ logRMSE     : num 0.494
-#>   ..$ logR.squared: num 0.635
+#>   ..$ R.squared   : num 0.563
+#>   ..$ logRMSE     : num 0.498
+#>   ..$ logR.squared: num 0.631
 ```
 
 Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about $\pm 4$ g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:
@@ -9937,15 +9936,15 @@ perf
 #> 
 #> Base learner performance, sorted by specified metric:
 #>                    learner  MSE
-#> 1 h2o.randomForest.wrapper 13.1
 #> 2          h2o.gbm.wrapper 12.8
+#> 1 h2o.randomForest.wrapper 12.8
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 12.5517010127198
+#> Ensemble performance (MSE): 12.4174019460544
 ```
 
 which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.
@@ -10045,16 +10044,16 @@ perf3
 #> Base learner performance, sorted by specified metric:
 #>                    learner    MSE
 #> 1          h2o.glm.wrapper 0.2827
-#> 4 h2o.deeplearning.wrapper 0.1299
+#> 4 h2o.deeplearning.wrapper 0.1526
 #> 3          h2o.gbm.wrapper 0.0971
-#> 2 h2o.randomForest.wrapper 0.0808
+#> 2 h2o.randomForest.wrapper 0.0831
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 0.0768638899126717
+#> Ensemble performance (MSE): 0.0761500384547859
 ```
 
 In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.
@@ -10136,12 +10135,12 @@ sl
 #>     SL.library = sl.l) 
 #> 
 #> 
-#>                  Risk   Coef
-#> SL.mean_All    0.7540 0.0000
-#> SL.xgboost_All 0.0598 0.8182
-#> SL.ksvm_All    0.1290 0.0149
-#> SL.glmnet_All  0.3076 0.0000
-#> SL.ranger_All  0.0853 0.1670
+#>                  Risk  Coef
+#> SL.mean_All    0.7540 0.000
+#> SL.xgboost_All 0.0598 0.818
+#> SL.ksvm_All    0.1294 0.011
+#> SL.glmnet_All  0.3088 0.000
+#> SL.ranger_All  0.0853 0.170
 ```
 
 This shows that `SL.xgboost_All` outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by `SL.xgboost_All` is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:
@@ -10161,9 +10160,9 @@ sl2
 #> 
 #> 
 #>                  Risk  Coef
-#> SL.xgboost_All 0.0603 0.795
-#> SL.ranger_All  0.0817 0.205
-#> SL.ksvm_All    0.1305 0.000
+#> SL.xgboost_All 0.0603 0.805
+#> SL.ranger_All  0.0824 0.195
+#> SL.ksvm_All    0.1297 0.000
 ```
 
 again `SL.xgboost` dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where entire profiles are taken out of the training dataset:
@@ -10190,11 +10189,11 @@ summary(cv_sl)
 #> All risk estimates are based on V =  5 
 #> 
 #>       Algorithm  Ave    se   Min  Max
-#>   Super Learner 0.16 0.014 0.098 0.25
-#>     Discrete SL 0.17 0.014 0.118 0.25
+#>   Super Learner 0.16 0.014 0.095 0.25
+#>     Discrete SL 0.17 0.014 0.115 0.25
 #>  SL.xgboost_All 0.19 0.016 0.135 0.27
-#>   SL.ranger_All 0.16 0.014 0.103 0.25
-#>     SL.ksvm_All 0.18 0.015 0.110 0.30
+#>   SL.ranger_All 0.16 0.014 0.104 0.25
+#>     SL.ksvm_All 0.18 0.015 0.109 0.30
 ```
 
 where `V=5` specifies number of folds, and `id=rm.cookfarm$SOURCEID` forces that entire profiles are removed from training and cross-validation. This gives a more realistic RMSE of about ±0.35. Note that this time `SL.xgboost_All` is even somewhat worse than the random forest model, and the ensemble model (`Super Learner`) is slightly better than each individual model. This matches our previous results with `h20.ensemble`. 
@@ -10219,8 +10218,8 @@ sl2
 #> 
 #>                 Risk  Coef
 #> SL.xgboost_All 0.215 0.000
-#> SL.ranger_All  0.164 0.486
-#> SL.ksvm_All    0.163 0.514
+#> SL.ranger_All  0.167 0.461
+#> SL.ksvm_All    0.163 0.539
 new.data <- grid10m@data
 pred.PHI <- list(NULL)
 depths = c(10,30,50,70,90)
@@ -10242,7 +10241,7 @@ for(j in 1:length(depths)){
 #>     buffer, rotated
 str(pred.PHI[[1]])
 #> List of 2
-#>  $ pred           : num [1:3865, 1] 4.64 4.71 4.86 4.82 4.75 ...
+#>  $ pred           : num [1:3865, 1] 4.65 4.72 4.87 4.83 4.76 ...
 #>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...
 #>   ..- attr(*, "dimnames")=List of 2
 #>   .. ..$ : NULL
@@ -10726,7 +10725,8 @@ This type of modeling can be best compared to using Universal Kriging or Regress
 ```r
 zinc.geo$covariate = ov.zinc1
 sic.t = ~ PC1 + PC2 + PC3 + PC4 + PC5
-zinc1.vgm <- likfit(zinc.geo, trend = sic.t, lambda=0, ini=ini.v, cov.model="exponential")
+zinc1.vgm <- likfit(zinc.geo, trend = sic.t, lambda=0,
+                    ini=ini.v, cov.model="exponential")
 #> kappa not used for the exponential correlation function
 #> ---------------------------------------------------------------
 #> likfit: likelihood maximisation using the function optim.
@@ -11293,7 +11293,7 @@ fm.BLD = as.formula(
   paste("BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +", 
         paste(names(ind.tax), collapse="+")))
 m.BLD_PTF <- ranger(fm.BLD, dfs_tbl, num.trees = 85, importance='impurity')
-#> Growing trees.. Progress: 92%. Estimated remaining time: 2 seconds.
+#> Growing trees.. Progress: 88%. Estimated remaining time: 4 seconds.
 m.BLD_PTF
 #> Ranger result
 #> 
@@ -11477,7 +11477,8 @@ This contains a number of covariates from SRTM DEM derivatives, to Global Surfac
 proj4string(COSha30map) = "+proj=utm +zone=18 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"
 coordinates(COSha30) = ~ x+y
 proj4string(COSha30) = proj4string(COSha30map)
-covs30mdist = GSIF::buffer.dist(COSha30["COSha30"], covs30m[1], as.factor(1:nrow(COSha30)))
+covs30mdist = GSIF::buffer.dist(COSha30["COSha30"], covs30m[1],
+                                as.factor(1:nrow(COSha30)))
 ```
 
 We can convert the original covariates to Principal Components, also to fill in all missing pixels:
@@ -11503,7 +11504,8 @@ library(caret)
 #> Loading required package: lattice
 #> Loading required package: ggplot2
 library(ranger)
-fm.COSha30 = as.formula(paste("COSha30 ~ ", paste(names(covs30m.spc@predicted), collapse = "+")))
+fm.COSha30 = as.formula(paste("COSha30 ~ ",
+                              paste(names(covs30m.spc@predicted), collapse = "+")))
 fm.COSha30
 #> COSha30 ~ PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + PC9 + 
 #>     PC10 + PC11 + PC12 + PC13 + PC14 + PC15 + PC16 + PC17 + PC18 + 
@@ -11681,11 +11683,13 @@ Note that Edgeroi completely lacks any BLD values, therefore before we can compu
 
 ```r
 landgis.bld = list.files("/mnt/DATA/LandGIS/predicted250m", 
-                     pattern=glob2rx("sol_bulkdens.fineearth_usda.4a1h_m_*.tif$"), full.names=TRUE)
+                     pattern=glob2rx("sol_bulkdens.fineearth_usda.4a1h_m_*.tif$"),
+                     full.names=TRUE)
 for(j in 1:length(landgis.bld)){
-  system(paste0('gdalwarp ', landgis.bld[j], ' extdata/edgeroi_', basename(landgis.bld[j]), 
-         ' -t_srs \"', proj4string(edgeroi.grids), '\" -tr 250 250 -co \"COMPRESS=DEFLATE\"', 
-         ' -te ', paste(as.vector(edgeroi.grids@bbox), collapse = " ")))
+  system(paste0('gdalwarp ', landgis.bld[j], ' extdata/edgeroi_',
+                basename(landgis.bld[j]), ' -t_srs \"', proj4string(edgeroi.grids), 
+                '\" -tr 250 250 -co \"COMPRESS=DEFLATE\"', 
+                ' -te ', paste(as.vector(edgeroi.grids@bbox), collapse = " ")))
 }
 ```
 
@@ -11695,9 +11699,12 @@ Matching between the irregularly distributed soil horizons and LandGIS bulk dens
 ```r
 sg <- list.files("extdata", "edgeroi_sol_bulkdens.fineearth", full.names = TRUE)
 ov <- as.data.frame(raster::extract(stack(sg), edgeroi.sp)*10)
-ov.edgeroi.BLD = ov[,c(grep("b0..", names(ov), fixed = TRUE), grep("b10..", names(ov), fixed = TRUE), 
-                       grep("b30..", names(ov), fixed = TRUE), grep("b60..", names(ov), fixed = TRUE), 
-                       grep("b100..", names(ov), fixed = TRUE), grep("b200..", names(ov), fixed = TRUE))]
+ov.edgeroi.BLD = ov[,c(grep("b0..", names(ov),
+                            fixed = TRUE), grep("b10..", names(ov), fixed = TRUE), 
+                       grep("b30..", names(ov), 
+                            fixed = TRUE), grep("b60..", names(ov), fixed = TRUE), 
+                       grep("b100..", names(ov), 
+                            fixed = TRUE), grep("b200..", names(ov), fixed = TRUE))]
 ```
 
 Second, we derive averaged estimates of BLD for standard depth intervals:
@@ -11718,13 +11725,15 @@ Third, we match BLD values by matching horizon depths (center of horizon) with t
 
 
 ```r
-edgeroi$horizons$DEPTH = edgeroi$horizons$UHDICM + (edgeroi$horizons$LHDICM - edgeroi$horizons$UHDICM)/2
+edgeroi$horizons$DEPTH = edgeroi$horizons$UHDICM +
+  (edgeroi$horizons$LHDICM - edgeroi$horizons$UHDICM)/2
 edgeroi$horizons$DEPTH.c = cut(edgeroi$horizons$DEPTH, include.lowest=TRUE,
                                breaks=c(0,10,30,60,100,1000), labels=paste0("sd",1:5))
 summary(edgeroi$horizons$DEPTH.c)
 #> sd1 sd2 sd3 sd4 sd5 
 #> 391 379 408 391 769
-edgeroi$horizons$BLD.f = plyr::join(edgeroi$horizons[,c("SOURCEID","DEPTH.c")], ov.edgeroi.BLDm)$BLD.f
+edgeroi$horizons$BLD.f = plyr::join(edgeroi$horizons[,c("SOURCEID","DEPTH.c")],
+                                    ov.edgeroi.BLDm)$BLD.f
 #> Joining by: SOURCEID, DEPTH.c
 ```
 
@@ -11760,7 +11769,8 @@ The spatial prediction model can be fitted using:
 
 
 ```r
-fm.OCD = as.formula(paste0("OCD ~ DEPTH + ", paste(names(edgeroi.spc@predicted), collapse = "+")))
+fm.OCD = as.formula(paste0("OCD ~ DEPTH + ", paste(names(edgeroi.spc@predicted), 
+                                                   collapse = "+")))
 fm.OCD
 #> OCD ~ DEPTH + PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + 
 #>     PC9 + PC10 + PC11 + PC12
@@ -11847,7 +11857,8 @@ OCS_agg.lu <- plyr::ddply(edgeroi.grids@data, .(LandUseClass), summarize,
                           Area_km2=round(sum(!is.na(OCS.30cm))*250^2/1e6))
 OCS_agg.lu$LandUseClass.f = strtrim(OCS_agg.lu$LandUseClass, 34)
 OCS_agg.lu$OCH_t_ha_M = round(OCS_agg.lu$Total_OCS_kt*1000/(OCS_agg.lu$Area_km2*100))
-OCS_agg.lu[OCS_agg.lu$Area_km2>5,c("LandUseClass.f","Total_OCS_kt","Area_km2","OCH_t_ha_M")]
+OCS_agg.lu[OCS_agg.lu$Area_km2>5,c("LandUseClass.f","Total_OCS_kt",
+                                   "Area_km2","OCH_t_ha_M")]
 #>                        LandUseClass.f Total_OCS_kt Area_km2 OCH_t_ha_M
 #> 2  Constructed grass waterway for wat           57       11         52
 #> 3                              Cotton           43        8         54
@@ -11917,7 +11928,8 @@ All these layers are available only at a relatively coarse resolution of 10 km, 
 
 ```r
 pr.lst <- names(OCD_stN)[-which(names(OCD_stN) %in% c("SOURCEID", "DEPTH.f", "OCDENS", 
-                                                      "YEAR", "YEAR_c", "LONWGS84", "LATWGS84"))]
+                                                      "YEAR", "YEAR_c", "LONWGS84",
+                                                      "LATWGS84"))]
 fm0.st <- as.formula(paste('OCDENS ~ DEPTH.f + ', paste(pr.lst, collapse="+")))
 sel0.m = complete.cases(OCD_stN[,all.vars(fm0.st)])
 ## takes >2 mins
@@ -11958,7 +11970,8 @@ library(raster)
 setwd()
 tif.lst <- list.files("extdata/USA48", pattern="_10km.tif", full.names = TRUE)
 g10km <- as(readGDAL(tif.lst[1]), "SpatialPixelsDataFrame")
-for(i in 2:length(tif.lst)){ g10km@data[,i] = readGDAL(tif.lst[i], silent=TRUE)$band1[g10km@grid.index] }
+for(i in 2:length(tif.lst)){ g10km@data[,i] = readGDAL(tif.lst[i],
+                                                       silent=TRUE)$band1[g10km@grid.index] }
 names(g10km) = basename(tif.lst)
 g10km = as.data.frame(g10km)
 gridded(g10km) = ~x+y
@@ -11972,7 +11985,8 @@ to speed up processing we can subset grids and focus on the State of Texas:
 library(maps)
 library(maptools)
 states <- map('state', plot=FALSE, fill=TRUE)
-states = SpatialPolygonsDataFrame(map2SpatialPolygons(states, IDs=1:length(states$names)),
+states = SpatialPolygonsDataFrame(map2SpatialPolygons(states,
+                                                      IDs=1:length(states$names)),
                                   data.frame(names=states$names))
 proj4string(states) = "+proj=longlat +datum=WGS84"
 ov.g10km = over(y=states, x=g10km)

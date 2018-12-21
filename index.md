@@ -2,7 +2,7 @@
 ---
 title: "Predictive Soil Mapping with R"
 author: ["Tomislav Hengl and Robert A. MacMillan"]
-date: "2018-12-20"
+date: "2018-12-21"
 #layout: default
 #comments: true
 knit: bookdown::render_book
@@ -16,7 +16,7 @@ classoption: graybox,natbib,nospthms,UStrade
 #    - letterpaper
 geometry: "top=1.6cm, bottom=2cm, left=2.1cm, right=2.1cm"
 monofont: "Source Code Pro"
-monofontoptions: "Scale=0.7"
+monofontoptions: "Scale=0.6"
 #linestretch: 1.15
 bibliography: refs.bib
 biblio-style: spbasic

@@ -9,7 +9,7 @@
   <meta name="description" content="Predictive Soil Mapping aims to produce the most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement common soil mapping procedures within the R programming language.">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="7 Spatial prediction and assessment of Soil Organic Carbon | Predictive Soil Mapping with R />
+  <meta property="og:title" content="7 Spatial prediction and assessment of Soil Organic Carbon | Predictive Soil Mapping with R" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://soilmapper.org" />
   <meta property="og:image" content="http://soilmapper.orgfigures/f0_web.png" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="envirometrix/PredictiveSoilMapping" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 Spatial prediction and assessment of Soil Organic Carbon | Predictive Soil Mapping with R />
+  <meta name="twitter:title" content="7 Spatial prediction and assessment of Soil Organic Carbon | Predictive Soil Mapping with R" />
   <meta name="twitter:site" content="@tom_hengl" />
   <meta name="twitter:description" content="Predictive Soil Mapping aims to produce the most accurate, most objective, and most usable maps of soil variables by using state-of-the-art Statistical and Machine Learning methods. This books explains how to implement common soil mapping procedures within the R programming language." />
   <meta name="twitter:image" content="http://soilmapper.orgfigures/f0_web.png" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl and Robert A. MacMillan">
 
 
-<meta name="date" content="2018-12-20">
+<meta name="date" content="2018-12-21">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -710,7 +710,7 @@ fm.BLD =<span class="st"> </span><span class="kw">as.formula</span>(
   <span class="kw">paste</span>(<span class="st">&quot;BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +&quot;</span>, 
         <span class="kw">paste</span>(<span class="kw">names</span>(ind.tax), <span class="dt">collapse=</span><span class="st">&quot;+&quot;</span>)))
 m.BLD_PTF &lt;-<span class="st"> </span><span class="kw">ranger</span>(fm.BLD, dfs_tbl, <span class="dt">num.trees =</span> <span class="dv">85</span>, <span class="dt">importance=</span><span class="st">&#39;impurity&#39;</span>)
-<span class="co">#&gt; Growing trees.. Progress: 92%. Estimated remaining time: 2 seconds.</span>
+<span class="co">#&gt; Growing trees.. Progress: 88%. Estimated remaining time: 4 seconds.</span>
 m.BLD_PTF
 <span class="co">#&gt; Ranger result</span>
 <span class="co">#&gt; </span>
@@ -858,7 +858,8 @@ Figure 7.8: Example of a data set with OCS samples (for 2D prediction). Case stu
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">proj4string</span>(COSha30map) =<span class="st"> &quot;+proj=utm +zone=18 +ellps=WGS84 +datum=WGS84 +units=m +no_defs&quot;</span>
 <span class="kw">coordinates</span>(COSha30) =<span class="st"> </span><span class="er">~</span><span class="st"> </span>x<span class="op">+</span>y
 <span class="kw">proj4string</span>(COSha30) =<span class="st"> </span><span class="kw">proj4string</span>(COSha30map)
-covs30mdist =<span class="st"> </span>GSIF<span class="op">::</span><span class="kw">buffer.dist</span>(COSha30[<span class="st">&quot;COSha30&quot;</span>], covs30m[<span class="dv">1</span>], <span class="kw">as.factor</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(COSha30)))</code></pre>
+covs30mdist =<span class="st"> </span>GSIF<span class="op">::</span><span class="kw">buffer.dist</span>(COSha30[<span class="st">&quot;COSha30&quot;</span>], covs30m[<span class="dv">1</span>],
+                                <span class="kw">as.factor</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(COSha30)))</code></pre>
 <p>We can convert the original covariates to Principal Components, also to fill in all missing pixels:</p>
 <pre class="sourceCode r"><code class="sourceCode r">covs30m<span class="op">@</span>data =<span class="st"> </span><span class="kw">cbind</span>(covs30m<span class="op">@</span>data, covs30mdist<span class="op">@</span>data)
 sel.rm =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;GlobalSurfaceWater_occurrence&quot;</span>, <span class="st">&quot;GlobalSurfaceWater_extent&quot;</span>,
@@ -874,7 +875,8 @@ ov.COSha30 =<span class="st"> </span><span class="kw">cbind</span>(<span class="
 <span class="co">#&gt; Loading required package: lattice</span>
 <span class="co">#&gt; Loading required package: ggplot2</span>
 <span class="kw">library</span>(ranger)
-fm.COSha30 =<span class="st"> </span><span class="kw">as.formula</span>(<span class="kw">paste</span>(<span class="st">&quot;COSha30 ~ &quot;</span>, <span class="kw">paste</span>(<span class="kw">names</span>(covs30m.spc<span class="op">@</span>predicted), <span class="dt">collapse =</span> <span class="st">&quot;+&quot;</span>)))
+fm.COSha30 =<span class="st"> </span><span class="kw">as.formula</span>(<span class="kw">paste</span>(<span class="st">&quot;COSha30 ~ &quot;</span>,
+                              <span class="kw">paste</span>(<span class="kw">names</span>(covs30m.spc<span class="op">@</span>predicted), <span class="dt">collapse =</span> <span class="st">&quot;+&quot;</span>)))
 fm.COSha30
 <span class="co">#&gt; COSha30 ~ PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + PC9 + </span>
 <span class="co">#&gt;     PC10 + PC11 + PC12 + PC13 + PC14 + PC15 + PC16 + PC17 + PC18 + </span>
@@ -1022,18 +1024,23 @@ Figure 7.10: Edgeroi data set: locations of soil profiles and Australian soil cl
 </div>
 <p>Note that Edgeroi completely lacks any BLD values, therefore before we can compute OCD values, we need to estimate BLD values for each corresponding horizon. Here the easiest option is probably to use BLD values sourced from LandGIS predictions (and which you can download from <a href="https://landgis.opengeohub.org" class="uri">https://landgis.opengeohub.org</a>).</p>
 <pre class="sourceCode r"><code class="sourceCode r">landgis.bld =<span class="st"> </span><span class="kw">list.files</span>(<span class="st">&quot;/mnt/DATA/LandGIS/predicted250m&quot;</span>, 
-                     <span class="dt">pattern=</span><span class="kw">glob2rx</span>(<span class="st">&quot;sol_bulkdens.fineearth_usda.4a1h_m_*.tif$&quot;</span>), <span class="dt">full.names=</span><span class="ot">TRUE</span>)
+                     <span class="dt">pattern=</span><span class="kw">glob2rx</span>(<span class="st">&quot;sol_bulkdens.fineearth_usda.4a1h_m_*.tif$&quot;</span>),
+                     <span class="dt">full.names=</span><span class="ot">TRUE</span>)
 <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(landgis.bld)){
-  <span class="kw">system</span>(<span class="kw">paste0</span>(<span class="st">&#39;gdalwarp &#39;</span>, landgis.bld[j], <span class="st">&#39; extdata/edgeroi_&#39;</span>, <span class="kw">basename</span>(landgis.bld[j]), 
-         <span class="st">&#39; -t_srs </span><span class="ch">\&quot;</span><span class="st">&#39;</span>, <span class="kw">proj4string</span>(edgeroi.grids), <span class="st">&#39;</span><span class="ch">\&quot;</span><span class="st"> -tr 250 250 -co </span><span class="ch">\&quot;</span><span class="st">COMPRESS=DEFLATE</span><span class="ch">\&quot;</span><span class="st">&#39;</span>, 
-         <span class="st">&#39; -te &#39;</span>, <span class="kw">paste</span>(<span class="kw">as.vector</span>(edgeroi.grids<span class="op">@</span>bbox), <span class="dt">collapse =</span> <span class="st">&quot; &quot;</span>)))
+  <span class="kw">system</span>(<span class="kw">paste0</span>(<span class="st">&#39;gdalwarp &#39;</span>, landgis.bld[j], <span class="st">&#39; extdata/edgeroi_&#39;</span>,
+                <span class="kw">basename</span>(landgis.bld[j]), <span class="st">&#39; -t_srs </span><span class="ch">\&quot;</span><span class="st">&#39;</span>, <span class="kw">proj4string</span>(edgeroi.grids), 
+                <span class="st">&#39;</span><span class="ch">\&quot;</span><span class="st"> -tr 250 250 -co </span><span class="ch">\&quot;</span><span class="st">COMPRESS=DEFLATE</span><span class="ch">\&quot;</span><span class="st">&#39;</span>, 
+                <span class="st">&#39; -te &#39;</span>, <span class="kw">paste</span>(<span class="kw">as.vector</span>(edgeroi.grids<span class="op">@</span>bbox), <span class="dt">collapse =</span> <span class="st">&quot; &quot;</span>)))
 }</code></pre>
 <p>Matching between the irregularly distributed soil horizons and LandGIS bulk density at standard depths can be implemented in three steps. First, we overlay the points and LandGIS GeoTIFFs to get the BLD values in kg / cubic-m at standard depths:</p>
 <pre class="sourceCode r"><code class="sourceCode r">sg &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;edgeroi_sol_bulkdens.fineearth&quot;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)
 ov &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(raster<span class="op">::</span><span class="kw">extract</span>(<span class="kw">stack</span>(sg), edgeroi.sp)<span class="op">*</span><span class="dv">10</span>)
-ov.edgeroi.BLD =<span class="st"> </span>ov[,<span class="kw">c</span>(<span class="kw">grep</span>(<span class="st">&quot;b0..&quot;</span>, <span class="kw">names</span>(ov), <span class="dt">fixed =</span> <span class="ot">TRUE</span>), <span class="kw">grep</span>(<span class="st">&quot;b10..&quot;</span>, <span class="kw">names</span>(ov), <span class="dt">fixed =</span> <span class="ot">TRUE</span>), 
-                       <span class="kw">grep</span>(<span class="st">&quot;b30..&quot;</span>, <span class="kw">names</span>(ov), <span class="dt">fixed =</span> <span class="ot">TRUE</span>), <span class="kw">grep</span>(<span class="st">&quot;b60..&quot;</span>, <span class="kw">names</span>(ov), <span class="dt">fixed =</span> <span class="ot">TRUE</span>), 
-                       <span class="kw">grep</span>(<span class="st">&quot;b100..&quot;</span>, <span class="kw">names</span>(ov), <span class="dt">fixed =</span> <span class="ot">TRUE</span>), <span class="kw">grep</span>(<span class="st">&quot;b200..&quot;</span>, <span class="kw">names</span>(ov), <span class="dt">fixed =</span> <span class="ot">TRUE</span>))]</code></pre>
+ov.edgeroi.BLD =<span class="st"> </span>ov[,<span class="kw">c</span>(<span class="kw">grep</span>(<span class="st">&quot;b0..&quot;</span>, <span class="kw">names</span>(ov),
+                            <span class="dt">fixed =</span> <span class="ot">TRUE</span>), <span class="kw">grep</span>(<span class="st">&quot;b10..&quot;</span>, <span class="kw">names</span>(ov), <span class="dt">fixed =</span> <span class="ot">TRUE</span>), 
+                       <span class="kw">grep</span>(<span class="st">&quot;b30..&quot;</span>, <span class="kw">names</span>(ov), 
+                            <span class="dt">fixed =</span> <span class="ot">TRUE</span>), <span class="kw">grep</span>(<span class="st">&quot;b60..&quot;</span>, <span class="kw">names</span>(ov), <span class="dt">fixed =</span> <span class="ot">TRUE</span>), 
+                       <span class="kw">grep</span>(<span class="st">&quot;b100..&quot;</span>, <span class="kw">names</span>(ov), 
+                            <span class="dt">fixed =</span> <span class="ot">TRUE</span>), <span class="kw">grep</span>(<span class="st">&quot;b200..&quot;</span>, <span class="kw">names</span>(ov), <span class="dt">fixed =</span> <span class="ot">TRUE</span>))]</code></pre>
 <p>Second, we derive averaged estimates of BLD for standard depth intervals:</p>
 <pre class="sourceCode r"><code class="sourceCode r">ov.edgeroi.BLDm =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">BLD.f=</span><span class="kw">as.vector</span>(<span class="kw">sapply</span>(<span class="dv">2</span><span class="op">:</span><span class="kw">ncol</span>(ov.edgeroi.BLD),                                                <span class="cf">function</span>(i){<span class="kw">rowMeans</span>(ov.edgeroi.BLD[,<span class="kw">c</span>(i<span class="dv">-1</span>,i)])})),
                     <span class="dt">DEPTH.c=</span><span class="kw">as.vector</span>(<span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="cf">function</span>(i){<span class="kw">rep</span>(<span class="kw">paste0</span>(<span class="st">&quot;sd&quot;</span>,i),
@@ -1044,13 +1051,15 @@ ov.edgeroi.BLD =<span class="st"> </span>ov[,<span class="kw">c</span>(<span cla
 <span class="co">#&gt;  $ DEPTH.c : Factor w/ 5 levels &quot;sd1&quot;,&quot;sd2&quot;,&quot;sd3&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</span>
 <span class="co">#&gt;  $ SOURCEID: Factor w/ 359 levels &quot;199_CAN_CP111_1&quot;,..: 1 2 3 4 5 6 7 8 9 10 ...</span></code></pre>
 <p>Third, we match BLD values by matching horizon depths (center of horizon) with the standard depth intervals <code>sd1</code> to <code>sd5</code>:</p>
-<pre class="sourceCode r"><code class="sourceCode r">edgeroi<span class="op">$</span>horizons<span class="op">$</span>DEPTH =<span class="st"> </span>edgeroi<span class="op">$</span>horizons<span class="op">$</span>UHDICM <span class="op">+</span><span class="st"> </span>(edgeroi<span class="op">$</span>horizons<span class="op">$</span>LHDICM <span class="op">-</span><span class="st"> </span>edgeroi<span class="op">$</span>horizons<span class="op">$</span>UHDICM)<span class="op">/</span><span class="dv">2</span>
+<pre class="sourceCode r"><code class="sourceCode r">edgeroi<span class="op">$</span>horizons<span class="op">$</span>DEPTH =<span class="st"> </span>edgeroi<span class="op">$</span>horizons<span class="op">$</span>UHDICM <span class="op">+</span>
+<span class="st">  </span>(edgeroi<span class="op">$</span>horizons<span class="op">$</span>LHDICM <span class="op">-</span><span class="st"> </span>edgeroi<span class="op">$</span>horizons<span class="op">$</span>UHDICM)<span class="op">/</span><span class="dv">2</span>
 edgeroi<span class="op">$</span>horizons<span class="op">$</span>DEPTH.c =<span class="st"> </span><span class="kw">cut</span>(edgeroi<span class="op">$</span>horizons<span class="op">$</span>DEPTH, <span class="dt">include.lowest=</span><span class="ot">TRUE</span>,
                                <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">30</span>,<span class="dv">60</span>,<span class="dv">100</span>,<span class="dv">1000</span>), <span class="dt">labels=</span><span class="kw">paste0</span>(<span class="st">&quot;sd&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>))
 <span class="kw">summary</span>(edgeroi<span class="op">$</span>horizons<span class="op">$</span>DEPTH.c)
 <span class="co">#&gt; sd1 sd2 sd3 sd4 sd5 </span>
 <span class="co">#&gt; 391 379 408 391 769</span>
-edgeroi<span class="op">$</span>horizons<span class="op">$</span>BLD.f =<span class="st"> </span>plyr<span class="op">::</span><span class="kw">join</span>(edgeroi<span class="op">$</span>horizons[,<span class="kw">c</span>(<span class="st">&quot;SOURCEID&quot;</span>,<span class="st">&quot;DEPTH.c&quot;</span>)], ov.edgeroi.BLDm)<span class="op">$</span>BLD.f
+edgeroi<span class="op">$</span>horizons<span class="op">$</span>BLD.f =<span class="st"> </span>plyr<span class="op">::</span><span class="kw">join</span>(edgeroi<span class="op">$</span>horizons[,<span class="kw">c</span>(<span class="st">&quot;SOURCEID&quot;</span>,<span class="st">&quot;DEPTH.c&quot;</span>)],
+                                    ov.edgeroi.BLDm)<span class="op">$</span>BLD.f
 <span class="co">#&gt; Joining by: SOURCEID, DEPTH.c</span></code></pre>
 <p>which shows relatively equal distribution of soil horizons for within the standard depths.
 Now that we have a rough estimate of the bulk density for all horizons, we can derive OCD in kg/m-cubic by using:</p>
@@ -1067,7 +1076,8 @@ m2 &lt;-<span class="st"> </span>plyr<span class="op">::</span><span class="kw">
 <span class="co">#&gt; Joining by: SOURCEID</span>
 <span class="co">#&gt; Joining by: SOURCEID</span></code></pre>
 <p>The spatial prediction model can be fitted using:</p>
-<pre class="sourceCode r"><code class="sourceCode r">fm.OCD =<span class="st"> </span><span class="kw">as.formula</span>(<span class="kw">paste0</span>(<span class="st">&quot;OCD ~ DEPTH + &quot;</span>, <span class="kw">paste</span>(<span class="kw">names</span>(edgeroi.spc<span class="op">@</span>predicted), <span class="dt">collapse =</span> <span class="st">&quot;+&quot;</span>)))
+<pre class="sourceCode r"><code class="sourceCode r">fm.OCD =<span class="st"> </span><span class="kw">as.formula</span>(<span class="kw">paste0</span>(<span class="st">&quot;OCD ~ DEPTH + &quot;</span>, <span class="kw">paste</span>(<span class="kw">names</span>(edgeroi.spc<span class="op">@</span>predicted), 
+                                                   <span class="dt">collapse =</span> <span class="st">&quot;+&quot;</span>)))
 fm.OCD
 <span class="co">#&gt; OCD ~ DEPTH + PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + </span>
 <span class="co">#&gt;     PC9 + PC10 + PC11 + PC12</span>
@@ -1138,7 +1148,8 @@ OCS_agg.lu &lt;-<span class="st"> </span>plyr<span class="op">::</span><span cla
                           <span class="dt">Area_km2=</span><span class="kw">round</span>(<span class="kw">sum</span>(<span class="op">!</span><span class="kw">is.na</span>(OCS<span class="fl">.30</span>cm))<span class="op">*</span><span class="dv">250</span><span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="fl">1e6</span>))
 OCS_agg.lu<span class="op">$</span>LandUseClass.f =<span class="st"> </span><span class="kw">strtrim</span>(OCS_agg.lu<span class="op">$</span>LandUseClass, <span class="dv">34</span>)
 OCS_agg.lu<span class="op">$</span>OCH_t_ha_M =<span class="st"> </span><span class="kw">round</span>(OCS_agg.lu<span class="op">$</span>Total_OCS_kt<span class="op">*</span><span class="dv">1000</span><span class="op">/</span>(OCS_agg.lu<span class="op">$</span>Area_km2<span class="op">*</span><span class="dv">100</span>))
-OCS_agg.lu[OCS_agg.lu<span class="op">$</span>Area_km2<span class="op">&gt;</span><span class="dv">5</span>,<span class="kw">c</span>(<span class="st">&quot;LandUseClass.f&quot;</span>,<span class="st">&quot;Total_OCS_kt&quot;</span>,<span class="st">&quot;Area_km2&quot;</span>,<span class="st">&quot;OCH_t_ha_M&quot;</span>)]
+OCS_agg.lu[OCS_agg.lu<span class="op">$</span>Area_km2<span class="op">&gt;</span><span class="dv">5</span>,<span class="kw">c</span>(<span class="st">&quot;LandUseClass.f&quot;</span>,<span class="st">&quot;Total_OCS_kt&quot;</span>,
+                                   <span class="st">&quot;Area_km2&quot;</span>,<span class="st">&quot;OCH_t_ha_M&quot;</span>)]
 <span class="co">#&gt;                        LandUseClass.f Total_OCS_kt Area_km2 OCH_t_ha_M</span>
 <span class="co">#&gt; 2  Constructed grass waterway for wat           57       11         52</span>
 <span class="co">#&gt; 3                              Cotton           43        8         54</span>
@@ -1190,7 +1201,8 @@ Figure 7.12: Distribution of soil observations based on sampling year.
 </ul>
 <p>All these layers are available only at a relatively coarse resolution of 10 km, but then cover longer time spans. Note also that, since these are time-series images, spatiotemporal overlay can take time as spatial overlay must be repeated for each time period. The spatiotemporal matrix file already contains the results of overlay, so that we can focus directly on building spatiotemporal models of OCD e.g.:</p>
 <pre class="sourceCode r"><code class="sourceCode r">pr.lst &lt;-<span class="st"> </span><span class="kw">names</span>(OCD_stN)[<span class="op">-</span><span class="kw">which</span>(<span class="kw">names</span>(OCD_stN) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;SOURCEID&quot;</span>, <span class="st">&quot;DEPTH.f&quot;</span>, <span class="st">&quot;OCDENS&quot;</span>, 
-                                                      <span class="st">&quot;YEAR&quot;</span>, <span class="st">&quot;YEAR_c&quot;</span>, <span class="st">&quot;LONWGS84&quot;</span>, <span class="st">&quot;LATWGS84&quot;</span>))]
+                                                      <span class="st">&quot;YEAR&quot;</span>, <span class="st">&quot;YEAR_c&quot;</span>, <span class="st">&quot;LONWGS84&quot;</span>,
+                                                      <span class="st">&quot;LATWGS84&quot;</span>))]
 fm0.st &lt;-<span class="st"> </span><span class="kw">as.formula</span>(<span class="kw">paste</span>(<span class="st">&#39;OCDENS ~ DEPTH.f + &#39;</span>, <span class="kw">paste</span>(pr.lst, <span class="dt">collapse=</span><span class="st">&quot;+&quot;</span>)))
 sel0.m =<span class="st"> </span><span class="kw">complete.cases</span>(OCD_stN[,<span class="kw">all.vars</span>(fm0.st)])
 ## takes &gt;2 mins
@@ -1220,7 +1232,8 @@ Figure 7.14: Predicted OCD (in kg/cubic-m) at 10 cm depth for the year 1925.
 <span class="kw">setwd</span>()
 tif.lst &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="st">&quot;extdata/USA48&quot;</span>, <span class="dt">pattern=</span><span class="st">&quot;_10km.tif&quot;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)
 g10km &lt;-<span class="st"> </span><span class="kw">as</span>(<span class="kw">readGDAL</span>(tif.lst[<span class="dv">1</span>]), <span class="st">&quot;SpatialPixelsDataFrame&quot;</span>)
-<span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="kw">length</span>(tif.lst)){ g10km<span class="op">@</span>data[,i] =<span class="st"> </span><span class="kw">readGDAL</span>(tif.lst[i], <span class="dt">silent=</span><span class="ot">TRUE</span>)<span class="op">$</span>band1[g10km<span class="op">@</span>grid.index] }
+<span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="kw">length</span>(tif.lst)){ g10km<span class="op">@</span>data[,i] =<span class="st"> </span><span class="kw">readGDAL</span>(tif.lst[i],
+                                                       <span class="dt">silent=</span><span class="ot">TRUE</span>)<span class="op">$</span>band1[g10km<span class="op">@</span>grid.index] }
 <span class="kw">names</span>(g10km) =<span class="st"> </span><span class="kw">basename</span>(tif.lst)
 g10km =<span class="st"> </span><span class="kw">as.data.frame</span>(g10km)
 <span class="kw">gridded</span>(g10km) =<span class="st"> </span><span class="er">~</span>x<span class="op">+</span>y
@@ -1229,7 +1242,8 @@ g10km =<span class="st"> </span><span class="kw">as.data.frame</span>(g10km)
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(maps)
 <span class="kw">library</span>(maptools)
 states &lt;-<span class="st"> </span><span class="kw">map</span>(<span class="st">&#39;state&#39;</span>, <span class="dt">plot=</span><span class="ot">FALSE</span>, <span class="dt">fill=</span><span class="ot">TRUE</span>)
-states =<span class="st"> </span><span class="kw">SpatialPolygonsDataFrame</span>(<span class="kw">map2SpatialPolygons</span>(states, <span class="dt">IDs=</span><span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(states<span class="op">$</span>names)),
+states =<span class="st"> </span><span class="kw">SpatialPolygonsDataFrame</span>(<span class="kw">map2SpatialPolygons</span>(states,
+                                                      <span class="dt">IDs=</span><span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(states<span class="op">$</span>names)),
                                   <span class="kw">data.frame</span>(<span class="dt">names=</span>states<span class="op">$</span>names))
 <span class="kw">proj4string</span>(states) =<span class="st"> &quot;+proj=longlat +datum=WGS84&quot;</span>
 ov.g10km =<span class="st"> </span><span class="kw">over</span>(<span class="dt">y=</span>states, <span class="dt">x=</span>g10km)

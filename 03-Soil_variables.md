@@ -1082,7 +1082,7 @@ converting between silt fraction based on the international standard of
    & - 0.0142 \cdot P_{\mathtt{2-20}}^2  - 0.0049 \cdot P_{\mathtt{20-2000}}^2
 \end{matrix}   & \text{ if } \hat P_{\mathtt{2-50}} > 0 \\ \begin{matrix} \hat P_{\mathtt{2-50}} = & 0.8289 \cdot P_{\mathtt{2-20}} + 0.0198 \cdot P_{\mathtt{20-2000}} \end{matrix} & \text{ if } \hat P_{\mathtt{2-50}} < 0
 \end{cases}
-(\#P2_50)
+  (\#eq:P2_50)
 \end{equation}
 
 where $P_{\mathtt{20-2000}}$ is the international sand fraction. This

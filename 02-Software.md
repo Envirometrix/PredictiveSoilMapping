@@ -82,7 +82,7 @@ sessionInfo()
 #> [1] microbenchmark_1.4-6
 #> 
 #> loaded via a namespace (and not attached):
-#>  [1] compiler_3.5.1   magrittr_1.5     bookdown_0.8     tools_3.5.1     
+#>  [1] compiler_3.5.1   magrittr_1.5     bookdown_0.9     tools_3.5.1     
 #>  [5] htmltools_0.3.6  yaml_2.2.0       Rcpp_1.0.0       codetools_0.2-15
 #>  [9] stringi_1.2.4    rmarkdown_1.11   highr_0.7        knitr_1.21      
 #> [13] stringr_1.3.1    xfun_0.4         digest_0.6.18    evaluate_0.12
@@ -177,7 +177,8 @@ The function `FlowAccumulationFullWorkflow` is, for example, a wrapper function 
 ```r
 system(paste0('"/home/tomislav/software/WBT/whitebox_tools" ',
   '--run=FlowAccumulationFullWorkflow --dem="./extdata/DEMTOPx.tif" ',
-  '--out_type="Specific Contributing Area" --log="False" --clip="False" --esri_pntr="False" ',
+  '--out_type="Specific Contributing Area" --log="False" --clip="False" ',
+  '--esri_pntr="False" ',
   '--out_dem="./extdata/DEMTOPx_out.tif" ',
   '--out_pntr="./extdata/DEMTOPx_pntr.tif" ',
   '--out_accum="./extdata/DEMTOPx_accum.tif" -v'))
@@ -290,7 +291,7 @@ om.rk <- predict(omm, meuse.grid)
 #> Prediction error for 'randomForest' model estimated using the 'quantreg' package.
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
-#>  38% done100% done
+#>  66% done100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
 om.rk
