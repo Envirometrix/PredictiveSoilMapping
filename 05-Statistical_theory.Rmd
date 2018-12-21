@@ -1363,7 +1363,7 @@ log1p(om) ~ soil
 
 The RK model can also be extended to fuzzy memberships, in which case
 ${\rm{MU}}$ values are binary variables with continuous values in the
-range 0–1. Hence also the SOLIM model (Eq.\@ref(eq:solim)) is in fact just
+range 0–1. Hence also the SOLIM model Eq.\@ref(eq:solim) is in fact just
 a special version of regression on mapping units:
 
 \begin{equation}
