@@ -71,8 +71,8 @@ noise. This is the basis of the *universal model of soil variation*
 [@Burrough1998OUP;Webster2001Wiley p.133]:
 
 \begin{equation}
-Z({s}) = m({s}) + \varepsilon '({s}) + \varepsilon ''({s})
-(\#eq:ukm)
+  Z({s}) = m({s}) + \varepsilon '({s}) + \varepsilon ''({s})
+  (\#eq:ukm)
 \end{equation}
 
 where $s$ is two-dimensional location, $m({s})$ is the

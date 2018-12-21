@@ -1,6 +1,7 @@
 language: r
 cache: packages
 latex: false
+pandoc_version: 2.1.2
 dist: trusty
 sudo: required
 before_install:
@@ -18,7 +19,7 @@ install:
   - R -e "install.packages('microbenchmark')"
   - R -e "install.packages('tinytex')"
   - R -e "tinytex::install_tinytex()"
-  - R -e "devtools::install_github('nowosad/PSMpkg')"
+  - R -e "devtools::install_github('Envirometrix/PSMpkg')"
 
 script:
   - make all

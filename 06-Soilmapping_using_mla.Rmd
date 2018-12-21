@@ -340,8 +340,9 @@ c(w1, w2, w3)
 At the end of the statistical modelling process, we can merge the predictions by using the CV R-square estimates:
 
 ```{r}
-edgeroi.grids$DEPTH = 2.5
-edgeroi.grids$Random_forest <- predict(ORCDRC.rf, edgeroi.grids@data, na.action = na.pass) 
+edgeroi.grids$DEPTH <- 2.5
+edgeroi.grids$Random_forest <- predict(ORCDRC.rf, edgeroi.grids@data, 
+                                       na.action = na.pass) 
 edgeroi.grids$Cubist <- predict(ORCDRC.cb, edgeroi.grids@data, na.action = na.pass)
 edgeroi.grids$XGBoost <- predict(ORCDRC.gb, edgeroi.grids@data, na.action = na.pass)
 edgeroi.grids$ORCDRC_5cm <- (edgeroi.grids$Random_forest*w1 + 
@@ -846,7 +847,8 @@ This type of modeling can be best compared to using Universal Kriging or Regress
 ```{r}
 zinc.geo$covariate = ov.zinc1
 sic.t = ~ PC1 + PC2 + PC3 + PC4 + PC5
-zinc1.vgm <- likfit(zinc.geo, trend = sic.t, lambda=0, ini=ini.v, cov.model="exponential")
+zinc1.vgm <- likfit(zinc.geo, trend = sic.t, lambda=0,
+                    ini=ini.v, cov.model="exponential")
 zinc1.vgm
 ```
 

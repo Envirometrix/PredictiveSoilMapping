@@ -167,9 +167,9 @@
 % \DeclareOption{11pt}{\OptionNotUsed}
 % \DeclareOption{12pt}{\OptionNotUsed}
 % options for the article class
-\def\@rticle@options{11pt,twoside}
+\def\@rticle@options{10pt,twoside}
 % fleqn
-\DeclareOption{fleqn}{\def\@rticle@options{11pt,twoside,fleqn}%
+\DeclareOption{fleqn}{\def\@rticle@options{10pt,twoside,fleqn}%
 \AtEndOfClass{\let\leftlegendglue\relax}%
 \AtBeginDocument{\mathindent\parindent}}
 % hanging sectioning titles
@@ -261,45 +261,31 @@ passing it to article class \MessageBreak
 \headlineindent=2.5cc                % number and gap of running heads
 
 % fonts, sizes, and the like
-% change to 12pt (GM: several lines)----start
 \renewcommand\normalsize{%
-   \@setfontsize\normalsize\@xipt{13.6}%
-   \abovedisplayskip 11\p@ \@plus3\p@ \@minus6\p@
-   \abovedisplayshortskip \z@ \@plus3\p@
-   \belowdisplayshortskip 6.5\p@ \@plus3.5\p@ \@minus3\p@
+   \@setfontsize\normalsize\@xpt\@xiipt
+   \abovedisplayskip 10\p@ % \@plus2\p@ \@minus5\p@
+   \abovedisplayshortskip \z@ % \@plus3\p@
+   \belowdisplayshortskip 6\p@ %\@plus3\p@ \@minus3\p@
    \belowdisplayskip \abovedisplayskip
    \let\@listi\@listI}
 \normalsize
 \renewcommand\small{%
-   \@setfontsize\small\@xpt\@xiipt
-   \abovedisplayskip 10\p@ \@plus2\p@ \@minus5\p@
-   \abovedisplayshortskip \z@ \@plus3\p@
-   \belowdisplayshortskip 6\p@ \@plus3\p@ \@minus3\p@
+   \@setfontsize\small{8.5}{10}%
+   \abovedisplayskip 8.5\p@ % \@plus3\p@ \@minus4\p@
+   \abovedisplayshortskip \z@ %\@plus2\p@
+   \belowdisplayshortskip 4\p@ %\@plus2\p@ \@minus2\p@
    \def\@listi{\leftmargin\leftmargini
-               \topsep 6\p@ \@plus2\p@ \@minus2\p@
-               \parsep 3\p@ \@plus2\p@ \@minus\p@
-               \itemsep \parsep}%
+               \parsep \z@ \@plus\p@ \@minus\p@
+               \topsep 6\p@ \@plus2\p@ \@minus4\p@
+               \itemsep\z@}%
    \belowdisplayskip \abovedisplayskip
 }
-\renewcommand\footnotesize{%
-   \@setfontsize\footnotesize\@ixpt{11}%
-   \abovedisplayskip 8\p@ \@plus2\p@ \@minus4\p@
-   \abovedisplayshortskip \z@ \@plus\p@
-   \belowdisplayshortskip 4\p@ \@plus2\p@ \@minus2\p@
-   \def\@listi{\leftmargin\leftmargini
-               \topsep 4\p@ \@plus2\p@ \@minus2\p@
-               \parsep 2\p@ \@plus\p@ \@minus\p@
-               \itemsep \parsep}%
-   \belowdisplayskip \abovedisplayskip
-}
-\renewcommand\scriptsize{\@setfontsize\scriptsize\@viiipt{9.5}}
-\renewcommand\tiny{\@setfontsize\tiny\@vipt\@viipt}
-\renewcommand\large{\@setfontsize\large\@xiipt{14}}
-\renewcommand\Large{\@setfontsize\Large\@xivpt{18}}
-\renewcommand\LARGE{\@setfontsize\LARGE\@xviipt{22}}
-\renewcommand\huge{\@setfontsize\huge\@xxpt{25}}
-\let\Huge=\huge
-\newcommand\LArge{\@setfontsize\Large{18}{23.5}}
+%
+\let\footnotesize=\small
+%
+\renewcommand\Large{\@setfontsize\large{14}{16}}
+\newcommand\LArge{\@setfontsize\Large{16}{18}}
+\renewcommand\LARGE{\@setfontsize\LARGE{18}{20}}
 %
 \newenvironment{petit}{\par\addvspace{6\p@}\small}{\par\addvspace{6\p@}}
 %

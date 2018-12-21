@@ -135,7 +135,8 @@ The function `FlowAccumulationFullWorkflow` is, for example, a wrapper function 
 ```{r, eval=FALSE}
 system(paste0('"/home/tomislav/software/WBT/whitebox_tools" ',
   '--run=FlowAccumulationFullWorkflow --dem="./extdata/DEMTOPx.tif" ',
-  '--out_type="Specific Contributing Area" --log="False" --clip="False" --esri_pntr="False" ',
+  '--out_type="Specific Contributing Area" --log="False" --clip="False" ',
+  '--esri_pntr="False" ',
   '--out_dem="./extdata/DEMTOPx_out.tif" ',
   '--out_pntr="./extdata/DEMTOPx_pntr.tif" ',
   '--out_accum="./extdata/DEMTOPx_accum.tif" -v'))

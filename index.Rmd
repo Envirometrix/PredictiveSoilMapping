@@ -15,7 +15,7 @@ classoption: graybox,natbib,nospthms,UStrade
 #    - letterpaper
 geometry: "top=1.6cm, bottom=2cm, left=1.6cm, right=1.6cm"
 monofont: "Source Code Pro"
-monofontoptions: "Scale=0.7"
+monofontoptions: "Scale=0.6"
 #linestretch: 1.15
 bibliography: refs.bib
 biblio-style: spbasic
