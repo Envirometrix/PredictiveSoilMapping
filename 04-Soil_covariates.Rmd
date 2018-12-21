@@ -571,7 +571,8 @@ fun_mask <- function(i, tiles, dir="./tiled/", threshold=190){
                  output.dim=unlist(tiles[i,c("region.dim.y","region.dim.x")]),
                  silent = TRUE)
     x$mask = ifelse(x$band1>threshold, 1, 0)
-    writeGDAL(x["mask"], type="Byte", mvFlag = 255, out.tif, options=c("COMPRESS=DEFLATE"))
+    writeGDAL(x["mask"], type="Byte", mvFlag = 255, 
+              out.tif, options=c("COMPRESS=DEFLATE"))
   }
 }
 ```
