@@ -1569,7 +1569,7 @@ log1p(om) ~ soil
 
 The RK model can also be extended to fuzzy memberships, in which case
 ${\rm{MU}}$ values are binary variables with continuous values in the
-range 0–1. Hence also the SOLIM model (Eq.\@ref(eq:solim)) is in fact just
+range 0–1. Hence also the SOLIM model Eq.\@ref(eq:solim) is in fact just
 a special version of regression on mapping units:
 
 \begin{equation}
@@ -1662,7 +1662,7 @@ om.rk.p <- predict(omm, meuse.grid, block=c(0,0))
 #> Subsetting observations to fit the prediction domain in 2D...
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
-#>  68% done100% done
+#>  65% done100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
 om.rksim.p <- predict(omm, meuse.grid, nsim=20, block=c(0,0))
@@ -1909,7 +1909,7 @@ om.rksim.p <- predict(omm, meuse.grid, block=c(0,0), nsim=20)
 #> Generating 20 conditional simulations using the trend model (RK method)...
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
-#> 100% done
+#>  37% done100% done
 #> Creating an object of class "RasterBrickSimulations"
 log1p(meuse@data[1,"om"])
 #> [1] 2.7
@@ -1957,13 +1957,13 @@ library(intamap)
 demo(meuse, echo=FALSE)
 meuse$value = meuse$zinc
 output <- interpolate(meuse, meuse.grid, list(mean=TRUE, variance=TRUE))
-#> R 2018-12-21 11:00:28 interpolating 155 observations, 3103 prediction locations
+#> R 2018-12-21 18:40:08 interpolating 155 observations, 3103 prediction locations
 #> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : 
 #>  using standard model for estimating time. For better 
 #>  platform spesific predictions, please run 
 #>  timeModels <- generateTimeModels()
 #>   and save the workspace
-#> [1] "estimated time for  copula 158.915196850452"
+#> [1] "estimated time for  copula 161.074951331231"
 #> Checking object ... OK
 ```
 
@@ -1977,7 +1977,7 @@ str(output, max.level = 2)
 #> List of 16
 #>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
 #>  $ formulaString      :Class 'formula'  language value ~ 1
-#>   .. ..- attr(*, ".Environment")=<environment: 0x152df378> 
+#>   .. ..- attr(*, ".Environment")=<environment: 0x13c672c0> 
 #>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
 #>  $ params             :List of 18
 #>   ..$ doAnisotropy     : logi TRUE
@@ -2664,7 +2664,7 @@ om.rk <- predict(omm, meuse.grid)
 #> Subsetting observations to fit the prediction domain in 2D...
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
-#> 100% done
+#>  86% done100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
 ```

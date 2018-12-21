@@ -1061,11 +1061,11 @@ fraction, at 1 cm instead of 2 cm.
 
 Table: (\#tab:usdafaotexture)Differences between the International, USDA and ISO/FAO particle size classifications.
 
-Size.Fraction   International    USDA             ISO.FAO        
---------------  ---------------  ---------------  ---------------
-clay            $<$ 2 $\mu$m     $<$ 2 $\mu$m     $<$ 2 $\mu$m   
-silt            2–20 $\mu$m      2–50 $\mu$m      2–63 $\mu$m    
-sand            20–2000 $\mu$m   50–2000 $\mu$m   63–2000 $\mu$m 
+Fraction   International   USDA         ISO.FAO    
+---------  --------------  -----------  -----------
+clay       <2 μm           <2 μm        <2 μm      
+silt       2–20 μm         2–50 μm      2–63 μm    
+sand       20–2000 μm      50–2000 μm   63–2000 μm 
 
 Both @Nemes1999G and @Minasny2001AJSR investigated options for
 harmonizing values for sand, silt and clay reported using different

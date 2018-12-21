@@ -14,7 +14,7 @@ classoption: graybox,natbib,nospthms,UStrade
 #classoption:
 #    - 11pt
 #    - letterpaper
-geometry: "top=1.6cm, bottom=2cm, left=2.1cm, right=2.1cm"
+geometry: "top=1.6cm, bottom=2cm, left=1.6cm, right=1.6cm"
 monofont: "Source Code Pro"
 monofontoptions: "Scale=0.6"
 #linestretch: 1.15
