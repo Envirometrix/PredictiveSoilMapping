@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl and Robert A. MacMillan">
 
 
-<meta name="date" content="2018-12-25">
+<meta name="date" content="2018-12-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -407,7 +407,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">1.1</span> Introduction</h2>
 <p>This chapter presents a description and discussion of soils and
 conventional soil inventories framed within the context of Predictive Soil Mapping (PSM). Soils,
-their associated properties, and their spatial distribution are the
+their associated properties, and their spatial and temporal distributions are the
 central focus of PSM. We discuss how the products and
 methods associated with conventional soil mapping relate to new, and
 emerging, methods of PSM and automated soil mapping. We discuss similarities and
@@ -415,7 +415,7 @@ differences, strengths and weaknesses of conventional soil mapping (and
 its inputs and products) relative to PSM.</p>
 <p>The universal model of soil variation presented in detail in
 Chapter <a href="statistical-theory.html#statistical-theory">5</a> is adopted as a framework for comparison of
-conventional and PSM. Our aim is to show how the products
+conventional soil mapping and PSM. Our aim is to show how the products
 and methods of conventional soil mapping can complement, and contribute to,
 PSM and equally, how the theories and methods of
 PSM can extend and strengthen conventional soil mapping.
@@ -434,14 +434,14 @@ upper limit of the soil is either air, shallow water, live plants or
 plant materials that have not begun to decompose. The lower limit is
 defined by the presence of hard rock or the lower limit of biologic
 activity <span class="citation">(Richter and Markewitz <a href="#ref-Richter1995">1995</a>; Soil survey Division staff <a href="#ref-SSDS1993">1993</a>)</span>. Although soil profiles up to tens
-of meters depths can be found in some tropical areas <span class="citation">(Richter and Markewitz <a href="#ref-Richter1995">1995</a>)</span>, for
-soil classification and mapping purposes, the lower limit soil is often
+of meters in depth can be found in some tropical areas <span class="citation">(Richter and Markewitz <a href="#ref-Richter1995">1995</a>)</span>, for
+soil classification and mapping purposes, the lower limit of soil is often
 arbitrarily set to 2 m (<a href="http://soils.usda.gov/education/facts/soil.html" class="uri">http://soils.usda.gov/education/facts/soil.html</a>). Soils are rarely described to depths beyond 2 m and
-many soil sampling projects put primary focus on the upper
+many soil sampling projects put a primary focus on the upper
 (0-100 cm) depths.</p>
 <p>The chemical, physical and biological properties of the soil differ from
 those of unaltered (unconsolidated) parent material from which the soil
-is derived over a period of time under influence of climate, organisms
+is derived over a period of time under the influence of climate, organisms
 and relief effects. Soil should show a capacity to support life,
 otherwise we are dealing with inert unconsolidated parent material. Hence, for
 purposes of developing statistically based models to predict soil
@@ -450,7 +450,7 @@ and <em>potential</em> soil areas (see further section <a href="introduction.htm
 <p>A significant aspect of the accepted definition of soil is that it is
 seen as a <em>natural body</em> that merits study, description,
 <em>classification</em> and interpretation in, and of, itself. As a <em>natural
-body</em> a soil is viewed as an object that occupies space, has defined
+body</em> soil is viewed as an object that occupies space, has defined
 physical dimensions and that is more than the sum of its individual
 properties or attributes. This concept requires that all properties of
 soils be considered collectively and simultaneously in terms of a completely integrated
@@ -521,7 +521,7 @@ qualitative soil attributes or objects (<span class="math inline">\(y \in [0,1]\
 <p>The nature of a soil variable determines how the attribute is modeled
 and presented on a map in PSM. Some soil variables are
 normally described as discrete entities (or classes), but classes can also be
-depicted as a continuous quantities on a map in the form of
+depicted as continuous quantities on a map in the form of
 probabilities or memberships
 <span class="citation">(de Gruijter, Walvoort, and Gaans <a href="#ref-DeGruijter1997Geoderma">1997</a>; A. B. McBratney, Mendoça Santos, and Minasny <a href="#ref-McBratney2003Geoderma">2003</a>; Kempen et al. <a href="#ref-Kempen2009Geoderma">2009</a>; Odgers, McBratney, and Minasny <a href="#ref-Odgers201130">2011</a>)</span>.
 For example, a binary soil variable (e.g. the presence/absence of a
@@ -529,7 +529,7 @@ specific layer or horizon) can be modeled as a binomial random variable
 with a logistic regression model. Spatial prediction (mapping) with this
 model gives a map depicting (continuous) probabilities in the range of
 0–1. These probabilities can be used to determine the most likely presence/absence
-of a class at each prediction location, resulting in a discrete
+of a class at each prediction location, resulting, then, in a discrete
 representation of the soil attribute variation.</p>
 <p>In that context, the aims of most soil resource inventories consist of the
 identification, measurement, modelling, mapping and interpretation of
@@ -582,7 +582,7 @@ environment. Hence, the different uses of the soils and how the response
 of management affects them need to be considered.</p>
 <p>In conventional soil mapping, the objects of study, whose spatial
 distributions are portrayed on any resulting map, are <em>soil individuals</em>
-that are assumed to possess and exhibit a unique set of soil properties
+with each individual assumed to possess and exhibit a unique set of soil properties
 with a defined range of values. A fundamental assumption of conventional
 soil mapping is therefore that, if one maps the pattern of spatial
 distribution of uniquely defined <em>soil individuals</em>, one can infer the
@@ -595,7 +595,7 @@ properties from the mapped distribution of soil individuals.</p>
 difference compared to PSM, where the object of study is
 frequently an individual soil property and the objective is to map the
 pattern of spatial distribution of that property (over some depth
-interval) independently from consideration of the spatial distribution
+interval), often independently from consideration of the spatial distribution
 of soil individuals or other soil properties.</p>
 <p>Soil maps give answers to three basic questions: (1) what is mapped?,
 (2) what is the predicted value?, and (3) where is it? Thematic accuracy
@@ -616,7 +616,7 @@ was represented by 1 m<span class="math inline">\(^2\)</span> of the model. Sinc
 and abstract reality in such a way that we hope to describe the major
 differences in true space at a much reduced scale in model (map) space.
 When this is done for soil maps, it needs to be understood that the map
-cannot describe all of the variation that is present in reality. It can
+cannot describe all of the soil variation that is present in reality. It can
 only describe that portion of the total variation that is systematic and
 has structure and occurs over distances that are as large as, or larger
 than, the smallest area that can be feasibly portrayed and described at
@@ -639,7 +639,7 @@ main idea of soil survey is, thus, production and dissemination of soil
 information for an area of interest usually to address a specific
 question or questions of interest i.e. production of soil maps and soil
 geographical databases. Although soil surveyors are usually not <em>per se</em>
-responsible for usage of soil information, how soil survey information
+responsible for final use of soil information, how soil survey information
 is used is increasingly important.</p>
 <p>In statistical terms, the main objective of soil mapping is to describe
 the spatial variability i.e. spatial complexity of soils, then represent
@@ -704,8 +704,8 @@ random. Natural soil bodies are the result of climate and living
 organisms acting on parent material, with topography or local relief
 exerting a modifying influence and with time required for soil-forming
 processes to act. For the most part, soils are the same wherever all
-elements of the five factors are the same. Under similar environments in
-different places, soils are similar. This regularity permits prediction
+elements of these five factors are the same. Under similar environments in
+different places, soils are expected to be similar. This regularity permits prediction
 of the location of many different kinds of soil”</em> <span class="citation">(Soil survey Division staff <a href="#ref-SSDS1993">1993</a>)</span>.
 <span class="citation">Hudson (<a href="#ref-Hudson2000SSSAJ">2004</a>)</span> considers that this <em>soil-landscape paradigm</em> provides
 the fundamental scientific basis for soil survey.</p>
@@ -715,8 +715,8 @@ variation, which is explained in greater detail in
 Chapter <a href="statistical-theory.html#statistical-theory">5</a>. <span class="citation">Burrough and McDonnell (<a href="#ref-Burrough1998OUP">1998</a>, 133)</span> described the
 universal model of soil variation as a special case of the universal
 model of spatial variation. This model distinguishes between three major
-components of soil variation: (1) deterministic component (trend), (2)
-spatially correlated component and (3) pure noise.</p>
+components of soil variation: (1) a deterministic component (trend), (2)
+a spatially correlated component and (3) pure noise.</p>
 <span class="math display" id="eq:univ-var">\[\begin{equation}
 Z({\bf{s}}) = m({\bf{s}}) + \varepsilon &#39;({\bf{s}}) + \varepsilon &#39;&#39;({\bf{s}})
 \tag{1.1}
@@ -728,8 +728,8 @@ pure noise (micro-scale variation and measurement error).</p>
 
 <div class="rmdnote">
 The <em>universal model of soil variation</em> assumes that
-there are three major components of soil variation: (1) the
-deterministic component (function of covariates), (2) spatially
+there are three major components of soil variation: (1) a
+deterministic component (function of covariates), (2) a spatially
 correlated component (treated as stochastic) and (3) pure noise.
 </div>
 
@@ -741,7 +741,7 @@ this spatial variation. In conventional soil mapping, this model is the
 empirical and knowledge-based <em>soil-landscape paradygm</em>
 <span class="citation">(Hudson <a href="#ref-Hudson2000SSSAJ">2004</a>)</span>. In PSM, a wide variety of statistical, and machine learning,
 models have been used to capture and apply the soil-landscape paradigm
-in a quantitative and optimal fashion:</p>
+in a quantitative and optimal fashion using the CLORPT model:</p>
 <span class="math display" id="eq:clorpt">\[\begin{equation}
 S = f (cl, o, r, p, t)
 \tag{1.2}
@@ -750,8 +750,8 @@ S = f (cl, o, r, p, t)
 <span class="math inline">\(o\)</span> for organisms (including humans), <span class="math inline">\(r\)</span> is relief, <span class="math inline">\(p\)</span> is parent
 material or geology and <span class="math inline">\(t\)</span> is time. The Eq. <a href="introduction.html#eq:clorpt">(1.2)</a> is the
 CLORPT model originally presented by Jenny <span class="citation">(<a href="#ref-jenny1994factors">1994</a>)</span>.</p>
-<p><span class="citation">A. McBratney, Mendonça Santos, and Minasny (<a href="#ref-MCBRATNEY20033">2003</a>)</span> have further conceptualized the so-called
-<em>“scorpan”</em> model in which soil property is modeled as a function of:</p>
+<p><span class="citation">A. McBratney, Mendonça Santos, and Minasny (<a href="#ref-MCBRATNEY20033">2003</a>)</span> reconceptualized and extended the CLORPT model via the
+<em>“scorpan”</em> model in which soil properties are modeled as a function of:</p>
 <ul>
 <li><p>(auxiliary) <strong>s</strong>oil classes or properties,</p></li>
 <li><p><strong>c</strong>limate,</p></li>
@@ -785,7 +785,7 @@ production of soil maps by conventional means.</p>
 that shows spatial structure that lends itself to prediction through
 interpolation but that is not explainable, or easily explained, through
 use of a deterministic model that relates observed values to controlling
-factors. This part of the variation is typically modeled in pedometric
+environmental factors. This part of the variation is typically modeled in pedometric
 mapping using geostatistics and kriging to interpolate, in an optimal
 manner, between point locations with known values
 <span class="citation">(Goovaerts <a href="#ref-goovaerts2001geostatistical">2001</a>; A. B. McBratney, Mendoça Santos, and Minasny <a href="#ref-McBratney2003Geoderma">2003</a>)</span>.</p>
@@ -812,7 +812,7 @@ of PSM is to produce optimal unbiased predictions of a mean value at some new lo
 
 <p>There is one way in which PSM differs significantly from
 conventional soil mapping in terms of the universal model of soil
-variation. This is in the use of statistics and machine learning to
+variation. This is in the use of geostatistics or machine learning to
 quantitatively correct for error in predictions, defined as the
 difference between predicted and observed values at locations with known
 values. Conventional soil mapping has no formal or quantitative
@@ -846,7 +846,7 @@ and quantified. We do our users and clients a disservice when we fail to
 alert them to the presence, and the magnitude, of spatial variation that
 is not predictable. In cases where the local spatial variation is not
 predictable (or mappable) the best estimate for any property of interest
-is the mean value for that local area.</p>
+is the mean value for that local area or spatial entity.</p>
 </div>
 <div id="conventional-mapping" class="section level3">
 <h3><span class="header-section-number">1.3.4</span> Traditional (conventional) soil mapping</h3>
@@ -881,7 +881,7 @@ corresponding scale of mapping to meet the specified objectives</em>;</p></li>
 <li><p><em>Conduct preliminary field reconnaissance and use these observations
 to construct a preliminary legend of conceptual mapping units
 (described in terms of soil individuals)</em>;</p></li>
-<li><p><em>Apply preliminary conceptual legend using available source
+<li><p><em>Apply the preliminary conceptual legend using available source
 information to delineate initial map unit boundaries (pre-typing)</em>;</p></li>
 <li><p><em>Plan and implement a field program to collect samples and
 observations to obtain values of the target soil attributes
@@ -915,7 +915,7 @@ can not typically afford to survey areas in great detail (e.g. 1:5000)
 so as to map actual <em>polypedons</em>. As a compromise, the survey team
 generally has to choose some best achievable target scale (
 e.g. 1:10,000 - 1:50,000). Maps produced at some initial scale can be further
-generalized, depending on the application and users demands
+generalized, depending on the application and user demands
 <span class="citation">(Wysocki, Schoeneberger, and LaGarry <a href="#ref-Wysocki2005Geoderma">2005</a>)</span>.</p>
 <div class="figure" style="text-align: center"><span id="fig:smu-aggregation"></span>
 <img src="figures/Fig_SMU_aggregation.png" alt="Three basic conceptual scales in soil mapping: (left) most detailed scale showing the actual distribution of soil bodies, (center) target scale i.e. scale achievable by the soil survey budget, (right) generalized intermediate scale or coarse resolution maps. In a conventional soil survey, soils are described and conceptualized as groups of similar pedons (smallest elements of 1–10 square-m), called “polypedons” — the smallest mappable entity. These can then be further generalized to soil map units, which can be various combinations (systematic or random) of dominant and contrasting soils (inclusions)." width="85%" />
@@ -926,7 +926,7 @@ Figure 1.4: Three basic conceptual scales in soil mapping: (left) most detailed 
 <p>Where variation within a polygon is systematic and predictable, the
 pattern of variation in soils within any given polygon is often
 described in terms of the most common position, or positions, in the
-landscape occupied by each named soil class. In other cases, soil
+landscape occupied by each named soil class <span class="citation">MacMillan, Pettapiece, and Brierley (<a href="#ref-MacMillan2005CJSS">2005</a>)</span>. In other cases, soil
 patterns are not clearly related to systematic variations in observable
 landscape attributes and it is not possible to describe where each named
 soil type is most likely to occur within any polygon or why.</p>
@@ -939,9 +939,9 @@ inventory <span class="citation">(Schelling <a href="#ref-Schelling1970Geoderma"
 advantages of conventional soil maps, on the other hand, are that:</p>
 <ul>
 <li><p><em>they portray the spatial distribution of stable, recognizable and
-repeating patterns of soils that occupy identifiable portions of the landscape</em>, and</p></li>
+repeating patterns of soils that usually occupy identifiable portions of the landscape</em>, and</p></li>
 <li><p><em>these patterns can be extracted from legends and maps to model (predict) the
-most likely soil at any location in the landscape using expert
+most likely soil at any other location in the landscape using expert
 knowledge alone</em> <span class="citation">(Zhu et al. <a href="#ref-Zhu2001">2001</a>)</span>.</p></li>
 </ul>
 <p>Resource inventories, and in particular soil surveys, have been
@@ -956,7 +956,7 @@ soil classes at specific locations on a map, or within polygonal areas
 on a map, agreed with on-the-ground assessments of the soil class at
 these same locations or within these same polygons. Measurement error
 can be large in assessing the accuracy of soil class maps.
-<span class="citation">MacMillan, Pettapiece, and Brierley (<a href="#ref-MacMillan2005CJSS">2005</a>)</span>, for example, demonstrated that experts disagreed
+<span class="citation">MacMillan et al. (<a href="#ref-MacMillan2010DSM">2010</a>)</span>, for example, demonstrated that experts disagreed
 with each other regarding the correct classification of ecological site
 types at the same locations about as often as they disagreed with the
 classifications reported by a map produced using a predictive model.</p>
@@ -1003,7 +1003,7 @@ information is the <em>gridded or raster data model</em>, where most of the
 technical properties are defined by the grid cell size i.e. the ground
 resolution. In practice,
 vector-based polygon maps can be converted to gridded maps and <em>vice
-versa</em>, so in practical terms there is really no meaningful difference
+versa</em>, so in practical terms there are really few meaningful differences
 between the two models. In this book, to avoid any ambiguity, when
 mentioning soil maps we will often refer to the spatio-temporal
 reference and support size of the maps at the finest possible level of
@@ -1180,7 +1180,7 @@ patterns while digital soil mappers interpolate using geostatistical
 procedures, but here too the two methods are quite analogous. Hard facts
 (point data and covariates) can often be beneficially enhanced using
 soft data (expert knowledge).</p>
-<p>In summary, we suggest that next generation soil surveyors will
+<p>In general, we suggest that next generation soil surveyors will
 increasingly benefit from having a solid background in statistics and computer
 science, especially in Machine Learning and A.I. However, effective selection and application of
 appropriate statistical sampling and analysis techniques can also benefit from
@@ -1653,7 +1653,7 @@ relatively weak source materials and these can be of variable accuracy.</p>
 Figure 1.10: In conventional soil mapping, soil delineations are usually manually drawn polygons representing (assumed) bodies of homogenous soil materials (often geomorphological units). These are first validated in the field before a final area-class map is produced, which can then be generalized and used to extract soil property maps. After USDA Soil Survey Manual.
 </p>
 </div>
-<p>In soil mapping terms, soil map delineations can be considered to be
+<p>In PSM terms, soil map delineations can be considered to be
 expert-based covariates. They can be used as input to spatial prediction
 in the same way as DEM-derived predictors or remote sensing indices.
 This is assuming that a standardized legend is attached to the soil
@@ -2635,6 +2635,9 @@ collected data.</p>
 <div id="ref-hengl2007regression">
 <p>Hengl, Tomislav, Gerard Heuvelink, and David G Rossiter. 2007. “About Regression-Kriging: From Equations to Case Studies.” <em>Computers &amp; Geosciences</em> 33 (10). Elsevier:1301–15.</p>
 </div>
+<div id="ref-MacMillan2005CJSS">
+<p>MacMillan, R. A., W. W. Pettapiece, and J. A. Brierley. 2005. “An Expert System for Allocating Soils to Landforms Through the Application of Soil Survey Tacit Knowledge.” <em>Canadian Journal of Soil Science</em>, 103–12.</p>
+</div>
 <div id="ref-Schelling1970Geoderma">
 <p>Schelling, J. 1970. “Soil Genesis, Soil Classification and Soil Survey.” <em>Geoderma</em> 4 (3):165–93. <a href="https://doi.org/10.1016/0016-7061(70)90002-9" class="uri">https://doi.org/10.1016/0016-7061(70)90002-9</a>.</p>
 </div>
@@ -2653,8 +2656,8 @@ collected data.</p>
 <div id="ref-Finke2006Elsevier">
 <p>Finke, P. 2006. “Quality assessment of digital soil maps: producers and users perspectives.” In <em>Digital Soil Mapping: An Introductory Perspective</em>, edited by P. Lagacherie, A. B. McBratney, and M. Voltz, 523–41. Developments in Soil Science. Amsterdam: Elsevier.</p>
 </div>
-<div id="ref-MacMillan2005CJSS">
-<p>MacMillan, R. A., W. W. Pettapiece, and J. A. Brierley. 2005. “An Expert System for Allocating Soils to Landforms Through the Application of Soil Survey Tacit Knowledge.” <em>Canadian Journal of Soil Science</em>, 103–12.</p>
+<div id="ref-MacMillan2010DSM">
+<p>MacMillan, R. A., D.E. Moon, R. A. Coupé, and N. Phillips. 2010. “Predictive Ecosystem Mapping (Pem) for 8.2 Million Ha of Forestland,British Columbia, Canada.” In <em>Digital Soil Mapping: Bridging Research, Environmental Application, and Operation</em>, edited by J. L. Boettinger et al., 2:335–54. Progress in Soil Science. Springer. <a href="https://doi.org/10.1007/978-90-481-8863-5_27" class="uri">https://doi.org/10.1007/978-90-481-8863-5_27</a>.</p>
 </div>
 <div id="ref-Rosenbaum2012WRCR">
 <p>Rosenbaum, U., H. R. Bogena, M. Herbst, J. A. Huisman, T. J. Peterson, A. Weuthen, A. W. Western, and H. Vereecken. 2012. “Seasonal and Event Dynamics of Spatial Soil Moisture Patterns at the Small Catchment Scale.” <em>Water Resources Research</em> 48 (10):1–22. <a href="https://doi.org/10.1029/2011WR011518" class="uri">https://doi.org/10.1029/2011WR011518</a>.</p>

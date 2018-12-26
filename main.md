@@ -2,7 +2,7 @@
 ---
 title: "Predictive Soil Mapping with R"
 author: ["Tomislav Hengl and Robert A. MacMillan"]
-date: "2018-12-25"
+date: "2018-12-26"
 knit: bookdown::render_book
 site: bookdown::bookdown_site
 documentclass: svmono
@@ -205,7 +205,7 @@ Every effort has been made to trace copyright holders of the materials used in t
 
 This chapter presents a description and discussion of soils and
 conventional soil inventories framed within the context of Predictive Soil Mapping (PSM). Soils,
-their associated properties, and their spatial distribution are the
+their associated properties, and their spatial and temporal distributions are the
 central focus of PSM. We discuss how the products and
 methods associated with conventional soil mapping relate to new, and
 emerging, methods of PSM and automated soil mapping. We discuss similarities and
@@ -214,7 +214,7 @@ its inputs and products) relative to PSM.
 
 The universal model of soil variation presented in detail in
 Chapter \@ref(statistical-theory) is adopted as a framework for comparison of
-conventional and PSM. Our aim is to show how the products
+conventional soil mapping and PSM. Our aim is to show how the products
 and methods of conventional soil mapping can complement, and contribute to,
 PSM and equally, how the theories and methods of
 PSM can extend and strengthen conventional soil mapping.
@@ -233,15 +233,15 @@ upper limit of the soil is either air, shallow water, live plants or
 plant materials that have not begun to decompose. The lower limit is
 defined by the presence of hard rock or the lower limit of biologic
 activity [@Richter1995; @SSDS1993]. Although soil profiles up to tens
-of meters depths can be found in some tropical areas [@Richter1995], for
-soil classification and mapping purposes, the lower limit soil is often
+of meters in depth can be found in some tropical areas [@Richter1995], for
+soil classification and mapping purposes, the lower limit of soil is often
 arbitrarily set to 2 m (http://soils.usda.gov/education/facts/soil.html). Soils are rarely described to depths beyond 2 m and
-many soil sampling projects put primary focus on the upper
+many soil sampling projects put a primary focus on the upper
 (0-100 cm) depths.
 
 The chemical, physical and biological properties of the soil differ from
 those of unaltered (unconsolidated) parent material from which the soil
-is derived over a period of time under influence of climate, organisms
+is derived over a period of time under the influence of climate, organisms
 and relief effects. Soil should show a capacity to support life,
 otherwise we are dealing with inert unconsolidated parent material. Hence, for
 purposes of developing statistically based models to predict soil
@@ -251,7 +251,7 @@ and *potential* soil areas (see further section \@ref(soil-covariates)).
 A significant aspect of the accepted definition of soil is that it is
 seen as a *natural body* that merits study, description,
 *classification* and interpretation in, and of, itself. As a *natural
-body* a soil is viewed as an object that occupies space, has defined
+body* soil is viewed as an object that occupies space, has defined
 physical dimensions and that is more than the sum of its individual
 properties or attributes. This concept requires that all properties of
 soils be considered collectively and simultaneously in terms of a completely integrated
@@ -337,7 +337,7 @@ and then either measured *in-situ* or *a posteriori* in laboratory. Soil variabl
 The nature of a soil variable determines how the attribute is modeled
 and presented on a map in PSM. Some soil variables are
 normally described as discrete entities (or classes), but classes can also be
-depicted as a continuous quantities on a map in the form of
+depicted as continuous quantities on a map in the form of
 probabilities or memberships
 [@DeGruijter1997Geoderma; @McBratney2003Geoderma; @Kempen2009Geoderma; @Odgers201130].
 For example, a binary soil variable (e.g. the presence/absence of a
@@ -345,7 +345,7 @@ specific layer or horizon) can be modeled as a binomial random variable
 with a logistic regression model. Spatial prediction (mapping) with this
 model gives a map depicting (continuous) probabilities in the range of
 0–1. These probabilities can be used to determine the most likely presence/absence
-of a class at each prediction location, resulting in a discrete
+of a class at each prediction location, resulting, then, in a discrete
 representation of the soil attribute variation.
 
 In that context, the aims of most soil resource inventories consist of the
@@ -403,7 +403,7 @@ of management affects them need to be considered.
 
 In conventional soil mapping, the objects of study, whose spatial
 distributions are portrayed on any resulting map, are *soil individuals*
-that are assumed to possess and exhibit a unique set of soil properties
+with each individual assumed to possess and exhibit a unique set of soil properties
 with a defined range of values. A fundamental assumption of conventional
 soil mapping is therefore that, if one maps the pattern of spatial
 distribution of uniquely defined *soil individuals*, one can infer the
@@ -417,7 +417,7 @@ This attribute of conventional soil mapping represents a significant
 difference compared to PSM, where the object of study is
 frequently an individual soil property and the objective is to map the
 pattern of spatial distribution of that property (over some depth
-interval) independently from consideration of the spatial distribution
+interval), often independently from consideration of the spatial distribution
 of soil individuals or other soil properties.
 
 Soil maps give answers to three basic questions: (1) what is mapped?,
@@ -437,7 +437,7 @@ was represented by 1 m$^2$ of the model. Since this is not feasible, we condense
 and abstract reality in such a way that we hope to describe the major
 differences in true space at a much reduced scale in model (map) space.
 When this is done for soil maps, it needs to be understood that the map
-cannot describe all of the variation that is present in reality. It can
+cannot describe all of the soil variation that is present in reality. It can
 only describe that portion of the total variation that is systematic and
 has structure and occurs over distances that are as large as, or larger
 than, the smallest area that can be feasibly portrayed and described at
@@ -461,7 +461,7 @@ main idea of soil survey is, thus, production and dissemination of soil
 information for an area of interest usually to address a specific
 question or questions of interest i.e. production of soil maps and soil
 geographical databases. Although soil surveyors are usually not *per se*
-responsible for usage of soil information, how soil survey information
+responsible for final use of soil information, how soil survey information
 is used is increasingly important.
 
 In statistical terms, the main objective of soil mapping is to describe
@@ -529,8 +529,8 @@ random. Natural soil bodies are the result of climate and living
 organisms acting on parent material, with topography or local relief
 exerting a modifying influence and with time required for soil-forming
 processes to act. For the most part, soils are the same wherever all
-elements of the five factors are the same. Under similar environments in
-different places, soils are similar. This regularity permits prediction
+elements of these five factors are the same. Under similar environments in
+different places, soils are expected to be similar. This regularity permits prediction
 of the location of many different kinds of soil”* [@SSDS1993].
 @Hudson2000SSSAJ considers that this *soil-landscape paradigm* provides
 the fundamental scientific basis for soil survey.
@@ -541,8 +541,8 @@ variation, which is explained in greater detail in
 Chapter \@ref(statistical-theory). @Burrough1998OUP [p.133] described the
 universal model of soil variation as a special case of the universal
 model of spatial variation. This model distinguishes between three major
-components of soil variation: (1) deterministic component (trend), (2)
-spatially correlated component and (3) pure noise.
+components of soil variation: (1) a deterministic component (trend), (2)
+a spatially correlated component and (3) pure noise.
 
 \begin{equation}
 Z({\bf{s}}) = m({\bf{s}}) + \varepsilon '({\bf{s}}) + \varepsilon ''({\bf{s}})
@@ -555,8 +555,8 @@ correlated stochastic component and $\varepsilon ''({\bf{s}})$ is the
 pure noise (micro-scale variation and measurement error).
 
 \BeginKnitrBlock{rmdnote}<div class="rmdnote">The *universal model of soil variation* assumes that
-there are three major components of soil variation: (1) the
-deterministic component (function of covariates), (2) spatially
+there are three major components of soil variation: (1) a
+deterministic component (function of covariates), (2) a spatially
 correlated component (treated as stochastic) and (3) pure noise.</div>\EndKnitrBlock{rmdnote}
 
 The deterministic part of the equation describes that part of the
@@ -567,7 +567,7 @@ this spatial variation. In conventional soil mapping, this model is the
 empirical and knowledge-based *soil-landscape paradygm*
 [@Hudson2000SSSAJ]. In PSM, a wide variety of statistical, and machine learning,
 models have been used to capture and apply the soil-landscape paradigm
-in a quantitative and optimal fashion:
+in a quantitative and optimal fashion using the CLORPT model:
 
 \begin{equation}
 S = f (cl, o, r, p, t)
@@ -579,8 +579,8 @@ $o$ for organisms (including humans), $r$ is relief, $p$ is parent
 material or geology and $t$ is time. The Eq. \@ref(eq:clorpt) is the
 CLORPT model originally presented by Jenny [-@jenny1994factors].
 
-@MCBRATNEY20033 have further conceptualized the so-called
-*“scorpan”* model in which soil property is modeled as a function of:
+@MCBRATNEY20033 reconceptualized and extended the CLORPT model via the
+*“scorpan”* model in which soil properties are modeled as a function of:
 
 -   (auxiliary) **s**oil classes or properties,
 
@@ -623,7 +623,7 @@ The spatially correlated part of the observed variation is that part
 that shows spatial structure that lends itself to prediction through
 interpolation but that is not explainable, or easily explained, through
 use of a deterministic model that relates observed values to controlling
-factors. This part of the variation is typically modeled in pedometric
+environmental factors. This part of the variation is typically modeled in pedometric
 mapping using geostatistics and kriging to interpolate, in an optimal
 manner, between point locations with known values
 [@goovaerts2001geostatistical; @McBratney2003Geoderma].
@@ -649,7 +649,7 @@ of PSM is to produce optimal unbiased predictions of a mean value at some new lo
 
 There is one way in which PSM differs significantly from
 conventional soil mapping in terms of the universal model of soil
-variation. This is in the use of statistics and machine learning to
+variation. This is in the use of geostatistics or machine learning to
 quantitatively correct for error in predictions, defined as the
 difference between predicted and observed values at locations with known
 values. Conventional soil mapping has no formal or quantitative
@@ -684,7 +684,7 @@ and quantified. We do our users and clients a disservice when we fail to
 alert them to the presence, and the magnitude, of spatial variation that
 is not predictable. In cases where the local spatial variation is not
 predictable (or mappable) the best estimate for any property of interest
-is the mean value for that local area.
+is the mean value for that local area or spatial entity.
 
 ### Traditional (conventional) soil mapping {#conventional-mapping}
 
@@ -724,7 +724,7 @@ following sequence of steps, with minor variations
     to construct a preliminary legend of conceptual mapping units
     (described in terms of soil individuals)*;
 
-6.  *Apply preliminary conceptual legend using available source
+6.  *Apply the preliminary conceptual legend using available source
     information to delineate initial map unit boundaries (pre-typing)*;
 
 7.  *Plan and implement a field program to collect samples and
@@ -764,7 +764,7 @@ can not typically afford to survey areas in great detail (e.g. 1:5000)
 so as to map actual *polypedons*. As a compromise, the survey team
 generally has to choose some best achievable target scale (e.g.
 1:10,000 - 1:50,000). Maps produced at some initial scale can be further
-generalized, depending on the application and users demands
+generalized, depending on the application and user demands
 [@Wysocki2005Geoderma].
 
 <div class="figure" style="text-align: center">
@@ -775,7 +775,7 @@ generalized, depending on the application and users demands
 Where variation within a polygon is systematic and predictable, the
 pattern of variation in soils within any given polygon is often
 described in terms of the most common position, or positions, in the
-landscape occupied by each named soil class. In other cases, soil
+landscape occupied by each named soil class @MacMillan2005CJSS. In other cases, soil
 patterns are not clearly related to systematic variations in observable
 landscape attributes and it is not possible to describe where each named
 soil type is most likely to occur within any polygon or why.
@@ -789,10 +789,10 @@ inventory [@Schelling1970Geoderma; @SSS1983USDA; @Rossiter2001]. The key
 advantages of conventional soil maps, on the other hand, are that:
 
 -   *they portray the spatial distribution of stable, recognizable and
-    repeating patterns of soils that occupy identifiable portions of the landscape*, and
+    repeating patterns of soils that usually occupy identifiable portions of the landscape*, and
 
 -   *these patterns can be extracted from legends and maps to model (predict) the
-    most likely soil at any location in the landscape using expert
+    most likely soil at any other location in the landscape using expert
     knowledge alone* [@Zhu2001].
 
 Resource inventories, and in particular soil surveys, have been
@@ -807,7 +807,7 @@ soil classes at specific locations on a map, or within polygonal areas
 on a map, agreed with on-the-ground assessments of the soil class at
 these same locations or within these same polygons. Measurement error
 can be large in assessing the accuracy of soil class maps.
-@MacMillan2005CJSS, for example, demonstrated that experts disagreed
+@MacMillan2010DSM, for example, demonstrated that experts disagreed
 with each other regarding the correct classification of ecological site
 types at the same locations about as often as they disagreed with the
 classifications reported by a map produced using a predictive model.
@@ -852,7 +852,7 @@ information is the *gridded or raster data model*, where most of the
 technical properties are defined by the grid cell size i.e. the ground
 resolution. In practice,
 vector-based polygon maps can be converted to gridded maps and *vice
-versa*, so in practical terms there is really no meaningful difference
+versa*, so in practical terms there are really few meaningful differences
 between the two models. In this book, to avoid any ambiguity, when
 mentioning soil maps we will often refer to the spatio-temporal
 reference and support size of the maps at the finest possible level of
@@ -1042,7 +1042,7 @@ procedures, but here too the two methods are quite analogous. Hard facts
 (point data and covariates) can often be beneficially enhanced using
 soft data (expert knowledge).
 
-In summary, we suggest that next generation soil surveyors will
+In general, we suggest that next generation soil surveyors will
 increasingly benefit from having a solid background in statistics and computer
 science, especially in Machine Learning and A.I. However, effective selection and application of
 appropriate statistical sampling and analysis techniques can also benefit from
@@ -1527,7 +1527,7 @@ relatively weak source materials and these can be of variable accuracy.
 <p class="caption">(\#fig:from-photointerpretation-to-soilmap)In conventional soil mapping, soil delineations are usually manually drawn polygons representing (assumed) bodies of homogenous soil materials (often geomorphological units). These are first validated in the field before a final area-class map is produced, which can then be generalized and used to extract soil property maps. After USDA Soil Survey Manual.</p>
 </div>
 
-In soil mapping terms, soil map delineations can be considered to be
+In PSM terms, soil map delineations can be considered to be
 expert-based covariates. They can be used as input to spatial prediction
 in the same way as DEM-derived predictors or remote sensing indices.
 This is assuming that a standardized legend is attached to the soil
@@ -2793,7 +2793,6 @@ om.rk <- predict(omm, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
-  9% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -7546,7 +7545,6 @@ om.rk2 <- predict(omm2, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 68% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -7805,7 +7803,6 @@ om.rksim.p <- predict(omm, meuse.grid, nsim=20, block=c(0,0))
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
 #> 
- 12% done
 100% done
 #> Creating an object of class "RasterBrickSimulations"
 #> Loading required package: raster
@@ -7830,7 +7827,6 @@ om.rk.b <- predict(omm, meuse.grid, block=c(40,40), nfold=0)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 24% done
 100% done
 #> Creating an object of class "SpatialPredictions"
 om.rksim.b <- predict(omm, meuse.grid, nsim=2, block=c(40,40), debug.level=0)
@@ -8096,13 +8092,13 @@ library(intamap)
 demo(meuse, echo=FALSE)
 meuse$value = meuse$zinc
 output <- interpolate(meuse, meuse.grid, list(mean=TRUE, variance=TRUE))
-#> R 2018-12-25 18:21:53 interpolating 155 observations, 3103 prediction locations
+#> R 2018-12-26 03:03:51 interpolating 155 observations, 3103 prediction locations
 #> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : 
 #>  using standard model for estimating time. For better 
 #>  platform spesific predictions, please run 
 #>  timeModels <- generateTimeModels()
 #>   and save the workspace
-#> [1] "estimated time for  copula 160.597624654913"
+#> [1] "estimated time for  copula 161.007233871538"
 #> Checking object ... OK
 ```
 
@@ -8116,7 +8112,7 @@ str(output, max.level = 2)
 #> List of 16
 #>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
 #>  $ formulaString      :Class 'formula'  language value ~ 1
-#>   .. ..- attr(*, ".Environment")=<environment: 0x141ac930> 
+#>   .. ..- attr(*, ".Environment")=<environment: 0x1486d950> 
 #>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
 #>  $ params             :List of 18
 #>   ..$ doAnisotropy     : logi TRUE
@@ -8804,6 +8800,7 @@ om.rk <- predict(omm, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
+ 69% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -9505,7 +9502,7 @@ localH2O = h2o.init(startH2O=TRUE)
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         23 minutes 52 seconds 
+#>     H2O cluster uptime:         23 minutes 36 seconds 
 #>     H2O cluster timezone:       UTC 
 #>     H2O data parsing timezone:  UTC 
 #>     H2O cluster version:        3.20.0.8 
@@ -9544,23 +9541,23 @@ RF.m
 #> ==============
 #> 
 #> H2ORegressionModel: drf
-#> Model ID:  DRF_model_R_1545760740355_21 
+#> Model ID:  DRF_model_R_1545792073309_21 
 #> Model Summary: 
 #>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#> 1              50                       50              644061        20
+#> 1              50                       50              639893        20
 #>   max_depth mean_depth min_leaves max_leaves mean_leaves
-#> 1        20   20.00000        918       1072  1021.60000
+#> 1        20   20.00000        912       1080  1014.84000
 #> 
 #> 
 #> H2ORegressionMetrics: drf
 #> ** Reported on training data. **
 #> ** Metrics reported on Out-Of-Bag training samples **
 #> 
-#> MSE:  220
-#> RMSE:  14.8
+#> MSE:  221
+#> RMSE:  14.9
 #> MAE:  10.1
-#> RMSLE:  0.427
-#> Mean Residual Deviance :  220
+#> RMSLE:  0.431
+#> Mean Residual Deviance :  221
 ```
 
 This shows that the model fitting R-square is about 50%. This is also indicated by the predicted vs observed plot:
@@ -9607,29 +9604,29 @@ DL.m
 #> ==============
 #> 
 #> H2ORegressionModel: deeplearning
-#> Model ID:  DeepLearning_model_R_1545760740355_22 
+#> Model ID:  DeepLearning_model_R_1545792073309_22 
 #> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1
 #>   layer units      type dropout       l1       l2 mean_rate rate_rms
 #> 1     1    10     Input  0.00 %       NA       NA        NA       NA
-#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.013547 0.007436
-#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.154485 0.205781
-#> 4     4     1    Linear      NA 0.000000 0.000000  0.001404 0.000987
+#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.015277 0.008686
+#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.123229 0.177234
+#> 4     4     1    Linear      NA 0.000000 0.000000  0.001263 0.000855
 #>   momentum mean_weight weight_rms mean_bias bias_rms
 #> 1       NA          NA         NA        NA       NA
-#> 2 0.000000    0.001278   0.099173  0.338638 0.080781
-#> 3 0.000000   -0.018466   0.071242  0.951014 0.020367
-#> 4 0.000000    0.001408   0.047861  0.117954 0.000000
+#> 2 0.000000   -0.000812   0.102625  0.382221 0.054877
+#> 3 0.000000   -0.017328   0.070665  0.960694 0.015123
+#> 4 0.000000    0.003144   0.050655  0.100226 0.000000
 #> 
 #> 
 #> H2ORegressionMetrics: deeplearning
 #> ** Reported on training data. **
 #> ** Metrics reported on full training frame **
 #> 
-#> MSE:  256
-#> RMSE:  16
-#> MAE:  12
-#> RMSLE:  0.491
-#> Mean Residual Deviance :  256
+#> MSE:  259
+#> RMSE:  16.1
+#> MAE:  12.3
+#> RMSLE:  0.496
+#> Mean Residual Deviance :  259
 ```
 
 Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. \@ref(fig:map-snd) and Fig. \@ref(fig:map-snd-dl)).
@@ -9866,16 +9863,16 @@ str(test.ORC)
 #> List of 2
 #>  $ CV_residuals:'data.frame':	4972 obs. of  4 variables:
 #>   ..$ Observed : num [1:4972] 6.5 5.1 4.9 3.3 2.2 ...
-#>   ..$ Predicted: num [1:4972] 11.73 7.82 6.8 4.91 3.08 ...
+#>   ..$ Predicted: num [1:4972] 12.41 7.49 7.07 5.01 3.06 ...
 #>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" ...
 #>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ Summary     :'data.frame':	1 obs. of  6 variables:
-#>   ..$ ME          : num -0.13
-#>   ..$ MAE         : num 2.2
-#>   ..$ RMSE        : num 3.69
-#>   ..$ R.squared   : num 0.555
+#>   ..$ ME          : num -0.135
+#>   ..$ MAE         : num 2.19
+#>   ..$ RMSE        : num 3.68
+#>   ..$ R.squared   : num 0.557
 #>   ..$ logRMSE     : num 0.498
-#>   ..$ logR.squared: num 0.632
+#>   ..$ logR.squared: num 0.631
 ```
 
 Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about $\pm 4$ g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:
@@ -9937,7 +9934,7 @@ perf
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 12.1897886765047
+#> Ensemble performance (MSE): 12.2884504360431
 ```
 
 which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.
@@ -10037,16 +10034,16 @@ perf3
 #> Base learner performance, sorted by specified metric:
 #>                    learner    MSE
 #> 1          h2o.glm.wrapper 0.2827
-#> 4 h2o.deeplearning.wrapper 0.1334
+#> 4 h2o.deeplearning.wrapper 0.1594
 #> 3          h2o.gbm.wrapper 0.0971
-#> 2 h2o.randomForest.wrapper 0.0814
+#> 2 h2o.randomForest.wrapper 0.0897
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 0.0780415148320513
+#> Ensemble performance (MSE): 0.0805620220364468
 ```
 
 In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.
@@ -10130,10 +10127,10 @@ sl
 #> 
 #>                  Risk   Coef
 #> SL.mean_All    0.7540 0.0000
-#> SL.xgboost_All 0.0598 0.8196
-#> SL.ksvm_All    0.1282 0.0163
-#> SL.glmnet_All  0.3072 0.0000
-#> SL.ranger_All  0.0859 0.1641
+#> SL.xgboost_All 0.0598 0.8182
+#> SL.ksvm_All    0.1288 0.0144
+#> SL.glmnet_All  0.3071 0.0000
+#> SL.ranger_All  0.0853 0.1674
 ```
 
 This shows that `SL.xgboost_All` outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by `SL.xgboost_All` is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:
@@ -10152,10 +10149,10 @@ sl2
 #>     SL.library = sl.l2) 
 #> 
 #> 
-#>                  Risk  Coef
-#> SL.xgboost_All 0.0603 0.828
-#> SL.ranger_All  0.0846 0.172
-#> SL.ksvm_All    0.1295 0.000
+#>                  Risk Coef
+#> SL.xgboost_All 0.0603 0.81
+#> SL.ranger_All  0.0831 0.19
+#> SL.ksvm_All    0.1312 0.00
 ```
 
 again `SL.xgboost` dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where entire profiles are taken out of the training dataset:
@@ -10182,11 +10179,11 @@ summary(cv_sl)
 #> All risk estimates are based on V =  5 
 #> 
 #>       Algorithm  Ave    se   Min  Max
-#>   Super Learner 0.16 0.014 0.096 0.25
-#>     Discrete SL 0.17 0.014 0.115 0.25
+#>   Super Learner 0.16 0.014 0.092 0.25
+#>     Discrete SL 0.17 0.014 0.109 0.25
 #>  SL.xgboost_All 0.19 0.016 0.135 0.27
-#>   SL.ranger_All 0.16 0.014 0.103 0.25
-#>     SL.ksvm_All 0.18 0.014 0.110 0.30
+#>   SL.ranger_All 0.16 0.014 0.102 0.25
+#>     SL.ksvm_All 0.18 0.014 0.109 0.29
 ```
 
 where `V=5` specifies number of folds, and `id=rm.cookfarm$SOURCEID` forces that entire profiles are removed from training and cross-validation. This gives a more realistic RMSE of about ±0.35. Note that this time `SL.xgboost_All` is even somewhat worse than the random forest model, and the ensemble model (`Super Learner`) is slightly better than each individual model. This matches our previous results with `h20.ensemble`. 
@@ -10211,8 +10208,8 @@ sl2
 #> 
 #>                 Risk  Coef
 #> SL.xgboost_All 0.215 0.000
-#> SL.ranger_All  0.166 0.477
-#> SL.ksvm_All    0.164 0.523
+#> SL.ranger_All  0.164 0.486
+#> SL.ksvm_All    0.163 0.514
 new.data <- grid10m@data
 pred.PHI <- list(NULL)
 depths = c(10,30,50,70,90)
@@ -10234,7 +10231,7 @@ for(j in 1:length(depths)){
 #>     buffer, rotated
 str(pred.PHI[[1]])
 #> List of 2
-#>  $ pred           : num [1:3865, 1] 4.71 4.79 4.92 4.88 4.81 ...
+#>  $ pred           : num [1:3865, 1] 4.66 4.72 4.87 4.83 4.76 ...
 #>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...
 #>   ..- attr(*, "dimnames")=List of 2
 #>   .. ..$ : NULL
@@ -11286,7 +11283,7 @@ fm.BLD = as.formula(
   paste("BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +", 
         paste(names(ind.tax), collapse="+")))
 m.BLD_PTF <- ranger(fm.BLD, dfs_tbl, num.trees = 85, importance='impurity')
-#> Growing trees.. Progress: 86%. Estimated remaining time: 5 seconds.
+#> Growing trees.. Progress: 89%. Estimated remaining time: 3 seconds.
 m.BLD_PTF
 #> Ranger result
 #> 

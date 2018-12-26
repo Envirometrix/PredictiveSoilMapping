@@ -237,7 +237,7 @@
 
 \title{Predictive Soil Mapping with R}
 \author{Tomislav Hengl and Robert A. MacMillan}
-\date{2018-12-25}
+\date{2018-12-26}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -478,7 +478,7 @@ This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 Intern
 
 This chapter presents a description and discussion of soils and
 conventional soil inventories framed within the context of Predictive Soil Mapping (PSM). Soils,
-their associated properties, and their spatial distribution are the
+their associated properties, and their spatial and temporal distributions are the
 central focus of PSM. We discuss how the products and
 methods associated with conventional soil mapping relate to new, and
 emerging, methods of PSM and automated soil mapping. We discuss similarities and
@@ -487,7 +487,7 @@ its inputs and products) relative to PSM.
 
 The universal model of soil variation presented in detail in
 Chapter \ref{statistical-theory} is adopted as a framework for comparison of
-conventional and PSM. Our aim is to show how the products
+conventional soil mapping and PSM. Our aim is to show how the products
 and methods of conventional soil mapping can complement, and contribute to,
 PSM and equally, how the theories and methods of
 PSM can extend and strengthen conventional soil mapping.
@@ -508,15 +508,15 @@ upper limit of the soil is either air, shallow water, live plants or
 plant materials that have not begun to decompose. The lower limit is
 defined by the presence of hard rock or the lower limit of biologic
 activity \citep{Richter1995, SSDS1993}. Although soil profiles up to tens
-of meters depths can be found in some tropical areas \citep{Richter1995}, for
-soil classification and mapping purposes, the lower limit soil is often
+of meters in depth can be found in some tropical areas \citep{Richter1995}, for
+soil classification and mapping purposes, the lower limit of soil is often
 arbitrarily set to 2 m (\url{http://soils.usda.gov/education/facts/soil.html}). Soils are rarely described to depths beyond 2 m and
-many soil sampling projects put primary focus on the upper
+many soil sampling projects put a primary focus on the upper
 (0-100 cm) depths.
 
 The chemical, physical and biological properties of the soil differ from
 those of unaltered (unconsolidated) parent material from which the soil
-is derived over a period of time under influence of climate, organisms
+is derived over a period of time under the influence of climate, organisms
 and relief effects. Soil should show a capacity to support life,
 otherwise we are dealing with inert unconsolidated parent material. Hence, for
 purposes of developing statistically based models to predict soil
@@ -526,7 +526,7 @@ and \emph{potential} soil areas (see further section \ref{soil-covariates}).
 A significant aspect of the accepted definition of soil is that it is
 seen as a \emph{natural body} that merits study, description,
 \emph{classification} and interpretation in, and of, itself. As a \emph{natural
-body} a soil is viewed as an object that occupies space, has defined
+body} soil is viewed as an object that occupies space, has defined
 physical dimensions and that is more than the sum of its individual
 properties or attributes. This concept requires that all properties of
 soils be considered collectively and simultaneously in terms of a completely integrated
@@ -624,7 +624,7 @@ and then either measured \emph{in-situ} or \emph{a posteriori} in laboratory. So
 The nature of a soil variable determines how the attribute is modeled
 and presented on a map in PSM. Some soil variables are
 normally described as discrete entities (or classes), but classes can also be
-depicted as a continuous quantities on a map in the form of
+depicted as continuous quantities on a map in the form of
 probabilities or memberships
 \citep{DeGruijter1997Geoderma, McBratney2003Geoderma, Kempen2009Geoderma, Odgers201130}.
 For example, a binary soil variable (e.g.~the presence/absence of a
@@ -632,7 +632,7 @@ specific layer or horizon) can be modeled as a binomial random variable
 with a logistic regression model. Spatial prediction (mapping) with this
 model gives a map depicting (continuous) probabilities in the range of
 0--1. These probabilities can be used to determine the most likely presence/absence
-of a class at each prediction location, resulting in a discrete
+of a class at each prediction location, resulting, then, in a discrete
 representation of the soil attribute variation.
 
 In that context, the aims of most soil resource inventories consist of the
@@ -696,7 +696,7 @@ of management affects them need to be considered.
 
 In conventional soil mapping, the objects of study, whose spatial
 distributions are portrayed on any resulting map, are \emph{soil individuals}
-that are assumed to possess and exhibit a unique set of soil properties
+with each individual assumed to possess and exhibit a unique set of soil properties
 with a defined range of values. A fundamental assumption of conventional
 soil mapping is therefore that, if one maps the pattern of spatial
 distribution of uniquely defined \emph{soil individuals}, one can infer the
@@ -710,7 +710,7 @@ This attribute of conventional soil mapping represents a significant
 difference compared to PSM, where the object of study is
 frequently an individual soil property and the objective is to map the
 pattern of spatial distribution of that property (over some depth
-interval) independently from consideration of the spatial distribution
+interval), often independently from consideration of the spatial distribution
 of soil individuals or other soil properties.
 
 Soil maps give answers to three basic questions: (1) what is mapped?,
@@ -732,7 +732,7 @@ was represented by 1 m\(^2\) of the model. Since this is not feasible, we conden
 and abstract reality in such a way that we hope to describe the major
 differences in true space at a much reduced scale in model (map) space.
 When this is done for soil maps, it needs to be understood that the map
-cannot describe all of the variation that is present in reality. It can
+cannot describe all of the soil variation that is present in reality. It can
 only describe that portion of the total variation that is systematic and
 has structure and occurs over distances that are as large as, or larger
 than, the smallest area that can be feasibly portrayed and described at
@@ -757,7 +757,7 @@ main idea of soil survey is, thus, production and dissemination of soil
 information for an area of interest usually to address a specific
 question or questions of interest i.e.~production of soil maps and soil
 geographical databases. Although soil surveyors are usually not \emph{per se}
-responsible for usage of soil information, how soil survey information
+responsible for final use of soil information, how soil survey information
 is used is increasingly important.
 
 In statistical terms, the main objective of soil mapping is to describe
@@ -840,8 +840,8 @@ random. Natural soil bodies are the result of climate and living
 organisms acting on parent material, with topography or local relief
 exerting a modifying influence and with time required for soil-forming
 processes to act. For the most part, soils are the same wherever all
-elements of the five factors are the same. Under similar environments in
-different places, soils are similar. This regularity permits prediction
+elements of these five factors are the same. Under similar environments in
+different places, soils are expected to be similar. This regularity permits prediction
 of the location of many different kinds of soil''} \citep{SSDS1993}.
 \citet{Hudson2000SSSAJ} considers that this \emph{soil-landscape paradigm} provides
 the fundamental scientific basis for soil survey.
@@ -852,8 +852,8 @@ variation, which is explained in greater detail in
 Chapter \ref{statistical-theory}. \citet[p.133]{Burrough1998OUP} described the
 universal model of soil variation as a special case of the universal
 model of spatial variation. This model distinguishes between three major
-components of soil variation: (1) deterministic component (trend), (2)
-spatially correlated component and (3) pure noise.
+components of soil variation: (1) a deterministic component (trend), (2)
+a spatially correlated component and (3) pure noise.
 
 \begin{equation}
 Z({\bf{s}}) = m({\bf{s}}) + \varepsilon '({\bf{s}}) + \varepsilon ''({\bf{s}})
@@ -867,8 +867,8 @@ pure noise (micro-scale variation and measurement error).
 
 \BeginKnitrBlock{rmdnote}
 The \emph{universal model of soil variation} assumes that
-there are three major components of soil variation: (1) the
-deterministic component (function of covariates), (2) spatially
+there are three major components of soil variation: (1) a
+deterministic component (function of covariates), (2) a spatially
 correlated component (treated as stochastic) and (3) pure noise.
 \EndKnitrBlock{rmdnote}
 
@@ -880,7 +880,7 @@ this spatial variation. In conventional soil mapping, this model is the
 empirical and knowledge-based \emph{soil-landscape paradygm}
 \citep{Hudson2000SSSAJ}. In PSM, a wide variety of statistical, and machine learning,
 models have been used to capture and apply the soil-landscape paradigm
-in a quantitative and optimal fashion:
+in a quantitative and optimal fashion using the CLORPT model:
 
 \begin{equation}
 S = f (cl, o, r, p, t)
@@ -892,8 +892,8 @@ where \(S\) stands for soil (properties and classes), \(cl\) for climate,
 material or geology and \(t\) is time. The Eq. \eqref{eq:clorpt} is the
 CLORPT model originally presented by Jenny \citeyearpar{jenny1994factors}.
 
-\citet{MCBRATNEY20033} have further conceptualized the so-called
-\emph{``scorpan''} model in which soil property is modeled as a function of:
+\citet{MCBRATNEY20033} reconceptualized and extended the CLORPT model via the
+\emph{``scorpan''} model in which soil properties are modeled as a function of:
 
 \begin{itemize}
 \item
@@ -939,7 +939,7 @@ The spatially correlated part of the observed variation is that part
 that shows spatial structure that lends itself to prediction through
 interpolation but that is not explainable, or easily explained, through
 use of a deterministic model that relates observed values to controlling
-factors. This part of the variation is typically modeled in pedometric
+environmental factors. This part of the variation is typically modeled in pedometric
 mapping using geostatistics and kriging to interpolate, in an optimal
 manner, between point locations with known values
 \citep{goovaerts2001geostatistical, McBratney2003Geoderma}.
@@ -967,7 +967,7 @@ of PSM is to produce optimal unbiased predictions of a mean value at some new lo
 
 There is one way in which PSM differs significantly from
 conventional soil mapping in terms of the universal model of soil
-variation. This is in the use of statistics and machine learning to
+variation. This is in the use of geostatistics or machine learning to
 quantitatively correct for error in predictions, defined as the
 difference between predicted and observed values at locations with known
 values. Conventional soil mapping has no formal or quantitative
@@ -1002,7 +1002,7 @@ and quantified. We do our users and clients a disservice when we fail to
 alert them to the presence, and the magnitude, of spatial variation that
 is not predictable. In cases where the local spatial variation is not
 predictable (or mappable) the best estimate for any property of interest
-is the mean value for that local area.
+is the mean value for that local area or spatial entity.
 
 \hypertarget{conventional-mapping}{%
 \subsection{Traditional (conventional) soil mapping}\label{conventional-mapping}}
@@ -1050,7 +1050,7 @@ following sequence of steps, with minor variations
   to construct a preliminary legend of conceptual mapping units
   (described in terms of soil individuals)};
 \item
-  \emph{Apply preliminary conceptual legend using available source
+  \emph{Apply the preliminary conceptual legend using available source
   information to delineate initial map unit boundaries (pre-typing)};
 \item
   \emph{Plan and implement a field program to collect samples and
@@ -1091,7 +1091,7 @@ can not typically afford to survey areas in great detail (e.g.~1:5000)
 so as to map actual \emph{polypedons}. As a compromise, the survey team
 generally has to choose some best achievable target scale (
 e.g.~1:10,000 - 1:50,000). Maps produced at some initial scale can be further
-generalized, depending on the application and users demands
+generalized, depending on the application and user demands
 \citep{Wysocki2005Geoderma}.
 
 \begin{figure}[H]
@@ -1106,7 +1106,7 @@ generalized, depending on the application and users demands
 Where variation within a polygon is systematic and predictable, the
 pattern of variation in soils within any given polygon is often
 described in terms of the most common position, or positions, in the
-landscape occupied by each named soil class. In other cases, soil
+landscape occupied by each named soil class \citet{MacMillan2005CJSS}. In other cases, soil
 patterns are not clearly related to systematic variations in observable
 landscape attributes and it is not possible to describe where each named
 soil type is most likely to occur within any polygon or why.
@@ -1122,10 +1122,10 @@ advantages of conventional soil maps, on the other hand, are that:
 \begin{itemize}
 \item
   \emph{they portray the spatial distribution of stable, recognizable and
-  repeating patterns of soils that occupy identifiable portions of the landscape}, and
+  repeating patterns of soils that usually occupy identifiable portions of the landscape}, and
 \item
   \emph{these patterns can be extracted from legends and maps to model (predict) the
-  most likely soil at any location in the landscape using expert
+  most likely soil at any other location in the landscape using expert
   knowledge alone} \citep{Zhu2001}.
 \end{itemize}
 
@@ -1141,7 +1141,7 @@ soil classes at specific locations on a map, or within polygonal areas
 on a map, agreed with on-the-ground assessments of the soil class at
 these same locations or within these same polygons. Measurement error
 can be large in assessing the accuracy of soil class maps.
-\citet{MacMillan2005CJSS}, for example, demonstrated that experts disagreed
+\citet{MacMillan2010DSM}, for example, demonstrated that experts disagreed
 with each other regarding the correct classification of ecological site
 types at the same locations about as often as they disagreed with the
 classifications reported by a map produced using a predictive model.
@@ -1193,7 +1193,7 @@ information is the \emph{gridded or raster data model}, where most of the
 technical properties are defined by the grid cell size i.e.~the ground
 resolution. In practice,
 vector-based polygon maps can be converted to gridded maps and \emph{vice
-versa}, so in practical terms there is really no meaningful difference
+versa}, so in practical terms there are really few meaningful differences
 between the two models. In this book, to avoid any ambiguity, when
 mentioning soil maps we will often refer to the spatio-temporal
 reference and support size of the maps at the finest possible level of
@@ -1404,7 +1404,7 @@ procedures, but here too the two methods are quite analogous. Hard facts
 (point data and covariates) can often be beneficially enhanced using
 soft data (expert knowledge).
 
-In summary, we suggest that next generation soil surveyors will
+In general, we suggest that next generation soil surveyors will
 increasingly benefit from having a solid background in statistics and computer
 science, especially in Machine Learning and A.I. However, effective selection and application of
 appropriate statistical sampling and analysis techniques can also benefit from
@@ -1925,7 +1925,7 @@ relatively weak source materials and these can be of variable accuracy.
 \caption{In conventional soil mapping, soil delineations are usually manually drawn polygons representing (assumed) bodies of homogenous soil materials (often geomorphological units). These are first validated in the field before a final area-class map is produced, which can then be generalized and used to extract soil property maps. After USDA Soil Survey Manual.}\label{fig:from-photointerpretation-to-soilmap}
 \end{figure}
 
-In soil mapping terms, soil map delineations can be considered to be
+In PSM terms, soil map delineations can be considered to be
 expert-based covariates. They can be used as input to spatial prediction
 in the same way as DEM-derived predictors or remote sensing indices.
 This is assuming that a standardized legend is attached to the soil
@@ -8599,6 +8599,7 @@ for plotting, (4) spatial locations of observations used to fit the model. To pr
 \CommentTok{#> Generating predictions using the trend model (RK method)...}
 \CommentTok{#> [using ordinary kriging]}
 \CommentTok{#> }
+ \DecValTok{29}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Running 5-fold cross validation using 'krige.cv'...}
 \CommentTok{#> Creating an object of class "SpatialPredictions"}
@@ -8943,6 +8944,7 @@ support:
 \CommentTok{#> Generating predictions using the trend model (RK method)...}
 \CommentTok{#> [using ordinary kriging]}
 \CommentTok{#> }
+ \DecValTok{92}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Running 5-fold cross validation using 'krige.cv'...}
 \CommentTok{#> Creating an object of class "SpatialPredictions"}
@@ -8952,7 +8954,6 @@ support:
 \CommentTok{#> drawing 20 GLS realisations of beta...}
 \CommentTok{#> [using conditional Gaussian simulation]}
 \CommentTok{#> }
- \DecValTok{37}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Creating an object of class "RasterBrickSimulations"}
 \CommentTok{#> Loading required package: raster}
@@ -9274,13 +9275,13 @@ organic matter content using the Meuse case study:
 \KeywordTok{demo}\NormalTok{(meuse, }\DataTypeTok{echo=}\OtherTok{FALSE}\NormalTok{)}
 \NormalTok{meuse}\OperatorTok{$}\NormalTok{value =}\StringTok{ }\NormalTok{meuse}\OperatorTok{$}\NormalTok{zinc}
 \NormalTok{output <-}\StringTok{ }\KeywordTok{interpolate}\NormalTok{(meuse, meuse.grid, }\KeywordTok{list}\NormalTok{(}\DataTypeTok{mean=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{variance=}\OtherTok{TRUE}\NormalTok{))}
-\CommentTok{#> R 2018-12-25 17:57:59 interpolating 155 observations, 3103 prediction locations}
+\CommentTok{#> R 2018-12-26 02:40:13 interpolating 155 observations, 3103 prediction locations}
 \CommentTok{#> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : }
 \CommentTok{#>  using standard model for estimating time. For better }
 \CommentTok{#>  platform spesific predictions, please run }
 \CommentTok{#>  timeModels <- generateTimeModels()}
 \CommentTok{#>   and save the workspace}
-\CommentTok{#> [1] "estimated time for  copula 163.052945149987"}
+\CommentTok{#> [1] "estimated time for  copula 157.62322369703"}
 \CommentTok{#> Checking object ... OK}
 \end{Highlighting}
 \end{Shaded}
@@ -9295,7 +9296,7 @@ at hand (\texttt{value} column), given the time available set with
 \CommentTok{#> List of 16}
 \CommentTok{#>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots}
 \CommentTok{#>  $ formulaString      :Class 'formula'  language value ~ 1}
-\CommentTok{#>   .. ..- attr(*, ".Environment")=<environment: 0x130ab338> }
+\CommentTok{#>   .. ..- attr(*, ".Environment")=<environment: 0x14b261e8> }
 \CommentTok{#>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots}
 \CommentTok{#>  $ params             :List of 18}
 \CommentTok{#>   ..$ doAnisotropy     : logi TRUE}
@@ -10064,6 +10065,7 @@ which can now be used to generate predictions:
 \CommentTok{#> Generating predictions using the trend model (RK method)...}
 \CommentTok{#> [using ordinary kriging]}
 \CommentTok{#> }
+ \DecValTok{79}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Running 5-fold cross validation using 'krige.cv'...}
 \CommentTok{#> Creating an object of class "SpatialPredictions"}
@@ -10831,14 +10833,14 @@ In the following example we look at mapping sand content for the upper horizons.
 \CommentTok{#> H2O is not running yet, starting it now...}
 \CommentTok{#> }
 \CommentTok{#> Note:  In case of errors look at the following log files:}
-\CommentTok{#>     /tmp/RtmpV5JV4P/h2o_travis_started_from_r.out}
-\CommentTok{#>     /tmp/RtmpV5JV4P/h2o_travis_started_from_r.err}
+\CommentTok{#>     /tmp/Rtmpcoxs7M/h2o_travis_started_from_r.out}
+\CommentTok{#>     /tmp/Rtmpcoxs7M/h2o_travis_started_from_r.err}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> Starting H2O JVM and connecting: .. Connection successful!}
 \CommentTok{#> }
 \CommentTok{#> R is connected to the H2O cluster: }
-\CommentTok{#>     H2O cluster uptime:         1 seconds 924 milliseconds }
+\CommentTok{#>     H2O cluster uptime:         2 seconds 139 milliseconds }
 \CommentTok{#>     H2O cluster timezone:       UTC }
 \CommentTok{#>     H2O data parsing timezone:  UTC }
 \CommentTok{#>     H2O cluster version:        3.20.0.8 }
@@ -10879,23 +10881,23 @@ We can now fit a random forest model by using all the computing power available 
 \CommentTok{#> ==============}
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionModel: drf}
-\CommentTok{#> Model ID:  DRF_model_R_1545760740355_1 }
+\CommentTok{#> Model ID:  DRF_model_R_1545792073309_1 }
 \CommentTok{#> Model Summary: }
 \CommentTok{#>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth}
-\CommentTok{#> 1              50                       50              642085        20}
+\CommentTok{#> 1              50                       50              646817        20}
 \CommentTok{#>   max_depth mean_depth min_leaves max_leaves mean_leaves}
-\CommentTok{#> 1        20   20.00000        923       1063  1018.30000}
+\CommentTok{#> 1        20   20.00000        987       1063  1026.20000}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionMetrics: drf}
 \CommentTok{#> ** Reported on training data. **}
 \CommentTok{#> ** Metrics reported on Out-Of-Bag training samples **}
 \CommentTok{#> }
-\CommentTok{#> MSE:  219}
-\CommentTok{#> RMSE:  14.8}
-\CommentTok{#> MAE:  10}
+\CommentTok{#> MSE:  221}
+\CommentTok{#> RMSE:  14.9}
+\CommentTok{#> MAE:  10.1}
 \CommentTok{#> RMSLE:  0.429}
-\CommentTok{#> Mean Residual Deviance :  219}
+\CommentTok{#> Mean Residual Deviance :  221}
 \end{Highlighting}
 \end{Shaded}
 
@@ -10953,29 +10955,29 @@ h2o has another MLA of interest for soil mapping called \emph{deep learning} (a 
 \CommentTok{#> ==============}
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionModel: deeplearning}
-\CommentTok{#> Model ID:  DeepLearning_model_R_1545760740355_2 }
+\CommentTok{#> Model ID:  DeepLearning_model_R_1545792073309_2 }
 \CommentTok{#> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1}
 \CommentTok{#>   layer units      type dropout       l1       l2 mean_rate rate_rms}
 \CommentTok{#> 1     1    10     Input  0.00 %       NA       NA        NA       NA}
-\CommentTok{#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.014052 0.007774}
-\CommentTok{#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.124011 0.175517}
-\CommentTok{#> 4     4     1    Linear      NA 0.000000 0.000000  0.001346 0.000974}
+\CommentTok{#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.013677 0.007741}
+\CommentTok{#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.154719 0.185816}
+\CommentTok{#> 4     4     1    Linear      NA 0.000000 0.000000  0.001445 0.000943}
 \CommentTok{#>   momentum mean_weight weight_rms mean_bias bias_rms}
 \CommentTok{#> 1       NA          NA         NA        NA       NA}
-\CommentTok{#> 2 0.000000    0.001214   0.102623  0.363730 0.062596}
-\CommentTok{#> 3 0.000000   -0.017989   0.070715  0.957368 0.018356}
-\CommentTok{#> 4 0.000000   -0.002270   0.050475  0.115341 0.000000}
+\CommentTok{#> 2 0.000000   -0.000400   0.101822  0.363013 0.062308}
+\CommentTok{#> 3 0.000000   -0.017796   0.071129  0.955900 0.020008}
+\CommentTok{#> 4 0.000000   -0.000015   0.048708  0.103778 0.000000}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionMetrics: deeplearning}
 \CommentTok{#> ** Reported on training data. **}
 \CommentTok{#> ** Metrics reported on full training frame **}
 \CommentTok{#> }
-\CommentTok{#> MSE:  260}
+\CommentTok{#> MSE:  258}
 \CommentTok{#> RMSE:  16.1}
-\CommentTok{#> MAE:  12.4}
-\CommentTok{#> RMSLE:  0.497}
-\CommentTok{#> Mean Residual Deviance :  260}
+\CommentTok{#> MAE:  12.3}
+\CommentTok{#> RMSLE:  0.494}
+\CommentTok{#> Mean Residual Deviance :  258}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11245,14 +11247,14 @@ We can hence run 5-fold cross validation:
 \CommentTok{#> List of 2}
 \CommentTok{#>  $ CV_residuals:'data.frame':    4972 obs. of  4 variables:}
 \CommentTok{#>   ..$ Observed : num [1:4972] 14.5 13.6 10.1 12.1 7.1 ...}
-\CommentTok{#>   ..$ Predicted: num [1:4972] 15.57 9.84 8.57 5.6 3.38 ...}
+\CommentTok{#>   ..$ Predicted: num [1:4972] 15.11 11.15 9.47 5.61 2.93 ...}
 \CommentTok{#>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" ...}
 \CommentTok{#>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...}
 \CommentTok{#>  $ Summary     :'data.frame':    1 obs. of  6 variables:}
-\CommentTok{#>   ..$ ME          : num -0.112}
+\CommentTok{#>   ..$ ME          : num -0.125}
 \CommentTok{#>   ..$ MAE         : num 2.12}
 \CommentTok{#>   ..$ RMSE        : num 3.61}
-\CommentTok{#>   ..$ R.squared   : num 0.575}
+\CommentTok{#>   ..$ R.squared   : num 0.573}
 \CommentTok{#>   ..$ logRMSE     : num 0.482}
 \CommentTok{#>   ..$ logR.squared: num 0.653}
 \end{Highlighting}
@@ -11314,14 +11316,14 @@ we first specify all learners (MLA methods) of interest:
 \CommentTok{#> Base learner performance, sorted by specified metric:}
 \CommentTok{#>                    learner  MSE}
 \CommentTok{#> 2          h2o.gbm.wrapper 9.81}
-\CommentTok{#> 1 h2o.randomForest.wrapper 8.36}
+\CommentTok{#> 1 h2o.randomForest.wrapper 8.76}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2O Ensemble Performance on <newdata>:}
 \CommentTok{#> ----------------}
 \CommentTok{#> Family: gaussian}
 \CommentTok{#> }
-\CommentTok{#> Ensemble performance (MSE): 8.25160676175496}
+\CommentTok{#> Ensemble performance (MSE): 8.54381124589522}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11424,16 +11426,16 @@ We can again test fitting an ensemble model using two MLA's:
 \CommentTok{#> Base learner performance, sorted by specified metric:}
 \CommentTok{#>                    learner    MSE}
 \CommentTok{#> 1          h2o.glm.wrapper 0.2827}
-\CommentTok{#> 4 h2o.deeplearning.wrapper 0.1486}
+\CommentTok{#> 4 h2o.deeplearning.wrapper 0.1412}
 \CommentTok{#> 3          h2o.gbm.wrapper 0.0971}
-\CommentTok{#> 2 h2o.randomForest.wrapper 0.0855}
+\CommentTok{#> 2 h2o.randomForest.wrapper 0.0810}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2O Ensemble Performance on <newdata>:}
 \CommentTok{#> ----------------}
 \CommentTok{#> Family: gaussian}
 \CommentTok{#> }
-\CommentTok{#> Ensemble performance (MSE): 0.0782029817510056}
+\CommentTok{#> Ensemble performance (MSE): 0.0786131303075795}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11522,10 +11524,10 @@ A useful functionality of the SuperLearner package is that it displays how model
 \CommentTok{#> }
 \CommentTok{#>                  Risk    Coef}
 \CommentTok{#> SL.mean_All    0.7540 0.00000}
-\CommentTok{#> SL.xgboost_All 0.0598 0.80984}
-\CommentTok{#> SL.ksvm_All    0.1288 0.00511}
-\CommentTok{#> SL.glmnet_All  0.3077 0.00000}
-\CommentTok{#> SL.ranger_All  0.0846 0.18505}
+\CommentTok{#> SL.xgboost_All 0.0598 0.80982}
+\CommentTok{#> SL.ksvm_All    0.1296 0.00837}
+\CommentTok{#> SL.glmnet_All  0.3076 0.00000}
+\CommentTok{#> SL.ranger_All  0.0844 0.18181}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11546,9 +11548,9 @@ This shows that \texttt{SL.xgboost\_All} outperforms the competition by a large 
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#>                  Risk  Coef}
-\CommentTok{#> SL.xgboost_All 0.0603 0.821}
-\CommentTok{#> SL.ranger_All  0.0841 0.179}
-\CommentTok{#> SL.ksvm_All    0.1298 0.000}
+\CommentTok{#> SL.xgboost_All 0.0603 0.808}
+\CommentTok{#> SL.ranger_All  0.0824 0.192}
+\CommentTok{#> SL.ksvm_All    0.1304 0.000}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11576,11 +11578,11 @@ again \texttt{SL.xgboost} dominates the ensemble model, which is most likely unr
 \CommentTok{#> All risk estimates are based on V =  5 }
 \CommentTok{#> }
 \CommentTok{#>       Algorithm  Ave    se   Min  Max}
-\CommentTok{#>   Super Learner 0.16 0.014 0.094 0.25}
-\CommentTok{#>     Discrete SL 0.17 0.015 0.114 0.25}
+\CommentTok{#>   Super Learner 0.16 0.014 0.096 0.26}
+\CommentTok{#>     Discrete SL 0.17 0.015 0.117 0.25}
 \CommentTok{#>  SL.xgboost_All 0.19 0.016 0.135 0.27}
-\CommentTok{#>   SL.ranger_All 0.16 0.015 0.103 0.25}
-\CommentTok{#>     SL.ksvm_All 0.18 0.014 0.109 0.30}
+\CommentTok{#>   SL.ranger_All 0.17 0.015 0.104 0.25}
+\CommentTok{#>     SL.ksvm_All 0.18 0.014 0.110 0.30}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11606,8 +11608,8 @@ To produce predictions of soil pH at 10 cm depth we can finally use:
 \CommentTok{#> }
 \CommentTok{#>                 Risk  Coef}
 \CommentTok{#> SL.xgboost_All 0.215 0.000}
-\CommentTok{#> SL.ranger_All  0.166 0.464}
-\CommentTok{#> SL.ksvm_All    0.163 0.536}
+\CommentTok{#> SL.ranger_All  0.164 0.486}
+\CommentTok{#> SL.ksvm_All    0.163 0.514}
 \NormalTok{new.data <-}\StringTok{ }\NormalTok{grid10m}\OperatorTok{@}\NormalTok{data}
 \NormalTok{pred.PHI <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\OtherTok{NULL}\NormalTok{)}
 \NormalTok{depths =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{,}\DecValTok{30}\NormalTok{,}\DecValTok{50}\NormalTok{,}\DecValTok{70}\NormalTok{,}\DecValTok{90}\NormalTok{)}
@@ -11629,7 +11631,7 @@ To produce predictions of soil pH at 10 cm depth we can finally use:
 \CommentTok{#>     buffer, rotated}
 \KeywordTok{str}\NormalTok{(pred.PHI[[}\DecValTok{1}\NormalTok{]])}
 \CommentTok{#> List of 2}
-\CommentTok{#>  $ pred           : num [1:3865, 1] 4.68 4.75 4.89 4.85 4.79 ...}
+\CommentTok{#>  $ pred           : num [1:3865, 1] 4.69 4.77 4.89 4.85 4.78 ...}
 \CommentTok{#>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...}
 \CommentTok{#>   ..- attr(*, "dimnames")=List of 2}
 \CommentTok{#>   .. ..$ : NULL}
@@ -12847,7 +12849,7 @@ Where values for bulk density are missing, and no local PTF exists, WoSIS points
   \KeywordTok{paste}\NormalTok{(}\StringTok{"BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +"}\NormalTok{, }
         \KeywordTok{paste}\NormalTok{(}\KeywordTok{names}\NormalTok{(ind.tax), }\DataTypeTok{collapse=}\StringTok{"+"}\NormalTok{)))}
 \NormalTok{m.BLD_PTF <-}\StringTok{ }\KeywordTok{ranger}\NormalTok{(fm.BLD, dfs_tbl, }\DataTypeTok{num.trees =} \DecValTok{85}\NormalTok{, }\DataTypeTok{importance=}\StringTok{'impurity'}\NormalTok{)}
-\CommentTok{#> Growing trees.. Progress: 81%. Estimated remaining time: 7 seconds.}
+\CommentTok{#> Growing trees.. Progress: 88%. Estimated remaining time: 4 seconds.}
 \NormalTok{m.BLD_PTF}
 \CommentTok{#> Ranger result}
 \CommentTok{#> }
