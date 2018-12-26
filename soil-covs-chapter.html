@@ -407,9 +407,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">4.1</span> Soil covariate data sources</h2>
 <div id="types-of-soil-covariates" class="section level3">
 <h3><span class="header-section-number">4.1.1</span> Types of soil covariates</h3>
-<p>Soils (and vegetation + ecosystem) form under complex interactions between climate, living organism and anthropogenic influences, modified by relief and hydrological processes and run through long periods of time.
-This has been clearly identified first by <span class="citation">Jenny (<a href="#ref-jenny1994factors">1994</a>)</span> with his CLORPT factors of soil formation and later on by <span class="citation">A. McBratney, Mendonça Santos, and Minasny (<a href="#ref-MCBRATNEY20033">2003</a>)</span> with the SCORPAN formulation (see <a href="introduction.html#soil-mapping-theory">Introduction chapter</a>).</p>
-<p>In general, the following list of covariates are commonly used in Predictive Soil Mapping:</p>
+<p>Soils (and vegetation + ecosystems) form under complex interactions between climate, living organism and anthropogenic influences, modified by relief and hydrological processes and operating over long periods of time.
+This has been clearly identified first by <span class="citation">Jenny (<a href="#ref-jenny1994factors">1994</a>)</span> with his CLORPT factors of soil formation and subsequently extended by <span class="citation">A. McBratney, Mendonça Santos, and Minasny (<a href="#ref-MCBRATNEY20033">2003</a>)</span> with the SCORPAN formulation (see <a href="introduction.html#soil-mapping-theory">Introduction chapter</a>).</p>
+<p>In general, the following covariates are commonly considered for use in Predictive Soil Mapping:</p>
 <ol style="list-style-type: decimal">
 <li>Climate related covariates include:</li>
 </ol>
@@ -434,14 +434,14 @@ This has been clearly identified first by <span class="citation">Jenny (<a href=
 <li>Relief and Topography covariates include:</li>
 </ol>
 <ul>
-<li>standard window calculations e.g. slope, curvatures, standard deviation,</li>
+<li>standard window-based calculations e.g. slope, curvatures, standard deviation,</li>
 <li>standard flow model outputs,</li>
 <li>landform classes / landform class likelihoods,</li>
 <li>hydrological / soil accumulation and deposition indices — MRVBFI, MRRTFI, Wetness index, height above channel, height below ridge, horizontal distance to channel, horizontal distance to ridge,</li>
 <li>climatic and micro-climatic indices determined by relief — incoming solar insolation and similar,</li>
 </ul>
 <ol start="4" style="list-style-type: decimal">
-<li>Parent material / geologic Material covariates include:</li>
+<li>Parent material / geologic material covariates include:</li>
 </ol>
 <ul>
 <li>bedrock type and age,</li>
@@ -489,7 +489,7 @@ This has been clearly identified first by <span class="citation">Jenny (<a href=
 <li>probability of gullying or human-induced erosion,</li>
 <li>soil nutrient fertilization, liming and similar maps,</li>
 </ul>
-<p>In the following sections we provide some practical tips (with links to the most important data sources) on how to prepare soil covariates for PSM.</p>
+<p>In the following sections we provide some practical advice (with links to the most important data sources) on how to prepare soil covariates for use in PSM.</p>
 </div>
 <div id="soil-covs-30m" class="section level3">
 <h3><span class="header-section-number">4.1.2</span> Soil covariate data sources (30–100 m resolution)</h3>
@@ -501,13 +501,13 @@ This has been clearly identified first by <span class="citation">Jenny (<a href=
 <li><p><a href="https://global-surface-water.appspot.com/download">Landsat-based Global Surface Water (GSW) dynamics images</a> at 30 m resolution for the period 1985–2016 <span class="citation">(Pekel et al. <a href="#ref-pekel2016high">2016</a>)</span>;</p></li>
 <li><p>Global Land Cover (GLC) maps based on the <a href="http://www.globallandcover.com">GLC30 project</a> at 30 m resolution for 2000 and 2010 <span class="citation">(Chen et al. <a href="#ref-Chen2014">2015</a>)</span> and similar land cover projects <span class="citation">(Herold et al. <a href="#ref-Herold2016">2016</a>)</span>;</p></li>
 <li><p>USGS’s <a href="https://landcover.usgs.gov/glc/">global bare surface images</a> at 30 m resolution;</p></li>
-<li><p><a href="http://www.eorc.jaxa.jp/ALOS/en/dataset/dataset_index.htm">JAXA’s ALOS</a> (PALSAR/PALSAR-2) radar images at 20 m resolution <span class="citation">(Shimada et al. <a href="#ref-shimada2014new">2014</a>)</span>; radar images, bands HH: -27.7 (5.3) dB and HV: -35.8 (3.0) dB, from the JAXA’s ALOS project are especially interesting for mapping rock outcrops and exposed bedrock but are also to distinguish between bare soil and dense vegetation;</p></li>
+<li><p><a href="http://www.eorc.jaxa.jp/ALOS/en/dataset/dataset_index.htm">JAXA’s ALOS</a> (PALSAR/PALSAR-2) radar images at 20 m resolution <span class="citation">(Shimada et al. <a href="#ref-shimada2014new">2014</a>)</span>; radar images, bands HH: -27.7 (5.3) dB and HV: -35.8 (3.0) dB, from the JAXA’s ALOS project are especially interesting for mapping rock outcrops and exposed bedrock but are also used to distinguish between bare soil and dense vegetation;</p></li>
 </ul>
 <p>Note that the download time for 30 m global RS data can be significant if the data are needed for a larger area (hence you might consider using some RS data processing hub such as <a href="http://www.sentinel-hub.com">Sentinel hub</a>, <a href="https://earthengine.google.com">Google Earth Engine</a> and/or <a href="https://aws.amazon.com/public-datasets/">Amazon Web Services</a> instead of trying to download large mosaics yourself).</p>
 </div>
 <div id="soil-covs-250m" class="section level3">
 <h3><span class="header-section-number">4.1.3</span> Soil covariate data sources (250 m resolution or coarser)</h3>
-<p><span class="citation">Hengl, Mendes de Jesus, et al. (<a href="#ref-Hengl2017SoilGrids250m">2017</a>)</span> used a large stack of coarser resolution covariate layers for producing
+<p><span class="citation">Hengl, Mendes de Jesus, et al. (<a href="#ref-Hengl2017SoilGrids250m">2017</a>)</span> used a large stack of slightly coarser resolution covariate layers for producing
 SoilGrids250m predictions, most of which were based on remote sensing data:</p>
 <ul>
 <li><p>DEM-derived surfaces — slope, profile curvature, Multiresolution
@@ -552,9 +552,9 @@ the USGS’s Map of Global Ecological Land Units <span class="citation">(Sayre e
 </ul>
 <p>These covariates were selected to represent factors of soil formation
 according to <span class="citation">Jenny (<a href="#ref-jenny1994factors">1994</a>)</span>: climate, relief, living organisms,
-water dynamics and parent material. Out of the five main factors, water
+water dynamics and parent material. Of the five main factors, water
 dynamics and living organisms (especially vegetation dynamics) are not
-trivial to represent as these operate over long periods of time and
+trivial to represent, as these operate over long periods of time and
 often exhibit chaotic behavior. Using reflectance bands such as the
 mid-infrared MODIS bands from a single day, would be of little use for
 soil mapping for areas with dynamic vegetation, i.e. with strong
@@ -562,17 +562,17 @@ seasonal changes in vegetation cover. To account for seasonal
 fluctuation and for inter-annual variations in surface reflectance,
 long-term temporal signatures of the soil surface derived
 as monthly averages from long-term MODIS imagery (15 years of data)
-can be used <span class="citation">(Hengl, Mendes de Jesus, et al. <a href="#ref-Hengl2017SoilGrids250m">2017</a>)</span>.
+can be more effective to use <span class="citation">(Hengl, Mendes de Jesus, et al. <a href="#ref-Hengl2017SoilGrids250m">2017</a>)</span>.
 Long-term average seasonal signatures of surface reflectance or vegetation
 index provide a better indication of soil characteristics than only a single snapshot of
 surface reflectance. Computing temporal signatures of the land surface
 requires a considerable investment of time (comparable to the generation
-of climatic images vs temporary weather maps), but it is possibly the
-only way to represent the cumulative influence of living organisms on
+of climatic images vs temporary weather maps), but it is probably the
+best way to effectively represent the cumulative influence of living organisms on
 soil formation.</p>
 <p><span class="citation">Behrens et al. (<a href="#ref-Behrens2018128">2018</a>)</span> recently reported that, for example, DEM
 derivatives derived at coarser resolutions correlated better with some
-targeted soil properties than the derivatives derived at finer resolutions. In
+targeted soil properties than the same derivatives derived at finer resolutions. In
 this case, resolution (or scale) was represented through various DEM aggregation levels
 and filter sizes. Some physical and chemical processes of soil formation
 or vegetation distribution might not be effective or obvious at finer aggregation
@@ -584,14 +584,14 @@ derivatives.</p>
 </div>
 <div id="preparing-soil-covariate-layers" class="section level2">
 <h2><span class="header-section-number">4.2</span> Preparing soil covariate layers</h2>
-<p>Before we are able to fit spatial prediction models and generate soil maps, a significant amount of effort is also spent on preparing covariate “layers” that can be used as independent variables (i.e. “predictor variables”) in the statistical modelling. Typical operations used to generate soil covariate layers include:</p>
+<p>Before we are able to fit spatial prediction models and generate soil maps, a significant amount of effort is first spent on preparing covariate “layers” that can be used as independent variables (i.e. “predictor variables”) in the statistical modelling. Typical operations used to generate soil covariate layers include:</p>
 <ul>
 <li><p>Converting polygon maps to rasters,</p></li>
 <li><p>Downscaling or upscaling (aggregating) rasters to match the target resolution (i.e. preparing a <em>stack</em>),</p></li>
 <li><p>Filtering out missing pixels / reducing noise and multicolinearity (data overlap) problems,</p></li>
 <li><p>Overlaying and subsetting raster stacks and points,</p></li>
 </ul>
-<p>The following examples should provide some ideas about how to program these steps using the shortest possible syntax running the fastest and most robust algorithms. Raster data can often be very large (e.g. millions of pixels) so processing large stacks of remote sensing scenes in R needs to be planned carefully. The complete R tutorial you can download from the <strong><a href="https://github.com/envirometrix/PredictiveSoilMapping">github repository</a></strong>. Instructions on how to install and set-up all software used in this example can be found in the software installation chapter <a href="software.html#software">2</a>.</p>
+<p>The following examples should provide some ideas about how to program these steps using the most concise possible syntax running the fastest and most robust algorithms. Raster data can often be very large (e.g. millions of pixels) so processing large stacks of remote sensing scenes in R needs to be planned carefully. The complete R tutorial you can download from the <strong><a href="https://github.com/envirometrix/PredictiveSoilMapping">github repository</a></strong>. Instructions on how to install and set-up all software used in this example can be found in the software installation chapter <a href="software.html#software">2</a>.</p>
 <div id="converting-polygon-maps-to-rasters" class="section level3">
 <h3><span class="header-section-number">4.2.1</span> Converting polygon maps to rasters</h3>
 <p>Before we can attach a polygon map to other stacks of covariates, it needs to be rasterized i.e. converted to a raster layer defined with its bounding box (extent) and spatial resolution. Consider for example the <a href="http://plotkml.r-forge.r-project.org/eberg.html">Ebergötzen data set</a> polygon map from the plotKML package (Fig. <a href="soil-covs-chapter.html#fig:eberg-zones-spplot">4.1</a>):</p>
@@ -884,7 +884,7 @@ ov =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="
 </div>
 <div id="working-with-larger-rasters" class="section level3">
 <h3><span class="header-section-number">4.2.6</span> Working with large(r) rasters</h3>
-<p>As R is often inefficient in handling large objects in memory (such as large raster images), a good strategy to run raster processing in R is to consider using for example the <code>clusterR</code> function from the <a href="https://cran.r-project.org/package=raster">raster</a> package, which automatically parallelizes use of raster functions. To have full control over parallelization, you can alternatively tile large rasters using the <code>getSpatialTiles</code> function from the GSIF package and process them as separate objects in parallel. The following examples shows how to run a simple function in parallel on tiles and then mosaic these tiles after all processing has been completed. Consider for example the GeoTiff from the rgdal package:</p>
+<p>As R is often inefficient in handling large objects in memory (such as large raster images), a good strategy to run raster processing in R is to consider using for example the <code>clusterR</code> function from the <a href="https://cran.r-project.org/package=raster">raster</a> package, which automatically parallelizes use of raster functions. To have full control over parallelization, you can alternatively tile large rasters using the <code>getSpatialTiles</code> function from the GSIF package and process them as separate objects in parallel. The following examples show how to run a simple function in parallel on tiles and then mosaic these tiles after all processing has been completed. Consider for example the GeoTiff from the rgdal package:</p>
 <pre class="sourceCode r"><code class="sourceCode r">fn =<span class="st"> </span><span class="kw">system.file</span>(<span class="st">&quot;pictures/SP27GTIF.TIF&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;rgdal&quot;</span>)
 obj &lt;-<span class="st"> </span>rgdal<span class="op">::</span><span class="kw">GDALinfo</span>(fn)
 <span class="co">#&gt; Warning in rgdal::GDALinfo(fn): statistics not supported by this driver</span></code></pre>
@@ -926,7 +926,7 @@ Figure 4.9: A tile produced for a satellite image in the example above.
 }</code></pre>
 <p>This can now be run through <code>mclapply</code> function from the parallel package (which automatically employs all available cores):</p>
 <pre class="sourceCode r"><code class="sourceCode r">x0 &lt;-<span class="st"> </span><span class="kw">mclapply</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(tiles), <span class="dt">FUN=</span>fun_mask, <span class="dt">tiles=</span>tiles)</code></pre>
-<p>We can look in the the tiles folder, and this should show 35 produced GeoTiffs. These can be further used to construct a virtual mosaic by using:</p>
+<p>We can look in the the tiles folder, and this should show 35 newly produced GeoTiffs. These can be further used to construct a virtual mosaic by using:</p>
 <pre class="sourceCode r"><code class="sourceCode r">t.lst &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="dt">path=</span><span class="st">&quot;extdata/tiled&quot;</span>, <span class="dt">pattern=</span><span class="kw">glob2rx</span>(<span class="st">&quot;^T*.tif$&quot;</span>), 
                     <span class="dt">full.names=</span><span class="ot">TRUE</span>, <span class="dt">recursive=</span><span class="ot">TRUE</span>)
 <span class="kw">cat</span>(t.lst, <span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>, <span class="dt">file=</span><span class="st">&quot;SP27GTIF_tiles.txt&quot;</span>)
@@ -940,15 +940,15 @@ Figure 4.9: A tile produced for a satellite image in the example above.
 Figure 4.10: Final processed output.
 </p>
 </div>
-<p>This demonstrates that R can be used to compute with large rasters provided that these operations can be parallelized. Suggested best practice for this is to: (1) design a tiling system that optimizes use of RAM and read/write speed of a disk, (2) prepare and test a function that can be then run in parallel, and (3) stitch back all tiles to a large raster using <code>gdalwarp</code>.</p>
-<p>Note that Tiling and and stitching can not be applied universally to all problems e.g. functions that require global geographical search or all data in the raster, in such cases tiling should be applied with overlap (to minimize boundary effects) or to irregular tiling systems (e.g. per watershed). Once an optimal tiling system and function is prepared, R is no longer limited to running efficient computing, but only dependent on how much RAM and cores you have available i.e. it becomes more a hardware than a software problem.</p>
+<p>This demonstrates that R can be used to compute with large rasters provided that these operations can be parallelized. Suggested best practice for this is to: (1) design a tiling system that optimizes use of RAM and read/write speed of a disk, (2) prepare and test a function that can then be run in parallel, and (3) stitch back all tiles to create a single large raster using <code>gdalwarp</code>.</p>
+<p>Note that Tiling and and stitching can not be applied universally to all problems e.g. functions that require global geographical search or all data in the raster. In such cases tiling should be applied with overlap (to minimize boundary effects) or to irregular tiling systems (e.g. per watershed). Once an optimal tiling system and function is prepared, R is no longer limited to running efficient computing, but only dependent on how much RAM and how many cores you have available i.e. it becomes more a hardware than a software problem.</p>
 </div>
 </div>
 <div id="summary-points-1" class="section level2">
 <h2><span class="header-section-number">4.3</span> Summary points</h2>
 <p>Soil covariate layers are one of the key inputs to predictive soil mapping.
 Before any spatial layer can be used for modeling, it typically needs to be
-preprocessed to remove artifacts, resample to a standard resolution, fill in the
+preprocessed to remove artifacts, resample to a standard resolution, fill in any
 missing values etc. All these operations can be successfully run by combining R
 and Open Source GIS software and by careful programming and optimization.</p>
 <p>Preparing soil covariates can often be time and resources consuming so careful
@@ -958,7 +958,7 @@ i.e. soil forming factors of relief, especially flow-based DEM-indices,
 emerge as the second-most dominant covariates. These results largely
 correspond with conventional soil survey knowledge (surveyors have been
 using relief as a key guideline to delineate soil bodies for decades).</p>
-<p>Although lithology is not in the list of the top 15 most important
+<p>Although lithology is often not in the list of the top 15 most important
 predictors, spatial patterns of lithologic classes can often be
 distinctly recognized in the output predictions. This is especially true
 for soil texture fractions and coarse fragments. In general, for

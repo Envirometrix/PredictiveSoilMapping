@@ -245,7 +245,7 @@ fm.BLD = as.formula(
   paste("BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +", 
         paste(names(ind.tax), collapse="+")))
 m.BLD_PTF <- ranger(fm.BLD, dfs_tbl, num.trees = 85, importance='impurity')
-#> Growing trees.. Progress: 87%. Estimated remaining time: 4 seconds.
+#> Growing trees.. Progress: 91%. Estimated remaining time: 3 seconds.
 m.BLD_PTF
 #> Ranger result
 #> 

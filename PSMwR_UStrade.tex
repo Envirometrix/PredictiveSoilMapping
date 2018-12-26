@@ -6241,10 +6241,10 @@ data easier and more consistent.
 \hypertarget{types-of-soil-covariates}{%
 \subsection{Types of soil covariates}\label{types-of-soil-covariates}}
 
-Soils (and vegetation + ecosystem) form under complex interactions between climate, living organism and anthropogenic influences, modified by relief and hydrological processes and run through long periods of time.
-This has been clearly identified first by \citet{jenny1994factors} with his CLORPT factors of soil formation and later on by \citet{MCBRATNEY20033} with the SCORPAN formulation (see \protect\hyperlink{soil-mapping-theory}{Introduction chapter}).
+Soils (and vegetation + ecosystems) form under complex interactions between climate, living organism and anthropogenic influences, modified by relief and hydrological processes and operating over long periods of time.
+This has been clearly identified first by \citet{jenny1994factors} with his CLORPT factors of soil formation and subsequently extended by \citet{MCBRATNEY20033} with the SCORPAN formulation (see \protect\hyperlink{soil-mapping-theory}{Introduction chapter}).
 
-In general, the following list of covariates are commonly used in Predictive Soil Mapping:
+In general, the following covariates are commonly considered for use in Predictive Soil Mapping:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -6300,7 +6300,7 @@ In general, the following list of covariates are commonly used in Predictive Soi
 \begin{itemize}
 \tightlist
 \item
-  standard window calculations e.g.~slope, curvatures, standard deviation,
+  standard window-based calculations e.g.~slope, curvatures, standard deviation,
 \item
   standard flow model outputs,
 \item
@@ -6316,7 +6316,7 @@ In general, the following list of covariates are commonly used in Predictive Soi
 \setcounter{enumi}{3}
 \tightlist
 \item
-  Parent material / geologic Material covariates include:
+  Parent material / geologic material covariates include:
 \end{enumerate}
 
 \begin{itemize}
@@ -6417,7 +6417,7 @@ In general, the following list of covariates are commonly used in Predictive Soi
   soil nutrient fertilization, liming and similar maps,
 \end{itemize}
 
-In the following sections we provide some practical tips (with links to the most important data sources) on how to prepare soil covariates for PSM.
+In the following sections we provide some practical advice (with links to the most important data sources) on how to prepare soil covariates for use in PSM.
 
 \hypertarget{soil-covs-30m}{%
 \subsection{Soil covariate data sources (30--100 m resolution)}\label{soil-covs-30m}}
@@ -6438,7 +6438,7 @@ The most relevant (global) publicly available remote sensing-based covariates th
 \item
   USGS's \href{https://landcover.usgs.gov/glc/}{global bare surface images} at 30 m resolution;
 \item
-  \href{http://www.eorc.jaxa.jp/ALOS/en/dataset/dataset_index.htm}{JAXA's ALOS} (PALSAR/PALSAR-2) radar images at 20 m resolution \citep{shimada2014new}; radar images, bands HH: -27.7 (5.3) dB and HV: -35.8 (3.0) dB, from the JAXA's ALOS project are especially interesting for mapping rock outcrops and exposed bedrock but are also to distinguish between bare soil and dense vegetation;
+  \href{http://www.eorc.jaxa.jp/ALOS/en/dataset/dataset_index.htm}{JAXA's ALOS} (PALSAR/PALSAR-2) radar images at 20 m resolution \citep{shimada2014new}; radar images, bands HH: -27.7 (5.3) dB and HV: -35.8 (3.0) dB, from the JAXA's ALOS project are especially interesting for mapping rock outcrops and exposed bedrock but are also used to distinguish between bare soil and dense vegetation;
 \end{itemize}
 
 Note that the download time for 30 m global RS data can be significant if the data are needed for a larger area (hence you might consider using some RS data processing hub such as \href{http://www.sentinel-hub.com}{Sentinel hub}, \href{https://earthengine.google.com}{Google Earth Engine} and/or \href{https://aws.amazon.com/public-datasets/}{Amazon Web Services} instead of trying to download large mosaics yourself).
@@ -6446,7 +6446,7 @@ Note that the download time for 30 m global RS data can be significant if the da
 \hypertarget{soil-covs-250m}{%
 \subsection{Soil covariate data sources (250 m resolution or coarser)}\label{soil-covs-250m}}
 
-\citet{Hengl2017SoilGrids250m} used a large stack of coarser resolution covariate layers for producing
+\citet{Hengl2017SoilGrids250m} used a large stack of slightly coarser resolution covariate layers for producing
 SoilGrids250m predictions, most of which were based on remote sensing data:
 
 \begin{itemize}
@@ -6506,9 +6506,9 @@ SoilGrids250m predictions, most of which were based on remote sensing data:
 
 These covariates were selected to represent factors of soil formation
 according to \citet{jenny1994factors}: climate, relief, living organisms,
-water dynamics and parent material. Out of the five main factors, water
+water dynamics and parent material. Of the five main factors, water
 dynamics and living organisms (especially vegetation dynamics) are not
-trivial to represent as these operate over long periods of time and
+trivial to represent, as these operate over long periods of time and
 often exhibit chaotic behavior. Using reflectance bands such as the
 mid-infrared MODIS bands from a single day, would be of little use for
 soil mapping for areas with dynamic vegetation, i.e.~with strong
@@ -6516,18 +6516,18 @@ seasonal changes in vegetation cover. To account for seasonal
 fluctuation and for inter-annual variations in surface reflectance,
 long-term temporal signatures of the soil surface derived
 as monthly averages from long-term MODIS imagery (15 years of data)
-can be used \citep{Hengl2017SoilGrids250m}.
+can be more effective to use \citep{Hengl2017SoilGrids250m}.
 Long-term average seasonal signatures of surface reflectance or vegetation
 index provide a better indication of soil characteristics than only a single snapshot of
 surface reflectance. Computing temporal signatures of the land surface
 requires a considerable investment of time (comparable to the generation
-of climatic images vs temporary weather maps), but it is possibly the
-only way to represent the cumulative influence of living organisms on
+of climatic images vs temporary weather maps), but it is probably the
+best way to effectively represent the cumulative influence of living organisms on
 soil formation.
 
 \citet{Behrens2018128} recently reported that, for example, DEM
 derivatives derived at coarser resolutions correlated better with some
-targeted soil properties than the derivatives derived at finer resolutions. In
+targeted soil properties than the same derivatives derived at finer resolutions. In
 this case, resolution (or scale) was represented through various DEM aggregation levels
 and filter sizes. Some physical and chemical processes of soil formation
 or vegetation distribution might not be effective or obvious at finer aggregation
@@ -6539,7 +6539,7 @@ derivatives.
 \hypertarget{preparing-soil-covariate-layers}{%
 \section{Preparing soil covariate layers}\label{preparing-soil-covariate-layers}}
 
-Before we are able to fit spatial prediction models and generate soil maps, a significant amount of effort is also spent on preparing covariate ``layers'' that can be used as independent variables (i.e. ``predictor variables'') in the statistical modelling. Typical operations used to generate soil covariate layers include:
+Before we are able to fit spatial prediction models and generate soil maps, a significant amount of effort is first spent on preparing covariate ``layers'' that can be used as independent variables (i.e. ``predictor variables'') in the statistical modelling. Typical operations used to generate soil covariate layers include:
 
 \begin{itemize}
 \item
@@ -6552,7 +6552,7 @@ Before we are able to fit spatial prediction models and generate soil maps, a si
   Overlaying and subsetting raster stacks and points,
 \end{itemize}
 
-The following examples should provide some ideas about how to program these steps using the shortest possible syntax running the fastest and most robust algorithms. Raster data can often be very large (e.g.~millions of pixels) so processing large stacks of remote sensing scenes in R needs to be planned carefully. The complete R tutorial you can download from the \textbf{\href{https://github.com/envirometrix/PredictiveSoilMapping}{github repository}}. Instructions on how to install and set-up all software used in this example can be found in the software installation chapter \ref{software}.
+The following examples should provide some ideas about how to program these steps using the most concise possible syntax running the fastest and most robust algorithms. Raster data can often be very large (e.g.~millions of pixels) so processing large stacks of remote sensing scenes in R needs to be planned carefully. The complete R tutorial you can download from the \textbf{\href{https://github.com/envirometrix/PredictiveSoilMapping}{github repository}}. Instructions on how to install and set-up all software used in this example can be found in the software installation chapter \ref{software}.
 
 \hypertarget{converting-polygon-maps-to-rasters}{%
 \subsection{Converting polygon maps to rasters}\label{converting-polygon-maps-to-rasters}}
@@ -7020,7 +7020,7 @@ In a similar way, one could also make wrapper functions that downscale/upscale g
 \hypertarget{working-with-larger-rasters}{%
 \subsection{Working with large(r) rasters}\label{working-with-larger-rasters}}
 
-As R is often inefficient in handling large objects in memory (such as large raster images), a good strategy to run raster processing in R is to consider using for example the \texttt{clusterR} function from the \href{https://cran.r-project.org/package=raster}{raster} package, which automatically parallelizes use of raster functions. To have full control over parallelization, you can alternatively tile large rasters using the \texttt{getSpatialTiles} function from the GSIF package and process them as separate objects in parallel. The following examples shows how to run a simple function in parallel on tiles and then mosaic these tiles after all processing has been completed. Consider for example the GeoTiff from the rgdal package:
+As R is often inefficient in handling large objects in memory (such as large raster images), a good strategy to run raster processing in R is to consider using for example the \texttt{clusterR} function from the \href{https://cran.r-project.org/package=raster}{raster} package, which automatically parallelizes use of raster functions. To have full control over parallelization, you can alternatively tile large rasters using the \texttt{getSpatialTiles} function from the GSIF package and process them as separate objects in parallel. The following examples show how to run a simple function in parallel on tiles and then mosaic these tiles after all processing has been completed. Consider for example the GeoTiff from the rgdal package:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7098,7 +7098,7 @@ This can now be run through \texttt{mclapply} function from the parallel package
 \end{Highlighting}
 \end{Shaded}
 
-We can look in the the tiles folder, and this should show 35 produced GeoTiffs. These can be further used to construct a virtual mosaic by using:
+We can look in the the tiles folder, and this should show 35 newly produced GeoTiffs. These can be further used to construct a virtual mosaic by using:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7122,16 +7122,16 @@ Note we use a few important settings here for GDAL e.g. \texttt{-overwrite\ -co\
 \caption{Final processed output.}\label{fig:sp27gtif-mask}
 \end{figure}
 
-This demonstrates that R can be used to compute with large rasters provided that these operations can be parallelized. Suggested best practice for this is to: (1) design a tiling system that optimizes use of RAM and read/write speed of a disk, (2) prepare and test a function that can be then run in parallel, and (3) stitch back all tiles to a large raster using \texttt{gdalwarp}.
+This demonstrates that R can be used to compute with large rasters provided that these operations can be parallelized. Suggested best practice for this is to: (1) design a tiling system that optimizes use of RAM and read/write speed of a disk, (2) prepare and test a function that can then be run in parallel, and (3) stitch back all tiles to create a single large raster using \texttt{gdalwarp}.
 
-Note that Tiling and and stitching can not be applied universally to all problems e.g.~functions that require global geographical search or all data in the raster, in such cases tiling should be applied with overlap (to minimize boundary effects) or to irregular tiling systems (e.g.~per watershed). Once an optimal tiling system and function is prepared, R is no longer limited to running efficient computing, but only dependent on how much RAM and cores you have available i.e.~it becomes more a hardware than a software problem.
+Note that Tiling and and stitching can not be applied universally to all problems e.g.~functions that require global geographical search or all data in the raster. In such cases tiling should be applied with overlap (to minimize boundary effects) or to irregular tiling systems (e.g.~per watershed). Once an optimal tiling system and function is prepared, R is no longer limited to running efficient computing, but only dependent on how much RAM and how many cores you have available i.e.~it becomes more a hardware than a software problem.
 
 \hypertarget{summary-points-1}{%
 \section{Summary points}\label{summary-points-1}}
 
 Soil covariate layers are one of the key inputs to predictive soil mapping.
 Before any spatial layer can be used for modeling, it typically needs to be
-preprocessed to remove artifacts, resample to a standard resolution, fill in the
+preprocessed to remove artifacts, resample to a standard resolution, fill in any
 missing values etc. All these operations can be successfully run by combining R
 and Open Source GIS software and by careful programming and optimization.
 
@@ -7143,7 +7143,7 @@ emerge as the second-most dominant covariates. These results largely
 correspond with conventional soil survey knowledge (surveyors have been
 using relief as a key guideline to delineate soil bodies for decades).
 
-Although lithology is not in the list of the top 15 most important
+Although lithology is often not in the list of the top 15 most important
 predictors, spatial patterns of lithologic classes can often be
 distinctly recognized in the output predictions. This is especially true
 for soil texture fractions and coarse fragments. In general, for
@@ -8685,6 +8685,7 @@ would look like this:
 \CommentTok{#> Generating predictions using the trend model (RK method)...}
 \CommentTok{#> [using ordinary kriging]}
 \CommentTok{#> }
+ \DecValTok{86}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Running 5-fold cross validation using 'krige.cv'...}
 \CommentTok{#> Creating an object of class "SpatialPredictions"}
@@ -8960,7 +8961,6 @@ support:
 \CommentTok{#> drawing 20 GLS realisations of beta...}
 \CommentTok{#> [using conditional Gaussian simulation]}
 \CommentTok{#> }
- \DecValTok{40}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Creating an object of class "RasterBrickSimulations"}
 \CommentTok{#> Loading required package: raster}
@@ -8986,6 +8986,7 @@ square blocks of 40 by 40 m we run:
 \CommentTok{#> Generating predictions using the trend model (RK method)...}
 \CommentTok{#> [using ordinary kriging]}
 \CommentTok{#> }
+ \DecValTok{50}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Creating an object of class "SpatialPredictions"}
 \NormalTok{om.rksim.b <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(omm, meuse.grid, }\DataTypeTok{nsim=}\DecValTok{2}\NormalTok{, }\DataTypeTok{block=}\KeywordTok{c}\NormalTok{(}\DecValTok{40}\NormalTok{,}\DecValTok{40}\NormalTok{), }\DataTypeTok{debug.level=}\DecValTok{0}\NormalTok{)}
@@ -9282,13 +9283,13 @@ organic matter content using the Meuse case study:
 \KeywordTok{demo}\NormalTok{(meuse, }\DataTypeTok{echo=}\OtherTok{FALSE}\NormalTok{)}
 \NormalTok{meuse}\OperatorTok{$}\NormalTok{value =}\StringTok{ }\NormalTok{meuse}\OperatorTok{$}\NormalTok{zinc}
 \NormalTok{output <-}\StringTok{ }\KeywordTok{interpolate}\NormalTok{(meuse, meuse.grid, }\KeywordTok{list}\NormalTok{(}\DataTypeTok{mean=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{variance=}\OtherTok{TRUE}\NormalTok{))}
-\CommentTok{#> R 2018-12-26 20:40:24 interpolating 155 observations, 3103 prediction locations}
+\CommentTok{#> R 2018-12-26 21:14:18 interpolating 155 observations, 3103 prediction locations}
 \CommentTok{#> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : }
 \CommentTok{#>  using standard model for estimating time. For better }
 \CommentTok{#>  platform spesific predictions, please run }
 \CommentTok{#>  timeModels <- generateTimeModels()}
 \CommentTok{#>   and save the workspace}
-\CommentTok{#> [1] "estimated time for  copula 160.042056403301"}
+\CommentTok{#> [1] "estimated time for  copula 161.521948433195"}
 \CommentTok{#> Checking object ... OK}
 \end{Highlighting}
 \end{Shaded}
@@ -9303,7 +9304,7 @@ at hand (\texttt{value} column), given the time available set with
 \CommentTok{#> List of 16}
 \CommentTok{#>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots}
 \CommentTok{#>  $ formulaString      :Class 'formula'  language value ~ 1}
-\CommentTok{#>   .. ..- attr(*, ".Environment")=<environment: 0x13ae56c0> }
+\CommentTok{#>   .. ..- attr(*, ".Environment")=<environment: 0x13d01648> }
 \CommentTok{#>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots}
 \CommentTok{#>  $ params             :List of 18}
 \CommentTok{#>   ..$ doAnisotropy     : logi TRUE}
@@ -10072,6 +10073,7 @@ which can now be used to generate predictions:
 \CommentTok{#> Generating predictions using the trend model (RK method)...}
 \CommentTok{#> [using ordinary kriging]}
 \CommentTok{#> }
+ \DecValTok{91}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Running 5-fold cross validation using 'krige.cv'...}
 \CommentTok{#> Creating an object of class "SpatialPredictions"}
@@ -10839,14 +10841,14 @@ In the following example we look at mapping sand content for the upper horizons.
 \CommentTok{#> H2O is not running yet, starting it now...}
 \CommentTok{#> }
 \CommentTok{#> Note:  In case of errors look at the following log files:}
-\CommentTok{#>     /tmp/RtmpBITOOc/h2o_travis_started_from_r.out}
-\CommentTok{#>     /tmp/RtmpBITOOc/h2o_travis_started_from_r.err}
+\CommentTok{#>     /tmp/Rtmpt8L6lg/h2o_travis_started_from_r.out}
+\CommentTok{#>     /tmp/Rtmpt8L6lg/h2o_travis_started_from_r.err}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> Starting H2O JVM and connecting: .. Connection successful!}
 \CommentTok{#> }
 \CommentTok{#> R is connected to the H2O cluster: }
-\CommentTok{#>     H2O cluster uptime:         2 seconds 306 milliseconds }
+\CommentTok{#>     H2O cluster uptime:         2 seconds 311 milliseconds }
 \CommentTok{#>     H2O cluster timezone:       UTC }
 \CommentTok{#>     H2O data parsing timezone:  UTC }
 \CommentTok{#>     H2O cluster version:        3.20.0.8 }
@@ -10887,23 +10889,23 @@ We can now fit a random forest model by using all the computing power available 
 \CommentTok{#> ==============}
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionModel: drf}
-\CommentTok{#> Model ID:  DRF_model_R_1545856882556_1 }
+\CommentTok{#> Model ID:  DRF_model_R_1545858918432_1 }
 \CommentTok{#> Model Summary: }
 \CommentTok{#>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth}
-\CommentTok{#> 1              50                       50              648848        20}
+\CommentTok{#> 1              50                       50              642994        20}
 \CommentTok{#>   max_depth mean_depth min_leaves max_leaves mean_leaves}
-\CommentTok{#> 1        20   20.00000        979       1075  1029.10000}
+\CommentTok{#> 1        20   20.00000        928       1071  1019.86000}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionMetrics: drf}
 \CommentTok{#> ** Reported on training data. **}
 \CommentTok{#> ** Metrics reported on Out-Of-Bag training samples **}
 \CommentTok{#> }
-\CommentTok{#> MSE:  217}
-\CommentTok{#> RMSE:  14.7}
-\CommentTok{#> MAE:  10}
-\CommentTok{#> RMSLE:  0.428}
-\CommentTok{#> Mean Residual Deviance :  217}
+\CommentTok{#> MSE:  218}
+\CommentTok{#> RMSE:  14.8}
+\CommentTok{#> MAE:  9.99}
+\CommentTok{#> RMSLE:  0.425}
+\CommentTok{#> Mean Residual Deviance :  218}
 \end{Highlighting}
 \end{Shaded}
 
@@ -10961,29 +10963,29 @@ h2o has another MLA of interest for soil mapping called \emph{deep learning} (a 
 \CommentTok{#> ==============}
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionModel: deeplearning}
-\CommentTok{#> Model ID:  DeepLearning_model_R_1545856882556_2 }
+\CommentTok{#> Model ID:  DeepLearning_model_R_1545858918432_2 }
 \CommentTok{#> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1}
 \CommentTok{#>   layer units      type dropout       l1       l2 mean_rate rate_rms}
 \CommentTok{#> 1     1    10     Input  0.00 %       NA       NA        NA       NA}
-\CommentTok{#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.014215 0.008419}
-\CommentTok{#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.138327 0.189337}
-\CommentTok{#> 4     4     1    Linear      NA 0.000000 0.000000  0.001312 0.000885}
+\CommentTok{#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.015402 0.008998}
+\CommentTok{#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.125587 0.176580}
+\CommentTok{#> 4     4     1    Linear      NA 0.000000 0.000000  0.001307 0.000946}
 \CommentTok{#>   momentum mean_weight weight_rms mean_bias bias_rms}
 \CommentTok{#> 1       NA          NA         NA        NA       NA}
-\CommentTok{#> 2 0.000000    0.001351   0.099083  0.333655 0.075856}
-\CommentTok{#> 3 0.000000   -0.018689   0.071161  0.951146 0.022155}
-\CommentTok{#> 4 0.000000   -0.003487   0.044773  0.079333 0.000000}
+\CommentTok{#> 2 0.000000    0.002108   0.102980  0.364898 0.062272}
+\CommentTok{#> 3 0.000000   -0.017996   0.070991  0.956696 0.017641}
+\CommentTok{#> 4 0.000000   -0.000888   0.046938  0.114380 0.000000}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionMetrics: deeplearning}
 \CommentTok{#> ** Reported on training data. **}
 \CommentTok{#> ** Metrics reported on full training frame **}
 \CommentTok{#> }
-\CommentTok{#> MSE:  276}
-\CommentTok{#> RMSE:  16.6}
-\CommentTok{#> MAE:  12.7}
-\CommentTok{#> RMSLE:  0.512}
-\CommentTok{#> Mean Residual Deviance :  276}
+\CommentTok{#> MSE:  271}
+\CommentTok{#> RMSE:  16.5}
+\CommentTok{#> MAE:  12.4}
+\CommentTok{#> RMSLE:  0.505}
+\CommentTok{#> Mean Residual Deviance :  271}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11253,16 +11255,16 @@ We can hence run 5-fold cross validation:
 \CommentTok{#> List of 2}
 \CommentTok{#>  $ CV_residuals:'data.frame':    4972 obs. of  4 variables:}
 \CommentTok{#>   ..$ Observed : num [1:4972] 14.5 13.6 10.1 12.1 7.1 ...}
-\CommentTok{#>   ..$ Predicted: num [1:4972] 14.47 10.71 9.03 6.49 3.56 ...}
+\CommentTok{#>   ..$ Predicted: num [1:4972] 13.81 10.01 9.14 6.22 3.35 ...}
 \CommentTok{#>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" ...}
 \CommentTok{#>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...}
 \CommentTok{#>  $ Summary     :'data.frame':    1 obs. of  6 variables:}
 \CommentTok{#>   ..$ ME          : num -0.111}
-\CommentTok{#>   ..$ MAE         : num 2.13}
-\CommentTok{#>   ..$ RMSE        : num 3.61}
-\CommentTok{#>   ..$ R.squared   : num 0.573}
-\CommentTok{#>   ..$ logRMSE     : num 0.482}
-\CommentTok{#>   ..$ logR.squared: num 0.652}
+\CommentTok{#>   ..$ MAE         : num 2.12}
+\CommentTok{#>   ..$ RMSE        : num 3.62}
+\CommentTok{#>   ..$ R.squared   : num 0.57}
+\CommentTok{#>   ..$ logRMSE     : num 0.48}
+\CommentTok{#>   ..$ logR.squared: num 0.655}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11322,14 +11324,14 @@ we first specify all learners (MLA methods) of interest:
 \CommentTok{#> Base learner performance, sorted by specified metric:}
 \CommentTok{#>                    learner  MSE}
 \CommentTok{#> 2          h2o.gbm.wrapper 9.81}
-\CommentTok{#> 1 h2o.randomForest.wrapper 8.48}
+\CommentTok{#> 1 h2o.randomForest.wrapper 8.28}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2O Ensemble Performance on <newdata>:}
 \CommentTok{#> ----------------}
 \CommentTok{#> Family: gaussian}
 \CommentTok{#> }
-\CommentTok{#> Ensemble performance (MSE): 8.41250854468439}
+\CommentTok{#> Ensemble performance (MSE): 8.20286354468929}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11432,16 +11434,16 @@ We can again test fitting an ensemble model using two MLA's:
 \CommentTok{#> Base learner performance, sorted by specified metric:}
 \CommentTok{#>                    learner    MSE}
 \CommentTok{#> 1          h2o.glm.wrapper 0.2827}
-\CommentTok{#> 4 h2o.deeplearning.wrapper 0.1530}
+\CommentTok{#> 4 h2o.deeplearning.wrapper 0.1303}
 \CommentTok{#> 3          h2o.gbm.wrapper 0.0971}
-\CommentTok{#> 2 h2o.randomForest.wrapper 0.0821}
+\CommentTok{#> 2 h2o.randomForest.wrapper 0.0846}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2O Ensemble Performance on <newdata>:}
 \CommentTok{#> ----------------}
 \CommentTok{#> Family: gaussian}
 \CommentTok{#> }
-\CommentTok{#> Ensemble performance (MSE): 0.0822325731421144}
+\CommentTok{#> Ensemble performance (MSE): 0.0781862440510234}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11528,12 +11530,12 @@ A useful functionality of the SuperLearner package is that it displays how model
 \CommentTok{#>     SL.library = sl.l) }
 \CommentTok{#> }
 \CommentTok{#> }
-\CommentTok{#>                  Risk   Coef}
-\CommentTok{#> SL.mean_All    0.7540 0.0000}
-\CommentTok{#> SL.xgboost_All 0.0598 0.8132}
-\CommentTok{#> SL.ksvm_All    0.1287 0.0138}
-\CommentTok{#> SL.glmnet_All  0.3076 0.0000}
-\CommentTok{#> SL.ranger_All  0.0848 0.1731}
+\CommentTok{#>                  Risk    Coef}
+\CommentTok{#> SL.mean_All    0.7540 0.00000}
+\CommentTok{#> SL.xgboost_All 0.0598 0.80093}
+\CommentTok{#> SL.ksvm_All    0.1292 0.00322}
+\CommentTok{#> SL.glmnet_All  0.3079 0.00000}
+\CommentTok{#> SL.ranger_All  0.0835 0.19585}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11554,9 +11556,9 @@ This shows that \texttt{SL.xgboost\_All} outperforms the competition by a large 
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#>                  Risk  Coef}
-\CommentTok{#> SL.xgboost_All 0.0603 0.807}
-\CommentTok{#> SL.ranger_All  0.0826 0.193}
-\CommentTok{#> SL.ksvm_All    0.1303 0.000}
+\CommentTok{#> SL.xgboost_All 0.0603 0.814}
+\CommentTok{#> SL.ranger_All  0.0833 0.186}
+\CommentTok{#> SL.ksvm_All    0.1296 0.000}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11584,11 +11586,11 @@ again \texttt{SL.xgboost} dominates the ensemble model, which is most likely unr
 \CommentTok{#> All risk estimates are based on V =  5 }
 \CommentTok{#> }
 \CommentTok{#>       Algorithm  Ave    se   Min  Max}
-\CommentTok{#>   Super Learner 0.16 0.014 0.094 0.25}
-\CommentTok{#>     Discrete SL 0.17 0.014 0.115 0.25}
+\CommentTok{#>   Super Learner 0.16 0.014 0.097 0.25}
+\CommentTok{#>     Discrete SL 0.17 0.014 0.116 0.25}
 \CommentTok{#>  SL.xgboost_All 0.19 0.016 0.135 0.27}
-\CommentTok{#>   SL.ranger_All 0.16 0.014 0.102 0.25}
-\CommentTok{#>     SL.ksvm_All 0.18 0.014 0.109 0.30}
+\CommentTok{#>   SL.ranger_All 0.16 0.015 0.104 0.25}
+\CommentTok{#>     SL.ksvm_All 0.18 0.015 0.109 0.30}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11612,10 +11614,10 @@ To produce predictions of soil pH at 10 cm depth we can finally use:
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> }
-\CommentTok{#>                 Risk  Coef}
-\CommentTok{#> SL.xgboost_All 0.215 0.000}
-\CommentTok{#> SL.ranger_All  0.165 0.477}
-\CommentTok{#> SL.ksvm_All    0.163 0.523}
+\CommentTok{#>                 Risk Coef}
+\CommentTok{#> SL.xgboost_All 0.215 0.00}
+\CommentTok{#> SL.ranger_All  0.166 0.47}
+\CommentTok{#> SL.ksvm_All    0.163 0.53}
 \NormalTok{new.data <-}\StringTok{ }\NormalTok{grid10m}\OperatorTok{@}\NormalTok{data}
 \NormalTok{pred.PHI <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\OtherTok{NULL}\NormalTok{)}
 \NormalTok{depths =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{,}\DecValTok{30}\NormalTok{,}\DecValTok{50}\NormalTok{,}\DecValTok{70}\NormalTok{,}\DecValTok{90}\NormalTok{)}
@@ -11637,7 +11639,7 @@ To produce predictions of soil pH at 10 cm depth we can finally use:
 \CommentTok{#>     buffer, rotated}
 \KeywordTok{str}\NormalTok{(pred.PHI[[}\DecValTok{1}\NormalTok{]])}
 \CommentTok{#> List of 2}
-\CommentTok{#>  $ pred           : num [1:3865, 1] 4.67 4.73 4.87 4.84 4.77 ...}
+\CommentTok{#>  $ pred           : num [1:3865, 1] 4.7 4.78 4.9 4.85 4.79 ...}
 \CommentTok{#>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...}
 \CommentTok{#>   ..- attr(*, "dimnames")=List of 2}
 \CommentTok{#>   .. ..$ : NULL}
@@ -12855,7 +12857,7 @@ Where values for bulk density are missing, and no local PTF exists, WoSIS points
   \KeywordTok{paste}\NormalTok{(}\StringTok{"BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +"}\NormalTok{, }
         \KeywordTok{paste}\NormalTok{(}\KeywordTok{names}\NormalTok{(ind.tax), }\DataTypeTok{collapse=}\StringTok{"+"}\NormalTok{)))}
 \NormalTok{m.BLD_PTF <-}\StringTok{ }\KeywordTok{ranger}\NormalTok{(fm.BLD, dfs_tbl, }\DataTypeTok{num.trees =} \DecValTok{85}\NormalTok{, }\DataTypeTok{importance=}\StringTok{'impurity'}\NormalTok{)}
-\CommentTok{#> Growing trees.. Progress: 98%. Estimated remaining time: 0 seconds.}
+\CommentTok{#> Growing trees.. Progress: 89%. Estimated remaining time: 3 seconds.}
 \NormalTok{m.BLD_PTF}
 \CommentTok{#> Ranger result}
 \CommentTok{#> }

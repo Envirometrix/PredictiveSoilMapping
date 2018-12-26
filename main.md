@@ -2793,7 +2793,6 @@ om.rk <- predict(omm, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 13% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -5412,10 +5411,10 @@ data easier and more consistent.
 
 ### Types of soil covariates
 
-Soils (and vegetation + ecosystem) form under complex interactions between climate, living organism and anthropogenic influences, modified by relief and hydrological processes and run through long periods of time. 
-This has been clearly identified first by @jenny1994factors with his CLORPT factors of soil formation and later on by @MCBRATNEY20033 with the SCORPAN formulation (see [Introduction chapter](#soil-mapping-theory)).
+Soils (and vegetation + ecosystems) form under complex interactions between climate, living organism and anthropogenic influences, modified by relief and hydrological processes and operating over long periods of time. 
+This has been clearly identified first by @jenny1994factors with his CLORPT factors of soil formation and subsequently extended by @MCBRATNEY20033 with the SCORPAN formulation (see [Introduction chapter](#soil-mapping-theory)).
 
-In general, the following list of covariates are commonly used in Predictive Soil Mapping:
+In general, the following covariates are commonly considered for use in Predictive Soil Mapping:
 
 1. Climate related covariates include:
   - temperature maps,
@@ -5430,12 +5429,12 @@ In general, the following list of covariates are commonly used in Predictive Soi
   - vegetation types and communities (if mapped at high accuracy),
   - land cover,
 3. Relief and Topography covariates include:
-  - standard window calculations e.g. slope, curvatures, standard deviation,
+  - standard window-based calculations e.g. slope, curvatures, standard deviation,
   - standard flow model outputs,
   - landform classes / landform class likelihoods,
   - hydrological / soil accumulation and deposition indices — MRVBFI, MRRTFI, Wetness index, height above channel, height below ridge, horizontal distance to channel, horizontal distance to ridge,
   - climatic and micro-climatic indices determined by relief — incoming solar insolation and similar,
-4. Parent material / geologic Material covariates include:
+4. Parent material / geologic material covariates include:
   - bedrock type and age,
   - bedrock mineralogy (acid, basic),
   - surface material type, texture, age, mineralogy, thickness,
@@ -5469,7 +5468,7 @@ In general, the following list of covariates are commonly used in Predictive Soi
   - probability of gullying or human-induced erosion,
   - soil nutrient fertilization, liming and similar maps,
 
-In the following sections we provide some practical tips (with links to the most important data sources) on how to prepare soil covariates for PSM.
+In the following sections we provide some practical advice (with links to the most important data sources) on how to prepare soil covariates for use in PSM.
 
 ### Soil covariate data sources (30–100 m resolution) {#soil-covs-30m}
 
@@ -5487,13 +5486,13 @@ The most relevant (global) publicly available remote sensing-based covariates th
 
 *  USGS's [global bare surface images](https://landcover.usgs.gov/glc/) at 30 m resolution;
 
-*  [JAXA's ALOS](http://www.eorc.jaxa.jp/ALOS/en/dataset/dataset_index.htm) (PALSAR/PALSAR-2) radar images at 20 m resolution [@shimada2014new]; radar images, bands HH: -27.7 (5.3) dB and HV: -35.8 (3.0) dB, from the JAXA's ALOS project are especially interesting for mapping rock outcrops and exposed bedrock but are also to distinguish between bare soil and dense vegetation;
+*  [JAXA's ALOS](http://www.eorc.jaxa.jp/ALOS/en/dataset/dataset_index.htm) (PALSAR/PALSAR-2) radar images at 20 m resolution [@shimada2014new]; radar images, bands HH: -27.7 (5.3) dB and HV: -35.8 (3.0) dB, from the JAXA's ALOS project are especially interesting for mapping rock outcrops and exposed bedrock but are also used to distinguish between bare soil and dense vegetation;
 
 Note that the download time for 30 m global RS data can be significant if the data are needed for a larger area (hence you might consider using some RS data processing hub such as [Sentinel hub](http://www.sentinel-hub.com), [Google Earth Engine](https://earthengine.google.com) and/or [Amazon Web Services](https://aws.amazon.com/public-datasets/) instead of trying to download large mosaics yourself). 
 
 ### Soil covariate data sources (250 m resolution or coarser) {#soil-covs-250m}
 
-@Hengl2017SoilGrids250m used a large stack of coarser resolution covariate layers for producing 
+@Hengl2017SoilGrids250m used a large stack of slightly coarser resolution covariate layers for producing 
 SoilGrids250m predictions, most of which were based on remote sensing data:
 
 -   DEM-derived surfaces — slope, profile curvature, Multiresolution
@@ -5550,9 +5549,9 @@ SoilGrids250m predictions, most of which were based on remote sensing data:
 
 These covariates were selected to represent factors of soil formation
 according to @jenny1994factors: climate, relief, living organisms,
-water dynamics and parent material. Out of the five main factors, water
+water dynamics and parent material. Of the five main factors, water
 dynamics and living organisms (especially vegetation dynamics) are not
-trivial to represent as these operate over long periods of time and
+trivial to represent, as these operate over long periods of time and
 often exhibit chaotic behavior. Using reflectance bands such as the
 mid-infrared MODIS bands from a single day, would be of little use for
 soil mapping for areas with dynamic vegetation, i.e. with strong
@@ -5560,18 +5559,18 @@ seasonal changes in vegetation cover. To account for seasonal
 fluctuation and for inter-annual variations in surface reflectance, 
 long-term temporal signatures of the soil surface derived
 as monthly averages from long-term MODIS imagery (15 years of data) 
-can be used [@Hengl2017SoilGrids250m]. 
+can be more effective to use [@Hengl2017SoilGrids250m]. 
 Long-term average seasonal signatures of surface reflectance or vegetation 
 index provide a better indication of soil characteristics than only a single snapshot of
 surface reflectance. Computing temporal signatures of the land surface
 requires a considerable investment of time (comparable to the generation
-of climatic images vs temporary weather maps), but it is possibly the
-only way to represent the cumulative influence of living organisms on
+of climatic images vs temporary weather maps), but it is probably the
+best way to effectively represent the cumulative influence of living organisms on
 soil formation.
 
 @Behrens2018128 recently reported that, for example, DEM
 derivatives derived at coarser resolutions correlated better with some
-targeted soil properties than the derivatives derived at finer resolutions. In
+targeted soil properties than the same derivatives derived at finer resolutions. In
 this case, resolution (or scale) was represented through various DEM aggregation levels
 and filter sizes. Some physical and chemical processes of soil formation
 or vegetation distribution might not be effective or obvious at finer aggregation
@@ -5582,7 +5581,7 @@ derivatives.
 
 ## Preparing soil covariate layers
 
-Before we are able to fit spatial prediction models and generate soil maps, a significant amount of effort is also spent on preparing covariate “layers” that can be used as independent variables (i.e. “predictor variables”) in the statistical modelling. Typical operations used to generate soil covariate layers include:
+Before we are able to fit spatial prediction models and generate soil maps, a significant amount of effort is first spent on preparing covariate “layers” that can be used as independent variables (i.e. “predictor variables”) in the statistical modelling. Typical operations used to generate soil covariate layers include:
 
 *  Converting polygon maps to rasters,
 
@@ -5592,7 +5591,7 @@ Before we are able to fit spatial prediction models and generate soil maps, a si
 
 *  Overlaying and subsetting raster stacks and points,
 
-The following examples should provide some ideas about how to program these steps using the shortest possible syntax running the fastest and most robust algorithms. Raster data can often be very large (e.g. millions of pixels) so processing large stacks of remote sensing scenes in R needs to be planned carefully. The complete R tutorial you can download from the **[github repository](https://github.com/envirometrix/PredictiveSoilMapping)**. Instructions on how to install and set-up all software used in this example can be found in the software installation chapter \@ref(software).
+The following examples should provide some ideas about how to program these steps using the most concise possible syntax running the fastest and most robust algorithms. Raster data can often be very large (e.g. millions of pixels) so processing large stacks of remote sensing scenes in R needs to be planned carefully. The complete R tutorial you can download from the **[github repository](https://github.com/envirometrix/PredictiveSoilMapping)**. Instructions on how to install and set-up all software used in this example can be found in the software installation chapter \@ref(software).
 
 ### Converting polygon maps to rasters
 
@@ -6002,7 +6001,7 @@ In a similar way, one could also make wrapper functions that downscale/upscale g
 
 ### Working with large(r) rasters
 
-As R is often inefficient in handling large objects in memory (such as large raster images), a good strategy to run raster processing in R is to consider using for example the ```clusterR``` function from the [raster](https://cran.r-project.org/package=raster) package, which automatically parallelizes use of raster functions. To have full control over parallelization, you can alternatively tile large rasters using the ```getSpatialTiles``` function from the GSIF package and process them as separate objects in parallel. The following examples shows how to run a simple function in parallel on tiles and then mosaic these tiles after all processing has been completed. Consider for example the GeoTiff from the rgdal package:
+As R is often inefficient in handling large objects in memory (such as large raster images), a good strategy to run raster processing in R is to consider using for example the ```clusterR``` function from the [raster](https://cran.r-project.org/package=raster) package, which automatically parallelizes use of raster functions. To have full control over parallelization, you can alternatively tile large rasters using the ```getSpatialTiles``` function from the GSIF package and process them as separate objects in parallel. The following examples show how to run a simple function in parallel on tiles and then mosaic these tiles after all processing has been completed. Consider for example the GeoTiff from the rgdal package:
 
 
 ```r
@@ -6067,7 +6066,7 @@ This can now be run through `mclapply` function from the parallel package (which
 x0 <- mclapply(1:nrow(tiles), FUN=fun_mask, tiles=tiles)
 ```
 
-We can look in the the tiles folder, and this should show 35 produced GeoTiffs. These can be further used to construct a virtual mosaic by using:
+We can look in the the tiles folder, and this should show 35 newly produced GeoTiffs. These can be further used to construct a virtual mosaic by using:
 
 
 ```r
@@ -6086,15 +6085,15 @@ Note we use a few important settings here for GDAL e.g. `-overwrite -co "COMPRES
 <p class="caption">(\#fig:sp27gtif-mask)Final processed output.</p>
 </div>
 
-This demonstrates that R can be used to compute with large rasters provided that these operations can be parallelized. Suggested best practice for this is to: (1) design a tiling system that optimizes use of RAM and read/write speed of a disk, (2) prepare and test a function that can be then run in parallel, and (3) stitch back all tiles to a large raster using `gdalwarp`.
+This demonstrates that R can be used to compute with large rasters provided that these operations can be parallelized. Suggested best practice for this is to: (1) design a tiling system that optimizes use of RAM and read/write speed of a disk, (2) prepare and test a function that can then be run in parallel, and (3) stitch back all tiles to create a single large raster using `gdalwarp`.
 
-Note that Tiling and and stitching can not be applied universally to all problems e.g. functions that require global geographical search or all data in the raster, in such cases tiling should be applied with overlap (to minimize boundary effects) or to irregular tiling systems (e.g. per watershed). Once an optimal tiling system and function is prepared, R is no longer limited to running efficient computing, but only dependent on how much RAM and cores you have available i.e. it becomes more a hardware than a software problem.
+Note that Tiling and and stitching can not be applied universally to all problems e.g. functions that require global geographical search or all data in the raster. In such cases tiling should be applied with overlap (to minimize boundary effects) or to irregular tiling systems (e.g. per watershed). Once an optimal tiling system and function is prepared, R is no longer limited to running efficient computing, but only dependent on how much RAM and how many cores you have available i.e. it becomes more a hardware than a software problem.
 
 ## Summary points
 
 Soil covariate layers are one of the key inputs to predictive soil mapping.
 Before any spatial layer can be used for modeling, it typically needs to be 
-preprocessed to remove artifacts, resample to a standard resolution, fill in the 
+preprocessed to remove artifacts, resample to a standard resolution, fill in any 
 missing values etc. All these operations can be successfully run by combining R 
 and Open Source GIS software and by careful programming and optimization.
 
@@ -6106,7 +6105,7 @@ emerge as the second-most dominant covariates. These results largely
 correspond with conventional soil survey knowledge (surveyors have been
 using relief as a key guideline to delineate soil bodies for decades).
 
-Although lithology is not in the list of the top 15 most important
+Although lithology is often not in the list of the top 15 most important
 predictors, spatial patterns of lithologic classes can often be
 distinctly recognized in the output predictions. This is especially true
 for soil texture fractions and coarse fragments. In general, for
@@ -7481,6 +7480,7 @@ om.rk <- predict(omm, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
+ 62% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -7554,6 +7554,7 @@ om.rk2 <- predict(omm2, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
+ 37% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -7812,7 +7813,7 @@ om.rksim.p <- predict(omm, meuse.grid, nsim=20, block=c(0,0))
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
 #> 
- 60% done
+  0% done
 100% done
 #> Creating an object of class "RasterBrickSimulations"
 #> Loading required package: raster
@@ -7837,6 +7838,7 @@ om.rk.b <- predict(omm, meuse.grid, block=c(40,40), nfold=0)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
+  4% done
 100% done
 #> Creating an object of class "SpatialPredictions"
 om.rksim.b <- predict(omm, meuse.grid, nsim=2, block=c(40,40), debug.level=0)
@@ -8054,7 +8056,6 @@ om.rksim.p <- predict(omm, meuse.grid, block=c(0,0), nsim=20)
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
 #> 
- 41% done
 100% done
 #> Creating an object of class "RasterBrickSimulations"
 log1p(meuse@data[1,"om"])
@@ -8103,13 +8104,13 @@ library(intamap)
 demo(meuse, echo=FALSE)
 meuse$value = meuse$zinc
 output <- interpolate(meuse, meuse.grid, list(mean=TRUE, variance=TRUE))
-#> R 2018-12-26 21:03:51 interpolating 155 observations, 3103 prediction locations
+#> R 2018-12-26 21:38:14 interpolating 155 observations, 3103 prediction locations
 #> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : 
 #>  using standard model for estimating time. For better 
 #>  platform spesific predictions, please run 
 #>  timeModels <- generateTimeModels()
 #>   and save the workspace
-#> [1] "estimated time for  copula 158.084880531966"
+#> [1] "estimated time for  copula 159.374635654982"
 #> Checking object ... OK
 ```
 
@@ -8123,7 +8124,7 @@ str(output, max.level = 2)
 #> List of 16
 #>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
 #>  $ formulaString      :Class 'formula'  language value ~ 1
-#>   .. ..- attr(*, ".Environment")=<environment: 0x151be348> 
+#>   .. ..- attr(*, ".Environment")=<environment: 0x1511b808> 
 #>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
 #>  $ params             :List of 18
 #>   ..$ doAnisotropy     : logi TRUE
@@ -9512,7 +9513,7 @@ localH2O = h2o.init(startH2O=TRUE)
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         23 minutes 26 seconds 
+#>     H2O cluster uptime:         23 minutes 54 seconds 
 #>     H2O cluster timezone:       UTC 
 #>     H2O data parsing timezone:  UTC 
 #>     H2O cluster version:        3.20.0.8 
@@ -9551,23 +9552,23 @@ RF.m
 #> ==============
 #> 
 #> H2ORegressionModel: drf
-#> Model ID:  DRF_model_R_1545856882556_21 
+#> Model ID:  DRF_model_R_1545858918432_21 
 #> Model Summary: 
 #>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#> 1              50                       50              641260        20
+#> 1              50                       50              648747        20
 #>   max_depth mean_depth min_leaves max_leaves mean_leaves
-#> 1        20   20.00000        927       1074  1017.12000
+#> 1        20   20.00000        959       1083  1029.14000
 #> 
 #> 
 #> H2ORegressionMetrics: drf
 #> ** Reported on training data. **
 #> ** Metrics reported on Out-Of-Bag training samples **
 #> 
-#> MSE:  218
+#> MSE:  220
 #> RMSE:  14.8
 #> MAE:  10.1
-#> RMSLE:  0.429
-#> Mean Residual Deviance :  218
+#> RMSLE:  0.43
+#> Mean Residual Deviance :  220
 ```
 
 This shows that the model fitting R-square is about 50%. This is also indicated by the predicted vs observed plot:
@@ -9614,29 +9615,29 @@ DL.m
 #> ==============
 #> 
 #> H2ORegressionModel: deeplearning
-#> Model ID:  DeepLearning_model_R_1545856882556_22 
+#> Model ID:  DeepLearning_model_R_1545858918432_22 
 #> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1
 #>   layer units      type dropout       l1       l2 mean_rate rate_rms
 #> 1     1    10     Input  0.00 %       NA       NA        NA       NA
-#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.015720 0.011578
-#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.135377 0.163395
-#> 4     4     1    Linear      NA 0.000000 0.000000  0.001348 0.000820
+#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.016160 0.009788
+#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.133358 0.184068
+#> 4     4     1    Linear      NA 0.000000 0.000000  0.001271 0.000873
 #>   momentum mean_weight weight_rms mean_bias bias_rms
 #> 1       NA          NA         NA        NA       NA
-#> 2 0.000000    0.005067   0.101472  0.344261 0.065558
-#> 3 0.000000   -0.018678   0.071145  0.952204 0.024011
-#> 4 0.000000   -0.002215   0.047678  0.107170 0.000000
+#> 2 0.000000    0.001269   0.103695  0.355397 0.061543
+#> 3 0.000000   -0.018604   0.071114  0.953848 0.017308
+#> 4 0.000000    0.005094   0.048367  0.105128 0.000000
 #> 
 #> 
 #> H2ORegressionMetrics: deeplearning
 #> ** Reported on training data. **
 #> ** Metrics reported on full training frame **
 #> 
-#> MSE:  317
-#> RMSE:  17.8
-#> MAE:  14
-#> RMSLE:  0.554
-#> Mean Residual Deviance :  317
+#> MSE:  253
+#> RMSE:  15.9
+#> MAE:  12
+#> RMSLE:  0.488
+#> Mean Residual Deviance :  253
 ```
 
 Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. \@ref(fig:map-snd) and Fig. \@ref(fig:map-snd-dl)).
@@ -9873,16 +9874,16 @@ str(test.ORC)
 #> List of 2
 #>  $ CV_residuals:'data.frame':	4972 obs. of  4 variables:
 #>   ..$ Observed : num [1:4972] 6.5 5.1 4.9 3.3 2.2 ...
-#>   ..$ Predicted: num [1:4972] 11.81 7.04 6.02 4.62 3.19 ...
+#>   ..$ Predicted: num [1:4972] 12.49 7.45 6.52 4.97 3.3 ...
 #>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" ...
 #>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ Summary     :'data.frame':	1 obs. of  6 variables:
-#>   ..$ ME          : num -0.138
-#>   ..$ MAE         : num 2.18
-#>   ..$ RMSE        : num 3.67
-#>   ..$ R.squared   : num 0.56
-#>   ..$ logRMSE     : num 0.494
-#>   ..$ logR.squared: num 0.638
+#>   ..$ ME          : num -0.141
+#>   ..$ MAE         : num 2.19
+#>   ..$ RMSE        : num 3.68
+#>   ..$ R.squared   : num 0.558
+#>   ..$ logRMSE     : num 0.5
+#>   ..$ logR.squared: num 0.629
 ```
 
 Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about $\pm 4$ g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:
@@ -9936,15 +9937,15 @@ perf
 #> 
 #> Base learner performance, sorted by specified metric:
 #>                    learner  MSE
+#> 1 h2o.randomForest.wrapper 12.9
 #> 2          h2o.gbm.wrapper 12.8
-#> 1 h2o.randomForest.wrapper 12.5
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 12.1355431923409
+#> Ensemble performance (MSE): 12.4364645776607
 ```
 
 which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.
@@ -10044,16 +10045,16 @@ perf3
 #> Base learner performance, sorted by specified metric:
 #>                    learner    MSE
 #> 1          h2o.glm.wrapper 0.2827
-#> 4 h2o.deeplearning.wrapper 0.1692
+#> 4 h2o.deeplearning.wrapper 0.1458
 #> 3          h2o.gbm.wrapper 0.0971
-#> 2 h2o.randomForest.wrapper 0.0793
+#> 2 h2o.randomForest.wrapper 0.0819
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 0.0776116903964564
+#> Ensemble performance (MSE): 0.0778784721258699
 ```
 
 In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.
@@ -10137,10 +10138,10 @@ sl
 #> 
 #>                  Risk   Coef
 #> SL.mean_All    0.7540 0.0000
-#> SL.xgboost_All 0.0598 0.8111
-#> SL.ksvm_All    0.1289 0.0123
-#> SL.glmnet_All  0.3072 0.0000
-#> SL.ranger_All  0.0846 0.1767
+#> SL.xgboost_All 0.0598 0.8231
+#> SL.ksvm_All    0.1297 0.0166
+#> SL.glmnet_All  0.3076 0.0000
+#> SL.ranger_All  0.0859 0.1602
 ```
 
 This shows that `SL.xgboost_All` outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by `SL.xgboost_All` is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:
@@ -10160,9 +10161,9 @@ sl2
 #> 
 #> 
 #>                  Risk  Coef
-#> SL.xgboost_All 0.0603 0.809
-#> SL.ranger_All  0.0826 0.191
-#> SL.ksvm_All    0.1295 0.000
+#> SL.xgboost_All 0.0603 0.811
+#> SL.ranger_All  0.0832 0.189
+#> SL.ksvm_All    0.1296 0.000
 ```
 
 again `SL.xgboost` dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where entire profiles are taken out of the training dataset:
@@ -10189,10 +10190,10 @@ summary(cv_sl)
 #> All risk estimates are based on V =  5 
 #> 
 #>       Algorithm  Ave    se   Min  Max
-#>   Super Learner 0.16 0.014 0.093 0.25
-#>     Discrete SL 0.17 0.014 0.109 0.24
+#>   Super Learner 0.16 0.014 0.094 0.25
+#>     Discrete SL 0.17 0.014 0.113 0.25
 #>  SL.xgboost_All 0.19 0.016 0.135 0.27
-#>   SL.ranger_All 0.16 0.014 0.102 0.24
+#>   SL.ranger_All 0.16 0.014 0.103 0.25
 #>     SL.ksvm_All 0.18 0.014 0.109 0.29
 ```
 
@@ -10218,8 +10219,8 @@ sl2
 #> 
 #>                 Risk  Coef
 #> SL.xgboost_All 0.215 0.000
-#> SL.ranger_All  0.166 0.462
-#> SL.ksvm_All    0.162 0.538
+#> SL.ranger_All  0.164 0.503
+#> SL.ksvm_All    0.165 0.497
 new.data <- grid10m@data
 pred.PHI <- list(NULL)
 depths = c(10,30,50,70,90)
@@ -10241,7 +10242,7 @@ for(j in 1:length(depths)){
 #>     buffer, rotated
 str(pred.PHI[[1]])
 #> List of 2
-#>  $ pred           : num [1:3865, 1] 4.7 4.78 4.91 4.87 4.81 ...
+#>  $ pred           : num [1:3865, 1] 4.68 4.74 4.89 4.86 4.78 ...
 #>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...
 #>   ..- attr(*, "dimnames")=List of 2
 #>   .. ..$ : NULL
@@ -11293,7 +11294,7 @@ fm.BLD = as.formula(
   paste("BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +", 
         paste(names(ind.tax), collapse="+")))
 m.BLD_PTF <- ranger(fm.BLD, dfs_tbl, num.trees = 85, importance='impurity')
-#> Growing trees.. Progress: 87%. Estimated remaining time: 4 seconds.
+#> Growing trees.. Progress: 91%. Estimated remaining time: 3 seconds.
 m.BLD_PTF
 #> Ranger result
 #> 
