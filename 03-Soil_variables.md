@@ -12,7 +12,7 @@ accuracy results and similar.
 
 The R tutorial at the end of the chaper reviews soil data classes and 
 functions for R. It illustrates how to organize and reformat soil data in R for spatial analysis, 
-how to import soil data to R and how to export data and plot it in Google Earth. 
+how to import soil data into R and how to export data and plot it in Google Earth. 
 To learn more about the Global Soil Information Facilities (GSIF) package, 
 visit the main [documentation page](http://gsif.r-forge.r-project.org/00Index.html).
 
@@ -51,8 +51,8 @@ Fig. \@ref(fig:soil-vars)):
     fertility class.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_types_observations.png" alt="Types of soil observations in relation to data usage and production costs. Descriptive soil observations (e.g. manual texture or diagnostic soil horizons) are often not directly useable by end users, who are often more interested in specific secondary soil properties (e.g. water holding capacity, erosion index, soil fertility) as inputs to their modeling. However, descriptive field observations are often some orders of magnitude more affordable to obtain than laboratory analysis." width="65%" angle=0 />
-<p class="caption">(\#fig:soil-vars)Types of soil observations in relation to data usage and production costs. Descriptive soil observations (e.g. manual texture or diagnostic soil horizons) are often not directly useable by end users, who are often more interested in specific secondary soil properties (e.g. water holding capacity, erosion index, soil fertility) as inputs to their modeling. However, descriptive field observations are often some orders of magnitude more affordable to obtain than laboratory analysis.</p>
+<img src="figures/Fig_types_observations.png" alt="Types of soil observations in relation to data usage and production costs. Descriptive soil observations (e.g. manual texture or diagnostic soil horizons) are often not directly useable by end users, who are often more interested in specific secondary soil properties (e.g. water holding capacity, erosion index, soil fertility) as inputs to their modeling. However, descriptive field observations are often orders of magnitude more affordable to obtain than laboratory analysis." width="65%" angle=0 />
+<p class="caption">(\#fig:soil-vars)Types of soil observations in relation to data usage and production costs. Descriptive soil observations (e.g. manual texture or diagnostic soil horizons) are often not directly useable by end users, who are often more interested in specific secondary soil properties (e.g. water holding capacity, erosion index, soil fertility) as inputs to their modeling. However, descriptive field observations are often orders of magnitude more affordable to obtain than laboratory analysis.</p>
 </div>
 
 \BeginKnitrBlock{rmdnote}<div class="rmdnote">Soil can be assessed quantitatively based on direct or indirect
@@ -63,7 +63,7 @@ subjective observations are: diagnostic soil materials and horizons,
 soil classes, Munsell color classes, manual texture assessment
 (texture-by-hand), structure, compaction, root abundance and similar.</div>\EndKnitrBlock{rmdnote}
 
-Field campaigns are usuallly the most costly part of soil surveys. Large numbers
+Field campaigns are usually the most costly part of soil surveys. Large numbers
 of soil observations are made in the field to assess the spatial
 distribution of readily observable soil properties to provide empirical
 evidence for soil mapping. Because a soil analytical measurement in the
@@ -143,7 +143,7 @@ applications or use.
 Soil data have been, and are, collected and
 compiled into maps at various scales for various purposes and soil
 inventory projects typically begin by first carefully identifying the
-specific list of soil properties that are of interest for the
+specific list of soil properties that are of most interest for the
 anticipated uses of the planned survey. Different soil data are required
 for different purposes, such as applying different models with different
 data requirements. 
@@ -236,12 +236,11 @@ Soil properties designated as optional for the *GlobalSoilMap*
 consortium include Effective Cation Exchange Capacity assessed and
 reported according to ISO11260 Barium Chloride (cmol+/kg = centi-mole+ per kilogram) 
 and Electrical conductivity in 1:1 soil–water solution (dS/m = deci-siemens per metre). 
-The list of soil properties identified for global soil mapping and 
+The list of soil properties identified for routine global soil mapping and 
 modelling is likely to grow in the years to come. Initially, 
-GSIF has elected to simply accept and adopt the list of soil properties
-specified for the *GlobalSoilMap*
-project and to extend this list through time in consultation with this
-and other global soil entities.
+GSIF elected to simply accept and adopt the list of soil properties
+specified for the *GlobalSoilMap project and LandGIS then elected to extend 
+this list in consideration of other global soil initiatives.
 
 The International Organisation for Standardisation (ISO) provides
 international standard definitions of soil properties, and of associated
@@ -250,7 +249,7 @@ methods to assess those soil properties, through `ISO TC-190` and
 required for purposes as such as multi-partner global soil mapping.
 
 In the following sections we focus our discussion on the soil properties
-that have been mapped for the [www.soilgrids.org](www.soilgrids.org) project: 
+that were first mapped for the [www.soilgrids.org](www.soilgrids.org) project: 
 depth to bedrock, occurrence of the `R` horizon, organic carbon content of the fine earth
 fraction, pH of the fine earth fraction, particle size class contents
 (sand, silt, clay) of the fine earth fraction, gravel content of the
@@ -690,7 +689,7 @@ mapping, and interpretation, of soil properties.
 \BeginKnitrBlock{rmdnote}<div class="rmdnote">Soil Organic Carbon is one the key measures of soil health.
 The standard reference method for assessing and reporting soil organic
 carbon content of the fine earth fraction is by dry combustion to at
-least (ISO 10694). Values of organic carbon content are typically reported in
+least 1000&deg;C (ISO 10694). Values of organic carbon content are typically reported in
 (permilles) with integer precision over a range of 0–1000.</div>\EndKnitrBlock{rmdnote}
 
 The *dry combustion method* (Leco at 1000&deg;C) is based on thermal oxidation of

@@ -2935,7 +2935,7 @@ accuracy results and similar.
 
 The R tutorial at the end of the chaper reviews soil data classes and 
 functions for R. It illustrates how to organize and reformat soil data in R for spatial analysis, 
-how to import soil data to R and how to export data and plot it in Google Earth. 
+how to import soil data into R and how to export data and plot it in Google Earth. 
 To learn more about the Global Soil Information Facilities (GSIF) package, 
 visit the main [documentation page](http://gsif.r-forge.r-project.org/00Index.html).
 
@@ -2974,8 +2974,8 @@ Fig. \@ref(fig:soil-vars)):
     fertility class.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_types_observations.png" alt="Types of soil observations in relation to data usage and production costs. Descriptive soil observations (e.g. manual texture or diagnostic soil horizons) are often not directly useable by end users, who are often more interested in specific secondary soil properties (e.g. water holding capacity, erosion index, soil fertility) as inputs to their modeling. However, descriptive field observations are often some orders of magnitude more affordable to obtain than laboratory analysis." width="65%" angle=0 />
-<p class="caption">(\#fig:soil-vars)Types of soil observations in relation to data usage and production costs. Descriptive soil observations (e.g. manual texture or diagnostic soil horizons) are often not directly useable by end users, who are often more interested in specific secondary soil properties (e.g. water holding capacity, erosion index, soil fertility) as inputs to their modeling. However, descriptive field observations are often some orders of magnitude more affordable to obtain than laboratory analysis.</p>
+<img src="figures/Fig_types_observations.png" alt="Types of soil observations in relation to data usage and production costs. Descriptive soil observations (e.g. manual texture or diagnostic soil horizons) are often not directly useable by end users, who are often more interested in specific secondary soil properties (e.g. water holding capacity, erosion index, soil fertility) as inputs to their modeling. However, descriptive field observations are often orders of magnitude more affordable to obtain than laboratory analysis." width="65%" angle=0 />
+<p class="caption">(\#fig:soil-vars)Types of soil observations in relation to data usage and production costs. Descriptive soil observations (e.g. manual texture or diagnostic soil horizons) are often not directly useable by end users, who are often more interested in specific secondary soil properties (e.g. water holding capacity, erosion index, soil fertility) as inputs to their modeling. However, descriptive field observations are often orders of magnitude more affordable to obtain than laboratory analysis.</p>
 </div>
 
 \BeginKnitrBlock{rmdnote}<div class="rmdnote">Soil can be assessed quantitatively based on direct or indirect
@@ -2986,7 +2986,7 @@ subjective observations are: diagnostic soil materials and horizons,
 soil classes, Munsell color classes, manual texture assessment
 (texture-by-hand), structure, compaction, root abundance and similar.</div>\EndKnitrBlock{rmdnote}
 
-Field campaigns are usuallly the most costly part of soil surveys. Large numbers
+Field campaigns are usually the most costly part of soil surveys. Large numbers
 of soil observations are made in the field to assess the spatial
 distribution of readily observable soil properties to provide empirical
 evidence for soil mapping. Because a soil analytical measurement in the
@@ -3066,7 +3066,7 @@ applications or use.
 Soil data have been, and are, collected and
 compiled into maps at various scales for various purposes and soil
 inventory projects typically begin by first carefully identifying the
-specific list of soil properties that are of interest for the
+specific list of soil properties that are of most interest for the
 anticipated uses of the planned survey. Different soil data are required
 for different purposes, such as applying different models with different
 data requirements. 
@@ -3159,12 +3159,11 @@ Soil properties designated as optional for the *GlobalSoilMap*
 consortium include Effective Cation Exchange Capacity assessed and
 reported according to ISO11260 Barium Chloride (cmol+/kg = centi-mole+ per kilogram) 
 and Electrical conductivity in 1:1 soil–water solution (dS/m = deci-siemens per metre). 
-The list of soil properties identified for global soil mapping and 
+The list of soil properties identified for routine global soil mapping and 
 modelling is likely to grow in the years to come. Initially, 
-GSIF has elected to simply accept and adopt the list of soil properties
-specified for the *GlobalSoilMap*
-project and to extend this list through time in consultation with this
-and other global soil entities.
+GSIF elected to simply accept and adopt the list of soil properties
+specified for the *GlobalSoilMap project and LandGIS then elected to extend 
+this list in consideration of other global soil initiatives.
 
 The International Organisation for Standardisation (ISO) provides
 international standard definitions of soil properties, and of associated
@@ -3173,7 +3172,7 @@ methods to assess those soil properties, through `ISO TC-190` and
 required for purposes as such as multi-partner global soil mapping.
 
 In the following sections we focus our discussion on the soil properties
-that have been mapped for the [www.soilgrids.org](www.soilgrids.org) project: 
+that were first mapped for the [www.soilgrids.org](www.soilgrids.org) project: 
 depth to bedrock, occurrence of the `R` horizon, organic carbon content of the fine earth
 fraction, pH of the fine earth fraction, particle size class contents
 (sand, silt, clay) of the fine earth fraction, gravel content of the
@@ -3613,7 +3612,7 @@ mapping, and interpretation, of soil properties.
 \BeginKnitrBlock{rmdnote}<div class="rmdnote">Soil Organic Carbon is one the key measures of soil health.
 The standard reference method for assessing and reporting soil organic
 carbon content of the fine earth fraction is by dry combustion to at
-least (ISO 10694). Values of organic carbon content are typically reported in
+least 1000&deg;C (ISO 10694). Values of organic carbon content are typically reported in
 (permilles) with integer precision over a range of 0–1000.</div>\EndKnitrBlock{rmdnote}
 
 The *dry combustion method* (Leco at 1000&deg;C) is based on thermal oxidation of
@@ -7803,7 +7802,6 @@ om.rksim.p <- predict(omm, meuse.grid, nsim=20, block=c(0,0))
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
 #> 
- 65% done
 100% done
 #> Creating an object of class "RasterBrickSimulations"
 #> Loading required package: raster
@@ -8045,7 +8043,6 @@ om.rksim.p <- predict(omm, meuse.grid, block=c(0,0), nsim=20)
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
 #> 
- 36% done
 100% done
 #> Creating an object of class "RasterBrickSimulations"
 log1p(meuse@data[1,"om"])
@@ -8094,13 +8091,13 @@ library(intamap)
 demo(meuse, echo=FALSE)
 meuse$value = meuse$zinc
 output <- interpolate(meuse, meuse.grid, list(mean=TRUE, variance=TRUE))
-#> R 2018-12-26 07:05:26 interpolating 155 observations, 3103 prediction locations
+#> R 2018-12-26 07:39:40 interpolating 155 observations, 3103 prediction locations
 #> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : 
 #>  using standard model for estimating time. For better 
 #>  platform spesific predictions, please run 
 #>  timeModels <- generateTimeModels()
 #>   and save the workspace
-#> [1] "estimated time for  copula 158.871237087145"
+#> [1] "estimated time for  copula 161.833424390716"
 #> Checking object ... OK
 ```
 
@@ -8114,7 +8111,7 @@ str(output, max.level = 2)
 #> List of 16
 #>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
 #>  $ formulaString      :Class 'formula'  language value ~ 1
-#>   .. ..- attr(*, ".Environment")=<environment: 0x13d7d2c0> 
+#>   .. ..- attr(*, ".Environment")=<environment: 0x13f1d868> 
 #>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
 #>  $ params             :List of 18
 #>   ..$ doAnisotropy     : logi TRUE
@@ -9503,14 +9500,14 @@ localH2O = h2o.init(startH2O=TRUE)
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         23 minutes 39 seconds 
+#>     H2O cluster uptime:         23 minutes 43 seconds 
 #>     H2O cluster timezone:       UTC 
 #>     H2O data parsing timezone:  UTC 
 #>     H2O cluster version:        3.20.0.8 
 #>     H2O cluster version age:    3 months and 4 days  
 #>     H2O cluster name:           H2O_started_from_R_travis_lqb476 
 #>     H2O cluster total nodes:    1 
-#>     H2O cluster total memory:   1.46 GB 
+#>     H2O cluster total memory:   1.48 GB 
 #>     H2O cluster total cores:    2 
 #>     H2O cluster allowed cores:  2 
 #>     H2O cluster healthy:        TRUE 
@@ -9542,12 +9539,12 @@ RF.m
 #> ==============
 #> 
 #> H2ORegressionModel: drf
-#> Model ID:  DRF_model_R_1545806566630_21 
+#> Model ID:  DRF_model_R_1545808614472_21 
 #> Model Summary: 
 #>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#> 1              50                       50              642504        20
+#> 1              50                       50              648262        20
 #>   max_depth mean_depth min_leaves max_leaves mean_leaves
-#> 1        20   20.00000        917       1075  1019.02000
+#> 1        20   20.00000        977       1081  1028.00000
 #> 
 #> 
 #> H2ORegressionMetrics: drf
@@ -9556,8 +9553,8 @@ RF.m
 #> 
 #> MSE:  223
 #> RMSE:  14.9
-#> MAE:  10.2
-#> RMSLE:  0.433
+#> MAE:  10.1
+#> RMSLE:  0.432
 #> Mean Residual Deviance :  223
 ```
 
@@ -9605,29 +9602,29 @@ DL.m
 #> ==============
 #> 
 #> H2ORegressionModel: deeplearning
-#> Model ID:  DeepLearning_model_R_1545806566630_22 
+#> Model ID:  DeepLearning_model_R_1545808614472_22 
 #> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1
 #>   layer units      type dropout       l1       l2 mean_rate rate_rms
 #> 1     1    10     Input  0.00 %       NA       NA        NA       NA
-#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.013906 0.008251
-#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.116258 0.154823
-#> 4     4     1    Linear      NA 0.000000 0.000000  0.001249 0.000810
+#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.013692 0.008023
+#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.115841 0.138669
+#> 4     4     1    Linear      NA 0.000000 0.000000  0.001317 0.000912
 #>   momentum mean_weight weight_rms mean_bias bias_rms
 #> 1       NA          NA         NA        NA       NA
-#> 2 0.000000    0.000101   0.100672  0.357607 0.061811
-#> 3 0.000000   -0.018004   0.071099  0.956356 0.017573
-#> 4 0.000000    0.005532   0.052265  0.091897 0.000000
+#> 2 0.000000    0.005643   0.101802  0.344691 0.062499
+#> 3 0.000000   -0.018725   0.071448  0.951676 0.023409
+#> 4 0.000000    0.001416   0.049338  0.119617 0.000000
 #> 
 #> 
 #> H2ORegressionMetrics: deeplearning
 #> ** Reported on training data. **
 #> ** Metrics reported on full training frame **
 #> 
-#> MSE:  269
-#> RMSE:  16.4
-#> MAE:  12.4
-#> RMSLE:  0.505
-#> Mean Residual Deviance :  269
+#> MSE:  276
+#> RMSE:  16.6
+#> MAE:  12.6
+#> RMSLE:  0.512
+#> Mean Residual Deviance :  276
 ```
 
 Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. \@ref(fig:map-snd) and Fig. \@ref(fig:map-snd-dl)).
@@ -9864,16 +9861,16 @@ str(test.ORC)
 #> List of 2
 #>  $ CV_residuals:'data.frame':	4972 obs. of  4 variables:
 #>   ..$ Observed : num [1:4972] 6.5 5.1 4.9 3.3 2.2 ...
-#>   ..$ Predicted: num [1:4972] 11.11 7.3 6.17 5.05 3.04 ...
+#>   ..$ Predicted: num [1:4972] 11.36 7.2 6.66 4.74 3 ...
 #>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" ...
 #>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ Summary     :'data.frame':	1 obs. of  6 variables:
-#>   ..$ ME          : num -0.148
-#>   ..$ MAE         : num 2.19
-#>   ..$ RMSE        : num 3.7
-#>   ..$ R.squared   : num 0.554
-#>   ..$ logRMSE     : num 0.498
-#>   ..$ logR.squared: num 0.631
+#>   ..$ ME          : num -0.127
+#>   ..$ MAE         : num 2.17
+#>   ..$ RMSE        : num 3.67
+#>   ..$ R.squared   : num 0.559
+#>   ..$ logRMSE     : num 0.493
+#>   ..$ logR.squared: num 0.637
 ```
 
 Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about $\pm 4$ g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:
@@ -9935,7 +9932,7 @@ perf
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 12.57814813515
+#> Ensemble performance (MSE): 12.5516785612103
 ```
 
 which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.
@@ -10035,16 +10032,16 @@ perf3
 #> Base learner performance, sorted by specified metric:
 #>                    learner    MSE
 #> 1          h2o.glm.wrapper 0.2827
-#> 4 h2o.deeplearning.wrapper 0.1259
+#> 4 h2o.deeplearning.wrapper 0.1417
 #> 3          h2o.gbm.wrapper 0.0971
-#> 2 h2o.randomForest.wrapper 0.0874
+#> 2 h2o.randomForest.wrapper 0.0781
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 0.082018065620841
+#> Ensemble performance (MSE): 0.0746723263083771
 ```
 
 In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.
@@ -10128,10 +10125,10 @@ sl
 #> 
 #>                  Risk   Coef
 #> SL.mean_All    0.7540 0.0000
-#> SL.xgboost_All 0.0598 0.8151
-#> SL.ksvm_All    0.1283 0.0149
-#> SL.glmnet_All  0.3073 0.0000
-#> SL.ranger_All  0.0849 0.1700
+#> SL.xgboost_All 0.0598 0.8144
+#> SL.ksvm_All    0.1290 0.0099
+#> SL.glmnet_All  0.3076 0.0000
+#> SL.ranger_All  0.0852 0.1757
 ```
 
 This shows that `SL.xgboost_All` outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by `SL.xgboost_All` is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:
@@ -10150,10 +10147,10 @@ sl2
 #>     SL.library = sl.l2) 
 #> 
 #> 
-#>                  Risk  Coef
-#> SL.xgboost_All 0.0603 0.802
-#> SL.ranger_All  0.0823 0.198
-#> SL.ksvm_All    0.1304 0.000
+#>                  Risk Coef
+#> SL.xgboost_All 0.0603 0.81
+#> SL.ranger_All  0.0827 0.19
+#> SL.ksvm_All    0.1308 0.00
 ```
 
 again `SL.xgboost` dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where entire profiles are taken out of the training dataset:
@@ -10180,11 +10177,11 @@ summary(cv_sl)
 #> All risk estimates are based on V =  5 
 #> 
 #>       Algorithm  Ave    se   Min  Max
-#>   Super Learner 0.16 0.014 0.094 0.26
-#>     Discrete SL 0.17 0.015 0.110 0.25
+#>   Super Learner 0.16 0.014 0.098 0.26
+#>     Discrete SL 0.17 0.014 0.116 0.25
 #>  SL.xgboost_All 0.19 0.016 0.135 0.27
-#>   SL.ranger_All 0.16 0.015 0.103 0.25
-#>     SL.ksvm_All 0.18 0.015 0.110 0.30
+#>   SL.ranger_All 0.16 0.014 0.102 0.25
+#>     SL.ksvm_All 0.18 0.014 0.110 0.29
 ```
 
 where `V=5` specifies number of folds, and `id=rm.cookfarm$SOURCEID` forces that entire profiles are removed from training and cross-validation. This gives a more realistic RMSE of about ±0.35. Note that this time `SL.xgboost_All` is even somewhat worse than the random forest model, and the ensemble model (`Super Learner`) is slightly better than each individual model. This matches our previous results with `h20.ensemble`. 
@@ -10207,10 +10204,10 @@ sl2
 #> 
 #> 
 #> 
-#>                 Risk Coef
-#> SL.xgboost_All 0.215 0.00
-#> SL.ranger_All  0.165 0.48
-#> SL.ksvm_All    0.163 0.52
+#>                 Risk  Coef
+#> SL.xgboost_All 0.215 0.000
+#> SL.ranger_All  0.166 0.495
+#> SL.ksvm_All    0.165 0.505
 new.data <- grid10m@data
 pred.PHI <- list(NULL)
 depths = c(10,30,50,70,90)
@@ -10232,7 +10229,7 @@ for(j in 1:length(depths)){
 #>     buffer, rotated
 str(pred.PHI[[1]])
 #> List of 2
-#>  $ pred           : num [1:3865, 1] 4.64 4.71 4.84 4.81 4.74 ...
+#>  $ pred           : num [1:3865, 1] 4.66 4.73 4.88 4.85 4.79 ...
 #>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...
 #>   ..- attr(*, "dimnames")=List of 2
 #>   .. ..$ : NULL
