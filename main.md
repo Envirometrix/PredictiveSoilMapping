@@ -2793,6 +2793,7 @@ om.rk <- predict(omm, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
+ 13% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -2932,6 +2933,15 @@ commonly predicted using PSM. We first discuss the complexity of measuring and s
 mapping. The purpose of this chapter is to serve as a reference, and background, for other
 chapters where the focus is on generating soil maps, interpreting
 accuracy results and similar.
+
+Please note that this chapter draws extensively from materials previously 
+published as part of the specifications for the *GlobalSoilMap* project [@Arrouays201493].
+Large blocks of text extracted verbatum from these prevously published
+*GlobalSoilMap* specifications were, in fact, originally largely composed 
+and written by the second author of this chapter in his former role as
+Science Coordinator for the *GlobalSoilMap* project. We acknowledge the source of much of 
+the content of this chapter as having originated from the previously published *GlobalSoilMap* 
+specifications
 
 The R tutorial at the end of the chaper reviews soil data classes and 
 functions for R. It illustrates how to organize and reformat soil data in R for spatial analysis, 
@@ -3715,7 +3725,7 @@ methods with a lower ratio of soil to water (e.g. 1:1 or 1:2.5) will
 generally be lower than equivalent values for pH in 1:5 water and will
 need to be adjusted higher. Several authors have demonstrated that
 fitting quadratic or curvilinear functions to soil pH data produces
-regression equations with higher coefficients of determination that
+regression equations with higher coefficients of determination than
 those obtained from a linear fit [@Aitken1991AJSR; @Miller2010SSSAJ].
 For example, @Brennan1998 have estimated that (at least in Southwestern Australia) 
 pH in CaCl$_2$ can be estimated from the pH 1:5 water by using a simple conversion:
@@ -3924,7 +3934,7 @@ One of the most widely used systems is the USDA Soil Survey Laboratory
 Methods Manual [@Burt2004SSIR]. The USDA definition of particle size
 classes has also been recommended by FAO for use in the Soil Map of the
 World (Fig. \@ref(fig:texture-limits)). The standard reference method adopted by
-GSIF for reporting particle size classes of sand, silt and clay, is as
+GSIF and LandGIS for reporting particle size classes of sand, silt and clay, is as
 per the USDA Soil Survey Laboratory Methods Manual [@Burt2004SSIR
 p.347]. An estimated global distribution of sand, silt, and clay is
 given in Figs. \@ref(fig:sprofs-snd), \@ref(fig:sprofs-slt) and
@@ -4069,7 +4079,7 @@ implements.
 
 Bulk density is the over-dry mass of soil material divided by the total
 volume. The standard reference method for reporting bulk density for
-GSIF is the core method (ISO 11272). The dry bulk density (BD) is the
+GSIF and LandGIS is the core method (ISO 11272). The dry bulk density (BD) is the
 ratio between the mass of oven dry soil material and the volume of the
 undisturbed fresh sample. The ISO standard defines dry bulk density as
 the ratio of the oven-dry mass of the solids to the volume (the bulk
@@ -4126,8 +4136,8 @@ content, and depth.
 
 \BeginKnitrBlock{rmdnote}<div class="rmdnote">Bulk density is the oven-dry mass of soil material divided by the total
 volume and typically ranges from 0.7 to 1.8 t/kg$^3$. The average bulk density of
-fine earth fraction of soil is about 1.3 t/kg$^3$; soils with a bulk density higher
-than tend to restrict root growth. Different values for bulk density
+the fine earth fraction of soil is about 1.3 t/kg$^3$; soils with a bulk density higher
+than 1.6 t/kg$^3$ tend to restrict root growth. Different values for bulk density
 typically apply for different soils with different soil genesis as
 reflected by different materials and mineralogy, e.g. Histosols
 (organic), Arenosols (sandy), Andosols (allophanic clay), Acrisols (low
@@ -4147,7 +4157,7 @@ frequently than bulk density for the whole soil
 </div>
 
 Given that there are more values reported for the bulk density of the
-whole soil than for the fine earth fraction, we propose to first
+whole soil than for the fine earth fraction, we elect to first
 estimate the bulk density of the whole soil (using appropriate
 pedo-transfer functions) and then apply corrections to estimate the bulk
 density of the fine earth fraction, correcting for the effect of course
@@ -4195,7 +4205,7 @@ role in controlling bulk density .
 
 Primary soil properties such as organic carbon content, bulk density and
 coarse fragments can be further used as inputs for estimation of secondary soil
-properties which are typically not measured directly in the field and
+properties which are typically not measured directly in the field, or laboratory, and
 need to be derived from primary soil properties. For instance, consider
 estimation of the global carbon stock (in permille). This secondary soil
 property can be derived from a number of primary soil properties
@@ -4225,7 +4235,7 @@ all depths / horizons, then aggregated to estimate the total stock for
 the whole profile (e.g. 0–2 m).
 
 The formulas to derive soil organic carbon stock and the propagated
-uncertainty are implemented in the GSIF package e.g.:
+uncertainty as implemented in the GSIF package are e.g.:
 
 
 ```r
@@ -4264,7 +4274,7 @@ water, particularly water that is potentially available for root uptake
 by plants and vegetative transpiration. In practice, AWC is land cover specific.
 The water available for root uptake depends on the soil properties that
 determine rootability or rooting depth as genetically required by the
-vegetative land cover.
+currently active vegetative land cover.
 
 The water available for root uptake also depends on the pressure head
 that the vegetative land cover can generate or bridge between the
@@ -4284,7 +4294,7 @@ The AWC is expressed in mm (which equals mm water/cm soil depth, or
 water/ soil). This volume of water depends on the volume of soil
 (influenced by depth interval and by volumetric gravel content) and the
 volumetric fraction of water that is contained by the soil between field
-capacity and wilting point. GSIF reports AWC with a precision of 1 mm
+capacity and wilting point. GSIF and LandGIS report AWC with a precision of 1 mm
 and a maximum range of 0–2000 mm.
 
 Values for AWC are preferably assessed for the fine earth fraction per
@@ -4296,7 +4306,7 @@ content at specific water tensions (e.g. at pF 0.1, 2, 2.5, 3, 4.2,
 4.5). For pragmatic reasons though the permanent wilting point is set at
 -1500 kPa (or 15,000cm, 15 bar, 15 atmosphere or pF 4.2).
 
-The standard reference method adopted by GSIF for reporting available
+The standard reference method adopted by GSIF and LandGIS for reporting available
 water capacity is as per the USDA Soil Survey Laboratory Methods Manual
 [@Burt2004SSIR p.137]. Calculation of the *Water Retention Difference*
 (WRD) is considered the initial step in the approximation of the
@@ -4562,7 +4572,7 @@ harmonization*.
 Note that differences in methods are not necessarily reflected in
 different values for a given attribute. The value reported is
 fundamentally related to the particular method used for analysis, which
-we correctly or incorrectly label similarly regardless of the analytical
+we correctly or incorrectly label as similar regardless of the analytical
 method used.
 
 When using legacy soils data for global soil mapping and analysis
@@ -4722,13 +4732,13 @@ possible, 10 observations of a specific soil taxonomic entity per unique
 combination of predictor variables and observations,
 [@harrell2001regression], it is possible to estimate that the optimum number of
 field observations required to e.g. predict the global distribution of
-USDA soil series would be in the order of few millions of soil profiles
+USDA soil series would be in the order of few millions of classified soil profiles
 (Fig. \@ref(fig:usda-categories)).
 
 ### Other factor-type variables
 
 Pedometric / geostatistical methods can be used not only to predict the
-spatial distribution of soil types but also any other categorical soil
+spatial distribution of soil types but also of any other categorical soil
 variables. There are many soil categorical variables for which maps
 would be extremely useful for soil management and modelling. We list
 here some of the most well known / most widely used soil categorical
@@ -4764,7 +4774,7 @@ globally (together with the uncertainty) as long as there is sufficient
 training field data to properly support application of the prediction
 algorithm. The other technical problem is the amount of storage required to save and
 share all the produced predictions. Each category of a soil categorical
-variable can be mapped separately, which can lead to hundreds of grids.
+variable must be mapped separately, which can lead to hundreds of grids.
 The global land cover map for example contains only some 35 categories,
 so that it is relatively easy to distribute and use that GIS layer.
 
@@ -5302,15 +5312,15 @@ x[,order(1/x)[1:2]]
 #> 1    0.288   0.154
 ```
 
-so for example, the two most likely classes to equate to Calcaric Cambisols seem to be Ochrepts and Orthids, which is not that much different from correlation classes reported in @Krasilnikov2009handbook in fact.
+so for example, the two most likely classes to equate to Calcaric Cambisols seem to be Ochrepts and Orthids, which is not that much different from correlation classes reported in @Krasilnikov2009handbook.
 
 ## Summary points
 
 In this chapter, we have endeavoured to provide precise and explicit
-descriptions of the soil properties and soil classes of interest to current PSM activities.
+descriptions of the soil properties and soil classes of greatest interest to current PSM activities.
 For each soil property (or class) we have provided an explanation for
 why that property (or class) is of interest to users and why it has been
-selected to be mapped. In many cases, the most
+selected to be mapped globally, by us and by others. In many cases, the most
 obvious reason is that the soil property is widely recorded and reported
 in legacy soil profile data bases and is therefore available. But these
 soil properties are widely reported for good reasons, mainly because
@@ -5358,7 +5368,7 @@ soil for which harmonization was required and then using the value of
 the soil (or soils) in the desired reference method as the predicted
 harmonized value. If several similar soils were identified, as is done
 by @Nemes1999G, then the predicted harmonized value would
-be computed as the weighted mean, in the appropriate reference method,
+be computed as a weighted mean, in the appropriate reference method,
 of all similar soils; with weights selected according to the similarity
 of the soils in the conversion library to the soil being harmonized.
 
@@ -7802,6 +7812,7 @@ om.rksim.p <- predict(omm, meuse.grid, nsim=20, block=c(0,0))
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
 #> 
+ 60% done
 100% done
 #> Creating an object of class "RasterBrickSimulations"
 #> Loading required package: raster
@@ -8043,6 +8054,7 @@ om.rksim.p <- predict(omm, meuse.grid, block=c(0,0), nsim=20)
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
 #> 
+ 41% done
 100% done
 #> Creating an object of class "RasterBrickSimulations"
 log1p(meuse@data[1,"om"])
@@ -8091,13 +8103,13 @@ library(intamap)
 demo(meuse, echo=FALSE)
 meuse$value = meuse$zinc
 output <- interpolate(meuse, meuse.grid, list(mean=TRUE, variance=TRUE))
-#> R 2018-12-26 07:39:40 interpolating 155 observations, 3103 prediction locations
+#> R 2018-12-26 21:03:51 interpolating 155 observations, 3103 prediction locations
 #> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : 
 #>  using standard model for estimating time. For better 
 #>  platform spesific predictions, please run 
 #>  timeModels <- generateTimeModels()
 #>   and save the workspace
-#> [1] "estimated time for  copula 161.833424390716"
+#> [1] "estimated time for  copula 158.084880531966"
 #> Checking object ... OK
 ```
 
@@ -8111,7 +8123,7 @@ str(output, max.level = 2)
 #> List of 16
 #>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
 #>  $ formulaString      :Class 'formula'  language value ~ 1
-#>   .. ..- attr(*, ".Environment")=<environment: 0x13f1d868> 
+#>   .. ..- attr(*, ".Environment")=<environment: 0x151be348> 
 #>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
 #>  $ params             :List of 18
 #>   ..$ doAnisotropy     : logi TRUE
@@ -9500,14 +9512,14 @@ localH2O = h2o.init(startH2O=TRUE)
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         23 minutes 43 seconds 
+#>     H2O cluster uptime:         23 minutes 26 seconds 
 #>     H2O cluster timezone:       UTC 
 #>     H2O data parsing timezone:  UTC 
 #>     H2O cluster version:        3.20.0.8 
-#>     H2O cluster version age:    3 months and 4 days  
+#>     H2O cluster version age:    3 months and 5 days  
 #>     H2O cluster name:           H2O_started_from_R_travis_lqb476 
 #>     H2O cluster total nodes:    1 
-#>     H2O cluster total memory:   1.48 GB 
+#>     H2O cluster total memory:   1.47 GB 
 #>     H2O cluster total cores:    2 
 #>     H2O cluster allowed cores:  2 
 #>     H2O cluster healthy:        TRUE 
@@ -9539,23 +9551,23 @@ RF.m
 #> ==============
 #> 
 #> H2ORegressionModel: drf
-#> Model ID:  DRF_model_R_1545808614472_21 
+#> Model ID:  DRF_model_R_1545856882556_21 
 #> Model Summary: 
 #>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#> 1              50                       50              648262        20
+#> 1              50                       50              641260        20
 #>   max_depth mean_depth min_leaves max_leaves mean_leaves
-#> 1        20   20.00000        977       1081  1028.00000
+#> 1        20   20.00000        927       1074  1017.12000
 #> 
 #> 
 #> H2ORegressionMetrics: drf
 #> ** Reported on training data. **
 #> ** Metrics reported on Out-Of-Bag training samples **
 #> 
-#> MSE:  223
-#> RMSE:  14.9
+#> MSE:  218
+#> RMSE:  14.8
 #> MAE:  10.1
-#> RMSLE:  0.432
-#> Mean Residual Deviance :  223
+#> RMSLE:  0.429
+#> Mean Residual Deviance :  218
 ```
 
 This shows that the model fitting R-square is about 50%. This is also indicated by the predicted vs observed plot:
@@ -9602,29 +9614,29 @@ DL.m
 #> ==============
 #> 
 #> H2ORegressionModel: deeplearning
-#> Model ID:  DeepLearning_model_R_1545808614472_22 
+#> Model ID:  DeepLearning_model_R_1545856882556_22 
 #> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1
 #>   layer units      type dropout       l1       l2 mean_rate rate_rms
 #> 1     1    10     Input  0.00 %       NA       NA        NA       NA
-#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.013692 0.008023
-#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.115841 0.138669
-#> 4     4     1    Linear      NA 0.000000 0.000000  0.001317 0.000912
+#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.015720 0.011578
+#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.135377 0.163395
+#> 4     4     1    Linear      NA 0.000000 0.000000  0.001348 0.000820
 #>   momentum mean_weight weight_rms mean_bias bias_rms
 #> 1       NA          NA         NA        NA       NA
-#> 2 0.000000    0.005643   0.101802  0.344691 0.062499
-#> 3 0.000000   -0.018725   0.071448  0.951676 0.023409
-#> 4 0.000000    0.001416   0.049338  0.119617 0.000000
+#> 2 0.000000    0.005067   0.101472  0.344261 0.065558
+#> 3 0.000000   -0.018678   0.071145  0.952204 0.024011
+#> 4 0.000000   -0.002215   0.047678  0.107170 0.000000
 #> 
 #> 
 #> H2ORegressionMetrics: deeplearning
 #> ** Reported on training data. **
 #> ** Metrics reported on full training frame **
 #> 
-#> MSE:  276
-#> RMSE:  16.6
-#> MAE:  12.6
-#> RMSLE:  0.512
-#> Mean Residual Deviance :  276
+#> MSE:  317
+#> RMSE:  17.8
+#> MAE:  14
+#> RMSLE:  0.554
+#> Mean Residual Deviance :  317
 ```
 
 Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. \@ref(fig:map-snd) and Fig. \@ref(fig:map-snd-dl)).
@@ -9861,16 +9873,16 @@ str(test.ORC)
 #> List of 2
 #>  $ CV_residuals:'data.frame':	4972 obs. of  4 variables:
 #>   ..$ Observed : num [1:4972] 6.5 5.1 4.9 3.3 2.2 ...
-#>   ..$ Predicted: num [1:4972] 11.36 7.2 6.66 4.74 3 ...
+#>   ..$ Predicted: num [1:4972] 11.81 7.04 6.02 4.62 3.19 ...
 #>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" ...
 #>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ Summary     :'data.frame':	1 obs. of  6 variables:
-#>   ..$ ME          : num -0.127
-#>   ..$ MAE         : num 2.17
+#>   ..$ ME          : num -0.138
+#>   ..$ MAE         : num 2.18
 #>   ..$ RMSE        : num 3.67
-#>   ..$ R.squared   : num 0.559
-#>   ..$ logRMSE     : num 0.493
-#>   ..$ logR.squared: num 0.637
+#>   ..$ R.squared   : num 0.56
+#>   ..$ logRMSE     : num 0.494
+#>   ..$ logR.squared: num 0.638
 ```
 
 Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about $\pm 4$ g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:
@@ -9924,15 +9936,15 @@ perf
 #> 
 #> Base learner performance, sorted by specified metric:
 #>                    learner  MSE
-#> 1 h2o.randomForest.wrapper 13.1
 #> 2          h2o.gbm.wrapper 12.8
+#> 1 h2o.randomForest.wrapper 12.5
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 12.5516785612103
+#> Ensemble performance (MSE): 12.1355431923409
 ```
 
 which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.
@@ -10032,16 +10044,16 @@ perf3
 #> Base learner performance, sorted by specified metric:
 #>                    learner    MSE
 #> 1          h2o.glm.wrapper 0.2827
-#> 4 h2o.deeplearning.wrapper 0.1417
+#> 4 h2o.deeplearning.wrapper 0.1692
 #> 3          h2o.gbm.wrapper 0.0971
-#> 2 h2o.randomForest.wrapper 0.0781
+#> 2 h2o.randomForest.wrapper 0.0793
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 0.0746723263083771
+#> Ensemble performance (MSE): 0.0776116903964564
 ```
 
 In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.
@@ -10125,10 +10137,10 @@ sl
 #> 
 #>                  Risk   Coef
 #> SL.mean_All    0.7540 0.0000
-#> SL.xgboost_All 0.0598 0.8144
-#> SL.ksvm_All    0.1290 0.0099
-#> SL.glmnet_All  0.3076 0.0000
-#> SL.ranger_All  0.0852 0.1757
+#> SL.xgboost_All 0.0598 0.8111
+#> SL.ksvm_All    0.1289 0.0123
+#> SL.glmnet_All  0.3072 0.0000
+#> SL.ranger_All  0.0846 0.1767
 ```
 
 This shows that `SL.xgboost_All` outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by `SL.xgboost_All` is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:
@@ -10147,10 +10159,10 @@ sl2
 #>     SL.library = sl.l2) 
 #> 
 #> 
-#>                  Risk Coef
-#> SL.xgboost_All 0.0603 0.81
-#> SL.ranger_All  0.0827 0.19
-#> SL.ksvm_All    0.1308 0.00
+#>                  Risk  Coef
+#> SL.xgboost_All 0.0603 0.809
+#> SL.ranger_All  0.0826 0.191
+#> SL.ksvm_All    0.1295 0.000
 ```
 
 again `SL.xgboost` dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where entire profiles are taken out of the training dataset:
@@ -10177,11 +10189,11 @@ summary(cv_sl)
 #> All risk estimates are based on V =  5 
 #> 
 #>       Algorithm  Ave    se   Min  Max
-#>   Super Learner 0.16 0.014 0.098 0.26
-#>     Discrete SL 0.17 0.014 0.116 0.25
+#>   Super Learner 0.16 0.014 0.093 0.25
+#>     Discrete SL 0.17 0.014 0.109 0.24
 #>  SL.xgboost_All 0.19 0.016 0.135 0.27
-#>   SL.ranger_All 0.16 0.014 0.102 0.25
-#>     SL.ksvm_All 0.18 0.014 0.110 0.29
+#>   SL.ranger_All 0.16 0.014 0.102 0.24
+#>     SL.ksvm_All 0.18 0.014 0.109 0.29
 ```
 
 where `V=5` specifies number of folds, and `id=rm.cookfarm$SOURCEID` forces that entire profiles are removed from training and cross-validation. This gives a more realistic RMSE of about ±0.35. Note that this time `SL.xgboost_All` is even somewhat worse than the random forest model, and the ensemble model (`Super Learner`) is slightly better than each individual model. This matches our previous results with `h20.ensemble`. 
@@ -10206,8 +10218,8 @@ sl2
 #> 
 #>                 Risk  Coef
 #> SL.xgboost_All 0.215 0.000
-#> SL.ranger_All  0.166 0.495
-#> SL.ksvm_All    0.165 0.505
+#> SL.ranger_All  0.166 0.462
+#> SL.ksvm_All    0.162 0.538
 new.data <- grid10m@data
 pred.PHI <- list(NULL)
 depths = c(10,30,50,70,90)
@@ -10229,7 +10241,7 @@ for(j in 1:length(depths)){
 #>     buffer, rotated
 str(pred.PHI[[1]])
 #> List of 2
-#>  $ pred           : num [1:3865, 1] 4.66 4.73 4.88 4.85 4.79 ...
+#>  $ pred           : num [1:3865, 1] 4.7 4.78 4.91 4.87 4.81 ...
 #>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...
 #>   ..- attr(*, "dimnames")=List of 2
 #>   .. ..$ : NULL
@@ -11281,7 +11293,7 @@ fm.BLD = as.formula(
   paste("BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +", 
         paste(names(ind.tax), collapse="+")))
 m.BLD_PTF <- ranger(fm.BLD, dfs_tbl, num.trees = 85, importance='impurity')
-#> Growing trees.. Progress: 89%. Estimated remaining time: 3 seconds.
+#> Growing trees.. Progress: 87%. Estimated remaining time: 4 seconds.
 m.BLD_PTF
 #> Ranger result
 #> 

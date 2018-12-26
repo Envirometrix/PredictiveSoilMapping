@@ -1670,7 +1670,7 @@ om.rksim.p <- predict(omm, meuse.grid, nsim=20, block=c(0,0))
 #> Generating 20 conditional simulations using the trend model (RK method)...
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
-#> 100% done
+#>  60% done100% done
 #> Creating an object of class "RasterBrickSimulations"
 #> Loading required package: raster
 #> 
@@ -1909,7 +1909,7 @@ om.rksim.p <- predict(omm, meuse.grid, block=c(0,0), nsim=20)
 #> Generating 20 conditional simulations using the trend model (RK method)...
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
-#> 100% done
+#>  41% done100% done
 #> Creating an object of class "RasterBrickSimulations"
 log1p(meuse@data[1,"om"])
 #> [1] 2.7
@@ -1957,13 +1957,13 @@ library(intamap)
 demo(meuse, echo=FALSE)
 meuse$value = meuse$zinc
 output <- interpolate(meuse, meuse.grid, list(mean=TRUE, variance=TRUE))
-#> R 2018-12-26 07:39:40 interpolating 155 observations, 3103 prediction locations
+#> R 2018-12-26 21:03:51 interpolating 155 observations, 3103 prediction locations
 #> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : 
 #>  using standard model for estimating time. For better 
 #>  platform spesific predictions, please run 
 #>  timeModels <- generateTimeModels()
 #>   and save the workspace
-#> [1] "estimated time for  copula 161.833424390716"
+#> [1] "estimated time for  copula 158.084880531966"
 #> Checking object ... OK
 ```
 
@@ -1977,7 +1977,7 @@ str(output, max.level = 2)
 #> List of 16
 #>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
 #>  $ formulaString      :Class 'formula'  language value ~ 1
-#>   .. ..- attr(*, ".Environment")=<environment: 0x13f1d868> 
+#>   .. ..- attr(*, ".Environment")=<environment: 0x151be348> 
 #>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
 #>  $ params             :List of 18
 #>   ..$ doAnisotropy     : logi TRUE

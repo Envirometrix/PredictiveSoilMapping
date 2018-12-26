@@ -409,6 +409,14 @@ commonly predicted using PSM. We first discuss the complexity of measuring and s
 mapping. The purpose of this chapter is to serve as a reference, and background, for other
 chapters where the focus is on generating soil maps, interpreting
 accuracy results and similar.</p>
+<p>Please note that this chapter draws extensively from materials previously
+published as part of the specifications for the <em>GlobalSoilMap</em> project <span class="citation">(Arrouays et al. <a href="#ref-Arrouays201493">2014</a>)</span>.
+Large blocks of text extracted verbatum from these prevously published
+<em>GlobalSoilMap</em> specifications were, in fact, originally largely composed
+and written by the second author of this chapter in his former role as
+Science Coordinator for the <em>GlobalSoilMap</em> project. We acknowledge the source of much of
+the content of this chapter as having originated from the previously published <em>GlobalSoilMap</em>
+specifications</p>
 <p>The R tutorial at the end of the chaper reviews soil data classes and
 functions for R. It illustrates how to organize and reformat soil data in R for spatial analysis,
 how to import soil data into R and how to export data and plot it in Google Earth.
@@ -1247,7 +1255,7 @@ methods with a lower ratio of soil to water (e.g. 1:1 or 1:2.5) will
 generally be lower than equivalent values for pH in 1:5 water and will
 need to be adjusted higher. Several authors have demonstrated that
 fitting quadratic or curvilinear functions to soil pH data produces
-regression equations with higher coefficients of determination that
+regression equations with higher coefficients of determination than
 those obtained from a linear fit <span class="citation">(Aitken and Moody <a href="#ref-Aitken1991AJSR">1991</a>; Miller and Kissel <a href="#ref-Miller2010SSSAJ">2010</a>)</span>.
 For example, <span class="citation">Brennan and Bolland (<a href="#ref-Brennan1998">1998</a>)</span> have estimated that (at least in Southwestern Australia)
 pH in CaCl<span class="math inline">\(_2\)</span> can be estimated from the pH 1:5 water by using a simple conversion:</p>
@@ -1445,7 +1453,7 @@ One of the most widely used systems is the USDA Soil Survey Laboratory
 Methods Manual <span class="citation">(Natural Resources Conservation Service <a href="#ref-Burt2004SSIR">2004</a>)</span>. The USDA definition of particle size
 classes has also been recommended by FAO for use in the Soil Map of the
 World (Fig. <a href="soil-variables-chapter.html#fig:texture-limits">3.11</a>). The standard reference method adopted by
-GSIF for reporting particle size classes of sand, silt and clay, is as
+GSIF and LandGIS for reporting particle size classes of sand, silt and clay, is as
 per the USDA Soil Survey Laboratory Methods Manual <span class="citation">(Natural Resources Conservation Service <a href="#ref-Burt2004SSIR">2004</a>, 347)</span>. An estimated global distribution of sand, silt, and clay is
 given in Figs. <a href="soil-variables-chapter.html#fig:sprofs-snd">3.12</a>, <a href="soil-variables-chapter.html#fig:sprofs-slt">3.13</a> and
 <a href="soil-variables-chapter.html#fig:sprofs-cly">3.14</a>.</p>
@@ -1608,7 +1616,7 @@ by plant roots and mechanical workability of the soil using farm
 implements.</p>
 <p>Bulk density is the over-dry mass of soil material divided by the total
 volume. The standard reference method for reporting bulk density for
-GSIF is the core method (ISO 11272). The dry bulk density (BD) is the
+GSIF and LandGIS is the core method (ISO 11272). The dry bulk density (BD) is the
 ratio between the mass of oven dry soil material and the volume of the
 undisturbed fresh sample. The ISO standard defines dry bulk density as
 the ratio of the oven-dry mass of the solids to the volume (the bulk
@@ -1663,8 +1671,8 @@ content, and depth.</p>
 <div class="rmdnote">
 Bulk density is the oven-dry mass of soil material divided by the total
 volume and typically ranges from 0.7 to 1.8 t/kg<span class="math inline">\(^3\)</span>. The average bulk density of
-fine earth fraction of soil is about 1.3 t/kg<span class="math inline">\(^3\)</span>; soils with a bulk density higher
-than tend to restrict root growth. Different values for bulk density
+the fine earth fraction of soil is about 1.3 t/kg<span class="math inline">\(^3\)</span>; soils with a bulk density higher
+than 1.6 t/kg<span class="math inline">\(^3\)</span> tend to restrict root growth. Different values for bulk density
 typically apply for different soils with different soil genesis as
 reflected by different materials and mineralogy, e.g. Histosols
 (organic), Arenosols (sandy), Andosols (allophanic clay), Acrisols (low
@@ -1685,7 +1693,7 @@ Figure 3.15: Histogram and soil-depth density distribution for a global compilat
 </p>
 </div>
 <p>Given that there are more values reported for the bulk density of the
-whole soil than for the fine earth fraction, we propose to first
+whole soil than for the fine earth fraction, we elect to first
 estimate the bulk density of the whole soil (using appropriate
 pedo-transfer functions) and then apply corrections to estimate the bulk
 density of the fine earth fraction, correcting for the effect of course
@@ -1730,7 +1738,7 @@ role in controlling bulk density .</p>
 <h3><span class="header-section-number">3.4.4</span> Soil organic carbon stock</h3>
 <p>Primary soil properties such as organic carbon content, bulk density and
 coarse fragments can be further used as inputs for estimation of secondary soil
-properties which are typically not measured directly in the field and
+properties which are typically not measured directly in the field, or laboratory, and
 need to be derived from primary soil properties. For instance, consider
 estimation of the global carbon stock (in permille). This secondary soil
 property can be derived from a number of primary soil properties
@@ -1757,7 +1765,7 @@ content, bulk density and coarse fragments, respectively
 all depths / horizons, then aggregated to estimate the total stock for
 the whole profile (e.g. 0–2 m).</p>
 <p>The formulas to derive soil organic carbon stock and the propagated
-uncertainty are implemented in the GSIF package e.g.:</p>
+uncertainty as implemented in the GSIF package are e.g.:</p>
 <pre class="sourceCode r"><code class="sourceCode r">Area &lt;-<span class="st"> </span><span class="fl">1E4</span>  ## 1 ha
 HSIZE &lt;-<span class="st"> </span><span class="dv">30</span> ## 0--30 cm
 ORCDRC &lt;-<span class="st"> </span><span class="dv">50</span>  ## 5%
@@ -1791,7 +1799,7 @@ water, particularly water that is potentially available for root uptake
 by plants and vegetative transpiration. In practice, AWC is land cover specific.
 The water available for root uptake depends on the soil properties that
 determine rootability or rooting depth as genetically required by the
-vegetative land cover.</p>
+currently active vegetative land cover.</p>
 <p>The water available for root uptake also depends on the pressure head
 that the vegetative land cover can generate or bridge between the
 pressure in the atmosphere and the pressure in the soil matrix. E.g.
@@ -1809,7 +1817,7 @@ location-specific information about available water capacity.</p>
 water/ soil). This volume of water depends on the volume of soil
 (influenced by depth interval and by volumetric gravel content) and the
 volumetric fraction of water that is contained by the soil between field
-capacity and wilting point. GSIF reports AWC with a precision of 1 mm
+capacity and wilting point. GSIF and LandGIS report AWC with a precision of 1 mm
 and a maximum range of 0–2000 mm.</p>
 <p>Values for AWC are preferably assessed for the fine earth fraction per
 depth interval and expressed as volumetric fraction. This value can be
@@ -1819,7 +1827,7 @@ earth fraction per depth interval are derived from values for water
 content at specific water tensions (e.g. at pF 0.1, 2, 2.5, 3, 4.2,
 4.5). For pragmatic reasons though the permanent wilting point is set at
 -1500 kPa (or 15,000cm, 15 bar, 15 atmosphere or pF 4.2).</p>
-<p>The standard reference method adopted by GSIF for reporting available
+<p>The standard reference method adopted by GSIF and LandGIS for reporting available
 water capacity is as per the USDA Soil Survey Laboratory Methods Manual
 <span class="citation">(Natural Resources Conservation Service <a href="#ref-Burt2004SSIR">2004</a>, 137)</span>. Calculation of the <em>Water Retention Difference</em>
 (WRD) is considered the initial step in the approximation of the
@@ -2064,7 +2072,7 @@ harmonization</em>.</p>
 <p>Note that differences in methods are not necessarily reflected in
 different values for a given attribute. The value reported is
 fundamentally related to the particular method used for analysis, which
-we correctly or incorrectly label similarly regardless of the analytical
+we correctly or incorrectly label as similar regardless of the analytical
 method used.</p>
 <p>When using legacy soils data for global soil mapping and analysis
 projects, it is important to first decide whether it is necessary and
@@ -2342,13 +2350,13 @@ possible, 10 observations of a specific soil taxonomic entity per unique
 combination of predictor variables and observations,
 <span class="citation">(Harrell <a href="#ref-harrell2001regression">2001</a>)</span>, it is possible to estimate that the optimum number of
 field observations required to e.g. predict the global distribution of
-USDA soil series would be in the order of few millions of soil profiles
+USDA soil series would be in the order of few millions of classified soil profiles
 (Fig. <a href="soil-variables-chapter.html#fig:usda-categories">3.19</a>).</p>
 </div>
 <div id="other-factor-type-variables" class="section level3">
 <h3><span class="header-section-number">3.6.2</span> Other factor-type variables</h3>
 <p>Pedometric / geostatistical methods can be used not only to predict the
-spatial distribution of soil types but also any other categorical soil
+spatial distribution of soil types but also of any other categorical soil
 variables. There are many soil categorical variables for which maps
 would be extremely useful for soil management and modelling. We list
 here some of the most well known / most widely used soil categorical
@@ -2380,7 +2388,7 @@ globally (together with the uncertainty) as long as there is sufficient
 training field data to properly support application of the prediction
 algorithm. The other technical problem is the amount of storage required to save and
 share all the produced predictions. Each category of a soil categorical
-variable can be mapped separately, which can lead to hundreds of grids.
+variable must be mapped separately, which can lead to hundreds of grids.
 The global land cover map for example contains only some 35 categories,
 so that it is relatively easy to distribute and use that GIS layer.</p>
 </div>
@@ -2761,16 +2769,16 @@ x &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="
 x[,<span class="kw">order</span>(<span class="dv">1</span><span class="op">/</span>x)[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]]
 <span class="co">#&gt;   Ochrepts Orthids</span>
 <span class="co">#&gt; 1    0.288   0.154</span></code></pre>
-<p>so for example, the two most likely classes to equate to Calcaric Cambisols seem to be Ochrepts and Orthids, which is not that much different from correlation classes reported in <span class="citation">Krasilnikov et al. (<a href="#ref-Krasilnikov2009handbook">2009</a>)</span> in fact.</p>
+<p>so for example, the two most likely classes to equate to Calcaric Cambisols seem to be Ochrepts and Orthids, which is not that much different from correlation classes reported in <span class="citation">Krasilnikov et al. (<a href="#ref-Krasilnikov2009handbook">2009</a>)</span>.</p>
 </div>
 </div>
 <div id="summary-points" class="section level2">
 <h2><span class="header-section-number">3.10</span> Summary points</h2>
 <p>In this chapter, we have endeavoured to provide precise and explicit
-descriptions of the soil properties and soil classes of interest to current PSM activities.
+descriptions of the soil properties and soil classes of greatest interest to current PSM activities.
 For each soil property (or class) we have provided an explanation for
 why that property (or class) is of interest to users and why it has been
-selected to be mapped. In many cases, the most
+selected to be mapped globally, by us and by others. In many cases, the most
 obvious reason is that the soil property is widely recorded and reported
 in legacy soil profile data bases and is therefore available. But these
 soil properties are widely reported for good reasons, mainly because
@@ -2816,7 +2824,7 @@ soil for which harmonization was required and then using the value of
 the soil (or soils) in the desired reference method as the predicted
 harmonized value. If several similar soils were identified, as is done
 by <span class="citation">Nemes et al. (<a href="#ref-Nemes1999G">1999</a>)</span>, then the predicted harmonized value would
-be computed as the weighted mean, in the appropriate reference method,
+be computed as a weighted mean, in the appropriate reference method,
 of all similar soils; with weights selected according to the similarity
 of the soils in the conversion library to the soil being harmonized.</p>
 <p>What a GSRL would do, in effect, is to provide a single, centralized
@@ -2851,6 +2859,9 @@ data easier and more consistent.</p>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
+<div id="ref-Arrouays201493">
+<p>Arrouays, Dominique, Michael G. Grundy, Alfred E. Hartemink, Jonathan W. Hempel, Gerard B.M. Heuvelink, S. Young Hong, Philippe Lagacherie, et al. 2014. “Chapter Three — GlobalSoilMap: Toward a Fine-Resolution Global Grid of Soil Properties.” In <em>Soil Carbon</em>, edited by Donald L. Sparks, 125:93–134. Advances in Agronomy. Academic Press. <a href="https://doi.org/10.1016/B978-0-12-800137-0.00003-0" class="uri">https://doi.org/10.1016/B978-0-12-800137-0.00003-0</a>.</p>
+</div>
 <div id="ref-ShepherdWalsh2007JNIS">
 <p>Shepherd, K.D., and M.G. Walsh. 2007. “Infrared Spectroscopy — Enabling an Evidence Based Diagnostic Survellance Approach to Agricultural and Environmental Management in Developing Countries.” <em>Journal of Near Infrared Spectroscopy</em> 15:1–19.</p>
 </div>
@@ -2901,9 +2912,6 @@ data easier and more consistent.</p>
 </div>
 <div id="ref-FAO2012HWSD">
 <p>FAO/IIASA/ISRIC/ISS-CAS/JRC. 2012. <em>Harmonized World Soil Database (Version 1.2)</em>. Rome: FAO.</p>
-</div>
-<div id="ref-Arrouays201493">
-<p>Arrouays, Dominique, Michael G. Grundy, Alfred E. Hartemink, Jonathan W. Hempel, Gerard B.M. Heuvelink, S. Young Hong, Philippe Lagacherie, et al. 2014. “Chapter Three — GlobalSoilMap: Toward a Fine-Resolution Global Grid of Soil Properties.” In <em>Soil Carbon</em>, edited by Donald L. Sparks, 125:93–134. Advances in Agronomy. Academic Press. <a href="https://doi.org/10.1016/B978-0-12-800137-0.00003-0" class="uri">https://doi.org/10.1016/B978-0-12-800137-0.00003-0</a>.</p>
 </div>
 <div id="ref-Sleutel2007CSSPA">
 <p>Sleutel, S., S. De Neve, B. Singier, and G. Hofman. 2007. “Quantification of Organic Carbon in Soils: A Comparison of Methodologies and Assessment of the Carbon Content of Organic Matter.” <em>Communications in Soil Science and Plant Analysis</em> 38:2647–57.</p>
