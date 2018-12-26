@@ -2504,7 +2504,7 @@ collected data.
 
 *Edited by: T. Hengl*
 
-This section contains instructions on how to install and use software to run predictive soil mapping and export results to GIS or web applications. It has been written (as has most of the book) for Linux users, but should not be too much of a problem to adoat to Microsoft Windows OS and/or Mac OS. 
+This section contains instructions on how to install and use software to run predictive soil mapping and export results to GIS or web applications. It has been written (as has most of the book) for Linux users, but should not be too much of a problem to adapt to Microsoft Windows OS and/or Mac OS. 
 
 ## List of software in use
 
@@ -2517,7 +2517,7 @@ For processing the covariates we used a combination of Open Source GIS
 software, primarily SAGA GIS [@gmd-8-1991-2015], packages raster [@raster],
 sp [@pebesma2005classes], and GDAL [@mitchell2014geospatial] for reprojecting,
 mosaicking and merging tiles. GDAL and parallel packages in R are highly suitable for
-processing large data.
+processing large volumes of data.
 
 Software (required):
 
@@ -2537,7 +2537,7 @@ R script used in this tutorial can be downloaded from the **[github](https://git
 
 ## Installing software on Ubuntu OS
 
-On Ubuntu (often the recommended standard for the GIS community) the main required software can be installed within 10--20 minutes. We start with installing GDAL, proj4 and some packages that you might need later on:
+On Ubuntu (often the preferred standard for the GIS community) the main required software can be installed within 10--20 minutes. We start with installing GDAL, proj4 and some packages that you might need later on:
 
 
 ```bash
@@ -2545,7 +2545,7 @@ sudo apt-get install libgdal-dev libproj-dev libjasper-dev
 sudo apt-get install gdal-bin python-gdal
 ```
 
-Next, we can install R and RStudio. For R studio you can use the CRAN distribution or the optimized distribution provided by (the former REvolution company; now Microsoft):
+Next, we install R and RStudio. For R studio you can use the CRAN distribution or the optimized distribution provided by (the former REvolution company; now Microsoft):
 
 
 ```bash
@@ -2555,7 +2555,7 @@ cd microsoft-r-open/
 sudo ./install.sh
 ```
 
-Note that R versions are constantly being updated so you will need to replace the URL above based on information provided on the home page (http://mran.microsoft.com). Once you run ```install.sh``` you will have to accept the license terms two times before the installation can be completed. If everything completes successfully, you can get the session info by:
+Note that R versions are constantly being updated so you will need to replace the URL above based on the most current information provided on the home page (http://mran.microsoft.com). Once you run ```install.sh``` you will have to accept the license terms twice before the installation can be completed. If everything completes successfully, you can get the session info by:
 
 
 ```r
@@ -2603,7 +2603,7 @@ sudo gdebi rstudio-1.1.447-amd64.deb
 sudo rm rstudio-1.1.447-amd64.deb
 ```
 
-Again, RStudio is constantly updated so you might have to adjust the rstudio version and distribution.
+Again, RStudio is constantly updated so you might have to obtain the most recent rstudio version and distribution.
 To learn more about doing first steps in R and RStudio and to learn to improve your scripting skills more efficiently, consider studying the following two Open Access books:
 
 * Grolemund, G., (2014) [Hands-On Programming with R](https://rstudio-education.github.io/hopr/). O’Reilly, ISBN: 9781449359010, 236 pages.
@@ -2612,8 +2612,8 @@ To learn more about doing first steps in R and RStudio and to learn to improve y
 
 ## Installing GIS software
 
-Predictive soil mapping is about making maps, and working with maps requires use of GIS software to open, view overlay and analyze the data sptially. GIS software recommended for soil mapping in this book consists of SAGA GIS, QGIS, GRASS GIS and Google Earth. QGIS comes with an [extensive literature](https://www.qgis.org/en/docs/) and can be used to publish maps and combine layers served by various organizations. 
-SAGA GIS, being implemented in C++, is highly suited to run geoprocessing on large data sets. 
+Predictive soil mapping is about making maps, and working with maps requires use of GIS software to open, view overlay and analyze the data spatially. GIS software recommended in this book for soil mapping consists of SAGA GIS, QGIS, GRASS GIS and Google Earth. QGIS comes with an [extensive literature](https://www.qgis.org/en/docs/) and can be used to publish maps and combine layers served by various organizations. 
+SAGA GIS, being implemented in C++, is highly suited for running geoprocessing on large data sets. 
 To, install SAGA GIS on Ubuntu we can use:
 
 
@@ -2623,7 +2623,7 @@ sudo apt-get update
 sudo apt-get install saga
 ```
 
-If installation was successful, you should be able to access SAGA command line also from R by using:
+If installation is successful, you should be able to access SAGA command line also from R by using:
 
 
 ```r
@@ -2672,7 +2672,7 @@ WhiteboxTools (http://www.uoguelph.ca/~hydrogeo/WhiteboxTools/), contributed by 
 <p class="caption">(\#fig:whiteboxtools-preview)Calling WhiteboxTools from QGIS via the WhiteboxTools plugin.</p>
 </div>
 
-The function `FlowAccumulationFullWorkflow` is, for example, a wrapper function to filter out all spurious sinks and to derive a hydrological flow accumulation map in the same step. To run it from command line we can use:
+The function `FlowAccumulationFullWorkflow` is, for example, a wrapper function to filter out all spurious sinks and to derive a hydrological flow accumulation map in one step. To run it from command line we can use:
 
 
 ```r
@@ -2690,11 +2690,11 @@ system(paste0('"/home/tomislav/software/WBT/whitebox_tools" ',
 <p class="caption">(\#fig:eberg-hydroflow-preview-3d)Hydrological flow accummulation map based on the Ebergotzen DEM derived using WhiteboxTools.</p>
 </div>
 
-This produces a number of maps, from which the hydrological flow accumulation map is usually the most useful. It is highly recommended that, before running analysis on large DEM's using WhiteboxTools and/or SAGA GIS, you test functionality using smaller data sets i.e. either a subset of the original data or using a DEM at very coarse resolutions (so that width and height of a DEM are only few hundred pixels). Also note that WhiteboxTools do not presently work with GeoTIFs that use the `COMPRESS=DEFLATE` creation options.
+This produces a number of maps, from which the hydrological flow accumulation map is usually the most useful. It is highly recommended that, before running analysis on large DEM's using WhiteboxTools and/or SAGA GIS, you test functionality using smaller data sets i.e. either a subset of the original data or using a DEM at very coarse resolution (so that width and height of a DEM are only few hundred pixels). Also note that WhiteboxTools do not presently work with GeoTIFs that use the `COMPRESS=DEFLATE` creation options.
 
 ## RStudio {#Rstudio}
 
-RStudio is, in principle, the main R scripting environment and can be used to control all other software used in this tutorial. A more detailed RStudio tutorial is available at: [RStudio — Online Learning](http://www.rstudio.com/resources/training/online-learning/). Consider also following some spatial data tutorials e.g. by James Cheshire (http://spatial.ly/r/). Below is an example of RStudio session with R editor on right and R console on left.
+RStudio is, in principle, the main R scripting environment and can be used to control all other software used in this tutorial. A more detailed RStudio tutorial is available at: [RStudio — Online Learning](http://www.rstudio.com/resources/training/online-learning/). Consider also following some spatial data tutorials e.g. by James Cheshire (http://spatial.ly/r/). Below is an example of an RStudio session with R editor on right and R console on left.
 
 <div class="figure" style="text-align: center">
 <img src="figures/rstudio_example.png" alt="RStudio is a commonly used R editor written in C++." width="100%" />
@@ -2718,7 +2718,7 @@ new.packages <- ls[!(ls %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
 ```
 
-This will basically check if any package is installed already, then install it only if it is missing. You can put this line at the top of each R script that you share so that anybody using that script will automatically get all required packages.
+This will basically check if any package is installed already, then install it only if it is missing. You can put this line at the top of each R script that you share so that anybody using that script will automatically obtain all required packages.
 
 The h2o package requires Java libraries, so you should first install Java by using e.g.:
 
@@ -2732,7 +2732,7 @@ java -version
 
 ## plotKML and GSIF packages
 
-Many examples in this course rely on the top 5 most commonly used packages for spatial data: (1) [sp and rgdal](https://cran.r-project.org/web/views/Spatial.html), (2) [raster](https://cran.r-project.org/web/packages/raster/), (3) [plotKML](http://plotkml.r-forge.r-project.org/) and (4) [GSIF](http://gsif.r-forge.r-project.org/). To install the most up-to-date version of plotKML/GSIF, you can also use the R-Forge versions of the package:
+Many examples in this tutorial rely on the top 5 most commonly used packages for spatial data: (1) [sp and rgdal](https://cran.r-project.org/web/views/Spatial.html), (2) [raster](https://cran.r-project.org/web/packages/raster/), (3) [plotKML](http://plotkml.r-forge.r-project.org/) and (4) [GSIF](http://gsif.r-forge.r-project.org/). To install the most up-to-date version of plotKML/GSIF, you can also use the R-Forge versions of the package:
 
 
 ```r
@@ -2824,7 +2824,7 @@ om.rk
 
 ## Connecting R and SAGA GIS
 
-SAGA GIS is an extensive GIS geoprocessing software with over [600 functions](http://www.saga-gis.org/saga_tool_doc/index.html). 
+SAGA GIS provides comprehensive GIS geoprocessing software with over [600 functions](http://www.saga-gis.org/saga_tool_doc/index.html). 
 SAGA GIS can not be installed from RStudio (it is not a package for R). 
 Instead, you need to install SAGA GIS using the installation instructions from the [software homepage](https://sourceforge.net/projects/saga-gis/). 
 After you have installed SAGA GIS, you can send processes from 
@@ -2880,7 +2880,7 @@ system(paste(saga_cmd, 'ta_lighting 0 -ELEVATION "./extdata/DEMSRT6.sgrd"
 
 ## Connecting R and GDAL
 
-Another very important software for handling spatial data (and especially for exchanging / converting spatial data) is GDAL. GDAL also needs to be installed separately (for Windows machines use e.g. ["gdal-201-1800-x64-core.msi"](http://download.gisinternals.com/sdk/downloads/)) and then can be called from command line:
+GDAL is another very important software tool for handling spatial data (and especially for exchanging / converting spatial data). GDAL also needs to be installed separately (for Windows machines use e.g. ["gdal-201-1800-x64-core.msi"](http://download.gisinternals.com/sdk/downloads/)) and then can be called from command line:
 
 
 ```r
@@ -7803,6 +7803,7 @@ om.rksim.p <- predict(omm, meuse.grid, nsim=20, block=c(0,0))
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
 #> 
+ 65% done
 100% done
 #> Creating an object of class "RasterBrickSimulations"
 #> Loading required package: raster
@@ -8044,6 +8045,7 @@ om.rksim.p <- predict(omm, meuse.grid, block=c(0,0), nsim=20)
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
 #> 
+ 36% done
 100% done
 #> Creating an object of class "RasterBrickSimulations"
 log1p(meuse@data[1,"om"])
@@ -8092,13 +8094,13 @@ library(intamap)
 demo(meuse, echo=FALSE)
 meuse$value = meuse$zinc
 output <- interpolate(meuse, meuse.grid, list(mean=TRUE, variance=TRUE))
-#> R 2018-12-26 03:03:51 interpolating 155 observations, 3103 prediction locations
+#> R 2018-12-26 07:05:26 interpolating 155 observations, 3103 prediction locations
 #> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : 
 #>  using standard model for estimating time. For better 
 #>  platform spesific predictions, please run 
 #>  timeModels <- generateTimeModels()
 #>   and save the workspace
-#> [1] "estimated time for  copula 161.007233871538"
+#> [1] "estimated time for  copula 158.871237087145"
 #> Checking object ... OK
 ```
 
@@ -8112,7 +8114,7 @@ str(output, max.level = 2)
 #> List of 16
 #>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
 #>  $ formulaString      :Class 'formula'  language value ~ 1
-#>   .. ..- attr(*, ".Environment")=<environment: 0x1486d950> 
+#>   .. ..- attr(*, ".Environment")=<environment: 0x13d7d2c0> 
 #>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
 #>  $ params             :List of 18
 #>   ..$ doAnisotropy     : logi TRUE
@@ -8800,7 +8802,6 @@ om.rk <- predict(omm, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 69% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -9502,14 +9503,14 @@ localH2O = h2o.init(startH2O=TRUE)
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         23 minutes 36 seconds 
+#>     H2O cluster uptime:         23 minutes 39 seconds 
 #>     H2O cluster timezone:       UTC 
 #>     H2O data parsing timezone:  UTC 
 #>     H2O cluster version:        3.20.0.8 
 #>     H2O cluster version age:    3 months and 4 days  
 #>     H2O cluster name:           H2O_started_from_R_travis_lqb476 
 #>     H2O cluster total nodes:    1 
-#>     H2O cluster total memory:   1.47 GB 
+#>     H2O cluster total memory:   1.46 GB 
 #>     H2O cluster total cores:    2 
 #>     H2O cluster allowed cores:  2 
 #>     H2O cluster healthy:        TRUE 
@@ -9541,23 +9542,23 @@ RF.m
 #> ==============
 #> 
 #> H2ORegressionModel: drf
-#> Model ID:  DRF_model_R_1545792073309_21 
+#> Model ID:  DRF_model_R_1545806566630_21 
 #> Model Summary: 
 #>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#> 1              50                       50              639893        20
+#> 1              50                       50              642504        20
 #>   max_depth mean_depth min_leaves max_leaves mean_leaves
-#> 1        20   20.00000        912       1080  1014.84000
+#> 1        20   20.00000        917       1075  1019.02000
 #> 
 #> 
 #> H2ORegressionMetrics: drf
 #> ** Reported on training data. **
 #> ** Metrics reported on Out-Of-Bag training samples **
 #> 
-#> MSE:  221
+#> MSE:  223
 #> RMSE:  14.9
-#> MAE:  10.1
-#> RMSLE:  0.431
-#> Mean Residual Deviance :  221
+#> MAE:  10.2
+#> RMSLE:  0.433
+#> Mean Residual Deviance :  223
 ```
 
 This shows that the model fitting R-square is about 50%. This is also indicated by the predicted vs observed plot:
@@ -9604,29 +9605,29 @@ DL.m
 #> ==============
 #> 
 #> H2ORegressionModel: deeplearning
-#> Model ID:  DeepLearning_model_R_1545792073309_22 
+#> Model ID:  DeepLearning_model_R_1545806566630_22 
 #> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1
 #>   layer units      type dropout       l1       l2 mean_rate rate_rms
 #> 1     1    10     Input  0.00 %       NA       NA        NA       NA
-#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.015277 0.008686
-#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.123229 0.177234
-#> 4     4     1    Linear      NA 0.000000 0.000000  0.001263 0.000855
+#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.013906 0.008251
+#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.116258 0.154823
+#> 4     4     1    Linear      NA 0.000000 0.000000  0.001249 0.000810
 #>   momentum mean_weight weight_rms mean_bias bias_rms
 #> 1       NA          NA         NA        NA       NA
-#> 2 0.000000   -0.000812   0.102625  0.382221 0.054877
-#> 3 0.000000   -0.017328   0.070665  0.960694 0.015123
-#> 4 0.000000    0.003144   0.050655  0.100226 0.000000
+#> 2 0.000000    0.000101   0.100672  0.357607 0.061811
+#> 3 0.000000   -0.018004   0.071099  0.956356 0.017573
+#> 4 0.000000    0.005532   0.052265  0.091897 0.000000
 #> 
 #> 
 #> H2ORegressionMetrics: deeplearning
 #> ** Reported on training data. **
 #> ** Metrics reported on full training frame **
 #> 
-#> MSE:  259
-#> RMSE:  16.1
-#> MAE:  12.3
-#> RMSLE:  0.496
-#> Mean Residual Deviance :  259
+#> MSE:  269
+#> RMSE:  16.4
+#> MAE:  12.4
+#> RMSLE:  0.505
+#> Mean Residual Deviance :  269
 ```
 
 Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. \@ref(fig:map-snd) and Fig. \@ref(fig:map-snd-dl)).
@@ -9863,14 +9864,14 @@ str(test.ORC)
 #> List of 2
 #>  $ CV_residuals:'data.frame':	4972 obs. of  4 variables:
 #>   ..$ Observed : num [1:4972] 6.5 5.1 4.9 3.3 2.2 ...
-#>   ..$ Predicted: num [1:4972] 12.41 7.49 7.07 5.01 3.06 ...
+#>   ..$ Predicted: num [1:4972] 11.11 7.3 6.17 5.05 3.04 ...
 #>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" ...
 #>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ Summary     :'data.frame':	1 obs. of  6 variables:
-#>   ..$ ME          : num -0.135
+#>   ..$ ME          : num -0.148
 #>   ..$ MAE         : num 2.19
-#>   ..$ RMSE        : num 3.68
-#>   ..$ R.squared   : num 0.557
+#>   ..$ RMSE        : num 3.7
+#>   ..$ R.squared   : num 0.554
 #>   ..$ logRMSE     : num 0.498
 #>   ..$ logR.squared: num 0.631
 ```
@@ -9926,15 +9927,15 @@ perf
 #> 
 #> Base learner performance, sorted by specified metric:
 #>                    learner  MSE
+#> 1 h2o.randomForest.wrapper 13.1
 #> 2          h2o.gbm.wrapper 12.8
-#> 1 h2o.randomForest.wrapper 12.7
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 12.2884504360431
+#> Ensemble performance (MSE): 12.57814813515
 ```
 
 which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.
@@ -10034,16 +10035,16 @@ perf3
 #> Base learner performance, sorted by specified metric:
 #>                    learner    MSE
 #> 1          h2o.glm.wrapper 0.2827
-#> 4 h2o.deeplearning.wrapper 0.1594
+#> 4 h2o.deeplearning.wrapper 0.1259
 #> 3          h2o.gbm.wrapper 0.0971
-#> 2 h2o.randomForest.wrapper 0.0897
+#> 2 h2o.randomForest.wrapper 0.0874
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 0.0805620220364468
+#> Ensemble performance (MSE): 0.082018065620841
 ```
 
 In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.
@@ -10127,10 +10128,10 @@ sl
 #> 
 #>                  Risk   Coef
 #> SL.mean_All    0.7540 0.0000
-#> SL.xgboost_All 0.0598 0.8182
-#> SL.ksvm_All    0.1288 0.0144
-#> SL.glmnet_All  0.3071 0.0000
-#> SL.ranger_All  0.0853 0.1674
+#> SL.xgboost_All 0.0598 0.8151
+#> SL.ksvm_All    0.1283 0.0149
+#> SL.glmnet_All  0.3073 0.0000
+#> SL.ranger_All  0.0849 0.1700
 ```
 
 This shows that `SL.xgboost_All` outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by `SL.xgboost_All` is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:
@@ -10149,10 +10150,10 @@ sl2
 #>     SL.library = sl.l2) 
 #> 
 #> 
-#>                  Risk Coef
-#> SL.xgboost_All 0.0603 0.81
-#> SL.ranger_All  0.0831 0.19
-#> SL.ksvm_All    0.1312 0.00
+#>                  Risk  Coef
+#> SL.xgboost_All 0.0603 0.802
+#> SL.ranger_All  0.0823 0.198
+#> SL.ksvm_All    0.1304 0.000
 ```
 
 again `SL.xgboost` dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where entire profiles are taken out of the training dataset:
@@ -10179,11 +10180,11 @@ summary(cv_sl)
 #> All risk estimates are based on V =  5 
 #> 
 #>       Algorithm  Ave    se   Min  Max
-#>   Super Learner 0.16 0.014 0.092 0.25
-#>     Discrete SL 0.17 0.014 0.109 0.25
+#>   Super Learner 0.16 0.014 0.094 0.26
+#>     Discrete SL 0.17 0.015 0.110 0.25
 #>  SL.xgboost_All 0.19 0.016 0.135 0.27
-#>   SL.ranger_All 0.16 0.014 0.102 0.25
-#>     SL.ksvm_All 0.18 0.014 0.109 0.29
+#>   SL.ranger_All 0.16 0.015 0.103 0.25
+#>     SL.ksvm_All 0.18 0.015 0.110 0.30
 ```
 
 where `V=5` specifies number of folds, and `id=rm.cookfarm$SOURCEID` forces that entire profiles are removed from training and cross-validation. This gives a more realistic RMSE of about ±0.35. Note that this time `SL.xgboost_All` is even somewhat worse than the random forest model, and the ensemble model (`Super Learner`) is slightly better than each individual model. This matches our previous results with `h20.ensemble`. 
@@ -10206,10 +10207,10 @@ sl2
 #> 
 #> 
 #> 
-#>                 Risk  Coef
-#> SL.xgboost_All 0.215 0.000
-#> SL.ranger_All  0.164 0.486
-#> SL.ksvm_All    0.163 0.514
+#>                 Risk Coef
+#> SL.xgboost_All 0.215 0.00
+#> SL.ranger_All  0.165 0.48
+#> SL.ksvm_All    0.163 0.52
 new.data <- grid10m@data
 pred.PHI <- list(NULL)
 depths = c(10,30,50,70,90)
@@ -10231,7 +10232,7 @@ for(j in 1:length(depths)){
 #>     buffer, rotated
 str(pred.PHI[[1]])
 #> List of 2
-#>  $ pred           : num [1:3865, 1] 4.66 4.72 4.87 4.83 4.76 ...
+#>  $ pred           : num [1:3865, 1] 4.64 4.71 4.84 4.81 4.74 ...
 #>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...
 #>   ..- attr(*, "dimnames")=List of 2
 #>   .. ..$ : NULL

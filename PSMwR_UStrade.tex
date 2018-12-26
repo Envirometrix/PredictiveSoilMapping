@@ -3014,7 +3014,7 @@ collected data.
 
 \emph{Edited by: T. Hengl}
 
-This section contains instructions on how to install and use software to run predictive soil mapping and export results to GIS or web applications. It has been written (as has most of the book) for Linux users, but should not be too much of a problem to adoat to Microsoft Windows OS and/or Mac OS.
+This section contains instructions on how to install and use software to run predictive soil mapping and export results to GIS or web applications. It has been written (as has most of the book) for Linux users, but should not be too much of a problem to adapt to Microsoft Windows OS and/or Mac OS.
 
 \hypertarget{list-of-software-in-use}{%
 \section{List of software in use}\label{list-of-software-in-use}}
@@ -3032,7 +3032,7 @@ For processing the covariates we used a combination of Open Source GIS
 software, primarily SAGA GIS \citep{gmd-8-1991-2015}, packages raster \citep{raster},
 sp \citep{pebesma2005classes}, and GDAL \citep{mitchell2014geospatial} for reprojecting,
 mosaicking and merging tiles. GDAL and parallel packages in R are highly suitable for
-processing large data.
+processing large volumes of data.
 
 Software (required):
 
@@ -3056,7 +3056,7 @@ R script used in this tutorial can be downloaded from the \textbf{\href{https://
 \hypertarget{installing-software-on-ubuntu-os}{%
 \section{Installing software on Ubuntu OS}\label{installing-software-on-ubuntu-os}}
 
-On Ubuntu (often the recommended standard for the GIS community) the main required software can be installed within 10--20 minutes. We start with installing GDAL, proj4 and some packages that you might need later on:
+On Ubuntu (often the preferred standard for the GIS community) the main required software can be installed within 10--20 minutes. We start with installing GDAL, proj4 and some packages that you might need later on:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3065,7 +3065,7 @@ On Ubuntu (often the recommended standard for the GIS community) the main requir
 \end{Highlighting}
 \end{Shaded}
 
-Next, we can install R and RStudio. For R studio you can use the CRAN distribution or the optimized distribution provided by (the former REvolution company; now Microsoft):
+Next, we install R and RStudio. For R studio you can use the CRAN distribution or the optimized distribution provided by (the former REvolution company; now Microsoft):
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3076,7 +3076,7 @@ Next, we can install R and RStudio. For R studio you can use the CRAN distributi
 \end{Highlighting}
 \end{Shaded}
 
-Note that R versions are constantly being updated so you will need to replace the URL above based on information provided on the home page (\url{http://mran.microsoft.com}). Once you run \texttt{install.sh} you will have to accept the license terms two times before the installation can be completed. If everything completes successfully, you can get the session info by:
+Note that R versions are constantly being updated so you will need to replace the URL above based on the most current information provided on the home page (\url{http://mran.microsoft.com}). Once you run \texttt{install.sh} you will have to accept the license terms twice before the installation can be completed. If everything completes successfully, you can get the session info by:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3126,7 +3126,7 @@ To install RStudio we can run:
 \end{Highlighting}
 \end{Shaded}
 
-Again, RStudio is constantly updated so you might have to adjust the rstudio version and distribution.
+Again, RStudio is constantly updated so you might have to obtain the most recent rstudio version and distribution.
 To learn more about doing first steps in R and RStudio and to learn to improve your scripting skills more efficiently, consider studying the following two Open Access books:
 
 \begin{itemize}
@@ -3139,8 +3139,8 @@ To learn more about doing first steps in R and RStudio and to learn to improve y
 \hypertarget{installing-gis-software}{%
 \section{Installing GIS software}\label{installing-gis-software}}
 
-Predictive soil mapping is about making maps, and working with maps requires use of GIS software to open, view overlay and analyze the data sptially. GIS software recommended for soil mapping in this book consists of SAGA GIS, QGIS, GRASS GIS and Google Earth. QGIS comes with an \href{https://www.qgis.org/en/docs/}{extensive literature} and can be used to publish maps and combine layers served by various organizations.
-SAGA GIS, being implemented in C++, is highly suited to run geoprocessing on large data sets.
+Predictive soil mapping is about making maps, and working with maps requires use of GIS software to open, view overlay and analyze the data spatially. GIS software recommended in this book for soil mapping consists of SAGA GIS, QGIS, GRASS GIS and Google Earth. QGIS comes with an \href{https://www.qgis.org/en/docs/}{extensive literature} and can be used to publish maps and combine layers served by various organizations.
+SAGA GIS, being implemented in C++, is highly suited for running geoprocessing on large data sets.
 To, install SAGA GIS on Ubuntu we can use:
 
 \begin{Shaded}
@@ -3151,7 +3151,7 @@ To, install SAGA GIS on Ubuntu we can use:
 \end{Highlighting}
 \end{Shaded}
 
-If installation was successful, you should be able to access SAGA command line also from R by using:
+If installation is successful, you should be able to access SAGA command line also from R by using:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3210,7 +3210,7 @@ WhiteboxTools (\url{http://www.uoguelph.ca/~hydrogeo/WhiteboxTools/}), contribut
 \caption{Calling WhiteboxTools from QGIS via the WhiteboxTools plugin.}\label{fig:whiteboxtools-preview}
 \end{figure}
 
-The function \texttt{FlowAccumulationFullWorkflow} is, for example, a wrapper function to filter out all spurious sinks and to derive a hydrological flow accumulation map in the same step. To run it from command line we can use:
+The function \texttt{FlowAccumulationFullWorkflow} is, for example, a wrapper function to filter out all spurious sinks and to derive a hydrological flow accumulation map in one step. To run it from command line we can use:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3233,12 +3233,12 @@ The function \texttt{FlowAccumulationFullWorkflow} is, for example, a wrapper fu
 \caption{Hydrological flow accummulation map based on the Ebergotzen DEM derived using WhiteboxTools.}\label{fig:eberg-hydroflow-preview-3d}
 \end{figure}
 
-This produces a number of maps, from which the hydrological flow accumulation map is usually the most useful. It is highly recommended that, before running analysis on large DEM's using WhiteboxTools and/or SAGA GIS, you test functionality using smaller data sets i.e.~either a subset of the original data or using a DEM at very coarse resolutions (so that width and height of a DEM are only few hundred pixels). Also note that WhiteboxTools do not presently work with GeoTIFs that use the \texttt{COMPRESS=DEFLATE} creation options.
+This produces a number of maps, from which the hydrological flow accumulation map is usually the most useful. It is highly recommended that, before running analysis on large DEM's using WhiteboxTools and/or SAGA GIS, you test functionality using smaller data sets i.e.~either a subset of the original data or using a DEM at very coarse resolution (so that width and height of a DEM are only few hundred pixels). Also note that WhiteboxTools do not presently work with GeoTIFs that use the \texttt{COMPRESS=DEFLATE} creation options.
 
 \hypertarget{Rstudio}{%
 \section{RStudio}\label{Rstudio}}
 
-RStudio is, in principle, the main R scripting environment and can be used to control all other software used in this tutorial. A more detailed RStudio tutorial is available at: \href{http://www.rstudio.com/resources/training/online-learning/}{RStudio --- Online Learning}. Consider also following some spatial data tutorials e.g.~by James Cheshire (\url{http://spatial.ly/r/}). Below is an example of RStudio session with R editor on right and R console on left.
+RStudio is, in principle, the main R scripting environment and can be used to control all other software used in this tutorial. A more detailed RStudio tutorial is available at: \href{http://www.rstudio.com/resources/training/online-learning/}{RStudio --- Online Learning}. Consider also following some spatial data tutorials e.g.~by James Cheshire (\url{http://spatial.ly/r/}). Below is an example of an RStudio session with R editor on right and R console on left.
 
 \begin{figure}[H]
 
@@ -3267,7 +3267,7 @@ To install all required R packages used in this tutorial at once, you can use:
 \end{Highlighting}
 \end{Shaded}
 
-This will basically check if any package is installed already, then install it only if it is missing. You can put this line at the top of each R script that you share so that anybody using that script will automatically get all required packages.
+This will basically check if any package is installed already, then install it only if it is missing. You can put this line at the top of each R script that you share so that anybody using that script will automatically obtain all required packages.
 
 The h2o package requires Java libraries, so you should first install Java by using e.g.:
 
@@ -3283,7 +3283,7 @@ The h2o package requires Java libraries, so you should first install Java by usi
 \hypertarget{plotkml-and-gsif-packages}{%
 \section{plotKML and GSIF packages}\label{plotkml-and-gsif-packages}}
 
-Many examples in this course rely on the top 5 most commonly used packages for spatial data: (1) \href{https://cran.r-project.org/web/views/Spatial.html}{sp and rgdal}, (2) \href{https://cran.r-project.org/web/packages/raster/}{raster}, (3) \href{http://plotkml.r-forge.r-project.org/}{plotKML} and (4) \href{http://gsif.r-forge.r-project.org/}{GSIF}. To install the most up-to-date version of plotKML/GSIF, you can also use the R-Forge versions of the package:
+Many examples in this tutorial rely on the top 5 most commonly used packages for spatial data: (1) \href{https://cran.r-project.org/web/views/Spatial.html}{sp and rgdal}, (2) \href{https://cran.r-project.org/web/packages/raster/}{raster}, (3) \href{http://plotkml.r-forge.r-project.org/}{plotKML} and (4) \href{http://gsif.r-forge.r-project.org/}{GSIF}. To install the most up-to-date version of plotKML/GSIF, you can also use the R-Forge versions of the package:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3383,7 +3383,7 @@ To test if these packages work properly, create soil maps and visualize them in 
 \hypertarget{connecting-r-and-saga-gis}{%
 \section{Connecting R and SAGA GIS}\label{connecting-r-and-saga-gis}}
 
-SAGA GIS is an extensive GIS geoprocessing software with over \href{http://www.saga-gis.org/saga_tool_doc/index.html}{600 functions}.
+SAGA GIS provides comprehensive GIS geoprocessing software with over \href{http://www.saga-gis.org/saga_tool_doc/index.html}{600 functions}.
 SAGA GIS can not be installed from RStudio (it is not a package for R).
 Instead, you need to install SAGA GIS using the installation instructions from the \href{https://sourceforge.net/projects/saga-gis/}{software homepage}.
 After you have installed SAGA GIS, you can send processes from
@@ -3446,7 +3446,7 @@ the \href{http://www.saga-gis.org/saga_tool_doc/index.html}{SAGA GIS command lin
 \hypertarget{connecting-r-and-gdal}{%
 \section{Connecting R and GDAL}\label{connecting-r-and-gdal}}
 
-Another very important software for handling spatial data (and especially for exchanging / converting spatial data) is GDAL. GDAL also needs to be installed separately (for Windows machines use e.g. \href{http://download.gisinternals.com/sdk/downloads/}{``gdal-201-1800-x64-core.msi''}) and then can be called from command line:
+GDAL is another very important software tool for handling spatial data (and especially for exchanging / converting spatial data). GDAL also needs to be installed separately (for Windows machines use e.g. \href{http://download.gisinternals.com/sdk/downloads/}{``gdal-201-1800-x64-core.msi''}) and then can be called from command line:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8599,7 +8599,6 @@ for plotting, (4) spatial locations of observations used to fit the model. To pr
 \CommentTok{#> Generating predictions using the trend model (RK method)...}
 \CommentTok{#> [using ordinary kriging]}
 \CommentTok{#> }
- \DecValTok{29}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Running 5-fold cross validation using 'krige.cv'...}
 \CommentTok{#> Creating an object of class "SpatialPredictions"}
@@ -8944,7 +8943,6 @@ support:
 \CommentTok{#> Generating predictions using the trend model (RK method)...}
 \CommentTok{#> [using ordinary kriging]}
 \CommentTok{#> }
- \DecValTok{92}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Running 5-fold cross validation using 'krige.cv'...}
 \CommentTok{#> Creating an object of class "SpatialPredictions"}
@@ -9224,6 +9222,7 @@ argument:
 \CommentTok{#> drawing 20 GLS realisations of beta...}
 \CommentTok{#> [using conditional Gaussian simulation]}
 \CommentTok{#> }
+ \DecValTok{25}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Creating an object of class "RasterBrickSimulations"}
 \KeywordTok{log1p}\NormalTok{(meuse}\OperatorTok{@}\NormalTok{data[}\DecValTok{1}\NormalTok{,}\StringTok{"om"}\NormalTok{])}
@@ -9275,13 +9274,13 @@ organic matter content using the Meuse case study:
 \KeywordTok{demo}\NormalTok{(meuse, }\DataTypeTok{echo=}\OtherTok{FALSE}\NormalTok{)}
 \NormalTok{meuse}\OperatorTok{$}\NormalTok{value =}\StringTok{ }\NormalTok{meuse}\OperatorTok{$}\NormalTok{zinc}
 \NormalTok{output <-}\StringTok{ }\KeywordTok{interpolate}\NormalTok{(meuse, meuse.grid, }\KeywordTok{list}\NormalTok{(}\DataTypeTok{mean=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{variance=}\OtherTok{TRUE}\NormalTok{))}
-\CommentTok{#> R 2018-12-26 02:40:13 interpolating 155 observations, 3103 prediction locations}
+\CommentTok{#> R 2018-12-26 06:41:46 interpolating 155 observations, 3103 prediction locations}
 \CommentTok{#> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : }
 \CommentTok{#>  using standard model for estimating time. For better }
 \CommentTok{#>  platform spesific predictions, please run }
 \CommentTok{#>  timeModels <- generateTimeModels()}
 \CommentTok{#>   and save the workspace}
-\CommentTok{#> [1] "estimated time for  copula 157.62322369703"}
+\CommentTok{#> [1] "estimated time for  copula 163.270098928935"}
 \CommentTok{#> Checking object ... OK}
 \end{Highlighting}
 \end{Shaded}
@@ -9296,7 +9295,7 @@ at hand (\texttt{value} column), given the time available set with
 \CommentTok{#> List of 16}
 \CommentTok{#>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots}
 \CommentTok{#>  $ formulaString      :Class 'formula'  language value ~ 1}
-\CommentTok{#>   .. ..- attr(*, ".Environment")=<environment: 0x14b261e8> }
+\CommentTok{#>   .. ..- attr(*, ".Environment")=<environment: 0x12e0a610> }
 \CommentTok{#>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots}
 \CommentTok{#>  $ params             :List of 18}
 \CommentTok{#>   ..$ doAnisotropy     : logi TRUE}
@@ -10065,7 +10064,6 @@ which can now be used to generate predictions:
 \CommentTok{#> Generating predictions using the trend model (RK method)...}
 \CommentTok{#> [using ordinary kriging]}
 \CommentTok{#> }
- \DecValTok{79}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Running 5-fold cross validation using 'krige.cv'...}
 \CommentTok{#> Creating an object of class "SpatialPredictions"}
@@ -10833,14 +10831,14 @@ In the following example we look at mapping sand content for the upper horizons.
 \CommentTok{#> H2O is not running yet, starting it now...}
 \CommentTok{#> }
 \CommentTok{#> Note:  In case of errors look at the following log files:}
-\CommentTok{#>     /tmp/Rtmpcoxs7M/h2o_travis_started_from_r.out}
-\CommentTok{#>     /tmp/Rtmpcoxs7M/h2o_travis_started_from_r.err}
+\CommentTok{#>     /tmp/Rtmp85ocDx/h2o_travis_started_from_r.out}
+\CommentTok{#>     /tmp/Rtmp85ocDx/h2o_travis_started_from_r.err}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> Starting H2O JVM and connecting: .. Connection successful!}
 \CommentTok{#> }
 \CommentTok{#> R is connected to the H2O cluster: }
-\CommentTok{#>     H2O cluster uptime:         2 seconds 139 milliseconds }
+\CommentTok{#>     H2O cluster uptime:         2 seconds 88 milliseconds }
 \CommentTok{#>     H2O cluster timezone:       UTC }
 \CommentTok{#>     H2O data parsing timezone:  UTC }
 \CommentTok{#>     H2O cluster version:        3.20.0.8 }
@@ -10881,23 +10879,23 @@ We can now fit a random forest model by using all the computing power available 
 \CommentTok{#> ==============}
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionModel: drf}
-\CommentTok{#> Model ID:  DRF_model_R_1545792073309_1 }
+\CommentTok{#> Model ID:  DRF_model_R_1545806566630_1 }
 \CommentTok{#> Model Summary: }
 \CommentTok{#>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth}
-\CommentTok{#> 1              50                       50              646817        20}
+\CommentTok{#> 1              50                       50              646803        20}
 \CommentTok{#>   max_depth mean_depth min_leaves max_leaves mean_leaves}
-\CommentTok{#> 1        20   20.00000        987       1063  1026.20000}
+\CommentTok{#> 1        20   20.00000        963       1078  1025.98000}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionMetrics: drf}
 \CommentTok{#> ** Reported on training data. **}
 \CommentTok{#> ** Metrics reported on Out-Of-Bag training samples **}
 \CommentTok{#> }
-\CommentTok{#> MSE:  221}
-\CommentTok{#> RMSE:  14.9}
+\CommentTok{#> MSE:  219}
+\CommentTok{#> RMSE:  14.8}
 \CommentTok{#> MAE:  10.1}
 \CommentTok{#> RMSLE:  0.429}
-\CommentTok{#> Mean Residual Deviance :  221}
+\CommentTok{#> Mean Residual Deviance :  219}
 \end{Highlighting}
 \end{Shaded}
 
@@ -10955,29 +10953,29 @@ h2o has another MLA of interest for soil mapping called \emph{deep learning} (a 
 \CommentTok{#> ==============}
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionModel: deeplearning}
-\CommentTok{#> Model ID:  DeepLearning_model_R_1545792073309_2 }
+\CommentTok{#> Model ID:  DeepLearning_model_R_1545806566630_2 }
 \CommentTok{#> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1}
 \CommentTok{#>   layer units      type dropout       l1       l2 mean_rate rate_rms}
 \CommentTok{#> 1     1    10     Input  0.00 %       NA       NA        NA       NA}
-\CommentTok{#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.013677 0.007741}
-\CommentTok{#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.154719 0.185816}
-\CommentTok{#> 4     4     1    Linear      NA 0.000000 0.000000  0.001445 0.000943}
+\CommentTok{#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.016033 0.010329}
+\CommentTok{#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.163616 0.201388}
+\CommentTok{#> 4     4     1    Linear      NA 0.000000 0.000000  0.001357 0.000832}
 \CommentTok{#>   momentum mean_weight weight_rms mean_bias bias_rms}
 \CommentTok{#> 1       NA          NA         NA        NA       NA}
-\CommentTok{#> 2 0.000000   -0.000400   0.101822  0.363013 0.062308}
-\CommentTok{#> 3 0.000000   -0.017796   0.071129  0.955900 0.020008}
-\CommentTok{#> 4 0.000000   -0.000015   0.048708  0.103778 0.000000}
+\CommentTok{#> 2 0.000000    0.000378   0.103147  0.359565 0.069835}
+\CommentTok{#> 3 0.000000   -0.018187   0.071170  0.954236 0.018902}
+\CommentTok{#> 4 0.000000    0.001496   0.044875  0.077467 0.000000}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionMetrics: deeplearning}
 \CommentTok{#> ** Reported on training data. **}
 \CommentTok{#> ** Metrics reported on full training frame **}
 \CommentTok{#> }
-\CommentTok{#> MSE:  258}
-\CommentTok{#> RMSE:  16.1}
-\CommentTok{#> MAE:  12.3}
-\CommentTok{#> RMSLE:  0.494}
-\CommentTok{#> Mean Residual Deviance :  258}
+\CommentTok{#> MSE:  286}
+\CommentTok{#> RMSE:  16.9}
+\CommentTok{#> MAE:  12.9}
+\CommentTok{#> RMSLE:  0.523}
+\CommentTok{#> Mean Residual Deviance :  286}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11247,16 +11245,16 @@ We can hence run 5-fold cross validation:
 \CommentTok{#> List of 2}
 \CommentTok{#>  $ CV_residuals:'data.frame':    4972 obs. of  4 variables:}
 \CommentTok{#>   ..$ Observed : num [1:4972] 14.5 13.6 10.1 12.1 7.1 ...}
-\CommentTok{#>   ..$ Predicted: num [1:4972] 15.11 11.15 9.47 5.61 2.93 ...}
+\CommentTok{#>   ..$ Predicted: num [1:4972] 14.24 10.85 9.39 5.99 3.26 ...}
 \CommentTok{#>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" ...}
 \CommentTok{#>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...}
 \CommentTok{#>  $ Summary     :'data.frame':    1 obs. of  6 variables:}
-\CommentTok{#>   ..$ ME          : num -0.125}
-\CommentTok{#>   ..$ MAE         : num 2.12}
-\CommentTok{#>   ..$ RMSE        : num 3.61}
-\CommentTok{#>   ..$ R.squared   : num 0.573}
-\CommentTok{#>   ..$ logRMSE     : num 0.482}
-\CommentTok{#>   ..$ logR.squared: num 0.653}
+\CommentTok{#>   ..$ ME          : num -0.123}
+\CommentTok{#>   ..$ MAE         : num 2.13}
+\CommentTok{#>   ..$ RMSE        : num 3.63}
+\CommentTok{#>   ..$ R.squared   : num 0.57}
+\CommentTok{#>   ..$ logRMSE     : num 0.483}
+\CommentTok{#>   ..$ logR.squared: num 0.651}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11316,14 +11314,14 @@ we first specify all learners (MLA methods) of interest:
 \CommentTok{#> Base learner performance, sorted by specified metric:}
 \CommentTok{#>                    learner  MSE}
 \CommentTok{#> 2          h2o.gbm.wrapper 9.81}
-\CommentTok{#> 1 h2o.randomForest.wrapper 8.76}
+\CommentTok{#> 1 h2o.randomForest.wrapper 8.72}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2O Ensemble Performance on <newdata>:}
 \CommentTok{#> ----------------}
 \CommentTok{#> Family: gaussian}
 \CommentTok{#> }
-\CommentTok{#> Ensemble performance (MSE): 8.54381124589522}
+\CommentTok{#> Ensemble performance (MSE): 8.66003073403914}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11426,16 +11424,16 @@ We can again test fitting an ensemble model using two MLA's:
 \CommentTok{#> Base learner performance, sorted by specified metric:}
 \CommentTok{#>                    learner    MSE}
 \CommentTok{#> 1          h2o.glm.wrapper 0.2827}
-\CommentTok{#> 4 h2o.deeplearning.wrapper 0.1412}
+\CommentTok{#> 4 h2o.deeplearning.wrapper 0.1286}
 \CommentTok{#> 3          h2o.gbm.wrapper 0.0971}
-\CommentTok{#> 2 h2o.randomForest.wrapper 0.0810}
+\CommentTok{#> 2 h2o.randomForest.wrapper 0.0819}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2O Ensemble Performance on <newdata>:}
 \CommentTok{#> ----------------}
 \CommentTok{#> Family: gaussian}
 \CommentTok{#> }
-\CommentTok{#> Ensemble performance (MSE): 0.0786131303075795}
+\CommentTok{#> Ensemble performance (MSE): 0.079034575671638}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11524,10 +11522,10 @@ A useful functionality of the SuperLearner package is that it displays how model
 \CommentTok{#> }
 \CommentTok{#>                  Risk    Coef}
 \CommentTok{#> SL.mean_All    0.7540 0.00000}
-\CommentTok{#> SL.xgboost_All 0.0598 0.80982}
-\CommentTok{#> SL.ksvm_All    0.1296 0.00837}
-\CommentTok{#> SL.glmnet_All  0.3076 0.00000}
-\CommentTok{#> SL.ranger_All  0.0844 0.18181}
+\CommentTok{#> SL.xgboost_All 0.0598 0.81125}
+\CommentTok{#> SL.ksvm_All    0.1292 0.00754}
+\CommentTok{#> SL.glmnet_All  0.3077 0.00000}
+\CommentTok{#> SL.ranger_All  0.0849 0.18121}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11548,9 +11546,9 @@ This shows that \texttt{SL.xgboost\_All} outperforms the competition by a large 
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#>                  Risk  Coef}
-\CommentTok{#> SL.xgboost_All 0.0603 0.808}
-\CommentTok{#> SL.ranger_All  0.0824 0.192}
-\CommentTok{#> SL.ksvm_All    0.1304 0.000}
+\CommentTok{#> SL.xgboost_All 0.0603 0.814}
+\CommentTok{#> SL.ranger_All  0.0833 0.186}
+\CommentTok{#> SL.ksvm_All    0.1305 0.000}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11579,10 +11577,10 @@ again \texttt{SL.xgboost} dominates the ensemble model, which is most likely unr
 \CommentTok{#> }
 \CommentTok{#>       Algorithm  Ave    se   Min  Max}
 \CommentTok{#>   Super Learner 0.16 0.014 0.096 0.26}
-\CommentTok{#>     Discrete SL 0.17 0.015 0.117 0.25}
+\CommentTok{#>     Discrete SL 0.17 0.014 0.110 0.25}
 \CommentTok{#>  SL.xgboost_All 0.19 0.016 0.135 0.27}
-\CommentTok{#>   SL.ranger_All 0.17 0.015 0.104 0.25}
-\CommentTok{#>     SL.ksvm_All 0.18 0.014 0.110 0.30}
+\CommentTok{#>   SL.ranger_All 0.16 0.014 0.103 0.25}
+\CommentTok{#>     SL.ksvm_All 0.18 0.014 0.110 0.29}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11608,8 +11606,8 @@ To produce predictions of soil pH at 10 cm depth we can finally use:
 \CommentTok{#> }
 \CommentTok{#>                 Risk  Coef}
 \CommentTok{#> SL.xgboost_All 0.215 0.000}
-\CommentTok{#> SL.ranger_All  0.164 0.486}
-\CommentTok{#> SL.ksvm_All    0.163 0.514}
+\CommentTok{#> SL.ranger_All  0.165 0.485}
+\CommentTok{#> SL.ksvm_All    0.163 0.515}
 \NormalTok{new.data <-}\StringTok{ }\NormalTok{grid10m}\OperatorTok{@}\NormalTok{data}
 \NormalTok{pred.PHI <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\OtherTok{NULL}\NormalTok{)}
 \NormalTok{depths =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{,}\DecValTok{30}\NormalTok{,}\DecValTok{50}\NormalTok{,}\DecValTok{70}\NormalTok{,}\DecValTok{90}\NormalTok{)}
@@ -11631,7 +11629,7 @@ To produce predictions of soil pH at 10 cm depth we can finally use:
 \CommentTok{#>     buffer, rotated}
 \KeywordTok{str}\NormalTok{(pred.PHI[[}\DecValTok{1}\NormalTok{]])}
 \CommentTok{#> List of 2}
-\CommentTok{#>  $ pred           : num [1:3865, 1] 4.69 4.77 4.89 4.85 4.78 ...}
+\CommentTok{#>  $ pred           : num [1:3865, 1] 4.66 4.73 4.85 4.85 4.77 ...}
 \CommentTok{#>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...}
 \CommentTok{#>   ..- attr(*, "dimnames")=List of 2}
 \CommentTok{#>   .. ..$ : NULL}
