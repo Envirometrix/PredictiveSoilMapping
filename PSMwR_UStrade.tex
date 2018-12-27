@@ -237,7 +237,7 @@
 
 \title{Predictive Soil Mapping with R}
 \author{Tomislav Hengl and Robert A. MacMillan}
-\date{2018-12-26}
+\date{2018-12-27}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -7810,7 +7810,7 @@ statistical models \citep{MacMillan2005CJSS, Walter2006DSS, Liu2009}.
 For example, a surveyor can define the classification rules
 subjectively, i.e.~based on his/her knowledge of the area, then
 iteratively adjust the model until the output maps fit his/her
-expectation of the distribution of soils.
+expectation of the distribution of soils \citep{MacMillan2010DSM}.
 
 In areas where few, or no, field observations of soil properties are
 available, the most common way to produce estimates is to rely on expert
@@ -8607,6 +8607,7 @@ for plotting, (4) spatial locations of observations used to fit the model. To pr
 \CommentTok{#> Generating predictions using the trend model (RK method)...}
 \CommentTok{#> [using ordinary kriging]}
 \CommentTok{#> }
+ \DecValTok{12}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Running 5-fold cross validation using 'krige.cv'...}
 \CommentTok{#> Creating an object of class "SpatialPredictions"}
@@ -8685,7 +8686,6 @@ would look like this:
 \CommentTok{#> Generating predictions using the trend model (RK method)...}
 \CommentTok{#> [using ordinary kriging]}
 \CommentTok{#> }
- \DecValTok{86}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Running 5-fold cross validation using 'krige.cv'...}
 \CommentTok{#> Creating an object of class "SpatialPredictions"}
@@ -8952,6 +8952,7 @@ support:
 \CommentTok{#> Generating predictions using the trend model (RK method)...}
 \CommentTok{#> [using ordinary kriging]}
 \CommentTok{#> }
+ \DecValTok{88}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Running 5-fold cross validation using 'krige.cv'...}
 \CommentTok{#> Creating an object of class "SpatialPredictions"}
@@ -8986,7 +8987,6 @@ square blocks of 40 by 40 m we run:
 \CommentTok{#> Generating predictions using the trend model (RK method)...}
 \CommentTok{#> [using ordinary kriging]}
 \CommentTok{#> }
- \DecValTok{50}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Creating an object of class "SpatialPredictions"}
 \NormalTok{om.rksim.b <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(omm, meuse.grid, }\DataTypeTok{nsim=}\DecValTok{2}\NormalTok{, }\DataTypeTok{block=}\KeywordTok{c}\NormalTok{(}\DecValTok{40}\NormalTok{,}\DecValTok{40}\NormalTok{), }\DataTypeTok{debug.level=}\DecValTok{0}\NormalTok{)}
@@ -9052,7 +9052,7 @@ function. The gstat package reports automatically the cross-validation error
 which shows that the mapping accuracy at point support is ca. 53\% of the
 original variance (see further Eq.\eqref{eq:normvar}).
 
-Note also that, cross-validation using block support in is not possible
+Note also that, cross-validation using block support in many cases is not possible
 because the input data needed for cross-validation are only available at
 point support. This basically means that, for the Meuse example, to
 estimate the mapping accuracy at block support we would have to revisit
@@ -9106,7 +9106,7 @@ in the world refer to (lateral) point support. Hence the most typical
 combination of support size that we work with is: point support for soil
 property observations, block support for covariates and point or block
 support for soil property predictions. Modelling at full point support
-(both soil sampled, covariates and outputs at point support) is in fact
+(both soil samples, covariates and outputs at point support) is in fact
 very rare. Soil covariates are often derived from remote sensing data,
 which is almost always delivered at block support.
 
@@ -9215,7 +9215,7 @@ important to be aware that these assessments of uncertainty are
 \emph{model-based}, i.e.~are only valid under the assumptions made by the
 geostatistical model. A truly \emph{model-free} assessment of the map
 accuracy can (only) be obtained by probability-based validation
-\citep{Brus2011EJSS}. For this we need independent sample i.e.~a sample that
+\citep{Brus2011EJSS}. For this we need an independent sample i.e.~a sample that
 was not used to build the model and make the predictions, and that, in
 addition, was selected from the study area using a probabilistic
 sampling design.
@@ -9283,13 +9283,13 @@ organic matter content using the Meuse case study:
 \KeywordTok{demo}\NormalTok{(meuse, }\DataTypeTok{echo=}\OtherTok{FALSE}\NormalTok{)}
 \NormalTok{meuse}\OperatorTok{$}\NormalTok{value =}\StringTok{ }\NormalTok{meuse}\OperatorTok{$}\NormalTok{zinc}
 \NormalTok{output <-}\StringTok{ }\KeywordTok{interpolate}\NormalTok{(meuse, meuse.grid, }\KeywordTok{list}\NormalTok{(}\DataTypeTok{mean=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{variance=}\OtherTok{TRUE}\NormalTok{))}
-\CommentTok{#> R 2018-12-26 21:14:18 interpolating 155 observations, 3103 prediction locations}
+\CommentTok{#> R 2018-12-27 01:53:47 interpolating 155 observations, 3103 prediction locations}
 \CommentTok{#> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : }
 \CommentTok{#>  using standard model for estimating time. For better }
 \CommentTok{#>  platform spesific predictions, please run }
 \CommentTok{#>  timeModels <- generateTimeModels()}
 \CommentTok{#>   and save the workspace}
-\CommentTok{#> [1] "estimated time for  copula 161.521948433195"}
+\CommentTok{#> [1] "estimated time for  copula 207.667067975104"}
 \CommentTok{#> Checking object ... OK}
 \end{Highlighting}
 \end{Shaded}
@@ -9304,7 +9304,7 @@ at hand (\texttt{value} column), given the time available set with
 \CommentTok{#> List of 16}
 \CommentTok{#>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots}
 \CommentTok{#>  $ formulaString      :Class 'formula'  language value ~ 1}
-\CommentTok{#>   .. ..- attr(*, ".Environment")=<environment: 0x13d01648> }
+\CommentTok{#>   .. ..- attr(*, ".Environment")=<environment: 0x1461a9e8> }
 \CommentTok{#>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots}
 \CommentTok{#>  $ params             :List of 18}
 \CommentTok{#>   ..$ doAnisotropy     : logi TRUE}
@@ -9479,7 +9479,7 @@ We can quickly compare performance of using GLM vs random forest vs no model for
 \end{Shaded}
 
 This will run repeated Cross-validation with 50\% : 50\% splits training and validation,
-which means that in each iteration models will be refitted from scratch. Next we can compare performance of the three models by using:
+which means that, in each iteration, models will be refitted from scratch. Next we can compare performance of the three models by using:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9509,7 +9509,7 @@ In the case above, it seems that random forest (\href{https://github.com/imbs-hl
 
 There is certainly added value in using spatial covariates (in the case above: distance to water and flooding frequency maps) and in using machine learning for spatial prediction, even with smaller data sets.
 
-Note also that the assessment of spatial prediction accuracy for the three models based on the train function above is model-free, i.e.~cross-validation of the models is independent of the models used because, at each cross-validation subset, fitting of the model is repeated and validation points are maintained separate from model training. Subsetting point samples is not always trivial however: in order to consider cross-validation as completely reliable, the samples ought to be representative of the study area and preferably collected using objective sampling such as simple random sampling or similar \citep{Brus2011EJSS}. In the case the sampling locations are clustered in geographical space i.e.~if some parts of the study area are completely omitted from sampling, then also the results of cross-validation will reflect that sampling bias / poor representation. In all the following examples we will assume that cross-validation gives a reliable measure of mapping accuracy and we will use it as the basis of accuracy assessment i.e.~mapping efficiency. In reality, cross-validation might be tricky to implement and could often lead to somewhat over-optimistic results if either sampling bias exists or/and if there are too few points for model validation. For example, in the case of soil profile data, it is highly recommended that entire profiles are removed from CV because soil horizons are too strongly correlated (as discussed in detail in \citet{Gasch2015SPASTA} and \citet{Brenning2012}).
+Note also that the assessment of spatial prediction accuracy for the three models based on the train function above is model-free, i.e.~cross-validation of the models is independent of the models used because, at each cross-validation subset, fitting of the model is repeated and validation points are maintained separate from model training. Subsetting point samples is not always trivial however: in order to consider cross-validation as completely reliable, the samples ought to be representative of the study area and preferably collected using objective sampling such as simple random sampling or similar \citep{Brus2011EJSS}. In cases where the sampling locations are clustered in geographical space i.e.~if some parts of the study area are completely omitted from sampling, then also the results of cross-validation will reflect that sampling bias / poor representation. In all the following examples we will assume that cross-validation gives a reliable measure of mapping accuracy and we will use it as the basis of accuracy assessment i.e.~mapping efficiency. In reality, cross-validation might be tricky to implement and could often lead to somewhat over-optimistic results if either sampling bias exists or/and if there are too few points for model validation. For example, in the case of soil profile data, it is highly recommended that entire profiles are removed from CV because soil horizons are too strongly correlated (as discussed in detail in \citet{Gasch2015SPASTA} and \citet{Brenning2012}).
 
 The whole process of spatial prediction of soil properties could be summarized in 5 steps:
 
@@ -9660,7 +9660,7 @@ does not meaningfully differ from 2D variogram modelling.
 
 The 3D RK framework explained above can be compared to the approach of
 \citet{Malone2009Geoderma}, who first fit an equal-area spline function to
-estimate the soil properties at a standard depth, and next fit
+estimate the soil properties at standard depths, and next fit
 regression and variogram models at each depth. A drawback of the
 approach by \citet{Malone2009Geoderma}, however, is that the separate models
 for each depth ignore all vertical correlations. In addition, the
@@ -9668,7 +9668,7 @@ equal-area spline is not used to model soil-depth relationships but only
 to estimate the values at standard depths for sampling locations i.e.~it
 is implemented for each soil profile (site) separately. In the 3D RK
 framework explained above, a single model is used to generate
-predictions at any location and for any depth, and which takes into
+predictions at any location and for any depth, and this takes into
 account both horizontal and vertical relationships simultaneously. The
 3D RK approach is both easier to implement, and allows for incorporating
 all (vertical) soil-depth relationships including the spatial
@@ -9773,7 +9773,7 @@ geographical databases those products can be evaluated using independent
 validation studies. Unfortunately, much evaluation of soil maps in the
 world is still done using subjective \emph{`look-good'} assessments and the
 inherent uncertainty of the product is often underreported. In this book,
-we promote objective assessment of the mapping accuracy, i.e.~based on
+we promote objective assessment of mapping accuracy, i.e.~based on
 statistical testing using ground truth data.
 
 \emph{Mapping accuracy} can be defined as the difference between an estimated
@@ -10073,7 +10073,6 @@ which can now be used to generate predictions:
 \CommentTok{#> Generating predictions using the trend model (RK method)...}
 \CommentTok{#> [using ordinary kriging]}
 \CommentTok{#> }
- \DecValTok{91}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Running 5-fold cross validation using 'krige.cv'...}
 \CommentTok{#> Creating an object of class "SpatialPredictions"}
@@ -10515,7 +10514,7 @@ traditional expert-based soil mapping are
 
 A disadvantage of automated soil mapping is that many statistical and
 machine learning techniques are sensitive to errors and inconsistencies
-in input data. A few typos, misaligned spatial coordinates or
+in the input data. A few typos, misaligned spatial coordinates or
 misspecified models can create serious artifacts and reduce prediction
 accuracy, more so than with traditional methods. Also, fitting models
 using large and complex data sets can be time consuming and selection of
@@ -10841,14 +10840,14 @@ In the following example we look at mapping sand content for the upper horizons.
 \CommentTok{#> H2O is not running yet, starting it now...}
 \CommentTok{#> }
 \CommentTok{#> Note:  In case of errors look at the following log files:}
-\CommentTok{#>     /tmp/Rtmpt8L6lg/h2o_travis_started_from_r.out}
-\CommentTok{#>     /tmp/Rtmpt8L6lg/h2o_travis_started_from_r.err}
+\CommentTok{#>     /tmp/RtmpbspnVp/h2o_travis_started_from_r.out}
+\CommentTok{#>     /tmp/RtmpbspnVp/h2o_travis_started_from_r.err}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> Starting H2O JVM and connecting: .. Connection successful!}
 \CommentTok{#> }
 \CommentTok{#> R is connected to the H2O cluster: }
-\CommentTok{#>     H2O cluster uptime:         2 seconds 311 milliseconds }
+\CommentTok{#>     H2O cluster uptime:         2 seconds 129 milliseconds }
 \CommentTok{#>     H2O cluster timezone:       UTC }
 \CommentTok{#>     H2O data parsing timezone:  UTC }
 \CommentTok{#>     H2O cluster version:        3.20.0.8 }
@@ -10889,23 +10888,23 @@ We can now fit a random forest model by using all the computing power available 
 \CommentTok{#> ==============}
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionModel: drf}
-\CommentTok{#> Model ID:  DRF_model_R_1545858918432_1 }
+\CommentTok{#> Model ID:  DRF_model_R_1545875686693_1 }
 \CommentTok{#> Model Summary: }
 \CommentTok{#>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth}
-\CommentTok{#> 1              50                       50              642994        20}
+\CommentTok{#> 1              50                       50              641424        20}
 \CommentTok{#>   max_depth mean_depth min_leaves max_leaves mean_leaves}
-\CommentTok{#> 1        20   20.00000        928       1071  1019.86000}
+\CommentTok{#> 1        20   20.00000        944       1082  1017.40000}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionMetrics: drf}
 \CommentTok{#> ** Reported on training data. **}
 \CommentTok{#> ** Metrics reported on Out-Of-Bag training samples **}
 \CommentTok{#> }
-\CommentTok{#> MSE:  218}
-\CommentTok{#> RMSE:  14.8}
-\CommentTok{#> MAE:  9.99}
-\CommentTok{#> RMSLE:  0.425}
-\CommentTok{#> Mean Residual Deviance :  218}
+\CommentTok{#> MSE:  221}
+\CommentTok{#> RMSE:  14.9}
+\CommentTok{#> MAE:  10.1}
+\CommentTok{#> RMSLE:  0.431}
+\CommentTok{#> Mean Residual Deviance :  221}
 \end{Highlighting}
 \end{Shaded}
 
@@ -10963,29 +10962,29 @@ h2o has another MLA of interest for soil mapping called \emph{deep learning} (a 
 \CommentTok{#> ==============}
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionModel: deeplearning}
-\CommentTok{#> Model ID:  DeepLearning_model_R_1545858918432_2 }
+\CommentTok{#> Model ID:  DeepLearning_model_R_1545875686693_2 }
 \CommentTok{#> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1}
 \CommentTok{#>   layer units      type dropout       l1       l2 mean_rate rate_rms}
 \CommentTok{#> 1     1    10     Input  0.00 %       NA       NA        NA       NA}
-\CommentTok{#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.015402 0.008998}
-\CommentTok{#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.125587 0.176580}
-\CommentTok{#> 4     4     1    Linear      NA 0.000000 0.000000  0.001307 0.000946}
+\CommentTok{#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.014545 0.008086}
+\CommentTok{#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.131561 0.200674}
+\CommentTok{#> 4     4     1    Linear      NA 0.000000 0.000000  0.001370 0.001022}
 \CommentTok{#>   momentum mean_weight weight_rms mean_bias bias_rms}
 \CommentTok{#> 1       NA          NA         NA        NA       NA}
-\CommentTok{#> 2 0.000000    0.002108   0.102980  0.364898 0.062272}
-\CommentTok{#> 3 0.000000   -0.017996   0.070991  0.956696 0.017641}
-\CommentTok{#> 4 0.000000   -0.000888   0.046938  0.114380 0.000000}
+\CommentTok{#> 2 0.000000    0.002444   0.104551  0.376672 0.054696}
+\CommentTok{#> 3 0.000000   -0.017959   0.070690  0.960620 0.016899}
+\CommentTok{#> 4 0.000000   -0.003001   0.054714  0.122074 0.000000}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionMetrics: deeplearning}
 \CommentTok{#> ** Reported on training data. **}
 \CommentTok{#> ** Metrics reported on full training frame **}
 \CommentTok{#> }
-\CommentTok{#> MSE:  271}
-\CommentTok{#> RMSE:  16.5}
-\CommentTok{#> MAE:  12.4}
-\CommentTok{#> RMSLE:  0.505}
-\CommentTok{#> Mean Residual Deviance :  271}
+\CommentTok{#> MSE:  257}
+\CommentTok{#> RMSE:  16}
+\CommentTok{#> MAE:  12.2}
+\CommentTok{#> RMSLE:  0.493}
+\CommentTok{#> Mean Residual Deviance :  257}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11255,16 +11254,16 @@ We can hence run 5-fold cross validation:
 \CommentTok{#> List of 2}
 \CommentTok{#>  $ CV_residuals:'data.frame':    4972 obs. of  4 variables:}
 \CommentTok{#>   ..$ Observed : num [1:4972] 14.5 13.6 10.1 12.1 7.1 ...}
-\CommentTok{#>   ..$ Predicted: num [1:4972] 13.81 10.01 9.14 6.22 3.35 ...}
+\CommentTok{#>   ..$ Predicted: num [1:4972] 13.77 10.76 8.82 6.04 3.41 ...}
 \CommentTok{#>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" ...}
 \CommentTok{#>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...}
 \CommentTok{#>  $ Summary     :'data.frame':    1 obs. of  6 variables:}
-\CommentTok{#>   ..$ ME          : num -0.111}
-\CommentTok{#>   ..$ MAE         : num 2.12}
-\CommentTok{#>   ..$ RMSE        : num 3.62}
-\CommentTok{#>   ..$ R.squared   : num 0.57}
+\CommentTok{#>   ..$ ME          : num -0.117}
+\CommentTok{#>   ..$ MAE         : num 2.13}
+\CommentTok{#>   ..$ RMSE        : num 3.61}
+\CommentTok{#>   ..$ R.squared   : num 0.573}
 \CommentTok{#>   ..$ logRMSE     : num 0.48}
-\CommentTok{#>   ..$ logR.squared: num 0.655}
+\CommentTok{#>   ..$ logR.squared: num 0.656}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11324,14 +11323,14 @@ we first specify all learners (MLA methods) of interest:
 \CommentTok{#> Base learner performance, sorted by specified metric:}
 \CommentTok{#>                    learner  MSE}
 \CommentTok{#> 2          h2o.gbm.wrapper 9.81}
-\CommentTok{#> 1 h2o.randomForest.wrapper 8.28}
+\CommentTok{#> 1 h2o.randomForest.wrapper 8.24}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2O Ensemble Performance on <newdata>:}
 \CommentTok{#> ----------------}
 \CommentTok{#> Family: gaussian}
 \CommentTok{#> }
-\CommentTok{#> Ensemble performance (MSE): 8.20286354468929}
+\CommentTok{#> Ensemble performance (MSE): 8.27338199819527}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11434,16 +11433,16 @@ We can again test fitting an ensemble model using two MLA's:
 \CommentTok{#> Base learner performance, sorted by specified metric:}
 \CommentTok{#>                    learner    MSE}
 \CommentTok{#> 1          h2o.glm.wrapper 0.2827}
-\CommentTok{#> 4 h2o.deeplearning.wrapper 0.1303}
+\CommentTok{#> 4 h2o.deeplearning.wrapper 0.1552}
 \CommentTok{#> 3          h2o.gbm.wrapper 0.0971}
-\CommentTok{#> 2 h2o.randomForest.wrapper 0.0846}
+\CommentTok{#> 2 h2o.randomForest.wrapper 0.0823}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2O Ensemble Performance on <newdata>:}
 \CommentTok{#> ----------------}
 \CommentTok{#> Family: gaussian}
 \CommentTok{#> }
-\CommentTok{#> Ensemble performance (MSE): 0.0781862440510234}
+\CommentTok{#> Ensemble performance (MSE): 0.0770897291613408}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11530,12 +11529,12 @@ A useful functionality of the SuperLearner package is that it displays how model
 \CommentTok{#>     SL.library = sl.l) }
 \CommentTok{#> }
 \CommentTok{#> }
-\CommentTok{#>                  Risk    Coef}
-\CommentTok{#> SL.mean_All    0.7540 0.00000}
-\CommentTok{#> SL.xgboost_All 0.0598 0.80093}
-\CommentTok{#> SL.ksvm_All    0.1292 0.00322}
-\CommentTok{#> SL.glmnet_All  0.3079 0.00000}
-\CommentTok{#> SL.ranger_All  0.0835 0.19585}
+\CommentTok{#>                  Risk   Coef}
+\CommentTok{#> SL.mean_All    0.7540 0.0000}
+\CommentTok{#> SL.xgboost_All 0.0598 0.8215}
+\CommentTok{#> SL.ksvm_All    0.1296 0.0146}
+\CommentTok{#> SL.glmnet_All  0.3078 0.0000}
+\CommentTok{#> SL.ranger_All  0.0856 0.1639}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11557,8 +11556,8 @@ This shows that \texttt{SL.xgboost\_All} outperforms the competition by a large 
 \CommentTok{#> }
 \CommentTok{#>                  Risk  Coef}
 \CommentTok{#> SL.xgboost_All 0.0603 0.814}
-\CommentTok{#> SL.ranger_All  0.0833 0.186}
-\CommentTok{#> SL.ksvm_All    0.1296 0.000}
+\CommentTok{#> SL.ranger_All  0.0837 0.186}
+\CommentTok{#> SL.ksvm_All    0.1301 0.000}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11586,11 +11585,11 @@ again \texttt{SL.xgboost} dominates the ensemble model, which is most likely unr
 \CommentTok{#> All risk estimates are based on V =  5 }
 \CommentTok{#> }
 \CommentTok{#>       Algorithm  Ave    se   Min  Max}
-\CommentTok{#>   Super Learner 0.16 0.014 0.097 0.25}
-\CommentTok{#>     Discrete SL 0.17 0.014 0.116 0.25}
+\CommentTok{#>   Super Learner 0.16 0.014 0.096 0.26}
+\CommentTok{#>     Discrete SL 0.17 0.015 0.118 0.25}
 \CommentTok{#>  SL.xgboost_All 0.19 0.016 0.135 0.27}
-\CommentTok{#>   SL.ranger_All 0.16 0.015 0.104 0.25}
-\CommentTok{#>     SL.ksvm_All 0.18 0.015 0.109 0.30}
+\CommentTok{#>   SL.ranger_All 0.17 0.015 0.105 0.25}
+\CommentTok{#>     SL.ksvm_All 0.18 0.014 0.109 0.30}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11614,10 +11613,10 @@ To produce predictions of soil pH at 10 cm depth we can finally use:
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> }
-\CommentTok{#>                 Risk Coef}
-\CommentTok{#> SL.xgboost_All 0.215 0.00}
-\CommentTok{#> SL.ranger_All  0.166 0.47}
-\CommentTok{#> SL.ksvm_All    0.163 0.53}
+\CommentTok{#>                 Risk  Coef}
+\CommentTok{#> SL.xgboost_All 0.215 0.000}
+\CommentTok{#> SL.ranger_All  0.165 0.487}
+\CommentTok{#> SL.ksvm_All    0.164 0.513}
 \NormalTok{new.data <-}\StringTok{ }\NormalTok{grid10m}\OperatorTok{@}\NormalTok{data}
 \NormalTok{pred.PHI <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\OtherTok{NULL}\NormalTok{)}
 \NormalTok{depths =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{,}\DecValTok{30}\NormalTok{,}\DecValTok{50}\NormalTok{,}\DecValTok{70}\NormalTok{,}\DecValTok{90}\NormalTok{)}
@@ -11639,7 +11638,7 @@ To produce predictions of soil pH at 10 cm depth we can finally use:
 \CommentTok{#>     buffer, rotated}
 \KeywordTok{str}\NormalTok{(pred.PHI[[}\DecValTok{1}\NormalTok{]])}
 \CommentTok{#> List of 2}
-\CommentTok{#>  $ pred           : num [1:3865, 1] 4.7 4.78 4.9 4.85 4.79 ...}
+\CommentTok{#>  $ pred           : num [1:3865, 1] 4.64 4.71 4.87 4.83 4.76 ...}
 \CommentTok{#>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...}
 \CommentTok{#>   ..- attr(*, "dimnames")=List of 2}
 \CommentTok{#>   .. ..$ : NULL}

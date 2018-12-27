@@ -236,14 +236,14 @@ localH2O = h2o.init(startH2O=TRUE)
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         23 minutes 54 seconds 
+#>     H2O cluster uptime:         23 minutes 13 seconds 
 #>     H2O cluster timezone:       UTC 
 #>     H2O data parsing timezone:  UTC 
 #>     H2O cluster version:        3.20.0.8 
 #>     H2O cluster version age:    3 months and 5 days  
 #>     H2O cluster name:           H2O_started_from_R_travis_lqb476 
 #>     H2O cluster total nodes:    1 
-#>     H2O cluster total memory:   1.47 GB 
+#>     H2O cluster total memory:   1.46 GB 
 #>     H2O cluster total cores:    2 
 #>     H2O cluster allowed cores:  2 
 #>     H2O cluster healthy:        TRUE 
@@ -275,23 +275,23 @@ RF.m
 #> ==============
 #> 
 #> H2ORegressionModel: drf
-#> Model ID:  DRF_model_R_1545858918432_21 
+#> Model ID:  DRF_model_R_1545875686693_21 
 #> Model Summary: 
 #>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#> 1              50                       50              648747        20
+#> 1              50                       50              645536        20
 #>   max_depth mean_depth min_leaves max_leaves mean_leaves
-#> 1        20   20.00000        959       1083  1029.14000
+#> 1        20   20.00000        966       1073  1023.92000
 #> 
 #> 
 #> H2ORegressionMetrics: drf
 #> ** Reported on training data. **
 #> ** Metrics reported on Out-Of-Bag training samples **
 #> 
-#> MSE:  220
-#> RMSE:  14.8
-#> MAE:  10.1
-#> RMSLE:  0.43
-#> Mean Residual Deviance :  220
+#> MSE:  216
+#> RMSE:  14.7
+#> MAE:  10
+#> RMSLE:  0.427
+#> Mean Residual Deviance :  216
 ```
 
 This shows that the model fitting R-square is about 50%. This is also indicated by the predicted vs observed plot:
@@ -338,29 +338,29 @@ DL.m
 #> ==============
 #> 
 #> H2ORegressionModel: deeplearning
-#> Model ID:  DeepLearning_model_R_1545858918432_22 
+#> Model ID:  DeepLearning_model_R_1545875686693_22 
 #> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1
 #>   layer units      type dropout       l1       l2 mean_rate rate_rms
 #> 1     1    10     Input  0.00 %       NA       NA        NA       NA
-#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.016160 0.009788
-#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.133358 0.184068
-#> 4     4     1    Linear      NA 0.000000 0.000000  0.001271 0.000873
+#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.015703 0.009524
+#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.126478 0.176117
+#> 4     4     1    Linear      NA 0.000000 0.000000  0.001302 0.001118
 #>   momentum mean_weight weight_rms mean_bias bias_rms
 #> 1       NA          NA         NA        NA       NA
-#> 2 0.000000    0.001269   0.103695  0.355397 0.061543
-#> 3 0.000000   -0.018604   0.071114  0.953848 0.017308
-#> 4 0.000000    0.005094   0.048367  0.105128 0.000000
+#> 2 0.000000    0.005043   0.100461  0.352759 0.070927
+#> 3 0.000000   -0.018544   0.070953  0.952533 0.020352
+#> 4 0.000000    0.006116   0.049763  0.095713 0.000000
 #> 
 #> 
 #> H2ORegressionMetrics: deeplearning
 #> ** Reported on training data. **
 #> ** Metrics reported on full training frame **
 #> 
-#> MSE:  253
-#> RMSE:  15.9
-#> MAE:  12
-#> RMSLE:  0.488
-#> Mean Residual Deviance :  253
+#> MSE:  262
+#> RMSE:  16.2
+#> MAE:  12.3
+#> RMSLE:  0.498
+#> Mean Residual Deviance :  262
 ```
 
 Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. \@ref(fig:map-snd) and Fig. \@ref(fig:map-snd-dl)).
@@ -597,16 +597,16 @@ str(test.ORC)
 #> List of 2
 #>  $ CV_residuals:'data.frame':	4972 obs. of  4 variables:
 #>   ..$ Observed : num [1:4972] 6.5 5.1 4.9 3.3 2.2 ...
-#>   ..$ Predicted: num [1:4972] 12.49 7.45 6.52 4.97 3.3 ...
+#>   ..$ Predicted: num [1:4972] 11.06 7.12 7.06 5.12 3.01 ...
 #>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" ...
 #>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ Summary     :'data.frame':	1 obs. of  6 variables:
-#>   ..$ ME          : num -0.141
-#>   ..$ MAE         : num 2.19
+#>   ..$ ME          : num -0.114
+#>   ..$ MAE         : num 2.18
 #>   ..$ RMSE        : num 3.68
 #>   ..$ R.squared   : num 0.558
-#>   ..$ logRMSE     : num 0.5
-#>   ..$ logR.squared: num 0.629
+#>   ..$ logRMSE     : num 0.494
+#>   ..$ logR.squared: num 0.635
 ```
 
 Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about $\pm 4$ g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:
@@ -660,7 +660,7 @@ perf
 #> 
 #> Base learner performance, sorted by specified metric:
 #>                    learner  MSE
-#> 1 h2o.randomForest.wrapper 12.9
+#> 1 h2o.randomForest.wrapper 13.0
 #> 2          h2o.gbm.wrapper 12.8
 #> 
 #> 
@@ -668,7 +668,7 @@ perf
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 12.4364645776607
+#> Ensemble performance (MSE): 12.4062194761932
 ```
 
 which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.
@@ -768,16 +768,16 @@ perf3
 #> Base learner performance, sorted by specified metric:
 #>                    learner    MSE
 #> 1          h2o.glm.wrapper 0.2827
-#> 4 h2o.deeplearning.wrapper 0.1458
+#> 4 h2o.deeplearning.wrapper 0.1294
 #> 3          h2o.gbm.wrapper 0.0971
-#> 2 h2o.randomForest.wrapper 0.0819
+#> 2 h2o.randomForest.wrapper 0.0772
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 0.0778784721258699
+#> Ensemble performance (MSE): 0.0738086667557021
 ```
 
 In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.
@@ -861,10 +861,10 @@ sl
 #> 
 #>                  Risk   Coef
 #> SL.mean_All    0.7540 0.0000
-#> SL.xgboost_All 0.0598 0.8231
-#> SL.ksvm_All    0.1297 0.0166
-#> SL.glmnet_All  0.3076 0.0000
-#> SL.ranger_All  0.0859 0.1602
+#> SL.xgboost_All 0.0598 0.8157
+#> SL.ksvm_All    0.1279 0.0168
+#> SL.glmnet_All  0.3078 0.0000
+#> SL.ranger_All  0.0850 0.1675
 ```
 
 This shows that `SL.xgboost_All` outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by `SL.xgboost_All` is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:
@@ -884,9 +884,9 @@ sl2
 #> 
 #> 
 #>                  Risk  Coef
-#> SL.xgboost_All 0.0603 0.811
-#> SL.ranger_All  0.0832 0.189
-#> SL.ksvm_All    0.1296 0.000
+#> SL.xgboost_All 0.0603 0.813
+#> SL.ranger_All  0.0829 0.187
+#> SL.ksvm_All    0.1298 0.000
 ```
 
 again `SL.xgboost` dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where entire profiles are taken out of the training dataset:
@@ -914,10 +914,10 @@ summary(cv_sl)
 #> 
 #>       Algorithm  Ave    se   Min  Max
 #>   Super Learner 0.16 0.014 0.094 0.25
-#>     Discrete SL 0.17 0.014 0.113 0.25
+#>     Discrete SL 0.17 0.014 0.114 0.25
 #>  SL.xgboost_All 0.19 0.016 0.135 0.27
 #>   SL.ranger_All 0.16 0.014 0.103 0.25
-#>     SL.ksvm_All 0.18 0.014 0.109 0.29
+#>     SL.ksvm_All 0.18 0.014 0.109 0.30
 ```
 
 where `V=5` specifies number of folds, and `id=rm.cookfarm$SOURCEID` forces that entire profiles are removed from training and cross-validation. This gives a more realistic RMSE of about ±0.35. Note that this time `SL.xgboost_All` is even somewhat worse than the random forest model, and the ensemble model (`Super Learner`) is slightly better than each individual model. This matches our previous results with `h20.ensemble`. 
@@ -942,8 +942,8 @@ sl2
 #> 
 #>                 Risk  Coef
 #> SL.xgboost_All 0.215 0.000
-#> SL.ranger_All  0.164 0.503
-#> SL.ksvm_All    0.165 0.497
+#> SL.ranger_All  0.167 0.456
+#> SL.ksvm_All    0.163 0.544
 new.data <- grid10m@data
 pred.PHI <- list(NULL)
 depths = c(10,30,50,70,90)
@@ -965,7 +965,7 @@ for(j in 1:length(depths)){
 #>     buffer, rotated
 str(pred.PHI[[1]])
 #> List of 2
-#>  $ pred           : num [1:3865, 1] 4.68 4.74 4.89 4.86 4.78 ...
+#>  $ pred           : num [1:3865, 1] 4.66 4.74 4.89 4.87 4.78 ...
 #>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...
 #>   ..- attr(*, "dimnames")=List of 2
 #>   .. ..$ : NULL

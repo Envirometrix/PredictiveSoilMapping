@@ -2,7 +2,7 @@
 ---
 title: "Predictive Soil Mapping with R"
 author: ["Tomislav Hengl and Robert A. MacMillan"]
-date: "2018-12-26"
+date: "2018-12-27"
 knit: bookdown::render_book
 site: bookdown::bookdown_site
 documentclass: svmono
@@ -6717,7 +6717,7 @@ statistical models [@MacMillan2005CJSS; @Walter2006DSS; @Liu2009].
 For example, a surveyor can define the classification rules
 subjectively, i.e. based on his/her knowledge of the area, then
 iteratively adjust the model until the output maps fit his/her
-expectation of the distribution of soils.
+expectation of the distribution of soils [@MacMillan2010DSM].
 
 In areas where few, or no, field observations of soil properties are
 available, the most common way to produce estimates is to rely on expert
@@ -7480,7 +7480,6 @@ om.rk <- predict(omm, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 62% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -7554,7 +7553,6 @@ om.rk2 <- predict(omm2, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 37% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -7813,7 +7811,7 @@ om.rksim.p <- predict(omm, meuse.grid, nsim=20, block=c(0,0))
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
 #> 
-  0% done
+ 58% done
 100% done
 #> Creating an object of class "RasterBrickSimulations"
 #> Loading required package: raster
@@ -7838,7 +7836,6 @@ om.rk.b <- predict(omm, meuse.grid, block=c(40,40), nfold=0)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
-  4% done
 100% done
 #> Creating an object of class "SpatialPredictions"
 om.rksim.b <- predict(omm, meuse.grid, nsim=2, block=c(40,40), debug.level=0)
@@ -7898,7 +7895,7 @@ om.rk.p
 which shows that the mapping accuracy at point support is ca. 53% of the
 original variance (see further Eq.\@ref(eq:normvar)).
 
-Note also that, cross-validation using block support in is not possible
+Note also that, cross-validation using block support in many cases is not possible
 because the input data needed for cross-validation are only available at
 point support. This basically means that, for the Meuse example, to
 estimate the mapping accuracy at block support we would have to revisit
@@ -7944,7 +7941,7 @@ in the world refer to (lateral) point support. Hence the most typical
 combination of support size that we work with is: point support for soil
 property observations, block support for covariates and point or block
 support for soil property predictions. Modelling at full point support
-(both soil sampled, covariates and outputs at point support) is in fact
+(both soil samples, covariates and outputs at point support) is in fact
 very rare. Soil covariates are often derived from remote sensing data,
 which is almost always delivered at block support.
 
@@ -8039,7 +8036,7 @@ important to be aware that these assessments of uncertainty are
 *model-based*, i.e. are only valid under the assumptions made by the
 geostatistical model. A truly *model-free* assessment of the map
 accuracy can (only) be obtained by probability-based validation
-[@Brus2011EJSS]. For this we need independent sample i.e. a sample that
+[@Brus2011EJSS]. For this we need an independent sample i.e. a sample that
 was not used to build the model and make the predictions, and that, in
 addition, was selected from the study area using a probabilistic
 sampling design.
@@ -8056,6 +8053,7 @@ om.rksim.p <- predict(omm, meuse.grid, block=c(0,0), nsim=20)
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
 #> 
+ 93% done
 100% done
 #> Creating an object of class "RasterBrickSimulations"
 log1p(meuse@data[1,"om"])
@@ -8104,13 +8102,13 @@ library(intamap)
 demo(meuse, echo=FALSE)
 meuse$value = meuse$zinc
 output <- interpolate(meuse, meuse.grid, list(mean=TRUE, variance=TRUE))
-#> R 2018-12-26 21:38:14 interpolating 155 observations, 3103 prediction locations
+#> R 2018-12-27 02:17:02 interpolating 155 observations, 3103 prediction locations
 #> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : 
 #>  using standard model for estimating time. For better 
 #>  platform spesific predictions, please run 
 #>  timeModels <- generateTimeModels()
 #>   and save the workspace
-#> [1] "estimated time for  copula 159.374635654982"
+#> [1] "estimated time for  copula 161.149806999505"
 #> Checking object ... OK
 ```
 
@@ -8124,7 +8122,7 @@ str(output, max.level = 2)
 #> List of 16
 #>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
 #>  $ formulaString      :Class 'formula'  language value ~ 1
-#>   .. ..- attr(*, ".Environment")=<environment: 0x1511b808> 
+#>   .. ..- attr(*, ".Environment")=<environment: 0x13c62470> 
 #>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
 #>  $ params             :List of 18
 #>   ..$ doAnisotropy     : logi TRUE
@@ -8286,7 +8284,7 @@ mFit3 <- caret::train(om~dist+soil+ffreq, data=meuse.ov, method="ranger",
 ```
 
 This will run repeated Cross-validation with 50% : 50% splits training and validation, 
-which means that in each iteration models will be refitted from scratch. Next we can compare performance of the three models by using:
+which means that, in each iteration, models will be refitted from scratch. Next we can compare performance of the three models by using:
 
 
 ```r
@@ -8310,7 +8308,7 @@ round((1-min(mFit3$results$RMSE)/min(mFit0$results$RMSE))*100)
 
 There is certainly added value in using spatial covariates (in the case above: distance to water and flooding frequency maps) and in using machine learning for spatial prediction, even with smaller data sets. 
 
-Note also that the assessment of spatial prediction accuracy for the three models based on the train function above is model-free, i.e. cross-validation of the models is independent of the models used because, at each cross-validation subset, fitting of the model is repeated and validation points are maintained separate from model training. Subsetting point samples is not always trivial however: in order to consider cross-validation as completely reliable, the samples ought to be representative of the study area and preferably collected using objective sampling such as simple random sampling or similar [@Brus2011EJSS]. In the case the sampling locations are clustered in geographical space i.e. if some parts of the study area are completely omitted from sampling, then also the results of cross-validation will reflect that sampling bias / poor representation. In all the following examples we will assume that cross-validation gives a reliable measure of mapping accuracy and we will use it as the basis of accuracy assessment i.e. mapping efficiency. In reality, cross-validation might be tricky to implement and could often lead to somewhat over-optimistic results if either sampling bias exists or/and if there are too few points for model validation. For example, in the case of soil profile data, it is highly recommended that entire profiles are removed from CV because soil horizons are too strongly correlated (as discussed in detail in @Gasch2015SPASTA and @Brenning2012). 
+Note also that the assessment of spatial prediction accuracy for the three models based on the train function above is model-free, i.e. cross-validation of the models is independent of the models used because, at each cross-validation subset, fitting of the model is repeated and validation points are maintained separate from model training. Subsetting point samples is not always trivial however: in order to consider cross-validation as completely reliable, the samples ought to be representative of the study area and preferably collected using objective sampling such as simple random sampling or similar [@Brus2011EJSS]. In cases where the sampling locations are clustered in geographical space i.e. if some parts of the study area are completely omitted from sampling, then also the results of cross-validation will reflect that sampling bias / poor representation. In all the following examples we will assume that cross-validation gives a reliable measure of mapping accuracy and we will use it as the basis of accuracy assessment i.e. mapping efficiency. In reality, cross-validation might be tricky to implement and could often lead to somewhat over-optimistic results if either sampling bias exists or/and if there are too few points for model validation. For example, in the case of soil profile data, it is highly recommended that entire profiles are removed from CV because soil horizons are too strongly correlated (as discussed in detail in @Gasch2015SPASTA and @Brenning2012). 
 
 The whole process of spatial prediction of soil properties could be summarized in 5 steps:
  
@@ -8441,7 +8439,7 @@ does not meaningfully differ from 2D variogram modelling.
 
 The 3D RK framework explained above can be compared to the approach of
 @Malone2009Geoderma, who first fit an equal-area spline function to
-estimate the soil properties at a standard depth, and next fit
+estimate the soil properties at standard depths, and next fit
 regression and variogram models at each depth. A drawback of the
 approach by @Malone2009Geoderma, however, is that the separate models
 for each depth ignore all vertical correlations. In addition, the
@@ -8449,7 +8447,7 @@ equal-area spline is not used to model soil-depth relationships but only
 to estimate the values at standard depths for sampling locations i.e. it
 is implemented for each soil profile (site) separately. In the 3D RK
 framework explained above, a single model is used to generate
-predictions at any location and for any depth, and which takes into
+predictions at any location and for any depth, and this takes into
 account both horizontal and vertical relationships simultaneously. The
 3D RK approach is both easier to implement, and allows for incorporating
 all (vertical) soil-depth relationships including the spatial
@@ -8542,7 +8540,7 @@ geographical databases those products can be evaluated using independent
 validation studies. Unfortunately, much evaluation of soil maps in the
 world is still done using subjective *‘look-good’* assessments and the
 inherent uncertainty of the product is often underreported. In this book,
-we promote objective assessment of the mapping accuracy, i.e. based on
+we promote objective assessment of mapping accuracy, i.e. based on
 statistical testing using ground truth data.
 
 *Mapping accuracy* can be defined as the difference between an estimated
@@ -8812,6 +8810,7 @@ om.rk <- predict(omm, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
+ 78% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -9210,7 +9209,7 @@ traditional expert-based soil mapping are
 
 A disadvantage of automated soil mapping is that many statistical and
 machine learning techniques are sensitive to errors and inconsistencies
-in input data. A few typos, misaligned spatial coordinates or
+in the input data. A few typos, misaligned spatial coordinates or
 misspecified models can create serious artifacts and reduce prediction
 accuracy, more so than with traditional methods. Also, fitting models
 using large and complex data sets can be time consuming and selection of
@@ -9513,14 +9512,14 @@ localH2O = h2o.init(startH2O=TRUE)
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         23 minutes 54 seconds 
+#>     H2O cluster uptime:         23 minutes 13 seconds 
 #>     H2O cluster timezone:       UTC 
 #>     H2O data parsing timezone:  UTC 
 #>     H2O cluster version:        3.20.0.8 
 #>     H2O cluster version age:    3 months and 5 days  
 #>     H2O cluster name:           H2O_started_from_R_travis_lqb476 
 #>     H2O cluster total nodes:    1 
-#>     H2O cluster total memory:   1.47 GB 
+#>     H2O cluster total memory:   1.46 GB 
 #>     H2O cluster total cores:    2 
 #>     H2O cluster allowed cores:  2 
 #>     H2O cluster healthy:        TRUE 
@@ -9552,23 +9551,23 @@ RF.m
 #> ==============
 #> 
 #> H2ORegressionModel: drf
-#> Model ID:  DRF_model_R_1545858918432_21 
+#> Model ID:  DRF_model_R_1545875686693_21 
 #> Model Summary: 
 #>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#> 1              50                       50              648747        20
+#> 1              50                       50              645536        20
 #>   max_depth mean_depth min_leaves max_leaves mean_leaves
-#> 1        20   20.00000        959       1083  1029.14000
+#> 1        20   20.00000        966       1073  1023.92000
 #> 
 #> 
 #> H2ORegressionMetrics: drf
 #> ** Reported on training data. **
 #> ** Metrics reported on Out-Of-Bag training samples **
 #> 
-#> MSE:  220
-#> RMSE:  14.8
-#> MAE:  10.1
-#> RMSLE:  0.43
-#> Mean Residual Deviance :  220
+#> MSE:  216
+#> RMSE:  14.7
+#> MAE:  10
+#> RMSLE:  0.427
+#> Mean Residual Deviance :  216
 ```
 
 This shows that the model fitting R-square is about 50%. This is also indicated by the predicted vs observed plot:
@@ -9615,29 +9614,29 @@ DL.m
 #> ==============
 #> 
 #> H2ORegressionModel: deeplearning
-#> Model ID:  DeepLearning_model_R_1545858918432_22 
+#> Model ID:  DeepLearning_model_R_1545875686693_22 
 #> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1
 #>   layer units      type dropout       l1       l2 mean_rate rate_rms
 #> 1     1    10     Input  0.00 %       NA       NA        NA       NA
-#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.016160 0.009788
-#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.133358 0.184068
-#> 4     4     1    Linear      NA 0.000000 0.000000  0.001271 0.000873
+#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.015703 0.009524
+#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.126478 0.176117
+#> 4     4     1    Linear      NA 0.000000 0.000000  0.001302 0.001118
 #>   momentum mean_weight weight_rms mean_bias bias_rms
 #> 1       NA          NA         NA        NA       NA
-#> 2 0.000000    0.001269   0.103695  0.355397 0.061543
-#> 3 0.000000   -0.018604   0.071114  0.953848 0.017308
-#> 4 0.000000    0.005094   0.048367  0.105128 0.000000
+#> 2 0.000000    0.005043   0.100461  0.352759 0.070927
+#> 3 0.000000   -0.018544   0.070953  0.952533 0.020352
+#> 4 0.000000    0.006116   0.049763  0.095713 0.000000
 #> 
 #> 
 #> H2ORegressionMetrics: deeplearning
 #> ** Reported on training data. **
 #> ** Metrics reported on full training frame **
 #> 
-#> MSE:  253
-#> RMSE:  15.9
-#> MAE:  12
-#> RMSLE:  0.488
-#> Mean Residual Deviance :  253
+#> MSE:  262
+#> RMSE:  16.2
+#> MAE:  12.3
+#> RMSLE:  0.498
+#> Mean Residual Deviance :  262
 ```
 
 Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. \@ref(fig:map-snd) and Fig. \@ref(fig:map-snd-dl)).
@@ -9874,16 +9873,16 @@ str(test.ORC)
 #> List of 2
 #>  $ CV_residuals:'data.frame':	4972 obs. of  4 variables:
 #>   ..$ Observed : num [1:4972] 6.5 5.1 4.9 3.3 2.2 ...
-#>   ..$ Predicted: num [1:4972] 12.49 7.45 6.52 4.97 3.3 ...
+#>   ..$ Predicted: num [1:4972] 11.06 7.12 7.06 5.12 3.01 ...
 #>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" ...
 #>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ Summary     :'data.frame':	1 obs. of  6 variables:
-#>   ..$ ME          : num -0.141
-#>   ..$ MAE         : num 2.19
+#>   ..$ ME          : num -0.114
+#>   ..$ MAE         : num 2.18
 #>   ..$ RMSE        : num 3.68
 #>   ..$ R.squared   : num 0.558
-#>   ..$ logRMSE     : num 0.5
-#>   ..$ logR.squared: num 0.629
+#>   ..$ logRMSE     : num 0.494
+#>   ..$ logR.squared: num 0.635
 ```
 
 Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about $\pm 4$ g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:
@@ -9937,7 +9936,7 @@ perf
 #> 
 #> Base learner performance, sorted by specified metric:
 #>                    learner  MSE
-#> 1 h2o.randomForest.wrapper 12.9
+#> 1 h2o.randomForest.wrapper 13.0
 #> 2          h2o.gbm.wrapper 12.8
 #> 
 #> 
@@ -9945,7 +9944,7 @@ perf
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 12.4364645776607
+#> Ensemble performance (MSE): 12.4062194761932
 ```
 
 which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.
@@ -10045,16 +10044,16 @@ perf3
 #> Base learner performance, sorted by specified metric:
 #>                    learner    MSE
 #> 1          h2o.glm.wrapper 0.2827
-#> 4 h2o.deeplearning.wrapper 0.1458
+#> 4 h2o.deeplearning.wrapper 0.1294
 #> 3          h2o.gbm.wrapper 0.0971
-#> 2 h2o.randomForest.wrapper 0.0819
+#> 2 h2o.randomForest.wrapper 0.0772
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 0.0778784721258699
+#> Ensemble performance (MSE): 0.0738086667557021
 ```
 
 In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.
@@ -10138,10 +10137,10 @@ sl
 #> 
 #>                  Risk   Coef
 #> SL.mean_All    0.7540 0.0000
-#> SL.xgboost_All 0.0598 0.8231
-#> SL.ksvm_All    0.1297 0.0166
-#> SL.glmnet_All  0.3076 0.0000
-#> SL.ranger_All  0.0859 0.1602
+#> SL.xgboost_All 0.0598 0.8157
+#> SL.ksvm_All    0.1279 0.0168
+#> SL.glmnet_All  0.3078 0.0000
+#> SL.ranger_All  0.0850 0.1675
 ```
 
 This shows that `SL.xgboost_All` outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by `SL.xgboost_All` is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:
@@ -10161,9 +10160,9 @@ sl2
 #> 
 #> 
 #>                  Risk  Coef
-#> SL.xgboost_All 0.0603 0.811
-#> SL.ranger_All  0.0832 0.189
-#> SL.ksvm_All    0.1296 0.000
+#> SL.xgboost_All 0.0603 0.813
+#> SL.ranger_All  0.0829 0.187
+#> SL.ksvm_All    0.1298 0.000
 ```
 
 again `SL.xgboost` dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where entire profiles are taken out of the training dataset:
@@ -10191,10 +10190,10 @@ summary(cv_sl)
 #> 
 #>       Algorithm  Ave    se   Min  Max
 #>   Super Learner 0.16 0.014 0.094 0.25
-#>     Discrete SL 0.17 0.014 0.113 0.25
+#>     Discrete SL 0.17 0.014 0.114 0.25
 #>  SL.xgboost_All 0.19 0.016 0.135 0.27
 #>   SL.ranger_All 0.16 0.014 0.103 0.25
-#>     SL.ksvm_All 0.18 0.014 0.109 0.29
+#>     SL.ksvm_All 0.18 0.014 0.109 0.30
 ```
 
 where `V=5` specifies number of folds, and `id=rm.cookfarm$SOURCEID` forces that entire profiles are removed from training and cross-validation. This gives a more realistic RMSE of about ±0.35. Note that this time `SL.xgboost_All` is even somewhat worse than the random forest model, and the ensemble model (`Super Learner`) is slightly better than each individual model. This matches our previous results with `h20.ensemble`. 
@@ -10219,8 +10218,8 @@ sl2
 #> 
 #>                 Risk  Coef
 #> SL.xgboost_All 0.215 0.000
-#> SL.ranger_All  0.164 0.503
-#> SL.ksvm_All    0.165 0.497
+#> SL.ranger_All  0.167 0.456
+#> SL.ksvm_All    0.163 0.544
 new.data <- grid10m@data
 pred.PHI <- list(NULL)
 depths = c(10,30,50,70,90)
@@ -10242,7 +10241,7 @@ for(j in 1:length(depths)){
 #>     buffer, rotated
 str(pred.PHI[[1]])
 #> List of 2
-#>  $ pred           : num [1:3865, 1] 4.68 4.74 4.89 4.86 4.78 ...
+#>  $ pred           : num [1:3865, 1] 4.66 4.74 4.89 4.87 4.78 ...
 #>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...
 #>   ..- attr(*, "dimnames")=List of 2
 #>   .. ..$ : NULL

@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl and Robert A. MacMillan">
 
 
-<meta name="date" content="2018-12-26">
+<meta name="date" content="2018-12-27">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -926,7 +926,7 @@ statistical models <span class="citation">(MacMillan, Pettapiece, and Brierley <
 For example, a surveyor can define the classification rules
 subjectively, i.e. based on his/her knowledge of the area, then
 iteratively adjust the model until the output maps fit his/her
-expectation of the distribution of soils.</p>
+expectation of the distribution of soils <span class="citation">(MacMillan et al. <a href="#ref-MacMillan2010DSM">2010</a>)</span>.</p>
 <p>In areas where few, or no, field observations of soil properties are
 available, the most common way to produce estimates is to rely on expert
 knowledge, or to base estimates on data from other, similar areas. This
@@ -1582,7 +1582,6 @@ for plotting, (4) spatial locations of observations used to fit the model. To pr
 <span class="co">#&gt; Generating predictions using the trend model (RK method)...</span>
 <span class="co">#&gt; [using ordinary kriging]</span>
 <span class="co">#&gt; </span>
- <span class="dv">62</span>% done
 <span class="dv">100</span>% done
 <span class="co">#&gt; Running 5-fold cross validation using &#39;krige.cv&#39;...</span>
 <span class="co">#&gt; Creating an object of class &quot;SpatialPredictions&quot;</span>
@@ -1652,7 +1651,6 @@ om.rk2 &lt;-<span class="st"> </span><span class="kw">predict</span>(omm2, meuse
 <span class="co">#&gt; Generating predictions using the trend model (RK method)...</span>
 <span class="co">#&gt; [using ordinary kriging]</span>
 <span class="co">#&gt; </span>
- <span class="dv">37</span>% done
 <span class="dv">100</span>% done
 <span class="co">#&gt; Running 5-fold cross validation using &#39;krige.cv&#39;...</span>
 <span class="co">#&gt; Creating an object of class &quot;SpatialPredictions&quot;</span></code></pre>
@@ -1869,7 +1867,7 @@ om.rksim.p &lt;-<span class="st"> </span><span class="kw">predict</span>(omm, me
 <span class="co">#&gt; drawing 20 GLS realisations of beta...</span>
 <span class="co">#&gt; [using conditional Gaussian simulation]</span>
 <span class="co">#&gt; </span>
-  <span class="dv">0</span>% done
+ <span class="dv">58</span>% done
 <span class="dv">100</span>% done
 <span class="co">#&gt; Creating an object of class &quot;RasterBrickSimulations&quot;</span>
 <span class="co">#&gt; Loading required package: raster</span>
@@ -1889,7 +1887,6 @@ square blocks of 40 by 40 m we run:</p>
 <span class="co">#&gt; Generating predictions using the trend model (RK method)...</span>
 <span class="co">#&gt; [using ordinary kriging]</span>
 <span class="co">#&gt; </span>
-  <span class="dv">4</span>% done
 <span class="dv">100</span>% done
 <span class="co">#&gt; Creating an object of class &quot;SpatialPredictions&quot;</span>
 om.rksim.b &lt;-<span class="st"> </span><span class="kw">predict</span>(omm, meuse.grid, <span class="dt">nsim=</span><span class="dv">2</span>, <span class="dt">block=</span><span class="kw">c</span>(<span class="dv">40</span>,<span class="dv">40</span>), <span class="dt">debug.level=</span><span class="dv">0</span>)
@@ -1941,7 +1938,7 @@ Figure 5.11: Predictions and simulations (2) at point (above) and block (below) 
 </div>
 <p>which shows that the mapping accuracy at point support is ca. 53% of the
 original variance (see further Eq.<a href="statistical-theory.html#eq:normvar">(5.28)</a>).</p>
-<p>Note also that, cross-validation using block support in is not possible
+<p>Note also that, cross-validation using block support in many cases is not possible
 because the input data needed for cross-validation are only available at
 point support. This basically means that, for the Meuse example, to
 estimate the mapping accuracy at block support we would have to revisit
@@ -1986,7 +1983,7 @@ in the world refer to (lateral) point support. Hence the most typical
 combination of support size that we work with is: point support for soil
 property observations, block support for covariates and point or block
 support for soil property predictions. Modelling at full point support
-(both soil sampled, covariates and outputs at point support) is in fact
+(both soil samples, covariates and outputs at point support) is in fact
 very rare. Soil covariates are often derived from remote sensing data,
 which is almost always delivered at block support.</p>
 <p>In principle, there is no problem with using covariates at block support
@@ -2078,7 +2075,7 @@ important to be aware that these assessments of uncertainty are
 <em>model-based</em>, i.e. are only valid under the assumptions made by the
 geostatistical model. A truly <em>model-free</em> assessment of the map
 accuracy can (only) be obtained by probability-based validation
-<span class="citation">(Brus, Kempen, and Heuvelink <a href="#ref-Brus2011EJSS">2011</a>)</span>. For this we need independent sample i.e. a sample that
+<span class="citation">(Brus, Kempen, and Heuvelink <a href="#ref-Brus2011EJSS">2011</a>)</span>. For this we need an independent sample i.e. a sample that
 was not used to build the model and make the predictions, and that, in
 addition, was selected from the study area using a probabilistic
 sampling design.</p>
@@ -2091,6 +2088,7 @@ argument:</p>
 <span class="co">#&gt; drawing 20 GLS realisations of beta...</span>
 <span class="co">#&gt; [using conditional Gaussian simulation]</span>
 <span class="co">#&gt; </span>
+ <span class="dv">93</span>% done
 <span class="dv">100</span>% done
 <span class="co">#&gt; Creating an object of class &quot;RasterBrickSimulations&quot;</span>
 <span class="kw">log1p</span>(meuse<span class="op">@</span>data[<span class="dv">1</span>,<span class="st">&quot;om&quot;</span>])
@@ -2129,13 +2127,13 @@ organic matter content using the Meuse case study:</p>
 <span class="kw">demo</span>(meuse, <span class="dt">echo=</span><span class="ot">FALSE</span>)
 meuse<span class="op">$</span>value =<span class="st"> </span>meuse<span class="op">$</span>zinc
 output &lt;-<span class="st"> </span><span class="kw">interpolate</span>(meuse, meuse.grid, <span class="kw">list</span>(<span class="dt">mean=</span><span class="ot">TRUE</span>, <span class="dt">variance=</span><span class="ot">TRUE</span>))
-<span class="co">#&gt; R 2018-12-26 21:38:14 interpolating 155 observations, 3103 prediction locations</span>
+<span class="co">#&gt; R 2018-12-27 02:17:02 interpolating 155 observations, 3103 prediction locations</span>
 <span class="co">#&gt; Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : </span>
 <span class="co">#&gt;  using standard model for estimating time. For better </span>
 <span class="co">#&gt;  platform spesific predictions, please run </span>
 <span class="co">#&gt;  timeModels &lt;- generateTimeModels()</span>
 <span class="co">#&gt;   and save the workspace</span>
-<span class="co">#&gt; [1] &quot;estimated time for  copula 159.374635654982&quot;</span>
+<span class="co">#&gt; [1] &quot;estimated time for  copula 161.149806999505&quot;</span>
 <span class="co">#&gt; Checking object ... OK</span></code></pre>
 <p>which gives the (presumably) best interpolation method for the problem
 at hand (<code>value</code> column), given the time available set with
@@ -2144,7 +2142,7 @@ at hand (<code>value</code> column), given the time available set with
 <span class="co">#&gt; List of 16</span>
 <span class="co">#&gt;  $ observations       :Formal class &#39;SpatialPointsDataFrame&#39; [package &quot;sp&quot;] with 5 slots</span>
 <span class="co">#&gt;  $ formulaString      :Class &#39;formula&#39;  language value ~ 1</span>
-<span class="co">#&gt;   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x1511b808&gt; </span>
+<span class="co">#&gt;   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x13c62470&gt; </span>
 <span class="co">#&gt;  $ predictionLocations:Formal class &#39;SpatialPixelsDataFrame&#39; [package &quot;sp&quot;] with 7 slots</span>
 <span class="co">#&gt;  $ params             :List of 18</span>
 <span class="co">#&gt;   ..$ doAnisotropy     : logi TRUE</span>
@@ -2292,7 +2290,7 @@ mFit2 &lt;-<span class="st"> </span>caret<span class="op">::</span><span class="
 mFit3 &lt;-<span class="st"> </span>caret<span class="op">::</span><span class="kw">train</span>(om<span class="op">~</span>dist<span class="op">+</span>soil<span class="op">+</span>ffreq, <span class="dt">data=</span>meuse.ov, <span class="dt">method=</span><span class="st">&quot;ranger&quot;</span>, 
                <span class="dt">trControl=</span>fitControl, <span class="dt">na.action=</span>na.omit)</code></pre>
 <p>This will run repeated Cross-validation with 50% : 50% splits training and validation,
-which means that in each iteration models will be refitted from scratch. Next we can compare performance of the three models by using:</p>
+which means that, in each iteration, models will be refitted from scratch. Next we can compare performance of the three models by using:</p>
 <pre class="sourceCode r"><code class="sourceCode r">resamps &lt;-<span class="st"> </span><span class="kw">resamples</span>(<span class="kw">list</span>(<span class="dt">Mean=</span>mFit0, <span class="dt">Soilmap=</span>mFit1, <span class="dt">GLM=</span>mFit2, <span class="dt">RF=</span>mFit3))
 <span class="kw">bwplot</span>(resamps, <span class="dt">layout =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">1</span>), <span class="dt">metric=</span><span class="kw">c</span>(<span class="st">&quot;RMSE&quot;</span>,<span class="st">&quot;Rsquared&quot;</span>), 
        <span class="dt">fill=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">scales =</span> <span class="kw">list</span>(<span class="dt">relation =</span> <span class="st">&quot;free&quot;</span>))</code></pre>
@@ -2306,7 +2304,7 @@ Figure 5.17: Comparison of spatial prediction accuracy (RMSE at cross-validation
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>((<span class="dv">1</span><span class="op">-</span><span class="kw">min</span>(mFit3<span class="op">$</span>results<span class="op">$</span>RMSE)<span class="op">/</span><span class="kw">min</span>(mFit0<span class="op">$</span>results<span class="op">$</span>RMSE))<span class="op">*</span><span class="dv">100</span>)
 <span class="co">#&gt; [1] 32</span></code></pre>
 <p>There is certainly added value in using spatial covariates (in the case above: distance to water and flooding frequency maps) and in using machine learning for spatial prediction, even with smaller data sets.</p>
-<p>Note also that the assessment of spatial prediction accuracy for the three models based on the train function above is model-free, i.e. cross-validation of the models is independent of the models used because, at each cross-validation subset, fitting of the model is repeated and validation points are maintained separate from model training. Subsetting point samples is not always trivial however: in order to consider cross-validation as completely reliable, the samples ought to be representative of the study area and preferably collected using objective sampling such as simple random sampling or similar <span class="citation">(Brus, Kempen, and Heuvelink <a href="#ref-Brus2011EJSS">2011</a>)</span>. In the case the sampling locations are clustered in geographical space i.e. if some parts of the study area are completely omitted from sampling, then also the results of cross-validation will reflect that sampling bias / poor representation. In all the following examples we will assume that cross-validation gives a reliable measure of mapping accuracy and we will use it as the basis of accuracy assessment i.e. mapping efficiency. In reality, cross-validation might be tricky to implement and could often lead to somewhat over-optimistic results if either sampling bias exists or/and if there are too few points for model validation. For example, in the case of soil profile data, it is highly recommended that entire profiles are removed from CV because soil horizons are too strongly correlated (as discussed in detail in <span class="citation">Gasch et al. (<a href="#ref-Gasch2015SPASTA">2015</a>)</span> and <span class="citation">Brenning (<a href="#ref-Brenning2012">2012</a>)</span>).</p>
+<p>Note also that the assessment of spatial prediction accuracy for the three models based on the train function above is model-free, i.e. cross-validation of the models is independent of the models used because, at each cross-validation subset, fitting of the model is repeated and validation points are maintained separate from model training. Subsetting point samples is not always trivial however: in order to consider cross-validation as completely reliable, the samples ought to be representative of the study area and preferably collected using objective sampling such as simple random sampling or similar <span class="citation">(Brus, Kempen, and Heuvelink <a href="#ref-Brus2011EJSS">2011</a>)</span>. In cases where the sampling locations are clustered in geographical space i.e. if some parts of the study area are completely omitted from sampling, then also the results of cross-validation will reflect that sampling bias / poor representation. In all the following examples we will assume that cross-validation gives a reliable measure of mapping accuracy and we will use it as the basis of accuracy assessment i.e. mapping efficiency. In reality, cross-validation might be tricky to implement and could often lead to somewhat over-optimistic results if either sampling bias exists or/and if there are too few points for model validation. For example, in the case of soil profile data, it is highly recommended that entire profiles are removed from CV because soil horizons are too strongly correlated (as discussed in detail in <span class="citation">Gasch et al. (<a href="#ref-Gasch2015SPASTA">2015</a>)</span> and <span class="citation">Brenning (<a href="#ref-Brenning2012">2012</a>)</span>).</p>
 <p>The whole process of spatial prediction of soil properties could be summarized in 5 steps:</p>
 <ol style="list-style-type: decimal">
 <li>Initial model comparison (comparison of prediction accuracy and computing time).</li>
@@ -2428,7 +2426,7 @@ estimated. Once the anisotropy ratio is obtained, 3D variogram modelling
 does not meaningfully differ from 2D variogram modelling.</p>
 <p>The 3D RK framework explained above can be compared to the approach of
 <span class="citation">Malone et al. (<a href="#ref-Malone2009Geoderma">2009</a>)</span>, who first fit an equal-area spline function to
-estimate the soil properties at a standard depth, and next fit
+estimate the soil properties at standard depths, and next fit
 regression and variogram models at each depth. A drawback of the
 approach by <span class="citation">Malone et al. (<a href="#ref-Malone2009Geoderma">2009</a>)</span>, however, is that the separate models
 for each depth ignore all vertical correlations. In addition, the
@@ -2436,7 +2434,7 @@ equal-area spline is not used to model soil-depth relationships but only
 to estimate the values at standard depths for sampling locations i.e. it
 is implemented for each soil profile (site) separately. In the 3D RK
 framework explained above, a single model is used to generate
-predictions at any location and for any depth, and which takes into
+predictions at any location and for any depth, and this takes into
 account both horizontal and vertical relationships simultaneously. The
 3D RK approach is both easier to implement, and allows for incorporating
 all (vertical) soil-depth relationships including the spatial
@@ -2527,7 +2525,7 @@ geographical databases those products can be evaluated using independent
 validation studies. Unfortunately, much evaluation of soil maps in the
 world is still done using subjective <em>‘look-good’</em> assessments and the
 inherent uncertainty of the product is often underreported. In this book,
-we promote objective assessment of the mapping accuracy, i.e. based on
+we promote objective assessment of mapping accuracy, i.e. based on
 statistical testing using ground truth data.</p>
 <p><em>Mapping accuracy</em> can be defined as the difference between an estimated
 value and the <em>“true”</em> value, i.e. a value of the same target variable
@@ -2763,6 +2761,7 @@ which can now be used to generate predictions:</p>
 <span class="co">#&gt; Generating predictions using the trend model (RK method)...</span>
 <span class="co">#&gt; [using ordinary kriging]</span>
 <span class="co">#&gt; </span>
+ <span class="dv">78</span>% done
 <span class="dv">100</span>% done
 <span class="co">#&gt; Running 5-fold cross validation using &#39;krige.cv&#39;...</span>
 <span class="co">#&gt; Creating an object of class &quot;SpatialPredictions&quot;</span></code></pre>
@@ -3101,7 +3100,7 @@ often not provided in the case of conventional soil mapping.</p></li>
 </ol>
 <p>A disadvantage of automated soil mapping is that many statistical and
 machine learning techniques are sensitive to errors and inconsistencies
-in input data. A few typos, misaligned spatial coordinates or
+in the input data. A few typos, misaligned spatial coordinates or
 misspecified models can create serious artifacts and reduce prediction
 accuracy, more so than with traditional methods. Also, fitting models
 using large and complex data sets can be time consuming and selection of
@@ -3283,6 +3282,9 @@ alternatives.</p>
 <div id="ref-Liu2009">
 <p>Liu, Jian, and A-Xing Zhu. 2009. “Mapping with Words: A New Approach to Automated Digital Soil Survey.” <em>International Journal of Intelligent Systems</em> 24 (3). Wiley Subscription Services, Inc., A Wiley Company:293–311. <a href="https://doi.org/10.1002/int.20337" class="uri">https://doi.org/10.1002/int.20337</a>.</p>
 </div>
+<div id="ref-MacMillan2010DSM">
+<p>MacMillan, R. A., D.E. Moon, R. A. Coupé, and N. Phillips. 2010. “Predictive Ecosystem Mapping (Pem) for 8.2 Million Ha of Forestland,British Columbia, Canada.” In <em>Digital Soil Mapping: Bridging Research, Environmental Application, and Operation</em>, edited by J. L. Boettinger et al., 2:335–54. Progress in Soil Science. Springer. <a href="https://doi.org/10.1007/978-90-481-8863-5_27" class="uri">https://doi.org/10.1007/978-90-481-8863-5_27</a>.</p>
+</div>
 <div id="ref-Simonson1968AA">
 <p>Simonson, Roy W. 1968. “Concept of Soil.” In <em>Prepared Under the Auspices of the American Society of Agronomy</em>, edited by A.G. Norman, 20:1–47. Advances in Agronomy. Academic Press. <a href="https://doi.org/10.1016/S0065-2113(08)60853-6" class="uri">https://doi.org/10.1016/S0065-2113(08)60853-6</a>.</p>
 </div>
@@ -3294,9 +3296,6 @@ alternatives.</p>
 </div>
 <div id="ref-VanEngelen2012">
 <p>Van Engelen, V.W.P., and J.A. Dijkshoorn, eds. 2012. <em>Global and National Soils and Terrain Digital Databases (SOTER), Procedures Manual, version 2.0</em>. ISRIC Report 2012/04. Wageningen, the Netherlands: ISRIC - World Soil Information.</p>
-</div>
-<div id="ref-MacMillan2010DSM">
-<p>MacMillan, R. A., D.E. Moon, R. A. Coupé, and N. Phillips. 2010. “Predictive Ecosystem Mapping (Pem) for 8.2 Million Ha of Forestland,British Columbia, Canada.” In <em>Digital Soil Mapping: Bridging Research, Environmental Application, and Operation</em>, edited by J. L. Boettinger et al., 2:335–54. Progress in Soil Science. Springer. <a href="https://doi.org/10.1007/978-90-481-8863-5_27" class="uri">https://doi.org/10.1007/978-90-481-8863-5_27</a>.</p>
 </div>
 <div id="ref-Zhu2001">
 <p>Zhu, A.X., B. Hudson, J. Burt, K. Lubich, and D. Simonson. 2001. “Soil Mapping Using Gis, Expert Knowledge, and Fuzzy Logic.” <em>Soil Science Society of America Journal</em> 65:1463–72.</p>
