@@ -8607,7 +8607,6 @@ for plotting, (4) spatial locations of observations used to fit the model. To pr
 \CommentTok{#> Generating predictions using the trend model (RK method)...}
 \CommentTok{#> [using ordinary kriging]}
 \CommentTok{#> }
- \DecValTok{12}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Running 5-fold cross validation using 'krige.cv'...}
 \CommentTok{#> Creating an object of class "SpatialPredictions"}
@@ -8952,7 +8951,6 @@ support:
 \CommentTok{#> Generating predictions using the trend model (RK method)...}
 \CommentTok{#> [using ordinary kriging]}
 \CommentTok{#> }
- \DecValTok{88}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Running 5-fold cross validation using 'krige.cv'...}
 \CommentTok{#> Creating an object of class "SpatialPredictions"}
@@ -8962,6 +8960,7 @@ support:
 \CommentTok{#> drawing 20 GLS realisations of beta...}
 \CommentTok{#> [using conditional Gaussian simulation]}
 \CommentTok{#> }
+ \DecValTok{32}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Creating an object of class "RasterBrickSimulations"}
 \CommentTok{#> Loading required package: raster}
@@ -9283,13 +9282,13 @@ organic matter content using the Meuse case study:
 \KeywordTok{demo}\NormalTok{(meuse, }\DataTypeTok{echo=}\OtherTok{FALSE}\NormalTok{)}
 \NormalTok{meuse}\OperatorTok{$}\NormalTok{value =}\StringTok{ }\NormalTok{meuse}\OperatorTok{$}\NormalTok{zinc}
 \NormalTok{output <-}\StringTok{ }\KeywordTok{interpolate}\NormalTok{(meuse, meuse.grid, }\KeywordTok{list}\NormalTok{(}\DataTypeTok{mean=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{variance=}\OtherTok{TRUE}\NormalTok{))}
-\CommentTok{#> R 2018-12-27 01:53:47 interpolating 155 observations, 3103 prediction locations}
+\CommentTok{#> R 2018-12-27 05:40:54 interpolating 155 observations, 3103 prediction locations}
 \CommentTok{#> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : }
 \CommentTok{#>  using standard model for estimating time. For better }
 \CommentTok{#>  platform spesific predictions, please run }
 \CommentTok{#>  timeModels <- generateTimeModels()}
 \CommentTok{#>   and save the workspace}
-\CommentTok{#> [1] "estimated time for  copula 207.667067975104"}
+\CommentTok{#> [1] "estimated time for  copula 158.668714052368"}
 \CommentTok{#> Checking object ... OK}
 \end{Highlighting}
 \end{Shaded}
@@ -9304,7 +9303,7 @@ at hand (\texttt{value} column), given the time available set with
 \CommentTok{#> List of 16}
 \CommentTok{#>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots}
 \CommentTok{#>  $ formulaString      :Class 'formula'  language value ~ 1}
-\CommentTok{#>   .. ..- attr(*, ".Environment")=<environment: 0x1461a9e8> }
+\CommentTok{#>   .. ..- attr(*, ".Environment")=<environment: 0x14926670> }
 \CommentTok{#>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots}
 \CommentTok{#>  $ params             :List of 18}
 \CommentTok{#>   ..$ doAnisotropy     : logi TRUE}
@@ -10591,7 +10590,7 @@ alternatives.
 \hypertarget{spatial-prediction-of-soil-properties-and-classes-using-mlas}{%
 \section{Spatial prediction of soil properties and classes using MLA's}\label{spatial-prediction-of-soil-properties-and-classes-using-mlas}}
 
-This chapter looks at some common Machine learning algorithms (MLA's) that are potentially of interest for soil mapping projects i.e.~for generating spatial predictions. We put special focus on using tree-based algorithms such as \href{https://en.wikipedia.org/wiki/Random_forest}{random forest}, \href{https://en.wikipedia.org/wiki/Gradient_boosting}{gradient boosting} and \href{https://cran.r-project.org/package=Cubist}{Cubist}. For a more in-depth overview of machine learning algorithms used in statistics refer to the CRAN Task View on \href{https://cran.r-project.org/web/views/MachineLearning.html}{Machine Learning \& Statistical Learning}. Some other examples of how MLA's can be used to fit Pedo-Transfer-Functions can be found in section \ref{mla-ptfs}.
+This chapter reviews some common Machine learning algorithms (MLA's) that have demonstrated potantial for soil mapping projects i.e.~for generating spatial predictions. We especially focus on using tree-based algorithms such as \href{https://en.wikipedia.org/wiki/Random_forest}{random forest}, \href{https://en.wikipedia.org/wiki/Gradient_boosting}{gradient boosting} and \href{https://cran.r-project.org/package=Cubist}{Cubist}. For a more in-depth overview of machine learning algorithms used in statistics refer to the CRAN Task View on \href{https://cran.r-project.org/web/views/MachineLearning.html}{Machine Learning \& Statistical Learning}. Some other examples of how MLA's can be used to fit Pedo-Transfer-Functions can be found in section \ref{mla-ptfs}.
 
 \hypertarget{loading-the-packages-and-data}{%
 \subsection{Loading the packages and data}\label{loading-the-packages-and-data}}
@@ -10828,7 +10827,7 @@ By using the produced predictions we can further derive Confusion Index (to map 
 \hypertarget{modelling-numeric-soil-properties-using-h2o}{%
 \subsection{Modelling numeric soil properties using h2o}\label{modelling-numeric-soil-properties-using-h2o}}
 
-Random forest is suited for both classification and regression problems (it is one of the most popular MLA's for soil mapping). Consequently, we can use it also for modelling numeric soil properties i.e.~to fit models and generate predictions. However, because the randomForest package in R is not suited for large data sets, we can also use some parallelized version of random forest (or more scalable) i.e.~the one implemented in the \href{http://www.h2o.ai/}{h2o package} \citep{richter2015multi}. h2o is a Java-based implementation, therefore installing the package requires Java libraries (size of package is about 80MB so it might take some to download and install) and all computing is in principle run outside of R i.e.~within the JVM (Java Virtual Machine).
+Random forest is suited for both classification and regression problems (it is one of the most popular MLA's for soil mapping). Consequently, we can use it also for modelling numeric soil properties i.e.~to fit models and generate predictions. However, because the randomForest package in R is not suited for large data sets, we can also use some parallelized version of random forest (or more scalable) i.e.~the one implemented in the \href{http://www.h2o.ai/}{h2o package} \citep{richter2015multi}. h2o is a Java-based implementation, therefore installing the package requires Java libraries (size of package is about 80MB so it might take some to download and install) and all computing is, in principle, run outside of R i.e.~within the JVM (Java Virtual Machine).
 
 In the following example we look at mapping sand content for the upper horizons. To initiate h2o we run:
 
@@ -10840,14 +10839,14 @@ In the following example we look at mapping sand content for the upper horizons.
 \CommentTok{#> H2O is not running yet, starting it now...}
 \CommentTok{#> }
 \CommentTok{#> Note:  In case of errors look at the following log files:}
-\CommentTok{#>     /tmp/RtmpbspnVp/h2o_travis_started_from_r.out}
-\CommentTok{#>     /tmp/RtmpbspnVp/h2o_travis_started_from_r.err}
+\CommentTok{#>     /tmp/RtmpgoYlXf/h2o_travis_started_from_r.out}
+\CommentTok{#>     /tmp/RtmpgoYlXf/h2o_travis_started_from_r.err}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> Starting H2O JVM and connecting: .. Connection successful!}
 \CommentTok{#> }
 \CommentTok{#> R is connected to the H2O cluster: }
-\CommentTok{#>     H2O cluster uptime:         2 seconds 129 milliseconds }
+\CommentTok{#>     H2O cluster uptime:         2 seconds 128 milliseconds }
 \CommentTok{#>     H2O cluster timezone:       UTC }
 \CommentTok{#>     H2O data parsing timezone:  UTC }
 \CommentTok{#>     H2O cluster version:        3.20.0.8 }
@@ -10888,23 +10887,23 @@ We can now fit a random forest model by using all the computing power available 
 \CommentTok{#> ==============}
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionModel: drf}
-\CommentTok{#> Model ID:  DRF_model_R_1545875686693_1 }
+\CommentTok{#> Model ID:  DRF_model_R_1545889312513_1 }
 \CommentTok{#> Model Summary: }
 \CommentTok{#>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth}
-\CommentTok{#> 1              50                       50              641424        20}
+\CommentTok{#> 1              50                       50              641302        20}
 \CommentTok{#>   max_depth mean_depth min_leaves max_leaves mean_leaves}
-\CommentTok{#> 1        20   20.00000        944       1082  1017.40000}
+\CommentTok{#> 1        20   20.00000        936       1069  1017.26000}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionMetrics: drf}
 \CommentTok{#> ** Reported on training data. **}
 \CommentTok{#> ** Metrics reported on Out-Of-Bag training samples **}
 \CommentTok{#> }
-\CommentTok{#> MSE:  221}
-\CommentTok{#> RMSE:  14.9}
-\CommentTok{#> MAE:  10.1}
-\CommentTok{#> RMSLE:  0.431}
-\CommentTok{#> Mean Residual Deviance :  221}
+\CommentTok{#> MSE:  224}
+\CommentTok{#> RMSE:  15}
+\CommentTok{#> MAE:  10.2}
+\CommentTok{#> RMSLE:  0.433}
+\CommentTok{#> Mean Residual Deviance :  224}
 \end{Highlighting}
 \end{Shaded}
 
@@ -10962,29 +10961,29 @@ h2o has another MLA of interest for soil mapping called \emph{deep learning} (a 
 \CommentTok{#> ==============}
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionModel: deeplearning}
-\CommentTok{#> Model ID:  DeepLearning_model_R_1545875686693_2 }
+\CommentTok{#> Model ID:  DeepLearning_model_R_1545889312513_2 }
 \CommentTok{#> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1}
 \CommentTok{#>   layer units      type dropout       l1       l2 mean_rate rate_rms}
 \CommentTok{#> 1     1    10     Input  0.00 %       NA       NA        NA       NA}
-\CommentTok{#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.014545 0.008086}
-\CommentTok{#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.131561 0.200674}
-\CommentTok{#> 4     4     1    Linear      NA 0.000000 0.000000  0.001370 0.001022}
+\CommentTok{#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.014505 0.009251}
+\CommentTok{#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.143811 0.179499}
+\CommentTok{#> 4     4     1    Linear      NA 0.000000 0.000000  0.001438 0.001292}
 \CommentTok{#>   momentum mean_weight weight_rms mean_bias bias_rms}
 \CommentTok{#> 1       NA          NA         NA        NA       NA}
-\CommentTok{#> 2 0.000000    0.002444   0.104551  0.376672 0.054696}
-\CommentTok{#> 3 0.000000   -0.017959   0.070690  0.960620 0.016899}
-\CommentTok{#> 4 0.000000   -0.003001   0.054714  0.122074 0.000000}
+\CommentTok{#> 2 0.000000    0.001433   0.101402  0.348474 0.061411}
+\CommentTok{#> 3 0.000000   -0.018650   0.071385  0.949960 0.022889}
+\CommentTok{#> 4 0.000000   -0.002978   0.044547  0.098333 0.000000}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionMetrics: deeplearning}
 \CommentTok{#> ** Reported on training data. **}
 \CommentTok{#> ** Metrics reported on full training frame **}
 \CommentTok{#> }
-\CommentTok{#> MSE:  257}
-\CommentTok{#> RMSE:  16}
-\CommentTok{#> MAE:  12.2}
-\CommentTok{#> RMSLE:  0.493}
-\CommentTok{#> Mean Residual Deviance :  257}
+\CommentTok{#> MSE:  305}
+\CommentTok{#> RMSE:  17.5}
+\CommentTok{#> MAE:  13.9}
+\CommentTok{#> RMSLE:  0.548}
+\CommentTok{#> Mean Residual Deviance :  305}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11033,7 +11032,7 @@ Indeed, the output map now shows patterns of both methods and is more likely sli
 
 In the final exercise, we look at another two ML-based packages that are also of interest for soil mapping projects --- cubist \citep{kuhn2012cubist, kuhn2013applied} and xgboost \citep{2016arXiv160302754C}. The object is now to fit models and predict continuous soil properties in 3D. To fine-tune some of the models we will also use the \href{http://topepo.github.io/caret/}{caret} package, which is highly recommended for optimizing model fitting and cross-validation. Read more about how to derive soil organic carbon stock using 3D soil mapping in section \ref{ocs-3d-approach}.
 
-We now look at another soil mapping data set from Australia called \href{http://gsif.r-forge.r-project.org/edgeroi.html}{``Edgeroi''}, which is described in detail in \citet{Malone2009Geoderma}. We can load the profile data and covariates by using:
+We will use another soil mapping data set from Australia called \href{http://gsif.r-forge.r-project.org/edgeroi.html}{``Edgeroi''}, which is described in detail in \citet{Malone2009Geoderma}. We can load the profile data and covariates by using:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11066,7 +11065,7 @@ Here we are interested in modelling soil organic carbon content in g/kg for diff
 \end{Highlighting}
 \end{Shaded}
 
-Because we will run 3D modelling, we also need to add depth of horizons. We use a small function to assign depth values as the center depth of each horizon (as shown in figure below). Because we know where the horizons start and stop, we can copy the values of target variables two times so that the model knows at which depth values of properties change.
+Because we will run 3D modelling, we also need to add depth of horizons. We use a small function to assign depth values as the center depth of each horizon (as shown in figure below). Because we know where the horizons start and stop, we can copy the values of target variables two times so that the model knows at which depths values of properties change.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11254,16 +11253,16 @@ We can hence run 5-fold cross validation:
 \CommentTok{#> List of 2}
 \CommentTok{#>  $ CV_residuals:'data.frame':    4972 obs. of  4 variables:}
 \CommentTok{#>   ..$ Observed : num [1:4972] 14.5 13.6 10.1 12.1 7.1 ...}
-\CommentTok{#>   ..$ Predicted: num [1:4972] 13.77 10.76 8.82 6.04 3.41 ...}
+\CommentTok{#>   ..$ Predicted: num [1:4972] 13.53 9.66 8.88 6.61 3.56 ...}
 \CommentTok{#>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" ...}
 \CommentTok{#>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...}
 \CommentTok{#>  $ Summary     :'data.frame':    1 obs. of  6 variables:}
-\CommentTok{#>   ..$ ME          : num -0.117}
-\CommentTok{#>   ..$ MAE         : num 2.13}
-\CommentTok{#>   ..$ RMSE        : num 3.61}
-\CommentTok{#>   ..$ R.squared   : num 0.573}
+\CommentTok{#>   ..$ ME          : num -0.106}
+\CommentTok{#>   ..$ MAE         : num 2.1}
+\CommentTok{#>   ..$ RMSE        : num 3.59}
+\CommentTok{#>   ..$ R.squared   : num 0.578}
 \CommentTok{#>   ..$ logRMSE     : num 0.48}
-\CommentTok{#>   ..$ logR.squared: num 0.656}
+\CommentTok{#>   ..$ logR.squared: num 0.655}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11323,14 +11322,14 @@ we first specify all learners (MLA methods) of interest:
 \CommentTok{#> Base learner performance, sorted by specified metric:}
 \CommentTok{#>                    learner  MSE}
 \CommentTok{#> 2          h2o.gbm.wrapper 9.81}
-\CommentTok{#> 1 h2o.randomForest.wrapper 8.24}
+\CommentTok{#> 1 h2o.randomForest.wrapper 8.51}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2O Ensemble Performance on <newdata>:}
 \CommentTok{#> ----------------}
 \CommentTok{#> Family: gaussian}
 \CommentTok{#> }
-\CommentTok{#> Ensemble performance (MSE): 8.27338199819527}
+\CommentTok{#> Ensemble performance (MSE): 8.49378419358704}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11433,16 +11432,16 @@ We can again test fitting an ensemble model using two MLA's:
 \CommentTok{#> Base learner performance, sorted by specified metric:}
 \CommentTok{#>                    learner    MSE}
 \CommentTok{#> 1          h2o.glm.wrapper 0.2827}
-\CommentTok{#> 4 h2o.deeplearning.wrapper 0.1552}
+\CommentTok{#> 4 h2o.deeplearning.wrapper 0.1638}
 \CommentTok{#> 3          h2o.gbm.wrapper 0.0971}
-\CommentTok{#> 2 h2o.randomForest.wrapper 0.0823}
+\CommentTok{#> 2 h2o.randomForest.wrapper 0.0833}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2O Ensemble Performance on <newdata>:}
 \CommentTok{#> ----------------}
 \CommentTok{#> Family: gaussian}
 \CommentTok{#> }
-\CommentTok{#> Ensemble performance (MSE): 0.0770897291613408}
+\CommentTok{#> Ensemble performance (MSE): 0.0791961758225583}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11496,7 +11495,7 @@ Another interesting package to generate ensemble predictions of soil properties 
 
 where \texttt{SL.} refers to an imported method from a package e.g. \texttt{"SL.ranger"} is the SuperLearner method from the package ranger.
 
-A useful functionality of the SuperLearner package is that it displays how model average weights are estimated and which methods can safely be excluded from predictions. When using SuperLearner, however, it is highly recommended to use the parallelized / multicore version, otherwise the computing time might be quite extensive. For example, to prepare ensemble predictions using the five standard prediction techniques used in this tutorial we would run:
+A useful functionality of the SuperLearner package is that it displays how model average weights are estimated and which methods can safely be excluded from predictions. When using SuperLearner, however, it is highly recommended to use the parallelized / multicore version, otherwise the computing time might be quite excessive. For example, to prepare ensemble predictions using the five standard prediction techniques used in this tutorial we would run:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11529,12 +11528,12 @@ A useful functionality of the SuperLearner package is that it displays how model
 \CommentTok{#>     SL.library = sl.l) }
 \CommentTok{#> }
 \CommentTok{#> }
-\CommentTok{#>                  Risk   Coef}
-\CommentTok{#> SL.mean_All    0.7540 0.0000}
-\CommentTok{#> SL.xgboost_All 0.0598 0.8215}
-\CommentTok{#> SL.ksvm_All    0.1296 0.0146}
-\CommentTok{#> SL.glmnet_All  0.3078 0.0000}
-\CommentTok{#> SL.ranger_All  0.0856 0.1639}
+\CommentTok{#>                  Risk    Coef}
+\CommentTok{#> SL.mean_All    0.7540 0.00000}
+\CommentTok{#> SL.xgboost_All 0.0598 0.80563}
+\CommentTok{#> SL.ksvm_All    0.1289 0.00359}
+\CommentTok{#> SL.glmnet_All  0.3081 0.00000}
+\CommentTok{#> SL.ranger_All  0.0843 0.19078}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11555,9 +11554,9 @@ This shows that \texttt{SL.xgboost\_All} outperforms the competition by a large 
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#>                  Risk  Coef}
-\CommentTok{#> SL.xgboost_All 0.0603 0.814}
-\CommentTok{#> SL.ranger_All  0.0837 0.186}
-\CommentTok{#> SL.ksvm_All    0.1301 0.000}
+\CommentTok{#> SL.xgboost_All 0.0603 0.806}
+\CommentTok{#> SL.ranger_All  0.0825 0.194}
+\CommentTok{#> SL.ksvm_All    0.1316 0.000}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11585,15 +11584,15 @@ again \texttt{SL.xgboost} dominates the ensemble model, which is most likely unr
 \CommentTok{#> All risk estimates are based on V =  5 }
 \CommentTok{#> }
 \CommentTok{#>       Algorithm  Ave    se   Min  Max}
-\CommentTok{#>   Super Learner 0.16 0.014 0.096 0.26}
-\CommentTok{#>     Discrete SL 0.17 0.015 0.118 0.25}
+\CommentTok{#>   Super Learner 0.16 0.014 0.093 0.25}
+\CommentTok{#>     Discrete SL 0.17 0.014 0.113 0.24}
 \CommentTok{#>  SL.xgboost_All 0.19 0.016 0.135 0.27}
-\CommentTok{#>   SL.ranger_All 0.17 0.015 0.105 0.25}
-\CommentTok{#>     SL.ksvm_All 0.18 0.014 0.109 0.30}
+\CommentTok{#>   SL.ranger_All 0.16 0.014 0.101 0.24}
+\CommentTok{#>     SL.ksvm_All 0.18 0.014 0.109 0.29}
 \end{Highlighting}
 \end{Shaded}
 
-where \texttt{V=5} specifies number of folds, and \texttt{id=rm.cookfarm\$SOURCEID} forces that entire profiles are removed from training and cross-validation. This gives a more realistic RMSE of about ±0.35. Note that this time \texttt{SL.xgboost\_All} is even somewhat worse than the random forest model, and the ensemble model (\texttt{Super\ Learner}) is slightly better than each individual model. This matches our previous results with \texttt{h20.ensemble}.
+where \texttt{V=5} specifies number of folds, and \texttt{id=rm.cookfarm\$SOURCEID} enforces that entire profiles are removed from training and cross-validation. This gives a more realistic RMSE of about ±0.35. Note that this time \texttt{SL.xgboost\_All} is even somewhat worse than the random forest model, and the ensemble model (\texttt{Super\ Learner}) is slightly better than each individual model. This matches our previous results with \texttt{h20.ensemble}.
 
 To produce predictions of soil pH at 10 cm depth we can finally use:
 
@@ -11613,10 +11612,10 @@ To produce predictions of soil pH at 10 cm depth we can finally use:
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> }
-\CommentTok{#>                 Risk  Coef}
-\CommentTok{#> SL.xgboost_All 0.215 0.000}
-\CommentTok{#> SL.ranger_All  0.165 0.487}
-\CommentTok{#> SL.ksvm_All    0.164 0.513}
+\CommentTok{#>                 Risk Coef}
+\CommentTok{#> SL.xgboost_All 0.215 0.00}
+\CommentTok{#> SL.ranger_All  0.165 0.47}
+\CommentTok{#> SL.ksvm_All    0.162 0.53}
 \NormalTok{new.data <-}\StringTok{ }\NormalTok{grid10m}\OperatorTok{@}\NormalTok{data}
 \NormalTok{pred.PHI <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\OtherTok{NULL}\NormalTok{)}
 \NormalTok{depths =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{,}\DecValTok{30}\NormalTok{,}\DecValTok{50}\NormalTok{,}\DecValTok{70}\NormalTok{,}\DecValTok{90}\NormalTok{)}
@@ -11638,7 +11637,7 @@ To produce predictions of soil pH at 10 cm depth we can finally use:
 \CommentTok{#>     buffer, rotated}
 \KeywordTok{str}\NormalTok{(pred.PHI[[}\DecValTok{1}\NormalTok{]])}
 \CommentTok{#> List of 2}
-\CommentTok{#>  $ pred           : num [1:3865, 1] 4.64 4.71 4.87 4.83 4.76 ...}
+\CommentTok{#>  $ pred           : num [1:3865, 1] 4.69 4.77 4.9 4.86 4.8 ...}
 \CommentTok{#>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...}
 \CommentTok{#>   ..- attr(*, "dimnames")=List of 2}
 \CommentTok{#>   .. ..$ : NULL}
@@ -11775,7 +11774,7 @@ geostatistics, which converts this rule into a mathematical model, i.e.,
 through spatial autocorrelation functions or variograms. The key to
 making RF applicable to spatial statistics problems, therefore, lies also in
 preparing geographical (spatial) measures of proximity and connectivity between
-observations, so that spatial autocorrelation is accounted for. There
+observations, so that spatial autocorrelation can be accounted for. There
 are multiple options for variables that quantify proximity and geographical
 connection (Fig. \ref{fig:distances-examples}):
 
@@ -11790,7 +11789,7 @@ connection (Fig. \ref{fig:distances-examples}):
 \item
   Euclidean distances to sampling locations, i.e., distances from
   observation locations. Here one buffer distance map can be generated
-  per observation point or group of points. These are also the same distance
+  per observation point or group of points. These are essentially the same distance
   measures as used in geostatistics.
 \item
   Downslope distances, i.e., distances within a watershed: for each
@@ -11821,12 +11820,12 @@ that can be derived per location of interest.
 \end{figure}
 
 Here, we only illustrate predictive performance using Euclidean buffer distances
-(to all sampling points), but the code could be adopted to
+(to all sampling points), but the code could be adapted to
 include other families of geographical covariates (as shown in
 Fig. \ref{fig:distances-examples}). Note also that RF tolerates a high
 number of covariates and multicolinearity \citep{Biau2016}, hence multiple
 types of geographical covariates (Euclidean buffer distances, upslope
-and downslope areas) could be used at the same time.
+and downslope areas) could be considered concurrently.
 
 \hypertarget{spatial-prediction-2d-continuous-variable-using-rfsp}{%
 \subsection{Spatial prediction 2D continuous variable using RFsp}\label{spatial-prediction-2d-continuous-variable-using-rfsp}}
@@ -12029,7 +12028,7 @@ where \texttt{likfit} function fits a log-likelihood based variogram. Note that 
 \end{Highlighting}
 \end{Shaded}
 
-in this case geoR automatically back-transforms values to the original scale, which is a recommended feature. Comparison of predictions and prediction error maps produced using geoR (ordinary kriging) and RFsp (with buffer distances and by just using coordinates) is given in Fig. \ref{fig:comparison-OK-RF-zinc-meuse}.
+in this case geoR automatically back-transforms values to the original scale, which is a recommended feature. Comparison of predictions and prediction error maps produced using geoR (ordinary kriging) and RFsp (with buffer distances and using just coordinates) is given in Fig. \ref{fig:comparison-OK-RF-zinc-meuse}.
 
 \begin{figure}[H]
 
@@ -12237,7 +12236,7 @@ this time geostatistical modeling produces an estimate of beta (regression coeff
 again, overall predictions (the spatial patterns) look fairly similar (Fig. \ref{fig:RF-covs-bufferdist-zinc-meuse}).
 The difference between using geoR and RFsp is that, in the case of RFsp, there are fewer choices
 and fewer assumptions required. Also, RFsp permits the relationship between covariates
-and geographical distances to be fitted all at once. This makes RFsp, in general, less
+and geographical distances to be fitted concurrently. This makes RFsp, in general, less
 cumbersome than model-based geostatistics, but then also more of a ``black-box'' system
 to a geostatistician.
 
@@ -12353,7 +12352,7 @@ in principle, the two options to predicting the distribution of the binomial var
 \caption{Comparison of predictions for soil class “1” produced using (left) regression and prediction of the median value, (middle) regression and prediction of response value, and (right) classification with probabilities.}\label{fig:comparison-uncertainty-Binomial}
 \end{figure}
 
-This shows that predicting binomial variables using RFsp can be implemented both as a classification and a regression problem and both are possible to implement using the ranger package and both should lead to the same results.
+This shows that predicting binomial variables using RFsp can be implemented both as a classification and a regression problem and both are possible to implement using the ranger package and both should lead to relatively the same results.
 
 \hypertarget{spatial-prediction-of-soil-types}{%
 \subsection{Spatial prediction of soil types}\label{spatial-prediction-of-soil-types}}
@@ -12480,12 +12479,12 @@ where \texttt{pred\_soil1} is the probability of occurrence of class 1 and \text
 \caption{Predictions of soil types for the meuse data set based on the RFsp: (above) probability for three soil classes, and (below) derived standard errors per class.}\label{fig:comparison-uncertainty-Factor}
 \end{figure}
 
-Spatial prediction of binomial and factor-type variables is straight forward with ranger / RFsp: buffer distance and spatial-autocorrelation can be incorporated simultaneously as opposed to geostatistical packages, where link functions and/or indicator kriging would need to be used, and which require that variograms are fitted per class.
+Spatial prediction of binomial and factor-type variables is straightforward with ranger / RFsp: buffer distance and spatial-autocorrelation can be incorporated simultaneously as opposed to geostatistical packages, where link functions and/or indicator kriging would need to be used, and which require that variograms are fitted per class.
 
 \hypertarget{summary-points-3}{%
 \section{Summary points}\label{summary-points-3}}
 
-In summary, MLA's are fairly attractive for soil mapping and soil modelling problems in general, as they often perform better than standard linear models (as previously recognized by \citet{moran2002spatial} and \citet{Henderson2004Geoderma}) Some recent comparisons of MLA's performance for operational soil mapping can be found in \citet{nussbaum2018evaluation}). MLA's often perform better than linear techniques for soil mapping; possibly for the following three reasons:
+In summary, MLA's represent an increasingly attractive option for soil mapping and soil modelling problems in general, as they often perform better than standard linear models (as previously recognized by \citet{moran2002spatial} and \citet{Henderson2004Geoderma}) Some recent comparisons of MLA's performance for operational soil mapping can be found in \citet{nussbaum2018evaluation}). MLA's often perform better than linear techniques for soil mapping; possibly for the following three reasons:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -12493,17 +12492,17 @@ In summary, MLA's are fairly attractive for soil mapping and soil modelling prob
 \item
   Non-linear relationships between soil forming factors and soil properties can be more efficiently modeled using MLA's,
 \item
-  Tree-based MLA's (random forest, gradient boosting, cubist) are suitable for representing \emph{local} soil-landscape relationships, nested within larger areas, which is often important for achieving accuracy of spatial prediction models,
+  Tree-based MLA's (random forest, gradient boosting, cubist) are suitable for representing \emph{local} soil-landscape relationships, nested within a hierarchy of larger areas, which is often important for achieving accuracy of spatial prediction models,
 \item
   In the case of MLA, statistical properties such as multicolinearity and non-Gaussian distribution are dealt with inside the models, which simplifies statistical modeling steps,
 \end{enumerate}
 
-On the other hand, MLA's can be computationally very intensive and consequently require careful planning, especially as the number of points goes beyond a few thousand and the number of covariates beyond a dozen. Note also that some MLA's, such as for example Support Vector Machines (\texttt{svm}), are computationally very intensive and are probably not well suited for large data sets.
+On the other hand, MLA's can be computationally very intensive and consequently require careful planning, especially when the number of points goes beyond a few thousand and the number of covariates beyond a dozen. Note also that some MLA's, such as for example Support Vector Machines (\texttt{svm}), are computationally very intensive and are probably not well suited for very large data sets.
 
 Within PSM, there is increasing interest in doing ensemble predictions,
 model averages or model stacks. Stacking models can improve upon
 individual best techniques, achieving improvements of up to 30\%, with
-the additional demands consistinf of only higher computation loads
+the additional demands consisting of only higher computation loads
 \citep{michailidis2017investigating}. In the example above, the extensive
 computational load from derivation of models and product predictions
 already achieved improved accuracies, making increasing computing loads
@@ -12856,7 +12855,7 @@ Where values for bulk density are missing, and no local PTF exists, WoSIS points
   \KeywordTok{paste}\NormalTok{(}\StringTok{"BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +"}\NormalTok{, }
         \KeywordTok{paste}\NormalTok{(}\KeywordTok{names}\NormalTok{(ind.tax), }\DataTypeTok{collapse=}\StringTok{"+"}\NormalTok{)))}
 \NormalTok{m.BLD_PTF <-}\StringTok{ }\KeywordTok{ranger}\NormalTok{(fm.BLD, dfs_tbl, }\DataTypeTok{num.trees =} \DecValTok{85}\NormalTok{, }\DataTypeTok{importance=}\StringTok{'impurity'}\NormalTok{)}
-\CommentTok{#> Growing trees.. Progress: 89%. Estimated remaining time: 3 seconds.}
+\CommentTok{#> Growing trees.. Progress: 88%. Estimated remaining time: 4 seconds.}
 \NormalTok{m.BLD_PTF}
 \CommentTok{#> Ranger result}
 \CommentTok{#> }

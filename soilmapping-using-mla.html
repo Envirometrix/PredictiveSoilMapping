@@ -405,7 +405,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><em>Edited by: T. Hengl</em></p>
 <div id="spatial-prediction-of-soil-properties-and-classes-using-mlas" class="section level2">
 <h2><span class="header-section-number">6.1</span> Spatial prediction of soil properties and classes using MLA’s</h2>
-<p>This chapter looks at some common Machine learning algorithms (MLA’s) that are potentially of interest for soil mapping projects i.e. for generating spatial predictions. We put special focus on using tree-based algorithms such as <a href="https://en.wikipedia.org/wiki/Random_forest">random forest</a>, <a href="https://en.wikipedia.org/wiki/Gradient_boosting">gradient boosting</a> and <a href="https://cran.r-project.org/package=Cubist">Cubist</a>. For a more in-depth overview of machine learning algorithms used in statistics refer to the CRAN Task View on <a href="https://cran.r-project.org/web/views/MachineLearning.html">Machine Learning &amp; Statistical Learning</a>. Some other examples of how MLA’s can be used to fit Pedo-Transfer-Functions can be found in section <a href="soil-variables-chapter.html#mla-ptfs">3.9</a>.</p>
+<p>This chapter reviews some common Machine learning algorithms (MLA’s) that have demonstrated potantial for soil mapping projects i.e. for generating spatial predictions. We especially focus on using tree-based algorithms such as <a href="https://en.wikipedia.org/wiki/Random_forest">random forest</a>, <a href="https://en.wikipedia.org/wiki/Gradient_boosting">gradient boosting</a> and <a href="https://cran.r-project.org/package=Cubist">Cubist</a>. For a more in-depth overview of machine learning algorithms used in statistics refer to the CRAN Task View on <a href="https://cran.r-project.org/web/views/MachineLearning.html">Machine Learning &amp; Statistical Learning</a>. Some other examples of how MLA’s can be used to fit Pedo-Transfer-Functions can be found in section <a href="soil-variables-chapter.html#mla-ptfs">3.9</a>.</p>
 <div id="loading-the-packages-and-data" class="section level3">
 <h3><span class="header-section-number">6.1.1</span> Loading the packages and data</h3>
 <p>We start by loading all required packages:</p>
@@ -556,21 +556,21 @@ Figure 6.1: Predicted soil types for the Ebergotzen case study.
 </div>
 <div id="modelling-numeric-soil-properties-using-h2o" class="section level3">
 <h3><span class="header-section-number">6.1.3</span> Modelling numeric soil properties using h2o</h3>
-<p>Random forest is suited for both classification and regression problems (it is one of the most popular MLA’s for soil mapping). Consequently, we can use it also for modelling numeric soil properties i.e. to fit models and generate predictions. However, because the randomForest package in R is not suited for large data sets, we can also use some parallelized version of random forest (or more scalable) i.e. the one implemented in the <a href="http://www.h2o.ai/">h2o package</a> <span class="citation">(Richter et al. <a href="#ref-richter2015multi">2015</a>)</span>. h2o is a Java-based implementation, therefore installing the package requires Java libraries (size of package is about 80MB so it might take some to download and install) and all computing is in principle run outside of R i.e. within the JVM (Java Virtual Machine).</p>
+<p>Random forest is suited for both classification and regression problems (it is one of the most popular MLA’s for soil mapping). Consequently, we can use it also for modelling numeric soil properties i.e. to fit models and generate predictions. However, because the randomForest package in R is not suited for large data sets, we can also use some parallelized version of random forest (or more scalable) i.e. the one implemented in the <a href="http://www.h2o.ai/">h2o package</a> <span class="citation">(Richter et al. <a href="#ref-richter2015multi">2015</a>)</span>. h2o is a Java-based implementation, therefore installing the package requires Java libraries (size of package is about 80MB so it might take some to download and install) and all computing is, in principle, run outside of R i.e. within the JVM (Java Virtual Machine).</p>
 <p>In the following example we look at mapping sand content for the upper horizons. To initiate h2o we run:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(h2o)
 localH2O =<span class="st"> </span><span class="kw">h2o.init</span>(<span class="dt">startH2O=</span><span class="ot">TRUE</span>)
 <span class="co">#&gt;  Connection successful!</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; R is connected to the H2O cluster: </span>
-<span class="co">#&gt;     H2O cluster uptime:         23 minutes 13 seconds </span>
+<span class="co">#&gt;     H2O cluster uptime:         23 minutes 32 seconds </span>
 <span class="co">#&gt;     H2O cluster timezone:       UTC </span>
 <span class="co">#&gt;     H2O data parsing timezone:  UTC </span>
 <span class="co">#&gt;     H2O cluster version:        3.20.0.8 </span>
 <span class="co">#&gt;     H2O cluster version age:    3 months and 5 days  </span>
 <span class="co">#&gt;     H2O cluster name:           H2O_started_from_R_travis_lqb476 </span>
 <span class="co">#&gt;     H2O cluster total nodes:    1 </span>
-<span class="co">#&gt;     H2O cluster total memory:   1.46 GB </span>
+<span class="co">#&gt;     H2O cluster total memory:   1.48 GB </span>
 <span class="co">#&gt;     H2O cluster total cores:    2 </span>
 <span class="co">#&gt;     H2O cluster allowed cores:  2 </span>
 <span class="co">#&gt;     H2O cluster healthy:        TRUE </span>
@@ -592,23 +592,23 @@ RF.m
 <span class="co">#&gt; ==============</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; H2ORegressionModel: drf</span>
-<span class="co">#&gt; Model ID:  DRF_model_R_1545875686693_21 </span>
+<span class="co">#&gt; Model ID:  DRF_model_R_1545889312513_21 </span>
 <span class="co">#&gt; Model Summary: </span>
 <span class="co">#&gt;   number_of_trees number_of_internal_trees model_size_in_bytes min_depth</span>
-<span class="co">#&gt; 1              50                       50              645536        20</span>
+<span class="co">#&gt; 1              50                       50              643578        20</span>
 <span class="co">#&gt;   max_depth mean_depth min_leaves max_leaves mean_leaves</span>
-<span class="co">#&gt; 1        20   20.00000        966       1073  1023.92000</span>
+<span class="co">#&gt; 1        20   20.00000        949       1082  1020.90000</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; H2ORegressionMetrics: drf</span>
 <span class="co">#&gt; ** Reported on training data. **</span>
 <span class="co">#&gt; ** Metrics reported on Out-Of-Bag training samples **</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; MSE:  216</span>
-<span class="co">#&gt; RMSE:  14.7</span>
-<span class="co">#&gt; MAE:  10</span>
-<span class="co">#&gt; RMSLE:  0.427</span>
-<span class="co">#&gt; Mean Residual Deviance :  216</span></code></pre>
+<span class="co">#&gt; MSE:  222</span>
+<span class="co">#&gt; RMSE:  14.9</span>
+<span class="co">#&gt; MAE:  10.1</span>
+<span class="co">#&gt; RMSLE:  0.431</span>
+<span class="co">#&gt; Mean Residual Deviance :  222</span></code></pre>
 <p>This shows that the model fitting R-square is about 50%. This is also indicated by the predicted vs observed plot:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(scales)
 <span class="kw">library</span>(lattice)
@@ -642,29 +642,29 @@ DL.m
 <span class="co">#&gt; ==============</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; H2ORegressionModel: deeplearning</span>
-<span class="co">#&gt; Model ID:  DeepLearning_model_R_1545875686693_22 </span>
+<span class="co">#&gt; Model ID:  DeepLearning_model_R_1545889312513_22 </span>
 <span class="co">#&gt; Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1</span>
 <span class="co">#&gt;   layer units      type dropout       l1       l2 mean_rate rate_rms</span>
 <span class="co">#&gt; 1     1    10     Input  0.00 %       NA       NA        NA       NA</span>
-<span class="co">#&gt; 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.015703 0.009524</span>
-<span class="co">#&gt; 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.126478 0.176117</span>
-<span class="co">#&gt; 4     4     1    Linear      NA 0.000000 0.000000  0.001302 0.001118</span>
+<span class="co">#&gt; 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.013936 0.007752</span>
+<span class="co">#&gt; 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.146841 0.189104</span>
+<span class="co">#&gt; 4     4     1    Linear      NA 0.000000 0.000000  0.001452 0.001387</span>
 <span class="co">#&gt;   momentum mean_weight weight_rms mean_bias bias_rms</span>
 <span class="co">#&gt; 1       NA          NA         NA        NA       NA</span>
-<span class="co">#&gt; 2 0.000000    0.005043   0.100461  0.352759 0.070927</span>
-<span class="co">#&gt; 3 0.000000   -0.018544   0.070953  0.952533 0.020352</span>
-<span class="co">#&gt; 4 0.000000    0.006116   0.049763  0.095713 0.000000</span>
+<span class="co">#&gt; 2 0.000000    0.001407   0.100863  0.342054 0.068136</span>
+<span class="co">#&gt; 3 0.000000   -0.018412   0.071240  0.953003 0.021408</span>
+<span class="co">#&gt; 4 0.000000    0.001454   0.047537  0.121545 0.000000</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; H2ORegressionMetrics: deeplearning</span>
 <span class="co">#&gt; ** Reported on training data. **</span>
 <span class="co">#&gt; ** Metrics reported on full training frame **</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; MSE:  262</span>
-<span class="co">#&gt; RMSE:  16.2</span>
-<span class="co">#&gt; MAE:  12.3</span>
-<span class="co">#&gt; RMSLE:  0.498</span>
-<span class="co">#&gt; Mean Residual Deviance :  262</span></code></pre>
+<span class="co">#&gt; MSE:  265</span>
+<span class="co">#&gt; RMSE:  16.3</span>
+<span class="co">#&gt; MAE:  12.4</span>
+<span class="co">#&gt; RMSLE:  0.503</span>
+<span class="co">#&gt; Mean Residual Deviance :  265</span></code></pre>
 <p>Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. <a href="soilmapping-using-mla.html#fig:map-snd">6.3</a> and Fig. <a href="soilmapping-using-mla.html#fig:map-snd-dl">6.4</a>).</p>
 <pre class="sourceCode r"><code class="sourceCode r">## predictions:
 eberg_grid<span class="op">$</span>DLx &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">h2o.predict</span>(DL.m, eberg.grid, <span class="dt">na.action=</span>na.pass))<span class="op">$</span>predict</code></pre>
@@ -690,7 +690,7 @@ Figure 6.5: Predicted SAND content based on ensemble predictions.
 <div id="prediction-3D" class="section level3">
 <h3><span class="header-section-number">6.1.4</span> Spatial prediction of 3D (numeric) variables</h3>
 <p>In the final exercise, we look at another two ML-based packages that are also of interest for soil mapping projects — cubist <span class="citation">(Kuhn et al. <a href="#ref-kuhn2012cubist">2012</a>; Kuhn and Johnson <a href="#ref-kuhn2013applied">2013</a>)</span> and xgboost <span class="citation">(Chen and Guestrin <a href="#ref-2016arXiv160302754C">2016</a>)</span>. The object is now to fit models and predict continuous soil properties in 3D. To fine-tune some of the models we will also use the <a href="http://topepo.github.io/caret/">caret</a> package, which is highly recommended for optimizing model fitting and cross-validation. Read more about how to derive soil organic carbon stock using 3D soil mapping in section <a href="SOC-chapter.html#ocs-3d-approach">7.7</a>.</p>
-<p>We now look at another soil mapping data set from Australia called <a href="http://gsif.r-forge.r-project.org/edgeroi.html">“Edgeroi”</a>, which is described in detail in <span class="citation">Malone et al. (<a href="#ref-Malone2009Geoderma">2009</a>)</span>. We can load the profile data and covariates by using:</p>
+<p>We will use another soil mapping data set from Australia called <a href="http://gsif.r-forge.r-project.org/edgeroi.html">“Edgeroi”</a>, which is described in detail in <span class="citation">Malone et al. (<a href="#ref-Malone2009Geoderma">2009</a>)</span>. We can load the profile data and covariates by using:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(edgeroi)
 edgeroi.sp &lt;-<span class="st"> </span>edgeroi<span class="op">$</span>sites
 <span class="kw">coordinates</span>(edgeroi.sp) &lt;-<span class="st"> </span><span class="er">~</span><span class="st"> </span>LONGDA94 <span class="op">+</span><span class="st"> </span>LATGDA94
@@ -711,7 +711,7 @@ ov2<span class="op">$</span>SOURCEID &lt;-<span class="st"> </span>edgeroi.sp<sp
 <span class="co">#&gt;  $ EV2MOD5 : num  -2.47 -2.84 -2.43 5.2 1.27 -4.96 1.62 1.33 -2.66 1.01 ...</span>
 <span class="co">#&gt;  $ EV3MOD5 : num  -1.59 -0.31 1.43 1.96 -0.44 2.47 -5.74 -6.78 2.29 -1.59 ...</span>
 <span class="co">#&gt;  $ SOURCEID: Factor w/ 359 levels &quot;199_CAN_CP111_1&quot;,..: 1 2 3 4 5 6 7 8 9 10 ...</span></code></pre>
-<p>Because we will run 3D modelling, we also need to add depth of horizons. We use a small function to assign depth values as the center depth of each horizon (as shown in figure below). Because we know where the horizons start and stop, we can copy the values of target variables two times so that the model knows at which depth values of properties change.</p>
+<p>Because we will run 3D modelling, we also need to add depth of horizons. We use a small function to assign depth values as the center depth of each horizon (as shown in figure below). Because we know where the horizons start and stop, we can copy the values of target variables two times so that the model knows at which depths values of properties change.</p>
 <pre class="sourceCode r"><code class="sourceCode r">## Convert soil horizon data to x,y,d regression matrix for 3D modeling:
 hor2xyd &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">U=</span><span class="st">&quot;UHDICM&quot;</span>, <span class="dt">L=</span><span class="st">&quot;LHDICM&quot;</span>, <span class="dt">treshold.T=</span><span class="dv">15</span>){
   x<span class="op">$</span>DEPTH &lt;-<span class="st"> </span>x[,U] <span class="op">+</span><span class="st"> </span>(x[,L] <span class="op">-</span><span class="st"> </span>x[,U])<span class="op">/</span><span class="dv">2</span>
@@ -844,16 +844,16 @@ test.ORC &lt;-<span class="st"> </span><span class="kw">cv_numeric</span>(formul
 <span class="co">#&gt; List of 2</span>
 <span class="co">#&gt;  $ CV_residuals:&#39;data.frame&#39;:    4972 obs. of  4 variables:</span>
 <span class="co">#&gt;   ..$ Observed : num [1:4972] 6.5 5.1 4.9 3.3 2.2 ...</span>
-<span class="co">#&gt;   ..$ Predicted: num [1:4972] 11.06 7.12 7.06 5.12 3.01 ...</span>
+<span class="co">#&gt;   ..$ Predicted: num [1:4972] 11.76 7.17 6.27 4.82 3.09 ...</span>
 <span class="co">#&gt;   ..$ SOURCEID : chr [1:4972] &quot;399_EDGEROI_ed005_1&quot; &quot;399_EDGEROI_ed005_1&quot; &quot;399_EDGEROI_ed005_1&quot; &quot;399_EDGEROI_ed005_1&quot; ...</span>
 <span class="co">#&gt;   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...</span>
 <span class="co">#&gt;  $ Summary     :&#39;data.frame&#39;:    1 obs. of  6 variables:</span>
-<span class="co">#&gt;   ..$ ME          : num -0.114</span>
-<span class="co">#&gt;   ..$ MAE         : num 2.18</span>
-<span class="co">#&gt;   ..$ RMSE        : num 3.68</span>
-<span class="co">#&gt;   ..$ R.squared   : num 0.558</span>
-<span class="co">#&gt;   ..$ logRMSE     : num 0.494</span>
-<span class="co">#&gt;   ..$ logR.squared: num 0.635</span></code></pre>
+<span class="co">#&gt;   ..$ ME          : num -0.144</span>
+<span class="co">#&gt;   ..$ MAE         : num 2.2</span>
+<span class="co">#&gt;   ..$ RMSE        : num 3.69</span>
+<span class="co">#&gt;   ..$ R.squared   : num 0.554</span>
+<span class="co">#&gt;   ..$ logRMSE     : num 0.5</span>
+<span class="co">#&gt;   ..$ logR.squared: num 0.629</span></code></pre>
 <p>Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about <span class="math inline">\(\pm 4\)</span> g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:</p>
 <div class="figure" style="text-align: center"><span id="fig:plot-measured-predicted"></span>
 <img src="06-Soilmapping_using_mla_files/figure-html/plot-measured-predicted-1.png" alt="Predicted vs observed plot for soil organic carbon ML-based model (Edgeroi data set)." width="100%" />
@@ -898,15 +898,15 @@ perf
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Base learner performance, sorted by specified metric:</span>
 <span class="co">#&gt;                    learner  MSE</span>
-<span class="co">#&gt; 1 h2o.randomForest.wrapper 13.0</span>
 <span class="co">#&gt; 2          h2o.gbm.wrapper 12.8</span>
+<span class="co">#&gt; 1 h2o.randomForest.wrapper 12.6</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; H2O Ensemble Performance on &lt;newdata&gt;:</span>
 <span class="co">#&gt; ----------------</span>
 <span class="co">#&gt; Family: gaussian</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Ensemble performance (MSE): 12.4062194761932</span></code></pre>
+<span class="co">#&gt; Ensemble performance (MSE): 12.0840455587516</span></code></pre>
 <p>which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.</p>
 <p>We can also test ensemble predictions using the cookfarm data set <span class="citation">(Gasch et al. <a href="#ref-Gasch2015SPASTA">2015</a>)</span>. This data set consists of 183 profiles, each consisting of multiple soil horizons (1050 in total). To create a regression matrix we use:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(cookfarm)
@@ -990,16 +990,16 @@ perf3
 <span class="co">#&gt; Base learner performance, sorted by specified metric:</span>
 <span class="co">#&gt;                    learner    MSE</span>
 <span class="co">#&gt; 1          h2o.glm.wrapper 0.2827</span>
-<span class="co">#&gt; 4 h2o.deeplearning.wrapper 0.1294</span>
+<span class="co">#&gt; 4 h2o.deeplearning.wrapper 0.1518</span>
 <span class="co">#&gt; 3          h2o.gbm.wrapper 0.0971</span>
-<span class="co">#&gt; 2 h2o.randomForest.wrapper 0.0772</span>
+<span class="co">#&gt; 2 h2o.randomForest.wrapper 0.0804</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; H2O Ensemble Performance on &lt;newdata&gt;:</span>
 <span class="co">#&gt; ----------------</span>
 <span class="co">#&gt; Family: gaussian</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Ensemble performance (MSE): 0.0738086667557021</span></code></pre>
+<span class="co">#&gt; Ensemble performance (MSE): 0.0790749871588824</span></code></pre>
 <p>In this case Ensemble performance (MSE) seems to be <em>as bad</em> as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">h2o.shutdown</span>()
 <span class="co">#&gt; Are you sure you want to shutdown the H2O instance running at http://localhost:54321/ (Y/N)?</span></code></pre>
@@ -1036,7 +1036,7 @@ perf3
 <span class="co">#&gt; [4] &quot;screen.randomForest&quot;   &quot;screen.SIS&quot;            &quot;screen.template&quot;      </span>
 <span class="co">#&gt; [7] &quot;screen.ttest&quot;          &quot;write.screen.template&quot;</span></code></pre>
 <p>where <code>SL.</code> refers to an imported method from a package e.g. <code>&quot;SL.ranger&quot;</code> is the SuperLearner method from the package ranger.</p>
-<p>A useful functionality of the SuperLearner package is that it displays how model average weights are estimated and which methods can safely be excluded from predictions. When using SuperLearner, however, it is highly recommended to use the parallelized / multicore version, otherwise the computing time might be quite extensive. For example, to prepare ensemble predictions using the five standard prediction techniques used in this tutorial we would run:</p>
+<p>A useful functionality of the SuperLearner package is that it displays how model average weights are estimated and which methods can safely be excluded from predictions. When using SuperLearner, however, it is highly recommended to use the parallelized / multicore version, otherwise the computing time might be quite excessive. For example, to prepare ensemble predictions using the five standard prediction techniques used in this tutorial we would run:</p>
 <pre class="sourceCode r"><code class="sourceCode r">## detach snowfall package otherwise possible conflicts
 <span class="co">#detach(&quot;package:snowfall&quot;, unload=TRUE)</span>
 <span class="kw">library</span>(parallel)
@@ -1066,12 +1066,12 @@ sl
 <span class="co">#&gt;     SL.library = sl.l) </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt;                  Risk   Coef</span>
-<span class="co">#&gt; SL.mean_All    0.7540 0.0000</span>
-<span class="co">#&gt; SL.xgboost_All 0.0598 0.8157</span>
-<span class="co">#&gt; SL.ksvm_All    0.1279 0.0168</span>
-<span class="co">#&gt; SL.glmnet_All  0.3078 0.0000</span>
-<span class="co">#&gt; SL.ranger_All  0.0850 0.1675</span></code></pre>
+<span class="co">#&gt;                  Risk    Coef</span>
+<span class="co">#&gt; SL.mean_All    0.7540 0.00000</span>
+<span class="co">#&gt; SL.xgboost_All 0.0598 0.81099</span>
+<span class="co">#&gt; SL.ksvm_All    0.1290 0.00903</span>
+<span class="co">#&gt; SL.glmnet_All  0.3073 0.00000</span>
+<span class="co">#&gt; SL.ranger_All  0.0847 0.17999</span></code></pre>
 <p>This shows that <code>SL.xgboost_All</code> outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by <code>SL.xgboost_All</code> is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:</p>
 <pre class="sourceCode r"><code class="sourceCode r">sl.l2 =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;SL.xgboost&quot;</span>, <span class="st">&quot;SL.ranger&quot;</span>, <span class="st">&quot;SL.ksvm&quot;</span>)
 sl2 &lt;-<span class="st"> </span><span class="kw">snowSuperLearner</span>(<span class="dt">Y =</span> mP3<span class="op">$</span>PHIHOX, 
@@ -1085,10 +1085,10 @@ sl2
 <span class="co">#&gt;     SL.library = sl.l2) </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt;                  Risk  Coef</span>
-<span class="co">#&gt; SL.xgboost_All 0.0603 0.813</span>
-<span class="co">#&gt; SL.ranger_All  0.0829 0.187</span>
-<span class="co">#&gt; SL.ksvm_All    0.1298 0.000</span></code></pre>
+<span class="co">#&gt;                  Risk Coef</span>
+<span class="co">#&gt; SL.xgboost_All 0.0603 0.81</span>
+<span class="co">#&gt; SL.ranger_All  0.0828 0.19</span>
+<span class="co">#&gt; SL.ksvm_All    0.1302 0.00</span></code></pre>
 <p>again <code>SL.xgboost</code> dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where entire profiles are taken out of the training dataset:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(rm.cookfarm<span class="op">$</span>SOURCEID)
 <span class="co">#&gt;  Factor w/ 369 levels &quot;CAF001&quot;,&quot;CAF002&quot;,..: 3 3 3 3 3 5 5 5 5 5 ...</span>
@@ -1110,12 +1110,12 @@ cv_sl &lt;-<span class="st"> </span><span class="kw">CV.SuperLearner</span>(<spa
 <span class="co">#&gt; All risk estimates are based on V =  5 </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;       Algorithm  Ave    se   Min  Max</span>
-<span class="co">#&gt;   Super Learner 0.16 0.014 0.094 0.25</span>
-<span class="co">#&gt;     Discrete SL 0.17 0.014 0.114 0.25</span>
+<span class="co">#&gt;   Super Learner 0.16 0.014 0.095 0.26</span>
+<span class="co">#&gt;     Discrete SL 0.17 0.014 0.117 0.25</span>
 <span class="co">#&gt;  SL.xgboost_All 0.19 0.016 0.135 0.27</span>
-<span class="co">#&gt;   SL.ranger_All 0.16 0.014 0.103 0.25</span>
-<span class="co">#&gt;     SL.ksvm_All 0.18 0.014 0.109 0.30</span></code></pre>
-<p>where <code>V=5</code> specifies number of folds, and <code>id=rm.cookfarm$SOURCEID</code> forces that entire profiles are removed from training and cross-validation. This gives a more realistic RMSE of about ±0.35. Note that this time <code>SL.xgboost_All</code> is even somewhat worse than the random forest model, and the ensemble model (<code>Super Learner</code>) is slightly better than each individual model. This matches our previous results with <code>h20.ensemble</code>.</p>
+<span class="co">#&gt;   SL.ranger_All 0.16 0.015 0.104 0.25</span>
+<span class="co">#&gt;     SL.ksvm_All 0.18 0.015 0.110 0.30</span></code></pre>
+<p>where <code>V=5</code> specifies number of folds, and <code>id=rm.cookfarm$SOURCEID</code> enforces that entire profiles are removed from training and cross-validation. This gives a more realistic RMSE of about ±0.35. Note that this time <code>SL.xgboost_All</code> is even somewhat worse than the random forest model, and the ensemble model (<code>Super Learner</code>) is slightly better than each individual model. This matches our previous results with <code>h20.ensemble</code>.</p>
 <p>To produce predictions of soil pH at 10 cm depth we can finally use:</p>
 <pre class="sourceCode r"><code class="sourceCode r">sl2 &lt;-<span class="st"> </span><span class="kw">snowSuperLearner</span>(<span class="dt">Y =</span> mP3<span class="op">$</span>PHIHOX, 
                        <span class="dt">X =</span> mP3[,<span class="kw">all.vars</span>(fm.PHI)[<span class="op">-</span><span class="dv">1</span>]],
@@ -1133,8 +1133,8 @@ sl2
 <span class="co">#&gt; </span>
 <span class="co">#&gt;                 Risk  Coef</span>
 <span class="co">#&gt; SL.xgboost_All 0.215 0.000</span>
-<span class="co">#&gt; SL.ranger_All  0.167 0.456</span>
-<span class="co">#&gt; SL.ksvm_All    0.163 0.544</span>
+<span class="co">#&gt; SL.ranger_All  0.165 0.479</span>
+<span class="co">#&gt; SL.ksvm_All    0.164 0.521</span>
 new.data &lt;-<span class="st"> </span>grid10m<span class="op">@</span>data
 pred.PHI &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="ot">NULL</span>)
 depths =<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">30</span>,<span class="dv">50</span>,<span class="dv">70</span>,<span class="dv">90</span>)
@@ -1156,7 +1156,7 @@ depths =<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</
 <span class="co">#&gt;     buffer, rotated</span>
 <span class="kw">str</span>(pred.PHI[[<span class="dv">1</span>]])
 <span class="co">#&gt; List of 2</span>
-<span class="co">#&gt;  $ pred           : num [1:3865, 1] 4.66 4.74 4.89 4.87 4.78 ...</span>
+<span class="co">#&gt;  $ pred           : num [1:3865, 1] 4.63 4.7 4.84 4.81 4.74 ...</span>
 <span class="co">#&gt;  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...</span>
 <span class="co">#&gt;   ..- attr(*, &quot;dimnames&quot;)=List of 2</span>
 <span class="co">#&gt;   .. ..$ : NULL</span>
@@ -1255,7 +1255,7 @@ geostatistics, which converts this rule into a mathematical model, i.e.,
 through spatial autocorrelation functions or variograms. The key to
 making RF applicable to spatial statistics problems, therefore, lies also in
 preparing geographical (spatial) measures of proximity and connectivity between
-observations, so that spatial autocorrelation is accounted for. There
+observations, so that spatial autocorrelation can be accounted for. There
 are multiple options for variables that quantify proximity and geographical
 connection (Fig. <a href="soilmapping-using-mla.html#fig:distances-examples">6.12</a>):</p>
 <ol style="list-style-type: decimal">
@@ -1265,7 +1265,7 @@ and northing.</p></li>
 example, distance to the center and edges of the study area, etc.</p></li>
 <li><p>Euclidean distances to sampling locations, i.e., distances from
 observation locations. Here one buffer distance map can be generated
-per observation point or group of points. These are also the same distance
+per observation point or group of points. These are essentially the same distance
 measures as used in geostatistics.</p></li>
 <li><p>Downslope distances, i.e., distances within a watershed: for each
 sampling point one can derive upslope/downslope distances to the
@@ -1289,12 +1289,12 @@ Figure 6.12: Examples of distance maps to some location in space (yellow dot) ba
 </p>
 </div>
 <p>Here, we only illustrate predictive performance using Euclidean buffer distances
-(to all sampling points), but the code could be adopted to
+(to all sampling points), but the code could be adapted to
 include other families of geographical covariates (as shown in
 Fig. <a href="soilmapping-using-mla.html#fig:distances-examples">6.12</a>). Note also that RF tolerates a high
 number of covariates and multicolinearity <span class="citation">(Biau and Scornet <a href="#ref-Biau2016">2016</a>)</span>, hence multiple
 types of geographical covariates (Euclidean buffer distances, upslope
-and downslope areas) could be used at the same time.</p>
+and downslope areas) could be considered concurrently.</p>
 </div>
 <div id="spatial-prediction-2d-continuous-variable-using-rfsp" class="section level3">
 <h3><span class="header-section-number">6.2.3</span> Spatial prediction 2D continuous variable using RFsp</h3>
@@ -1426,7 +1426,7 @@ zinc.ok &lt;-<span class="st"> </span><span class="kw">krige.conv</span>(zinc.ge
 <span class="co">#&gt; krige.conv: Kriging performed using global neighbourhood</span>
 meuse.grid<span class="op">$</span>zinc_ok &lt;-<span class="st"> </span>zinc.ok<span class="op">$</span>predict
 meuse.grid<span class="op">$</span>zinc_ok_range &lt;-<span class="st"> </span><span class="kw">sqrt</span>(zinc.ok<span class="op">$</span>krige.var)</code></pre>
-<p>in this case geoR automatically back-transforms values to the original scale, which is a recommended feature. Comparison of predictions and prediction error maps produced using geoR (ordinary kriging) and RFsp (with buffer distances and by just using coordinates) is given in Fig. <a href="soilmapping-using-mla.html#fig:comparison-OK-RF-zinc-meuse">6.13</a>.</p>
+<p>in this case geoR automatically back-transforms values to the original scale, which is a recommended feature. Comparison of predictions and prediction error maps produced using geoR (ordinary kriging) and RFsp (with buffer distances and using just coordinates) is given in Fig. <a href="soilmapping-using-mla.html#fig:comparison-OK-RF-zinc-meuse">6.13</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:comparison-OK-RF-zinc-meuse"></span>
 <img src="figures/Fig_comparison_OK_RF_zinc_meuse.png" alt="Comparison of predictions based on ordinary kriging as implemented in the geoR package (left) and random forest (right) for Zinc concentrations, Meuse data set: (first row) predicted concentrations in log-scale and (second row) standard deviation of the prediction errors for OK and RF methods. Image source: Hengl et al. (2018) doi: 10.7717/peerj.5518." width="100%" />
 <p class="caption">
@@ -1574,7 +1574,7 @@ Figure 6.15: Comparison of predictions (median values) produced using random for
 <p>again, overall predictions (the spatial patterns) look fairly similar (Fig. <a href="soilmapping-using-mla.html#fig:RF-covs-bufferdist-zinc-meuse">6.15</a>).
 The difference between using geoR and RFsp is that, in the case of RFsp, there are fewer choices
 and fewer assumptions required. Also, RFsp permits the relationship between covariates
-and geographical distances to be fitted all at once. This makes RFsp, in general, less
+and geographical distances to be fitted concurrently. This makes RFsp, in general, less
 cumbersome than model-based geostatistics, but then also more of a “black-box” system
 to a geostatistician.</p>
 </div>
@@ -1654,7 +1654,7 @@ pred.clas &lt;-<span class="st"> </span><span class="kw">predict</span>(m2.s1, <
 Figure 6.16: Comparison of predictions for soil class “1” produced using (left) regression and prediction of the median value, (middle) regression and prediction of response value, and (right) classification with probabilities.
 </p>
 </div>
-<p>This shows that predicting binomial variables using RFsp can be implemented both as a classification and a regression problem and both are possible to implement using the ranger package and both should lead to the same results.</p>
+<p>This shows that predicting binomial variables using RFsp can be implemented both as a classification and a regression problem and both are possible to implement using the ranger package and both should lead to relatively the same results.</p>
 </div>
 <div id="spatial-prediction-of-soil-types" class="section level3">
 <h3><span class="header-section-number">6.2.6</span> Spatial prediction of soil types</h3>
@@ -1752,22 +1752,22 @@ pred.grids<span class="op">@</span>data =<span class="st"> </span><span class="k
 Figure 6.17: Predictions of soil types for the meuse data set based on the RFsp: (above) probability for three soil classes, and (below) derived standard errors per class.
 </p>
 </div>
-<p>Spatial prediction of binomial and factor-type variables is straight forward with ranger / RFsp: buffer distance and spatial-autocorrelation can be incorporated simultaneously as opposed to geostatistical packages, where link functions and/or indicator kriging would need to be used, and which require that variograms are fitted per class.</p>
+<p>Spatial prediction of binomial and factor-type variables is straightforward with ranger / RFsp: buffer distance and spatial-autocorrelation can be incorporated simultaneously as opposed to geostatistical packages, where link functions and/or indicator kriging would need to be used, and which require that variograms are fitted per class.</p>
 </div>
 </div>
 <div id="summary-points-3" class="section level2">
 <h2><span class="header-section-number">6.3</span> Summary points</h2>
-<p>In summary, MLA’s are fairly attractive for soil mapping and soil modelling problems in general, as they often perform better than standard linear models (as previously recognized by <span class="citation">Moran and Bui (<a href="#ref-moran2002spatial">2002</a>)</span> and <span class="citation">Henderson et al. (<a href="#ref-Henderson2004Geoderma">2004</a>)</span>) Some recent comparisons of MLA’s performance for operational soil mapping can be found in <span class="citation">Nussbaum et al. (<a href="#ref-nussbaum2018evaluation">2018</a>)</span>). MLA’s often perform better than linear techniques for soil mapping; possibly for the following three reasons:</p>
+<p>In summary, MLA’s represent an increasingly attractive option for soil mapping and soil modelling problems in general, as they often perform better than standard linear models (as previously recognized by <span class="citation">Moran and Bui (<a href="#ref-moran2002spatial">2002</a>)</span> and <span class="citation">Henderson et al. (<a href="#ref-Henderson2004Geoderma">2004</a>)</span>) Some recent comparisons of MLA’s performance for operational soil mapping can be found in <span class="citation">Nussbaum et al. (<a href="#ref-nussbaum2018evaluation">2018</a>)</span>). MLA’s often perform better than linear techniques for soil mapping; possibly for the following three reasons:</p>
 <ol style="list-style-type: decimal">
 <li>Non-linear relationships between soil forming factors and soil properties can be more efficiently modeled using MLA’s,</li>
-<li>Tree-based MLA’s (random forest, gradient boosting, cubist) are suitable for representing <em>local</em> soil-landscape relationships, nested within larger areas, which is often important for achieving accuracy of spatial prediction models,</li>
+<li>Tree-based MLA’s (random forest, gradient boosting, cubist) are suitable for representing <em>local</em> soil-landscape relationships, nested within a hierarchy of larger areas, which is often important for achieving accuracy of spatial prediction models,</li>
 <li>In the case of MLA, statistical properties such as multicolinearity and non-Gaussian distribution are dealt with inside the models, which simplifies statistical modeling steps,</li>
 </ol>
-<p>On the other hand, MLA’s can be computationally very intensive and consequently require careful planning, especially as the number of points goes beyond a few thousand and the number of covariates beyond a dozen. Note also that some MLA’s, such as for example Support Vector Machines (<code>svm</code>), are computationally very intensive and are probably not well suited for large data sets.</p>
+<p>On the other hand, MLA’s can be computationally very intensive and consequently require careful planning, especially when the number of points goes beyond a few thousand and the number of covariates beyond a dozen. Note also that some MLA’s, such as for example Support Vector Machines (<code>svm</code>), are computationally very intensive and are probably not well suited for very large data sets.</p>
 <p>Within PSM, there is increasing interest in doing ensemble predictions,
 model averages or model stacks. Stacking models can improve upon
 individual best techniques, achieving improvements of up to 30%, with
-the additional demands consistinf of only higher computation loads
+the additional demands consisting of only higher computation loads
 <span class="citation">(Michailidis <a href="#ref-michailidis2017investigating">2017</a>)</span>. In the example above, the extensive
 computational load from derivation of models and product predictions
 already achieved improved accuracies, making increasing computing loads
