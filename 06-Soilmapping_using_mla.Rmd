@@ -4,7 +4,7 @@
 
 ## Spatial prediction of soil properties and classes using MLA's
 
-This chapter looks at some common Machine learning algorithms (MLA's) that are potentially of interest for soil mapping projects i.e. for generating spatial predictions. We put special focus on using tree-based algorithms such as [random forest](https://en.wikipedia.org/wiki/Random_forest), [gradient boosting](https://en.wikipedia.org/wiki/Gradient_boosting) and [Cubist](https://cran.r-project.org/package=Cubist). For a more in-depth overview of machine learning algorithms used in statistics refer to the CRAN Task View on [Machine Learning & Statistical Learning](https://cran.r-project.org/web/views/MachineLearning.html). Some other examples of how MLA's can be used to fit Pedo-Transfer-Functions can be found in section \@ref(mla-ptfs).
+This chapter reviews some common Machine learning algorithms (MLA's) that have demonstrated potantial for soil mapping projects i.e. for generating spatial predictions. We especially focus on using tree-based algorithms such as [random forest](https://en.wikipedia.org/wiki/Random_forest), [gradient boosting](https://en.wikipedia.org/wiki/Gradient_boosting) and [Cubist](https://cran.r-project.org/package=Cubist). For a more in-depth overview of machine learning algorithms used in statistics refer to the CRAN Task View on [Machine Learning & Statistical Learning](https://cran.r-project.org/web/views/MachineLearning.html). Some other examples of how MLA's can be used to fit Pedo-Transfer-Functions can be found in section \@ref(mla-ptfs).
 
 ### Loading the packages and data
 
@@ -153,7 +153,7 @@ summary(eberg_soiltype$cl)
 
 ### Modelling numeric soil properties using h2o
 
-Random forest is suited for both classification and regression problems (it is one of the most popular MLA's for soil mapping). Consequently, we can use it also for modelling numeric soil properties i.e. to fit models and generate predictions. However, because the randomForest package in R is not suited for large data sets, we can also use some parallelized version of random forest (or more scalable) i.e. the one implemented in the [h2o package](http://www.h2o.ai/) [@richter2015multi]. h2o is a Java-based implementation,  therefore installing the package requires Java libraries (size of package is about 80MB so it might take some to download and install) and all computing is in principle run outside of R i.e. within the JVM (Java Virtual Machine). 
+Random forest is suited for both classification and regression problems (it is one of the most popular MLA's for soil mapping). Consequently, we can use it also for modelling numeric soil properties i.e. to fit models and generate predictions. However, because the randomForest package in R is not suited for large data sets, we can also use some parallelized version of random forest (or more scalable) i.e. the one implemented in the [h2o package](http://www.h2o.ai/) [@richter2015multi]. h2o is a Java-based implementation,  therefore installing the package requires Java libraries (size of package is about 80MB so it might take some to download and install) and all computing is, in principle, run outside of R i.e. within the JVM (Java Virtual Machine). 
 
 In the following example we look at mapping sand content for the upper horizons. To initiate h2o we run:
 
@@ -244,7 +244,7 @@ Indeed, the output map now shows patterns of both methods and is more likely sli
 
 In the final exercise, we look at another two ML-based packages that are also of interest for soil mapping projects — cubist [@kuhn2012cubist; @kuhn2013applied] and xgboost [@2016arXiv160302754C]. The object is now to fit models and predict continuous soil properties in 3D. To fine-tune some of the models we will also use the [caret](http://topepo.github.io/caret/) package, which is highly recommended for optimizing model fitting and cross-validation. Read more about how to derive soil organic carbon stock using 3D soil mapping in section \@ref(ocs-3d-approach).
 
-We now look at another soil mapping data set from Australia called [“Edgeroi”](http://gsif.r-forge.r-project.org/edgeroi.html), which is described in detail in @Malone2009Geoderma. We can load the profile data and covariates by using:
+We will use another soil mapping data set from Australia called [“Edgeroi”](http://gsif.r-forge.r-project.org/edgeroi.html), which is described in detail in @Malone2009Geoderma. We can load the profile data and covariates by using:
 
 ```{r}
 data(edgeroi)
@@ -265,7 +265,7 @@ ov2$SOURCEID <- edgeroi.sp$SOURCEID
 str(ov2)
 ```
 
-Because we will run 3D modelling, we also need to add depth of horizons. We use a small function to assign depth values as the center depth of each horizon (as shown in figure below). Because we know where the horizons start and stop, we can copy the values of target variables two times so that the model knows at which depth values of properties change. 
+Because we will run 3D modelling, we also need to add depth of horizons. We use a small function to assign depth values as the center depth of each horizon (as shown in figure below). Because we know where the horizons start and stop, we can copy the values of target variables two times so that the model knows at which depths values of properties change. 
 
 ```{r}
 ## Convert soil horizon data to x,y,d regression matrix for 3D modeling:
@@ -481,7 +481,7 @@ listWrappers()
 
 where `SL.` refers to an imported method from a package e.g. `"SL.ranger"` is the SuperLearner method from the package ranger.
 
-A useful functionality of the SuperLearner package is that it displays how model average weights are estimated and which methods can safely be excluded from predictions. When using SuperLearner, however, it is highly recommended to use the parallelized / multicore version, otherwise the computing time might be quite extensive. For example, to prepare ensemble predictions using the five standard prediction techniques used in this tutorial we would run:
+A useful functionality of the SuperLearner package is that it displays how model average weights are estimated and which methods can safely be excluded from predictions. When using SuperLearner, however, it is highly recommended to use the parallelized / multicore version, otherwise the computing time might be quite excessive. For example, to prepare ensemble predictions using the five standard prediction techniques used in this tutorial we would run:
 
 ```{r}
 ## detach snowfall package otherwise possible conflicts
@@ -521,7 +521,7 @@ cv_sl <- CV.SuperLearner(Y = mP3$PHIHOX,
 summary(cv_sl)
 ```
 
-where `V=5` specifies number of folds, and `id=rm.cookfarm$SOURCEID` forces that entire profiles are removed from training and cross-validation. This gives a more realistic RMSE of about ±0.35. Note that this time `SL.xgboost_All` is even somewhat worse than the random forest model, and the ensemble model (`Super Learner`) is slightly better than each individual model. This matches our previous results with `h20.ensemble`. 
+where `V=5` specifies number of folds, and `id=rm.cookfarm$SOURCEID` enforces that entire profiles are removed from training and cross-validation. This gives a more realistic RMSE of about ±0.35. Note that this time `SL.xgboost_All` is even somewhat worse than the random forest model, and the ensemble model (`Super Learner`) is slightly better than each individual model. This matches our previous results with `h20.ensemble`. 
 
 To produce predictions of soil pH at 10 cm depth we can finally use:
 
@@ -635,7 +635,7 @@ geostatistics, which converts this rule into a mathematical model, i.e.,
 through spatial autocorrelation functions or variograms. The key to
 making RF applicable to spatial statistics problems, therefore, lies also in
 preparing geographical (spatial) measures of proximity and connectivity between
-observations, so that spatial autocorrelation is accounted for. There
+observations, so that spatial autocorrelation can be accounted for. There
 are multiple options for variables that quantify proximity and geographical
 connection (Fig. \@ref(fig:distances-examples)):
 
@@ -647,7 +647,7 @@ connection (Fig. \@ref(fig:distances-examples)):
 
 3.  Euclidean distances to sampling locations, i.e., distances from
     observation locations. Here one buffer distance map can be generated
-    per observation point or group of points. These are also the same distance
+    per observation point or group of points. These are essentially the same distance
     measures as used in geostatistics.
 
 4.  Downslope distances, i.e., distances within a watershed: for each
@@ -672,12 +672,12 @@ knitr::include_graphics("figures/Fig_distances_examples.png")
 ```
 
 Here, we only illustrate predictive performance using Euclidean buffer distances 
-(to all sampling points), but the code could be adopted to
+(to all sampling points), but the code could be adapted to
 include other families of geographical covariates (as shown in
 Fig. \@ref(fig:distances-examples)). Note also that RF tolerates a high
 number of covariates and multicolinearity [@Biau2016], hence multiple
 types of geographical covariates (Euclidean buffer distances, upslope
-and downslope areas) could be used at the same time.
+and downslope areas) could be considered concurrently.
 
 ### Spatial prediction 2D continuous variable using RFsp
 
@@ -777,7 +777,7 @@ meuse.grid$zinc_ok <- zinc.ok$predict
 meuse.grid$zinc_ok_range <- sqrt(zinc.ok$krige.var)
 ```
 
-in this case geoR automatically back-transforms values to the original scale, which is a recommended feature. Comparison of predictions and prediction error maps produced using geoR (ordinary kriging) and RFsp (with buffer distances and by just using coordinates) is given in Fig. \@ref(fig:comparison-OK-RF-zinc-meuse).
+in this case geoR automatically back-transforms values to the original scale, which is a recommended feature. Comparison of predictions and prediction error maps produced using geoR (ordinary kriging) and RFsp (with buffer distances and using just coordinates) is given in Fig. \@ref(fig:comparison-OK-RF-zinc-meuse).
 
 ```{r comparison-OK-RF-zinc-meuse, echo=FALSE, fig.cap="Comparison of predictions based on ordinary kriging as implemented in the geoR package (left) and random forest (right) for Zinc concentrations, Meuse data set: (first row) predicted concentrations in log-scale and (second row) standard deviation of the prediction errors for OK and RF methods. Image source: Hengl et al. (2018) doi: 10.7717/peerj.5518.", out.width="100%"}
 knitr::include_graphics("figures/Fig_comparison_OK_RF_zinc_meuse.png")
@@ -871,7 +871,7 @@ knitr::include_graphics("figures/Fig_RF_covs_bufferdist_zinc_meuse.png")
 again, overall predictions (the spatial patterns) look fairly similar (Fig. \@ref(fig:RF-covs-bufferdist-zinc-meuse)). 
 The difference between using geoR and RFsp is that, in the case of RFsp, there are fewer choices 
 and fewer assumptions required. Also, RFsp permits the relationship between covariates 
-and geographical distances to be fitted all at once. This makes RFsp, in general, less 
+and geographical distances to be fitted concurrently. This makes RFsp, in general, less 
 cumbersome than model-based geostatistics, but then also more of a “black-box” system 
 to a geostatistician. 
 
@@ -937,7 +937,7 @@ in principle, the two options to predicting the distribution of the binomial var
 knitr::include_graphics("figures/Fig_comparison_uncertainty_Binomial_variables_meuse.png")
 ```
 
-This shows that predicting binomial variables using RFsp can be implemented both as a classification and a regression problem and both are possible to implement using the ranger package and both should lead to the same results.
+This shows that predicting binomial variables using RFsp can be implemented both as a classification and a regression problem and both are possible to implement using the ranger package and both should lead to relatively the same results.
 
 ### Spatial prediction of soil types
 
@@ -985,22 +985,22 @@ where `pred_soil1` is the probability of occurrence of class 1 and `se_soil1` is
 knitr::include_graphics("figures/Fig_comparison_uncertainty_Factor_variables_meuse.png")
 ```
 
-Spatial prediction of binomial and factor-type variables is straight forward with ranger / RFsp: buffer distance and spatial-autocorrelation can be incorporated simultaneously as opposed to geostatistical packages, where link functions and/or indicator kriging would need to be used, and which require that variograms are fitted per class.
+Spatial prediction of binomial and factor-type variables is straightforward with ranger / RFsp: buffer distance and spatial-autocorrelation can be incorporated simultaneously as opposed to geostatistical packages, where link functions and/or indicator kriging would need to be used, and which require that variograms are fitted per class.
 
 ## Summary points
 
-In summary, MLA's are fairly attractive for soil mapping and soil modelling problems in general, as they often perform better than standard linear models (as previously recognized by @moran2002spatial and @Henderson2004Geoderma) Some recent comparisons of MLA's performance for operational soil mapping can be found in @nussbaum2018evaluation). MLA's often perform better than linear techniques for soil mapping; possibly for the following three reasons:
+In summary, MLA's represent an increasingly attractive option for soil mapping and soil modelling problems in general, as they often perform better than standard linear models (as previously recognized by @moran2002spatial and @Henderson2004Geoderma) Some recent comparisons of MLA's performance for operational soil mapping can be found in @nussbaum2018evaluation). MLA's often perform better than linear techniques for soil mapping; possibly for the following three reasons:
 
  1. Non-linear relationships between soil forming factors and soil properties can be more efficiently modeled using MLA's,
- 2. Tree-based MLA's (random forest, gradient boosting, cubist) are suitable for representing *local* soil-landscape relationships, nested within larger areas, which is often important for achieving accuracy of spatial prediction models,
+ 2. Tree-based MLA's (random forest, gradient boosting, cubist) are suitable for representing *local* soil-landscape relationships, nested within a hierarchy of larger areas, which is often important for achieving accuracy of spatial prediction models,
  3. In the case of MLA, statistical properties such as multicolinearity and non-Gaussian distribution are dealt with inside the models, which simplifies statistical modeling steps,
 
-On the other hand, MLA's can be computationally very intensive and consequently require careful planning, especially as the number of points goes beyond a few thousand and the number of covariates beyond a dozen. Note also that some MLA's, such as for example Support Vector Machines (`svm`), are computationally very intensive and are probably not well suited for large data sets.
+On the other hand, MLA's can be computationally very intensive and consequently require careful planning, especially when the number of points goes beyond a few thousand and the number of covariates beyond a dozen. Note also that some MLA's, such as for example Support Vector Machines (`svm`), are computationally very intensive and are probably not well suited for very large data sets.
 
 Within PSM, there is increasing interest in doing ensemble predictions, 
 model averages or model stacks. Stacking models can improve upon
 individual best techniques, achieving improvements of up to 30%, with
-the additional demands consistinf of only higher computation loads
+the additional demands consisting of only higher computation loads
 [@michailidis2017investigating]. In the example above, the extensive
 computational load from derivation of models and product predictions 
 already achieved improved accuracies, making increasing computing loads
