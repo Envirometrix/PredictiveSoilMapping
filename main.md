@@ -2793,6 +2793,7 @@ om.rk <- predict(omm, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
+  4% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -7480,7 +7481,7 @@ om.rk <- predict(omm, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 87% done
+ 58% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -7554,7 +7555,7 @@ om.rk2 <- predict(omm2, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 68% done
+ 16% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -7813,7 +7814,6 @@ om.rksim.p <- predict(omm, meuse.grid, nsim=20, block=c(0,0))
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
 #> 
- 19% done
 100% done
 #> Creating an object of class "RasterBrickSimulations"
 #> Loading required package: raster
@@ -7838,7 +7838,6 @@ om.rk.b <- predict(omm, meuse.grid, block=c(40,40), nfold=0)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 58% done
 100% done
 #> Creating an object of class "SpatialPredictions"
 om.rksim.b <- predict(omm, meuse.grid, nsim=2, block=c(40,40), debug.level=0)
@@ -8056,7 +8055,6 @@ om.rksim.p <- predict(omm, meuse.grid, block=c(0,0), nsim=20)
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
 #> 
- 38% done
 100% done
 #> Creating an object of class "RasterBrickSimulations"
 log1p(meuse@data[1,"om"])
@@ -8105,13 +8103,13 @@ library(intamap)
 demo(meuse, echo=FALSE)
 meuse$value = meuse$zinc
 output <- interpolate(meuse, meuse.grid, list(mean=TRUE, variance=TRUE))
-#> R 2018-12-27 06:04:27 interpolating 155 observations, 3103 prediction locations
+#> R 2018-12-27 18:46:15 interpolating 155 observations, 3103 prediction locations
 #> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : 
 #>  using standard model for estimating time. For better 
 #>  platform spesific predictions, please run 
 #>  timeModels <- generateTimeModels()
 #>   and save the workspace
-#> [1] "estimated time for  copula 160.448808494018"
+#> [1] "estimated time for  copula 161.766431029144"
 #> Checking object ... OK
 ```
 
@@ -8125,7 +8123,7 @@ str(output, max.level = 2)
 #> List of 16
 #>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
 #>  $ formulaString      :Class 'formula'  language value ~ 1
-#>   .. ..- attr(*, ".Environment")=<environment: 0x139f8d38> 
+#>   .. ..- attr(*, ".Environment")=<environment: 0x13be7960> 
 #>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
 #>  $ params             :List of 18
 #>   ..$ doAnisotropy     : logi TRUE
@@ -8813,7 +8811,6 @@ om.rk <- predict(omm, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 16% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -9515,14 +9512,14 @@ localH2O = h2o.init(startH2O=TRUE)
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         23 minutes 32 seconds 
+#>     H2O cluster uptime:         23 minutes 51 seconds 
 #>     H2O cluster timezone:       UTC 
 #>     H2O data parsing timezone:  UTC 
 #>     H2O cluster version:        3.20.0.8 
-#>     H2O cluster version age:    3 months and 5 days  
+#>     H2O cluster version age:    3 months and 6 days  
 #>     H2O cluster name:           H2O_started_from_R_travis_lqb476 
 #>     H2O cluster total nodes:    1 
-#>     H2O cluster total memory:   1.48 GB 
+#>     H2O cluster total memory:   1.47 GB 
 #>     H2O cluster total cores:    2 
 #>     H2O cluster allowed cores:  2 
 #>     H2O cluster healthy:        TRUE 
@@ -9554,23 +9551,23 @@ RF.m
 #> ==============
 #> 
 #> H2ORegressionModel: drf
-#> Model ID:  DRF_model_R_1545889312513_21 
+#> Model ID:  DRF_model_R_1545935002398_21 
 #> Model Summary: 
 #>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#> 1              50                       50              643578        20
+#> 1              50                       50              644140        20
 #>   max_depth mean_depth min_leaves max_leaves mean_leaves
-#> 1        20   20.00000        949       1082  1020.90000
+#> 1        20   20.00000        966       1065  1021.60000
 #> 
 #> 
 #> H2ORegressionMetrics: drf
 #> ** Reported on training data. **
 #> ** Metrics reported on Out-Of-Bag training samples **
 #> 
-#> MSE:  222
-#> RMSE:  14.9
-#> MAE:  10.1
-#> RMSLE:  0.431
-#> Mean Residual Deviance :  222
+#> MSE:  219
+#> RMSE:  14.8
+#> MAE:  10
+#> RMSLE:  0.428
+#> Mean Residual Deviance :  219
 ```
 
 This shows that the model fitting R-square is about 50%. This is also indicated by the predicted vs observed plot:
@@ -9617,29 +9614,29 @@ DL.m
 #> ==============
 #> 
 #> H2ORegressionModel: deeplearning
-#> Model ID:  DeepLearning_model_R_1545889312513_22 
+#> Model ID:  DeepLearning_model_R_1545935002398_22 
 #> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1
 #>   layer units      type dropout       l1       l2 mean_rate rate_rms
 #> 1     1    10     Input  0.00 %       NA       NA        NA       NA
-#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.013936 0.007752
-#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.146841 0.189104
-#> 4     4     1    Linear      NA 0.000000 0.000000  0.001452 0.001387
+#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.016723 0.012171
+#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.122652 0.180907
+#> 4     4     1    Linear      NA 0.000000 0.000000  0.001311 0.001344
 #>   momentum mean_weight weight_rms mean_bias bias_rms
 #> 1       NA          NA         NA        NA       NA
-#> 2 0.000000    0.001407   0.100863  0.342054 0.068136
-#> 3 0.000000   -0.018412   0.071240  0.953003 0.021408
-#> 4 0.000000    0.001454   0.047537  0.121545 0.000000
+#> 2 0.000000    0.004887   0.103043  0.362957 0.061247
+#> 3 0.000000   -0.017744   0.070646  0.958702 0.016770
+#> 4 0.000000    0.017476   0.051814  0.110718 0.000000
 #> 
 #> 
 #> H2ORegressionMetrics: deeplearning
 #> ** Reported on training data. **
 #> ** Metrics reported on full training frame **
 #> 
-#> MSE:  265
-#> RMSE:  16.3
-#> MAE:  12.4
-#> RMSLE:  0.503
-#> Mean Residual Deviance :  265
+#> MSE:  258
+#> RMSE:  16.1
+#> MAE:  12.2
+#> RMSLE:  0.493
+#> Mean Residual Deviance :  258
 ```
 
 Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. \@ref(fig:map-snd) and Fig. \@ref(fig:map-snd-dl)).
@@ -9876,16 +9873,16 @@ str(test.ORC)
 #> List of 2
 #>  $ CV_residuals:'data.frame':	4972 obs. of  4 variables:
 #>   ..$ Observed : num [1:4972] 6.5 5.1 4.9 3.3 2.2 ...
-#>   ..$ Predicted: num [1:4972] 11.76 7.17 6.27 4.82 3.09 ...
+#>   ..$ Predicted: num [1:4972] 12.77 7.36 6.7 5.07 2.98 ...
 #>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" ...
 #>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ Summary     :'data.frame':	1 obs. of  6 variables:
-#>   ..$ ME          : num -0.144
-#>   ..$ MAE         : num 2.2
-#>   ..$ RMSE        : num 3.69
-#>   ..$ R.squared   : num 0.554
-#>   ..$ logRMSE     : num 0.5
-#>   ..$ logR.squared: num 0.629
+#>   ..$ ME          : num -0.116
+#>   ..$ MAE         : num 2.19
+#>   ..$ RMSE        : num 3.68
+#>   ..$ R.squared   : num 0.557
+#>   ..$ logRMSE     : num 0.496
+#>   ..$ logR.squared: num 0.631
 ```
 
 Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about $\pm 4$ g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:
@@ -9939,15 +9936,15 @@ perf
 #> 
 #> Base learner performance, sorted by specified metric:
 #>                    learner  MSE
+#> 1 h2o.randomForest.wrapper 13.2
 #> 2          h2o.gbm.wrapper 12.8
-#> 1 h2o.randomForest.wrapper 12.6
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 12.0840455587516
+#> Ensemble performance (MSE): 12.6583957920445
 ```
 
 which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.
@@ -10047,16 +10044,16 @@ perf3
 #> Base learner performance, sorted by specified metric:
 #>                    learner    MSE
 #> 1          h2o.glm.wrapper 0.2827
-#> 4 h2o.deeplearning.wrapper 0.1518
+#> 4 h2o.deeplearning.wrapper 0.1274
 #> 3          h2o.gbm.wrapper 0.0971
-#> 2 h2o.randomForest.wrapper 0.0804
+#> 2 h2o.randomForest.wrapper 0.0870
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 0.0790749871588824
+#> Ensemble performance (MSE): 0.0829071235270013
 ```
 
 In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.
@@ -10140,10 +10137,10 @@ sl
 #> 
 #>                  Risk    Coef
 #> SL.mean_All    0.7540 0.00000
-#> SL.xgboost_All 0.0598 0.81099
-#> SL.ksvm_All    0.1290 0.00903
-#> SL.glmnet_All  0.3073 0.00000
-#> SL.ranger_All  0.0847 0.17999
+#> SL.xgboost_All 0.0598 0.81990
+#> SL.ksvm_All    0.1299 0.00947
+#> SL.glmnet_All  0.3080 0.00000
+#> SL.ranger_All  0.0861 0.17063
 ```
 
 This shows that `SL.xgboost_All` outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by `SL.xgboost_All` is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:
@@ -10162,10 +10159,10 @@ sl2
 #>     SL.library = sl.l2) 
 #> 
 #> 
-#>                  Risk Coef
-#> SL.xgboost_All 0.0603 0.81
-#> SL.ranger_All  0.0828 0.19
-#> SL.ksvm_All    0.1302 0.00
+#>                  Risk  Coef
+#> SL.xgboost_All 0.0603 0.814
+#> SL.ranger_All  0.0832 0.186
+#> SL.ksvm_All    0.1300 0.000
 ```
 
 again `SL.xgboost` dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where entire profiles are taken out of the training dataset:
@@ -10192,11 +10189,11 @@ summary(cv_sl)
 #> All risk estimates are based on V =  5 
 #> 
 #>       Algorithm  Ave    se   Min  Max
-#>   Super Learner 0.16 0.014 0.095 0.26
-#>     Discrete SL 0.17 0.014 0.117 0.25
+#>   Super Learner 0.16 0.014 0.096 0.26
+#>     Discrete SL 0.17 0.014 0.119 0.25
 #>  SL.xgboost_All 0.19 0.016 0.135 0.27
-#>   SL.ranger_All 0.16 0.015 0.104 0.25
-#>     SL.ksvm_All 0.18 0.015 0.110 0.30
+#>   SL.ranger_All 0.17 0.014 0.104 0.25
+#>     SL.ksvm_All 0.18 0.014 0.109 0.29
 ```
 
 where `V=5` specifies number of folds, and `id=rm.cookfarm$SOURCEID` enforces that entire profiles are removed from training and cross-validation. This gives a more realistic RMSE of about ±0.35. Note that this time `SL.xgboost_All` is even somewhat worse than the random forest model, and the ensemble model (`Super Learner`) is slightly better than each individual model. This matches our previous results with `h20.ensemble`. 
@@ -10221,8 +10218,8 @@ sl2
 #> 
 #>                 Risk  Coef
 #> SL.xgboost_All 0.215 0.000
-#> SL.ranger_All  0.165 0.479
-#> SL.ksvm_All    0.164 0.521
+#> SL.ranger_All  0.167 0.456
+#> SL.ksvm_All    0.163 0.544
 new.data <- grid10m@data
 pred.PHI <- list(NULL)
 depths = c(10,30,50,70,90)
@@ -10244,7 +10241,7 @@ for(j in 1:length(depths)){
 #>     buffer, rotated
 str(pred.PHI[[1]])
 #> List of 2
-#>  $ pred           : num [1:3865, 1] 4.63 4.7 4.84 4.81 4.74 ...
+#>  $ pred           : num [1:3865, 1] 4.66 4.73 4.88 4.84 4.77 ...
 #>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...
 #>   ..- attr(*, "dimnames")=List of 2
 #>   .. ..$ : NULL
@@ -11044,7 +11041,7 @@ not effected by over-fitting). For all other details about RFsp refer to @Hengl2
 
 ## Introduction
 
-This chapter was prepared as supplementary material for the @sanderman2018soil article. It explains how to map Soil Organic Carbon Stocks (OCS) using soil samples (point data). It also demonstrates derivation of values at both the site level (per profile) and by using raster calculus (per pixel). We then illustrate how to estimate total OCS for any area of interest (which can be a field plot, farm and/or administrative region). For an introduction to soil mapping using Machine Learning Algorithms refer to section \@ref(soilmapping-using-mla). To access ISRIC's global compilation of soil profiles please refer to: [http://www.isric.org/explore/wosis](http://www.isric.org/explore/wosis).
+This chapter was prepared as supplementary material for the @sanderman2018soil article. It explains how to map Soil Organic Carbon Stocks (OCS) using soil samples (point data). It also demonstrates derivation of values at both the site level (per profile) and by using raster calculus (per pixel). We then illustrate how to estimate total OCS for any area of interest (which can be a field plot, farm and/or administrative region). For an introduction to soil mapping using Machine Learning Algorithms refer to section \@ref(soilmapping-using-mla). To access the ISRIC global compilation of soil profiles referenced here please refer to: [http://www.isric.org/explore/wosis](http://www.isric.org/explore/wosis).
 
 ## Measurement and derivation of soil organic carbon
 
@@ -11296,7 +11293,7 @@ fm.BLD = as.formula(
   paste("BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +", 
         paste(names(ind.tax), collapse="+")))
 m.BLD_PTF <- ranger(fm.BLD, dfs_tbl, num.trees = 85, importance='impurity')
-#> Growing trees.. Progress: 93%. Estimated remaining time: 2 seconds.
+#> Growing trees.. Progress: 86%. Estimated remaining time: 5 seconds.
 m.BLD_PTF
 #> Ranger result
 #> 
@@ -11374,7 +11371,7 @@ This also illustrates that any organic carbon spatial prediction model can signi
 <p class="caption">(\#fig:soc-depth-plot)Globally fitted regression model for predicting soil organic carbon using depth only (log-log regression) and (a) individual soil profile from the ISRIC soil monolith collection. Image source: Hengl et al. (2014) doi: 10.1371/journal.pone.0105992.</p>
 </div>
 
-In summary, PTFs can be used to efficiently estimate missing BLD values (BLD is usually highly correlated with organic carbon content and depth, texture fractions, soil classification and soil pH can also help improve accuracy of the PTFs). However, for organic soils there is, in general, less calibration data and therefore errors are potentially higher. Mistakes in estimating BLD can result in systematic and significant over/under-estimations of the actual carbon stock. On the other hand, removing all soil horizons from OCS assessment that lack BLD measurements leads also to reduced accuracy as fewer points are then available for training of the spatial prediction models. Especially for organic soils (>12% organic carbon), there is no easy solution for estimating missing values for BLD. Collecting additional (local) calibration points might become unavoidable. @lobsey2016sensing recently proposed a method that combines gamma-ray attenuation and visible–near infrared (vis–NIR) spectroscopy to measure bulk density *ex situ* using samples that are freshly collected under wet field conditions. Hopefully BLD measurements (or their complete absence) will become less of a problem in the future.
+In summary, PTFs can be used to efficiently estimate missing BLD values (BLD is usually highly correlated with organic carbon content and depth, texture fractions, soil classification and soil pH can also help improve accuracy of the PTFs). However, for organic soils there is, in general, less calibration data and therefore errors are potentially higher. Mistakes in estimating BLD can result in systematic and significant over/under-estimations of the actual carbon stock. On the other hand, removing all soil horizons from OCS assessment that lack BLD measurements leads also to reduced accuracy as fewer points are then available for training of the spatial prediction models. Especially for organic soils (>12% organic carbon), there is no easy solution for estimating missing values for BLD. Collecting additional (local) calibration points might become unavoidable. @lobsey2016sensing recently proposed a method that combines gamma-ray attenuation and visible–near infrared (vis–NIR) spectroscopy to measure bulk density *ex situ* using samples that are freshly collected under wet field conditions. Hopefully unreliable, or missing, BLD measurements will become less of a problem in the future.
 
 ##  Generating maps of OCS
 
@@ -11388,7 +11385,7 @@ In principle, there are three main approaches to estimating total OCS for an are
 
 *  By deriving OCD (organic carbon density) and then directly predicting OCD and converting it to OCS, here called **the 3D approach to OCS mapping via direct modeling of OCD**,
 
-\BeginKnitrBlock{rmdnote}<div class="rmdnote">Soil Organic Carbon stock can be mapped by using at least differing approaches: (1) the 2D approach where estimation of OCS is done at the site level, (2) the 3D approach where soil organic carbon content, bulk density and coarse fragments are mapped separately, then used to derive OCS for standard depths at each grid cell, and (3) the 3D approach based on mapping Organic Carbon Density, then converting to stocks.</div>\EndKnitrBlock{rmdnote}
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Soil Organic Carbon stock can be mapped by using at least three different approaches: (1) the 2D approach where estimation of OCS is done at the site level, (2) the 3D approach where soil organic carbon content, bulk density and coarse fragments are mapped separately, then used to derive OCS for standard depths at each grid cell, and (3) the 3D approach based on mapping Organic Carbon Density, then converting to stocks.</div>\EndKnitrBlock{rmdnote}
 
 <div class="figure" style="text-align: center">
 <img src="figures/fig_derivation_socs_scheme.png" alt="Three main computational paths (2D and 3D) to producing maps of organic carbon stock." width="100%" />
@@ -11403,7 +11400,7 @@ Although 2D prediction of OCS from point data seems to be more straightforward, 
 
 *  Predictions of OCD/OCS can be generated for any depth interval using the same model (i.e. predictions are based on a single 3D model),
 
-A disadvantage of doing 3D modeling of OCD is, however, that correlation with covariate layers could be less clear than if separate models are built for ORC, BLD and CRF. Because OCD is a composite variable, it can often be difficult to distinguish whether the values are lower or higher due to differences in ORC, BLD or CRF. We leave it to users to compare various approaches to OCS mapping and then select the method that achieves best accuracy and/or is most suitable for use for their applications.
+A disadvantage of doing 3D modeling of OCD is, however, that correlation with covariate layers could be less clear than if separate models are built for ORC, BLD and CRF. Because OCD is a composite variable, it can often be difficult to distinguish whether the values are lower or higher due to differences in ORC, BLD or CRF. We leave it to users to compare various approaches to OCS mapping and then select the method that achieves the best accuracy and/or is most suitable for use for their applications.
 
 ## Predicting OCS from point data (the 2D approach)
 
@@ -11642,7 +11639,7 @@ sum(COSha30.pr$COSha30map_RF*30^2/1e4, na.rm=TRUE)
 
 ## Deriving OCS from soil profile data (the 3D approach) {#ocs-3d-approach}
 
-In the following example, we will demonstrate, using a known data set, ([Edgeroi](http://gsif.r-forge.r-project.org/edgeroi.html), from Australia) which has been well documented in the literature [@Malone2009Geoderma], how to derive OCS in t/ha using soil profile data and a  3D approach to spatial prediction based on mapping the Organic Carbon Density (OCD) in kg/m-cubic. The Edgeroi data set is a typical example of a soil profile data set that is relatively comprehensive, but still missing BLD measurements. 
+In the following example, we will demonstrate, using a well known data set, ([Edgeroi](http://gsif.r-forge.r-project.org/edgeroi.html), from Australia) which has been well documented in the literature [@Malone2009Geoderma], how to derive OCS in t/ha using soil profile data and a 3D approach to spatial prediction based on mapping the Organic Carbon Density (OCD) in kg/m-cubic. The Edgeroi data set is a typical example of a soil profile data set that is relatively comprehensive, but still missing BLD measurements. 
 
 The Edgeroi data set can be loaded from the GSIF package:
 
@@ -11740,7 +11737,7 @@ edgeroi$horizons$BLD.f = plyr::join(edgeroi$horizons[,c("SOURCEID","DEPTH.c")],
 #> Joining by: SOURCEID, DEPTH.c
 ```
 
-which shows relatively equal distribution of soil horizons for within the standard depths. 
+which shows relatively equal distribution of soil horizons within the standard depths. 
 Now that we have a rough estimate of the bulk density for all horizons, we can derive OCD in kg/m-cubic by using:
 
 
@@ -12035,6 +12032,7 @@ Based on all the examples and discussion above, the following key points can be 
  5. Global estimates of ORC, BLD and CRF can be used as covariates so that consistent predictions can be produced (as explained in @ramcharan2018soil).
  6. By producing spatial predictions of OCS for specific time periods, one can derive estimates of OCS change (loss or gain).
  7. Most of the statistical / analytical tools required for running spatial analysis, time series analysis, export and visualization of soil carbon data are available in R, especially thanks to the contributed packages: aqp, caret, ranger, xgboost, GSIF, greenbrown and similar. 
+ 8. Accurate measurements of bulk density (BLD) by horizon or depth interval for described soil profiles are critical for producing accurate calculations of soil carbon stock. Unfortunately, BLD data are often missing or not reported for many legacy soil profile descriptions and are frequently unreliable even when reported. Future efforts to sample and describe soil profiles should emphasise the collection and publication of accurate measurements of BLD by horizon or depth interval for all described soil profiles. 
 
 <!--chapter:end:07-Soil_organic_carbon.Rmd-->
 

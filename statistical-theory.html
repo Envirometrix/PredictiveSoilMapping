@@ -1582,7 +1582,7 @@ for plotting, (4) spatial locations of observations used to fit the model. To pr
 <span class="co">#&gt; Generating predictions using the trend model (RK method)...</span>
 <span class="co">#&gt; [using ordinary kriging]</span>
 <span class="co">#&gt; </span>
- <span class="dv">87</span>% done
+ <span class="dv">58</span>% done
 <span class="dv">100</span>% done
 <span class="co">#&gt; Running 5-fold cross validation using &#39;krige.cv&#39;...</span>
 <span class="co">#&gt; Creating an object of class &quot;SpatialPredictions&quot;</span>
@@ -1652,7 +1652,7 @@ om.rk2 &lt;-<span class="st"> </span><span class="kw">predict</span>(omm2, meuse
 <span class="co">#&gt; Generating predictions using the trend model (RK method)...</span>
 <span class="co">#&gt; [using ordinary kriging]</span>
 <span class="co">#&gt; </span>
- <span class="dv">68</span>% done
+ <span class="dv">16</span>% done
 <span class="dv">100</span>% done
 <span class="co">#&gt; Running 5-fold cross validation using &#39;krige.cv&#39;...</span>
 <span class="co">#&gt; Creating an object of class &quot;SpatialPredictions&quot;</span></code></pre>
@@ -1869,7 +1869,6 @@ om.rksim.p &lt;-<span class="st"> </span><span class="kw">predict</span>(omm, me
 <span class="co">#&gt; drawing 20 GLS realisations of beta...</span>
 <span class="co">#&gt; [using conditional Gaussian simulation]</span>
 <span class="co">#&gt; </span>
- <span class="dv">19</span>% done
 <span class="dv">100</span>% done
 <span class="co">#&gt; Creating an object of class &quot;RasterBrickSimulations&quot;</span>
 <span class="co">#&gt; Loading required package: raster</span>
@@ -1889,7 +1888,6 @@ square blocks of 40 by 40 m we run:</p>
 <span class="co">#&gt; Generating predictions using the trend model (RK method)...</span>
 <span class="co">#&gt; [using ordinary kriging]</span>
 <span class="co">#&gt; </span>
- <span class="dv">58</span>% done
 <span class="dv">100</span>% done
 <span class="co">#&gt; Creating an object of class &quot;SpatialPredictions&quot;</span>
 om.rksim.b &lt;-<span class="st"> </span><span class="kw">predict</span>(omm, meuse.grid, <span class="dt">nsim=</span><span class="dv">2</span>, <span class="dt">block=</span><span class="kw">c</span>(<span class="dv">40</span>,<span class="dv">40</span>), <span class="dt">debug.level=</span><span class="dv">0</span>)
@@ -2091,7 +2089,6 @@ argument:</p>
 <span class="co">#&gt; drawing 20 GLS realisations of beta...</span>
 <span class="co">#&gt; [using conditional Gaussian simulation]</span>
 <span class="co">#&gt; </span>
- <span class="dv">38</span>% done
 <span class="dv">100</span>% done
 <span class="co">#&gt; Creating an object of class &quot;RasterBrickSimulations&quot;</span>
 <span class="kw">log1p</span>(meuse<span class="op">@</span>data[<span class="dv">1</span>,<span class="st">&quot;om&quot;</span>])
@@ -2130,13 +2127,13 @@ organic matter content using the Meuse case study:</p>
 <span class="kw">demo</span>(meuse, <span class="dt">echo=</span><span class="ot">FALSE</span>)
 meuse<span class="op">$</span>value =<span class="st"> </span>meuse<span class="op">$</span>zinc
 output &lt;-<span class="st"> </span><span class="kw">interpolate</span>(meuse, meuse.grid, <span class="kw">list</span>(<span class="dt">mean=</span><span class="ot">TRUE</span>, <span class="dt">variance=</span><span class="ot">TRUE</span>))
-<span class="co">#&gt; R 2018-12-27 06:04:27 interpolating 155 observations, 3103 prediction locations</span>
+<span class="co">#&gt; R 2018-12-27 18:46:15 interpolating 155 observations, 3103 prediction locations</span>
 <span class="co">#&gt; Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : </span>
 <span class="co">#&gt;  using standard model for estimating time. For better </span>
 <span class="co">#&gt;  platform spesific predictions, please run </span>
 <span class="co">#&gt;  timeModels &lt;- generateTimeModels()</span>
 <span class="co">#&gt;   and save the workspace</span>
-<span class="co">#&gt; [1] &quot;estimated time for  copula 160.448808494018&quot;</span>
+<span class="co">#&gt; [1] &quot;estimated time for  copula 161.766431029144&quot;</span>
 <span class="co">#&gt; Checking object ... OK</span></code></pre>
 <p>which gives the (presumably) best interpolation method for the problem
 at hand (<code>value</code> column), given the time available set with
@@ -2145,7 +2142,7 @@ at hand (<code>value</code> column), given the time available set with
 <span class="co">#&gt; List of 16</span>
 <span class="co">#&gt;  $ observations       :Formal class &#39;SpatialPointsDataFrame&#39; [package &quot;sp&quot;] with 5 slots</span>
 <span class="co">#&gt;  $ formulaString      :Class &#39;formula&#39;  language value ~ 1</span>
-<span class="co">#&gt;   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x139f8d38&gt; </span>
+<span class="co">#&gt;   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x13be7960&gt; </span>
 <span class="co">#&gt;  $ predictionLocations:Formal class &#39;SpatialPixelsDataFrame&#39; [package &quot;sp&quot;] with 7 slots</span>
 <span class="co">#&gt;  $ params             :List of 18</span>
 <span class="co">#&gt;   ..$ doAnisotropy     : logi TRUE</span>
@@ -2764,7 +2761,6 @@ which can now be used to generate predictions:</p>
 <span class="co">#&gt; Generating predictions using the trend model (RK method)...</span>
 <span class="co">#&gt; [using ordinary kriging]</span>
 <span class="co">#&gt; </span>
- <span class="dv">16</span>% done
 <span class="dv">100</span>% done
 <span class="co">#&gt; Running 5-fold cross validation using &#39;krige.cv&#39;...</span>
 <span class="co">#&gt; Creating an object of class &quot;SpatialPredictions&quot;</span></code></pre>
