@@ -2,7 +2,7 @@
 ---
 title: "Predictive Soil Mapping with R"
 author: ["Tomislav Hengl and Robert A. MacMillan"]
-date: "2018-12-27"
+date: "2018-12-28"
 knit: bookdown::render_book
 site: bookdown::bookdown_site
 documentclass: svmono
@@ -2793,7 +2793,7 @@ om.rk <- predict(omm, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
-  4% done
+ 27% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -7481,7 +7481,7 @@ om.rk <- predict(omm, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 58% done
+ 22% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -7555,7 +7555,7 @@ om.rk2 <- predict(omm2, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 16% done
+ 12% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -7838,6 +7838,7 @@ om.rk.b <- predict(omm, meuse.grid, block=c(40,40), nfold=0)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
+ 17% done
 100% done
 #> Creating an object of class "SpatialPredictions"
 om.rksim.b <- predict(omm, meuse.grid, nsim=2, block=c(40,40), debug.level=0)
@@ -8103,13 +8104,13 @@ library(intamap)
 demo(meuse, echo=FALSE)
 meuse$value = meuse$zinc
 output <- interpolate(meuse, meuse.grid, list(mean=TRUE, variance=TRUE))
-#> R 2018-12-27 18:46:15 interpolating 155 observations, 3103 prediction locations
+#> R 2018-12-28 04:06:22 interpolating 155 observations, 3103 prediction locations
 #> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : 
 #>  using standard model for estimating time. For better 
 #>  platform spesific predictions, please run 
 #>  timeModels <- generateTimeModels()
 #>   and save the workspace
-#> [1] "estimated time for  copula 161.766431029144"
+#> [1] "estimated time for  copula 159.964343548438"
 #> Checking object ... OK
 ```
 
@@ -8123,7 +8124,7 @@ str(output, max.level = 2)
 #> List of 16
 #>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
 #>  $ formulaString      :Class 'formula'  language value ~ 1
-#>   .. ..- attr(*, ".Environment")=<environment: 0x13be7960> 
+#>   .. ..- attr(*, ".Environment")=<environment: 0x1508e8f8> 
 #>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
 #>  $ params             :List of 18
 #>   ..$ doAnisotropy     : logi TRUE
@@ -8811,6 +8812,7 @@ om.rk <- predict(omm, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
+ 58% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -9512,7 +9514,7 @@ localH2O = h2o.init(startH2O=TRUE)
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         23 minutes 51 seconds 
+#>     H2O cluster uptime:         23 minutes 26 seconds 
 #>     H2O cluster timezone:       UTC 
 #>     H2O data parsing timezone:  UTC 
 #>     H2O cluster version:        3.20.0.8 
@@ -9551,23 +9553,23 @@ RF.m
 #> ==============
 #> 
 #> H2ORegressionModel: drf
-#> Model ID:  DRF_model_R_1545935002398_21 
+#> Model ID:  DRF_model_R_1545968633691_21 
 #> Model Summary: 
 #>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#> 1              50                       50              644140        20
+#> 1              50                       50              639400        19
 #>   max_depth mean_depth min_leaves max_leaves mean_leaves
-#> 1        20   20.00000        966       1065  1021.60000
+#> 1        20   19.98000        945       1074  1014.12000
 #> 
 #> 
 #> H2ORegressionMetrics: drf
 #> ** Reported on training data. **
 #> ** Metrics reported on Out-Of-Bag training samples **
 #> 
-#> MSE:  219
-#> RMSE:  14.8
-#> MAE:  10
-#> RMSLE:  0.428
-#> Mean Residual Deviance :  219
+#> MSE:  222
+#> RMSE:  14.9
+#> MAE:  10.1
+#> RMSLE:  0.433
+#> Mean Residual Deviance :  222
 ```
 
 This shows that the model fitting R-square is about 50%. This is also indicated by the predicted vs observed plot:
@@ -9614,29 +9616,29 @@ DL.m
 #> ==============
 #> 
 #> H2ORegressionModel: deeplearning
-#> Model ID:  DeepLearning_model_R_1545935002398_22 
+#> Model ID:  DeepLearning_model_R_1545968633691_22 
 #> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1
 #>   layer units      type dropout       l1       l2 mean_rate rate_rms
 #> 1     1    10     Input  0.00 %       NA       NA        NA       NA
-#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.016723 0.012171
-#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.122652 0.180907
-#> 4     4     1    Linear      NA 0.000000 0.000000  0.001311 0.001344
+#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.014395 0.008008
+#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.144276 0.197365
+#> 4     4     1    Linear      NA 0.000000 0.000000  0.001432 0.001021
 #>   momentum mean_weight weight_rms mean_bias bias_rms
 #> 1       NA          NA         NA        NA       NA
-#> 2 0.000000    0.004887   0.103043  0.362957 0.061247
-#> 3 0.000000   -0.017744   0.070646  0.958702 0.016770
-#> 4 0.000000    0.017476   0.051814  0.110718 0.000000
+#> 2 0.000000    0.001999   0.101966  0.356811 0.062145
+#> 3 0.000000   -0.018119   0.070588  0.955837 0.019801
+#> 4 0.000000    0.000779   0.049872  0.111103 0.000000
 #> 
 #> 
 #> H2ORegressionMetrics: deeplearning
 #> ** Reported on training data. **
 #> ** Metrics reported on full training frame **
 #> 
-#> MSE:  258
-#> RMSE:  16.1
+#> MSE:  262
+#> RMSE:  16.2
 #> MAE:  12.2
-#> RMSLE:  0.493
-#> Mean Residual Deviance :  258
+#> RMSLE:  0.497
+#> Mean Residual Deviance :  262
 ```
 
 Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. \@ref(fig:map-snd) and Fig. \@ref(fig:map-snd-dl)).
@@ -9873,16 +9875,16 @@ str(test.ORC)
 #> List of 2
 #>  $ CV_residuals:'data.frame':	4972 obs. of  4 variables:
 #>   ..$ Observed : num [1:4972] 6.5 5.1 4.9 3.3 2.2 ...
-#>   ..$ Predicted: num [1:4972] 12.77 7.36 6.7 5.07 2.98 ...
+#>   ..$ Predicted: num [1:4972] 12.3 7.61 6.83 4.67 3.26 ...
 #>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" ...
 #>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ Summary     :'data.frame':	1 obs. of  6 variables:
-#>   ..$ ME          : num -0.116
-#>   ..$ MAE         : num 2.19
-#>   ..$ RMSE        : num 3.68
-#>   ..$ R.squared   : num 0.557
-#>   ..$ logRMSE     : num 0.496
-#>   ..$ logR.squared: num 0.631
+#>   ..$ ME          : num -0.129
+#>   ..$ MAE         : num 2.2
+#>   ..$ RMSE        : num 3.69
+#>   ..$ R.squared   : num 0.556
+#>   ..$ logRMSE     : num 0.499
+#>   ..$ logR.squared: num 0.628
 ```
 
 Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about $\pm 4$ g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:
@@ -9936,7 +9938,7 @@ perf
 #> 
 #> Base learner performance, sorted by specified metric:
 #>                    learner  MSE
-#> 1 h2o.randomForest.wrapper 13.2
+#> 1 h2o.randomForest.wrapper 12.9
 #> 2          h2o.gbm.wrapper 12.8
 #> 
 #> 
@@ -9944,7 +9946,7 @@ perf
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 12.6583957920445
+#> Ensemble performance (MSE): 12.3905150252244
 ```
 
 which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.
@@ -10044,16 +10046,16 @@ perf3
 #> Base learner performance, sorted by specified metric:
 #>                    learner    MSE
 #> 1          h2o.glm.wrapper 0.2827
-#> 4 h2o.deeplearning.wrapper 0.1274
+#> 4 h2o.deeplearning.wrapper 0.1630
 #> 3          h2o.gbm.wrapper 0.0971
-#> 2 h2o.randomForest.wrapper 0.0870
+#> 2 h2o.randomForest.wrapper 0.0796
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 0.0829071235270013
+#> Ensemble performance (MSE): 0.0759011087612256
 ```
 
 In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.
@@ -10135,12 +10137,12 @@ sl
 #>     SL.library = sl.l) 
 #> 
 #> 
-#>                  Risk    Coef
-#> SL.mean_All    0.7540 0.00000
-#> SL.xgboost_All 0.0598 0.81990
-#> SL.ksvm_All    0.1299 0.00947
-#> SL.glmnet_All  0.3080 0.00000
-#> SL.ranger_All  0.0861 0.17063
+#>                  Risk   Coef
+#> SL.mean_All    0.7540 0.0000
+#> SL.xgboost_All 0.0598 0.8166
+#> SL.ksvm_All    0.1284 0.0144
+#> SL.glmnet_All  0.3080 0.0000
+#> SL.ranger_All  0.0850 0.1690
 ```
 
 This shows that `SL.xgboost_All` outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by `SL.xgboost_All` is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:
@@ -10160,9 +10162,9 @@ sl2
 #> 
 #> 
 #>                  Risk  Coef
-#> SL.xgboost_All 0.0603 0.814
-#> SL.ranger_All  0.0832 0.186
-#> SL.ksvm_All    0.1300 0.000
+#> SL.xgboost_All 0.0603 0.823
+#> SL.ranger_All  0.0841 0.177
+#> SL.ksvm_All    0.1291 0.000
 ```
 
 again `SL.xgboost` dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where entire profiles are taken out of the training dataset:
@@ -10189,11 +10191,11 @@ summary(cv_sl)
 #> All risk estimates are based on V =  5 
 #> 
 #>       Algorithm  Ave    se   Min  Max
-#>   Super Learner 0.16 0.014 0.096 0.26
-#>     Discrete SL 0.17 0.014 0.119 0.25
+#>   Super Learner 0.16 0.014 0.095 0.25
+#>     Discrete SL 0.17 0.015 0.115 0.25
 #>  SL.xgboost_All 0.19 0.016 0.135 0.27
-#>   SL.ranger_All 0.17 0.014 0.104 0.25
-#>     SL.ksvm_All 0.18 0.014 0.109 0.29
+#>   SL.ranger_All 0.16 0.015 0.102 0.25
+#>     SL.ksvm_All 0.18 0.014 0.109 0.30
 ```
 
 where `V=5` specifies number of folds, and `id=rm.cookfarm$SOURCEID` enforces that entire profiles are removed from training and cross-validation. This gives a more realistic RMSE of about ±0.35. Note that this time `SL.xgboost_All` is even somewhat worse than the random forest model, and the ensemble model (`Super Learner`) is slightly better than each individual model. This matches our previous results with `h20.ensemble`. 
@@ -10218,8 +10220,8 @@ sl2
 #> 
 #>                 Risk  Coef
 #> SL.xgboost_All 0.215 0.000
-#> SL.ranger_All  0.167 0.456
-#> SL.ksvm_All    0.163 0.544
+#> SL.ranger_All  0.165 0.475
+#> SL.ksvm_All    0.163 0.525
 new.data <- grid10m@data
 pred.PHI <- list(NULL)
 depths = c(10,30,50,70,90)
@@ -10241,7 +10243,7 @@ for(j in 1:length(depths)){
 #>     buffer, rotated
 str(pred.PHI[[1]])
 #> List of 2
-#>  $ pred           : num [1:3865, 1] 4.66 4.73 4.88 4.84 4.77 ...
+#>  $ pred           : num [1:3865, 1] 4.64 4.72 4.85 4.83 4.77 ...
 #>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...
 #>   ..- attr(*, "dimnames")=List of 2
 #>   .. ..$ : NULL
@@ -11293,7 +11295,7 @@ fm.BLD = as.formula(
   paste("BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +", 
         paste(names(ind.tax), collapse="+")))
 m.BLD_PTF <- ranger(fm.BLD, dfs_tbl, num.trees = 85, importance='impurity')
-#> Growing trees.. Progress: 86%. Estimated remaining time: 5 seconds.
+#> Growing trees.. Progress: 91%. Estimated remaining time: 3 seconds.
 m.BLD_PTF
 #> Ranger result
 #> 
@@ -12043,20 +12045,20 @@ Based on all the examples and discussion above, the following key points can be 
 
 ## Critical aspects of Predictive Soil Mapping
 
-The previous chapters have reviewed many of the technical aspects of PSM. 
-To a statistical, following the right procedure and applying the right statistical framework will be 
-the key element of success of a PSM project. In practice, 
-it is really the combination of all elements and aspects that determines a success of PSM project.
+Previous chapters in this book have reviewed many of the technical aspects of PSM. 
+For a statistician, following the right procedures and applying the right statistical frameworks will are 
+the key elements of success for a PSM project. In practice, 
+it is really a combination of all elements and aspects that determines a success of a PSM project.
 In this chapter we provide some practical tips on how to organize work and what to be especially 
 careful about. We refer to these as the *critical aspects of PSM projects*.
 
-At the end of the chapter we also try to give a more practical tips in sense of check-lists and 
-simple economic calculus, to try to prevent from making unrealistic plans or producing maps 
-that nobody will eventually use.
+At the end of the chapter we also try to present additional practical tips in the form of check-lists and 
+simple economic analysis, to help readers avoid making unrealistic plans or producing maps 
+that may not find effective use.
 
 ### PSM main steps
 
-Based on all theory explained previously, we can summarize the usual PSM processes as (Fig. \@ref(fig:psm-decision-tree)):
+Based on previously presented theory, we can summarize the usual PSM processes as (Fig. \@ref(fig:psm-decision-tree)):
 
 1.  Preparation of point data (training data).
 
@@ -12064,7 +12066,7 @@ Based on all theory explained previously, we can summarize the usual PSM process
 
 3.  Model fitting and validation (building rules by overlay, model fitting and cross-validation).
 
-4.  Predictions and generation of (currently best-possible) final maps
+4.  Prediction and generation of (currently best-possible) final maps
     (applying the rules).
 
 5.  Archiving and distribution of maps (usually via soil geographical
@@ -12077,16 +12079,16 @@ Based on all theory explained previously, we can summarize the usual PSM process
 <p class="caption">(\#fig:psm-decision-tree)General decision tree in a Predictive Soil Mapping project.</p>
 </div>
 
-In principle, there are three main types of PSM projects:
+In principle, we recognize three main types of PSM projects:
 
-A.  PSM projects in new areas — no point observations or samples
+A.  PSM projects in new, previously unmapped, areas — no point observations or samples
     currently exist.
 
 B.  PSM projects using legacy points — sufficient point data to support
     PSM exist and are available, but no previous PSM modelling has
-    been implemented in this area.
+    been implemented for this area.
 
-C.  PSM projects aiming at optimizing predictions and usability —
+C.  PSM projects aimed at optimizing predictions and usability —
     Previous PSM models have already been completed but previous
     results can still be improved / optimized.
 
@@ -12098,7 +12100,7 @@ most time consuming part of PSM will likely be preparation of covariate
 data layers (PSM projects type B). Predictions can also take a long time
 and computing costs per update can be significant (see further sections).
 Personnel costs can be more significant than server costs as programming
-can demand weeks of staff time. However, if programming is done at a
+can require weeks of staff time. However, if programming is done at a
 high level (e.g. through generic functions and objects), subsequent
 updates should require less personnel time as predictions can be
 increasingly automated.
@@ -12118,14 +12120,14 @@ III. PSM projects for the purpose of monitoring soil conditions / status
     (continuous updates at regular intervals).
 
 To date, almost all conventional soil mapping ignores time and change
-and instead tries to pretend that soil properties are static and persist
+and instead tries to assume that soil properties are static and persist
 through time virtually unaltered. Increasingly, however, new generation
 PSM projects aim to monitor changes in soil resources, with special
-focus given to changes in soil organic carbon, soil nutrients and
+focus given to changes in soil organic carbon, soil nutrients, soil moisture and
 similar (Fig. \@ref(fig:psm-types-monitoring)). For PSM project 
 type III spatio-temporal prediction models can
 be used (as in meteorology for example), but then this requires that
-sufficient training data are available in the time domain e.g. at least
+sufficient training data are available in both the space and time domains e.g. at least
 five measurement intervals / repetitions.
 
 <div class="figure" style="text-align: center">
@@ -12201,7 +12203,7 @@ Spatial predictions of primary soil properties can be used to:
     organic carbon stock etc.
 
 Spatial predictions of primary soil variables and derived soil variables
-are used for decision making and further modeling i.e. they are used to
+are meant to be used for decision making and further modeling i.e. they are used to
 construct a **Soil Information System** once all values of all variables
 are known for all pixels within the soil mask. A SIS should ideally
 provide information that can directly support input to modeling,
@@ -12224,7 +12226,7 @@ The majority of the costs of a PSM project are controlled by the following:
     data are available and additional purchases of commercial RS
     products will typically be required. For example the latest 12 m
     resolution WorldDEM (https://worlddem-database.terrasar.com/) can cost 
-    up to 10 USD per square km, and which can increase PSM costs significantly.
+    up to 10 USD per square km, which can increase PSM costs significantly.
 
 2.  **List of target variables and their complexity**: Some PSM projects
     focus on mapping 1–2 soil variables only, and as such can be
@@ -12260,7 +12262,7 @@ The majority of the costs of a PSM project are controlled by the following:
     possible user base? Is high traffic expected and, if so, how will
     the costs of hosting and serving the data and processes be met?
     Producing a robust, scalable web-system that can serve thousands
-    of users at the same time requires additional investments in
+    of users at the same time requires considerable investments in
     programming and maintenance.
 
 5.  **Commercialization options**: Commercialization of data and
@@ -12326,7 +12328,7 @@ samples affordably and to a high standard [@ShepherdWalsh2007JNIS].
 ### Preparation of point data
 
 Import of basic O&M field data (e.g. soil point data) can be time
-consuming and require intensive checking and harmonization.
+consuming and require intensive, often manual, checking and harmonization.
 Communicating with the original data producers is highly recommended to
 reduce errors during import. Getting original data producers involved
 can be best achieved by inviting them to become full participants (e.g.
@@ -12374,7 +12376,7 @@ provide a better indication of site environmental characteristics than
 just a single day snapshot of surface reflectance. Computing temporal
 signatures of the land surface requires a large investment of time
 (comparable to the generation of climatic images vs temporary weather
-maps), but it is possibly the only way to represent the cumulative
+maps), but it is possibly the only way to effectively represent the cumulative
 influence of living organisms on soil formation [@Hengl2017SoilGrids250m].
 
 Typical operations to prepare soil covariates for PSM thus include:
@@ -12429,7 +12431,7 @@ size) and spatial coordinate system that all other layers included in
 the analysis must conform to, to ensure consistent overlay of all grids.
 In most of our PSM projects we typically restrict ourselves to making
 predictions only for pixels that exhibit some evidence of having
-vegetative cover at some point in time. We tend to exclude from
+photosynthetically active vegetative cover at some point in time. We tend to exclude from
 prediction any grid cells that have no evidence of vegetative cover at
 any time, such as permanent bodies of water or ice, bare rock and man
 made features such as roads, bridges and buildings. A generic definition
@@ -12441,7 +12443,7 @@ been our practice.
 <p class="caption">(\#fig:soil-mask-scheme)Example of a soil (land) mask scheme.</p>
 </div>
 
-From the perspective of global soil mapping, any place on terrestrial
+From the perspective of global soil mapping, any terrestrial location on
 Earth can be considered to belong to one and only one of six categories
 (excluding oceans):
 
@@ -12525,7 +12527,7 @@ in x/y coordinates in projected 2D space and geographical coordinates
 can be large, especially around poles and near the equator.
 
 Another highly recommended convention is to use some widely accepted
-Equal area projection system for all output maps. This ensures the best
+Equal area projection system for all intermediate and final output maps. This ensures the best
 possible precision in determining area measures, which is often
 important e.g. for derivation of total stocks, volumes of soil and soil
 components and similar. Every country tends to use a specific equal area
@@ -12562,7 +12564,7 @@ grouped around the following two approaches:
 The mean width of prediction intervals and global measures of mapping
 accuracy should, in principle, match, although it is possible that the
 mean width of prediction intervals can often be somewhat wider (a
-consequence of extrapolation). In some cases measures of uncertainty can
+consequence of extrapolation). In some cases, measures of uncertainty can
 be over-optimistic or biased (which will eventually be exposed by new
 observations), which can decrease confidence in the product, hence
 providing realistic estimates of uncertainty of uncertainty is often
@@ -12602,7 +12604,7 @@ computing (HPC) server to run overlay, model fitting and predictions and
 to then generate mosaics. The current code presented in this PSM with R
 book is more or less 90% optimized so that running of the most important
 functions can be easily scaled up. The total time required to run one
-update on a single dedicated HPC server (e.g. via Amazon AWS) for a 
+global update on a single dedicated HPC server (e.g. via Amazon AWS) for a 
 soil mask that contains >100 million pixels can
 require weeks of computing time. Copying and uploading files can also be
 a lengthy process.
@@ -12616,7 +12618,7 @@ grids with a large number of evidence points is e.g. the [OVH server](https://ww
 
 An alternative to using OVH is the Amazon AWS (Fig. \@ref(fig:aws-htop-server)). 
 Amazon AWS server, with a similar configuration, might appear to cost much more than an OVH server
-(especially if used continuously over a month period), but Amazon offers
+(especially if used continuously over a month period), but Amazon permits
 computing costs to be paid by the hour, which provides more flexibility
 for less intensive users. As a rule of thumb, a dedicated server at
 Amazon AWS, if used continuously 100% for the whole month, could cost
@@ -12628,8 +12630,8 @@ The recommended server for running PSM on Amazon AWS to produce predictions for 
     (\$3.84 per Hour);
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_htop_96treads.png" alt="Example of an AWS dedicated server running spatial predictions on 96 threads and using almost 500GB or RAM. Renting out this server can costs up to 8 USD per hour." width="100%" />
-<p class="caption">(\#fig:aws-htop-server)Example of an AWS dedicated server running spatial predictions on 96 threads and using almost 500GB or RAM. Renting out this server can costs up to 8 USD per hour.</p>
+<img src="figures/Fig_htop_96treads.png" alt="Example of an AWS dedicated server running spatial predictions on 96 threads and using almost 500GB of RAM. Renting out this server can cost up to 8 USD per hour." width="100%" />
+<p class="caption">(\#fig:aws-htop-server)Example of an AWS dedicated server running spatial predictions on 96 threads and using almost 500GB of RAM. Renting out this server can cost up to 8 USD per hour.</p>
 </div>
 
 A HPC server should also have at least 2–3TB of hard disk space to host
@@ -12706,14 +12708,14 @@ usability of map data are:
 
 ### Technical specifications PSM project
 
-A way to increase planning of a PSM project is to spend more time on preparing
+A way to improve planning of a PSM project is to spend more time on preparing
 the technical aspects of data production. This includes listing the general
 specifications of the study area, listing target variables and their 
 collection methods, listing covariate layers of interest to be used to improve
 mapping accuracy and listing targeted spatial prediction algorithms to be
 compared.
 
-General specifications of the study area includes:
+General specifications of the study area include:
 
   * G.1 Project title:
   * G.2 PSM project type:
@@ -12766,7 +12768,7 @@ General specifications of the study area includes:
 
 ### Standard soil data production costs
 
-Standard production costs can roughly be split into three main
+Standard production costs can be roughly split into three main
 categories:
 
 -   Fixed costs (e.g. project initiation, equipment, materials,
@@ -12780,10 +12782,10 @@ categories:
 -   Data maintenance and web-serving costs, usually expressed as
     monthly/yearly costs,
 
-Although in the introduction chapter we have mentioned that the production costs are mainly function of 
-resolution i.e. cartographic scale, in practice several other factors determine the total costs. 
+Although in the introduction chapter we mentioned that the production costs are mainly a function of 
+grid resolution i.e. cartographic scale, in practice several other factors determine the total costs. 
 Standard soil data production costs (approximate estimates) per
-soil data quality category (see below) is connected to the quality level of the output maps.
+soil data quality category (see below) are connected to the quality level of the output maps.
 Consider that there are four main quality levels:
 
   * L0 = initial product with only few soil properties, no quality/accuracy requirements, 
@@ -12827,10 +12829,10 @@ L1) = 11,635 US\$
 Note: this is a very generic estimate of the production costs and actual
 numbers might be significantly different. Additional fixed costs +
 monthly/yearly costs need to be added to these numbers to account also
-for the web hosting, support and costs of updates.
+for any web hosting, support or update costs.
 
-Compare this costs with the following standard estimated costs to
-deliver completed soil survey products:
+Compare these costs with the following standard estimated costs to
+deliver completed conventional manual soil survey products:
 
   - USDA estimate of the total soil survey costs: 4 US\$ per ha for
     1:20,000 scale maps [@Durana2008] to map USA48 area = 3.2 billion
@@ -12846,7 +12848,7 @@ Predictive soil mapping applies statistical and/or machine learning
 techniques to fit models for the purpose of producing spatial and/or
 spatiotemporal predictions of soil variables i.e. to produce maps of
 soil properties or soil classes at various resolutions. This chapter
-identifies and discusses the key technical specifications users need to
+identifies and discusses some of the key technical specifications users need to
 consider to prepare for data production and to obtain realistic
 estimates of workloads and production costs. 
 

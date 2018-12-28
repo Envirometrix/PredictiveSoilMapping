@@ -2,7 +2,7 @@
 ---
 title: "Predictive Soil Mapping with R"
 author: ["Tomislav Hengl and Robert A. MacMillan"]
-date: "2018-12-27"
+date: "2018-12-28"
 knit: bookdown::render_book
 site: bookdown::bookdown_site
 documentclass: svmono
