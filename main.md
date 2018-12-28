@@ -2793,7 +2793,6 @@ om.rk <- predict(omm, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 27% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -7481,7 +7480,6 @@ om.rk <- predict(omm, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 22% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -7555,7 +7553,6 @@ om.rk2 <- predict(omm2, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 12% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -7838,7 +7835,6 @@ om.rk.b <- predict(omm, meuse.grid, block=c(40,40), nfold=0)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 17% done
 100% done
 #> Creating an object of class "SpatialPredictions"
 om.rksim.b <- predict(omm, meuse.grid, nsim=2, block=c(40,40), debug.level=0)
@@ -8104,13 +8100,13 @@ library(intamap)
 demo(meuse, echo=FALSE)
 meuse$value = meuse$zinc
 output <- interpolate(meuse, meuse.grid, list(mean=TRUE, variance=TRUE))
-#> R 2018-12-28 04:06:22 interpolating 155 observations, 3103 prediction locations
+#> R 2018-12-28 08:16:53 interpolating 155 observations, 3103 prediction locations
 #> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : 
 #>  using standard model for estimating time. For better 
 #>  platform spesific predictions, please run 
 #>  timeModels <- generateTimeModels()
 #>   and save the workspace
-#> [1] "estimated time for  copula 159.964343548438"
+#> [1] "estimated time for  copula 156.566329806402"
 #> Checking object ... OK
 ```
 
@@ -8124,7 +8120,7 @@ str(output, max.level = 2)
 #> List of 16
 #>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
 #>  $ formulaString      :Class 'formula'  language value ~ 1
-#>   .. ..- attr(*, ".Environment")=<environment: 0x1508e8f8> 
+#>   .. ..- attr(*, ".Environment")=<environment: 0x154f23c8> 
 #>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
 #>  $ params             :List of 18
 #>   ..$ doAnisotropy     : logi TRUE
@@ -8812,7 +8808,6 @@ om.rk <- predict(omm, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 58% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -9514,14 +9509,14 @@ localH2O = h2o.init(startH2O=TRUE)
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         23 minutes 26 seconds 
+#>     H2O cluster uptime:         24 minutes 5 seconds 
 #>     H2O cluster timezone:       UTC 
 #>     H2O data parsing timezone:  UTC 
 #>     H2O cluster version:        3.20.0.8 
 #>     H2O cluster version age:    3 months and 6 days  
 #>     H2O cluster name:           H2O_started_from_R_travis_lqb476 
 #>     H2O cluster total nodes:    1 
-#>     H2O cluster total memory:   1.47 GB 
+#>     H2O cluster total memory:   1.48 GB 
 #>     H2O cluster total cores:    2 
 #>     H2O cluster allowed cores:  2 
 #>     H2O cluster healthy:        TRUE 
@@ -9553,12 +9548,12 @@ RF.m
 #> ==============
 #> 
 #> H2ORegressionModel: drf
-#> Model ID:  DRF_model_R_1545968633691_21 
+#> Model ID:  DRF_model_R_1545983626006_21 
 #> Model Summary: 
 #>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#> 1              50                       50              639400        19
+#> 1              50                       50              638916        20
 #>   max_depth mean_depth min_leaves max_leaves mean_leaves
-#> 1        20   19.98000        945       1074  1014.12000
+#> 1        20   20.00000        922       1075  1013.48000
 #> 
 #> 
 #> H2ORegressionMetrics: drf
@@ -9568,7 +9563,7 @@ RF.m
 #> MSE:  222
 #> RMSE:  14.9
 #> MAE:  10.1
-#> RMSLE:  0.433
+#> RMSLE:  0.431
 #> Mean Residual Deviance :  222
 ```
 
@@ -9616,29 +9611,29 @@ DL.m
 #> ==============
 #> 
 #> H2ORegressionModel: deeplearning
-#> Model ID:  DeepLearning_model_R_1545968633691_22 
+#> Model ID:  DeepLearning_model_R_1545983626006_22 
 #> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1
 #>   layer units      type dropout       l1       l2 mean_rate rate_rms
 #> 1     1    10     Input  0.00 %       NA       NA        NA       NA
-#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.014395 0.008008
-#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.144276 0.197365
-#> 4     4     1    Linear      NA 0.000000 0.000000  0.001432 0.001021
+#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.015941 0.011630
+#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.114270 0.158376
+#> 4     4     1    Linear      NA 0.000000 0.000000  0.001266 0.000835
 #>   momentum mean_weight weight_rms mean_bias bias_rms
 #> 1       NA          NA         NA        NA       NA
-#> 2 0.000000    0.001999   0.101966  0.356811 0.062145
-#> 3 0.000000   -0.018119   0.070588  0.955837 0.019801
-#> 4 0.000000    0.000779   0.049872  0.111103 0.000000
+#> 2 0.000000    0.004222   0.101704  0.353055 0.063585
+#> 3 0.000000   -0.018679   0.071168  0.955917 0.022035
+#> 4 0.000000    0.006151   0.046944  0.126668 0.000000
 #> 
 #> 
 #> H2ORegressionMetrics: deeplearning
 #> ** Reported on training data. **
 #> ** Metrics reported on full training frame **
 #> 
-#> MSE:  262
-#> RMSE:  16.2
-#> MAE:  12.2
-#> RMSLE:  0.497
-#> Mean Residual Deviance :  262
+#> MSE:  318
+#> RMSE:  17.8
+#> MAE:  14.1
+#> RMSLE:  0.556
+#> Mean Residual Deviance :  318
 ```
 
 Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. \@ref(fig:map-snd) and Fig. \@ref(fig:map-snd-dl)).
@@ -9875,16 +9870,16 @@ str(test.ORC)
 #> List of 2
 #>  $ CV_residuals:'data.frame':	4972 obs. of  4 variables:
 #>   ..$ Observed : num [1:4972] 6.5 5.1 4.9 3.3 2.2 ...
-#>   ..$ Predicted: num [1:4972] 12.3 7.61 6.83 4.67 3.26 ...
+#>   ..$ Predicted: num [1:4972] 11.83 7.13 6.83 5.04 3.11 ...
 #>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" ...
 #>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ Summary     :'data.frame':	1 obs. of  6 variables:
-#>   ..$ ME          : num -0.129
-#>   ..$ MAE         : num 2.2
-#>   ..$ RMSE        : num 3.69
-#>   ..$ R.squared   : num 0.556
-#>   ..$ logRMSE     : num 0.499
-#>   ..$ logR.squared: num 0.628
+#>   ..$ ME          : num -0.123
+#>   ..$ MAE         : num 2.19
+#>   ..$ RMSE        : num 3.67
+#>   ..$ R.squared   : num 0.561
+#>   ..$ logRMSE     : num 0.496
+#>   ..$ logR.squared: num 0.632
 ```
 
 Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about $\pm 4$ g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:
@@ -9938,15 +9933,15 @@ perf
 #> 
 #> Base learner performance, sorted by specified metric:
 #>                    learner  MSE
-#> 1 h2o.randomForest.wrapper 12.9
 #> 2          h2o.gbm.wrapper 12.8
+#> 1 h2o.randomForest.wrapper 12.4
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 12.3905150252244
+#> Ensemble performance (MSE): 11.978655814393
 ```
 
 which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.
@@ -10046,16 +10041,16 @@ perf3
 #> Base learner performance, sorted by specified metric:
 #>                    learner    MSE
 #> 1          h2o.glm.wrapper 0.2827
-#> 4 h2o.deeplearning.wrapper 0.1630
+#> 4 h2o.deeplearning.wrapper 0.1341
 #> 3          h2o.gbm.wrapper 0.0971
-#> 2 h2o.randomForest.wrapper 0.0796
+#> 2 h2o.randomForest.wrapper 0.0750
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 0.0759011087612256
+#> Ensemble performance (MSE): 0.0738710883080796
 ```
 
 In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.
@@ -10139,10 +10134,10 @@ sl
 #> 
 #>                  Risk   Coef
 #> SL.mean_All    0.7540 0.0000
-#> SL.xgboost_All 0.0598 0.8166
-#> SL.ksvm_All    0.1284 0.0144
-#> SL.glmnet_All  0.3080 0.0000
-#> SL.ranger_All  0.0850 0.1690
+#> SL.xgboost_All 0.0598 0.8230
+#> SL.ksvm_All    0.1294 0.0171
+#> SL.glmnet_All  0.3075 0.0000
+#> SL.ranger_All  0.0859 0.1598
 ```
 
 This shows that `SL.xgboost_All` outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by `SL.xgboost_All` is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:
@@ -10162,9 +10157,9 @@ sl2
 #> 
 #> 
 #>                  Risk  Coef
-#> SL.xgboost_All 0.0603 0.823
-#> SL.ranger_All  0.0841 0.177
-#> SL.ksvm_All    0.1291 0.000
+#> SL.xgboost_All 0.0603 0.809
+#> SL.ranger_All  0.0828 0.191
+#> SL.ksvm_All    0.1305 0.000
 ```
 
 again `SL.xgboost` dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where entire profiles are taken out of the training dataset:
@@ -10191,11 +10186,11 @@ summary(cv_sl)
 #> All risk estimates are based on V =  5 
 #> 
 #>       Algorithm  Ave    se   Min  Max
-#>   Super Learner 0.16 0.014 0.095 0.25
-#>     Discrete SL 0.17 0.015 0.115 0.25
+#>   Super Learner 0.16 0.014 0.095 0.26
+#>     Discrete SL 0.16 0.014 0.104 0.25
 #>  SL.xgboost_All 0.19 0.016 0.135 0.27
-#>   SL.ranger_All 0.16 0.015 0.102 0.25
-#>     SL.ksvm_All 0.18 0.014 0.109 0.30
+#>   SL.ranger_All 0.16 0.014 0.104 0.25
+#>     SL.ksvm_All 0.18 0.015 0.109 0.30
 ```
 
 where `V=5` specifies number of folds, and `id=rm.cookfarm$SOURCEID` enforces that entire profiles are removed from training and cross-validation. This gives a more realistic RMSE of about ±0.35. Note that this time `SL.xgboost_All` is even somewhat worse than the random forest model, and the ensemble model (`Super Learner`) is slightly better than each individual model. This matches our previous results with `h20.ensemble`. 
@@ -10220,8 +10215,8 @@ sl2
 #> 
 #>                 Risk  Coef
 #> SL.xgboost_All 0.215 0.000
-#> SL.ranger_All  0.165 0.475
-#> SL.ksvm_All    0.163 0.525
+#> SL.ranger_All  0.165 0.497
+#> SL.ksvm_All    0.165 0.503
 new.data <- grid10m@data
 pred.PHI <- list(NULL)
 depths = c(10,30,50,70,90)
@@ -10243,7 +10238,7 @@ for(j in 1:length(depths)){
 #>     buffer, rotated
 str(pred.PHI[[1]])
 #> List of 2
-#>  $ pred           : num [1:3865, 1] 4.64 4.72 4.85 4.83 4.77 ...
+#>  $ pred           : num [1:3865, 1] 4.67 4.74 4.89 4.84 4.79 ...
 #>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...
 #>   ..- attr(*, "dimnames")=List of 2
 #>   .. ..$ : NULL
@@ -11295,7 +11290,7 @@ fm.BLD = as.formula(
   paste("BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +", 
         paste(names(ind.tax), collapse="+")))
 m.BLD_PTF <- ranger(fm.BLD, dfs_tbl, num.trees = 85, importance='impurity')
-#> Growing trees.. Progress: 91%. Estimated remaining time: 3 seconds.
+#> Growing trees.. Progress: 76%. Estimated remaining time: 9 seconds.
 m.BLD_PTF
 #> Ranger result
 #> 
@@ -12891,8 +12886,8 @@ modified, extended and included as a chapter in this book.
 
 This chapter addresses the following two main issues:
 
--   What went wrong with with past national to state level conventional
-    soil, and other terrestrial resource, inventory programs and can
+-   What caused past national to state level conventional
+    soil, and other terrestrial resource, inventory programs to anthropy and disappear globally and can
     they now be renewed and resurrected?
 
 -   How can the methods and ideas behind PSM be adopted and applied to
@@ -12986,7 +12981,7 @@ redesigned framework.
 
 ### Can terrestrial inventory programs be renewed and revived?
 
-One of our key hopes (which we especially promote through the OpenGeoHub
+One of our key hopes (which we especially try to achieve through the OpenGeoHub
 Foundation), is to contribute to a discussion of how comprehensive
 terrestrial resource inventory programs (or equivalent frameworks) might
 be re-imagined, re-designed, re-invented, re-implemented and renewed at
@@ -13138,7 +13133,7 @@ Some common limitations of legacy field data are:
     to harmonize,
 
 Despite these limitations, legacy field data have other attributes that
-make them useful and worth assembling, collating, harmonizing and using.
+make them valuable and worth assembling, collating, harmonizing and using.
 The advantages associated with using legacy field data can be summarized
 as follows:
 
@@ -13159,7 +13154,7 @@ as follows:
         methods and approaches,
 
     -   Working through the full cycle required to produce predictive
-        maps lets us learn a lot about how to do it and, more
+        maps using legacy data lets us learn a lot about how to do it and, more
         importantly, how we might do it better the next time around,
 
     -   They give us something to work with to provide real-world,
@@ -13195,17 +13190,17 @@ these observations or samples have survived to enter the public domain
 where they can now be easily located and obtained.
 
 In an ideal world, it would be possible to identify and obtain hundreds
-of thousands to perhaps even millions of laboratory analysis results for
+of thousands to perhaps even millions of laboratory analysed results for
 point locations globally. These samples surely were taken and analysed
 but they no longer remain accessible. Instead, best efforts to date have
-resulted in rescuing some 100,000 to 200,000 records globally for which
+resulted in rescuing some 300,000 to 350,000 records globally for which
 soil analytical data exist for geolocated point locations. What has
 happened to all of the thousands to millions of other analysed samples
 that were undeniably collected and analysed? Essentially they may be
 considered to be lost in the mists of time, victims of lack of will and
 lack of resources to support maintaining a viable archive of observation
 and sample results over the years. Unfortunately, no entity or agency
-had the mandate to maintain such a global archive and no one had the
+had the mandate to maintain such a comprehensive global archive and no one had the
 vision or resources to take on such a challenge.
 
 The world can do a much better job of locating, harmonizing, archiving
@@ -13253,6 +13248,8 @@ both more affordable and more effective.
         -   Systematic sampling (confluence point or grid sampling),
 
         -   Nested, multi-scale hierarchical sampling,
+        
+        -   Spatially-based sampling (@BrownPES2015),
 
     -   Model based sampling schemes:
 
@@ -13299,7 +13296,8 @@ collect a representative sample with the fewest possible sample points.
 
 Of the design based options available we suggest using a nested,
 multiscale sampling design based on a stratified random sample
-framework. In nested sampling, explicit attention is given to ensuring
+framework or spatially-based sampling (@BrownPES2015). In these nested 
+sampling approaches, explicit attention is given to ensuring
 that multiple samples are collected at a succession of point locations
 with increasingly large interpoint separation distances (e.g. 1 m, 10 m,
 100 m, 1 km). These multiple points support construction of
@@ -13362,7 +13360,7 @@ sample numbers can be generated to automatically assign unique and
 persistent identifiers to every site and to every soil sample collected
 in the field. This can reduce costs and errors associated with assigning
 different sample IDs at different stages in a sampling campaign (e.g.
-field, lab, data entry). Persistent and unique identifiers can help to
+field, lab, data entry). Persistent and unique digital identifiers can help to
 support continuous, real-time tracking of the progress of field
 descriptions and soil samples from initial collection in the field
 through laboratory analysis to final collation in a soil information
@@ -13399,14 +13397,14 @@ participation in collecting new field data.
 Recent developments in the use of new, rapid and accurate pharmaceutical
 grade analytical devices have reduced the costs of typical laboratory
 analyses dramatically, while, at the same time, significantly improving
-on reproducibility and accuracy. A modern soil laboratory now entails
+on reproducibility and accuracy (@ShepherdJNIS2007). A modern soil laboratory now entails
 making use of mid and near infrared spectrophotometers, X-ray
 diffraction and X-Ray diffusion and laser based particle size analysis.
 Using these new instruments, it has been demonstrated that total costs
 for running a complete set of common soil analyses on a full soil
 profile can be reduced from a current cost of US\$ 2,000 to as little as
-US\$ 2-10 per profile (Need to cite something from Keith Shepherd here).
-This reduction in cost, along with the associated increase in
+US\$ 2-10 per profile (@ShepherdJNIS2007).
+This reduction in cost, along with the associated improvement in
 reproducibility is a game changer. It makes it, once again, feasible and
 affordable to consider taking new field soil samples and analyzing them
 in the laboratory.
@@ -13424,7 +13422,7 @@ environmental attribute of interest) at specific sampled locations.
 
 The quality of outputs generated by predictive mapping models is
 therefore highly dependent on the quality of the point evidence and also
-the environmental covariates available for use in any model. For
+on the environmental covariates available for use in any model. For
 environmental covariates to be considered effective and useful, they
 must capture and describe spatial variation in the most influential
 environmental conditions accurately and at the appropriate level of
@@ -13465,7 +13463,7 @@ soil (s) factor in prediction models based on the scorpan concept.
 Advances are being made in developing new covariates that provide
 improved proxies for describing parent material (p). Perhaps the best
 known of these, and the most directly relevant, is airborne gamma ray
-spectroscopy. This sensor can provide very direct and interpretable
+spectroscopy (@WilfordAGSO1997, @VascarraRosselEJSS2007). This sensor can provide very direct and interpretable
 information from which inferences can be made about both the mineralogy
 and the texture of the top few centimeters of the land surface. A number
 of countries (e.g. Australia, Uganda, Ireland) already possess complete,
@@ -13473,7 +13471,7 @@ country-wide coverage of gamma ray spectroscopy surveys. More are likely
 to follow. Similarly, advances are being made in interpreting satellite
 based measurements of spatio-temporal variations in ground surface
 temperature and near surface soil moisture to infer properties of the
-parent material such as texture, and to a lesser extent, mineralogy.
+parent material such as texture, and to a lesser extent, mineralogy (@LiuGeoderma2012).
 These act as very indirect proxies but they do help to distinguish
 warmer and more rapidly drying sands, for example, from colder and
 slower drying wet clays. Identifying and acquiring more detailed and
@@ -13483,8 +13481,8 @@ slow.
 
 Only recently have a number of investigators begun to suggest a variety
 of covariates that can be calculated and used as proxies to describe
-spatial context or spatial position (n) in the scorpan model. These
-measures of spatial context or position help to account for the effects
+spatial context or spatial position (n) in the scorpan model (@BehrensSR2018). These
+measures of spatial context or position can help to account for the effects
 of spatial autocorrelation in prediction models for many soil properties
 and attributes. They also help to coax out effects related to spatial
 context and spatial scale. The old adage that “what you see depends upon
@@ -13502,7 +13500,7 @@ distances and larger scales. Increasingly, it is becoming evident that
 prediction models generate more accurate results when they incorporate
 consideration of a hierarchical pyramid of environmental covariates
 computed across a wide range of resolutions to represent a wide range of
-process scales and formative influences.
+process scales and formative influences (@BehrensSR2018).
 
 A final, and very significant, consideration, for environmental
 covariates is one of degree of availability and ease of use. For
@@ -13513,7 +13511,7 @@ environmental covariates in predictive mapping. Difficulties and costs
 involved in locating, downloading and transforming these source data
 sets can severely restrict their effective use. Equally, many of these
 same covariates are often located, downloaded and processed multiple
-times by multiple entities for use in a single project and then archived
+times by multiple entities for use in isolated projects and then archived
 (or disposed of) and not made easily available for subsequent use and
 reuse. A mentality of “protecting my data” leads to limitations on
 sharing and reuse of spatial data with large resulting costs from
@@ -13532,7 +13530,7 @@ data and on discovering and applying improved models. So, one key way in
 which future inventory activities could be made much more efficient and
 cost-effective would be to develop mechanisms and platforms whereby
 comprehensive stacks of environmental covariates, covering entire
-regions of interest, could be jointly collated and freely shared.
+regions of interest, could be jointly created, collated and freely shared.
 OpenGeoHub aims to provide a fully worked example of such a platform for
 sharing geodata.
 
@@ -14256,6 +14254,9 @@ operation. Most of the design and functionality can simply be replicated
 for use at the local franchise level. We envisage OpenGeoHub as a test
 case and an incubator that, if successful, could form a template for
 many other successful spin-offs.
+
+
+Wilford, J.R., Bierwirth, P.N., & Craig, M.A. (1997). Application of airborne gamma-ray spectrometry in soil/regolith mapping and applied geomorphology. AGSO Journal of Australian Geology and Geophysics, 17(2), 201-216
 
 <!--chapter:end:09-PSM_future.Rmd-->
 
