@@ -4,20 +4,20 @@
 
 ## Critical aspects of Predictive Soil Mapping
 
-The previous chapters have reviewed many of the technical aspects of PSM. 
-To a statistical, following the right procedure and applying the right statistical framework will be 
-the key element of success of a PSM project. In practice, 
-it is really the combination of all elements and aspects that determines a success of PSM project.
+Previous chapters in this book have reviewed many of the technical aspects of PSM. 
+For a statistician, following the right procedures and applying the right statistical frameworks will are 
+the key elements of success for a PSM project. In practice, 
+it is really a combination of all elements and aspects that determines a success of a PSM project.
 In this chapter we provide some practical tips on how to organize work and what to be especially 
 careful about. We refer to these as the *critical aspects of PSM projects*.
 
-At the end of the chapter we also try to give a more practical tips in sense of check-lists and 
-simple economic calculus, to try to prevent from making unrealistic plans or producing maps 
-that nobody will eventually use.
+At the end of the chapter we also try to present additional practical tips in the form of check-lists and 
+simple economic analysis, to help readers avoid making unrealistic plans or producing maps 
+that may not find effective use.
 
 ### PSM main steps
 
-Based on all theory explained previously, we can summarize the usual PSM processes as (Fig. \@ref(fig:psm-decision-tree)):
+Based on previously presented theory, we can summarize the usual PSM processes as (Fig. \@ref(fig:psm-decision-tree)):
 
 1.  Preparation of point data (training data).
 
@@ -25,7 +25,7 @@ Based on all theory explained previously, we can summarize the usual PSM process
 
 3.  Model fitting and validation (building rules by overlay, model fitting and cross-validation).
 
-4.  Predictions and generation of (currently best-possible) final maps
+4.  Prediction and generation of (currently best-possible) final maps
     (applying the rules).
 
 5.  Archiving and distribution of maps (usually via soil geographical
@@ -37,16 +37,16 @@ Based on all theory explained previously, we can summarize the usual PSM process
 knitr::include_graphics("figures/Fig_decisiontree_PSM_project.png")
 ```
 
-In principle, there are three main types of PSM projects:
+In principle, we recognize three main types of PSM projects:
 
-A.  PSM projects in new areas — no point observations or samples
+A.  PSM projects in new, previously unmapped, areas — no point observations or samples
     currently exist.
 
 B.  PSM projects using legacy points — sufficient point data to support
     PSM exist and are available, but no previous PSM modelling has
-    been implemented in this area.
+    been implemented for this area.
 
-C.  PSM projects aiming at optimizing predictions and usability —
+C.  PSM projects aimed at optimizing predictions and usability —
     Previous PSM models have already been completed but previous
     results can still be improved / optimized.
 
@@ -58,7 +58,7 @@ most time consuming part of PSM will likely be preparation of covariate
 data layers (PSM projects type B). Predictions can also take a long time
 and computing costs per update can be significant (see further sections).
 Personnel costs can be more significant than server costs as programming
-can demand weeks of staff time. However, if programming is done at a
+can require weeks of staff time. However, if programming is done at a
 high level (e.g. through generic functions and objects), subsequent
 updates should require less personnel time as predictions can be
 increasingly automated.
@@ -78,14 +78,14 @@ III. PSM projects for the purpose of monitoring soil conditions / status
     (continuous updates at regular intervals).
 
 To date, almost all conventional soil mapping ignores time and change
-and instead tries to pretend that soil properties are static and persist
+and instead tries to assume that soil properties are static and persist
 through time virtually unaltered. Increasingly, however, new generation
 PSM projects aim to monitor changes in soil resources, with special
-focus given to changes in soil organic carbon, soil nutrients and
+focus given to changes in soil organic carbon, soil nutrients, soil moisture and
 similar (Fig. \@ref(fig:psm-types-monitoring)). For PSM project 
 type III spatio-temporal prediction models can
 be used (as in meteorology for example), but then this requires that
-sufficient training data are available in the time domain e.g. at least
+sufficient training data are available in both the space and time domains e.g. at least
 five measurement intervals / repetitions.
 
 ```{r psm-types-monitoring, echo=FALSE, fig.cap="Types of PSM projects depending on whether maps are generated for single usage, or for detecting change or soil monitoring.", out.width="65%"}
@@ -160,7 +160,7 @@ Spatial predictions of primary soil properties can be used to:
     organic carbon stock etc.
 
 Spatial predictions of primary soil variables and derived soil variables
-are used for decision making and further modeling i.e. they are used to
+are meant to be used for decision making and further modeling i.e. they are used to
 construct a **Soil Information System** once all values of all variables
 are known for all pixels within the soil mask. A SIS should ideally
 provide information that can directly support input to modeling,
@@ -183,7 +183,7 @@ The majority of the costs of a PSM project are controlled by the following:
     data are available and additional purchases of commercial RS
     products will typically be required. For example the latest 12 m
     resolution WorldDEM (https://worlddem-database.terrasar.com/) can cost 
-    up to 10 USD per square km, and which can increase PSM costs significantly.
+    up to 10 USD per square km, which can increase PSM costs significantly.
 
 2.  **List of target variables and their complexity**: Some PSM projects
     focus on mapping 1–2 soil variables only, and as such can be
@@ -219,7 +219,7 @@ The majority of the costs of a PSM project are controlled by the following:
     possible user base? Is high traffic expected and, if so, how will
     the costs of hosting and serving the data and processes be met?
     Producing a robust, scalable web-system that can serve thousands
-    of users at the same time requires additional investments in
+    of users at the same time requires considerable investments in
     programming and maintenance.
 
 5.  **Commercialization options**: Commercialization of data and
@@ -285,7 +285,7 @@ samples affordably and to a high standard [@ShepherdWalsh2007JNIS].
 ### Preparation of point data
 
 Import of basic O&M field data (e.g. soil point data) can be time
-consuming and require intensive checking and harmonization.
+consuming and require intensive, often manual, checking and harmonization.
 Communicating with the original data producers is highly recommended to
 reduce errors during import. Getting original data producers involved
 can be best achieved by inviting them to become full participants (e.g.
@@ -333,7 +333,7 @@ provide a better indication of site environmental characteristics than
 just a single day snapshot of surface reflectance. Computing temporal
 signatures of the land surface requires a large investment of time
 (comparable to the generation of climatic images vs temporary weather
-maps), but it is possibly the only way to represent the cumulative
+maps), but it is possibly the only way to effectively represent the cumulative
 influence of living organisms on soil formation [@Hengl2017SoilGrids250m].
 
 Typical operations to prepare soil covariates for PSM thus include:
@@ -388,7 +388,7 @@ size) and spatial coordinate system that all other layers included in
 the analysis must conform to, to ensure consistent overlay of all grids.
 In most of our PSM projects we typically restrict ourselves to making
 predictions only for pixels that exhibit some evidence of having
-vegetative cover at some point in time. We tend to exclude from
+photosynthetically active vegetative cover at some point in time. We tend to exclude from
 prediction any grid cells that have no evidence of vegetative cover at
 any time, such as permanent bodies of water or ice, bare rock and man
 made features such as roads, bridges and buildings. A generic definition
@@ -399,7 +399,7 @@ been our practice.
 knitr::include_graphics("figures/Fig_soil_mask_scheme.png")
 ```
 
-From the perspective of global soil mapping, any place on terrestrial
+From the perspective of global soil mapping, any terrestrial location on
 Earth can be considered to belong to one and only one of six categories
 (excluding oceans):
 
@@ -483,7 +483,7 @@ in x/y coordinates in projected 2D space and geographical coordinates
 can be large, especially around poles and near the equator.
 
 Another highly recommended convention is to use some widely accepted
-Equal area projection system for all output maps. This ensures the best
+Equal area projection system for all intermediate and final output maps. This ensures the best
 possible precision in determining area measures, which is often
 important e.g. for derivation of total stocks, volumes of soil and soil
 components and similar. Every country tends to use a specific equal area
@@ -520,7 +520,7 @@ grouped around the following two approaches:
 The mean width of prediction intervals and global measures of mapping
 accuracy should, in principle, match, although it is possible that the
 mean width of prediction intervals can often be somewhat wider (a
-consequence of extrapolation). In some cases measures of uncertainty can
+consequence of extrapolation). In some cases, measures of uncertainty can
 be over-optimistic or biased (which will eventually be exposed by new
 observations), which can decrease confidence in the product, hence
 providing realistic estimates of uncertainty of uncertainty is often
@@ -560,7 +560,7 @@ computing (HPC) server to run overlay, model fitting and predictions and
 to then generate mosaics. The current code presented in this PSM with R
 book is more or less 90% optimized so that running of the most important
 functions can be easily scaled up. The total time required to run one
-update on a single dedicated HPC server (e.g. via Amazon AWS) for a 
+global update on a single dedicated HPC server (e.g. via Amazon AWS) for a 
 soil mask that contains >100 million pixels can
 require weeks of computing time. Copying and uploading files can also be
 a lengthy process.
@@ -574,7 +574,7 @@ grids with a large number of evidence points is e.g. the [OVH server](https://ww
 
 An alternative to using OVH is the Amazon AWS (Fig. \@ref(fig:aws-htop-server)). 
 Amazon AWS server, with a similar configuration, might appear to cost much more than an OVH server
-(especially if used continuously over a month period), but Amazon offers
+(especially if used continuously over a month period), but Amazon permits
 computing costs to be paid by the hour, which provides more flexibility
 for less intensive users. As a rule of thumb, a dedicated server at
 Amazon AWS, if used continuously 100% for the whole month, could cost
@@ -585,7 +585,7 @@ The recommended server for running PSM on Amazon AWS to produce predictions for 
 -   [*AWS m4.16xlarge*](https://aws.amazon.com/ec2/pricing/on-demand/)
     (\$3.84 per Hour);
 
-```{r aws-htop-server, echo=FALSE, fig.cap="Example of an AWS dedicated server running spatial predictions on 96 threads and using almost 500GB or RAM. Renting out this server can costs up to 8 USD per hour.", out.width="100%"}
+```{r aws-htop-server, echo=FALSE, fig.cap="Example of an AWS dedicated server running spatial predictions on 96 threads and using almost 500GB of RAM. Renting out this server can cost up to 8 USD per hour.", out.width="100%"}
 knitr::include_graphics("figures/Fig_htop_96treads.png")
 ```
 
@@ -663,14 +663,14 @@ usability of map data are:
 
 ### Technical specifications PSM project
 
-A way to increase planning of a PSM project is to spend more time on preparing
+A way to improve planning of a PSM project is to spend more time on preparing
 the technical aspects of data production. This includes listing the general
 specifications of the study area, listing target variables and their 
 collection methods, listing covariate layers of interest to be used to improve
 mapping accuracy and listing targeted spatial prediction algorithms to be
 compared.
 
-General specifications of the study area includes:
+General specifications of the study area include:
 
   * G.1 Project title:
   * G.2 PSM project type:
@@ -723,7 +723,7 @@ General specifications of the study area includes:
 
 ### Standard soil data production costs
 
-Standard production costs can roughly be split into three main
+Standard production costs can be roughly split into three main
 categories:
 
 -   Fixed costs (e.g. project initiation, equipment, materials,
@@ -737,10 +737,10 @@ categories:
 -   Data maintenance and web-serving costs, usually expressed as
     monthly/yearly costs,
 
-Although in the introduction chapter we have mentioned that the production costs are mainly function of 
-resolution i.e. cartographic scale, in practice several other factors determine the total costs. 
+Although in the introduction chapter we mentioned that the production costs are mainly a function of 
+grid resolution i.e. cartographic scale, in practice several other factors determine the total costs. 
 Standard soil data production costs (approximate estimates) per
-soil data quality category (see below) is connected to the quality level of the output maps.
+soil data quality category (see below) are connected to the quality level of the output maps.
 Consider that there are four main quality levels:
 
   * L0 = initial product with only few soil properties, no quality/accuracy requirements, 
@@ -780,10 +780,10 @@ L1) = 11,635 US\$
 Note: this is a very generic estimate of the production costs and actual
 numbers might be significantly different. Additional fixed costs +
 monthly/yearly costs need to be added to these numbers to account also
-for the web hosting, support and costs of updates.
+for any web hosting, support or update costs.
 
-Compare this costs with the following standard estimated costs to
-deliver completed soil survey products:
+Compare these costs with the following standard estimated costs to
+deliver completed conventional manual soil survey products:
 
   - USDA estimate of the total soil survey costs: 4 US\$ per ha for
     1:20,000 scale maps [@Durana2008] to map USA48 area = 3.2 billion
@@ -799,7 +799,7 @@ Predictive soil mapping applies statistical and/or machine learning
 techniques to fit models for the purpose of producing spatial and/or
 spatiotemporal predictions of soil variables i.e. to produce maps of
 soil properties or soil classes at various resolutions. This chapter
-identifies and discusses the key technical specifications users need to
+identifies and discusses some of the key technical specifications users need to
 consider to prepare for data production and to obtain realistic
 estimates of workloads and production costs. 
 
