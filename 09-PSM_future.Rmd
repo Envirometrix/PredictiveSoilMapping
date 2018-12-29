@@ -384,7 +384,7 @@ both more affordable and more effective.
 
         -   Nested, multi-scale hierarchical sampling,
         
-        -   Spatially-based sampling (@BrownPES2015),
+        -   Spatially-based sampling,
 
     -   Model based sampling schemes:
 
@@ -431,7 +431,7 @@ collect a representative sample with the fewest possible sample points.
 
 Of the design based options available we suggest using a nested,
 multiscale sampling design based on a stratified random sample
-framework or spatially-based sampling (@BrownPES2015). In these nested 
+framework or spatially-based sampling. In these nested 
 sampling approaches, explicit attention is given to ensuring
 that multiple samples are collected at a succession of point locations
 with increasingly large interpoint separation distances (e.g. 1 m, 10 m,
@@ -532,13 +532,13 @@ participation in collecting new field data.
 Recent developments in the use of new, rapid and accurate pharmaceutical
 grade analytical devices have reduced the costs of typical laboratory
 analyses dramatically, while, at the same time, significantly improving
-on reproducibility and accuracy (@ShepherdJNIS2007). A modern soil laboratory now entails
+on reproducibility and accuracy [@shepherd2007infrared]. A modern soil laboratory now entails
 making use of mid and near infrared spectrophotometers, X-ray
 diffraction and X-Ray diffusion and laser based particle size analysis.
 Using these new instruments, it has been demonstrated that total costs
 for running a complete set of common soil analyses on a full soil
 profile can be reduced from a current cost of US\$ 2,000 to as little as
-US\$ 2-10 per profile (@ShepherdJNIS2007).
+US\$ 2-10 per profile [@shepherd2007infrared].
 This reduction in cost, along with the associated improvement in
 reproducibility is a game changer. It makes it, once again, feasible and
 affordable to consider taking new field soil samples and analyzing them
@@ -598,7 +598,7 @@ soil (s) factor in prediction models based on the scorpan concept.
 Advances are being made in developing new covariates that provide
 improved proxies for describing parent material (p). Perhaps the best
 known of these, and the most directly relevant, is airborne gamma ray
-spectroscopy (@WilfordAGSO1997, @VascarraRosselEJSS2007). This sensor can provide very direct and interpretable
+spectroscopy [@wilford1997application; @viscarra2007multivariate]. This sensor can provide very direct and interpretable
 information from which inferences can be made about both the mineralogy
 and the texture of the top few centimeters of the land surface. A number
 of countries (e.g. Australia, Uganda, Ireland) already possess complete,
@@ -606,7 +606,7 @@ country-wide coverage of gamma ray spectroscopy surveys. More are likely
 to follow. Similarly, advances are being made in interpreting satellite
 based measurements of spatio-temporal variations in ground surface
 temperature and near surface soil moisture to infer properties of the
-parent material such as texture, and to a lesser extent, mineralogy (@LiuGeoderma2012).
+parent material such as texture, and to a lesser extent, mineralogy [@liu2012soil].
 These act as very indirect proxies but they do help to distinguish
 warmer and more rapidly drying sands, for example, from colder and
 slower drying wet clays. Identifying and acquiring more detailed and
@@ -616,7 +616,7 @@ slow.
 
 Only recently have a number of investigators begun to suggest a variety
 of covariates that can be calculated and used as proxies to describe
-spatial context or spatial position (n) in the scorpan model (@BehrensSR2018). These
+spatial context or spatial position (n) in the scorpan model [@Behrens2018EJSS]. These
 measures of spatial context or position can help to account for the effects
 of spatial autocorrelation in prediction models for many soil properties
 and attributes. They also help to coax out effects related to spatial
@@ -635,7 +635,7 @@ distances and larger scales. Increasingly, it is becoming evident that
 prediction models generate more accurate results when they incorporate
 consideration of a hierarchical pyramid of environmental covariates
 computed across a wide range of resolutions to represent a wide range of
-process scales and formative influences (@BehrensSR2018).
+process scales and formative influences [@Behrens2018EJSS].
 
 A final, and very significant, consideration, for environmental
 covariates is one of degree of availability and ease of use. For
@@ -1386,6 +1386,3 @@ operation. Most of the design and functionality can simply be replicated
 for use at the local franchise level. We envisage OpenGeoHub as a test
 case and an incubator that, if successful, could form a template for
 many other successful spin-offs.
-
-
-Wilford, J.R., Bierwirth, P.N., & Craig, M.A. (1997). Application of airborne gamma-ray spectrometry in soil/regolith mapping and applied geomorphology. AGSO Journal of Australian Geology and Geophysics, 17(2), 201-216
