@@ -7480,6 +7480,7 @@ om.rk <- predict(omm, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
+ 43% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -7553,6 +7554,7 @@ om.rk2 <- predict(omm2, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
+ 33% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -7802,7 +7804,6 @@ om.rk.p <- predict(omm, meuse.grid, block=c(0,0))
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 62% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -7812,6 +7813,7 @@ om.rksim.p <- predict(omm, meuse.grid, nsim=20, block=c(0,0))
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
 #> 
+  5% done
 100% done
 #> Creating an object of class "RasterBrickSimulations"
 #> Loading required package: raster
@@ -7836,6 +7838,7 @@ om.rk.b <- predict(omm, meuse.grid, block=c(40,40), nfold=0)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
+ 39% done
 100% done
 #> Creating an object of class "SpatialPredictions"
 om.rksim.b <- predict(omm, meuse.grid, nsim=2, block=c(40,40), debug.level=0)
@@ -8053,7 +8056,7 @@ om.rksim.p <- predict(omm, meuse.grid, block=c(0,0), nsim=20)
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
 #> 
- 63% done
+ 38% done
 100% done
 #> Creating an object of class "RasterBrickSimulations"
 log1p(meuse@data[1,"om"])
@@ -8102,13 +8105,13 @@ library(intamap)
 demo(meuse, echo=FALSE)
 meuse$value = meuse$zinc
 output <- interpolate(meuse, meuse.grid, list(mean=TRUE, variance=TRUE))
-#> R 2018-12-29 03:45:58 interpolating 155 observations, 3103 prediction locations
+#> R 2018-12-29 12:11:47 interpolating 155 observations, 3103 prediction locations
 #> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : 
 #>  using standard model for estimating time. For better 
 #>  platform spesific predictions, please run 
 #>  timeModels <- generateTimeModels()
 #>   and save the workspace
-#> [1] "estimated time for  copula 159.434417641972"
+#> [1] "estimated time for  copula 160.625842556675"
 #> Checking object ... OK
 ```
 
@@ -8122,7 +8125,7 @@ str(output, max.level = 2)
 #> List of 16
 #>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
 #>  $ formulaString      :Class 'formula'  language value ~ 1
-#>   .. ..- attr(*, ".Environment")=<environment: 0x153ce0c8> 
+#>   .. ..- attr(*, ".Environment")=<environment: 0x1492cea8> 
 #>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
 #>  $ params             :List of 18
 #>   ..$ doAnisotropy     : logi TRUE
@@ -8810,6 +8813,7 @@ om.rk <- predict(omm, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
+ 18% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -9511,7 +9515,7 @@ localH2O = h2o.init(startH2O=TRUE)
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         22 minutes 50 seconds 
+#>     H2O cluster uptime:         23 minutes 11 seconds 
 #>     H2O cluster timezone:       UTC 
 #>     H2O data parsing timezone:  UTC 
 #>     H2O cluster version:        3.20.0.8 
@@ -9550,23 +9554,23 @@ RF.m
 #> ==============
 #> 
 #> H2ORegressionModel: drf
-#> Model ID:  DRF_model_R_1546053844257_21 
+#> Model ID:  DRF_model_R_1546084173663_21 
 #> Model Summary: 
 #>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#> 1              50                       50              646178        20
+#> 1              50                       50              644364        20
 #>   max_depth mean_depth min_leaves max_leaves mean_leaves
-#> 1        20   20.00000        953       1082  1024.96000
+#> 1        20   20.00000        918       1069  1022.20000
 #> 
 #> 
 #> H2ORegressionMetrics: drf
 #> ** Reported on training data. **
 #> ** Metrics reported on Out-Of-Bag training samples **
 #> 
-#> MSE:  222
-#> RMSE:  14.9
-#> MAE:  10.1
-#> RMSLE:  0.43
-#> Mean Residual Deviance :  222
+#> MSE:  220
+#> RMSE:  14.8
+#> MAE:  9.98
+#> RMSLE:  0.427
+#> Mean Residual Deviance :  220
 ```
 
 This shows that the model fitting R-square is about 50%. This is also indicated by the predicted vs observed plot:
@@ -9613,29 +9617,29 @@ DL.m
 #> ==============
 #> 
 #> H2ORegressionModel: deeplearning
-#> Model ID:  DeepLearning_model_R_1546053844257_22 
+#> Model ID:  DeepLearning_model_R_1546084173663_22 
 #> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1
 #>   layer units      type dropout       l1       l2 mean_rate rate_rms
 #> 1     1    10     Input  0.00 %       NA       NA        NA       NA
-#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.015178 0.008443
-#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.153019 0.199984
-#> 4     4     1    Linear      NA 0.000000 0.000000  0.001344 0.000804
+#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.014413 0.008508
+#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.151636 0.199107
+#> 4     4     1    Linear      NA 0.000000 0.000000  0.001416 0.001447
 #>   momentum mean_weight weight_rms mean_bias bias_rms
 #> 1       NA          NA         NA        NA       NA
-#> 2 0.000000    0.003938   0.100412  0.340430 0.069105
-#> 3 0.000000   -0.019119   0.071334  0.949495 0.023819
-#> 4 0.000000    0.009660   0.047498  0.095980 0.000000
+#> 2 0.000000   -0.001768   0.102350  0.352504 0.064680
+#> 3 0.000000   -0.018064   0.071107  0.953405 0.018540
+#> 4 0.000000   -0.000808   0.045736  0.109982 0.000000
 #> 
 #> 
 #> H2ORegressionMetrics: deeplearning
 #> ** Reported on training data. **
 #> ** Metrics reported on full training frame **
 #> 
-#> MSE:  259
-#> RMSE:  16.1
-#> MAE:  12
-#> RMSLE:  0.492
-#> Mean Residual Deviance :  259
+#> MSE:  271
+#> RMSE:  16.5
+#> MAE:  12.6
+#> RMSLE:  0.51
+#> Mean Residual Deviance :  271
 ```
 
 Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. \@ref(fig:map-snd) and Fig. \@ref(fig:map-snd-dl)).
@@ -9872,15 +9876,15 @@ str(test.ORC)
 #> List of 2
 #>  $ CV_residuals:'data.frame':	4972 obs. of  4 variables:
 #>   ..$ Observed : num [1:4972] 6.5 5.1 4.9 3.3 2.2 ...
-#>   ..$ Predicted: num [1:4972] 11.36 7.25 6.54 4.66 3.04 ...
+#>   ..$ Predicted: num [1:4972] 11.5 7.37 6.45 5.01 3.06 ...
 #>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" ...
 #>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ Summary     :'data.frame':	1 obs. of  6 variables:
 #>   ..$ ME          : num -0.139
-#>   ..$ MAE         : num 2.2
-#>   ..$ RMSE        : num 3.69
-#>   ..$ R.squared   : num 0.554
-#>   ..$ logRMSE     : num 0.5
+#>   ..$ MAE         : num 2.19
+#>   ..$ RMSE        : num 3.68
+#>   ..$ R.squared   : num 0.558
+#>   ..$ logRMSE     : num 0.499
 #>   ..$ logR.squared: num 0.629
 ```
 
@@ -9935,15 +9939,15 @@ perf
 #> 
 #> Base learner performance, sorted by specified metric:
 #>                    learner  MSE
+#> 1 h2o.randomForest.wrapper 12.9
 #> 2          h2o.gbm.wrapper 12.8
-#> 1 h2o.randomForest.wrapper 12.6
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 12.2094697080352
+#> Ensemble performance (MSE): 12.4081527914065
 ```
 
 which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.
@@ -10043,16 +10047,16 @@ perf3
 #> Base learner performance, sorted by specified metric:
 #>                    learner    MSE
 #> 1          h2o.glm.wrapper 0.2827
-#> 4 h2o.deeplearning.wrapper 0.1504
+#> 4 h2o.deeplearning.wrapper 0.1312
 #> 3          h2o.gbm.wrapper 0.0971
-#> 2 h2o.randomForest.wrapper 0.0813
+#> 2 h2o.randomForest.wrapper 0.0823
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 0.0784878651701171
+#> Ensemble performance (MSE): 0.0773180265777673
 ```
 
 In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.
@@ -10134,12 +10138,12 @@ sl
 #>     SL.library = sl.l) 
 #> 
 #> 
-#>                  Risk    Coef
-#> SL.mean_All    0.7540 0.00000
-#> SL.xgboost_All 0.0598 0.81328
-#> SL.ksvm_All    0.1288 0.00951
-#> SL.glmnet_All  0.3077 0.00000
-#> SL.ranger_All  0.0848 0.17720
+#>                  Risk   Coef
+#> SL.mean_All    0.7540 0.0000
+#> SL.xgboost_All 0.0598 0.8171
+#> SL.ksvm_All    0.1290 0.0108
+#> SL.glmnet_All  0.3072 0.0000
+#> SL.ranger_All  0.0855 0.1722
 ```
 
 This shows that `SL.xgboost_All` outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by `SL.xgboost_All` is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:
@@ -10158,10 +10162,10 @@ sl2
 #>     SL.library = sl.l2) 
 #> 
 #> 
-#>                  Risk Coef
-#> SL.xgboost_All 0.0603 0.81
-#> SL.ranger_All  0.0830 0.19
-#> SL.ksvm_All    0.1293 0.00
+#>                  Risk  Coef
+#> SL.xgboost_All 0.0603 0.812
+#> SL.ranger_All  0.0828 0.188
+#> SL.ksvm_All    0.1302 0.000
 ```
 
 again `SL.xgboost` dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where entire profiles are taken out of the training dataset:
@@ -10188,11 +10192,11 @@ summary(cv_sl)
 #> All risk estimates are based on V =  5 
 #> 
 #>       Algorithm  Ave    se   Min  Max
-#>   Super Learner 0.16 0.014 0.096 0.26
-#>     Discrete SL 0.17 0.014 0.110 0.25
+#>   Super Learner 0.16 0.014 0.094 0.26
+#>     Discrete SL 0.17 0.015 0.114 0.25
 #>  SL.xgboost_All 0.19 0.016 0.135 0.27
-#>   SL.ranger_All 0.16 0.014 0.102 0.25
-#>     SL.ksvm_All 0.18 0.014 0.110 0.30
+#>   SL.ranger_All 0.16 0.015 0.100 0.25
+#>     SL.ksvm_All 0.18 0.015 0.109 0.30
 ```
 
 where `V=5` specifies number of folds, and `id=rm.cookfarm$SOURCEID` enforces that entire profiles are removed from training and cross-validation. This gives a more realistic RMSE of about ±0.35. Note that this time `SL.xgboost_All` is even somewhat worse than the random forest model, and the ensemble model (`Super Learner`) is slightly better than each individual model. This matches our previous results with `h20.ensemble`. 
@@ -10217,8 +10221,8 @@ sl2
 #> 
 #>                 Risk  Coef
 #> SL.xgboost_All 0.215 0.000
-#> SL.ranger_All  0.165 0.483
-#> SL.ksvm_All    0.164 0.517
+#> SL.ranger_All  0.164 0.485
+#> SL.ksvm_All    0.163 0.515
 new.data <- grid10m@data
 pred.PHI <- list(NULL)
 depths = c(10,30,50,70,90)
@@ -10240,7 +10244,7 @@ for(j in 1:length(depths)){
 #>     buffer, rotated
 str(pred.PHI[[1]])
 #> List of 2
-#>  $ pred           : num [1:3865, 1] 4.69 4.78 4.91 4.88 4.81 ...
+#>  $ pred           : num [1:3865, 1] 4.68 4.77 4.89 4.87 4.8 ...
 #>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...
 #>   ..- attr(*, "dimnames")=List of 2
 #>   .. ..$ : NULL
@@ -11292,7 +11296,7 @@ fm.BLD = as.formula(
   paste("BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +", 
         paste(names(ind.tax), collapse="+")))
 m.BLD_PTF <- ranger(fm.BLD, dfs_tbl, num.trees = 85, importance='impurity')
-#> Growing trees.. Progress: 93%. Estimated remaining time: 2 seconds.
+#> Growing trees.. Progress: 95%. Estimated remaining time: 1 seconds.
 m.BLD_PTF
 #> Ranger result
 #> 
@@ -13251,7 +13255,7 @@ both more affordable and more effective.
 
         -   Nested, multi-scale hierarchical sampling,
         
-        -   Spatially-based sampling (@BrownPES2015),
+        -   Spatially-based sampling,
 
     -   Model based sampling schemes:
 
@@ -13298,7 +13302,7 @@ collect a representative sample with the fewest possible sample points.
 
 Of the design based options available we suggest using a nested,
 multiscale sampling design based on a stratified random sample
-framework or spatially-based sampling (@BrownPES2015). In these nested 
+framework or spatially-based sampling. In these nested 
 sampling approaches, explicit attention is given to ensuring
 that multiple samples are collected at a succession of point locations
 with increasingly large interpoint separation distances (e.g. 1 m, 10 m,
@@ -13399,13 +13403,13 @@ participation in collecting new field data.
 Recent developments in the use of new, rapid and accurate pharmaceutical
 grade analytical devices have reduced the costs of typical laboratory
 analyses dramatically, while, at the same time, significantly improving
-on reproducibility and accuracy (@ShepherdJNIS2007). A modern soil laboratory now entails
+on reproducibility and accuracy [@shepherd2007infrared]. A modern soil laboratory now entails
 making use of mid and near infrared spectrophotometers, X-ray
 diffraction and X-Ray diffusion and laser based particle size analysis.
 Using these new instruments, it has been demonstrated that total costs
 for running a complete set of common soil analyses on a full soil
 profile can be reduced from a current cost of US\$ 2,000 to as little as
-US\$ 2-10 per profile (@ShepherdJNIS2007).
+US\$ 2-10 per profile [@shepherd2007infrared].
 This reduction in cost, along with the associated improvement in
 reproducibility is a game changer. It makes it, once again, feasible and
 affordable to consider taking new field soil samples and analyzing them
@@ -13465,7 +13469,7 @@ soil (s) factor in prediction models based on the scorpan concept.
 Advances are being made in developing new covariates that provide
 improved proxies for describing parent material (p). Perhaps the best
 known of these, and the most directly relevant, is airborne gamma ray
-spectroscopy (@WilfordAGSO1997, @VascarraRosselEJSS2007). This sensor can provide very direct and interpretable
+spectroscopy [@wilford1997application; @viscarra2007multivariate]. This sensor can provide very direct and interpretable
 information from which inferences can be made about both the mineralogy
 and the texture of the top few centimeters of the land surface. A number
 of countries (e.g. Australia, Uganda, Ireland) already possess complete,
@@ -13473,7 +13477,7 @@ country-wide coverage of gamma ray spectroscopy surveys. More are likely
 to follow. Similarly, advances are being made in interpreting satellite
 based measurements of spatio-temporal variations in ground surface
 temperature and near surface soil moisture to infer properties of the
-parent material such as texture, and to a lesser extent, mineralogy (@LiuGeoderma2012).
+parent material such as texture, and to a lesser extent, mineralogy [@liu2012soil].
 These act as very indirect proxies but they do help to distinguish
 warmer and more rapidly drying sands, for example, from colder and
 slower drying wet clays. Identifying and acquiring more detailed and
@@ -13483,7 +13487,7 @@ slow.
 
 Only recently have a number of investigators begun to suggest a variety
 of covariates that can be calculated and used as proxies to describe
-spatial context or spatial position (n) in the scorpan model (@BehrensSR2018). These
+spatial context or spatial position (n) in the scorpan model [@Behrens2018EJSS]. These
 measures of spatial context or position can help to account for the effects
 of spatial autocorrelation in prediction models for many soil properties
 and attributes. They also help to coax out effects related to spatial
@@ -13502,7 +13506,7 @@ distances and larger scales. Increasingly, it is becoming evident that
 prediction models generate more accurate results when they incorporate
 consideration of a hierarchical pyramid of environmental covariates
 computed across a wide range of resolutions to represent a wide range of
-process scales and formative influences (@BehrensSR2018).
+process scales and formative influences [@Behrens2018EJSS].
 
 A final, and very significant, consideration, for environmental
 covariates is one of degree of availability and ease of use. For
@@ -14256,9 +14260,6 @@ operation. Most of the design and functionality can simply be replicated
 for use at the local franchise level. We envisage OpenGeoHub as a test
 case and an incubator that, if successful, could form a template for
 many other successful spin-offs.
-
-
-Wilford, J.R., Bierwirth, P.N., & Craig, M.A. (1997). Application of airborne gamma-ray spectrometry in soil/regolith mapping and applied geomorphology. AGSO Journal of Australian Geology and Geophysics, 17(2), 201-216
 
 <!--chapter:end:09-PSM_future.Rmd-->
 
