@@ -1202,7 +1202,7 @@ justify paying an annual subscription to sustain the collective activity
 because they, themselves, obtain benefits or reduce internal
 expenditures they would otherwise normally pay for the same sets of
 services or activities internally and individually. Sharing platforms
-for collecting, hosting, publishing and disseminating spatial
+for collecting, creating, hosting, publishing and disseminating spatial
 environmental data could be more cost effective than building and
 maintaining multiple separate platforms and functionalities
 individually. These reduced, or avoided, costs could justify
@@ -1324,7 +1324,7 @@ will be further combined with data channels produced by other groups, e.g.
 the landpotential.org project or similar, so that a top-down, bottom-up 
 (predictions based on global models combined with local
 verification and adjustments; Fig. \@ref(fig:scheme-soc-prof1)), can be 
-generated. 
+realized. 
 
 <div class="figure" style="text-align: center">
 <img src="figures/Fig_future_mobile_phone.png" alt="The proposed Global Land Information System (built on the top of the LandGIS concept) and targeted functionality: users on ground send local observations and measurements through their mobile phones, which are then used to run and re-callibrate global models." width="100%" />
@@ -1346,7 +1346,7 @@ entities could collaborate to produce or distribute their data. Examples
 of private companies involved in distributing spatial data include
 AltaLIS (https://beta.altalis.com) and Valtis (http://www.valtus.com) which operate in Alberta.
 
-We, quite obviously, favor an approach of creating a small, agile,
+We, quite understandably, favor an approach of creating a small, agile,
 not-for-profit foundation that can act as a core entity for a larger
 network of partners and collaborators. The foundation can provide
 essential back office types of support as well as shared infrastructure
@@ -1364,7 +1364,7 @@ desires to be actively involved in the collection, production or
 distribution of spatial environmental information. Just as many
 companies and agencies have increasingly begun to outsource their data
 storage, data processing and even key functions such as payroll and
-human resources so too could entities involved in the production or use
+human resources, so too could entities involved in the production or use
 or spatial data outsource many of their functions to OpenGeoHub. It is
 expensive and time consuming to build and maintain custom functionality
 in house to support the production and distribution of inventory spatial
@@ -1375,9 +1375,9 @@ functionality. Why spend money and time building multiple versions of
 systems with equivalent functionality and purpose when one will do for
 all? Then the partner entities can concentrate on doing what their
 mandates instruct them to do, and not on building and maintaining
-spatial analysis and spatial distribution systems and infrastructures.
+separate spatial analysis and spatial distribution systems and infrastructures.
 
-We would hope that OpenGeoHub could act as a fully functional worked
+We would hope that OpenGeoHub can act as a fully functional, worked
 example of how collaboration and collective action in the area of
 production and delivery of environmental spatial data could be organized
 and implemented efficiently and effectively. Once the concept has been

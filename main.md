@@ -2793,7 +2793,6 @@ om.rk <- predict(omm, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 69% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -7803,6 +7802,7 @@ om.rk.p <- predict(omm, meuse.grid, block=c(0,0))
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
+ 62% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -7812,7 +7812,6 @@ om.rksim.p <- predict(omm, meuse.grid, nsim=20, block=c(0,0))
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
 #> 
- 75% done
 100% done
 #> Creating an object of class "RasterBrickSimulations"
 #> Loading required package: raster
@@ -8054,6 +8053,7 @@ om.rksim.p <- predict(omm, meuse.grid, block=c(0,0), nsim=20)
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
 #> 
+ 63% done
 100% done
 #> Creating an object of class "RasterBrickSimulations"
 log1p(meuse@data[1,"om"])
@@ -8102,13 +8102,13 @@ library(intamap)
 demo(meuse, echo=FALSE)
 meuse$value = meuse$zinc
 output <- interpolate(meuse, meuse.grid, list(mean=TRUE, variance=TRUE))
-#> R 2018-12-29 00:34:17 interpolating 155 observations, 3103 prediction locations
+#> R 2018-12-29 03:45:58 interpolating 155 observations, 3103 prediction locations
 #> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : 
 #>  using standard model for estimating time. For better 
 #>  platform spesific predictions, please run 
 #>  timeModels <- generateTimeModels()
 #>   and save the workspace
-#> [1] "estimated time for  copula 159.696287142303"
+#> [1] "estimated time for  copula 159.434417641972"
 #> Checking object ... OK
 ```
 
@@ -8122,7 +8122,7 @@ str(output, max.level = 2)
 #> List of 16
 #>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
 #>  $ formulaString      :Class 'formula'  language value ~ 1
-#>   .. ..- attr(*, ".Environment")=<environment: 0x15215830> 
+#>   .. ..- attr(*, ".Environment")=<environment: 0x153ce0c8> 
 #>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
 #>  $ params             :List of 18
 #>   ..$ doAnisotropy     : logi TRUE
@@ -9511,7 +9511,7 @@ localH2O = h2o.init(startH2O=TRUE)
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         23 minutes 2 seconds 
+#>     H2O cluster uptime:         22 minutes 50 seconds 
 #>     H2O cluster timezone:       UTC 
 #>     H2O data parsing timezone:  UTC 
 #>     H2O cluster version:        3.20.0.8 
@@ -9550,23 +9550,23 @@ RF.m
 #> ==============
 #> 
 #> H2ORegressionModel: drf
-#> Model ID:  DRF_model_R_1546042331228_21 
+#> Model ID:  DRF_model_R_1546053844257_21 
 #> Model Summary: 
 #>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#> 1              50                       50              648334        20
+#> 1              50                       50              646178        20
 #>   max_depth mean_depth min_leaves max_leaves mean_leaves
-#> 1        20   20.00000        959       1077  1028.28000
+#> 1        20   20.00000        953       1082  1024.96000
 #> 
 #> 
 #> H2ORegressionMetrics: drf
 #> ** Reported on training data. **
 #> ** Metrics reported on Out-Of-Bag training samples **
 #> 
-#> MSE:  224
-#> RMSE:  15
+#> MSE:  222
+#> RMSE:  14.9
 #> MAE:  10.1
-#> RMSLE:  0.435
-#> Mean Residual Deviance :  224
+#> RMSLE:  0.43
+#> Mean Residual Deviance :  222
 ```
 
 This shows that the model fitting R-square is about 50%. This is also indicated by the predicted vs observed plot:
@@ -9613,29 +9613,29 @@ DL.m
 #> ==============
 #> 
 #> H2ORegressionModel: deeplearning
-#> Model ID:  DeepLearning_model_R_1546042331228_22 
+#> Model ID:  DeepLearning_model_R_1546053844257_22 
 #> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1
 #>   layer units      type dropout       l1       l2 mean_rate rate_rms
 #> 1     1    10     Input  0.00 %       NA       NA        NA       NA
-#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.015095 0.009050
-#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.141091 0.182523
-#> 4     4     1    Linear      NA 0.000000 0.000000  0.001366 0.000974
+#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.015178 0.008443
+#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.153019 0.199984
+#> 4     4     1    Linear      NA 0.000000 0.000000  0.001344 0.000804
 #>   momentum mean_weight weight_rms mean_bias bias_rms
 #> 1       NA          NA         NA        NA       NA
-#> 2 0.000000    0.003342   0.101284  0.347662 0.064038
-#> 3 0.000000   -0.018742   0.071114  0.952261 0.020415
-#> 4 0.000000    0.006076   0.047876  0.073135 0.000000
+#> 2 0.000000    0.003938   0.100412  0.340430 0.069105
+#> 3 0.000000   -0.019119   0.071334  0.949495 0.023819
+#> 4 0.000000    0.009660   0.047498  0.095980 0.000000
 #> 
 #> 
 #> H2ORegressionMetrics: deeplearning
 #> ** Reported on training data. **
 #> ** Metrics reported on full training frame **
 #> 
-#> MSE:  244
-#> RMSE:  15.6
-#> MAE:  11.9
-#> RMSLE:  0.479
-#> Mean Residual Deviance :  244
+#> MSE:  259
+#> RMSE:  16.1
+#> MAE:  12
+#> RMSLE:  0.492
+#> Mean Residual Deviance :  259
 ```
 
 Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. \@ref(fig:map-snd) and Fig. \@ref(fig:map-snd-dl)).
@@ -9872,15 +9872,15 @@ str(test.ORC)
 #> List of 2
 #>  $ CV_residuals:'data.frame':	4972 obs. of  4 variables:
 #>   ..$ Observed : num [1:4972] 6.5 5.1 4.9 3.3 2.2 ...
-#>   ..$ Predicted: num [1:4972] 12.84 7.15 6.37 4.63 3.09 ...
+#>   ..$ Predicted: num [1:4972] 11.36 7.25 6.54 4.66 3.04 ...
 #>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" ...
 #>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ Summary     :'data.frame':	1 obs. of  6 variables:
-#>   ..$ ME          : num -0.145
+#>   ..$ ME          : num -0.139
 #>   ..$ MAE         : num 2.2
-#>   ..$ RMSE        : num 3.68
-#>   ..$ R.squared   : num 0.556
-#>   ..$ logRMSE     : num 0.499
+#>   ..$ RMSE        : num 3.69
+#>   ..$ R.squared   : num 0.554
+#>   ..$ logRMSE     : num 0.5
 #>   ..$ logR.squared: num 0.629
 ```
 
@@ -9935,15 +9935,15 @@ perf
 #> 
 #> Base learner performance, sorted by specified metric:
 #>                    learner  MSE
-#> 1 h2o.randomForest.wrapper 12.9
 #> 2          h2o.gbm.wrapper 12.8
+#> 1 h2o.randomForest.wrapper 12.6
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 12.4689923765637
+#> Ensemble performance (MSE): 12.2094697080352
 ```
 
 which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.
@@ -10043,16 +10043,16 @@ perf3
 #> Base learner performance, sorted by specified metric:
 #>                    learner    MSE
 #> 1          h2o.glm.wrapper 0.2827
-#> 4 h2o.deeplearning.wrapper 0.1693
+#> 4 h2o.deeplearning.wrapper 0.1504
 #> 3          h2o.gbm.wrapper 0.0971
-#> 2 h2o.randomForest.wrapper 0.0849
+#> 2 h2o.randomForest.wrapper 0.0813
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 0.0819106094699747
+#> Ensemble performance (MSE): 0.0784878651701171
 ```
 
 In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.
@@ -10134,12 +10134,12 @@ sl
 #>     SL.library = sl.l) 
 #> 
 #> 
-#>                  Risk   Coef
-#> SL.mean_All    0.7540 0.0000
-#> SL.xgboost_All 0.0598 0.8154
-#> SL.ksvm_All    0.1293 0.0123
-#> SL.glmnet_All  0.3076 0.0000
-#> SL.ranger_All  0.0852 0.1723
+#>                  Risk    Coef
+#> SL.mean_All    0.7540 0.00000
+#> SL.xgboost_All 0.0598 0.81328
+#> SL.ksvm_All    0.1288 0.00951
+#> SL.glmnet_All  0.3077 0.00000
+#> SL.ranger_All  0.0848 0.17720
 ```
 
 This shows that `SL.xgboost_All` outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by `SL.xgboost_All` is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:
@@ -10158,10 +10158,10 @@ sl2
 #>     SL.library = sl.l2) 
 #> 
 #> 
-#>                  Risk  Coef
-#> SL.xgboost_All 0.0603 0.808
-#> SL.ranger_All  0.0826 0.192
-#> SL.ksvm_All    0.1308 0.000
+#>                  Risk Coef
+#> SL.xgboost_All 0.0603 0.81
+#> SL.ranger_All  0.0830 0.19
+#> SL.ksvm_All    0.1293 0.00
 ```
 
 again `SL.xgboost` dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where entire profiles are taken out of the training dataset:
@@ -10188,11 +10188,11 @@ summary(cv_sl)
 #> All risk estimates are based on V =  5 
 #> 
 #>       Algorithm  Ave    se   Min  Max
-#>   Super Learner 0.16 0.014 0.094 0.25
-#>     Discrete SL 0.17 0.014 0.112 0.25
+#>   Super Learner 0.16 0.014 0.096 0.26
+#>     Discrete SL 0.17 0.014 0.110 0.25
 #>  SL.xgboost_All 0.19 0.016 0.135 0.27
-#>   SL.ranger_All 0.16 0.014 0.105 0.25
-#>     SL.ksvm_All 0.18 0.014 0.109 0.29
+#>   SL.ranger_All 0.16 0.014 0.102 0.25
+#>     SL.ksvm_All 0.18 0.014 0.110 0.30
 ```
 
 where `V=5` specifies number of folds, and `id=rm.cookfarm$SOURCEID` enforces that entire profiles are removed from training and cross-validation. This gives a more realistic RMSE of about ±0.35. Note that this time `SL.xgboost_All` is even somewhat worse than the random forest model, and the ensemble model (`Super Learner`) is slightly better than each individual model. This matches our previous results with `h20.ensemble`. 
@@ -10217,8 +10217,8 @@ sl2
 #> 
 #>                 Risk  Coef
 #> SL.xgboost_All 0.215 0.000
-#> SL.ranger_All  0.164 0.485
-#> SL.ksvm_All    0.162 0.515
+#> SL.ranger_All  0.165 0.483
+#> SL.ksvm_All    0.164 0.517
 new.data <- grid10m@data
 pred.PHI <- list(NULL)
 depths = c(10,30,50,70,90)
@@ -10240,7 +10240,7 @@ for(j in 1:length(depths)){
 #>     buffer, rotated
 str(pred.PHI[[1]])
 #> List of 2
-#>  $ pred           : num [1:3865, 1] 4.69 4.79 4.92 4.9 4.8 ...
+#>  $ pred           : num [1:3865, 1] 4.69 4.78 4.91 4.88 4.81 ...
 #>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...
 #>   ..- attr(*, "dimnames")=List of 2
 #>   .. ..$ : NULL
@@ -11292,7 +11292,7 @@ fm.BLD = as.formula(
   paste("BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +", 
         paste(names(ind.tax), collapse="+")))
 m.BLD_PTF <- ranger(fm.BLD, dfs_tbl, num.trees = 85, importance='impurity')
-#> Growing trees.. Progress: 92%. Estimated remaining time: 2 seconds.
+#> Growing trees.. Progress: 93%. Estimated remaining time: 2 seconds.
 m.BLD_PTF
 #> Ranger result
 #> 
@@ -14068,7 +14068,7 @@ justify paying an annual subscription to sustain the collective activity
 because they, themselves, obtain benefits or reduce internal
 expenditures they would otherwise normally pay for the same sets of
 services or activities internally and individually. Sharing platforms
-for collecting, hosting, publishing and disseminating spatial
+for collecting, creating, hosting, publishing and disseminating spatial
 environmental data could be more cost effective than building and
 maintaining multiple separate platforms and functionalities
 individually. These reduced, or avoided, costs could justify
@@ -14190,7 +14190,7 @@ will be further combined with data channels produced by other groups, e.g.
 the landpotential.org project or similar, so that a top-down, bottom-up 
 (predictions based on global models combined with local
 verification and adjustments; Fig. \@ref(fig:scheme-soc-prof1)), can be 
-generated. 
+realized. 
 
 <div class="figure" style="text-align: center">
 <img src="figures/Fig_future_mobile_phone.png" alt="The proposed Global Land Information System (built on the top of the LandGIS concept) and targeted functionality: users on ground send local observations and measurements through their mobile phones, which are then used to run and re-callibrate global models." width="100%" />
@@ -14212,7 +14212,7 @@ entities could collaborate to produce or distribute their data. Examples
 of private companies involved in distributing spatial data include
 AltaLIS (https://beta.altalis.com) and Valtis (http://www.valtus.com) which operate in Alberta.
 
-We, quite obviously, favor an approach of creating a small, agile,
+We, quite understandably, favor an approach of creating a small, agile,
 not-for-profit foundation that can act as a core entity for a larger
 network of partners and collaborators. The foundation can provide
 essential back office types of support as well as shared infrastructure
@@ -14230,7 +14230,7 @@ desires to be actively involved in the collection, production or
 distribution of spatial environmental information. Just as many
 companies and agencies have increasingly begun to outsource their data
 storage, data processing and even key functions such as payroll and
-human resources so too could entities involved in the production or use
+human resources, so too could entities involved in the production or use
 or spatial data outsource many of their functions to OpenGeoHub. It is
 expensive and time consuming to build and maintain custom functionality
 in house to support the production and distribution of inventory spatial
@@ -14241,9 +14241,9 @@ functionality. Why spend money and time building multiple versions of
 systems with equivalent functionality and purpose when one will do for
 all? Then the partner entities can concentrate on doing what their
 mandates instruct them to do, and not on building and maintaining
-spatial analysis and spatial distribution systems and infrastructures.
+separate spatial analysis and spatial distribution systems and infrastructures.
 
-We would hope that OpenGeoHub could act as a fully functional worked
+We would hope that OpenGeoHub can act as a fully functional, worked
 example of how collaboration and collective action in the area of
 production and delivery of environmental spatial data could be organized
 and implemented efficiently and effectively. Once the concept has been
