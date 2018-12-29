@@ -237,7 +237,7 @@
 
 \title{Predictive Soil Mapping with R}
 \author{Tomislav Hengl and Robert A. MacMillan}
-\date{2018-12-28}
+\date{2018-12-29}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -8685,7 +8685,6 @@ would look like this:
 \CommentTok{#> Generating predictions using the trend model (RK method)...}
 \CommentTok{#> [using ordinary kriging]}
 \CommentTok{#> }
- \DecValTok{92}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Running 5-fold cross validation using 'krige.cv'...}
 \CommentTok{#> Creating an object of class "SpatialPredictions"}
@@ -8961,6 +8960,7 @@ support:
 \CommentTok{#> drawing 20 GLS realisations of beta...}
 \CommentTok{#> [using conditional Gaussian simulation]}
 \CommentTok{#> }
+ \DecValTok{66}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Creating an object of class "RasterBrickSimulations"}
 \CommentTok{#> Loading required package: raster}
@@ -8986,7 +8986,6 @@ square blocks of 40 by 40 m we run:
 \CommentTok{#> Generating predictions using the trend model (RK method)...}
 \CommentTok{#> [using ordinary kriging]}
 \CommentTok{#> }
- \DecValTok{37}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Creating an object of class "SpatialPredictions"}
 \NormalTok{om.rksim.b <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(omm, meuse.grid, }\DataTypeTok{nsim=}\DecValTok{2}\NormalTok{, }\DataTypeTok{block=}\KeywordTok{c}\NormalTok{(}\DecValTok{40}\NormalTok{,}\DecValTok{40}\NormalTok{), }\DataTypeTok{debug.level=}\DecValTok{0}\NormalTok{)}
@@ -9232,7 +9231,6 @@ argument:
 \CommentTok{#> drawing 20 GLS realisations of beta...}
 \CommentTok{#> [using conditional Gaussian simulation]}
 \CommentTok{#> }
- \DecValTok{94}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Creating an object of class "RasterBrickSimulations"}
 \KeywordTok{log1p}\NormalTok{(meuse}\OperatorTok{@}\NormalTok{data[}\DecValTok{1}\NormalTok{,}\StringTok{"om"}\NormalTok{])}
@@ -9284,13 +9282,13 @@ organic matter content using the Meuse case study:
 \KeywordTok{demo}\NormalTok{(meuse, }\DataTypeTok{echo=}\OtherTok{FALSE}\NormalTok{)}
 \NormalTok{meuse}\OperatorTok{$}\NormalTok{value =}\StringTok{ }\NormalTok{meuse}\OperatorTok{$}\NormalTok{zinc}
 \NormalTok{output <-}\StringTok{ }\KeywordTok{interpolate}\NormalTok{(meuse, meuse.grid, }\KeywordTok{list}\NormalTok{(}\DataTypeTok{mean=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{variance=}\OtherTok{TRUE}\NormalTok{))}
-\CommentTok{#> R 2018-12-28 07:52:46 interpolating 155 observations, 3103 prediction locations}
+\CommentTok{#> R 2018-12-29 00:11:13 interpolating 155 observations, 3103 prediction locations}
 \CommentTok{#> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : }
 \CommentTok{#>  using standard model for estimating time. For better }
 \CommentTok{#>  platform spesific predictions, please run }
 \CommentTok{#>  timeModels <- generateTimeModels()}
 \CommentTok{#>   and save the workspace}
-\CommentTok{#> [1] "estimated time for  copula 161.901815169042"}
+\CommentTok{#> [1] "estimated time for  copula 158.4129224129"}
 \CommentTok{#> Checking object ... OK}
 \end{Highlighting}
 \end{Shaded}
@@ -9305,7 +9303,7 @@ at hand (\texttt{value} column), given the time available set with
 \CommentTok{#> List of 16}
 \CommentTok{#>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots}
 \CommentTok{#>  $ formulaString      :Class 'formula'  language value ~ 1}
-\CommentTok{#>   .. ..- attr(*, ".Environment")=<environment: 0x1309ff90> }
+\CommentTok{#>   .. ..- attr(*, ".Environment")=<environment: 0x13f28aa0> }
 \CommentTok{#>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots}
 \CommentTok{#>  $ params             :List of 18}
 \CommentTok{#>   ..$ doAnisotropy     : logi TRUE}
@@ -10841,18 +10839,18 @@ In the following example we look at mapping sand content for the upper horizons.
 \CommentTok{#> H2O is not running yet, starting it now...}
 \CommentTok{#> }
 \CommentTok{#> Note:  In case of errors look at the following log files:}
-\CommentTok{#>     /tmp/RtmpHbYwqy/h2o_travis_started_from_r.out}
-\CommentTok{#>     /tmp/RtmpHbYwqy/h2o_travis_started_from_r.err}
+\CommentTok{#>     /tmp/Rtmp31KAPr/h2o_travis_started_from_r.out}
+\CommentTok{#>     /tmp/Rtmp31KAPr/h2o_travis_started_from_r.err}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> Starting H2O JVM and connecting: .. Connection successful!}
 \CommentTok{#> }
 \CommentTok{#> R is connected to the H2O cluster: }
-\CommentTok{#>     H2O cluster uptime:         2 seconds 74 milliseconds }
+\CommentTok{#>     H2O cluster uptime:         2 seconds 86 milliseconds }
 \CommentTok{#>     H2O cluster timezone:       UTC }
 \CommentTok{#>     H2O data parsing timezone:  UTC }
 \CommentTok{#>     H2O cluster version:        3.20.0.8 }
-\CommentTok{#>     H2O cluster version age:    3 months and 6 days  }
+\CommentTok{#>     H2O cluster version age:    3 months and 7 days  }
 \CommentTok{#>     H2O cluster name:           H2O_started_from_R_travis_lqb476 }
 \CommentTok{#>     H2O cluster total nodes:    1 }
 \CommentTok{#>     H2O cluster total memory:   1.62 GB }
@@ -10889,23 +10887,23 @@ We can now fit a random forest model by using all the computing power available 
 \CommentTok{#> ==============}
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionModel: drf}
-\CommentTok{#> Model ID:  DRF_model_R_1545983626006_1 }
+\CommentTok{#> Model ID:  DRF_model_R_1546042331228_1 }
 \CommentTok{#> Model Summary: }
 \CommentTok{#>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth}
-\CommentTok{#> 1              50                       50              643433        20}
+\CommentTok{#> 1              50                       50              647388        20}
 \CommentTok{#>   max_depth mean_depth min_leaves max_leaves mean_leaves}
-\CommentTok{#> 1        20   20.00000        941       1078  1020.52000}
+\CommentTok{#> 1        20   20.00000        979       1063  1026.90000}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionMetrics: drf}
 \CommentTok{#> ** Reported on training data. **}
 \CommentTok{#> ** Metrics reported on Out-Of-Bag training samples **}
 \CommentTok{#> }
-\CommentTok{#> MSE:  222}
+\CommentTok{#> MSE:  221}
 \CommentTok{#> RMSE:  14.9}
 \CommentTok{#> MAE:  10.1}
-\CommentTok{#> RMSLE:  0.432}
-\CommentTok{#> Mean Residual Deviance :  222}
+\CommentTok{#> RMSLE:  0.43}
+\CommentTok{#> Mean Residual Deviance :  221}
 \end{Highlighting}
 \end{Shaded}
 
@@ -10963,29 +10961,29 @@ h2o has another MLA of interest for soil mapping called \emph{deep learning} (a 
 \CommentTok{#> ==============}
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionModel: deeplearning}
-\CommentTok{#> Model ID:  DeepLearning_model_R_1545983626006_2 }
+\CommentTok{#> Model ID:  DeepLearning_model_R_1546042331228_2 }
 \CommentTok{#> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1}
 \CommentTok{#>   layer units      type dropout       l1       l2 mean_rate rate_rms}
 \CommentTok{#> 1     1    10     Input  0.00 %       NA       NA        NA       NA}
-\CommentTok{#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.016367 0.010294}
-\CommentTok{#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.142045 0.192633}
-\CommentTok{#> 4     4     1    Linear      NA 0.000000 0.000000  0.001317 0.000921}
+\CommentTok{#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.015116 0.008983}
+\CommentTok{#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.116775 0.148167}
+\CommentTok{#> 4     4     1    Linear      NA 0.000000 0.000000  0.001951 0.008429}
 \CommentTok{#>   momentum mean_weight weight_rms mean_bias bias_rms}
 \CommentTok{#> 1       NA          NA         NA        NA       NA}
-\CommentTok{#> 2 0.000000    0.003485   0.097063  0.333310 0.082208}
-\CommentTok{#> 3 0.000000   -0.018796   0.070883  0.952706 0.016776}
-\CommentTok{#> 4 0.000000    0.009969   0.050445  0.089195 0.000000}
+\CommentTok{#> 2 0.000000    0.003011   0.102790  0.355448 0.061966}
+\CommentTok{#> 3 0.000000   -0.018501   0.071226  0.953281 0.018698}
+\CommentTok{#> 4 0.000000    0.004306   0.050575  0.096160 0.000000}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionMetrics: deeplearning}
 \CommentTok{#> ** Reported on training data. **}
 \CommentTok{#> ** Metrics reported on full training frame **}
 \CommentTok{#> }
-\CommentTok{#> MSE:  262}
-\CommentTok{#> RMSE:  16.2}
-\CommentTok{#> MAE:  12.2}
-\CommentTok{#> RMSLE:  0.497}
-\CommentTok{#> Mean Residual Deviance :  262}
+\CommentTok{#> MSE:  266}
+\CommentTok{#> RMSE:  16.3}
+\CommentTok{#> MAE:  12.5}
+\CommentTok{#> RMSLE:  0.504}
+\CommentTok{#> Mean Residual Deviance :  266}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11255,16 +11253,16 @@ We can hence run 5-fold cross validation:
 \CommentTok{#> List of 2}
 \CommentTok{#>  $ CV_residuals:'data.frame':    4972 obs. of  4 variables:}
 \CommentTok{#>   ..$ Observed : num [1:4972] 14.5 13.6 10.1 12.1 7.1 ...}
-\CommentTok{#>   ..$ Predicted: num [1:4972] 14.95 10.62 9.68 5.38 3.26 ...}
+\CommentTok{#>   ..$ Predicted: num [1:4972] 15.28 10.14 8.28 5.72 3.6 ...}
 \CommentTok{#>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" ...}
 \CommentTok{#>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...}
 \CommentTok{#>  $ Summary     :'data.frame':    1 obs. of  6 variables:}
-\CommentTok{#>   ..$ ME          : num -0.108}
+\CommentTok{#>   ..$ ME          : num -0.117}
 \CommentTok{#>   ..$ MAE         : num 2.12}
-\CommentTok{#>   ..$ RMSE        : num 3.6}
-\CommentTok{#>   ..$ R.squared   : num 0.576}
-\CommentTok{#>   ..$ logRMSE     : num 0.482}
-\CommentTok{#>   ..$ logR.squared: num 0.652}
+\CommentTok{#>   ..$ RMSE        : num 3.61}
+\CommentTok{#>   ..$ R.squared   : num 0.574}
+\CommentTok{#>   ..$ logRMSE     : num 0.479}
+\CommentTok{#>   ..$ logR.squared: num 0.657}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11324,14 +11322,14 @@ we first specify all learners (MLA methods) of interest:
 \CommentTok{#> Base learner performance, sorted by specified metric:}
 \CommentTok{#>                    learner  MSE}
 \CommentTok{#> 2          h2o.gbm.wrapper 9.81}
-\CommentTok{#> 1 h2o.randomForest.wrapper 8.33}
+\CommentTok{#> 1 h2o.randomForest.wrapper 8.75}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2O Ensemble Performance on <newdata>:}
 \CommentTok{#> ----------------}
 \CommentTok{#> Family: gaussian}
 \CommentTok{#> }
-\CommentTok{#> Ensemble performance (MSE): 8.20200264891668}
+\CommentTok{#> Ensemble performance (MSE): 8.77989287492254}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11434,16 +11432,16 @@ We can again test fitting an ensemble model using two MLA's:
 \CommentTok{#> Base learner performance, sorted by specified metric:}
 \CommentTok{#>                    learner    MSE}
 \CommentTok{#> 1          h2o.glm.wrapper 0.2827}
-\CommentTok{#> 4 h2o.deeplearning.wrapper 0.1655}
+\CommentTok{#> 4 h2o.deeplearning.wrapper 0.1448}
 \CommentTok{#> 3          h2o.gbm.wrapper 0.0971}
-\CommentTok{#> 2 h2o.randomForest.wrapper 0.0780}
+\CommentTok{#> 2 h2o.randomForest.wrapper 0.0874}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2O Ensemble Performance on <newdata>:}
 \CommentTok{#> ----------------}
 \CommentTok{#> Family: gaussian}
 \CommentTok{#> }
-\CommentTok{#> Ensemble performance (MSE): 0.0754178109250091}
+\CommentTok{#> Ensemble performance (MSE): 0.0831413932857379}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11530,12 +11528,12 @@ A useful functionality of the SuperLearner package is that it displays how model
 \CommentTok{#>     SL.library = sl.l) }
 \CommentTok{#> }
 \CommentTok{#> }
-\CommentTok{#>                  Risk    Coef}
-\CommentTok{#> SL.mean_All    0.7540 0.00000}
-\CommentTok{#> SL.xgboost_All 0.0598 0.80989}
-\CommentTok{#> SL.ksvm_All    0.1291 0.00549}
-\CommentTok{#> SL.glmnet_All  0.3072 0.00000}
-\CommentTok{#> SL.ranger_All  0.0846 0.18462}
+\CommentTok{#>                  Risk   Coef}
+\CommentTok{#> SL.mean_All    0.7540 0.0000}
+\CommentTok{#> SL.xgboost_All 0.0598 0.8194}
+\CommentTok{#> SL.ksvm_All    0.1292 0.0171}
+\CommentTok{#> SL.glmnet_All  0.3076 0.0000}
+\CommentTok{#> SL.ranger_All  0.0859 0.1635}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11556,9 +11554,9 @@ This shows that \texttt{SL.xgboost\_All} outperforms the competition by a large 
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#>                  Risk  Coef}
-\CommentTok{#> SL.xgboost_All 0.0603 0.797}
-\CommentTok{#> SL.ranger_All  0.0821 0.203}
-\CommentTok{#> SL.ksvm_All    0.1304 0.000}
+\CommentTok{#> SL.xgboost_All 0.0603 0.805}
+\CommentTok{#> SL.ranger_All  0.0825 0.195}
+\CommentTok{#> SL.ksvm_All    0.1303 0.000}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11586,11 +11584,11 @@ again \texttt{SL.xgboost} dominates the ensemble model, which is most likely unr
 \CommentTok{#> All risk estimates are based on V =  5 }
 \CommentTok{#> }
 \CommentTok{#>       Algorithm  Ave    se   Min  Max}
-\CommentTok{#>   Super Learner 0.16 0.014 0.097 0.25}
-\CommentTok{#>     Discrete SL 0.17 0.015 0.119 0.25}
+\CommentTok{#>   Super Learner 0.16 0.014 0.092 0.26}
+\CommentTok{#>     Discrete SL 0.17 0.014 0.110 0.25}
 \CommentTok{#>  SL.xgboost_All 0.19 0.016 0.135 0.27}
-\CommentTok{#>   SL.ranger_All 0.17 0.015 0.103 0.25}
-\CommentTok{#>     SL.ksvm_All 0.18 0.015 0.109 0.30}
+\CommentTok{#>   SL.ranger_All 0.16 0.014 0.103 0.25}
+\CommentTok{#>     SL.ksvm_All 0.18 0.015 0.110 0.30}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11616,8 +11614,8 @@ To produce predictions of soil pH at 10 cm depth we can finally use:
 \CommentTok{#> }
 \CommentTok{#>                 Risk  Coef}
 \CommentTok{#> SL.xgboost_All 0.215 0.000}
-\CommentTok{#> SL.ranger_All  0.166 0.471}
-\CommentTok{#> SL.ksvm_All    0.163 0.529}
+\CommentTok{#> SL.ranger_All  0.166 0.472}
+\CommentTok{#> SL.ksvm_All    0.163 0.528}
 \NormalTok{new.data <-}\StringTok{ }\NormalTok{grid10m}\OperatorTok{@}\NormalTok{data}
 \NormalTok{pred.PHI <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\OtherTok{NULL}\NormalTok{)}
 \NormalTok{depths =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{,}\DecValTok{30}\NormalTok{,}\DecValTok{50}\NormalTok{,}\DecValTok{70}\NormalTok{,}\DecValTok{90}\NormalTok{)}
@@ -11639,7 +11637,7 @@ To produce predictions of soil pH at 10 cm depth we can finally use:
 \CommentTok{#>     buffer, rotated}
 \KeywordTok{str}\NormalTok{(pred.PHI[[}\DecValTok{1}\NormalTok{]])}
 \CommentTok{#> List of 2}
-\CommentTok{#>  $ pred           : num [1:3865, 1] 4.66 4.74 4.88 4.84 4.78 ...}
+\CommentTok{#>  $ pred           : num [1:3865, 1] 4.66 4.73 4.88 4.85 4.78 ...}
 \CommentTok{#>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...}
 \CommentTok{#>   ..- attr(*, "dimnames")=List of 2}
 \CommentTok{#>   .. ..$ : NULL}
@@ -12857,7 +12855,7 @@ Where values for bulk density are missing, and no local PTF exists, WoSIS points
   \KeywordTok{paste}\NormalTok{(}\StringTok{"BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +"}\NormalTok{, }
         \KeywordTok{paste}\NormalTok{(}\KeywordTok{names}\NormalTok{(ind.tax), }\DataTypeTok{collapse=}\StringTok{"+"}\NormalTok{)))}
 \NormalTok{m.BLD_PTF <-}\StringTok{ }\KeywordTok{ranger}\NormalTok{(fm.BLD, dfs_tbl, }\DataTypeTok{num.trees =} \DecValTok{85}\NormalTok{, }\DataTypeTok{importance=}\StringTok{'impurity'}\NormalTok{)}
-\CommentTok{#> Growing trees.. Progress: 73%. Estimated remaining time: 11 seconds.}
+\CommentTok{#> Growing trees.. Progress: 89%. Estimated remaining time: 3 seconds.}
 \NormalTok{m.BLD_PTF}
 \CommentTok{#> Ranger result}
 \CommentTok{#> }
@@ -15335,7 +15333,7 @@ sample numbers can be generated to automatically assign unique and
 persistent identifiers to every site and to every soil sample collected
 in the field. This can reduce costs and errors associated with assigning
 different sample IDs at different stages in a sampling campaign (
-e.g.~field, lab, data entry). Persistent and unique digital identifiers can help to
+e.g.~field, lab, data entry). Persistent and unique machie readable identifiers can help to
 support continuous, real-time tracking of the progress of field
 descriptions and soil samples from initial collection in the field
 through laboratory analysis to final collation in a soil information
@@ -15599,7 +15597,7 @@ implementation of top down mapping (Fig. \ref{fig:landgis-soil}). Global models 
 quantify that portion of the total spatial variation in soil properties
 and soil classes that occurs over longer distances in response to longer
 range soil forming processes. This longer range variation may only
-constitute some rather small percentage of the total range in spatial
+constitute some rather small percentage of the total range in local spatial
 variation in some property (typically some 10--30\% of total variation).
 But it does represent a component of the total variation that would
 likely be missed, and not properly observed or accounted for, by local,
@@ -15849,7 +15847,7 @@ cooperatively through innovations such as \citep{Hengl2018OGH}:
 \item
   Open data and platforms and procedures for acquiring and sharing data,
 \item
-  Open cloud-based processing capabilities,
+  Open, cloud-based, processing capabilities,
 \item
   Collaborative production of inputs and new outputs,
 \item
@@ -15935,7 +15933,7 @@ let alone to share it widely with others.
 
 So, how can a situation be achieved where a large proportion of point
 data collected in the field, or analysed in a lab, are collated, stored
-and maintained for widespread distribution and use in PSM? We believe
+and maintained for widespread distribution, use and reuse in PSM? We believe
 that what is required are both physical (or virtual) platforms where
 collaboration and sharing can be facilitated and legal and
 organisational protocols that encourage, and indeed require, saving,
@@ -15959,7 +15957,7 @@ maps can be widely and freely published, archived and shared.
 
 The production of output maps can also be undertaken as a collective and
 collaborative exercise. Individuals and agencies can work together to
-share input data sets (point data and covariates) and models and to
+create and share input data sets (point data and covariates) and models and to
 jointly produce maps for areas of common interest. The more people that
 get involved in producing new maps using common, open databases, the
 greater the number, variety and utility of maps we are likely to see

@@ -2,7 +2,7 @@
 ---
 title: "Predictive Soil Mapping with R"
 author: ["Tomislav Hengl and Robert A. MacMillan"]
-date: "2018-12-28"
+date: "2018-12-29"
 knit: bookdown::render_book
 site: bookdown::bookdown_site
 documentclass: svmono
@@ -2793,6 +2793,7 @@ om.rk <- predict(omm, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
+ 69% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -7811,6 +7812,7 @@ om.rksim.p <- predict(omm, meuse.grid, nsim=20, block=c(0,0))
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
 #> 
+ 75% done
 100% done
 #> Creating an object of class "RasterBrickSimulations"
 #> Loading required package: raster
@@ -8100,13 +8102,13 @@ library(intamap)
 demo(meuse, echo=FALSE)
 meuse$value = meuse$zinc
 output <- interpolate(meuse, meuse.grid, list(mean=TRUE, variance=TRUE))
-#> R 2018-12-28 08:16:53 interpolating 155 observations, 3103 prediction locations
+#> R 2018-12-29 00:34:17 interpolating 155 observations, 3103 prediction locations
 #> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : 
 #>  using standard model for estimating time. For better 
 #>  platform spesific predictions, please run 
 #>  timeModels <- generateTimeModels()
 #>   and save the workspace
-#> [1] "estimated time for  copula 156.566329806402"
+#> [1] "estimated time for  copula 159.696287142303"
 #> Checking object ... OK
 ```
 
@@ -8120,7 +8122,7 @@ str(output, max.level = 2)
 #> List of 16
 #>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
 #>  $ formulaString      :Class 'formula'  language value ~ 1
-#>   .. ..- attr(*, ".Environment")=<environment: 0x154f23c8> 
+#>   .. ..- attr(*, ".Environment")=<environment: 0x15215830> 
 #>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
 #>  $ params             :List of 18
 #>   ..$ doAnisotropy     : logi TRUE
@@ -9509,14 +9511,14 @@ localH2O = h2o.init(startH2O=TRUE)
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         24 minutes 5 seconds 
+#>     H2O cluster uptime:         23 minutes 2 seconds 
 #>     H2O cluster timezone:       UTC 
 #>     H2O data parsing timezone:  UTC 
 #>     H2O cluster version:        3.20.0.8 
-#>     H2O cluster version age:    3 months and 6 days  
+#>     H2O cluster version age:    3 months and 7 days  
 #>     H2O cluster name:           H2O_started_from_R_travis_lqb476 
 #>     H2O cluster total nodes:    1 
-#>     H2O cluster total memory:   1.48 GB 
+#>     H2O cluster total memory:   1.47 GB 
 #>     H2O cluster total cores:    2 
 #>     H2O cluster allowed cores:  2 
 #>     H2O cluster healthy:        TRUE 
@@ -9548,23 +9550,23 @@ RF.m
 #> ==============
 #> 
 #> H2ORegressionModel: drf
-#> Model ID:  DRF_model_R_1545983626006_21 
+#> Model ID:  DRF_model_R_1546042331228_21 
 #> Model Summary: 
 #>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#> 1              50                       50              638916        20
+#> 1              50                       50              648334        20
 #>   max_depth mean_depth min_leaves max_leaves mean_leaves
-#> 1        20   20.00000        922       1075  1013.48000
+#> 1        20   20.00000        959       1077  1028.28000
 #> 
 #> 
 #> H2ORegressionMetrics: drf
 #> ** Reported on training data. **
 #> ** Metrics reported on Out-Of-Bag training samples **
 #> 
-#> MSE:  222
-#> RMSE:  14.9
+#> MSE:  224
+#> RMSE:  15
 #> MAE:  10.1
-#> RMSLE:  0.431
-#> Mean Residual Deviance :  222
+#> RMSLE:  0.435
+#> Mean Residual Deviance :  224
 ```
 
 This shows that the model fitting R-square is about 50%. This is also indicated by the predicted vs observed plot:
@@ -9611,29 +9613,29 @@ DL.m
 #> ==============
 #> 
 #> H2ORegressionModel: deeplearning
-#> Model ID:  DeepLearning_model_R_1545983626006_22 
+#> Model ID:  DeepLearning_model_R_1546042331228_22 
 #> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1
 #>   layer units      type dropout       l1       l2 mean_rate rate_rms
 #> 1     1    10     Input  0.00 %       NA       NA        NA       NA
-#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.015941 0.011630
-#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.114270 0.158376
-#> 4     4     1    Linear      NA 0.000000 0.000000  0.001266 0.000835
+#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.015095 0.009050
+#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.141091 0.182523
+#> 4     4     1    Linear      NA 0.000000 0.000000  0.001366 0.000974
 #>   momentum mean_weight weight_rms mean_bias bias_rms
 #> 1       NA          NA         NA        NA       NA
-#> 2 0.000000    0.004222   0.101704  0.353055 0.063585
-#> 3 0.000000   -0.018679   0.071168  0.955917 0.022035
-#> 4 0.000000    0.006151   0.046944  0.126668 0.000000
+#> 2 0.000000    0.003342   0.101284  0.347662 0.064038
+#> 3 0.000000   -0.018742   0.071114  0.952261 0.020415
+#> 4 0.000000    0.006076   0.047876  0.073135 0.000000
 #> 
 #> 
 #> H2ORegressionMetrics: deeplearning
 #> ** Reported on training data. **
 #> ** Metrics reported on full training frame **
 #> 
-#> MSE:  318
-#> RMSE:  17.8
-#> MAE:  14.1
-#> RMSLE:  0.556
-#> Mean Residual Deviance :  318
+#> MSE:  244
+#> RMSE:  15.6
+#> MAE:  11.9
+#> RMSLE:  0.479
+#> Mean Residual Deviance :  244
 ```
 
 Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. \@ref(fig:map-snd) and Fig. \@ref(fig:map-snd-dl)).
@@ -9870,16 +9872,16 @@ str(test.ORC)
 #> List of 2
 #>  $ CV_residuals:'data.frame':	4972 obs. of  4 variables:
 #>   ..$ Observed : num [1:4972] 6.5 5.1 4.9 3.3 2.2 ...
-#>   ..$ Predicted: num [1:4972] 11.83 7.13 6.83 5.04 3.11 ...
+#>   ..$ Predicted: num [1:4972] 12.84 7.15 6.37 4.63 3.09 ...
 #>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" ...
 #>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ Summary     :'data.frame':	1 obs. of  6 variables:
-#>   ..$ ME          : num -0.123
-#>   ..$ MAE         : num 2.19
-#>   ..$ RMSE        : num 3.67
-#>   ..$ R.squared   : num 0.561
-#>   ..$ logRMSE     : num 0.496
-#>   ..$ logR.squared: num 0.632
+#>   ..$ ME          : num -0.145
+#>   ..$ MAE         : num 2.2
+#>   ..$ RMSE        : num 3.68
+#>   ..$ R.squared   : num 0.556
+#>   ..$ logRMSE     : num 0.499
+#>   ..$ logR.squared: num 0.629
 ```
 
 Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about $\pm 4$ g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:
@@ -9933,15 +9935,15 @@ perf
 #> 
 #> Base learner performance, sorted by specified metric:
 #>                    learner  MSE
+#> 1 h2o.randomForest.wrapper 12.9
 #> 2          h2o.gbm.wrapper 12.8
-#> 1 h2o.randomForest.wrapper 12.4
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 11.978655814393
+#> Ensemble performance (MSE): 12.4689923765637
 ```
 
 which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.
@@ -10041,16 +10043,16 @@ perf3
 #> Base learner performance, sorted by specified metric:
 #>                    learner    MSE
 #> 1          h2o.glm.wrapper 0.2827
-#> 4 h2o.deeplearning.wrapper 0.1341
+#> 4 h2o.deeplearning.wrapper 0.1693
 #> 3          h2o.gbm.wrapper 0.0971
-#> 2 h2o.randomForest.wrapper 0.0750
+#> 2 h2o.randomForest.wrapper 0.0849
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 0.0738710883080796
+#> Ensemble performance (MSE): 0.0819106094699747
 ```
 
 In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.
@@ -10134,10 +10136,10 @@ sl
 #> 
 #>                  Risk   Coef
 #> SL.mean_All    0.7540 0.0000
-#> SL.xgboost_All 0.0598 0.8230
-#> SL.ksvm_All    0.1294 0.0171
-#> SL.glmnet_All  0.3075 0.0000
-#> SL.ranger_All  0.0859 0.1598
+#> SL.xgboost_All 0.0598 0.8154
+#> SL.ksvm_All    0.1293 0.0123
+#> SL.glmnet_All  0.3076 0.0000
+#> SL.ranger_All  0.0852 0.1723
 ```
 
 This shows that `SL.xgboost_All` outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by `SL.xgboost_All` is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:
@@ -10157,9 +10159,9 @@ sl2
 #> 
 #> 
 #>                  Risk  Coef
-#> SL.xgboost_All 0.0603 0.809
-#> SL.ranger_All  0.0828 0.191
-#> SL.ksvm_All    0.1305 0.000
+#> SL.xgboost_All 0.0603 0.808
+#> SL.ranger_All  0.0826 0.192
+#> SL.ksvm_All    0.1308 0.000
 ```
 
 again `SL.xgboost` dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where entire profiles are taken out of the training dataset:
@@ -10186,11 +10188,11 @@ summary(cv_sl)
 #> All risk estimates are based on V =  5 
 #> 
 #>       Algorithm  Ave    se   Min  Max
-#>   Super Learner 0.16 0.014 0.095 0.26
-#>     Discrete SL 0.16 0.014 0.104 0.25
+#>   Super Learner 0.16 0.014 0.094 0.25
+#>     Discrete SL 0.17 0.014 0.112 0.25
 #>  SL.xgboost_All 0.19 0.016 0.135 0.27
-#>   SL.ranger_All 0.16 0.014 0.104 0.25
-#>     SL.ksvm_All 0.18 0.015 0.109 0.30
+#>   SL.ranger_All 0.16 0.014 0.105 0.25
+#>     SL.ksvm_All 0.18 0.014 0.109 0.29
 ```
 
 where `V=5` specifies number of folds, and `id=rm.cookfarm$SOURCEID` enforces that entire profiles are removed from training and cross-validation. This gives a more realistic RMSE of about ±0.35. Note that this time `SL.xgboost_All` is even somewhat worse than the random forest model, and the ensemble model (`Super Learner`) is slightly better than each individual model. This matches our previous results with `h20.ensemble`. 
@@ -10215,8 +10217,8 @@ sl2
 #> 
 #>                 Risk  Coef
 #> SL.xgboost_All 0.215 0.000
-#> SL.ranger_All  0.165 0.497
-#> SL.ksvm_All    0.165 0.503
+#> SL.ranger_All  0.164 0.485
+#> SL.ksvm_All    0.162 0.515
 new.data <- grid10m@data
 pred.PHI <- list(NULL)
 depths = c(10,30,50,70,90)
@@ -10238,7 +10240,7 @@ for(j in 1:length(depths)){
 #>     buffer, rotated
 str(pred.PHI[[1]])
 #> List of 2
-#>  $ pred           : num [1:3865, 1] 4.67 4.74 4.89 4.84 4.79 ...
+#>  $ pred           : num [1:3865, 1] 4.69 4.79 4.92 4.9 4.8 ...
 #>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...
 #>   ..- attr(*, "dimnames")=List of 2
 #>   .. ..$ : NULL
@@ -11290,7 +11292,7 @@ fm.BLD = as.formula(
   paste("BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +", 
         paste(names(ind.tax), collapse="+")))
 m.BLD_PTF <- ranger(fm.BLD, dfs_tbl, num.trees = 85, importance='impurity')
-#> Growing trees.. Progress: 76%. Estimated remaining time: 9 seconds.
+#> Growing trees.. Progress: 92%. Estimated remaining time: 2 seconds.
 m.BLD_PTF
 #> Ranger result
 #> 
@@ -13360,7 +13362,7 @@ sample numbers can be generated to automatically assign unique and
 persistent identifiers to every site and to every soil sample collected
 in the field. This can reduce costs and errors associated with assigning
 different sample IDs at different stages in a sampling campaign (e.g.
-field, lab, data entry). Persistent and unique digital identifiers can help to
+field, lab, data entry). Persistent and unique machie readable identifiers can help to
 support continuous, real-time tracking of the progress of field
 descriptions and soil samples from initial collection in the field
 through laboratory analysis to final collation in a soil information
@@ -13617,7 +13619,7 @@ implementation of top down mapping (Fig. \@ref(fig:landgis-soil)). Global models
 quantify that portion of the total spatial variation in soil properties
 and soil classes that occurs over longer distances in response to longer
 range soil forming processes. This longer range variation may only
-constitute some rather small percentage of the total range in spatial
+constitute some rather small percentage of the total range in local spatial
 variation in some property (typically some 10–30% of total variation).
 But it does represent a component of the total variation that would
 likely be missed, and not properly observed or accounted for, by local,
@@ -13855,7 +13857,7 @@ cooperatively through innovations such as [@Hengl2018OGH]:
 
 -   Open data and platforms and procedures for acquiring and sharing data,
 
--   Open cloud-based processing capabilities,
+-   Open, cloud-based, processing capabilities,
 
 -   Collaborative production of inputs and new outputs,
 
@@ -13937,7 +13939,7 @@ let alone to share it widely with others.
 
 So, how can a situation be achieved where a large proportion of point
 data collected in the field, or analysed in a lab, are collated, stored
-and maintained for widespread distribution and use in PSM? We believe
+and maintained for widespread distribution, use and reuse in PSM? We believe
 that what is required are both physical (or virtual) platforms where
 collaboration and sharing can be facilitated and legal and
 organisational protocols that encourage, and indeed require, saving,
@@ -13961,7 +13963,7 @@ maps can be widely and freely published, archived and shared.
 
 The production of output maps can also be undertaken as a collective and
 collaborative exercise. Individuals and agencies can work together to
-share input data sets (point data and covariates) and models and to
+create and share input data sets (point data and covariates) and models and to
 jointly produce maps for areas of common interest. The more people that
 get involved in producing new maps using common, open databases, the
 greater the number, variety and utility of maps we are likely to see
