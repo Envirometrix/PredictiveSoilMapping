@@ -495,7 +495,7 @@ sample numbers can be generated to automatically assign unique and
 persistent identifiers to every site and to every soil sample collected
 in the field. This can reduce costs and errors associated with assigning
 different sample IDs at different stages in a sampling campaign (e.g.
-field, lab, data entry). Persistent and unique digital identifiers can help to
+field, lab, data entry). Persistent and unique machie readable identifiers can help to
 support continuous, real-time tracking of the progress of field
 descriptions and soil samples from initial collection in the field
 through laboratory analysis to final collation in a soil information
@@ -751,7 +751,7 @@ implementation of top down mapping (Fig. \@ref(fig:landgis-soil)). Global models
 quantify that portion of the total spatial variation in soil properties
 and soil classes that occurs over longer distances in response to longer
 range soil forming processes. This longer range variation may only
-constitute some rather small percentage of the total range in spatial
+constitute some rather small percentage of the total range in local spatial
 variation in some property (typically some 10–30% of total variation).
 But it does represent a component of the total variation that would
 likely be missed, and not properly observed or accounted for, by local,
@@ -989,7 +989,7 @@ cooperatively through innovations such as [@Hengl2018OGH]:
 
 -   Open data and platforms and procedures for acquiring and sharing data,
 
--   Open cloud-based processing capabilities,
+-   Open, cloud-based, processing capabilities,
 
 -   Collaborative production of inputs and new outputs,
 
@@ -1071,7 +1071,7 @@ let alone to share it widely with others.
 
 So, how can a situation be achieved where a large proportion of point
 data collected in the field, or analysed in a lab, are collated, stored
-and maintained for widespread distribution and use in PSM? We believe
+and maintained for widespread distribution, use and reuse in PSM? We believe
 that what is required are both physical (or virtual) platforms where
 collaboration and sharing can be facilitated and legal and
 organisational protocols that encourage, and indeed require, saving,
@@ -1095,7 +1095,7 @@ maps can be widely and freely published, archived and shared.
 
 The production of output maps can also be undertaken as a collective and
 collaborative exercise. Individuals and agencies can work together to
-share input data sets (point data and covariates) and models and to
+create and share input data sets (point data and covariates) and models and to
 jointly produce maps for areas of common interest. The more people that
 get involved in producing new maps using common, open databases, the
 greater the number, variety and utility of maps we are likely to see
