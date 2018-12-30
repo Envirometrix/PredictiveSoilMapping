@@ -1,3 +1,53 @@
+```{r include=FALSE, cache=FALSE}
+## Needed for Rscript
+library("methods")
+library("microbenchmark")
+## load data sets
+
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  cache = TRUE, 
+  fig.pos = "H",
+  fig.align = "center",
+  #auto_pdf = FALSE,
+  fig.show = "hold",
+  out.width = "100%"
+)
+set.seed(2016)
+options(digits = 3)
+options(dplyr.print_min = 4, dplyr.print_max = 4)
+options(knitr.graphics.auto_pdf = TRUE)
+
+figs.lst = list.files("figures", pattern=glob2rx("*.pdf$"), full.names = TRUE)
+for(i in 1:length(figs.lst)){ if(!file.exists(gsub(".pdf", ".png", figs.lst[i]))) system(paste0("convert -density 200 ", figs.lst[i], " -quality 90 ", gsub(".pdf", ".png", figs.lst[i]))) }
+#for(i in 1:length(figs.lst)){ if(!file.exists(gsub(".pdf", ".png", figs.lst[i]))) system(paste0('inkscape \"', figs.lst[i], '\" -z --export-dpi=200 --export-area-drawing --export-png="', gsub(".pdf", ".png", figs.lst[i]), '"')) }
+```
+```{r include=FALSE, cache=FALSE}
+## Needed for Rscript
+library("methods")
+library("microbenchmark")
+## load data sets
+
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  cache = TRUE, 
+  fig.pos = "H",
+  fig.align = "center",
+  #auto_pdf = FALSE,
+  fig.show = "hold",
+  out.width = "100%"
+)
+set.seed(2016)
+options(digits = 3)
+options(dplyr.print_min = 4, dplyr.print_max = 4)
+options(knitr.graphics.auto_pdf = TRUE)
+
+figs.lst = list.files("figures", pattern=glob2rx("*.pdf$"), full.names = TRUE)
+for(i in 1:length(figs.lst)){ if(!file.exists(gsub(".pdf", ".png", figs.lst[i]))) system(paste0("convert -density 200 ", figs.lst[i], " -quality 90 ", gsub(".pdf", ".png", figs.lst[i]))) }
+#for(i in 1:length(figs.lst)){ if(!file.exists(gsub(".pdf", ".png", figs.lst[i]))) system(paste0('inkscape \"', figs.lst[i], '\" -z --export-dpi=200 --export-area-drawing --export-png="', gsub(".pdf", ".png", figs.lst[i]), '"')) }
+```
 # The future of predictive soil mapping
 
 *Edited by: R. A. MacMillan and T. Hengl*
@@ -532,13 +582,13 @@ participation in collecting new field data.
 Recent developments in the use of new, rapid and accurate pharmaceutical
 grade analytical devices have reduced the costs of typical laboratory
 analyses dramatically, while, at the same time, significantly improving
-on reproducibility and accuracy [@shepherd2007infrared]. A modern soil laboratory now entails
+on reproducibility and accuracy [@ShepherdWalsh2007JNIS]. A modern soil laboratory now entails
 making use of mid and near infrared spectrophotometers, X-ray
 diffraction and X-Ray diffusion and laser based particle size analysis.
 Using these new instruments, it has been demonstrated that total costs
 for running a complete set of common soil analyses on a full soil
 profile can be reduced from a current cost of US\$ 2,000 to as little as
-US\$ 2-10 per profile [@shepherd2007infrared].
+US\$ 2–10 per profile [@ShepherdWalsh2007JNIS].
 This reduction in cost, along with the associated improvement in
 reproducibility is a game changer. It makes it, once again, feasible and
 affordable to consider taking new field soil samples and analyzing them

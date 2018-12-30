@@ -17,7 +17,7 @@ that may not find effective use.
 
 ### PSM main steps
 
-Based on previously presented theory, we can summarize the usual PSM processes as (Fig. \@ref(fig:psm-decision-tree)):
+Based on previously presented theory, we can summarize the usual PSM processes as:
 
 1.  Preparation of point data (training data).
 
@@ -32,6 +32,9 @@ Based on previously presented theory, we can summarize the usual PSM processes a
     databases and/or web services).
 
 6.  Updates and improvements (support).
+
+An even more comprehensive list of steps in PSM projects is given in Fig. \@ref(fig:psm-decision-tree),
+which also includes market/user-domain researcher and might be also used for soil monitoring projects. 
 
 ```{r psm-decision-tree, echo=FALSE, fig.cap="General decision tree in a Predictive Soil Mapping project.", out.width="95%"}
 knitr::include_graphics("figures/Fig_decisiontree_PSM_project.png")

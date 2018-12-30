@@ -85,6 +85,16 @@ The most relevant (global) publicly available remote sensing-based covariates th
 
 Note that the download time for 30 m global RS data can be significant if the data are needed for a larger area (hence you might consider using some RS data processing hub such as [Sentinel hub](http://www.sentinel-hub.com), [Google Earth Engine](https://earthengine.google.com) and/or [Amazon Web Services](https://aws.amazon.com/public-datasets/) instead of trying to download large mosaics yourself). 
 
+Most recently soil mappers can also use more advanced (commercial) remote sensing products often available at finer spatial resolution which include:
+
+*  WorldDEM (https://worlddem-database.terrasar.com) at 12 m resolution multiband elevation products,
+
+*  German hyperspectral satellite mission EnMAP (http://www.enmap.org) products, which have shown to be useful for mapping soil nutrients and minerals [@rs8070613],
+
+*  Sentinel-1 soil moisture products, currently limited to 1 km to 500 m resolutions but available at fast revisit times [@Bauer-Marschallinger2019],
+
+Hyperspectral imaging systems, similar to field-based soil spectroscopy, and the upcoming missions such as SHALOM (Italy and Israel), HypXIM (France) and HypsIRI (USA) will most likely revolutionaize use of remote sensing for soil mapping.
+
 ### Soil covariate data sources (250 m resolution or coarser) {#soil-covs-250m}
 
 @Hengl2017SoilGrids250m used a large stack of slightly coarser resolution covariate layers for producing 
