@@ -1,3 +1,4 @@
+% This file was created with JabRef 2.10.
 % Encoding: UTF-8
 
 @Article{Ng2018,
@@ -10,6 +11,7 @@
   Volume                   = {6},
   Doi                      = {10.7717/peerj.5722},
   ISSN                     = {2167-8359},
+  Url                      = {https://doi.org/10.7717/peerj.5722}
 }
 
 
@@ -1879,6 +1881,18 @@
   Publisher                = {Wiley Online Library}
 }
 
+@InCollection{Durana2008,
+  Title                    = {{Appendix A: Chronology of the U.S.\@ Soil Survey}},
+  Author                   = {Durana, Patricia J.},
+  Booktitle                = {{Profiles in the History of the U.S.\@ Soil Survey}},
+  Publisher                = {Iowa State Press},
+  Year                     = {2008},
+  Pages                    = {315--320},
+
+  Doi                      = {10.1002/9780470376959.app1},
+  ISBN                     = {9780470376959}
+}
+
 @InCollection{Dusa01,
   Title                    = {Chapter 6 Adapting Soil Data Bases Practices to the Proposed EU Inspire Directive},
   Author                   = {Dusart, J. and Lagacherie, P. and McBratney, A. B. and Voltz, M.},
@@ -1951,28 +1965,21 @@
   Author                   = {Eldridge, S.M.},
   Publisher                = {University of Canberra},
   Year                     = {1997},
+
   Address                  = {Canberra},
+
   Pages                    = {810}
 }
 
-@article{elith2009species,
-  title={Species distribution models: ecological explanation and prediction across space and time},
-  author={Elith, Jane and Leathwick, John R},
-  journal={Annual review of ecology, evolution, and systematics},
-  volume={40},
-  pages={677--697},
-  doi={10.1146/annurev.ecolsys.110308.120159},
-  year={2009}
-}
-
 @Article{Elith2011DD,
-  Title                    = {{A statistical explanation of MaxEnt for ecologists}},
+  Title                    = {A statistical explanation of MaxEnt for ecologists},
   Author                   = {Elith, Jane and Phillips, Steven J. and Hastie, Trevor and Dud?k, Miroslav and Chee, Yung En and Yates, Colin J.},
   Journal                  = {Diversity and Distributions},
   Year                     = {2011},
   Number                   = {1},
   Pages                    = {43--57},
   Volume                   = {17},
+
   Doi                      = {10.1111/j.1472-4642.2010.00725.x},
   ISSN                     = {1472-4642},
   Publisher                = {Blackwell Publishing Ltd}
@@ -1984,6 +1991,8 @@
   Publisher                = {Forstliche Bundesversuchsanstalt Wien},
   Year                     = {1998},
   Series                   = {FBVA-Berichte},
+
+  Url                      = {http://books.google.nl/books?id=hipIAAAAYAAJ}
 }
 
 @InCollection{Englund1993OUP,
@@ -1992,6 +2001,7 @@
   Booktitle                = {Environmental modeling with GIS},
   Publisher                = {Oxford University Press},
   Year                     = {1993},
+
   Address                  = {New York},
   Chapter                  = {43},
   Editor                   = {Goodchild, M. and Parks, B. and Steyaert, L.},
@@ -2968,6 +2978,17 @@
   Publisher                = {Springer}
 }
 
+@INCOLLECTION{eltit2008,
+  pages = {315--320},
+  title = {{Appendix A: Chronology of the U.S.\@ Soil Survey}},
+  publisher = {Iowa State Press},
+  year = {2008},
+  author = {Durana, Patricia J.},
+  booktitle = {Profiles in the History of the U.S.\@ Soil Survey},
+  doi = {10.1002/9780470376959.app1},
+  isbn = {9780470376959}
+}
+
 @Article{Hengl2014SoilGrids1km,
   Title                    = {{SoilGrids1km --- Global Soil Information Based on Automated Mapping}},
   Author                   = {Hengl, Tomislav AND Mendes {de Jesus}, Jorge AND MacMillan, Robert A. AND Batjes, Niels H. AND Heuvelink, Gerard B.M. AND Ribeiro, Eloi AND Samuel-Rosa, Alessandro AND Kempen, Bas AND Leenaars, Johan G.B. AND Walsh, Markus G. AND Ruiperez Gonzalez, Maria},
@@ -3226,7 +3247,7 @@
 }
 
 @Book{Hijmans2013dismo,
-  Title                    = {{Species distribution modeling with R}},
+  Title                    = {Species distribution modeling with R},
   Author                   = {Hijmans, Robert J. and Elith, Jane},
   Publisher                = {CRAN},
   Year                     = {2013},
@@ -4618,6 +4639,18 @@ DOI = {10.3390/rs8070613}
   Number                   = {1-2},
   Pages                    = {3-52},
   Volume                   = {117}
+}
+
+@Article{McBr01,
+  Title                    = {On digital soil mapping},
+  Author                   = {McBratney, A. B. and Mendon\c{c}a Santos, M. L. and Minasny, B.},
+  Journal                  = {Geoderma},
+  Year                     = {2003},
+  Number                   = {1},
+  Pages                    = {3-52},
+  Volume                   = {117},
+
+  Keywords                 = {Soil map Soil survey Digital map Classification tree DEM DTM GAM Generalised linear model Geophysics Geostatistics GIS Neural network Pedometrics Pedotransfer function Regression tree Remote sensing Soil spatial prediction function Wavelets}
 }
 
 @Article{McBratney2002Geoderma,
@@ -7244,6 +7277,15 @@ DOI = {10.3390/rs8070613}
   Doi                      = {10.1016/j.still.2012.05.009}
 }
 
+@Article{ViscarraRossel2007EJSS,
+  Title                    = {Multivariate calibration of hyperspectral $\gamma$--ray energy spectra for proximal soil sensing},
+  Author                   = {Viscarra Rossel, R.~A. and Taylor, H.J. and McBratney, A.~B.},
+  Journal                  = {European Journal of Soil Science},
+  Year                     = {2007},
+  Pages                    = {343-353},
+  Volume                   = {58}
+}
+
 @Article{ViscarraRossel2014GCB,
   Title                    = {{Baseline map of organic carbon in Australian soil to support national carbon accounting and monitoring under climate change}},
   Author                   = {Viscarra Rossel, Raphael A. and Webster, Richard and Bui, Elisabeth N. and Baldock, Jeff A.},
@@ -7542,6 +7584,16 @@ DOI = {10.3390/rs8070613}
   Number                   = {1},
   Pages                    = {1--17},
   Volume                   = {77}
+}
+
+@Article{Wright2016,
+  Title                    = {{ranger: A Fast Implementation of Random Forests for High Dimensional Data in C++ and R}},
+  Author                   = {{Wright}, M.~N. and {Ziegler}, A.},
+  Journal                  = {Journal of Statistical Software},
+  Year                     = {2016},
+  Pages                    = {18},
+
+  Issue                    = {in press}
 }
 
 @Article{Wright2015,
@@ -7938,17 +7990,8 @@ DOI = {10.3390/rs8070613}
   Publisher                = {Springer},
   Year                     = {2010},
   Series                   = {Progress in Soil Science},
+
   ISBN                     = {978-90-481-8859-8},
   Pages                    = {448}
 }
 
-@InCollection{Durana2008,
-  author    = {Durana, Patricia J.},
-  title     = {{Appendix A: Chronology of the U.S. Soil Survey}},
-  booktitle = {{Profiles in the History of the U.S. Soil Survey}},
-  publisher = {Iowa State Press},
-  year      = {2008},
-  pages     = {315--320},
-  isbn      = {9780470376959},
-  doi       = {10.1002/9780470376959.app1},
-}

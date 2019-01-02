@@ -29,7 +29,6 @@ library(xgboost)
 h2o::h2o.no_progress()
 ```
 
-
 Next, we load the ([Ebergotzen](http://plotkml.r-forge.r-project.org/eberg.html)) data set which consists of point data collected using a soil auger and a stack of rasters containing all covariates:
 
 ```{r}

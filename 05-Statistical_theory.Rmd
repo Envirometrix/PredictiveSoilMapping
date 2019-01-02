@@ -2466,7 +2466,7 @@ residuals still contain spatial dependence structure,
 * **Accuracy plots**: showing whether the model over- or under-estimates 
 either lower or higher values,
 
-### Mapping accuracy and soil survey costs
+### Mapping accuracy and soil survey costs {#mapping-accuracy-soil-survey-costs}
 
 Once the accuracy of some model have been assessed, the next measure of
 overall mapping success of interest is the soil information production
@@ -2515,7 +2515,7 @@ knitr::include_graphics("figures/Fig_scale_costs_ratio.png")
 Estimated standard soil survey costs per area differ from country to
 country. The USDA estimates that the total costs of soil mapping at
 their most detailed scale (1:20) are about 1.50 USD per acre i.e.
-about 4 USD per ha [@eltit2008]; in Canada, typical costs of producing
+about 4 USD per ha [@Durana2008]; in Canada, typical costs of producing
 soil maps at 1:20 are in the range 3–10 CAD per ha
 [@MacMillan2010DSM]; in the Netherlands 3.4 EUR per ha
 [@Kempen2011PhDthesis pp. 149–154]; in New Zealand 4 USD per ha

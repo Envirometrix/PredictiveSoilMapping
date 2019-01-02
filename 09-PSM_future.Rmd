@@ -1,53 +1,3 @@
-```{r include=FALSE, cache=FALSE}
-## Needed for Rscript
-library("methods")
-library("microbenchmark")
-## load data sets
-
-knitr::opts_chunk$set(
-  comment = "#>",
-  collapse = TRUE,
-  cache = TRUE, 
-  fig.pos = "H",
-  fig.align = "center",
-  #auto_pdf = FALSE,
-  fig.show = "hold",
-  out.width = "100%"
-)
-set.seed(2016)
-options(digits = 3)
-options(dplyr.print_min = 4, dplyr.print_max = 4)
-options(knitr.graphics.auto_pdf = TRUE)
-
-figs.lst = list.files("figures", pattern=glob2rx("*.pdf$"), full.names = TRUE)
-for(i in 1:length(figs.lst)){ if(!file.exists(gsub(".pdf", ".png", figs.lst[i]))) system(paste0("convert -density 200 ", figs.lst[i], " -quality 90 ", gsub(".pdf", ".png", figs.lst[i]))) }
-#for(i in 1:length(figs.lst)){ if(!file.exists(gsub(".pdf", ".png", figs.lst[i]))) system(paste0('inkscape \"', figs.lst[i], '\" -z --export-dpi=200 --export-area-drawing --export-png="', gsub(".pdf", ".png", figs.lst[i]), '"')) }
-```
-```{r include=FALSE, cache=FALSE}
-## Needed for Rscript
-library("methods")
-library("microbenchmark")
-## load data sets
-
-knitr::opts_chunk$set(
-  comment = "#>",
-  collapse = TRUE,
-  cache = TRUE, 
-  fig.pos = "H",
-  fig.align = "center",
-  #auto_pdf = FALSE,
-  fig.show = "hold",
-  out.width = "100%"
-)
-set.seed(2016)
-options(digits = 3)
-options(dplyr.print_min = 4, dplyr.print_max = 4)
-options(knitr.graphics.auto_pdf = TRUE)
-
-figs.lst = list.files("figures", pattern=glob2rx("*.pdf$"), full.names = TRUE)
-for(i in 1:length(figs.lst)){ if(!file.exists(gsub(".pdf", ".png", figs.lst[i]))) system(paste0("convert -density 200 ", figs.lst[i], " -quality 90 ", gsub(".pdf", ".png", figs.lst[i]))) }
-#for(i in 1:length(figs.lst)){ if(!file.exists(gsub(".pdf", ".png", figs.lst[i]))) system(paste0('inkscape \"', figs.lst[i], '\" -z --export-dpi=200 --export-area-drawing --export-png="', gsub(".pdf", ".png", figs.lst[i]), '"')) }
-```
 # The future of predictive soil mapping
 
 *Edited by: R. A. MacMillan and T. Hengl*
@@ -545,7 +495,7 @@ sample numbers can be generated to automatically assign unique and
 persistent identifiers to every site and to every soil sample collected
 in the field. This can reduce costs and errors associated with assigning
 different sample IDs at different stages in a sampling campaign (e.g.
-field, lab, data entry). Persistent and unique machie readable identifiers can help to
+field, lab, data entry). Persistent and unique machine readable identifiers can help to
 support continuous, real-time tracking of the progress of field
 descriptions and soil samples from initial collection in the field
 through laboratory analysis to final collation in a soil information
@@ -1253,7 +1203,7 @@ services or activities internally and individually. Sharing platforms
 for collecting, creating, hosting, publishing and disseminating spatial
 environmental data could be more cost effective than building and
 maintaining multiple separate platforms and functionalities
-individually. These reduced, or avoided, costs could justify
+individually (Fig. \@ref(fig:psm-design-users)). These reduced, or avoided, costs could justify
 contributing some funds to pay for, and sustain, the operations of the
 collective. Sustaining subscriptions are a more stable and reliable way
 to fund the ongoing development and maintenance of the collective’s
@@ -1337,9 +1287,14 @@ elements of the existing Global Soil Information Facilities (GSIF).
 (http://www.isric.org/content/soilgrids) and of the recently launched 
 OpenGeoHub Foundation's LandGIS (http://landgis.opengeohub.org).
 
+```{r soil-type-workflow, echo=FALSE, fig.cap="LandGIS as a system for generating new added-value information immediately and affordably using “old legacy data” i.e. without new investments. By importing, cleaning up and data mining of legacy soil data we promote technology and knowledge transfer from data-rich countries to data-poor countries.", out.width="95%"}
+knitr::include_graphics("figures/Fig_soil_type_workflow.svg.png")
+```
+
 We imagine harnessing the possibilities for collective and cooperative
 action offered by new and emerging methods for social networking and
-scientific cooperation. The concept aims to promote, incorporate and
+scientific cooperation (Fig. \@ref(fig:soil-type-workflow)). 
+The concept aims to promote, incorporate and
 make use of all relevant new scientific and technical advances in the
 assembly and processing of terrestrial spatial data. But the vision is
 not solely driven by technology push from new scientific and technical
@@ -1386,7 +1341,7 @@ institute. For example, for many years, soil survey activities in
 Canadian provinces, such as Alberta, were conducted officially under the
 auspices of Institutes of Pedology that formalized cooperation among
 federal and provincial government departments and university departments
-of soil science.. Others might be attracted to the idea of spinning off
+of soil science. Others might be attracted to the idea of spinning off
 a notionally independent private sector company within which other
 entities could collaborate to produce or distribute their data. Examples
 of private companies involved in distributing spatial data include
