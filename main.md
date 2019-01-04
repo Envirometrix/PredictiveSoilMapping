@@ -2,12 +2,12 @@
 ---
 title: "Predictive Soil Mapping with R"
 author: ["Tomislav Hengl and Robert A. MacMillan"]
-date: "2018-12-29"
+date: "2019-01-04"
 knit: bookdown::render_book
 site: bookdown::bookdown_site
 documentclass: svmono
 classoption: graybox,natbib,nospthms,UStrade
-geometry: "top=1.6cm, bottom=2cm, left=1.6cm, right=1.6cm"
+geometry: "top=1.6cm, bottom=2cm, left=1cm, right=1cm"
 monofont: "Source Code Pro"
 monofontoptions: "Scale=0.6"
 bibliography: refs.bib
@@ -34,15 +34,15 @@ This is the online version of the Open Access book: [**Predictive Soil Mapping w
 
 Hard copies of this book from will be made available in early 2019.
 
-**Cite as**:
+**Cite this as**:
 
-* Hengl, T., MacMillan, R.A., (2019). **Predictive Soil Mapping with R**. OpenGeoHub foundation, Wageningen, the Netherlands, 340 pages. ISBN: 978-0-359-30635-0.
+* Hengl, T., MacMillan, R.A., (2019). **Predictive Soil Mapping with R**. OpenGeoHub foundation, Wageningen, the Netherlands, 420 pages. ISBN: 978-0-359-30635-0.
 
 ## Editors {-}
 
 [**Tom Hengl**](https://opengeohub.org/people/tom-hengl) is a Senior Researcher and Vice Chair of the OpenGeoHub Foundation / technical director at Envirometrix Ltd. 
-He has more than 20 years of experience as an environmental modeler, data scientist and spatial analyst. 
-Tom is a passionate advocate for, and supporter of, open data, reproducible science and career development 
+Tom has more than 20 years of experience as an environmental modeler, data scientist and spatial analyst. 
+He is a passionate advocate for, and supporter of, open data, reproducible science and career development 
 for young scientists. He designed and implemented the global [SoilGrids](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0169748) data set, 
 partially in response to other well known open data projects such as OpenStreetMap, GBIF, GlobalForestWatch 
 and global climate mapping projects. He has taught predictive soil mapping at Wageningen University / 
@@ -55,7 +55,7 @@ found at http://youtube.com/c/ISRICorg. Tom currently leads production of a web 
 
 Predictive Soil Mapping (PSM) is based on applying statistical and/or machine learning techniques to fit models for the purpose of producing spatial and/or spatiotemporal predictions of soil variables i.e. maps of soil properties and classes at different resolutions. It is a multidisciplinary field combining statistics, data science, soil science, physical geography, remote sensing, geoinformation science and a number of other sciences [@Scul01; @MCBRATNEY20033; @Henderson2004Geoderma; @Boettinger2010Springer; @Zhu2015PSM]. *Predictive Soil Mapping with R* is about understanding the main concepts behind soil mapping, mastering R packages that can be used to produce high quality soil maps, and about optimizing all processes involved so that production costs can also be reduced.
 
-The main differences between predictive vs traditional expert-based soil mapping are that: (a) the production of maps  
+The main differences between predictive vs traditional expert-based soil mapping are that: (a) the production of maps 
 is based on using state-of-the-art statistical methods to ensure objectivity of maps (including objective uncertainty assessment vs expert judgment), and (b) PSM is driven by automation of the processes so that overall soil data production costs can be reduced and updates of maps implemented without requirements for large investments. R, in that sense, is a logical platform to develop PSM workflows and applications, especially thanks to the vibrant and productive R spatial interest group activities and also thanks to the increasingly professional soil data packages such as, for example: the soiltexture, aqp, soilprofile, soilDB and similar.
 
 The book is divided into sections covering theoretical concepts, preparation of covariates, model selection and evaluation, prediction and visualization and distribution of final maps. Most of the chapters contain R code examples that try to illustrate the main processing steps and give practical instructions to developers and applied users.
@@ -102,17 +102,19 @@ ISBN: 9783319634395, 720 pages.
 
 Readers are also encouraged to obtain and study the following R books before following some of the more complex exercises in this book:
 
-* Bivand, R., Pebesma, E., Rubio, V., (2013) [Applied Spatial Data Analysis with R](http://www.asdar-book.org). Use R Series, Springer, Heidelberg, 2nd Ed. 400 pages.
+* Bivand, R., Pebesma, E., Rubio, V., (2013) [**Applied Spatial Data Analysis with R**](http://www.asdar-book.org). Use R Series, Springer, Heidelberg, 2nd Ed. 400 pages.
 
-* Irizarry, R.A., (2018) [Introduction to Data Science: Data Analysis and Prediction Algorithms with R](https://rafalab.github.io/dsbook/). HarvardX Data Science Series.
+* Irizarry, R.A., (2018) [**Introduction to Data Science: Data Analysis and Prediction Algorithms with R**](https://rafalab.github.io/dsbook/). HarvardX Data Science Series.
 
-* Kabacoff, R.I., (2011) [R in Action: Data Analysis and Graphics with R](http://www.manning.com/kabacoff/). Manning publications, ISBN: 9781935182399, 472 pages.
+* Kabacoff, R.I., (2011) [**R in Action: Data Analysis and Graphics with R**](http://www.manning.com/kabacoff/). Manning publications, ISBN: 9781935182399, 472 pages.
 
-* Kuhn, M., Johnson, K. (2013) [Applied Predictive Modeling](http://appliedpredictivemodeling.com). Springer Science, ISBN: 9781461468493, 600 pages.
+* Kuhn, M., Johnson, K. (2013) [**Applied Predictive Modeling**](http://appliedpredictivemodeling.com). Springer Science, ISBN: 9781461468493, 600 pages.
 
-* Lovelace, R., Nowosad, J., Muenchow, J., (2018) [Geocomputation with R](https://geocompr.robinlovelace.net). R Series, CRC Press, ISBN: 9781138304512, 338 pages.
+* Lovelace, R., Nowosad, J., Muenchow, J., (2018) [**Geocomputation with R**](https://geocompr.robinlovelace.net). R Series, CRC Press, ISBN: 9781138304512, 338 pages.
 
-* Reimann, C., Filzmoser, P., Garrett, R., Dutter, R., (2008) [Statistical Data Analysis Explained Applied Environmental Statistics with R](https://onlinelibrary.wiley.com/doi/book/10.1002/9780470987605). Wiley, Chichester, 337 pages.
+* Reimann, C., Filzmoser, P., Garrett, R., Dutter, R., (2008) [**Statistical Data Analysis Explained Applied Environmental Statistics with R**](https://onlinelibrary.wiley.com/doi/book/10.1002/9780470987605). Wiley, Chichester, 337 pages.
+
+* Wilke, C.O., (2019) [**Fundamentals of Data Visualization**](https://serialmentor.com/dataviz/). O’Reilly, in press. 
 
 For the most recent developments in the R-spatial community refer to https://r-spatial.github.io, the R-sig-geo mailing list and/or https://opengeohub.org.
 
@@ -177,7 +179,7 @@ and others. We are also grateful to USA’s NASA, USGS and USDA agencies,
 European Space Agency Copernicus projects, JAXA (Japan Aerospace Exploration Agency)
 for distributing vast amounts of remote sensing data (especially MODIS, Landsat, Copernicus
 land products and elevation data), and to the Open Source software developers
-of the packages rgdal, sp, raster, caret, mlr, ranger, h2o and similar, 
+of the packages rgdal, sp, raster, caret, mlr, ranger, SuperLearner, h2o and similar, 
 and without which predictive soil mapping would most likely not be possible.
 
 This book has been inspired by [the Geocomputation with R book](https://geocompr.robinlovelace.net), an Open Access book edited by Robin Lovelace, Jakub Nowosad and Jannes Muenchow. Many thanks to Robin Lovelace for helping with rmarkdown and for giving some initial tips for compiling and organizing this book. The authors are also grateful to the numerous software/package developers, especially Edzer Pebesma, Roger Bivand, Robert Hijmans, Markus Neteler, Tim Appelhans, and Hadley Wickham, whose contributions have enabled a generation of researchers and applied projects. 
@@ -762,10 +764,9 @@ describable and usually (but not always) more limited than between polygons. Bec
 soil mapping projects have limited resources and time, soil surveyors
 can not typically afford to survey areas in great detail (e.g. 1:5000)
 so as to map actual *polypedons*. As a compromise, the survey team
-generally has to choose some best achievable target scale (e.g.
-1:10,000 - 1:50,000). Maps produced at some initial scale can be further
-generalized, depending on the application and user demands
-[@Wysocki2005Geoderma].
+generally has to choose some best achievable target scale (e.g. 1:10,000 – 1:50,000). 
+Maps produced at some initial scale can be further generalized, depending 
+on the application and user demands [@Wysocki2005Geoderma].
 
 <div class="figure" style="text-align: center">
 <img src="figures/Fig_SMU_aggregation.png" alt="Three basic conceptual scales in soil mapping: (left) most detailed scale showing the actual distribution of soil bodies, (center) target scale i.e. scale achievable by the soil survey budget, (right) generalized intermediate scale or coarse resolution maps. In a conventional soil survey, soils are described and conceptualized as groups of similar pedons (smallest elements of 1–10 square-m), called “polypedons” — the smallest mappable entity. These can then be further generalized to soil map units, which can be various combinations (systematic or random) of dominant and contrasting soils (inclusions)." width="85%" />
@@ -1481,11 +1482,10 @@ interest for pedometric soil mapping:
 
 6.  *Expert-based covariates* — soil delineations or delineations of
     soil parent material or geology (manually or semi-automatically
-    prepared); empirical maps of soil processes and features (e.g.
-    catena sequences etc).
+    prepared); empirical maps of soil processes and features (e.g. catena sequences etc).
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_DEM_evolution.png" alt="Evolution of global DEM data sources: (right) SRTM DEM released in 2002, as compared to (left) WorldDEM released in 2014 (Baade et al., 2014). Sample data set for city of Quorn in South Australia. As with many digital technologies, the level of detail and accuracy of GIS and remote sensing data is exhibiting exponential growth." width="80%" />
+<img src="figures/Fig_DEM_evolution.png" alt="Evolution of global DEM data sources: (right) SRTM DEM released in 2002, as compared to (left) WorldDEM released in 2014 (Baade et al., 2014). Sample data set for city of Quorn in South Australia. As with many digital technologies, the level of detail and accuracy of GIS and remote sensing data is exhibiting exponential growth." width="90%" />
 <p class="caption">(\#fig:dem-evolution)Evolution of global DEM data sources: (right) SRTM DEM released in 2002, as compared to (left) WorldDEM released in 2014 (Baade et al., 2014). Sample data set for city of Quorn in South Australia. As with many digital technologies, the level of detail and accuracy of GIS and remote sensing data is exhibiting exponential growth.</p>
 </div>
 
@@ -1691,6 +1691,12 @@ maps of different scale, content, design and vintage covering portions
 of areas of interest with large gaps of unmapped areas between mapped
 areas.
 
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Conventional soil polygon maps (manually-drawn
+delineations) are often one of the best sources of information on local
+variation in soil polypedons. On the other hand, conventional soil
+polygon maps often suffer from incompleteness, inconsistency and low
+accuracy of thematic content, as well as from suspect positional accuracy.</div>\EndKnitrBlock{rmdnote}
+
 Only a very few countries or regions (e.g. USA, UK, Japan, western
 European countries, Jamaica, Gambia etc) have achieved anywhere near
 complete national coverage at scales more detailed than 1:50,000
@@ -1700,12 +1706,6 @@ interpolation and extrapolation of scattered and incomplete maps that
 provide only partial coverage for these mapped areas. Even where
 coverage is complete, or nearly complete, consistency is often a
 significant issue.
-
-\BeginKnitrBlock{rmdnote}<div class="rmdnote">Conventional soil polygon maps (manually-drawn
-delineations) are often one of the best sources of information on local
-variation in soil polypedons. On the other hand, conventional soil
-polygon maps often suffer from incompleteness, inconsistency and low
-accuracy of thematic content, as well as from suspect positional accuracy.</div>\EndKnitrBlock{rmdnote}
 
 Mapping concepts change across time and vary among different mappers and
 agencies. Consequently, the normal situation is that no two maps are
@@ -1969,6 +1969,9 @@ When inserting pseudo-observations one should try to follow some basic rules
     use the most detailed soil polygon maps and focus on polygons with
     the very highest thematic purity.
 
+Pseudo-observations are not an optimal solution to gaps in representation
+of landscape features, but are often necessary is one plans to apply complex
+non-linear models for PSM purposes.
 
 ## Soil databases and soil information systems {#soil-databases}
 
@@ -2419,7 +2422,7 @@ significant portion of uncertainty. A map can never be 100% valid
 [@Oreskes04021994].
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_Lagacherie1992.png" alt="Reduction of prediction error as a function of sampling intensity (for three control areas). Based on Lagacherie (1992)." width="70%" angle=0 />
+<img src="figures/Fig_Lagacherie1992.png" alt="Reduction of prediction error as a function of sampling intensity (for three control areas). Based on Lagacherie (1992)." width="80%" angle=0 />
 <p class="caption">(\#fig:lagacherie1992)Reduction of prediction error as a function of sampling intensity (for three control areas). Based on Lagacherie (1992).</p>
 </div>
 
@@ -2436,8 +2439,8 @@ short-range variability, which is unmappable at a feasible resolution resolution
 not be able to model even with the most sophisticated methods.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_sigma_RMSE_relationship.png" alt="Relationship between the numeric resolution (visualized using a histogram plot on the left) and amount of variation explained by the model for soil pH." width="90%" />
-<p class="caption">(\#fig:sigma-rmse-relationship)Relationship between the numeric resolution (visualized using a histogram plot on the left) and amount of variation explained by the model for soil pH.</p>
+<img src="figures/Fig_sigma_RMSE_relationship.png" alt="Relationship between the numeric resolution (visualized using a histogram plot on the left), and amount of variation explained by the model and standard deviation of the prediction error. Variable used in this example: soil pH." width="90%" />
+<p class="caption">(\#fig:sigma-rmse-relationship)Relationship between the numeric resolution (visualized using a histogram plot on the left), and amount of variation explained by the model and standard deviation of the prediction error. Variable used in this example: soil pH.</p>
 </div>
 
 As a rule of thumb, the amount of variation explained by a model, when
@@ -2531,7 +2534,7 @@ Software (required):
 
 *  Google Earth or Google Earth Pro; 
 
-*  [GDAL v2.x](https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries) for Windows machines use e.g. ["gdal-*-1800-x64-core.msi"](http://download.gisinternals.com/sdk/downloads/release-1800-x64-gdal-2-1-3-mapserver-7-0-4/gdal-201-1800-x64-core.msi);
+*  [GDAL v2.x](https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries) for Windows machines use e.g. ["gdal-*-1800-x64-core.msi"](http://download.gisinternals.com/sdk/downloads/);
 
 R script used in this tutorial can be downloaded from the **[github](https://github.com/envirometrix/PredictiveSoilMapping)**. As a gentle introduction to the R programming language and to soil classes in R we recommend the chapter on importing and using soil data. Some more examples of SAGA GIS + R usage can be found in the soil covariates chapter. To visualize spatial predictions in a web-browser or Google Earth you could also consider following the soil web-maps tutorial. As a gentle introduction to the R programming language and spatial classes in R we recommend following [the Geocomputation with R book](https://geocompr.robinlovelace.net/). Obtaining also the [R reference card](https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf) is highly recommended.
 
@@ -2604,11 +2607,13 @@ sudo rm rstudio-1.1.447-amd64.deb
 ```
 
 Again, RStudio is constantly updated so you might have to obtain the most recent rstudio version and distribution.
-To learn more about doing first steps in R and RStudio and to learn to improve your scripting skills more efficiently, consider studying the following two Open Access books:
+To learn more about doing first steps in R and RStudio and to learn to improve your scripting skills more efficiently, consider studying the following tutorials:
 
-* Grolemund, G., (2014) [Hands-On Programming with R](https://rstudio-education.github.io/hopr/). O’Reilly, ISBN: 9781449359010, 236 pages.
+* Grolemund, G., (2014) [**Hands-On Programming with R**](https://rstudio-education.github.io/hopr/). O’Reilly, ISBN: 9781449359010, 236 pages.
 
-* Gillespie, C., Lovelace, R., (2016) [Efficient R programming](https://csgillespie.github.io/efficientR/). O’Reilly, ISBN: 9781491950753, 222 pages.
+* Gillespie, C., Lovelace, R., (2016) [**Efficient R programming**](https://csgillespie.github.io/efficientR/). O’Reilly, ISBN: 9781491950753, 222 pages.
+
+* Wilke, C.O., (2019) [**Fundamentals of Data Visualization**](https://serialmentor.com/dataviz/). O’Reilly, in press.
 
 ## Installing GIS software
 
@@ -2913,11 +2918,11 @@ plot(raster("./extdata/DEMSRT6_ll.tif"))
 <p class="caption">(\#fig:plot-eberg-ll)Ebergotzen DEM reprojected in geographical coordinates.</p>
 </div>
 
-The following two books are highly recommended for improving programming skills in R and specially for the purpose of geographical computing:
+The following books are highly recommended for improving programming skills in R and specially for the purpose of geographical computing:
 
-* Bivand, R., Pebesma, E., Rubio, V., (2013) [Applied Spatial Data Analysis with R](http://www.asdar-book.org/). Use R Series, Springer, Heidelberg, 2nd Ed. 400 pages.
+* Bivand, R., Pebesma, E., Rubio, V., (2013) [**Applied Spatial Data Analysis with R**](http://www.asdar-book.org/). Use R Series, Springer, Heidelberg, 2nd Ed. 400 pages.
 
-* Lovelace, R., Nowosad, J., Muenchow, J., (2018) [Geocomputation with R](https://geocompr.robinlovelace.net/). R Series, CRC Press, ISBN: 9781138304512, 338 pages.
+* Lovelace, R., Nowosad, J., Muenchow, J., (2018) [**Geocomputation with R**](https://geocompr.robinlovelace.net/). R Series, CRC Press, ISBN: 9781138304512, 338 pages.
 
 <!--chapter:end:02-Software.Rmd-->
 
@@ -5412,7 +5417,7 @@ data easier and more consistent.
 ### Types of soil covariates
 
 Soils (and vegetation + ecosystems) form under complex interactions between climate, living organism and anthropogenic influences, modified by relief and hydrological processes and operating over long periods of time. 
-This has been clearly identified first by @jenny1994factors with his CLORPT factors of soil formation and subsequently extended by @MCBRATNEY20033 with the SCORPAN formulation (see [Introduction chapter](#soil-mapping-theory)).
+This has been clearly identified first by @jenny1994factors with his CLORPT factors of soil formation and subsequently extended by @MCBRATNEY20033 with the SCORPAN formulation (see section \@ref(soil-mapping-theory)).
 
 In general, the following covariates are commonly considered for use in Predictive Soil Mapping:
 
@@ -5489,6 +5494,16 @@ The most relevant (global) publicly available remote sensing-based covariates th
 *  [JAXA's ALOS](http://www.eorc.jaxa.jp/ALOS/en/dataset/dataset_index.htm) (PALSAR/PALSAR-2) radar images at 20 m resolution [@shimada2014new]; radar images, bands HH: -27.7 (5.3) dB and HV: -35.8 (3.0) dB, from the JAXA's ALOS project are especially interesting for mapping rock outcrops and exposed bedrock but are also used to distinguish between bare soil and dense vegetation;
 
 Note that the download time for 30 m global RS data can be significant if the data are needed for a larger area (hence you might consider using some RS data processing hub such as [Sentinel hub](http://www.sentinel-hub.com), [Google Earth Engine](https://earthengine.google.com) and/or [Amazon Web Services](https://aws.amazon.com/public-datasets/) instead of trying to download large mosaics yourself). 
+
+Most recently soil mappers can also use more advanced (commercial) remote sensing products often available at finer spatial resolution which include:
+
+*  WorldDEM (https://worlddem-database.terrasar.com) at 12 m resolution multiband elevation products,
+
+*  German hyperspectral satellite mission EnMAP (http://www.enmap.org) products, which have shown to be useful for mapping soil nutrients and minerals [@rs8070613],
+
+*  Sentinel-1 soil moisture products, currently limited to 1 km to 500 m resolutions but available at fast revisit times [@Bauer-Marschallinger2019],
+
+Hyperspectral imaging systems, similar to field-based soil spectroscopy, and the upcoming missions such as SHALOM (Italy and Israel), HypXIM (France) and HypsIRI (USA) will most likely revolutionaize use of remote sensing for soil mapping.
 
 ### Soil covariate data sources (250 m resolution or coarser) {#soil-covs-250m}
 
@@ -7480,7 +7495,7 @@ om.rk <- predict(omm, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 43% done
+ 47% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -7554,7 +7569,7 @@ om.rk2 <- predict(omm2, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 33% done
+ 20% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -7813,7 +7828,6 @@ om.rksim.p <- predict(omm, meuse.grid, nsim=20, block=c(0,0))
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
 #> 
-  5% done
 100% done
 #> Creating an object of class "RasterBrickSimulations"
 #> Loading required package: raster
@@ -7838,7 +7852,6 @@ om.rk.b <- predict(omm, meuse.grid, block=c(40,40), nfold=0)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 39% done
 100% done
 #> Creating an object of class "SpatialPredictions"
 om.rksim.b <- predict(omm, meuse.grid, nsim=2, block=c(40,40), debug.level=0)
@@ -8056,7 +8069,6 @@ om.rksim.p <- predict(omm, meuse.grid, block=c(0,0), nsim=20)
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
 #> 
- 38% done
 100% done
 #> Creating an object of class "RasterBrickSimulations"
 log1p(meuse@data[1,"om"])
@@ -8105,13 +8117,13 @@ library(intamap)
 demo(meuse, echo=FALSE)
 meuse$value = meuse$zinc
 output <- interpolate(meuse, meuse.grid, list(mean=TRUE, variance=TRUE))
-#> R 2018-12-29 12:11:47 interpolating 155 observations, 3103 prediction locations
+#> R 2019-01-04 14:00:07 interpolating 155 observations, 3103 prediction locations
 #> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : 
 #>  using standard model for estimating time. For better 
 #>  platform spesific predictions, please run 
 #>  timeModels <- generateTimeModels()
 #>   and save the workspace
-#> [1] "estimated time for  copula 160.625842556675"
+#> [1] "estimated time for  copula 163.094298727464"
 #> Checking object ... OK
 ```
 
@@ -8125,7 +8137,7 @@ str(output, max.level = 2)
 #> List of 16
 #>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
 #>  $ formulaString      :Class 'formula'  language value ~ 1
-#>   .. ..- attr(*, ".Environment")=<environment: 0x1492cea8> 
+#>   .. ..- attr(*, ".Environment")=<environment: 0x13621610> 
 #>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
 #>  $ params             :List of 18
 #>   ..$ doAnisotropy     : logi TRUE
@@ -8813,7 +8825,7 @@ om.rk <- predict(omm, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 18% done
+ 80% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -9053,7 +9065,7 @@ residuals still contain spatial dependence structure,
 * **Accuracy plots**: showing whether the model over- or under-estimates 
 either lower or higher values,
 
-### Mapping accuracy and soil survey costs
+### Mapping accuracy and soil survey costs {#mapping-accuracy-soil-survey-costs}
 
 Once the accuracy of some model have been assessed, the next measure of
 overall mapping success of interest is the soil information production
@@ -9103,7 +9115,7 @@ needed for the work of synthesis and editing.
 Estimated standard soil survey costs per area differ from country to
 country. The USDA estimates that the total costs of soil mapping at
 their most detailed scale (1:20) are about 1.50 USD per acre i.e.
-about 4 USD per ha [@eltit2008]; in Canada, typical costs of producing
+about 4 USD per ha [@Durana2008]; in Canada, typical costs of producing
 soil maps at 1:20 are in the range 3–10 CAD per ha
 [@MacMillan2010DSM]; in the Netherlands 3.4 EUR per ha
 [@Kempen2011PhDthesis pp. 149–154]; in New Zealand 4 USD per ha
@@ -9326,7 +9338,6 @@ library(xgboost)
 
 
 
-
 Next, we load the ([Ebergotzen](http://plotkml.r-forge.r-project.org/eberg.html)) data set which consists of point data collected using a soil auger and a stack of rasters containing all covariates:
 
 
@@ -9515,11 +9526,11 @@ localH2O = h2o.init(startH2O=TRUE)
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         23 minutes 11 seconds 
+#>     H2O cluster uptime:         23 minutes 49 seconds 
 #>     H2O cluster timezone:       UTC 
 #>     H2O data parsing timezone:  UTC 
 #>     H2O cluster version:        3.20.0.8 
-#>     H2O cluster version age:    3 months and 7 days  
+#>     H2O cluster version age:    3 months and 13 days !!! 
 #>     H2O cluster name:           H2O_started_from_R_travis_lqb476 
 #>     H2O cluster total nodes:    1 
 #>     H2O cluster total memory:   1.47 GB 
@@ -9532,6 +9543,9 @@ localH2O = h2o.init(startH2O=TRUE)
 #>     H2O Internal Security:      FALSE 
 #>     H2O API Extensions:         XGBoost, Algos, AutoML, Core V3, Core V4 
 #>     R Version:                  R version 3.5.1 (2018-12-12)
+#> Warning in h2o.clusterInfo(): 
+#> Your H2O cluster version is too old (3 months and 13 days)!
+#> Please download and install the latest version from http://h2o.ai/download/
 ```
 
 This shows that multiple cores will be used for computing (to control the number of cores you can use the `nthreads` argument). Next, we need to prepare the regression matrix and prediction locations using the `as.h2o` function so that they are visible to h2o:
@@ -9554,12 +9568,12 @@ RF.m
 #> ==============
 #> 
 #> H2ORegressionModel: drf
-#> Model ID:  DRF_model_R_1546084173663_21 
+#> Model ID:  DRF_model_R_1546609035994_21 
 #> Model Summary: 
 #>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#> 1              50                       50              644364        20
+#> 1              50                       50              641988        20
 #>   max_depth mean_depth min_leaves max_leaves mean_leaves
-#> 1        20   20.00000        918       1069  1022.20000
+#> 1        20   20.00000        945       1085  1018.36000
 #> 
 #> 
 #> H2ORegressionMetrics: drf
@@ -9568,8 +9582,8 @@ RF.m
 #> 
 #> MSE:  220
 #> RMSE:  14.8
-#> MAE:  9.98
-#> RMSLE:  0.427
+#> MAE:  10.1
+#> RMSLE:  0.431
 #> Mean Residual Deviance :  220
 ```
 
@@ -9617,29 +9631,29 @@ DL.m
 #> ==============
 #> 
 #> H2ORegressionModel: deeplearning
-#> Model ID:  DeepLearning_model_R_1546084173663_22 
+#> Model ID:  DeepLearning_model_R_1546609035994_22 
 #> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1
 #>   layer units      type dropout       l1       l2 mean_rate rate_rms
 #> 1     1    10     Input  0.00 %       NA       NA        NA       NA
-#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.014413 0.008508
-#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.151636 0.199107
-#> 4     4     1    Linear      NA 0.000000 0.000000  0.001416 0.001447
+#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.015265 0.008719
+#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.145515 0.186243
+#> 4     4     1    Linear      NA 0.000000 0.000000  0.001337 0.000922
 #>   momentum mean_weight weight_rms mean_bias bias_rms
 #> 1       NA          NA         NA        NA       NA
-#> 2 0.000000   -0.001768   0.102350  0.352504 0.064680
-#> 3 0.000000   -0.018064   0.071107  0.953405 0.018540
-#> 4 0.000000   -0.000808   0.045736  0.109982 0.000000
+#> 2 0.000000    0.003031   0.100971  0.347875 0.067394
+#> 3 0.000000   -0.018834   0.071536  0.949617 0.021751
+#> 4 0.000000   -0.000046   0.046585  0.105410 0.000000
 #> 
 #> 
 #> H2ORegressionMetrics: deeplearning
 #> ** Reported on training data. **
 #> ** Metrics reported on full training frame **
 #> 
-#> MSE:  271
-#> RMSE:  16.5
-#> MAE:  12.6
-#> RMSLE:  0.51
-#> Mean Residual Deviance :  271
+#> MSE:  276
+#> RMSE:  16.6
+#> MAE:  12.7
+#> RMSLE:  0.513
+#> Mean Residual Deviance :  276
 ```
 
 Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. \@ref(fig:map-snd) and Fig. \@ref(fig:map-snd-dl)).
@@ -9876,16 +9890,16 @@ str(test.ORC)
 #> List of 2
 #>  $ CV_residuals:'data.frame':	4972 obs. of  4 variables:
 #>   ..$ Observed : num [1:4972] 6.5 5.1 4.9 3.3 2.2 ...
-#>   ..$ Predicted: num [1:4972] 11.5 7.37 6.45 5.01 3.06 ...
+#>   ..$ Predicted: num [1:4972] 12.76 8.04 6.75 4.6 3.3 ...
 #>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" ...
 #>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ Summary     :'data.frame':	1 obs. of  6 variables:
-#>   ..$ ME          : num -0.139
-#>   ..$ MAE         : num 2.19
-#>   ..$ RMSE        : num 3.68
-#>   ..$ R.squared   : num 0.558
-#>   ..$ logRMSE     : num 0.499
-#>   ..$ logR.squared: num 0.629
+#>   ..$ ME          : num -0.122
+#>   ..$ MAE         : num 2.17
+#>   ..$ RMSE        : num 3.66
+#>   ..$ R.squared   : num 0.563
+#>   ..$ logRMSE     : num 0.492
+#>   ..$ logR.squared: num 0.637
 ```
 
 Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about $\pm 4$ g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:
@@ -9947,7 +9961,7 @@ perf
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 12.4081527914065
+#> Ensemble performance (MSE): 12.4852183307138
 ```
 
 which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.
@@ -10047,16 +10061,16 @@ perf3
 #> Base learner performance, sorted by specified metric:
 #>                    learner    MSE
 #> 1          h2o.glm.wrapper 0.2827
-#> 4 h2o.deeplearning.wrapper 0.1312
+#> 4 h2o.deeplearning.wrapper 0.1426
 #> 3          h2o.gbm.wrapper 0.0971
-#> 2 h2o.randomForest.wrapper 0.0823
+#> 2 h2o.randomForest.wrapper 0.0786
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 0.0773180265777673
+#> Ensemble performance (MSE): 0.0760561313759633
 ```
 
 In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.
@@ -10140,10 +10154,10 @@ sl
 #> 
 #>                  Risk   Coef
 #> SL.mean_All    0.7540 0.0000
-#> SL.xgboost_All 0.0598 0.8171
-#> SL.ksvm_All    0.1290 0.0108
+#> SL.xgboost_All 0.0598 0.8193
+#> SL.ksvm_All    0.1278 0.0187
 #> SL.glmnet_All  0.3072 0.0000
-#> SL.ranger_All  0.0855 0.1722
+#> SL.ranger_All  0.0857 0.1620
 ```
 
 This shows that `SL.xgboost_All` outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by `SL.xgboost_All` is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:
@@ -10163,9 +10177,9 @@ sl2
 #> 
 #> 
 #>                  Risk  Coef
-#> SL.xgboost_All 0.0603 0.812
-#> SL.ranger_All  0.0828 0.188
-#> SL.ksvm_All    0.1302 0.000
+#> SL.xgboost_All 0.0603 0.809
+#> SL.ranger_All  0.0827 0.191
+#> SL.ksvm_All    0.1300 0.000
 ```
 
 again `SL.xgboost` dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where entire profiles are taken out of the training dataset:
@@ -10193,9 +10207,9 @@ summary(cv_sl)
 #> 
 #>       Algorithm  Ave    se   Min  Max
 #>   Super Learner 0.16 0.014 0.094 0.26
-#>     Discrete SL 0.17 0.015 0.114 0.25
+#>     Discrete SL 0.17 0.014 0.114 0.25
 #>  SL.xgboost_All 0.19 0.016 0.135 0.27
-#>   SL.ranger_All 0.16 0.015 0.100 0.25
+#>   SL.ranger_All 0.16 0.014 0.103 0.25
 #>     SL.ksvm_All 0.18 0.015 0.109 0.30
 ```
 
@@ -10221,8 +10235,8 @@ sl2
 #> 
 #>                 Risk  Coef
 #> SL.xgboost_All 0.215 0.000
-#> SL.ranger_All  0.164 0.485
-#> SL.ksvm_All    0.163 0.515
+#> SL.ranger_All  0.167 0.456
+#> SL.ksvm_All    0.163 0.544
 new.data <- grid10m@data
 pred.PHI <- list(NULL)
 depths = c(10,30,50,70,90)
@@ -10244,7 +10258,7 @@ for(j in 1:length(depths)){
 #>     buffer, rotated
 str(pred.PHI[[1]])
 #> List of 2
-#>  $ pred           : num [1:3865, 1] 4.68 4.77 4.89 4.87 4.8 ...
+#>  $ pred           : num [1:3865, 1] 4.65 4.73 4.88 4.85 4.77 ...
 #>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...
 #>   ..- attr(*, "dimnames")=List of 2
 #>   .. ..$ : NULL
@@ -11296,7 +11310,7 @@ fm.BLD = as.formula(
   paste("BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +", 
         paste(names(ind.tax), collapse="+")))
 m.BLD_PTF <- ranger(fm.BLD, dfs_tbl, num.trees = 85, importance='impurity')
-#> Growing trees.. Progress: 95%. Estimated remaining time: 1 seconds.
+#> Growing trees.. Progress: 87%. Estimated remaining time: 4 seconds.
 m.BLD_PTF
 #> Ranger result
 #> 
@@ -12059,7 +12073,7 @@ that may not find effective use.
 
 ### PSM main steps
 
-Based on previously presented theory, we can summarize the usual PSM processes as (Fig. \@ref(fig:psm-decision-tree)):
+Based on previously presented theory, we can summarize the usual PSM processes as:
 
 1.  Preparation of point data (training data).
 
@@ -12074,6 +12088,9 @@ Based on previously presented theory, we can summarize the usual PSM processes a
     databases and/or web services).
 
 6.  Updates and improvements (support).
+
+An even more comprehensive list of steps in PSM projects is given in Fig. \@ref(fig:psm-decision-tree),
+which also includes market/user-domain researcher and might be also used for soil monitoring projects. 
 
 <div class="figure" style="text-align: center">
 <img src="figures/Fig_decisiontree_PSM_project.png" alt="General decision tree in a Predictive Soil Mapping project." width="95%" />
@@ -12833,7 +12850,7 @@ monthly/yearly costs need to be added to these numbers to account also
 for any web hosting, support or update costs.
 
 Compare these costs with the following standard estimated costs to
-deliver completed conventional manual soil survey products:
+deliver completed conventional manual soil survey products (see also section \@ref(mapping-accuracy-soil-survey-costs)):
 
   - USDA estimate of the total soil survey costs: 4 US\$ per ha for
     1:20,000 scale maps [@Durana2008] to map USA48 area = 3.2 billion
@@ -12863,8 +12880,9 @@ carefully as production costs are sensitive to specifications, (e.g. 3
 times finer pixel size can increase production costs up to 10 times, or
 setting targets such as 30% lower RMSE can increase costs as either more
 points or more covariates, or both, need to be included. General forms
-at the end of the chapter provide a detailed list of target soil
-variables and covariate layers typically used in PSM projects to date.
+at the end of the chapter provide an example of detailed list of technical 
+specifications in relation to target variables and covariate layers 
+typically used in PSM projects to date.
 
 <!--chapter:end:08-PSM_practical_tips.Rmd-->
 
@@ -13366,7 +13384,7 @@ sample numbers can be generated to automatically assign unique and
 persistent identifiers to every site and to every soil sample collected
 in the field. This can reduce costs and errors associated with assigning
 different sample IDs at different stages in a sampling campaign (e.g.
-field, lab, data entry). Persistent and unique machie readable identifiers can help to
+field, lab, data entry). Persistent and unique machine readable identifiers can help to
 support continuous, real-time tracking of the progress of field
 descriptions and soil samples from initial collection in the field
 through laboratory analysis to final collation in a soil information
@@ -13403,13 +13421,13 @@ participation in collecting new field data.
 Recent developments in the use of new, rapid and accurate pharmaceutical
 grade analytical devices have reduced the costs of typical laboratory
 analyses dramatically, while, at the same time, significantly improving
-on reproducibility and accuracy [@shepherd2007infrared]. A modern soil laboratory now entails
+on reproducibility and accuracy [@ShepherdWalsh2007JNIS]. A modern soil laboratory now entails
 making use of mid and near infrared spectrophotometers, X-ray
 diffraction and X-Ray diffusion and laser based particle size analysis.
 Using these new instruments, it has been demonstrated that total costs
 for running a complete set of common soil analyses on a full soil
 profile can be reduced from a current cost of US\$ 2,000 to as little as
-US\$ 2-10 per profile [@shepherd2007infrared].
+US\$ 2–10 per profile [@ShepherdWalsh2007JNIS].
 This reduction in cost, along with the associated improvement in
 reproducibility is a game changer. It makes it, once again, feasible and
 affordable to consider taking new field soil samples and analyzing them
@@ -14075,7 +14093,7 @@ services or activities internally and individually. Sharing platforms
 for collecting, creating, hosting, publishing and disseminating spatial
 environmental data could be more cost effective than building and
 maintaining multiple separate platforms and functionalities
-individually. These reduced, or avoided, costs could justify
+individually (Fig. \@ref(fig:psm-design-users)). These reduced, or avoided, costs could justify
 contributing some funds to pay for, and sustain, the operations of the
 collective. Sustaining subscriptions are a more stable and reliable way
 to fund the ongoing development and maintenance of the collective’s
@@ -14160,9 +14178,15 @@ elements of the existing Global Soil Information Facilities (GSIF).
 (http://www.isric.org/content/soilgrids) and of the recently launched 
 OpenGeoHub Foundation's LandGIS (http://landgis.opengeohub.org).
 
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_soil_type_workflow.svg.png" alt="LandGIS as a system for generating new added-value information immediately and affordably using “old legacy data” i.e. without new investments. By importing, cleaning up and data mining of legacy soil data we promote technology and knowledge transfer from data-rich countries to data-poor countries." width="95%" />
+<p class="caption">(\#fig:soil-type-workflow)LandGIS as a system for generating new added-value information immediately and affordably using “old legacy data” i.e. without new investments. By importing, cleaning up and data mining of legacy soil data we promote technology and knowledge transfer from data-rich countries to data-poor countries.</p>
+</div>
+
 We imagine harnessing the possibilities for collective and cooperative
 action offered by new and emerging methods for social networking and
-scientific cooperation. The concept aims to promote, incorporate and
+scientific cooperation (Fig. \@ref(fig:soil-type-workflow)). 
+The concept aims to promote, incorporate and
 make use of all relevant new scientific and technical advances in the
 assembly and processing of terrestrial spatial data. But the vision is
 not solely driven by technology push from new scientific and technical
@@ -14210,7 +14234,7 @@ institute. For example, for many years, soil survey activities in
 Canadian provinces, such as Alberta, were conducted officially under the
 auspices of Institutes of Pedology that formalized cooperation among
 federal and provincial government departments and university departments
-of soil science.. Others might be attracted to the idea of spinning off
+of soil science. Others might be attracted to the idea of spinning off
 a notionally independent private sector company within which other
 entities could collaborate to produce or distribute their data. Examples
 of private companies involved in distributing spatial data include

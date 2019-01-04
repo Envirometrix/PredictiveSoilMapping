@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl and Robert A. MacMillan">
 
 
-<meta name="date" content="2018-12-29">
+<meta name="date" content="2019-01-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -296,7 +296,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3.4" data-path="statistical-theory.html"><a href="statistical-theory.html#accuracy-of-the-predicted-model-uncertainty"><i class="fa fa-check"></i><b>5.3.4</b> Accuracy of the predicted model uncertainty</a></li>
 <li class="chapter" data-level="5.3.5" data-path="statistical-theory.html"><a href="statistical-theory.html#derivation-and-interpretation-of-prediction-interval"><i class="fa fa-check"></i><b>5.3.5</b> Derivation and interpretation of prediction interval</a></li>
 <li class="chapter" data-level="5.3.6" data-path="statistical-theory.html"><a href="statistical-theory.html#universal-measures-of-mapping-accuracy"><i class="fa fa-check"></i><b>5.3.6</b> Universal measures of mapping accuracy</a></li>
-<li class="chapter" data-level="5.3.7" data-path="statistical-theory.html"><a href="statistical-theory.html#mapping-accuracy-and-soil-survey-costs"><i class="fa fa-check"></i><b>5.3.7</b> Mapping accuracy and soil survey costs</a></li>
+<li class="chapter" data-level="5.3.7" data-path="statistical-theory.html"><a href="statistical-theory.html#mapping-accuracy-soil-survey-costs"><i class="fa fa-check"></i><b>5.3.7</b> Mapping accuracy and soil survey costs</a></li>
 <li class="chapter" data-level="5.3.8" data-path="statistical-theory.html"><a href="statistical-theory.html#summary-points-2"><i class="fa fa-check"></i><b>5.3.8</b> Summary points</a></li>
 </ul></li>
 </ul></li>
@@ -424,7 +424,7 @@ processing large volumes of data.</p>
 <li><p>R packages: GSIF, plotKML, aqp, ranger, caret, xgboost, plyr, raster, gstat, randomForest, ggplot2, e1071 (see: <a href="http://www.r-bloggers.com/installing-r-packages/">how to install R package</a>)</p></li>
 <li><p><a href="http://sourceforge.net/projects/saga-gis/">SAGA GIS</a> (on Windows machines run windows installer);</p></li>
 <li><p>Google Earth or Google Earth Pro;</p></li>
-<li><p><a href="https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries">GDAL v2.x</a> for Windows machines use e.g. <a href="http://download.gisinternals.com/sdk/downloads/release-1800-x64-gdal-2-1-3-mapserver-7-0-4/gdal-201-1800-x64-core.msi">“gdal-*-1800-x64-core.msi“</a>;</p></li>
+<li><p><a href="https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries">GDAL v2.x</a> for Windows machines use e.g. <a href="http://download.gisinternals.com/sdk/downloads/">“gdal-*-1800-x64-core.msi“</a>;</p></li>
 </ul>
 <p>R script used in this tutorial can be downloaded from the <strong><a href="https://github.com/envirometrix/PredictiveSoilMapping">github</a></strong>. As a gentle introduction to the R programming language and to soil classes in R we recommend the chapter on importing and using soil data. Some more examples of SAGA GIS + R usage can be found in the soil covariates chapter. To visualize spatial predictions in a web-browser or Google Earth you could also consider following the soil web-maps tutorial. As a gentle introduction to the R programming language and spatial classes in R we recommend following <a href="https://geocompr.robinlovelace.net/">the Geocomputation with R book</a>. Obtaining also the <a href="https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf">R reference card</a> is highly recommended.</p>
 </div>
@@ -476,10 +476,11 @@ processing large volumes of data.</p>
 <span class="fu">sudo</span> gdebi rstudio-1.1.447-amd64.deb
 <span class="fu">sudo</span> rm rstudio-1.1.447-amd64.deb</code></pre>
 <p>Again, RStudio is constantly updated so you might have to obtain the most recent rstudio version and distribution.
-To learn more about doing first steps in R and RStudio and to learn to improve your scripting skills more efficiently, consider studying the following two Open Access books:</p>
+To learn more about doing first steps in R and RStudio and to learn to improve your scripting skills more efficiently, consider studying the following tutorials:</p>
 <ul>
-<li><p>Grolemund, G., (2014) <a href="https://rstudio-education.github.io/hopr/">Hands-On Programming with R</a>. O’Reilly, ISBN: 9781449359010, 236 pages.</p></li>
-<li><p>Gillespie, C., Lovelace, R., (2016) <a href="https://csgillespie.github.io/efficientR/">Efficient R programming</a>. O’Reilly, ISBN: 9781491950753, 222 pages.</p></li>
+<li><p>Grolemund, G., (2014) <a href="https://rstudio-education.github.io/hopr/"><strong>Hands-On Programming with R</strong></a>. O’Reilly, ISBN: 9781449359010, 236 pages.</p></li>
+<li><p>Gillespie, C., Lovelace, R., (2016) <a href="https://csgillespie.github.io/efficientR/"><strong>Efficient R programming</strong></a>. O’Reilly, ISBN: 9781491950753, 222 pages.</p></li>
+<li><p>Wilke, C.O., (2019) <a href="https://serialmentor.com/dataviz/"><strong>Fundamentals of Data Visualization</strong></a>. O’Reilly, in press.</p></li>
 </ul>
 </div>
 <div id="installing-gis-software" class="section level2">
@@ -712,10 +713,10 @@ Figure 2.6: Deriving hillshading using SAGA GIS and then visualizing the result 
 Figure 2.7: Ebergotzen DEM reprojected in geographical coordinates.
 </p>
 </div>
-<p>The following two books are highly recommended for improving programming skills in R and specially for the purpose of geographical computing:</p>
+<p>The following books are highly recommended for improving programming skills in R and specially for the purpose of geographical computing:</p>
 <ul>
-<li><p>Bivand, R., Pebesma, E., Rubio, V., (2013) <a href="http://www.asdar-book.org/">Applied Spatial Data Analysis with R</a>. Use R Series, Springer, Heidelberg, 2nd Ed. 400 pages.</p></li>
-<li><p>Lovelace, R., Nowosad, J., Muenchow, J., (2018) <a href="https://geocompr.robinlovelace.net/">Geocomputation with R</a>. R Series, CRC Press, ISBN: 9781138304512, 338 pages.</p></li>
+<li><p>Bivand, R., Pebesma, E., Rubio, V., (2013) <a href="http://www.asdar-book.org/"><strong>Applied Spatial Data Analysis with R</strong></a>. Use R Series, Springer, Heidelberg, 2nd Ed. 400 pages.</p></li>
+<li><p>Lovelace, R., Nowosad, J., Muenchow, J., (2018) <a href="https://geocompr.robinlovelace.net/"><strong>Geocomputation with R</strong></a>. R Series, CRC Press, ISBN: 9781138304512, 338 pages.</p></li>
 </ul>
 
 </div>

@@ -564,10 +564,9 @@ describable and usually (but not always) more limited than between polygons. Bec
 soil mapping projects have limited resources and time, soil surveyors
 can not typically afford to survey areas in great detail (e.g. 1:5000)
 so as to map actual *polypedons*. As a compromise, the survey team
-generally has to choose some best achievable target scale (e.g.
-1:10,000 - 1:50,000). Maps produced at some initial scale can be further
-generalized, depending on the application and user demands
-[@Wysocki2005Geoderma].
+generally has to choose some best achievable target scale (e.g. 1:10,000 – 1:50,000). 
+Maps produced at some initial scale can be further generalized, depending 
+on the application and user demands [@Wysocki2005Geoderma].
 
 <div class="figure" style="text-align: center">
 <img src="figures/Fig_SMU_aggregation.png" alt="Three basic conceptual scales in soil mapping: (left) most detailed scale showing the actual distribution of soil bodies, (center) target scale i.e. scale achievable by the soil survey budget, (right) generalized intermediate scale or coarse resolution maps. In a conventional soil survey, soils are described and conceptualized as groups of similar pedons (smallest elements of 1–10 square-m), called “polypedons” — the smallest mappable entity. These can then be further generalized to soil map units, which can be various combinations (systematic or random) of dominant and contrasting soils (inclusions)." width="85%" />
@@ -1283,11 +1282,10 @@ interest for pedometric soil mapping:
 
 6.  *Expert-based covariates* — soil delineations or delineations of
     soil parent material or geology (manually or semi-automatically
-    prepared); empirical maps of soil processes and features (e.g.
-    catena sequences etc).
+    prepared); empirical maps of soil processes and features (e.g. catena sequences etc).
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_DEM_evolution.png" alt="Evolution of global DEM data sources: (right) SRTM DEM released in 2002, as compared to (left) WorldDEM released in 2014 (Baade et al., 2014). Sample data set for city of Quorn in South Australia. As with many digital technologies, the level of detail and accuracy of GIS and remote sensing data is exhibiting exponential growth." width="80%" />
+<img src="figures/Fig_DEM_evolution.png" alt="Evolution of global DEM data sources: (right) SRTM DEM released in 2002, as compared to (left) WorldDEM released in 2014 (Baade et al., 2014). Sample data set for city of Quorn in South Australia. As with many digital technologies, the level of detail and accuracy of GIS and remote sensing data is exhibiting exponential growth." width="90%" />
 <p class="caption">(\#fig:dem-evolution)Evolution of global DEM data sources: (right) SRTM DEM released in 2002, as compared to (left) WorldDEM released in 2014 (Baade et al., 2014). Sample data set for city of Quorn in South Australia. As with many digital technologies, the level of detail and accuracy of GIS and remote sensing data is exhibiting exponential growth.</p>
 </div>
 
@@ -1493,6 +1491,12 @@ maps of different scale, content, design and vintage covering portions
 of areas of interest with large gaps of unmapped areas between mapped
 areas.
 
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Conventional soil polygon maps (manually-drawn
+delineations) are often one of the best sources of information on local
+variation in soil polypedons. On the other hand, conventional soil
+polygon maps often suffer from incompleteness, inconsistency and low
+accuracy of thematic content, as well as from suspect positional accuracy.</div>\EndKnitrBlock{rmdnote}
+
 Only a very few countries or regions (e.g. USA, UK, Japan, western
 European countries, Jamaica, Gambia etc) have achieved anywhere near
 complete national coverage at scales more detailed than 1:50,000
@@ -1502,12 +1506,6 @@ interpolation and extrapolation of scattered and incomplete maps that
 provide only partial coverage for these mapped areas. Even where
 coverage is complete, or nearly complete, consistency is often a
 significant issue.
-
-\BeginKnitrBlock{rmdnote}<div class="rmdnote">Conventional soil polygon maps (manually-drawn
-delineations) are often one of the best sources of information on local
-variation in soil polypedons. On the other hand, conventional soil
-polygon maps often suffer from incompleteness, inconsistency and low
-accuracy of thematic content, as well as from suspect positional accuracy.</div>\EndKnitrBlock{rmdnote}
 
 Mapping concepts change across time and vary among different mappers and
 agencies. Consequently, the normal situation is that no two maps are
@@ -1771,6 +1769,9 @@ When inserting pseudo-observations one should try to follow some basic rules
     use the most detailed soil polygon maps and focus on polygons with
     the very highest thematic purity.
 
+Pseudo-observations are not an optimal solution to gaps in representation
+of landscape features, but are often necessary is one plans to apply complex
+non-linear models for PSM purposes.
 
 ## Soil databases and soil information systems {#soil-databases}
 
@@ -2221,7 +2222,7 @@ significant portion of uncertainty. A map can never be 100% valid
 [@Oreskes04021994].
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_Lagacherie1992.png" alt="Reduction of prediction error as a function of sampling intensity (for three control areas). Based on Lagacherie (1992)." width="70%" angle=0 />
+<img src="figures/Fig_Lagacherie1992.png" alt="Reduction of prediction error as a function of sampling intensity (for three control areas). Based on Lagacherie (1992)." width="80%" angle=0 />
 <p class="caption">(\#fig:lagacherie1992)Reduction of prediction error as a function of sampling intensity (for three control areas). Based on Lagacherie (1992).</p>
 </div>
 
@@ -2238,8 +2239,8 @@ short-range variability, which is unmappable at a feasible resolution resolution
 not be able to model even with the most sophisticated methods.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_sigma_RMSE_relationship.png" alt="Relationship between the numeric resolution (visualized using a histogram plot on the left) and amount of variation explained by the model for soil pH." width="90%" />
-<p class="caption">(\#fig:sigma-rmse-relationship)Relationship between the numeric resolution (visualized using a histogram plot on the left) and amount of variation explained by the model for soil pH.</p>
+<img src="figures/Fig_sigma_RMSE_relationship.png" alt="Relationship between the numeric resolution (visualized using a histogram plot on the left), and amount of variation explained by the model and standard deviation of the prediction error. Variable used in this example: soil pH." width="90%" />
+<p class="caption">(\#fig:sigma-rmse-relationship)Relationship between the numeric resolution (visualized using a histogram plot on the left), and amount of variation explained by the model and standard deviation of the prediction error. Variable used in this example: soil pH.</p>
 </div>
 
 As a rule of thumb, the amount of variation explained by a model, when

@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl and Robert A. MacMillan">
 
 
-<meta name="date" content="2018-12-29">
+<meta name="date" content="2019-01-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -296,7 +296,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3.4" data-path="statistical-theory.html"><a href="statistical-theory.html#accuracy-of-the-predicted-model-uncertainty"><i class="fa fa-check"></i><b>5.3.4</b> Accuracy of the predicted model uncertainty</a></li>
 <li class="chapter" data-level="5.3.5" data-path="statistical-theory.html"><a href="statistical-theory.html#derivation-and-interpretation-of-prediction-interval"><i class="fa fa-check"></i><b>5.3.5</b> Derivation and interpretation of prediction interval</a></li>
 <li class="chapter" data-level="5.3.6" data-path="statistical-theory.html"><a href="statistical-theory.html#universal-measures-of-mapping-accuracy"><i class="fa fa-check"></i><b>5.3.6</b> Universal measures of mapping accuracy</a></li>
-<li class="chapter" data-level="5.3.7" data-path="statistical-theory.html"><a href="statistical-theory.html#mapping-accuracy-and-soil-survey-costs"><i class="fa fa-check"></i><b>5.3.7</b> Mapping accuracy and soil survey costs</a></li>
+<li class="chapter" data-level="5.3.7" data-path="statistical-theory.html"><a href="statistical-theory.html#mapping-accuracy-soil-survey-costs"><i class="fa fa-check"></i><b>5.3.7</b> Mapping accuracy and soil survey costs</a></li>
 <li class="chapter" data-level="5.3.8" data-path="statistical-theory.html"><a href="statistical-theory.html#summary-points-2"><i class="fa fa-check"></i><b>5.3.8</b> Summary points</a></li>
 </ul></li>
 </ul></li>
@@ -403,7 +403,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="preface" class="section level1 unnumbered">
 <h1>Preface</h1>
 <p>Predictive Soil Mapping (PSM) is based on applying statistical and/or machine learning techniques to fit models for the purpose of producing spatial and/or spatiotemporal predictions of soil variables i.e. maps of soil properties and classes at different resolutions. It is a multidisciplinary field combining statistics, data science, soil science, physical geography, remote sensing, geoinformation science and a number of other sciences <span class="citation">(Scull et al. <a href="#ref-Scul01">2003</a>; A. McBratney, Mendonça Santos, and Minasny <a href="#ref-MCBRATNEY20033">2003</a>; Henderson et al. <a href="#ref-Henderson2004Geoderma">2004</a>; Boettinger et al. <a href="#ref-Boettinger2010Springer">2010</a>; Zhu et al. <a href="#ref-Zhu2015PSM">2015</a>)</span>. <em>Predictive Soil Mapping with R</em> is about understanding the main concepts behind soil mapping, mastering R packages that can be used to produce high quality soil maps, and about optimizing all processes involved so that production costs can also be reduced.</p>
-<p>The main differences between predictive vs traditional expert-based soil mapping are that: (a) the production of maps<br />
+<p>The main differences between predictive vs traditional expert-based soil mapping are that: (a) the production of maps
 is based on using state-of-the-art statistical methods to ensure objectivity of maps (including objective uncertainty assessment vs expert judgment), and (b) PSM is driven by automation of the processes so that overall soil data production costs can be reduced and updates of maps implemented without requirements for large investments. R, in that sense, is a logical platform to develop PSM workflows and applications, especially thanks to the vibrant and productive R spatial interest group activities and also thanks to the increasingly professional soil data packages such as, for example: the soiltexture, aqp, soilprofile, soilDB and similar.</p>
 <p>The book is divided into sections covering theoretical concepts, preparation of covariates, model selection and evaluation, prediction and visualization and distribution of final maps. Most of the chapters contain R code examples that try to illustrate the main processing steps and give practical instructions to developers and applied users.</p>
 <div id="connected-publications" class="section level2 unnumbered">
@@ -434,12 +434,13 @@ ISBN: 9783319634395, 720 pages.</p></li>
 </ul>
 <p>Readers are also encouraged to obtain and study the following R books before following some of the more complex exercises in this book:</p>
 <ul>
-<li><p>Bivand, R., Pebesma, E., Rubio, V., (2013) <a href="http://www.asdar-book.org">Applied Spatial Data Analysis with R</a>. Use R Series, Springer, Heidelberg, 2nd Ed. 400 pages.</p></li>
-<li><p>Irizarry, R.A., (2018) <a href="https://rafalab.github.io/dsbook/">Introduction to Data Science: Data Analysis and Prediction Algorithms with R</a>. HarvardX Data Science Series.</p></li>
-<li><p>Kabacoff, R.I., (2011) <a href="http://www.manning.com/kabacoff/">R in Action: Data Analysis and Graphics with R</a>. Manning publications, ISBN: 9781935182399, 472 pages.</p></li>
-<li><p>Kuhn, M., Johnson, K. (2013) <a href="http://appliedpredictivemodeling.com">Applied Predictive Modeling</a>. Springer Science, ISBN: 9781461468493, 600 pages.</p></li>
-<li><p>Lovelace, R., Nowosad, J., Muenchow, J., (2018) <a href="https://geocompr.robinlovelace.net">Geocomputation with R</a>. R Series, CRC Press, ISBN: 9781138304512, 338 pages.</p></li>
-<li><p>Reimann, C., Filzmoser, P., Garrett, R., Dutter, R., (2008) <a href="https://onlinelibrary.wiley.com/doi/book/10.1002/9780470987605">Statistical Data Analysis Explained Applied Environmental Statistics with R</a>. Wiley, Chichester, 337 pages.</p></li>
+<li><p>Bivand, R., Pebesma, E., Rubio, V., (2013) <a href="http://www.asdar-book.org"><strong>Applied Spatial Data Analysis with R</strong></a>. Use R Series, Springer, Heidelberg, 2nd Ed. 400 pages.</p></li>
+<li><p>Irizarry, R.A., (2018) <a href="https://rafalab.github.io/dsbook/"><strong>Introduction to Data Science: Data Analysis and Prediction Algorithms with R</strong></a>. HarvardX Data Science Series.</p></li>
+<li><p>Kabacoff, R.I., (2011) <a href="http://www.manning.com/kabacoff/"><strong>R in Action: Data Analysis and Graphics with R</strong></a>. Manning publications, ISBN: 9781935182399, 472 pages.</p></li>
+<li><p>Kuhn, M., Johnson, K. (2013) <a href="http://appliedpredictivemodeling.com"><strong>Applied Predictive Modeling</strong></a>. Springer Science, ISBN: 9781461468493, 600 pages.</p></li>
+<li><p>Lovelace, R., Nowosad, J., Muenchow, J., (2018) <a href="https://geocompr.robinlovelace.net"><strong>Geocomputation with R</strong></a>. R Series, CRC Press, ISBN: 9781138304512, 338 pages.</p></li>
+<li><p>Reimann, C., Filzmoser, P., Garrett, R., Dutter, R., (2008) <a href="https://onlinelibrary.wiley.com/doi/book/10.1002/9780470987605"><strong>Statistical Data Analysis Explained Applied Environmental Statistics with R</strong></a>. Wiley, Chichester, 337 pages.</p></li>
+<li><p>Wilke, C.O., (2019) <a href="https://serialmentor.com/dataviz/"><strong>Fundamentals of Data Visualization</strong></a>. O’Reilly, in press.</p></li>
 </ul>
 <p>For the most recent developments in the R-spatial community refer to <a href="https://r-spatial.github.io" class="uri">https://r-spatial.github.io</a>, the R-sig-geo mailing list and/or <a href="https://opengeohub.org" class="uri">https://opengeohub.org</a>.</p>
 </div>
@@ -494,7 +495,7 @@ and others. We are also grateful to USA’s NASA, USGS and USDA agencies,
 European Space Agency Copernicus projects, JAXA (Japan Aerospace Exploration Agency)
 for distributing vast amounts of remote sensing data (especially MODIS, Landsat, Copernicus
 land products and elevation data), and to the Open Source software developers
-of the packages rgdal, sp, raster, caret, mlr, ranger, h2o and similar,
+of the packages rgdal, sp, raster, caret, mlr, ranger, SuperLearner, h2o and similar,
 and without which predictive soil mapping would most likely not be possible.</p>
 <p>This book has been inspired by <a href="https://geocompr.robinlovelace.net">the Geocomputation with R book</a>, an Open Access book edited by Robin Lovelace, Jakub Nowosad and Jannes Muenchow. Many thanks to Robin Lovelace for helping with rmarkdown and for giving some initial tips for compiling and organizing this book. The authors are also grateful to the numerous software/package developers, especially Edzer Pebesma, Roger Bivand, Robert Hijmans, Markus Neteler, Tim Appelhans, and Hadley Wickham, whose contributions have enabled a generation of researchers and applied projects.</p>
 <p>We are especially grateful to Jakub Nowosad for helping with preparing this publication for press and with setting up all code so that it passes automatic checks.</p>
@@ -521,7 +522,7 @@ and without which predictive soil mapping would most likely not be possible.</p>
 <p>Boettinger, J. L., D. W. Howell, A. C. Moore, A. E. Hartemink, and S. Kienast-Brown, eds. 2010. <em>Digital Soil Mapping: Bridging Research, Environmental Application, and Operation</em>. Vol. 2. Progress in Soil Science. Springer.</p>
 </div>
 <div id="ref-Zhu2015PSM">
-<p>Zhu, A.X., J. Liu, F. Du, S.J. Zhang, C.Z. Qin, J. Burt, T. Behrens, and T. Scholten. 2015. “Predictive Soil Mapping with Limited Sample Data.” <em>European Journal of Soil Science</em>. <a href="https://doi.org/10.1111/ejss.12244" class="uri">https://doi.org/10.1111/ejss.12244</a>.</p>
+<p>Zhu, A.X., J. Liu, F. Du, S.J. Zhang, C.Z. Qin, J. Burt, T. Behrens, and T. Scholten. 2015. “Predictive Soil Mapping with Limited Sample Data.” <em>European Journal of Soil Science</em> 66 (3):535–47. <a href="https://doi.org/10.1111/ejss.12244" class="uri">https://doi.org/10.1111/ejss.12244</a>.</p>
 </div>
 <div id="ref-Toth2013LUCAS">
 <p>Tóth, G., A. Jones, and L. Montanarella, eds. 2013. <em>LUCAS Topsoil Survey. Methodology, Data and Results</em>. JRC Technical Reports Eur 26102. Luxembourg: Publications Office of the European Union.</p>

@@ -18,7 +18,7 @@ that may not find effective use.
 
 ### PSM main steps
 
-Based on previously presented theory, we can summarize the usual PSM processes as (Fig. \@ref(fig:psm-decision-tree)):
+Based on previously presented theory, we can summarize the usual PSM processes as:
 
 1.  Preparation of point data (training data).
 
@@ -33,6 +33,9 @@ Based on previously presented theory, we can summarize the usual PSM processes a
     databases and/or web services).
 
 6.  Updates and improvements (support).
+
+An even more comprehensive list of steps in PSM projects is given in Fig. \@ref(fig:psm-decision-tree),
+which also includes market/user-domain researcher and might be also used for soil monitoring projects. 
 
 <div class="figure" style="text-align: center">
 <img src="figures/Fig_decisiontree_PSM_project.png" alt="General decision tree in a Predictive Soil Mapping project." width="95%" />
@@ -792,7 +795,7 @@ monthly/yearly costs need to be added to these numbers to account also
 for any web hosting, support or update costs.
 
 Compare these costs with the following standard estimated costs to
-deliver completed conventional manual soil survey products:
+deliver completed conventional manual soil survey products (see also section \@ref(mapping-accuracy-soil-survey-costs)):
 
   - USDA estimate of the total soil survey costs: 4 US\$ per ha for
     1:20,000 scale maps [@Durana2008] to map USA48 area = 3.2 billion
@@ -822,5 +825,6 @@ carefully as production costs are sensitive to specifications, (e.g. 3
 times finer pixel size can increase production costs up to 10 times, or
 setting targets such as 30% lower RMSE can increase costs as either more
 points or more covariates, or both, need to be included. General forms
-at the end of the chapter provide a detailed list of target soil
-variables and covariate layers typically used in PSM projects to date.
+at the end of the chapter provide an example of detailed list of technical 
+specifications in relation to target variables and covariate layers 
+typically used in PSM projects to date.

@@ -40,7 +40,7 @@
             urlcolor=Blue,
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
-\usepackage[top=1.6cm, bottom=2cm, left=1.6cm, right=1.6cm]{geometry}
+\usepackage[top=1.6cm, bottom=2cm, left=1cm, right=1cm]{geometry}
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -237,7 +237,7 @@
 
 \title{Predictive Soil Mapping with R}
 \author{Tomislav Hengl and Robert A. MacMillan}
-\date{2018-12-29}
+\date{2019-01-04}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -271,12 +271,12 @@ This is the online version of the Open Access book: \href{https://envirometrix.g
 
 Hard copies of this book from will be made available in early 2019.
 
-\textbf{Cite as}:
+\textbf{Cite this as}:
 
 \begin{itemize}
 \tightlist
 \item
-  Hengl, T., MacMillan, R.A., (2019). \textbf{Predictive Soil Mapping with R}. OpenGeoHub foundation, Wageningen, the Netherlands, 340 pages. ISBN: 978-0-359-30635-0.
+  Hengl, T., MacMillan, R.A., (2019). \textbf{Predictive Soil Mapping with R}. OpenGeoHub foundation, Wageningen, the Netherlands, 420 pages. ISBN: 978-0-359-30635-0.
 \end{itemize}
 
 \hypertarget{editors}{%
@@ -284,8 +284,8 @@ Hard copies of this book from will be made available in early 2019.
 \addcontentsline{toc}{section}{Editors}
 
 \href{https://opengeohub.org/people/tom-hengl}{\textbf{Tom Hengl}} is a Senior Researcher and Vice Chair of the OpenGeoHub Foundation / technical director at Envirometrix Ltd.
-He has more than 20 years of experience as an environmental modeler, data scientist and spatial analyst.
-Tom is a passionate advocate for, and supporter of, open data, reproducible science and career development
+Tom has more than 20 years of experience as an environmental modeler, data scientist and spatial analyst.
+He is a passionate advocate for, and supporter of, open data, reproducible science and career development
 for young scientists. He designed and implemented the global \href{http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0169748}{SoilGrids} data set,
 partially in response to other well known open data projects such as OpenStreetMap, GBIF, GlobalForestWatch
 and global climate mapping projects. He has taught predictive soil mapping at Wageningen University /
@@ -300,7 +300,7 @@ found at \url{http://youtube.com/c/ISRICorg}. Tom currently leads production of 
 
 Predictive Soil Mapping (PSM) is based on applying statistical and/or machine learning techniques to fit models for the purpose of producing spatial and/or spatiotemporal predictions of soil variables i.e.~maps of soil properties and classes at different resolutions. It is a multidisciplinary field combining statistics, data science, soil science, physical geography, remote sensing, geoinformation science and a number of other sciences \citep{Scul01, MCBRATNEY20033, Henderson2004Geoderma, Boettinger2010Springer, Zhu2015PSM}. \emph{Predictive Soil Mapping with R} is about understanding the main concepts behind soil mapping, mastering R packages that can be used to produce high quality soil maps, and about optimizing all processes involved so that production costs can also be reduced.
 
-The main differences between predictive vs traditional expert-based soil mapping are that: (a) the production of maps\\
+The main differences between predictive vs traditional expert-based soil mapping are that: (a) the production of maps
 is based on using state-of-the-art statistical methods to ensure objectivity of maps (including objective uncertainty assessment vs expert judgment), and (b) PSM is driven by automation of the processes so that overall soil data production costs can be reduced and updates of maps implemented without requirements for large investments. R, in that sense, is a logical platform to develop PSM workflows and applications, especially thanks to the vibrant and productive R spatial interest group activities and also thanks to the increasingly professional soil data packages such as, for example: the soiltexture, aqp, soilprofile, soilDB and similar.
 
 The book is divided into sections covering theoretical concepts, preparation of covariates, model selection and evaluation, prediction and visualization and distribution of final maps. Most of the chapters contain R code examples that try to illustrate the main processing steps and give practical instructions to developers and applied users.
@@ -357,17 +357,19 @@ Readers are also encouraged to obtain and study the following R books before fol
 
 \begin{itemize}
 \item
-  Bivand, R., Pebesma, E., Rubio, V., (2013) \href{http://www.asdar-book.org}{Applied Spatial Data Analysis with R}. Use R Series, Springer, Heidelberg, 2nd Ed. 400 pages.
+  Bivand, R., Pebesma, E., Rubio, V., (2013) \href{http://www.asdar-book.org}{\textbf{Applied Spatial Data Analysis with R}}. Use R Series, Springer, Heidelberg, 2nd Ed. 400 pages.
 \item
-  Irizarry, R.A., (2018) \href{https://rafalab.github.io/dsbook/}{Introduction to Data Science: Data Analysis and Prediction Algorithms with R}. HarvardX Data Science Series.
+  Irizarry, R.A., (2018) \href{https://rafalab.github.io/dsbook/}{\textbf{Introduction to Data Science: Data Analysis and Prediction Algorithms with R}}. HarvardX Data Science Series.
 \item
-  Kabacoff, R.I., (2011) \href{http://www.manning.com/kabacoff/}{R in Action: Data Analysis and Graphics with R}. Manning publications, ISBN: 9781935182399, 472 pages.
+  Kabacoff, R.I., (2011) \href{http://www.manning.com/kabacoff/}{\textbf{R in Action: Data Analysis and Graphics with R}}. Manning publications, ISBN: 9781935182399, 472 pages.
 \item
-  Kuhn, M., Johnson, K. (2013) \href{http://appliedpredictivemodeling.com}{Applied Predictive Modeling}. Springer Science, ISBN: 9781461468493, 600 pages.
+  Kuhn, M., Johnson, K. (2013) \href{http://appliedpredictivemodeling.com}{\textbf{Applied Predictive Modeling}}. Springer Science, ISBN: 9781461468493, 600 pages.
 \item
-  Lovelace, R., Nowosad, J., Muenchow, J., (2018) \href{https://geocompr.robinlovelace.net}{Geocomputation with R}. R Series, CRC Press, ISBN: 9781138304512, 338 pages.
+  Lovelace, R., Nowosad, J., Muenchow, J., (2018) \href{https://geocompr.robinlovelace.net}{\textbf{Geocomputation with R}}. R Series, CRC Press, ISBN: 9781138304512, 338 pages.
 \item
-  Reimann, C., Filzmoser, P., Garrett, R., Dutter, R., (2008) \href{https://onlinelibrary.wiley.com/doi/book/10.1002/9780470987605}{Statistical Data Analysis Explained Applied Environmental Statistics with R}. Wiley, Chichester, 337 pages.
+  Reimann, C., Filzmoser, P., Garrett, R., Dutter, R., (2008) \href{https://onlinelibrary.wiley.com/doi/book/10.1002/9780470987605}{\textbf{Statistical Data Analysis Explained Applied Environmental Statistics with R}}. Wiley, Chichester, 337 pages.
+\item
+  Wilke, C.O., (2019) \href{https://serialmentor.com/dataviz/}{\textbf{Fundamentals of Data Visualization}}. O'Reilly, in press.
 \end{itemize}
 
 For the most recent developments in the R-spatial community refer to \url{https://r-spatial.github.io}, the R-sig-geo mailing list and/or \url{https://opengeohub.org}.
@@ -451,7 +453,7 @@ and others. We are also grateful to USA's NASA, USGS and USDA agencies,
 European Space Agency Copernicus projects, JAXA (Japan Aerospace Exploration Agency)
 for distributing vast amounts of remote sensing data (especially MODIS, Landsat, Copernicus
 land products and elevation data), and to the Open Source software developers
-of the packages rgdal, sp, raster, caret, mlr, ranger, h2o and similar,
+of the packages rgdal, sp, raster, caret, mlr, ranger, SuperLearner, h2o and similar,
 and without which predictive soil mapping would most likely not be possible.
 
 This book has been inspired by \href{https://geocompr.robinlovelace.net}{the Geocomputation with R book}, an Open Access book edited by Robin Lovelace, Jakub Nowosad and Jannes Muenchow. Many thanks to Robin Lovelace for helping with rmarkdown and for giving some initial tips for compiling and organizing this book. The authors are also grateful to the numerous software/package developers, especially Edzer Pebesma, Roger Bivand, Robert Hijmans, Markus Neteler, Tim Appelhans, and Hadley Wickham, whose contributions have enabled a generation of researchers and applied projects.
@@ -1089,10 +1091,9 @@ describable and usually (but not always) more limited than between polygons. Bec
 soil mapping projects have limited resources and time, soil surveyors
 can not typically afford to survey areas in great detail (e.g.~1:5000)
 so as to map actual \emph{polypedons}. As a compromise, the survey team
-generally has to choose some best achievable target scale (
-e.g.~1:10,000 - 1:50,000). Maps produced at some initial scale can be further
-generalized, depending on the application and user demands
-\citep{Wysocki2005Geoderma}.
+generally has to choose some best achievable target scale (e.g.~1:10,000 -- 1:50,000).
+Maps produced at some initial scale can be further generalized, depending
+on the application and user demands \citep{Wysocki2005Geoderma}.
 
 \begin{figure}[H]
 
@@ -1867,13 +1868,12 @@ interest for pedometric soil mapping:
 \item
   \emph{Expert-based covariates} --- soil delineations or delineations of
   soil parent material or geology (manually or semi-automatically
-  prepared); empirical maps of soil processes and features (
-  e.g.~catena sequences etc).
+  prepared); empirical maps of soil processes and features (e.g.~catena sequences etc).
 \end{enumerate}
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.8\linewidth]{figures/Fig_DEM_evolution} 
+{\centering \includegraphics[width=0.9\linewidth]{figures/Fig_DEM_evolution} 
 
 }
 
@@ -2092,6 +2092,14 @@ maps of different scale, content, design and vintage covering portions
 of areas of interest with large gaps of unmapped areas between mapped
 areas.
 
+\BeginKnitrBlock{rmdnote}
+Conventional soil polygon maps (manually-drawn
+delineations) are often one of the best sources of information on local
+variation in soil polypedons. On the other hand, conventional soil
+polygon maps often suffer from incompleteness, inconsistency and low
+accuracy of thematic content, as well as from suspect positional accuracy.
+\EndKnitrBlock{rmdnote}
+
 Only a very few countries or regions (e.g.~USA, UK, Japan, western
 European countries, Jamaica, Gambia etc) have achieved anywhere near
 complete national coverage at scales more detailed than 1:50,000
@@ -2101,14 +2109,6 @@ interpolation and extrapolation of scattered and incomplete maps that
 provide only partial coverage for these mapped areas. Even where
 coverage is complete, or nearly complete, consistency is often a
 significant issue.
-
-\BeginKnitrBlock{rmdnote}
-Conventional soil polygon maps (manually-drawn
-delineations) are often one of the best sources of information on local
-variation in soil polypedons. On the other hand, conventional soil
-polygon maps often suffer from incompleteness, inconsistency and low
-accuracy of thematic content, as well as from suspect positional accuracy.
-\EndKnitrBlock{rmdnote}
 
 Mapping concepts change across time and vary among different mappers and
 agencies. Consequently, the normal situation is that no two maps are
@@ -2391,6 +2391,10 @@ When inserting pseudo-observations one should try to follow some basic rules
   use the most detailed soil polygon maps and focus on polygons with
   the very highest thematic purity.
 \end{itemize}
+
+Pseudo-observations are not an optimal solution to gaps in representation
+of landscape features, but are often necessary is one plans to apply complex
+non-linear models for PSM purposes.
 
 \hypertarget{soil-databases}{%
 \section{Soil databases and soil information systems}\label{soil-databases}}
@@ -2923,7 +2927,7 @@ significant portion of uncertainty. A map can never be 100\% valid
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.7\linewidth,angle=0]{figures/Fig_Lagacherie1992} 
+{\centering \includegraphics[width=0.8\linewidth,angle=0]{figures/Fig_Lagacherie1992} 
 
 }
 
@@ -2948,7 +2952,7 @@ not be able to model even with the most sophisticated methods.
 
 }
 
-\caption{Relationship between the numeric resolution (visualized using a histogram plot on the left) and amount of variation explained by the model for soil pH.}\label{fig:sigma-rmse-relationship}
+\caption{Relationship between the numeric resolution (visualized using a histogram plot on the left), and amount of variation explained by the model and standard deviation of the prediction error. Variable used in this example: soil pH.}\label{fig:sigma-rmse-relationship}
 \end{figure}
 
 As a rule of thumb, the amount of variation explained by a model, when
@@ -3048,7 +3052,7 @@ Software (required):
 \item
   Google Earth or Google Earth Pro;
 \item
-  \href{https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries}{GDAL v2.x} for Windows machines use e.g. \href{http://download.gisinternals.com/sdk/downloads/release-1800-x64-gdal-2-1-3-mapserver-7-0-4/gdal-201-1800-x64-core.msi}{``gdal-*-1800-x64-core.msi``};
+  \href{https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries}{GDAL v2.x} for Windows machines use e.g. \href{http://download.gisinternals.com/sdk/downloads/}{``gdal-*-1800-x64-core.msi``};
 \end{itemize}
 
 R script used in this tutorial can be downloaded from the \textbf{\href{https://github.com/envirometrix/PredictiveSoilMapping}{github}}. As a gentle introduction to the R programming language and to soil classes in R we recommend the chapter on importing and using soil data. Some more examples of SAGA GIS + R usage can be found in the soil covariates chapter. To visualize spatial predictions in a web-browser or Google Earth you could also consider following the soil web-maps tutorial. As a gentle introduction to the R programming language and spatial classes in R we recommend following \href{https://geocompr.robinlovelace.net/}{the Geocomputation with R book}. Obtaining also the \href{https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf}{R reference card} is highly recommended.
@@ -3127,13 +3131,15 @@ To install RStudio we can run:
 \end{Shaded}
 
 Again, RStudio is constantly updated so you might have to obtain the most recent rstudio version and distribution.
-To learn more about doing first steps in R and RStudio and to learn to improve your scripting skills more efficiently, consider studying the following two Open Access books:
+To learn more about doing first steps in R and RStudio and to learn to improve your scripting skills more efficiently, consider studying the following tutorials:
 
 \begin{itemize}
 \item
-  Grolemund, G., (2014) \href{https://rstudio-education.github.io/hopr/}{Hands-On Programming with R}. O'Reilly, ISBN: 9781449359010, 236 pages.
+  Grolemund, G., (2014) \href{https://rstudio-education.github.io/hopr/}{\textbf{Hands-On Programming with R}}. O'Reilly, ISBN: 9781449359010, 236 pages.
 \item
-  Gillespie, C., Lovelace, R., (2016) \href{https://csgillespie.github.io/efficientR/}{Efficient R programming}. O'Reilly, ISBN: 9781491950753, 222 pages.
+  Gillespie, C., Lovelace, R., (2016) \href{https://csgillespie.github.io/efficientR/}{\textbf{Efficient R programming}}. O'Reilly, ISBN: 9781491950753, 222 pages.
+\item
+  Wilke, C.O., (2019) \href{https://serialmentor.com/dataviz/}{\textbf{Fundamentals of Data Visualization}}. O'Reilly, in press.
 \end{itemize}
 
 \hypertarget{installing-gis-software}{%
@@ -3485,13 +3491,13 @@ We can use GDAL to reproject the grid from the previous example:
 \caption{Ebergotzen DEM reprojected in geographical coordinates.}\label{fig:plot-eberg-ll}
 \end{figure}
 
-The following two books are highly recommended for improving programming skills in R and specially for the purpose of geographical computing:
+The following books are highly recommended for improving programming skills in R and specially for the purpose of geographical computing:
 
 \begin{itemize}
 \item
-  Bivand, R., Pebesma, E., Rubio, V., (2013) \href{http://www.asdar-book.org/}{Applied Spatial Data Analysis with R}. Use R Series, Springer, Heidelberg, 2nd Ed. 400 pages.
+  Bivand, R., Pebesma, E., Rubio, V., (2013) \href{http://www.asdar-book.org/}{\textbf{Applied Spatial Data Analysis with R}}. Use R Series, Springer, Heidelberg, 2nd Ed. 400 pages.
 \item
-  Lovelace, R., Nowosad, J., Muenchow, J., (2018) \href{https://geocompr.robinlovelace.net/}{Geocomputation with R}. R Series, CRC Press, ISBN: 9781138304512, 338 pages.
+  Lovelace, R., Nowosad, J., Muenchow, J., (2018) \href{https://geocompr.robinlovelace.net/}{\textbf{Geocomputation with R}}. R Series, CRC Press, ISBN: 9781138304512, 338 pages.
 \end{itemize}
 
 \hypertarget{soil-variables-chapter}{%
@@ -6242,7 +6248,7 @@ data easier and more consistent.
 \subsection{Types of soil covariates}\label{types-of-soil-covariates}}
 
 Soils (and vegetation + ecosystems) form under complex interactions between climate, living organism and anthropogenic influences, modified by relief and hydrological processes and operating over long periods of time.
-This has been clearly identified first by \citet{jenny1994factors} with his CLORPT factors of soil formation and subsequently extended by \citet{MCBRATNEY20033} with the SCORPAN formulation (see \protect\hyperlink{soil-mapping-theory}{Introduction chapter}).
+This has been clearly identified first by \citet{jenny1994factors} with his CLORPT factors of soil formation and subsequently extended by \citet{MCBRATNEY20033} with the SCORPAN formulation (see section \ref{soil-mapping-theory}).
 
 In general, the following covariates are commonly considered for use in Predictive Soil Mapping:
 
@@ -6442,6 +6448,19 @@ The most relevant (global) publicly available remote sensing-based covariates th
 \end{itemize}
 
 Note that the download time for 30 m global RS data can be significant if the data are needed for a larger area (hence you might consider using some RS data processing hub such as \href{http://www.sentinel-hub.com}{Sentinel hub}, \href{https://earthengine.google.com}{Google Earth Engine} and/or \href{https://aws.amazon.com/public-datasets/}{Amazon Web Services} instead of trying to download large mosaics yourself).
+
+Most recently soil mappers can also use more advanced (commercial) remote sensing products often available at finer spatial resolution which include:
+
+\begin{itemize}
+\item
+  WorldDEM (\url{https://worlddem-database.terrasar.com}) at 12 m resolution multiband elevation products,
+\item
+  German hyperspectral satellite mission EnMAP (\url{http://www.enmap.org}) products, which have shown to be useful for mapping soil nutrients and minerals \citep{rs8070613},
+\item
+  Sentinel-1 soil moisture products, currently limited to 1 km to 500 m resolutions but available at fast revisit times \citep{Bauer-Marschallinger2019},
+\end{itemize}
+
+Hyperspectral imaging systems, similar to field-based soil spectroscopy, and the upcoming missions such as SHALOM (Italy and Israel), HypXIM (France) and HypsIRI (USA) will most likely revolutionaize use of remote sensing for soil mapping.
 
 \hypertarget{soil-covs-250m}{%
 \subsection{Soil covariate data sources (250 m resolution or coarser)}\label{soil-covs-250m}}
@@ -8960,7 +8979,7 @@ support:
 \CommentTok{#> drawing 20 GLS realisations of beta...}
 \CommentTok{#> [using conditional Gaussian simulation]}
 \CommentTok{#> }
- \DecValTok{41}\NormalTok{% done}
+ \DecValTok{25}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Creating an object of class "RasterBrickSimulations"}
 \CommentTok{#> Loading required package: raster}
@@ -9231,6 +9250,7 @@ argument:
 \CommentTok{#> drawing 20 GLS realisations of beta...}
 \CommentTok{#> [using conditional Gaussian simulation]}
 \CommentTok{#> }
+ \DecValTok{39}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Creating an object of class "RasterBrickSimulations"}
 \KeywordTok{log1p}\NormalTok{(meuse}\OperatorTok{@}\NormalTok{data[}\DecValTok{1}\NormalTok{,}\StringTok{"om"}\NormalTok{])}
@@ -9282,13 +9302,13 @@ organic matter content using the Meuse case study:
 \KeywordTok{demo}\NormalTok{(meuse, }\DataTypeTok{echo=}\OtherTok{FALSE}\NormalTok{)}
 \NormalTok{meuse}\OperatorTok{$}\NormalTok{value =}\StringTok{ }\NormalTok{meuse}\OperatorTok{$}\NormalTok{zinc}
 \NormalTok{output <-}\StringTok{ }\KeywordTok{interpolate}\NormalTok{(meuse, meuse.grid, }\KeywordTok{list}\NormalTok{(}\DataTypeTok{mean=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{variance=}\OtherTok{TRUE}\NormalTok{))}
-\CommentTok{#> R 2018-12-29 11:48:32 interpolating 155 observations, 3103 prediction locations}
+\CommentTok{#> R 2019-01-04 13:36:16 interpolating 155 observations, 3103 prediction locations}
 \CommentTok{#> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : }
 \CommentTok{#>  using standard model for estimating time. For better }
 \CommentTok{#>  platform spesific predictions, please run }
 \CommentTok{#>  timeModels <- generateTimeModels()}
 \CommentTok{#>   and save the workspace}
-\CommentTok{#> [1] "estimated time for  copula 160.01169603473"}
+\CommentTok{#> [1] "estimated time for  copula 158.973269248708"}
 \CommentTok{#> Checking object ... OK}
 \end{Highlighting}
 \end{Shaded}
@@ -9303,7 +9323,7 @@ at hand (\texttt{value} column), given the time available set with
 \CommentTok{#> List of 16}
 \CommentTok{#>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots}
 \CommentTok{#>  $ formulaString      :Class 'formula'  language value ~ 1}
-\CommentTok{#>   .. ..- attr(*, ".Environment")=<environment: 0x13704440> }
+\CommentTok{#>   .. ..- attr(*, ".Environment")=<environment: 0x13ad7f28> }
 \CommentTok{#>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots}
 \CommentTok{#>  $ params             :List of 18}
 \CommentTok{#>   ..$ doAnisotropy     : logi TRUE}
@@ -10338,8 +10358,8 @@ any spatial prediction method are \citep{Hengl2018RFsp}:
   either lower or higher values,
 \end{itemize}
 
-\hypertarget{mapping-accuracy-and-soil-survey-costs}{%
-\subsection{Mapping accuracy and soil survey costs}\label{mapping-accuracy-and-soil-survey-costs}}
+\hypertarget{mapping-accuracy-soil-survey-costs}{%
+\subsection{Mapping accuracy and soil survey costs}\label{mapping-accuracy-soil-survey-costs}}
 
 Once the accuracy of some model have been assessed, the next measure of
 overall mapping success of interest is the soil information production
@@ -10393,7 +10413,7 @@ needed for the work of synthesis and editing.
 Estimated standard soil survey costs per area differ from country to
 country. The USDA estimates that the total costs of soil mapping at
 their most detailed scale (1:20) are about 1.50 USD per acre
-i.e.~about 4 USD per ha \citep{eltit2008}; in Canada, typical costs of producing
+i.e.~about 4 USD per ha \citep{Durana2008}; in Canada, typical costs of producing
 soil maps at 1:20 are in the range 3--10 CAD per ha
 \citep{MacMillan2010DSM}; in the Netherlands 3.4 EUR per ha
 \citep[ pp.~149--154]{Kempen2011PhDthesis}; in New Zealand 4 USD per ha
@@ -10839,18 +10859,18 @@ In the following example we look at mapping sand content for the upper horizons.
 \CommentTok{#> H2O is not running yet, starting it now...}
 \CommentTok{#> }
 \CommentTok{#> Note:  In case of errors look at the following log files:}
-\CommentTok{#>     /tmp/Rtmp2u1IJz/h2o_travis_started_from_r.out}
-\CommentTok{#>     /tmp/Rtmp2u1IJz/h2o_travis_started_from_r.err}
+\CommentTok{#>     /tmp/RtmpOjKAW2/h2o_travis_started_from_r.out}
+\CommentTok{#>     /tmp/RtmpOjKAW2/h2o_travis_started_from_r.err}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> Starting H2O JVM and connecting: .. Connection successful!}
 \CommentTok{#> }
 \CommentTok{#> R is connected to the H2O cluster: }
-\CommentTok{#>     H2O cluster uptime:         2 seconds 66 milliseconds }
+\CommentTok{#>     H2O cluster uptime:         2 seconds 184 milliseconds }
 \CommentTok{#>     H2O cluster timezone:       UTC }
 \CommentTok{#>     H2O data parsing timezone:  UTC }
 \CommentTok{#>     H2O cluster version:        3.20.0.8 }
-\CommentTok{#>     H2O cluster version age:    3 months and 7 days  }
+\CommentTok{#>     H2O cluster version age:    3 months and 13 days !!! }
 \CommentTok{#>     H2O cluster name:           H2O_started_from_R_travis_lqb476 }
 \CommentTok{#>     H2O cluster total nodes:    1 }
 \CommentTok{#>     H2O cluster total memory:   1.62 GB }
@@ -10863,6 +10883,9 @@ In the following example we look at mapping sand content for the upper horizons.
 \CommentTok{#>     H2O Internal Security:      FALSE }
 \CommentTok{#>     H2O API Extensions:         XGBoost, Algos, AutoML, Core V3, Core V4 }
 \CommentTok{#>     R Version:                  R version 3.5.1 (2018-12-12)}
+\CommentTok{#> Warning in h2o.clusterInfo(): }
+\CommentTok{#> Your H2O cluster version is too old (3 months and 13 days)!}
+\CommentTok{#> Please download and install the latest version from http://h2o.ai/download/}
 \end{Highlighting}
 \end{Shaded}
 
@@ -10887,12 +10910,12 @@ We can now fit a random forest model by using all the computing power available 
 \CommentTok{#> ==============}
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionModel: drf}
-\CommentTok{#> Model ID:  DRF_model_R_1546084173663_1 }
+\CommentTok{#> Model ID:  DRF_model_R_1546609035994_1 }
 \CommentTok{#> Model Summary: }
 \CommentTok{#>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth}
-\CommentTok{#> 1              50                       50              642365        20}
+\CommentTok{#> 1              50                       50              644132        20}
 \CommentTok{#>   max_depth mean_depth min_leaves max_leaves mean_leaves}
-\CommentTok{#> 1        20   20.00000        928       1068  1018.84000}
+\CommentTok{#> 1        20   20.00000        955       1063  1021.54000}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionMetrics: drf}
@@ -10961,29 +10984,29 @@ h2o has another MLA of interest for soil mapping called \emph{deep learning} (a 
 \CommentTok{#> ==============}
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionModel: deeplearning}
-\CommentTok{#> Model ID:  DeepLearning_model_R_1546084173663_2 }
+\CommentTok{#> Model ID:  DeepLearning_model_R_1546609035994_2 }
 \CommentTok{#> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1}
 \CommentTok{#>   layer units      type dropout       l1       l2 mean_rate rate_rms}
 \CommentTok{#> 1     1    10     Input  0.00 %       NA       NA        NA       NA}
-\CommentTok{#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.014900 0.009994}
-\CommentTok{#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.132766 0.176822}
-\CommentTok{#> 4     4     1    Linear      NA 0.000000 0.000000  0.001336 0.000918}
+\CommentTok{#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.014943 0.008857}
+\CommentTok{#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.137426 0.189062}
+\CommentTok{#> 4     4     1    Linear      NA 0.000000 0.000000  0.001312 0.000947}
 \CommentTok{#>   momentum mean_weight weight_rms mean_bias bias_rms}
 \CommentTok{#> 1       NA          NA         NA        NA       NA}
-\CommentTok{#> 2 0.000000    0.004419   0.101751  0.356321 0.066362}
-\CommentTok{#> 3 0.000000   -0.018289   0.071035  0.954532 0.022856}
-\CommentTok{#> 4 0.000000   -0.001867   0.051163  0.101003 0.000000}
+\CommentTok{#> 2 0.000000   -0.003222   0.104844  0.365428 0.066160}
+\CommentTok{#> 3 0.000000   -0.017074   0.071406  0.958022 0.018498}
+\CommentTok{#> 4 0.000000    0.000999   0.049347  0.108892 0.000000}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionMetrics: deeplearning}
 \CommentTok{#> ** Reported on training data. **}
 \CommentTok{#> ** Metrics reported on full training frame **}
 \CommentTok{#> }
-\CommentTok{#> MSE:  280}
-\CommentTok{#> RMSE:  16.7}
-\CommentTok{#> MAE:  12.7}
-\CommentTok{#> RMSLE:  0.515}
-\CommentTok{#> Mean Residual Deviance :  280}
+\CommentTok{#> MSE:  274}
+\CommentTok{#> RMSE:  16.5}
+\CommentTok{#> MAE:  12.5}
+\CommentTok{#> RMSLE:  0.51}
+\CommentTok{#> Mean Residual Deviance :  274}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11253,16 +11276,16 @@ We can hence run 5-fold cross validation:
 \CommentTok{#> List of 2}
 \CommentTok{#>  $ CV_residuals:'data.frame':    4972 obs. of  4 variables:}
 \CommentTok{#>   ..$ Observed : num [1:4972] 14.5 13.6 10.1 12.1 7.1 ...}
-\CommentTok{#>   ..$ Predicted: num [1:4972] 14.06 11.29 9.32 5.55 3.66 ...}
+\CommentTok{#>   ..$ Predicted: num [1:4972] 14.47 10.29 9.22 5.86 3.83 ...}
 \CommentTok{#>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" ...}
 \CommentTok{#>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...}
 \CommentTok{#>  $ Summary     :'data.frame':    1 obs. of  6 variables:}
-\CommentTok{#>   ..$ ME          : num -0.124}
-\CommentTok{#>   ..$ MAE         : num 2.13}
-\CommentTok{#>   ..$ RMSE        : num 3.62}
-\CommentTok{#>   ..$ R.squared   : num 0.571}
-\CommentTok{#>   ..$ logRMSE     : num 0.482}
-\CommentTok{#>   ..$ logR.squared: num 0.653}
+\CommentTok{#>   ..$ ME          : num -0.116}
+\CommentTok{#>   ..$ MAE         : num 2.12}
+\CommentTok{#>   ..$ RMSE        : num 3.61}
+\CommentTok{#>   ..$ R.squared   : num 0.573}
+\CommentTok{#>   ..$ logRMSE     : num 0.481}
+\CommentTok{#>   ..$ logR.squared: num 0.654}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11322,14 +11345,14 @@ we first specify all learners (MLA methods) of interest:
 \CommentTok{#> Base learner performance, sorted by specified metric:}
 \CommentTok{#>                    learner  MSE}
 \CommentTok{#> 2          h2o.gbm.wrapper 9.81}
-\CommentTok{#> 1 h2o.randomForest.wrapper 8.04}
+\CommentTok{#> 1 h2o.randomForest.wrapper 8.58}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2O Ensemble Performance on <newdata>:}
 \CommentTok{#> ----------------}
 \CommentTok{#> Family: gaussian}
 \CommentTok{#> }
-\CommentTok{#> Ensemble performance (MSE): 8.06390951923356}
+\CommentTok{#> Ensemble performance (MSE): 8.42302683423622}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11432,16 +11455,16 @@ We can again test fitting an ensemble model using two MLA's:
 \CommentTok{#> Base learner performance, sorted by specified metric:}
 \CommentTok{#>                    learner    MSE}
 \CommentTok{#> 1          h2o.glm.wrapper 0.2827}
-\CommentTok{#> 4 h2o.deeplearning.wrapper 0.2267}
+\CommentTok{#> 4 h2o.deeplearning.wrapper 0.1704}
 \CommentTok{#> 3          h2o.gbm.wrapper 0.0971}
-\CommentTok{#> 2 h2o.randomForest.wrapper 0.0839}
+\CommentTok{#> 2 h2o.randomForest.wrapper 0.0838}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2O Ensemble Performance on <newdata>:}
 \CommentTok{#> ----------------}
 \CommentTok{#> Family: gaussian}
 \CommentTok{#> }
-\CommentTok{#> Ensemble performance (MSE): 0.0799131561700886}
+\CommentTok{#> Ensemble performance (MSE): 0.0793469749094449}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11530,10 +11553,10 @@ A useful functionality of the SuperLearner package is that it displays how model
 \CommentTok{#> }
 \CommentTok{#>                  Risk   Coef}
 \CommentTok{#> SL.mean_All    0.7540 0.0000}
-\CommentTok{#> SL.xgboost_All 0.0598 0.8109}
-\CommentTok{#> SL.ksvm_All    0.1289 0.0063}
-\CommentTok{#> SL.glmnet_All  0.3080 0.0000}
-\CommentTok{#> SL.ranger_All  0.0850 0.1828}
+\CommentTok{#> SL.xgboost_All 0.0598 0.8267}
+\CommentTok{#> SL.ksvm_All    0.1298 0.0181}
+\CommentTok{#> SL.glmnet_All  0.3076 0.0000}
+\CommentTok{#> SL.ranger_All  0.0863 0.1551}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11553,10 +11576,10 @@ This shows that \texttt{SL.xgboost\_All} outperforms the competition by a large 
 \CommentTok{#>     SL.library = sl.l2) }
 \CommentTok{#> }
 \CommentTok{#> }
-\CommentTok{#>                  Risk  Coef}
-\CommentTok{#> SL.xgboost_All 0.0603 0.819}
-\CommentTok{#> SL.ranger_All  0.0835 0.181}
-\CommentTok{#> SL.ksvm_All    0.1303 0.000}
+\CommentTok{#>                  Risk Coef}
+\CommentTok{#> SL.xgboost_All 0.0603 0.81}
+\CommentTok{#> SL.ranger_All  0.0827 0.19}
+\CommentTok{#> SL.ksvm_All    0.1307 0.00}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11585,10 +11608,10 @@ again \texttt{SL.xgboost} dominates the ensemble model, which is most likely unr
 \CommentTok{#> }
 \CommentTok{#>       Algorithm  Ave    se   Min  Max}
 \CommentTok{#>   Super Learner 0.16 0.014 0.094 0.26}
-\CommentTok{#>     Discrete SL 0.17 0.014 0.112 0.25}
+\CommentTok{#>     Discrete SL 0.17 0.015 0.113 0.25}
 \CommentTok{#>  SL.xgboost_All 0.19 0.016 0.135 0.27}
-\CommentTok{#>   SL.ranger_All 0.16 0.014 0.103 0.25}
-\CommentTok{#>     SL.ksvm_All 0.18 0.015 0.109 0.30}
+\CommentTok{#>   SL.ranger_All 0.16 0.015 0.104 0.25}
+\CommentTok{#>     SL.ksvm_All 0.18 0.015 0.110 0.30}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11614,8 +11637,8 @@ To produce predictions of soil pH at 10 cm depth we can finally use:
 \CommentTok{#> }
 \CommentTok{#>                 Risk  Coef}
 \CommentTok{#> SL.xgboost_All 0.215 0.000}
-\CommentTok{#> SL.ranger_All  0.165 0.478}
-\CommentTok{#> SL.ksvm_All    0.163 0.522}
+\CommentTok{#> SL.ranger_All  0.166 0.479}
+\CommentTok{#> SL.ksvm_All    0.164 0.521}
 \NormalTok{new.data <-}\StringTok{ }\NormalTok{grid10m}\OperatorTok{@}\NormalTok{data}
 \NormalTok{pred.PHI <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\OtherTok{NULL}\NormalTok{)}
 \NormalTok{depths =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{,}\DecValTok{30}\NormalTok{,}\DecValTok{50}\NormalTok{,}\DecValTok{70}\NormalTok{,}\DecValTok{90}\NormalTok{)}
@@ -11637,7 +11660,7 @@ To produce predictions of soil pH at 10 cm depth we can finally use:
 \CommentTok{#>     buffer, rotated}
 \KeywordTok{str}\NormalTok{(pred.PHI[[}\DecValTok{1}\NormalTok{]])}
 \CommentTok{#> List of 2}
-\CommentTok{#>  $ pred           : num [1:3865, 1] 4.66 4.73 4.85 4.82 4.76 ...}
+\CommentTok{#>  $ pred           : num [1:3865, 1] 4.72 4.79 4.94 4.88 4.82 ...}
 \CommentTok{#>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...}
 \CommentTok{#>   ..- attr(*, "dimnames")=List of 2}
 \CommentTok{#>   .. ..$ : NULL}
@@ -12855,7 +12878,7 @@ Where values for bulk density are missing, and no local PTF exists, WoSIS points
   \KeywordTok{paste}\NormalTok{(}\StringTok{"BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +"}\NormalTok{, }
         \KeywordTok{paste}\NormalTok{(}\KeywordTok{names}\NormalTok{(ind.tax), }\DataTypeTok{collapse=}\StringTok{"+"}\NormalTok{)))}
 \NormalTok{m.BLD_PTF <-}\StringTok{ }\KeywordTok{ranger}\NormalTok{(fm.BLD, dfs_tbl, }\DataTypeTok{num.trees =} \DecValTok{85}\NormalTok{, }\DataTypeTok{importance=}\StringTok{'impurity'}\NormalTok{)}
-\CommentTok{#> Growing trees.. Progress: 91%. Estimated remaining time: 3 seconds.}
+\CommentTok{#> Growing trees.. Progress: 87%. Estimated remaining time: 4 seconds.}
 \NormalTok{m.BLD_PTF}
 \CommentTok{#> Ranger result}
 \CommentTok{#> }
@@ -13723,7 +13746,7 @@ that may not find effective use.
 \hypertarget{psm-main-steps}{%
 \subsection{PSM main steps}\label{psm-main-steps}}
 
-Based on previously presented theory, we can summarize the usual PSM processes as (Fig. \ref{fig:psm-decision-tree}):
+Based on previously presented theory, we can summarize the usual PSM processes as:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -13742,6 +13765,9 @@ Based on previously presented theory, we can summarize the usual PSM processes a
 \item
   Updates and improvements (support).
 \end{enumerate}
+
+An even more comprehensive list of steps in PSM projects is given in Fig. \ref{fig:psm-decision-tree},
+which also includes market/user-domain researcher and might be also used for soil monitoring projects.
 
 \begin{figure}[H]
 
@@ -14731,7 +14757,7 @@ monthly/yearly costs need to be added to these numbers to account also
 for any web hosting, support or update costs.
 
 Compare these costs with the following standard estimated costs to
-deliver completed conventional manual soil survey products:
+deliver completed conventional manual soil survey products (see also section \ref{mapping-accuracy-soil-survey-costs}):
 
 \begin{itemize}
 \item
@@ -14765,8 +14791,9 @@ carefully as production costs are sensitive to specifications, (e.g.~3
 times finer pixel size can increase production costs up to 10 times, or
 setting targets such as 30\% lower RMSE can increase costs as either more
 points or more covariates, or both, need to be included. General forms
-at the end of the chapter provide a detailed list of target soil
-variables and covariate layers typically used in PSM projects to date.
+at the end of the chapter provide an example of detailed list of technical
+specifications in relation to target variables and covariate layers
+typically used in PSM projects to date.
 
 \hypertarget{the-future-of-predictive-soil-mapping}{%
 \chapter{The future of predictive soil mapping}\label{the-future-of-predictive-soil-mapping}}
@@ -15333,7 +15360,7 @@ sample numbers can be generated to automatically assign unique and
 persistent identifiers to every site and to every soil sample collected
 in the field. This can reduce costs and errors associated with assigning
 different sample IDs at different stages in a sampling campaign (
-e.g.~field, lab, data entry). Persistent and unique machie readable identifiers can help to
+e.g.~field, lab, data entry). Persistent and unique machine readable identifiers can help to
 support continuous, real-time tracking of the progress of field
 descriptions and soil samples from initial collection in the field
 through laboratory analysis to final collation in a soil information
@@ -15371,13 +15398,13 @@ participation in collecting new field data.
 Recent developments in the use of new, rapid and accurate pharmaceutical
 grade analytical devices have reduced the costs of typical laboratory
 analyses dramatically, while, at the same time, significantly improving
-on reproducibility and accuracy \citep{shepherd2007infrared}. A modern soil laboratory now entails
+on reproducibility and accuracy \citep{ShepherdWalsh2007JNIS}. A modern soil laboratory now entails
 making use of mid and near infrared spectrophotometers, X-ray
 diffraction and X-Ray diffusion and laser based particle size analysis.
 Using these new instruments, it has been demonstrated that total costs
 for running a complete set of common soil analyses on a full soil
 profile can be reduced from a current cost of US\$ 2,000 to as little as
-US\$ 2-10 per profile \citep{shepherd2007infrared}.
+US\$ 2--10 per profile \citep{ShepherdWalsh2007JNIS}.
 This reduction in cost, along with the associated improvement in
 reproducibility is a game changer. It makes it, once again, feasible and
 affordable to consider taking new field soil samples and analyzing them
@@ -16070,7 +16097,7 @@ services or activities internally and individually. Sharing platforms
 for collecting, creating, hosting, publishing and disseminating spatial
 environmental data could be more cost effective than building and
 maintaining multiple separate platforms and functionalities
-individually. These reduced, or avoided, costs could justify
+individually (Fig. \ref{fig:psm-design-users}). These reduced, or avoided, costs could justify
 contributing some funds to pay for, and sustain, the operations of the
 collective. Sustaining subscriptions are a more stable and reliable way
 to fund the ongoing development and maintenance of the collective's
@@ -16163,9 +16190,19 @@ elements of the existing Global Soil Information Facilities (GSIF).
 (\url{http://www.isric.org/content/soilgrids}) and of the recently launched
 OpenGeoHub Foundation's LandGIS (\url{http://landgis.opengeohub.org}).
 
+\begin{figure}[H]
+
+{\centering \includegraphics[width=0.95\linewidth]{figures/Fig_soil_type_workflow.svg} 
+
+}
+
+\caption{LandGIS as a system for generating new added-value information immediately and affordably using “old legacy data” i.e. without new investments. By importing, cleaning up and data mining of legacy soil data we promote technology and knowledge transfer from data-rich countries to data-poor countries.}\label{fig:soil-type-workflow}
+\end{figure}
+
 We imagine harnessing the possibilities for collective and cooperative
 action offered by new and emerging methods for social networking and
-scientific cooperation. The concept aims to promote, incorporate and
+scientific cooperation (Fig. \ref{fig:soil-type-workflow}).
+The concept aims to promote, incorporate and
 make use of all relevant new scientific and technical advances in the
 assembly and processing of terrestrial spatial data. But the vision is
 not solely driven by technology push from new scientific and technical
@@ -16217,7 +16254,7 @@ institute. For example, for many years, soil survey activities in
 Canadian provinces, such as Alberta, were conducted officially under the
 auspices of Institutes of Pedology that formalized cooperation among
 federal and provincial government departments and university departments
-of soil science.. Others might be attracted to the idea of spinning off
+of soil science. Others might be attracted to the idea of spinning off
 a notionally independent private sector company within which other
 entities could collaborate to produce or distribute their data. Examples
 of private companies involved in distributing spatial data include

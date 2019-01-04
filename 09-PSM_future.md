@@ -496,7 +496,7 @@ sample numbers can be generated to automatically assign unique and
 persistent identifiers to every site and to every soil sample collected
 in the field. This can reduce costs and errors associated with assigning
 different sample IDs at different stages in a sampling campaign (e.g.
-field, lab, data entry). Persistent and unique machie readable identifiers can help to
+field, lab, data entry). Persistent and unique machine readable identifiers can help to
 support continuous, real-time tracking of the progress of field
 descriptions and soil samples from initial collection in the field
 through laboratory analysis to final collation in a soil information
@@ -533,13 +533,13 @@ participation in collecting new field data.
 Recent developments in the use of new, rapid and accurate pharmaceutical
 grade analytical devices have reduced the costs of typical laboratory
 analyses dramatically, while, at the same time, significantly improving
-on reproducibility and accuracy [@shepherd2007infrared]. A modern soil laboratory now entails
+on reproducibility and accuracy [@ShepherdWalsh2007JNIS]. A modern soil laboratory now entails
 making use of mid and near infrared spectrophotometers, X-ray
 diffraction and X-Ray diffusion and laser based particle size analysis.
 Using these new instruments, it has been demonstrated that total costs
 for running a complete set of common soil analyses on a full soil
 profile can be reduced from a current cost of US\$ 2,000 to as little as
-US\$ 2-10 per profile [@shepherd2007infrared].
+US\$ 2–10 per profile [@ShepherdWalsh2007JNIS].
 This reduction in cost, along with the associated improvement in
 reproducibility is a game changer. It makes it, once again, feasible and
 affordable to consider taking new field soil samples and analyzing them
@@ -1205,7 +1205,7 @@ services or activities internally and individually. Sharing platforms
 for collecting, creating, hosting, publishing and disseminating spatial
 environmental data could be more cost effective than building and
 maintaining multiple separate platforms and functionalities
-individually. These reduced, or avoided, costs could justify
+individually (Fig. \@ref(fig:psm-design-users)). These reduced, or avoided, costs could justify
 contributing some funds to pay for, and sustain, the operations of the
 collective. Sustaining subscriptions are a more stable and reliable way
 to fund the ongoing development and maintenance of the collective’s
@@ -1290,9 +1290,15 @@ elements of the existing Global Soil Information Facilities (GSIF).
 (http://www.isric.org/content/soilgrids) and of the recently launched 
 OpenGeoHub Foundation's LandGIS (http://landgis.opengeohub.org).
 
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_soil_type_workflow.svg.png" alt="LandGIS as a system for generating new added-value information immediately and affordably using “old legacy data” i.e. without new investments. By importing, cleaning up and data mining of legacy soil data we promote technology and knowledge transfer from data-rich countries to data-poor countries." width="95%" />
+<p class="caption">(\#fig:soil-type-workflow)LandGIS as a system for generating new added-value information immediately and affordably using “old legacy data” i.e. without new investments. By importing, cleaning up and data mining of legacy soil data we promote technology and knowledge transfer from data-rich countries to data-poor countries.</p>
+</div>
+
 We imagine harnessing the possibilities for collective and cooperative
 action offered by new and emerging methods for social networking and
-scientific cooperation. The concept aims to promote, incorporate and
+scientific cooperation (Fig. \@ref(fig:soil-type-workflow)). 
+The concept aims to promote, incorporate and
 make use of all relevant new scientific and technical advances in the
 assembly and processing of terrestrial spatial data. But the vision is
 not solely driven by technology push from new scientific and technical
@@ -1340,7 +1346,7 @@ institute. For example, for many years, soil survey activities in
 Canadian provinces, such as Alberta, were conducted officially under the
 auspices of Institutes of Pedology that formalized cooperation among
 federal and provincial government departments and university departments
-of soil science.. Others might be attracted to the idea of spinning off
+of soil science. Others might be attracted to the idea of spinning off
 a notionally independent private sector company within which other
 entities could collaborate to produce or distribute their data. Examples
 of private companies involved in distributing spatial data include

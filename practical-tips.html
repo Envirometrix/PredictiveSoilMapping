@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl and Robert A. MacMillan">
 
 
-<meta name="date" content="2018-12-29">
+<meta name="date" content="2019-01-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -296,7 +296,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3.4" data-path="statistical-theory.html"><a href="statistical-theory.html#accuracy-of-the-predicted-model-uncertainty"><i class="fa fa-check"></i><b>5.3.4</b> Accuracy of the predicted model uncertainty</a></li>
 <li class="chapter" data-level="5.3.5" data-path="statistical-theory.html"><a href="statistical-theory.html#derivation-and-interpretation-of-prediction-interval"><i class="fa fa-check"></i><b>5.3.5</b> Derivation and interpretation of prediction interval</a></li>
 <li class="chapter" data-level="5.3.6" data-path="statistical-theory.html"><a href="statistical-theory.html#universal-measures-of-mapping-accuracy"><i class="fa fa-check"></i><b>5.3.6</b> Universal measures of mapping accuracy</a></li>
-<li class="chapter" data-level="5.3.7" data-path="statistical-theory.html"><a href="statistical-theory.html#mapping-accuracy-and-soil-survey-costs"><i class="fa fa-check"></i><b>5.3.7</b> Mapping accuracy and soil survey costs</a></li>
+<li class="chapter" data-level="5.3.7" data-path="statistical-theory.html"><a href="statistical-theory.html#mapping-accuracy-soil-survey-costs"><i class="fa fa-check"></i><b>5.3.7</b> Mapping accuracy and soil survey costs</a></li>
 <li class="chapter" data-level="5.3.8" data-path="statistical-theory.html"><a href="statistical-theory.html#summary-points-2"><i class="fa fa-check"></i><b>5.3.8</b> Summary points</a></li>
 </ul></li>
 </ul></li>
@@ -416,7 +416,7 @@ simple economic analysis, to help readers avoid making unrealistic plans or prod
 that may not find effective use.</p>
 <div id="psm-main-steps" class="section level3">
 <h3><span class="header-section-number">8.1.1</span> PSM main steps</h3>
-<p>Based on previously presented theory, we can summarize the usual PSM processes as (Fig. <a href="practical-tips.html#fig:psm-decision-tree">8.1</a>):</p>
+<p>Based on previously presented theory, we can summarize the usual PSM processes as:</p>
 <ol style="list-style-type: decimal">
 <li><p>Preparation of point data (training data).</p></li>
 <li><p>Preparation of covariate data (the explanatory variables).</p></li>
@@ -427,6 +427,8 @@ that may not find effective use.</p>
 databases and/or web services).</p></li>
 <li><p>Updates and improvements (support).</p></li>
 </ol>
+<p>An even more comprehensive list of steps in PSM projects is given in Fig. <a href="practical-tips.html#fig:psm-decision-tree">8.1</a>,
+which also includes market/user-domain researcher and might be also used for soil monitoring projects.</p>
 <div class="figure" style="text-align: center"><span id="fig:psm-decision-tree"></span>
 <img src="figures/Fig_decisiontree_PSM_project.png" alt="General decision tree in a Predictive Soil Mapping project." width="95%" />
 <p class="caption">
@@ -656,7 +658,7 @@ observations or existing laboratory analysed field samples. However,
 recent activities in Africa (www.Africasoils.net), for example, have
 demonstrated conclusively that it is feasible, affordable and beneficial
 to collect new field observations and samples and to analyse new soil
-samples affordably and to a high standard <span class="citation">(K. Shepherd and Walsh <a href="#ref-ShepherdWalsh2007JNIS">2007</a>)</span>.</p>
+samples affordably and to a high standard <span class="citation">(Shepherd and Walsh <a href="#ref-ShepherdWalsh2007JNIS">2007</a>)</span>.</p>
 </div>
 <div id="preparation-of-point-data" class="section level3">
 <h3><span class="header-section-number">8.2.2</span> Preparation of point data</h3>
@@ -1172,10 +1174,10 @@ numbers might be significantly different. Additional fixed costs +
 monthly/yearly costs need to be added to these numbers to account also
 for any web hosting, support or update costs.</p>
 <p>Compare these costs with the following standard estimated costs to
-deliver completed conventional manual soil survey products:</p>
+deliver completed conventional manual soil survey products (see also section <a href="statistical-theory.html#mapping-accuracy-soil-survey-costs">5.3.7</a>):</p>
 <ul>
 <li><p>USDA estimate of the total soil survey costs: 4 US$ per ha for
-1:20,000 scale maps <span class="citation">(Durana <a href="#ref-Durana2008">2008</a><a href="#ref-Durana2008">b</a>)</span> to map USA48 area = 3.2 billion
+1:20,000 scale maps <span class="citation">(Durana <a href="#ref-Durana2008">2008</a>)</span> to map USA48 area = 3.2 billion
 US$,</p></li>
 <li><p>New Zealand: 4 US$ per ha for 1:20,000 scale maps <span class="citation">(Carrick, Vesely, and Hewitt <a href="#ref-Carrick2010WCSS">2010</a>)</span>,</p></li>
 <li><p>Canada: 3–10 CA$ per ha for 1:20,000 scale maps <span class="citation">(MacMillan et al. <a href="#ref-MacMillan2010DSM">2010</a>)</span>,</p></li>
@@ -1201,8 +1203,9 @@ carefully as production costs are sensitive to specifications, (e.g. 3
 times finer pixel size can increase production costs up to 10 times, or
 setting targets such as 30% lower RMSE can increase costs as either more
 points or more covariates, or both, need to be included. General forms
-at the end of the chapter provide a detailed list of target soil
-variables and covariate layers typically used in PSM projects to date.</p>
+at the end of the chapter provide an example of detailed list of technical
+specifications in relation to target variables and covariate layers
+typically used in PSM projects to date.</p>
 
 </div>
 </div>
@@ -1221,7 +1224,7 @@ variables and covariate layers typically used in PSM projects to date.</p>
 <p>Mitchell, T., and GDAL Developers. 2014. <em>Geospatial Power Tools: GDAL Raster &amp; Vector Commands</em>. Locate Press.</p>
 </div>
 <div id="ref-Durana2008">
-<p>Durana, Patricia J. 2008b. “Appendix A: Chronology of the U.S.Soil Survey.” In <em>Profiles in the History of the U.S.Soil Survey</em>, 315–20. Iowa State Press. <a href="https://doi.org/10.1002/9780470376959.app1" class="uri">https://doi.org/10.1002/9780470376959.app1</a>.</p>
+<p>Durana, Patricia J. 2008. “Appendix A: Chronology of the U.S. Soil Survey.” In <em>Profiles in the History of the U.S. Soil Survey</em>, 315–20. Iowa State Press. <a href="https://doi.org/10.1002/9780470376959.app1" class="uri">https://doi.org/10.1002/9780470376959.app1</a>.</p>
 </div>
 <div id="ref-Carrick2010WCSS">
 <p>Carrick, Sam, Éva-Terézia Vesely, and Allan Hewitt. 2010. “Economic Value of Improved Soil Natural Capital Assessment: A Case Study on Nitrogen Leaching.” In <em>19th World Congress of Soil Science</em>, 1–6. Brisbane, Australia: IUSS.</p>

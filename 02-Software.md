@@ -30,7 +30,7 @@ Software (required):
 
 *  Google Earth or Google Earth Pro; 
 
-*  [GDAL v2.x](https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries) for Windows machines use e.g. ["gdal-*-1800-x64-core.msi"](http://download.gisinternals.com/sdk/downloads/release-1800-x64-gdal-2-1-3-mapserver-7-0-4/gdal-201-1800-x64-core.msi);
+*  [GDAL v2.x](https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries) for Windows machines use e.g. ["gdal-*-1800-x64-core.msi"](http://download.gisinternals.com/sdk/downloads/);
 
 R script used in this tutorial can be downloaded from the **[github](https://github.com/envirometrix/PredictiveSoilMapping)**. As a gentle introduction to the R programming language and to soil classes in R we recommend the chapter on importing and using soil data. Some more examples of SAGA GIS + R usage can be found in the soil covariates chapter. To visualize spatial predictions in a web-browser or Google Earth you could also consider following the soil web-maps tutorial. As a gentle introduction to the R programming language and spatial classes in R we recommend following [the Geocomputation with R book](https://geocompr.robinlovelace.net/). Obtaining also the [R reference card](https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf) is highly recommended.
 
@@ -103,11 +103,13 @@ sudo rm rstudio-1.1.447-amd64.deb
 ```
 
 Again, RStudio is constantly updated so you might have to obtain the most recent rstudio version and distribution.
-To learn more about doing first steps in R and RStudio and to learn to improve your scripting skills more efficiently, consider studying the following two Open Access books:
+To learn more about doing first steps in R and RStudio and to learn to improve your scripting skills more efficiently, consider studying the following tutorials:
 
-* Grolemund, G., (2014) [Hands-On Programming with R](https://rstudio-education.github.io/hopr/). O’Reilly, ISBN: 9781449359010, 236 pages.
+* Grolemund, G., (2014) [**Hands-On Programming with R**](https://rstudio-education.github.io/hopr/). O’Reilly, ISBN: 9781449359010, 236 pages.
 
-* Gillespie, C., Lovelace, R., (2016) [Efficient R programming](https://csgillespie.github.io/efficientR/). O’Reilly, ISBN: 9781491950753, 222 pages.
+* Gillespie, C., Lovelace, R., (2016) [**Efficient R programming**](https://csgillespie.github.io/efficientR/). O’Reilly, ISBN: 9781491950753, 222 pages.
+
+* Wilke, C.O., (2019) [**Fundamentals of Data Visualization**](https://serialmentor.com/dataviz/). O’Reilly, in press.
 
 ## Installing GIS software
 
@@ -411,8 +413,8 @@ plot(raster("./extdata/DEMSRT6_ll.tif"))
 <p class="caption">(\#fig:plot-eberg-ll)Ebergotzen DEM reprojected in geographical coordinates.</p>
 </div>
 
-The following two books are highly recommended for improving programming skills in R and specially for the purpose of geographical computing:
+The following books are highly recommended for improving programming skills in R and specially for the purpose of geographical computing:
 
-* Bivand, R., Pebesma, E., Rubio, V., (2013) [Applied Spatial Data Analysis with R](http://www.asdar-book.org/). Use R Series, Springer, Heidelberg, 2nd Ed. 400 pages.
+* Bivand, R., Pebesma, E., Rubio, V., (2013) [**Applied Spatial Data Analysis with R**](http://www.asdar-book.org/). Use R Series, Springer, Heidelberg, 2nd Ed. 400 pages.
 
-* Lovelace, R., Nowosad, J., Muenchow, J., (2018) [Geocomputation with R](https://geocompr.robinlovelace.net/). R Series, CRC Press, ISBN: 9781138304512, 338 pages.
+* Lovelace, R., Nowosad, J., Muenchow, J., (2018) [**Geocomputation with R**](https://geocompr.robinlovelace.net/). R Series, CRC Press, ISBN: 9781138304512, 338 pages.

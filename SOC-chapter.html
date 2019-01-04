@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl and Robert A. MacMillan">
 
 
-<meta name="date" content="2018-12-29">
+<meta name="date" content="2019-01-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -296,7 +296,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3.4" data-path="statistical-theory.html"><a href="statistical-theory.html#accuracy-of-the-predicted-model-uncertainty"><i class="fa fa-check"></i><b>5.3.4</b> Accuracy of the predicted model uncertainty</a></li>
 <li class="chapter" data-level="5.3.5" data-path="statistical-theory.html"><a href="statistical-theory.html#derivation-and-interpretation-of-prediction-interval"><i class="fa fa-check"></i><b>5.3.5</b> Derivation and interpretation of prediction interval</a></li>
 <li class="chapter" data-level="5.3.6" data-path="statistical-theory.html"><a href="statistical-theory.html#universal-measures-of-mapping-accuracy"><i class="fa fa-check"></i><b>5.3.6</b> Universal measures of mapping accuracy</a></li>
-<li class="chapter" data-level="5.3.7" data-path="statistical-theory.html"><a href="statistical-theory.html#mapping-accuracy-and-soil-survey-costs"><i class="fa fa-check"></i><b>5.3.7</b> Mapping accuracy and soil survey costs</a></li>
+<li class="chapter" data-level="5.3.7" data-path="statistical-theory.html"><a href="statistical-theory.html#mapping-accuracy-soil-survey-costs"><i class="fa fa-check"></i><b>5.3.7</b> Mapping accuracy and soil survey costs</a></li>
 <li class="chapter" data-level="5.3.8" data-path="statistical-theory.html"><a href="statistical-theory.html#summary-points-2"><i class="fa fa-check"></i><b>5.3.8</b> Summary points</a></li>
 </ul></li>
 </ul></li>
@@ -710,7 +710,7 @@ fm.BLD =<span class="st"> </span><span class="kw">as.formula</span>(
   <span class="kw">paste</span>(<span class="st">&quot;BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +&quot;</span>, 
         <span class="kw">paste</span>(<span class="kw">names</span>(ind.tax), <span class="dt">collapse=</span><span class="st">&quot;+&quot;</span>)))
 m.BLD_PTF &lt;-<span class="st"> </span><span class="kw">ranger</span>(fm.BLD, dfs_tbl, <span class="dt">num.trees =</span> <span class="dv">85</span>, <span class="dt">importance=</span><span class="st">&#39;impurity&#39;</span>)
-<span class="co">#&gt; Growing trees.. Progress: 95%. Estimated remaining time: 1 seconds.</span>
+<span class="co">#&gt; Growing trees.. Progress: 87%. Estimated remaining time: 4 seconds.</span>
 m.BLD_PTF
 <span class="co">#&gt; Ranger result</span>
 <span class="co">#&gt; </span>
