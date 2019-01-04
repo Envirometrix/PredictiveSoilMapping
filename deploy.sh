@@ -5,7 +5,7 @@ BASE_REPO=$PWD
 update_website() {
   cd ..; mkdir gh-pages; cd gh-pages
   git init
-  git config user.name "jn"
+  git config user.name "thengl"
   git config user.email "tom.hengl@gmail.com"
   git config --global push.default simple
   git remote add upstream "https://$GH_TOKEN@github.com/Envirometrix/PredictiveSoilMapping.git"
