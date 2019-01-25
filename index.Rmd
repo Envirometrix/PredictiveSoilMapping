@@ -5,8 +5,9 @@ date: "`r Sys.Date()`"
 knit: bookdown::render_book
 site: bookdown::bookdown_site
 documentclass: svmono
-classoption: graybox,natbib,nospthms,UStrade
-geometry: "top=1.6cm, bottom=2cm, left=1cm, right=1cm"
+classoption: graybox,natbib,nospthms
+geometry: "paperwidth=18.90cm, paperheight=24.58cm, top=2.170cm, bottom=3.510cm, inner=2.1835cm, outer=2.1835cm,"
+#geometry: "top=1.6cm, bottom=2cm, left=1cm, right=1cm"
 monofont: "Source Code Pro"
 monofontoptions: "Scale=0.6"
 bibliography: refs.bib
@@ -40,7 +41,7 @@ Hard copies of this book from will be made available in early 2019.
 
 **Cite this as**:
 
-* Hengl, T., MacMillan, R.A., (2019). **Predictive Soil Mapping with R**. OpenGeoHub foundation, Wageningen, the Netherlands, 420 pages. ISBN: 978-0-359-30635-0.
+* Hengl, T., MacMillan, R.A., (2019). **Predictive Soil Mapping with R**. OpenGeoHub foundation, Wageningen, the Netherlands, 420 pages, www.soilmapper.org, ISBN: 978-0-359-30635-0.
 
 ## Editors {-}
 
@@ -194,6 +195,6 @@ Every effort has been made to trace copyright holders of the materials used in t
 
 **Data availability**: All data used in this book is either available through R packages or is available via the github repository. If not mentioned otherwise, all code presented is available under the [GNU General Public License v2.0](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html).
 
-**Copyright**: &copy; 2018 Authors.
+**Copyright**: &copy; 2019 Authors.
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. LandGIS and OpenGeoHub are registered trademarks of the OpenGeoHub Foundation.

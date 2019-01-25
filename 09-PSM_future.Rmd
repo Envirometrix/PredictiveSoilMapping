@@ -353,7 +353,7 @@ collate and harmonize legacy point data could be applied to any new,
 previously overlooked, data sets contributed, in the future, by
 interested parties.
 
-### Collecting New Field O&M Data
+### Collecting new field O&M data
 
 The Africa Soil Information Service (AfSIS) project
 (http://www.africasoils.net) provides a
@@ -372,7 +372,7 @@ considerations for how the collection of new field O&M data can be made
 both more affordable and more effective.
 
 -   Select locations for field sampling using a formal, rigorous
-    sampling design,
+    sampling design [@brown2015spatially; @stumpf2017uncertainty; @BRUS2019464],
 
     -   Design based sampling schemes:
 
@@ -429,10 +429,10 @@ sampled. They are best used for situations where there is little
 existing knowledge about spatial variation and where there is a need to
 collect a representative sample with the fewest possible sample points.
 
-Of the design based options available we suggest using a nested,
+Of the design based options available a nested,
 multiscale sampling design based on a stratified random sample
-framework or spatially-based sampling. In these nested 
-sampling approaches, explicit attention is given to ensuring
+framework or spatially-based sampling appears as a suitable option. 
+In these nested sampling approaches, explicit attention is given to ensuring
 that multiple samples are collected at a succession of point locations
 with increasingly large interpoint separation distances (e.g. 1 m, 10 m,
 100 m, 1 km). These multiple points support construction of
@@ -455,7 +455,7 @@ of distribution of properties or classes of interest. Conditioned Latin
 Hypercube (cLHC) sampling is based on first identifying all significant
 combinations of environmental conditions that occur in an area based on
 overlay and intersection of grid maps that depict the spatial
-distribution of environmental covariates. Potential point sample
+distribution of environmental covariates [@stumpf2016incorporating]. Potential point sample
 locations are then identified and selected in such a way that they
 represent all significant combinations of environmental conditions in an
 area. Point samples are typically selected so that the numbers of
@@ -468,7 +468,7 @@ combination of environmental conditions in an area.
 
 Field sampling programs can also be designed to collect new point
 samples at locations of maximum uncertainty or error in a current set of
-spatial predictions. The spatially located measures of uncertainty
+spatial predictions [@stumpf2017uncertainty]. The spatially located measures of uncertainty
 computed as one output of a prediction model can be used to provide an
 indication of the locations where it may be most beneficial to collect
 new samples to reduce uncertainty to the maximum extent possible. This
@@ -506,6 +506,12 @@ systematize field descriptions and field sampling can make it much more
 affordable and feasible to collect new field data through new field
 sampling programs.
 
+@BRUS2019464 provides a systematic overview of sampling techniques and how
+to implement them in R (https://github.com/DickBrus/TutorialSampling4DSM). 
+The author also recongizes that *“further research is recommended on sampling 
+designs for mapping with machine learning techniques, designs that are robust 
+against deviations of modeling assumptions”*.
+
 ### Characterization of soils in the field and the laboratory
 
 Characterization of field profiles and samples can be made more
@@ -520,25 +526,26 @@ accuracy in both space and time. New sensors based on handheld
 spectrophotometers are just beginning to become available. These may
 soon support fast, efficient and accurate characterization of many soil
 physical and chemical attributes directly in the field. Other field
-instruments such as ground penetrating radar, electrical conductivity
-and gamma ray spectroscopy are also becoming increasingly available and
+instruments such as ground penetrating radar [@gerber2010applicability], electrical conductivity
+and gamma ray spectroscopy [@rouze2017understanding] are also becoming increasingly available and
 useful. Field sensors for monitoring soil moisture and soil temperature
 in real time and transmitting these data to a central location are also
-becoming increasingly common and affordable to deploy. Simple field
-description protocols based on using mobile phones to crowdsource a set
+becoming increasingly common and affordable to deploy. 
+Portable MIR scanners achieve almost the same accuracy as laboratories [@s18040993]. 
+Simple field description protocols based on using mobile phones to crowdsource a set
 of basic observations and measurements could enable massive public
 participation in collecting new field data.
 
 Recent developments in the use of new, rapid and accurate pharmaceutical
 grade analytical devices have reduced the costs of typical laboratory
 analyses dramatically, while, at the same time, significantly improving
-on reproducibility and accuracy [@ShepherdWalsh2007JNIS]. A modern soil laboratory now entails
+on reproducibility and accuracy [@shepherd2002development; @ShepherdWalsh2007JNIS]. A modern soil laboratory now entails
 making use of mid and near infrared spectrophotometers, X-ray
 diffraction and X-Ray diffusion and laser based particle size analysis.
 Using these new instruments, it has been demonstrated that total costs
 for running a complete set of common soil analyses on a full soil
 profile can be reduced from a current cost of US\$ 2,000 to as little as
-US\$ 2–10 per profile [@ShepherdWalsh2007JNIS].
+US\$ 2–10 per profile [@ShepherdWalsh2007JNIS; @ViscarraRossel2016198].
 This reduction in cost, along with the associated improvement in
 reproducibility is a game changer. It makes it, once again, feasible and
 affordable to consider taking new field soil samples and analyzing them
@@ -598,7 +605,8 @@ soil (s) factor in prediction models based on the scorpan concept.
 Advances are being made in developing new covariates that provide
 improved proxies for describing parent material (p). Perhaps the best
 known of these, and the most directly relevant, is airborne gamma ray
-spectroscopy [@wilford1997application; @viscarra2007multivariate]. This sensor can provide very direct and interpretable
+spectroscopy [@wilford1997application; @viscarra2007multivariate; @rouze2017understanding]. 
+This sensor can provide very direct and interpretable
 information from which inferences can be made about both the mineralogy
 and the texture of the top few centimeters of the land surface. A number
 of countries (e.g. Australia, Uganda, Ireland) already possess complete,
@@ -635,7 +643,7 @@ distances and larger scales. Increasingly, it is becoming evident that
 prediction models generate more accurate results when they incorporate
 consideration of a hierarchical pyramid of environmental covariates
 computed across a wide range of resolutions to represent a wide range of
-process scales and formative influences [@Behrens2018EJSS].
+process scales and formative influences [@Behrens2018EJSS; @behrens2018multi].
 
 A final, and very significant, consideration, for environmental
 covariates is one of degree of availability and ease of use. For

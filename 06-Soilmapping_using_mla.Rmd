@@ -4,7 +4,7 @@
 
 ## Spatial prediction of soil properties and classes using MLA's
 
-This chapter reviews some common Machine learning algorithms (MLA's) that have demonstrated potantial for soil mapping projects i.e. for generating spatial predictions. We especially focus on using tree-based algorithms such as [random forest](https://en.wikipedia.org/wiki/Random_forest), [gradient boosting](https://en.wikipedia.org/wiki/Gradient_boosting) and [Cubist](https://cran.r-project.org/package=Cubist). For a more in-depth overview of machine learning algorithms used in statistics refer to the CRAN Task View on [Machine Learning & Statistical Learning](https://cran.r-project.org/web/views/MachineLearning.html). Some other examples of how MLA's can be used to fit Pedo-Transfer-Functions can be found in section \@ref(mla-ptfs).
+This chapter reviews some common Machine learning algorithms (MLA's) that have demonstrated potential for soil mapping projects i.e. for generating spatial predictions [@brungard2015machine; @heung2016overview; @behrens2018multi]. In this tutorial we especially focus on using tree-based algorithms such as [random forest](https://en.wikipedia.org/wiki/Random_forest), [gradient boosting](https://en.wikipedia.org/wiki/Gradient_boosting) and [Cubist](https://cran.r-project.org/package=Cubist). For a more in-depth overview of machine learning algorithms used in statistics refer to the CRAN Task View on [Machine Learning & Statistical Learning](https://cran.r-project.org/web/views/MachineLearning.html). Some other examples of how MLA's can be used to fit Pedo-Transfer-Functions can be found in section \@ref(mla-ptfs).
 
 ### Loading the packages and data
 
@@ -624,6 +624,8 @@ covariates require specialized knowledge and rethinking of how to
 best represent processes. Assuming that the RFsp is fitted only using the
 ${\bf {X}_G}$, the predictions would resemble ordinary kriging (OK). If All covariates are
 used Eq. \@ref(eq:rf-BUGP), RFsp would resemble regression-kriging (RK).
+Similar framework where distances to the center and edges of the study area 
+and similar are used for prediction has been also proposed by @Behrens2018EJSS.
 
 ### Geographical covariates {#geographical-covariates}
 
@@ -642,7 +644,8 @@ connection (Fig. \@ref(fig:distances-examples)):
     and northing.
 
 2.  Euclidean distances to reference points in the study area. For
-    example, distance to the center and edges of the study area, etc.
+    example, distance to the center and edges of the study area, 
+    etc [@Behrens2018EJSS].
 
 3.  Euclidean distances to sampling locations, i.e., distances from
     observation locations. Here one buffer distance map can be generated
@@ -659,14 +662,14 @@ connection (Fig. \@ref(fig:distances-examples)):
     of the cumulative effort derived using terrain ruggedness and/or
     natural obstacles.
 
-The package (***WHICH PACKAGE?***), for example, provides a framework to derive complex
+The [gdistance](https://cran.r-project.org/package=gdistance) package, for example, provides a framework to derive complex
 distances based on terrain complexity [@vanEtten2017r]. Here additional
 inputs required to compute complex distances are the Digital Elevation Model (DEM)
 and DEM-derivatives, such as slope (Fig. \@ref(fig:distances-examples)b).
 SAGA GIS [@gmd-8-1991-2015] offers a wide variety of DEM derivatives
 that can be derived per location of interest.
 
-```{r distances-examples, echo=FALSE, fig.cap="Examples of distance maps to some location in space (yellow dot) based on different derivation algorithms: (a) simple Euclidean distances, (b) complex speed-based distances based on the package and Digital Elevation Model (DEM), and (c) upslope area derived based on the DEM in SAGA GIS. Image source: Hengl et al. (2018) doi: 10.7717/peerj.5518.", out.width="100%"}
+```{r distances-examples, echo=FALSE, fig.cap="Examples of distance maps to some location in space (yellow dot) based on different derivation algorithms: (a) simple Euclidean distances, (b) complex speed-based distances based on the gdistance package and Digital Elevation Model (DEM), and (c) upslope area derived based on the DEM in SAGA GIS. Image source: Hengl et al. (2018) doi: 10.7717/peerj.5518.", out.width="100%"}
 knitr::include_graphics("figures/Fig_distances_examples.png")
 ```
 

@@ -10,19 +10,19 @@ chapters where the focus is on generating soil maps, interpreting
 accuracy results and similar.
 
 Please note that this chapter draws extensively from materials previously 
-published as part of the specifications for the *GlobalSoilMap* project [@Arrouays201493].
+published as part of the specifications for the *GlobalSoilMap* project [@arrouays2014globalsoilmap].
 Large blocks of text extracted verbatum from these prevously published
 *GlobalSoilMap* specifications were, in fact, originally largely composed 
 and written by the second author of this chapter in his former role as
-Science Coordinator for the *GlobalSoilMap* project. We acknowledge the source of much of 
-the content of this chapter as having originated from the previously published *GlobalSoilMap* 
-specifications
+Science Coordinator for the *GlobalSoilMap* project (www.globalsoilmap.net). 
+We acknowledge the source of much of the content of this chapter as having 
+originated from the previously published *GlobalSoilMap* specifications.
 
 The R tutorial at the end of the chaper reviews soil data classes and 
 functions for R. It illustrates how to organize and reformat soil data in R for spatial analysis, 
 how to import soil data into R and how to export data and plot it in Google Earth. 
 To learn more about the Global Soil Information Facilities (GSIF) package, 
-visit the main [documentation page](http://gsif.r-forge.r-project.org/00Index.html).
+visit the main documentation page (http://gsif.r-forge.r-project.org/).
 
 ## Basic concepts
 
@@ -1222,10 +1222,15 @@ The available water holding capacity (AWC) is a complex soil property.
 It is basically a soil or land quality [@food1977framework], that
 provides valuable information about the capacity of the soil to hold
 water, particularly water that is potentially available for root uptake
-by plants and vegetative transpiration. In practice, AWC is land cover specific.
+by plants and vegetative transpiration (Fig. \@ref(fig:available-soil-water)). 
+In practice, AWC is land cover specific.
 The water available for root uptake depends on the soil properties that
 determine rootability or rooting depth as genetically required by the
 currently active vegetative land cover.
+
+```{r available-soil-water, echo=FALSE, fig.cap="Available water capacity and actual water content can be measured using soil moisture probes.", out.width="100%"}
+knitr::include_graphics("figures/Fig_available_soil_water.png")
+```
 
 The water available for root uptake also depends on the pressure head
 that the vegetative land cover can generate or bridge between the
@@ -1242,10 +1247,10 @@ growth, runoff, erosion and flooding all have requirements for
 location-specific information about available water capacity.
 
 The AWC is expressed in mm (which equals mm water/cm soil depth, or
-water/ soil). This volume of water depends on the volume of soil
+water/soil volume). This volume of water depends on the volume of soil
 (influenced by depth interval and by volumetric gravel content) and the
 volumetric fraction of water that is contained by the soil between field
-capacity and wilting point. GSIF and LandGIS report AWC with a precision of 1 mm
+capacity and wilting point. AWC is typically reported to a precision of 1 mm
 and a maximum range of 0–2000 mm.
 
 Values for AWC are preferably assessed for the fine earth fraction per

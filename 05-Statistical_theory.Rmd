@@ -860,7 +860,7 @@ The CLORPT model may be written as [@jenny1994factors; @Florinsky2012Dokuchaev]:
 
 \begin{equation}
 S = f (cl, o, r, p, t)
-(\#eq:clorpt)
+(\#eq:clorpt2)
 \end{equation}
 
 where $S$ stands for soil (properties and classes), $cl$ for climate,
@@ -870,7 +870,7 @@ the distribution of both soil and vegetation (at least in a natural system)
 can be at least partially explained by environmental conditions.
 Eq.\@ref(eq:clorpt) suggests that soil is a result of environmental
 factors, while in reality there are many feedbacks and soil, in turn, influences
-many of the factors on the right-hand side of Eq.\@ref(eq:clorpt), such
+many of the factors on the right-hand side of Eq.\@ref(eq:clorpt2), such
 as $cl$, $o$ and $r$.
 
 Uncertainty about the estimation errors of model coefficients can fairly
