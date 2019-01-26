@@ -217,7 +217,7 @@ library(rgdal)
 #>  Linking to sp version: 1.3-1
 library(raster)
 library(plotKML)
-#> plotKML version 0.5-8 (2017-05-12)
+#> plotKML version 0.5-9 (2019-01-04)
 #> URL: http://plotkml.r-forge.r-project.org/
 data(eberg_zones)
 spplot(eberg_zones[1])

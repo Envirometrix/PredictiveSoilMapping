@@ -59,7 +59,7 @@ Note that R versions are constantly being updated so you will need to replace th
 
 ```r
 sessionInfo()
-#> R version 3.5.1 (2018-12-12)
+#> R version 3.5.2 (2017-01-27)
 #> Platform: x86_64-pc-linux-gnu (64-bit)
 #> Running under: Ubuntu 14.04.5 LTS
 #> 
@@ -82,7 +82,7 @@ sessionInfo()
 #> [1] microbenchmark_1.4-6
 #> 
 #> loaded via a namespace (and not attached):
-#>  [1] compiler_3.5.1   magrittr_1.5     bookdown_0.9     tools_3.5.1     
+#>  [1] compiler_3.5.2   magrittr_1.5     bookdown_0.9     tools_3.5.2     
 #>  [5] htmltools_0.3.6  yaml_2.2.0       Rcpp_1.0.0       codetools_0.2-15
 #>  [9] stringi_1.2.4    rmarkdown_1.11   highr_0.7        knitr_1.21      
 #> [13] stringr_1.3.1    xfun_0.4         digest_0.6.18    evaluate_0.12
@@ -242,7 +242,7 @@ if(!require(GSIF)){
                  type = "source", dependencies = TRUE)
 }
 #> Loading required package: GSIF
-#> GSIF version 0.5-4 (2017-04-25)
+#> GSIF version 0.5-5 (2019-01-04)
 #> URL: http://gsif.r-forge.r-project.org/
 ```
 
@@ -270,7 +270,12 @@ library(GSIF)
 library(sp)
 library(boot)
 library(aqp)
-#> This is aqp 1.16-3
+#> This is aqp 1.17
+#> 
+#> Attaching package: 'aqp'
+#> The following object is masked from 'package:base':
+#> 
+#>     union
 library(plyr)
 library(rpart)
 library(splines)
@@ -281,7 +286,7 @@ library(quantregForest)
 #> Type rfNews() to see new features/changes/bug fixes.
 #> Loading required package: RColorBrewer
 library(plotKML)
-#> plotKML version 0.5-8 (2017-05-12)
+#> plotKML version 0.5-9 (2019-01-04)
 #> URL: http://plotkml.r-forge.r-project.org/
 demo(meuse, echo=FALSE)
 omm <- fit.gstatModel(meuse, om~dist+ffreq, meuse.grid, method="quantregForest")
@@ -312,7 +317,7 @@ om.rk
 #>   Range (residual)   : 2930 
 #>   RMSE (validation)  : 1.75 
 #>   Var explained      : 73.8% 
-#>   Effective bytes    : 1203 
+#>   Effective bytes    : 1202 
 #>   Compression method : gzip
 #plotKML(om.rk)
 ```

@@ -280,7 +280,12 @@ To fit mass preserving splines we can use:
 
 ```r
 library(aqp)
-#> This is aqp 1.16-3
+#> This is aqp 1.17
+#> 
+#> Attaching package: 'aqp'
+#> The following object is masked from 'package:base':
+#> 
+#>     union
 library(rgdal)
 #> Loading required package: sp
 #> rgdal: version: 1.3-6, (SVN revision 773)
@@ -292,7 +297,7 @@ library(rgdal)
 #>  Path to PROJ.4 shared files: (autodetected)
 #>  Linking to sp version: 1.3-1
 library(GSIF)
-#> GSIF version 0.5-4 (2017-04-25)
+#> GSIF version 0.5-5 (2019-01-04)
 #> URL: http://gsif.r-forge.r-project.org/
 #> 
 #> Attaching package: 'GSIF'
@@ -887,7 +892,7 @@ The CLORPT model may be written as [@jenny1994factors; @Florinsky2012Dokuchaev]:
 
 \begin{equation}
 S = f (cl, o, r, p, t)
-(\#eq:clorpt)
+(\#eq:clorpt2)
 \end{equation}
 
 where $S$ stands for soil (properties and classes), $cl$ for climate,
@@ -897,7 +902,7 @@ the distribution of both soil and vegetation (at least in a natural system)
 can be at least partially explained by environmental conditions.
 Eq.\@ref(eq:clorpt) suggests that soil is a result of environmental
 factors, while in reality there are many feedbacks and soil, in turn, influences
-many of the factors on the right-hand side of Eq.\@ref(eq:clorpt), such
+many of the factors on the right-hand side of Eq.\@ref(eq:clorpt2), such
 as $cl$, $o$ and $r$.
 
 Uncertainty about the estimation errors of model coefficients can fairly
@@ -1342,7 +1347,7 @@ om.rk <- predict(omm, meuse.grid)
 #> Subsetting observations to fit the prediction domain in 2D...
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
-#>  47% done100% done
+#> 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
 om.rk
@@ -1414,7 +1419,7 @@ om.rk2 <- predict(omm2, meuse.grid)
 #> Subsetting observations to fit the prediction domain in 2D...
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
-#>  20% done100% done
+#> 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
 ```
@@ -1670,7 +1675,7 @@ om.rksim.p <- predict(omm, meuse.grid, nsim=20, block=c(0,0))
 #> Generating 20 conditional simulations using the trend model (RK method)...
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
-#> 100% done
+#>  98% done100% done
 #> Creating an object of class "RasterBrickSimulations"
 #> Loading required package: raster
 #> 
@@ -1957,13 +1962,13 @@ library(intamap)
 demo(meuse, echo=FALSE)
 meuse$value = meuse$zinc
 output <- interpolate(meuse, meuse.grid, list(mean=TRUE, variance=TRUE))
-#> R 2019-01-04 14:00:07 interpolating 155 observations, 3103 prediction locations
+#> R 2019-01-26 15:25:11 interpolating 155 observations, 3103 prediction locations
 #> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : 
 #>  using standard model for estimating time. For better 
 #>  platform spesific predictions, please run 
 #>  timeModels <- generateTimeModels()
 #>   and save the workspace
-#> [1] "estimated time for  copula 163.094298727464"
+#> [1] "estimated time for  copula 161.427034662692"
 #> Checking object ... OK
 ```
 
@@ -1977,7 +1982,7 @@ str(output, max.level = 2)
 #> List of 16
 #>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
 #>  $ formulaString      :Class 'formula'  language value ~ 1
-#>   .. ..- attr(*, ".Environment")=<environment: 0x13621610> 
+#>   .. ..- attr(*, ".Environment")=<environment: 0x13d6ebd0> 
 #>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
 #>  $ params             :List of 18
 #>   ..$ doAnisotropy     : logi TRUE
@@ -2664,7 +2669,7 @@ om.rk <- predict(omm, meuse.grid)
 #> Subsetting observations to fit the prediction domain in 2D...
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
-#>  80% done100% done
+#> 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
 ```

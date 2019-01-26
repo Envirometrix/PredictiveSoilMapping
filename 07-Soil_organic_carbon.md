@@ -96,10 +96,15 @@ To determine OCS for standard depth intervals 0–30, 0–100 and 0–200 cm, we
 
 ```r
 library(GSIF)
-#> GSIF version 0.5-4 (2017-04-25)
+#> GSIF version 0.5-5 (2019-01-04)
 #> URL: http://gsif.r-forge.r-project.org/
 library(aqp)
-#> This is aqp 1.16-3
+#> This is aqp 1.17
+#> 
+#> Attaching package: 'aqp'
+#> The following object is masked from 'package:base':
+#> 
+#>     union
 library(sp)
 library(plyr)
 lon = 149.73; lat = -30.09; 
@@ -193,7 +198,7 @@ Here also BLD values were not provided and so had to be estimated. To estimate B
 
 \begin{equation}
 BLD.f = (-0.31 \cdot log(ORC/10) + 1.38) \cdot 1000
-(\#eq:kochy)
+(\#eq:bldf)
 \end{equation}
 
 We divide the organic carbon content here by 10 to convert the organic carbon content from g/kg to % as required by the PTF. Note that one might want to use different PTFs for different soil layers. For mineral soils the bulk density of subsoil layers is often somewhat higher than for topsoil layers. For organic soils this typically is the inverse. For instance, @kochy2015global propose the following PTF for the subsoil (for layers with SOC > 3%): 
@@ -245,7 +250,7 @@ fm.BLD = as.formula(
   paste("BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +", 
         paste(names(ind.tax), collapse="+")))
 m.BLD_PTF <- ranger(fm.BLD, dfs_tbl, num.trees = 85, importance='impurity')
-#> Growing trees.. Progress: 87%. Estimated remaining time: 4 seconds.
+#> Growing trees.. Progress: 86%. Estimated remaining time: 5 seconds.
 m.BLD_PTF
 #> Ranger result
 #> 
@@ -743,7 +748,7 @@ m.OCD
 #> Variable importance mode:         impurity 
 #> Splitrule:                        variance 
 #> OOB prediction error (MSE):       18.4 
-#> R squared (OOB):                  0.698
+#> R squared (OOB):                  0.697
 ```
 
 Which shows that the average error with Out-of-bag training points is ±4.2 kg/m-cubic. Note that setting `quantreg = TRUE` allows us to derive also a map of the prediction errors (Fig. \@ref(fig:plot-edgeroi-ocd)), following the method of @meinshausen2006quantile. 
@@ -774,7 +779,7 @@ so that the final Organic carbon stocks in t/ha is:
 #> 
 #>     metadata, metadata<-
 #>    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-#>    19.9    39.1    48.0    48.8    57.5   110.2
+#>    20.3    39.1    48.0    48.8    57.6   112.1
 ```
 
 <div class="figure" style="text-align: center">
@@ -814,25 +819,25 @@ OCS_agg.lu[OCS_agg.lu$Area_km2>5,c("LandUseClass.f","Total_OCS_kt",
 #>                        LandUseClass.f Total_OCS_kt Area_km2 OCH_t_ha_M
 #> 2  Constructed grass waterway for wat           57       11         52
 #> 3                              Cotton           43        8         54
-#> 4                  Cotton - irrigated          812      203         40
-#> 5   Cropping - continuous or rotation         1800      402         45
+#> 4                  Cotton - irrigated          808      203         40
+#> 5   Cropping - continuous or rotation         1803      402         45
 #> 6  Cropping - continuous or rotation           234       59         40
 #> 10                           Farm dam           55       10         55
 #> 11 Farm Infrastructure - house, machi           91       18         51
 #> 12 Grazing - Residual strips (block o           49       10         49
 #> 13 Grazing of native vegetation. Graz          688      129         53
 #> 14 Grazing of native vegetation. Graz           65       13         50
-#> 16                     Irrigation dam           64       16         40
+#> 16                     Irrigation dam           63       16         39
 #> 21                      Native forest          229       37         62
 #> 26                  Research facility           40        9         44
 #> 27 River, creek or other incised drai           70       11         64
 #> 28               Road or road reserve          118       23         51
 #> 29                       State forest          425       83         51
 #> 32 Volunteer, naturalised, native or          1411      238         59
-#> 33 Volunteer, naturalised, native or            63       16         39
+#> 33 Volunteer, naturalised, native or            62       16         39
 #> 34 Volunteer, naturalised, native or            77       14         55
 #> 35 Volunteer, naturalised, native or           475       99         48
-#> 37 Wide road reserve or TSR, with som          466       90         52
+#> 37 Wide road reserve or TSR, with som          467       90         52
 ```
 
 Which shows that, for the `Cropping - continuous or rotation`, which is the dominant land use class in the area, the average OCS is 43 tons/ha for the 0–30 cm depth. In this case, the total soil organic carbon stock for the whole area (for all land use classes) is ca 7154 thousand tons of C. There do not appear to be large differences in OCS between the natural vegetation and croplands.

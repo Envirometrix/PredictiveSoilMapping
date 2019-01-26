@@ -11,19 +11,19 @@ chapters where the focus is on generating soil maps, interpreting
 accuracy results and similar.
 
 Please note that this chapter draws extensively from materials previously 
-published as part of the specifications for the *GlobalSoilMap* project [@Arrouays201493].
+published as part of the specifications for the *GlobalSoilMap* project [@arrouays2014globalsoilmap].
 Large blocks of text extracted verbatum from these prevously published
 *GlobalSoilMap* specifications were, in fact, originally largely composed 
 and written by the second author of this chapter in his former role as
-Science Coordinator for the *GlobalSoilMap* project. We acknowledge the source of much of 
-the content of this chapter as having originated from the previously published *GlobalSoilMap* 
-specifications
+Science Coordinator for the *GlobalSoilMap* project (www.globalsoilmap.net). 
+We acknowledge the source of much of the content of this chapter as having 
+originated from the previously published *GlobalSoilMap* specifications.
 
 The R tutorial at the end of the chaper reviews soil data classes and 
 functions for R. It illustrates how to organize and reformat soil data in R for spatial analysis, 
 how to import soil data into R and how to export data and plot it in Google Earth. 
 To learn more about the Global Soil Information Facilities (GSIF) package, 
-visit the main [documentation page](http://gsif.r-forge.r-project.org/00Index.html).
+visit the main documentation page (http://gsif.r-forge.r-project.org/).
 
 ## Basic concepts
 
@@ -299,7 +299,7 @@ within the GSIF package and can be loaded by:
 
 ```r
 library(GSIF)
-#> GSIF version 0.5-4 (2017-04-25)
+#> GSIF version 0.5-5 (2019-01-04)
 #> URL: http://gsif.r-forge.r-project.org/
 data(soil.legends)
 str(soil.legends)
@@ -1347,10 +1347,16 @@ The available water holding capacity (AWC) is a complex soil property.
 It is basically a soil or land quality [@food1977framework], that
 provides valuable information about the capacity of the soil to hold
 water, particularly water that is potentially available for root uptake
-by plants and vegetative transpiration. In practice, AWC is land cover specific.
+by plants and vegetative transpiration (Fig. \@ref(fig:available-soil-water)). 
+In practice, AWC is land cover specific.
 The water available for root uptake depends on the soil properties that
 determine rootability or rooting depth as genetically required by the
 currently active vegetative land cover.
+
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_available_soil_water.png" alt="Available water capacity and actual water content can be measured using soil moisture probes." width="100%" />
+<p class="caption">(\#fig:available-soil-water)Available water capacity and actual water content can be measured using soil moisture probes.</p>
+</div>
 
 The water available for root uptake also depends on the pressure head
 that the vegetative land cover can generate or bridge between the
@@ -1367,10 +1373,10 @@ growth, runoff, erosion and flooding all have requirements for
 location-specific information about available water capacity.
 
 The AWC is expressed in mm (which equals mm water/cm soil depth, or
-water/ soil). This volume of water depends on the volume of soil
+water/soil volume). This volume of water depends on the volume of soil
 (influenced by depth interval and by volumetric gravel content) and the
 volumetric fraction of water that is contained by the soil between field
-capacity and wilting point. GSIF and LandGIS report AWC with a precision of 1 mm
+capacity and wilting point. AWC is typically reported to a precision of 1 mm
 and a maximum range of 0–2000 mm.
 
 Values for AWC are preferably assessed for the fine earth fraction per
@@ -2159,7 +2165,12 @@ Finally, via the plotKML package you can also plot the actual colors of horizons
 ```r
 library(plyr)
 library(aqp)
-#> This is aqp 1.16-3
+#> This is aqp 1.17
+#> 
+#> Attaching package: 'aqp'
+#> The following object is masked from 'package:base':
+#> 
+#>     union
 lon = 3.90; lat = 7.50; id = "ISRIC:NG0017"; FAO1988 = "LXp"
 top = c(0, 18, 36, 65, 87, 127)
 bottom = c(18, 36, 65, 87, 127, 181)
@@ -2182,13 +2193,13 @@ prof1
 #> Number of profiles: 1
 #> 
 #> Horizon attributes:
-#>             id top bottom ORCDRC   hue value chroma soil_color
-#> 1 ISRIC:NG0017   0     18   18.4 7.5YR     3      2  #584537FF
-#> 2 ISRIC:NG0017  18     36    4.4 7.5YR     4      4  #7E5A3BFF
-#> 3 ISRIC:NG0017  36     65    3.6 2.5YR     5      6  #A96C4FFF
-#> 4 ISRIC:NG0017  65     87    3.6   5YR     5      8  #B06A32FF
-#> 5 ISRIC:NG0017  87    127    3.2   5YR     5      4  #9A7359FF
-#> 6 ISRIC:NG0017 127    181    1.2  10YR     7      3  #C4AC8CFF
+#>             id top bottom ORCDRC   hue value chroma soil_color hzID
+#> 1 ISRIC:NG0017   0     18   18.4 7.5YR     3      2  #584537FF    1
+#> 2 ISRIC:NG0017  18     36    4.4 7.5YR     4      4  #7E5A3BFF    2
+#> 3 ISRIC:NG0017  36     65    3.6 2.5YR     5      6  #A96C4FFF    3
+#> 4 ISRIC:NG0017  65     87    3.6   5YR     5      8  #B06A32FF    4
+#> 5 ISRIC:NG0017  87    127    3.2   5YR     5      4  #9A7359FF    5
+#> 6 ISRIC:NG0017 127    181    1.2  10YR     7      3  #C4AC8CFF    6
 #> 
 #> Sampling site attributes:
 #>             id FAO1988
@@ -2223,7 +2234,7 @@ In the following examples we look at possibilities of using [Machine Learning](w
 ```r
 library(randomForestSRC)
 #> 
-#>  randomForestSRC 2.7.0 
+#>  randomForestSRC 2.8.0 
 #>  
 #>  Type rfsrc.news() to see new features, changes, and bug fixes. 
 #> 
