@@ -246,7 +246,7 @@
 
 \title{Predictive Soil Mapping with R}
 \author{Tomislav Hengl and Robert A. MacMillan}
-\date{2019-01-26}
+\date{2019-01-30}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -274,7 +274,7 @@
 
 \begin{center}\includegraphics[width=0.33\linewidth]{figures/f0_web} \end{center}
 
-This is the online version of the Open Access book: \href{https://envirometrix.github.io/PredictiveSoilMapping/}{\textbf{Predictive Soil Mapping with R}}. Pull requests and general comments are welcome. These materials are based on technical tutorials initially developed for \href{http://isric.org/}{ISRIC's} Global Soil Information Facilities (GSIF) framework for automated soil mapping over the period 2014--2017.
+This is the online version of the Open Access book: \href{https://envirometrix.github.io/PredictiveSoilMapping/}{\textbf{Predictive Soil Mapping with R}}. Pull requests and general comments are welcome. These materials are based on technical tutorials initially developed by the \href{http://isric.org/}{ISRIC's} Global Soil Information Facilities (GSIF) development team over the period 2014--2017.
 
 \textbf{This website is under construction}. For news and updates please refer to the \href{https://github.com/envirometrix/PredictiveSoilMapping/issues}{github issues}.
 
@@ -298,8 +298,8 @@ He is a passionate advocate for, and supporter of, open data, reproducible scien
 for young scientists. He designed and implemented the global \href{http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0169748}{SoilGrids} data set,
 partially in response to other well known open data projects such as OpenStreetMap, GBIF, GlobalForestWatch
 and global climate mapping projects. He has taught predictive soil mapping at Wageningen University /
-ISRIC within the ``Hands-on-GSIF'' block courses. Video tutorials on soil mapping with R can also be
-found at \url{http://youtube.com/c/ISRICorg}. Tom currently leads production of a web mapping system called ``LandGIS'' (\url{https://landgis.opengeohub.org}) which is envisaged as \emph{``an OpenStreetMap-type system''} for land-related environmental data. The system hosts global, fine spatial resolution data (250 m to 1 km) including various soil classes and soil properties, which is intended for eventual integration annd use at operational or farm-scales.
+ISRIC within the ``Hands-on-GSIF'' block courses. Video tutorials on predictive soil mapping with R can also be
+found at \url{http://youtube.com/c/ISRICorg} and \url{https://www.youtube.com/c/OpenGeoHubFoundation}. Tom currently leads production of a web mapping system called ``LandGIS'' (\url{https://landgis.opengeohub.org}) which is envisaged as \emph{``an OpenStreetMap-type system''} for land-related environmental data. The system hosts global, fine spatial resolution data (250 m to 1 km) including various soil classes and soil properties, which is intended for eventual integration annd use at operational or farm-scales.
 
 \href{https://opengeohub.org/people/bob-macmillan}{\textbf{Bob MacMillan}} is a retired environmental consultant with over 40 years of experience in creating, packaging, delivering and using environmental information on soils, ecosystems, landforms and hydrology. Bob spent 19 years working in public sector research with the Alberta Research Council and Agriculture and Agri-Food Canada and a second 20 years as a private sector consultant offering services in predictive soil and ecological mapping. Since retiring, Bob has remained an active supporter, promoter, advocate, mentor and technical contributor to several continental to global scale efforts to advance the science and technology of mapping soils and other ecosystem components. As Science Coordinator for the GlobalSoilMap project, Bob helped to articulate the vision for the project and led initial activities aimed at achieving this, including authoring technical specifications, promoting the project, recruiting participants/cooperators, and liaising with representatives of national and international soil agencies. Bob continues to contribute on a voluntary basis to OpenGeoHub (\url{https://opengeohub.org}) and the Africa Soil Information Servicce (AfSIS) (\url{http://africasoils.net}). Throughout his career, Bob has shared his expertise and his enthusiasm freely with dozens of younger scientists interested in learning about, and becoming, practitioners of digital soil mapping. Bob continues to support the next generation of digital soil mappers through his involvement with OpenGeoHub.
 
@@ -433,7 +433,7 @@ To build the book locally, clone or \href{https://github.com/envirometrix/Predic
 \section*{Acknowledgements}\label{acknowledgements}}
 \addcontentsline{toc}{section}{Acknowledgements}
 
-The authors are grateful for numerous contributions from colleagues around the world, especially for contributions by current and former ISRIC --- World Soil Information colleagues: Gerard Heuvelink, Johan Leenaars, Jorge Mendes de Jesus, Wei Shangguan, David G. Rossiter, and many others. The authors are also grateful to Dutch and European citizens for financing ISRIC and Wageningen University, where work on this book was initially started. The authors acknowledge support received from the \href{http://africasoils.net}{AfSIS project}, which was funded by the Bill and Melinda Gates Foundation (BMGF) and the Alliance for a Green Revolution in Africa (AGRA). Many soil data processing examples in the book are based on R code developed by Dylan Beuadette, Pierre Roudier, Alessandro Samuel Rosa, Marcos E. Angelini, Guillermo Federico Olmedo, Julian Moeys, Brandon Malone, and many other developers. The authors are also grateful to comments and suggestions for improvements to the methods presented in the book by Travis Nauman, Amanda Ramcharan, David G. Rossiter and \href{http://julienmoeys.info}{Julian Moeys}.
+The authors are grateful for numerous contributions from colleagues around the world, especially for contributions by current and former ISRIC --- World Soil Information colleagues and guest researchers: Gerard Heuvelink, Johan Leenaars, Jorge Mendes de Jesus, Wei Shangguan, David G. Rossiter, and many others. The authors are also grateful to Dutch and European citizens for financing ISRIC and Wageningen University, where work on this book was initially started. The authors acknowledge support received from the \href{http://africasoils.net}{AfSIS project}, which was funded by the Bill and Melinda Gates Foundation (BMGF) and the Alliance for a Green Revolution in Africa (AGRA). Many soil data processing examples in the book are based on R code developed by Dylan Beuadette, Pierre Roudier, Alessandro Samuel Rosa, Marcos E. Angelini, Guillermo Federico Olmedo, Julian Moeys, Brandon Malone, and many other developers. The authors are also grateful to comments and suggestions for improvements to the methods presented in the book by Travis Nauman, Amanda Ramcharan, David G. Rossiter and \href{http://julienmoeys.info}{Julian Moeys}.
 
 LandGIS and SoilGrids are based on using numerous soil profile data sets
 kindly made available by various national and international agencies: the
@@ -467,7 +467,7 @@ and without which predictive soil mapping would most likely not be possible.
 
 This book has been inspired by \href{https://geocompr.robinlovelace.net}{the Geocomputation with R book}, an Open Access book edited by Robin Lovelace, Jakub Nowosad and Jannes Muenchow. Many thanks to Robin Lovelace for helping with rmarkdown and for giving some initial tips for compiling and organizing this book. The authors are also grateful to the numerous software/package developers, especially Edzer Pebesma, Roger Bivand, Robert Hijmans, Markus Neteler, Tim Appelhans, and Hadley Wickham, whose contributions have enabled a generation of researchers and applied projects.
 
-We are especially grateful to Jakub Nowosad for helping with preparing this publication for press and with setting up all code so that it passes automatic checks.
+We are especially grateful to \href{https://nowosad.github.io/}{Jakub Nowosad} for helping with preparing this publication for press and with setting up all code so that it passes automatic checks.
 
 OpenGeoHub is a not-for-profit research foundation with headquarters in Wageningen, the Netherlands (Stichting OpenGeoHub, KvK 71844570). The main goal of the OpenGeoHub is to promote publishing and sharing of Open Geographical and Geoscientific Data and using and developing of Open Source Software. We believe that the key measure of quality of research in all sciences (and especially in geographical information sciences) is in transparency and reproducibility of the computer code used to generate results. Transparency and reproducibility increase trust in information so that it is eventually also the fastest path to optimal decision making.
 
@@ -3249,7 +3249,6 @@ To test if these packages work properly, create soil maps and visualize them in 
 \CommentTok{#> Generating predictions using the trend model (RK method)...}
 \CommentTok{#> [using ordinary kriging]}
 \CommentTok{#> }
- \DecValTok{91}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Running 5-fold cross validation using 'krige.cv'...}
 \CommentTok{#> Creating an object of class "SpatialPredictions"}
@@ -8544,6 +8543,7 @@ for plotting, (4) spatial locations of observations used to fit the model. To pr
 \CommentTok{#> Generating predictions using the trend model (RK method)...}
 \CommentTok{#> [using ordinary kriging]}
 \CommentTok{#> }
+ \DecValTok{62}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Running 5-fold cross validation using 'krige.cv'...}
 \CommentTok{#> Creating an object of class "SpatialPredictions"}
@@ -8622,6 +8622,7 @@ would look like this:
 \CommentTok{#> Generating predictions using the trend model (RK method)...}
 \CommentTok{#> [using ordinary kriging]}
 \CommentTok{#> }
+ \DecValTok{44}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Running 5-fold cross validation using 'krige.cv'...}
 \CommentTok{#> Creating an object of class "SpatialPredictions"}
@@ -8897,7 +8898,7 @@ support:
 \CommentTok{#> drawing 20 GLS realisations of beta...}
 \CommentTok{#> [using conditional Gaussian simulation]}
 \CommentTok{#> }
- \DecValTok{94}\NormalTok{% done}
+  \DecValTok{6}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Creating an object of class "RasterBrickSimulations"}
 \CommentTok{#> Loading required package: raster}
@@ -8923,6 +8924,7 @@ square blocks of 40 by 40 m we run:
 \CommentTok{#> Generating predictions using the trend model (RK method)...}
 \CommentTok{#> [using ordinary kriging]}
 \CommentTok{#> }
+ \DecValTok{33}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Creating an object of class "SpatialPredictions"}
 \NormalTok{om.rksim.b <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(omm, meuse.grid, }\DataTypeTok{nsim=}\DecValTok{2}\NormalTok{, }\DataTypeTok{block=}\KeywordTok{c}\NormalTok{(}\DecValTok{40}\NormalTok{,}\DecValTok{40}\NormalTok{), }\DataTypeTok{debug.level=}\DecValTok{0}\NormalTok{)}
@@ -9168,6 +9170,7 @@ argument:
 \CommentTok{#> drawing 20 GLS realisations of beta...}
 \CommentTok{#> [using conditional Gaussian simulation]}
 \CommentTok{#> }
+ \DecValTok{81}\NormalTok{% done}
 \DecValTok{100}\NormalTok{% done}
 \CommentTok{#> Creating an object of class "RasterBrickSimulations"}
 \KeywordTok{log1p}\NormalTok{(meuse}\OperatorTok{@}\NormalTok{data[}\DecValTok{1}\NormalTok{,}\StringTok{"om"}\NormalTok{])}
@@ -9219,13 +9222,13 @@ organic matter content using the Meuse case study:
 \KeywordTok{demo}\NormalTok{(meuse, }\DataTypeTok{echo=}\OtherTok{FALSE}\NormalTok{)}
 \NormalTok{meuse}\OperatorTok{$}\NormalTok{value =}\StringTok{ }\NormalTok{meuse}\OperatorTok{$}\NormalTok{zinc}
 \NormalTok{output <-}\StringTok{ }\KeywordTok{interpolate}\NormalTok{(meuse, meuse.grid, }\KeywordTok{list}\NormalTok{(}\DataTypeTok{mean=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{variance=}\OtherTok{TRUE}\NormalTok{))}
-\CommentTok{#> R 2019-01-26 16:26:44 interpolating 155 observations, 3103 prediction locations}
+\CommentTok{#> R 2019-01-30 15:49:01 interpolating 155 observations, 3103 prediction locations}
 \CommentTok{#> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : }
 \CommentTok{#>  using standard model for estimating time. For better }
 \CommentTok{#>  platform spesific predictions, please run }
 \CommentTok{#>  timeModels <- generateTimeModels()}
 \CommentTok{#>   and save the workspace}
-\CommentTok{#> [1] "estimated time for  copula 162.230886160451"}
+\CommentTok{#> [1] "estimated time for  copula 158.893367426622"}
 \CommentTok{#> Checking object ... OK}
 \end{Highlighting}
 \end{Shaded}
@@ -9240,7 +9243,7 @@ at hand (\texttt{value} column), given the time available set with
 \CommentTok{#> List of 16}
 \CommentTok{#>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots}
 \CommentTok{#>  $ formulaString      :Class 'formula'  language value ~ 1}
-\CommentTok{#>   .. ..- attr(*, ".Environment")=<environment: 0x15155140> }
+\CommentTok{#>   .. ..- attr(*, ".Environment")=<environment: 0x15335aa8> }
 \CommentTok{#>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots}
 \CommentTok{#>  $ params             :List of 18}
 \CommentTok{#>   ..$ doAnisotropy     : logi TRUE}
@@ -10776,18 +10779,18 @@ In the following example we look at mapping sand content for the upper horizons.
 \CommentTok{#> H2O is not running yet, starting it now...}
 \CommentTok{#> }
 \CommentTok{#> Note:  In case of errors look at the following log files:}
-\CommentTok{#>     /tmp/RtmpAVWUSW/h2o_travis_started_from_r.out}
-\CommentTok{#>     /tmp/RtmpAVWUSW/h2o_travis_started_from_r.err}
+\CommentTok{#>     /tmp/Rtmpz3bSG3/h2o_travis_started_from_r.out}
+\CommentTok{#>     /tmp/Rtmpz3bSG3/h2o_travis_started_from_r.err}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> Starting H2O JVM and connecting: .. Connection successful!}
 \CommentTok{#> }
 \CommentTok{#> R is connected to the H2O cluster: }
-\CommentTok{#>     H2O cluster uptime:         2 seconds 367 milliseconds }
+\CommentTok{#>     H2O cluster uptime:         2 seconds 301 milliseconds }
 \CommentTok{#>     H2O cluster timezone:       UTC }
 \CommentTok{#>     H2O data parsing timezone:  UTC }
 \CommentTok{#>     H2O cluster version:        3.22.1.1 }
-\CommentTok{#>     H2O cluster version age:    29 days  }
+\CommentTok{#>     H2O cluster version age:    1 month and 2 days  }
 \CommentTok{#>     H2O cluster name:           H2O_started_from_R_travis_lqb476 }
 \CommentTok{#>     H2O cluster total nodes:    1 }
 \CommentTok{#>     H2O cluster total memory:   1.62 GB }
@@ -10824,23 +10827,23 @@ We can now fit a random forest model by using all the computing power available 
 \CommentTok{#> ==============}
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionModel: drf}
-\CommentTok{#> Model ID:  DRF_model_R_1548520061951_1 }
+\CommentTok{#> Model ID:  DRF_model_R_1548863399872_1 }
 \CommentTok{#> Model Summary: }
 \CommentTok{#>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth}
-\CommentTok{#> 1              50                       50              649752        20}
+\CommentTok{#> 1              50                       50              645453        20}
 \CommentTok{#>   max_depth mean_depth min_leaves max_leaves mean_leaves}
-\CommentTok{#> 1        20   20.00000        973       1076  1030.90000}
+\CommentTok{#> 1        20   20.00000        948       1062  1024.10000}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionMetrics: drf}
 \CommentTok{#> ** Reported on training data. **}
 \CommentTok{#> ** Metrics reported on Out-Of-Bag training samples **}
 \CommentTok{#> }
-\CommentTok{#> MSE:  221}
-\CommentTok{#> RMSE:  14.9}
+\CommentTok{#> MSE:  218}
+\CommentTok{#> RMSE:  14.8}
 \CommentTok{#> MAE:  10.1}
-\CommentTok{#> RMSLE:  0.43}
-\CommentTok{#> Mean Residual Deviance :  221}
+\CommentTok{#> RMSLE:  0.427}
+\CommentTok{#> Mean Residual Deviance :  218}
 \end{Highlighting}
 \end{Shaded}
 
@@ -10898,29 +10901,29 @@ h2o has another MLA of interest for soil mapping called \emph{deep learning} (a 
 \CommentTok{#> ==============}
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionModel: deeplearning}
-\CommentTok{#> Model ID:  DeepLearning_model_R_1548520061951_2 }
+\CommentTok{#> Model ID:  DeepLearning_model_R_1548863399872_2 }
 \CommentTok{#> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1}
 \CommentTok{#>   layer units      type dropout       l1       l2 mean_rate rate_rms}
 \CommentTok{#> 1     1    10     Input  0.00 %       NA       NA        NA       NA}
-\CommentTok{#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.013957 0.007703}
-\CommentTok{#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.136275 0.188131}
-\CommentTok{#> 4     4     1    Linear      NA 0.000000 0.000000  0.001342 0.000949}
+\CommentTok{#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.014580 0.009134}
+\CommentTok{#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.154769 0.192770}
+\CommentTok{#> 4     4     1    Linear      NA 0.000000 0.000000  0.001446 0.000925}
 \CommentTok{#>   momentum mean_weight weight_rms mean_bias bias_rms}
 \CommentTok{#> 1       NA          NA         NA        NA       NA}
-\CommentTok{#> 2 0.000000   -0.001044   0.103508  0.377631 0.055975}
-\CommentTok{#> 3 0.000000   -0.017842   0.070827  0.958265 0.017451}
-\CommentTok{#> 4 0.000000    0.001807   0.052380  0.092688 0.000000}
+\CommentTok{#> 2 0.000000    0.000048   0.100691  0.342758 0.071949}
+\CommentTok{#> 3 0.000000   -0.018436   0.070889  0.953101 0.019439}
+\CommentTok{#> 4 0.000000   -0.002240   0.050444  0.090192 0.000000}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2ORegressionMetrics: deeplearning}
 \CommentTok{#> ** Reported on training data. **}
 \CommentTok{#> ** Metrics reported on full training frame **}
 \CommentTok{#> }
-\CommentTok{#> MSE:  263}
-\CommentTok{#> RMSE:  16.2}
-\CommentTok{#> MAE:  12.3}
-\CommentTok{#> RMSLE:  0.498}
-\CommentTok{#> Mean Residual Deviance :  263}
+\CommentTok{#> MSE:  287}
+\CommentTok{#> RMSE:  16.9}
+\CommentTok{#> MAE:  12.8}
+\CommentTok{#> RMSLE:  0.522}
+\CommentTok{#> Mean Residual Deviance :  287}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11190,16 +11193,16 @@ We can hence run 5-fold cross validation:
 \CommentTok{#> List of 2}
 \CommentTok{#>  $ CV_residuals:'data.frame':    4972 obs. of  4 variables:}
 \CommentTok{#>   ..$ Observed : num [1:4972] 14.5 13.6 10.1 12.1 7.1 ...}
-\CommentTok{#>   ..$ Predicted: num [1:4972] 14.22 10.01 9.3 5.82 3.56 ...}
+\CommentTok{#>   ..$ Predicted: num [1:4972] 14.04 10.07 9.34 6.37 3.26 ...}
 \CommentTok{#>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" ...}
 \CommentTok{#>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...}
 \CommentTok{#>  $ Summary     :'data.frame':    1 obs. of  6 variables:}
-\CommentTok{#>   ..$ ME          : num -0.105}
-\CommentTok{#>   ..$ MAE         : num 2.13}
-\CommentTok{#>   ..$ RMSE        : num 3.62}
-\CommentTok{#>   ..$ R.squared   : num 0.572}
+\CommentTok{#>   ..$ ME          : num -0.115}
+\CommentTok{#>   ..$ MAE         : num 2.11}
+\CommentTok{#>   ..$ RMSE        : num 3.6}
+\CommentTok{#>   ..$ R.squared   : num 0.577}
 \CommentTok{#>   ..$ logRMSE     : num 0.481}
-\CommentTok{#>   ..$ logR.squared: num 0.654}
+\CommentTok{#>   ..$ logR.squared: num 0.655}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11259,14 +11262,14 @@ we first specify all learners (MLA methods) of interest:
 \CommentTok{#> Base learner performance, sorted by specified metric:}
 \CommentTok{#>                    learner  MSE}
 \CommentTok{#> 2          h2o.gbm.wrapper 9.81}
-\CommentTok{#> 1 h2o.randomForest.wrapper 8.30}
+\CommentTok{#> 1 h2o.randomForest.wrapper 8.15}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2O Ensemble Performance on <newdata>:}
 \CommentTok{#> ----------------}
 \CommentTok{#> Family: gaussian}
 \CommentTok{#> }
-\CommentTok{#> Ensemble performance (MSE): 8.34831023473735}
+\CommentTok{#> Ensemble performance (MSE): 8.06474013231746}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11369,16 +11372,16 @@ We can again test fitting an ensemble model using two MLA's:
 \CommentTok{#> Base learner performance, sorted by specified metric:}
 \CommentTok{#>                    learner    MSE}
 \CommentTok{#> 1          h2o.glm.wrapper 0.2827}
-\CommentTok{#> 4 h2o.deeplearning.wrapper 0.1359}
+\CommentTok{#> 4 h2o.deeplearning.wrapper 0.1308}
 \CommentTok{#> 3          h2o.gbm.wrapper 0.0971}
-\CommentTok{#> 2 h2o.randomForest.wrapper 0.0757}
+\CommentTok{#> 2 h2o.randomForest.wrapper 0.0743}
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#> H2O Ensemble Performance on <newdata>:}
 \CommentTok{#> ----------------}
 \CommentTok{#> Family: gaussian}
 \CommentTok{#> }
-\CommentTok{#> Ensemble performance (MSE): 0.075596719707661}
+\CommentTok{#> Ensemble performance (MSE): 0.0742217264810016}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11465,12 +11468,12 @@ A useful functionality of the SuperLearner package is that it displays how model
 \CommentTok{#>     SL.library = sl.l) }
 \CommentTok{#> }
 \CommentTok{#> }
-\CommentTok{#>                  Risk    Coef}
-\CommentTok{#> SL.mean_All    0.7540 0.00000}
-\CommentTok{#> SL.xgboost_All 0.0598 0.81188}
-\CommentTok{#> SL.ksvm_All    0.1290 0.00723}
-\CommentTok{#> SL.glmnet_All  0.3080 0.00000}
-\CommentTok{#> SL.ranger_All  0.0849 0.18089}
+\CommentTok{#>                  Risk   Coef}
+\CommentTok{#> SL.mean_All    0.7540 0.0000}
+\CommentTok{#> SL.xgboost_All 0.0598 0.8125}
+\CommentTok{#> SL.ksvm_All    0.1284 0.0103}
+\CommentTok{#> SL.glmnet_All  0.3080 0.0000}
+\CommentTok{#> SL.ranger_All  0.0847 0.1772}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11491,9 +11494,9 @@ This shows that \texttt{SL.xgboost\_All} outperforms the competition by a large 
 \CommentTok{#> }
 \CommentTok{#> }
 \CommentTok{#>                  Risk  Coef}
-\CommentTok{#> SL.xgboost_All 0.0603 0.809}
-\CommentTok{#> SL.ranger_All  0.0830 0.191}
-\CommentTok{#> SL.ksvm_All    0.1307 0.000}
+\CommentTok{#> SL.xgboost_All 0.0603 0.801}
+\CommentTok{#> SL.ranger_All  0.0820 0.199}
+\CommentTok{#> SL.ksvm_All    0.1303 0.000}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11521,11 +11524,11 @@ again \texttt{SL.xgboost} dominates the ensemble model, which is most likely unr
 \CommentTok{#> All risk estimates are based on V =  5 }
 \CommentTok{#> }
 \CommentTok{#>       Algorithm  Ave    se   Min  Max}
-\CommentTok{#>   Super Learner 0.16 0.014 0.094 0.25}
-\CommentTok{#>     Discrete SL 0.17 0.014 0.110 0.25}
+\CommentTok{#>   Super Learner 0.16 0.014 0.094 0.26}
+\CommentTok{#>     Discrete SL 0.17 0.014 0.109 0.25}
 \CommentTok{#>  SL.xgboost_All 0.19 0.016 0.135 0.27}
-\CommentTok{#>   SL.ranger_All 0.16 0.014 0.105 0.25}
-\CommentTok{#>     SL.ksvm_All 0.18 0.015 0.110 0.30}
+\CommentTok{#>   SL.ranger_All 0.16 0.014 0.103 0.25}
+\CommentTok{#>     SL.ksvm_All 0.18 0.015 0.109 0.30}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11551,7 +11554,7 @@ To produce predictions of soil pH at 10 cm depth we can finally use:
 \CommentTok{#> }
 \CommentTok{#>                 Risk  Coef}
 \CommentTok{#> SL.xgboost_All 0.215 0.000}
-\CommentTok{#> SL.ranger_All  0.165 0.469}
+\CommentTok{#> SL.ranger_All  0.166 0.469}
 \CommentTok{#> SL.ksvm_All    0.163 0.531}
 \NormalTok{new.data <-}\StringTok{ }\NormalTok{grid10m}\OperatorTok{@}\NormalTok{data}
 \NormalTok{pred.PHI <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\OtherTok{NULL}\NormalTok{)}
@@ -11574,7 +11577,7 @@ To produce predictions of soil pH at 10 cm depth we can finally use:
 \CommentTok{#>     buffer, rotated}
 \KeywordTok{str}\NormalTok{(pred.PHI[[}\DecValTok{1}\NormalTok{]])}
 \CommentTok{#> List of 2}
-\CommentTok{#>  $ pred           : num [1:3865, 1] 4.65 4.72 4.86 4.82 4.76 ...}
+\CommentTok{#>  $ pred           : num [1:3865, 1] 4.65 4.72 4.84 4.81 4.73 ...}
 \CommentTok{#>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...}
 \CommentTok{#>   ..- attr(*, "dimnames")=List of 2}
 \CommentTok{#>   .. ..$ : NULL}
