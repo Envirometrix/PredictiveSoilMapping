@@ -1291,8 +1291,8 @@ classes of terrestrial landscapes. The idea may be thought of as a
 virtual network for creating and supporting ongoing, comprehensive
 terrestrial resource inventories of all kinds and their required
 supporting infrastructures. The concept adopts, and extends, many of the
-elements of the existing Global Soil Information Facilities (GSIF).
-(http://www.isric.org/content/soilgrids) and of the recently launched 
+elements of the existing Global Soil Information Facilities (GSIF)
+(http://www.isric.org/content/soilgrids), and of the recently launched 
 OpenGeoHub Foundation's LandGIS (http://landgis.opengeohub.org).
 
 ```{r soil-type-workflow, echo=FALSE, fig.cap="LandGIS as a system for generating new added-value information immediately and affordably using “old legacy data” i.e. without new investments. By importing, cleaning up and data mining of legacy soil data we promote technology and knowledge transfer from data-rich countries to data-poor countries.", out.width="95%"}

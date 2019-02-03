@@ -1,13 +1,13 @@
-Variable name,Units,Reference
+Variable,Units,Reference
 Total profile depth (depth to bedrock) , cm ," (SSDS, 1993; p.5)"
 Plant exploitable (effective depth) , cm ," (SSDS, 1993; p.60)"
-Soil organic carbon (dry combustion) , permille , ISO 10694
-pH index (the 1:5 H2O solution) , – , ISO 10390
+Soil organic carbon (dry combustion) , permille ," ISO 10694"
+pH index (the 1:5 H2O solution) , – ," ISO 10390"
 Sand content (gravimetric) , % ," (NRCS, 2004; p.347)"
 Silt content (gravimetric) , % ," (NRCS, 2004; p.347)"
 Clay content (gravimetric) , % ," (NRCS, 2004; p.347)"
 Coarse fragments (volumetric) , % ," (NRCS, 2004; p.36)"
-Effective Cation Exchange Capacity , cmol , ISO 11260
-Bulk density of the whole soil , kg/cubic-m , ISO 11272
-Bulk density of the fine earth fraction , kg/cubic-m , ISO 11272
+Effective Cation Exchange Capacity , cmol ," ISO 11260"
+Bulk density of the whole soil , kg/cubic-m ," ISO 11272"
+Bulk density of the fine earth fraction , kg/cubic-m ," ISO 11272"
 Available water capacity , mm ," (NRCS, 2004; p.137)"

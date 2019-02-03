@@ -223,7 +223,7 @@ r
 
 The `eberg_grids25` object is a `SpatialPixelsDataFrame`, which is a spatial gridded data structure of the [sp package](https://cran.r-project.org/web/packages/sp/) package. The raster package also offers data structures for spatial (gridded) data, and stores such data as `RasterLayer` class. Gridded data can be converted from class `SpatialPixelsDataFrame` to Raster layer with the [`raster`](http://www.rdocumentation.org/packages/raster/functions/raster) command. The 
 [`CRS`](http://www.inside-r.org/packages/cran/sp/docs/CRS) command of the sp package can be used to set a spatial projection. 
-[EPSG projection 31467](http://spatialreference.org/ref/epsg/31467/) is the German coordinate system (each coordinate system has an associated EPSG number that can be obtained from http://spatialreference.org/.
+[EPSG projection 31467](http://spatialreference.org/ref/epsg/31467/) is the German coordinate system (each coordinate system has an associated EPSG number that can be obtained from http://spatialreference.org/).
 
 Conversion from polygon to raster is now possible via the [`rasterize`](http://www.rdocumentation.org/packages/raster/functions/rasterize) command:
 
@@ -265,7 +265,7 @@ if(.Platform$OS.type=="windows"){
 saga_cmd
 ```
 
-and finally use the module [''grid_gridding''](http://saga-gis.org/saga_module_doc/2.2.7/grid_gridding_0.html) to convert the shapefile to a grid:
+and finally use the module [grid_gridding](http://saga-gis.org/saga_module_doc/2.2.7/grid_gridding_0.html) to convert the shapefile to a grid:
 
 ```{r}
 pix = 25
@@ -289,7 +289,7 @@ levels(eberg_zones_r2$ZONES) <- levels(eberg_zones$ZONES)
 summary(eberg_zones_r2$ZONES)
 ```
 
-```{r eberg-zones-rasterized, echo=FALSE, fig.cap="Eberg zones rasterized to 25 m resolution.", out.width="70%"}
+```{r eberg-zones-rasterized, echo=FALSE, fig.cap="Ebergotzen zones rasterized to 25 m resolution.", out.width="65%"}
 knitr::include_graphics("figures/eberg_zones_rasterized.png")
 ```
 
@@ -435,7 +435,7 @@ plot(stack(dem.lst), col=SAGA_pal[[1]])
 knitr::include_graphics("figures/dem_derivatives_plot.png")
 ```
 
-This function can now be used with any DEM to derive a standard set of 7-8 DEM parameters consisting of slope and curvature, TWI and MrVBF, positive and negative openess, valley depth and deviation from mean value. You could easily add more parameters to this function and then test if some of the other DEM derivatives can help improve mapping soil properties and classes. Note that SAGA GIS will by default optimize computing of DEM derivatives by using most of the available cores to compute (parallelization is turned on automatically).
+This function can now be used with any DEM to derive a standard set of 7–8 DEM parameters consisting of slope and curvature, TWI and MrVBF, positive and negative openess, valley depth and deviation from mean value. You could easily add more parameters to this function and then test if some of the other DEM derivatives can help improve mapping soil properties and classes. Note that SAGA GIS will by default optimize computing of DEM derivatives by using most of the available cores to compute (parallelization is turned on automatically).
 
 ### Filtering out missing pixels and artifacts
 
@@ -457,7 +457,7 @@ image(raster("test.sdat"), col=SAGA_pal[[1]], zlim=zlim, main="Filtered", asp=1)
 
 In this example we use the same input and output file for filling in gaps. There are several other gap filling possibilities in SAGA GIS including Close Gaps with Spline, Close Gaps with Stepwise Resampling and Close One Cell Gaps. Note all of these are equally applicable to all missing pixel problems, but having <10% of missing pixels is often not much of a problem for soil mapping.
 
-Another elegant way to filter the missing pixels, to reduce noise and to reduce data overlap is to use [Principal Components](http://www.rdocumentation.org/packages/stats/functions/prcomp) transformation of original data. This is available also via the GSIF function [''spc''](http://www.rdocumentation.org/packages/GSIF/functions/spc):
+Another elegant way to filter the missing pixels, to reduce noise and to reduce data overlap is to use [Principal Components](http://www.rdocumentation.org/packages/stats/functions/prcomp) transformation of original data. This is available also via the GSIF function [spc](http://www.rdocumentation.org/packages/GSIF/functions/spc):
 
 ```{r, eval=FALSE}
 data(eberg_grid)
@@ -477,7 +477,7 @@ plot(stack(eberg_spc@predicted[1:11]), zlim=rd, col=rev(rainbow(65)[1:48]))
 knitr::include_graphics("figures/eberg_spc_11_plot.png")
 ```
 
-The advantages of using the [''spc''](http://www.rdocumentation.org/packages/GSIF/functions/spc) function are:
+The advantages of using the [spc](http://www.rdocumentation.org/packages/GSIF/functions/spc) function are:
 
 *  All output soil covariates are numeric (and not a mixture of factors and numeric),
 
@@ -489,7 +489,7 @@ A disadvantage of using SPCs (spatial predictive components) is that these compo
 
 ### Overlaying and subsetting raster stacks and points
 
-Now that we have prepared all covariates (resampled them to the same grid and filtered out all problems), we can proceed with running overlays and fitting statistical models. Assuming that we deal with a large number of files, an elegant way to read all those into R is by using the raster package, especially the [''stack''](http://www.rdocumentation.org/packages/raster/functions/stack) and [''raster''](http://www.rdocumentation.org/packages/raster/functions/stack) commands. In the following example we can list all files of interest, and then read them all at once:
+Now that we have prepared all covariates (resampled them to the same grid and filtered out all problems), we can proceed with running overlays and fitting statistical models. Assuming that we deal with a large number of files, an elegant way to read all those into R is by using the raster package, especially the [stack](http://www.rdocumentation.org/packages/raster/functions/stack) and [raster](http://www.rdocumentation.org/packages/raster/functions/raster) commands. In the following example we can list all files of interest, and then read them all at once:
 
 ```{r, eval=FALSE}
 library(raster)
@@ -631,14 +631,14 @@ correspond with conventional soil survey knowledge (surveyors have been
 using relief as a key guideline to delineate soil bodies for decades).
 
 Although lithology is often not in the list of the top 15 most important
-predictors, spatial patterns of lithologic classes can often be
+predictors for PSM projects, spatial patterns of lithologic classes can often be
 distinctly recognized in the output predictions. This is especially true
 for soil texture fractions and coarse fragments. In general, for
 predicting soil chemical properties, climatic variables (especially
 precipitation) and surface reflectance seem to be the most important,
 while for soil classes and soil physical properties it is a combination
 of relief, vegetation dynamics and parent material. Investing extra time 
-in preparing a better map of soil parent material is often a good idea.
+in preparing a better map of soil parent material is hence often a good idea.
 
 Other potentially useful covariates for predicting soil properties and
 classes could be maps of paleo i.e. pre-historic climatic
@@ -653,7 +653,7 @@ through the past 1500+ years. As the spatial detail and completeness of
 such pre-historic maps increases, they will become potentially 
 interesting covariates for global soil modeling.
 
-USA’s NASA and USGS, with its MODIS, Landsat and similar 
+USA’s NASA and USGS, with its SRTM, MODIS, Landsat, ICESat and similar 
 civil-applications missions will likely
 remain the main source of spatial covariate data to support global 
 and local soil mapping initiatives.

@@ -1,6 +1,7 @@
 ## Needed for Rscript
 library("methods")
 library("microbenchmark")
+library("knitr")
 ## load data sets
 
 knitr::opts_chunk$set(
@@ -11,7 +12,9 @@ knitr::opts_chunk$set(
   fig.align = "center",
   #auto_pdf = FALSE,
   fig.show = "hold",
-  out.width = "100%"
+  out.width = "100%",
+  tidy = TRUE,
+  tidy.opts = list(blank = FALSE, width.cutoff = 100)
 )
 set.seed(2016)
 options(digits = 3)

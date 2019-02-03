@@ -179,7 +179,7 @@ RF.m
 
 This shows that the model fitting R-square is about 50%. This is also indicated by the predicted vs observed plot:
 
-```{r obs-pred-snd, fig.width=7, fig.cap="Measured vs predicted SAND content based on the Random Forest model."}
+```{r}
 library(scales)
 library(lattice)
 SDN.pred <- as.data.frame(h2o.predict(RF.m, eberg.hex, na.action=na.pass))$predict
@@ -188,7 +188,10 @@ plt1 <- xyplot(m$SNDMHT_A ~ SDN.pred, asp=1,
                  plot.symbol = list(col=scales::alpha("black", 0.6), 
                  fill=scales::alpha("red", 0.6), pch=21, cex=0.8)),
                  ylab="measured", xlab="predicted (machine learning)")
-plt1
+```
+
+```{r obs-pred-snd, echo=FALSE, fig.cap="Measured vs predicted SAND content based on the Random Forest model.", out.width="70%"}
+knitr::include_graphics("figures/Measured_vs_predicted_SAND_plot.png")
 ```
 
 To produce a map based on these predictions we use:
@@ -382,9 +385,12 @@ str(test.ORC)
 
 Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about $\pm 4$ g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:
 
-```{r plot-measured-predicted, echo=FALSE, fig.width=7, fig.cap="Predicted vs observed plot for soil organic carbon ML-based model (Edgeroi data set)."}
+```{r}
 plt0 <- xyplot(test.ORC[[1]]$Observed ~ test.ORC[[1]]$Predicted, asp=1, par.settings=list(plot.symbol = list(col=scales::alpha("black", 0.6), fill=scales::alpha("red", 0.6), pch=21, cex=0.6)), scales=list(x=list(log=TRUE, equispaced.log=FALSE), y=list(log=TRUE, equispaced.log=FALSE)), ylab="measured", xlab="predicted (machine learning)")
-plt0
+```
+
+```{r plot-measured-predicted, echo=FALSE, fig.cap="Predicted vs observed plot for soil organic carbon ML-based model (Edgeroi data set).", out.width="70%"}
+knitr::include_graphics("figures/Predicted_vs_observed_plot_for_SOC_edgeroi.png")
 ```
 
 ### Ensemble predictions using h2oEnsemble
@@ -831,7 +837,7 @@ which demonstrates that there is a slight improvement relative to using only buf
 We can further evaluate this model to see which specific points and covariates are 
 most important for spatial predictions:
 
-```{r rf-variableImportance, fig.width=7, fig.cap="Variable importance plot for mapping zinc content based on the Meuse data set."}
+```{r rf-variableImportance, fig.width=5, fig.cap="Variable importance plot for mapping zinc content based on the Meuse data set."}
 xl <- as.list(ranger::importance(m1.zinc))
 par(mfrow=c(1,1),oma=c(0.7,2,0,1), mar=c(4,3.5,1,0))
 plot(vv <- t(data.frame(xl[order(unlist(xl), decreasing=TRUE)[10:1]])), 1:10, 
@@ -993,11 +999,21 @@ Spatial prediction of binomial and factor-type variables is straightforward with
 
 In summary, MLA's represent an increasingly attractive option for soil mapping and soil modelling problems in general, as they often perform better than standard linear models (as previously recognized by @moran2002spatial and @Henderson2004Geoderma) Some recent comparisons of MLA's performance for operational soil mapping can be found in @nussbaum2018evaluation). MLA's often perform better than linear techniques for soil mapping; possibly for the following three reasons:
 
- 1. Non-linear relationships between soil forming factors and soil properties can be more efficiently modeled using MLA's,
- 2. Tree-based MLA's (random forest, gradient boosting, cubist) are suitable for representing *local* soil-landscape relationships, nested within a hierarchy of larger areas, which is often important for achieving accuracy of spatial prediction models,
+ 1. Non-linear relationships between soil forming factors and soil properties 
+ can be more efficiently modeled using MLA's,
+ 
+ 2. Tree-based MLA's (random forest, gradient boosting, cubist) are suitable 
+ for representing *local* soil-landscape relationships, nested within a 
+ hierarchy of larger areas, which is often important for achieving accuracy 
+ of spatial prediction models, 
+ 
  3. In the case of MLA, statistical properties such as multicolinearity and non-Gaussian distribution are dealt with inside the models, which simplifies statistical modeling steps,
 
-On the other hand, MLA's can be computationally very intensive and consequently require careful planning, especially when the number of points goes beyond a few thousand and the number of covariates beyond a dozen. Note also that some MLA's, such as for example Support Vector Machines (`svm`), are computationally very intensive and are probably not well suited for very large data sets.
+On the other hand, MLA's can be computationally very intensive and consequently 
+require careful planning, especially when the number of points goes beyond a 
+few thousand and the number of covariates beyond a dozen. Note also that some 
+MLA's, such as for example Support Vector Machines (SVM), are computationally 
+very intensive and are probably not well suited for very large data sets.
 
 Within PSM, there is increasing interest in doing ensemble predictions, 
 model averages or model stacks. Stacking models can improve upon

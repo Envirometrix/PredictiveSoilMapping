@@ -68,7 +68,7 @@ From a statistical point of view, it is convenient to distinguish
 between three major components of soil variation: (1) deterministic
 component (trend), (2) spatially correlated component and (3) pure
 noise. This is the basis of the *universal model of soil variation*
-[@Burrough1998OUP;Webster2001Wiley p.133]:
+[@Burrough1998OUP; @Webster2001Wiley p.133]:
 
 \begin{equation}
   Z({s}) = m({s}) + \varepsilon '({s}) + \varepsilon ''({s})
@@ -362,7 +362,7 @@ expressed as relative (percentages) or absolute (mass / quantities)
 values, and (B) refer to specific horizons or depth intervals or to the
 whole soil profile. 
 
-Similar *support*-effects show up in the horizontal,
+Similar *spatial support*-effects show up in the horizontal,
 because soil observations at *point* locations are not the same as
 average or *bulk soil samples* taken by averaging a large number of
 point observations on a site or plot [@Webster2001Wiley].
@@ -431,7 +431,7 @@ prediction) and produces three main outputs:
     **prediction error variance map**.
 
 It is clear from Fig. \@ref(fig:general-sp-process) that
-the key steps in the mapping procedure are: (a) *choice of the sampling scheme* (e.g. @Ng2018), 
+the key steps in the mapping procedure are: (a) *choice of the sampling scheme* (e.g. @Ng2018 and @BRUS2019464), 
 (b) *choice of the model of spatial variation* (e.g. @Diggle2007Springer), and 
 (c) *choice of the parameter estimation technique* (e.g. @lark2006spatial). When the sampling scheme is
 given and cannot be changed, the focus of optimization of the spatial
@@ -462,8 +462,8 @@ prediction process, this can be made explicit by writing
 \end{equation}
 
 where $Z$ is the data, $Y$ is the (hidden) process that we are
-predicting, and ${{\theta}}$ is a list of model parameters (e.g.
-trend coefficients and variogram parameters).
+predicting, and ${{\theta}}$ is a list of model parameters e.g. trend 
+coefficients and variogram parameters.
 
 There are many spatial prediction methods for generating spatial
 predictions from soil samples and covariate information. All differ in
@@ -526,7 +526,7 @@ occurs. Thus the population of available soil point observations may not
 be representative of the true population of soils, with some soils being
 either over or under-represented.
 
-```{r eberg-sampling-locs, echo=FALSE, fig.cap="Occurrence probabilities derived for the actual sampling locations (left), and for a purely random sample design with exactly the same number of points (right). Probabilities derived using the `spsample.prob` function from the package. The shaded area on the left indicates which areas (in the environmental space) have been systematically represented, while the white colour indicates areas which have been systematically omitted (and which is not by chance).", out.width="100%"}
+```{r eberg-sampling-locs, echo=FALSE, fig.cap="Occurrence probabilities derived for the actual sampling locations (left), and for a purely random sample design with exactly the same number of points (right). Probabilities derived using the `spsample.prob` function from the GSIF package. The shaded area on the left indicates which areas (in the environmental space) have been systematically represented, while the white colour indicates areas which have been systematically omitted (and which is not by chance).", out.width="100%"}
 knitr::include_graphics("figures/Fig_eberg_sampling_locs.png")
 ```
 
@@ -757,9 +757,9 @@ the dependent variable.
 When the assumption of normality is not realistic, such as when the
 frequency distribution of the residuals at observation locations is very
 skewed, the easiest solution is to take a Transformed Gaussian approach
-[@Diggle2007Springer $\S$3.8] in which the Gaussian geostatistical model
-is formulated for a transformation of the dependent variable (e.g.
-logarithmic, logit, square root, Box-Cox transform). A more advanced
+[@Diggle2007Springer ch3.8] in which the Gaussian geostatistical model
+is formulated for a transformation of the dependent variable (e.g. logarithmic, 
+logit, square root, Box-Cox transform). A more advanced
 approach would drop the normal distribution approach entirely and assume
 a *Generalized Linear Geostatistical Model*
 [@Diggle2007Springer; @Brown2014JSS] but this complicates the
@@ -841,8 +841,7 @@ between the dependent and covariates. Examples of these so-called
 
 Statistical treatment of many of these methods is given in @hastie2009elements.
 Care needs to be taken when using machine learning techniques, such as random forest, 
-because such techniques are more sensitive to noise and blunders in 
-the data .
+because such techniques are more sensitive to noise and blunders in the data.
 
 Most methods listed above require appropriate levels of expertise to
 avoid pitfalls and incorrect use but, when feasible and used properly,
@@ -868,7 +867,7 @@ $o$ for organisms (including humans), $r$ is relief, $p$ is parent
 material or geology and $t$ is time. In other words, we can assume that
 the distribution of both soil and vegetation (at least in a natural system)
 can be at least partially explained by environmental conditions.
-Eq.\@ref(eq:clorpt) suggests that soil is a result of environmental
+Eq.\@ref(eq:clorpt2) suggests that soil is a result of environmental
 factors, while in reality there are many feedbacks and soil, in turn, influences
 many of the factors on the right-hand side of Eq.\@ref(eq:clorpt2), such
 as $cl$, $o$ and $r$.
@@ -929,8 +928,10 @@ Eq.\@ref(eq:ukm-gstat) with a linear trend Eq.\@ref(eq:MRK2D) and a
 normally distributed residual is given by the well-kown *Best Linear
 Unbiased Predictor* (BLUP):
 
-$$\label{E:BLUP}
-\hat z({{{s}}_0}) = {{X}}_{{0}}^{{T}}\cdot \hat{{\beta}} + \hat{{\lambda}}_{{0}}^{{T}}\cdot({{z}} - {{X}}\cdot \hat{{\beta}} )$$
+\begin{equation}
+\hat z({{{s}}_0}) = {{X}}_{{0}}^{{T}}\cdot \hat{{\beta}} + \hat{{\lambda}}_{{0}}^{{T}}\cdot({{z}} - {{X}}\cdot \hat{{\beta}} )
+(\#eq:BLUP)
+\end{equation}
 
 where the regression coefficients and kriging weights are estimated
 using:
@@ -1084,12 +1085,16 @@ External Drift, the prediction error is computed as
 
 \begin{equation}
 \hat \sigma _{\tt{UK}}^2 ({{s}}_0 )  = (C_0  + C_1 ) - {{c}}_{{0}}^{{T}}  \cdot {{C}}^{ - {{1}}}  \cdot
-{{c}}_{{0}} + \left( {{{X}}_{{0}}  -
+{{c}}_{{0}} + \theta_0
+(\#eq:UKvar)
+\end{equation}
+
+\begin{equation}
+\theta_0 = \left( {{{X}}_{{0}}  -
 {{X}}^{{T}} \cdot {{C}}^{ - {{1}}} \cdot
 {{c}}_{{0}} } \right)^{{T}}  \cdot \left( {{{X}}^{{T}}
 \cdot {{C}}^{ - {{1}}} \cdot {{X}}} \right)^{{{ - 1}}} \cdot \left( {{{X}}_{{0}}  - {{X}}^{{T}}  \cdot
 {{C}}^{ - {{1}}} \cdot {{c}}_{{0}} } \right)
-(\#eq:UKvar)
 \end{equation}
 
 where $C_0 + C_1$ is the sill variation (variogram parameters), ${C}$
@@ -1277,12 +1282,12 @@ prediction methods is, in fact, not large (±5% of variance explained).
 It is important to run such comparisons nevertheless, as they allow us
 to objectively select the most efficient method.
 
-```{r rk-vs-rf-meuse, echo=FALSE, fig.cap="Predictions of the organic carbon (log-transformed values) using random forest vs linear regression-kriging. The random forest-kriging variance has been derived using the quantregForest package.", out.width="100%"}
+```{r rk-vs-rf-meuse, echo=FALSE, fig.cap="Predictions of the organic carbon (log-transformed values) using random forest vs linear regression-kriging. The random forest-kriging variance has been derived using the quantregForest package.", out.width="90%"}
 knitr::include_graphics("figures/Fig_RK_vs_randomForestK_Meuse.png")
 ```
 
 Fig. \@ref(fig:rk-vs-rf-meuse) shows the RK variance derived
-for the random forest model using the package [@meinshausen2006quantile]
+for the random forest model using the quantregForest package [@meinshausen2006quantile]
 and the formula in Eq.\@ref(eq:RKvar-simple). Note that the quantregForest package
 estimates a much larger prediction variance than simple linear RK for
 large parts of the study area.
@@ -1615,7 +1620,7 @@ of a large number of geostatistical simulations will approximate the
 kriging variance (and likewise the average of a large number of
 simulations will approximate the kriging prediction map).
 
-```{r hist-om-predicted-simulated, echo=FALSE, fig.cap="Histogram for the target variable (Meuse data set; log of organic matter) based on the actual observations (left), predictions at all grid nodes (middle) and simulations (right). Note that the histogram for predicted values will always show somewhat narrower distribution (smoothed), depending on the strength of the model, while the simulations should be able to reproduce the original range (see also Yamamoto et al. (2008)).", out.width="100%"}
+```{r hist-om-predicted-simulated, echo=FALSE, fig.cap="Histogram for the target variable (Meuse data set; log of organic matter) based on the actual observations (left), predictions at all grid nodes (middle) and simulations (right). Note that the histogram for predicted values will always show somewhat narrower distribution (smoothed), depending on the strength of the model, while the simulations should be able to reproduce the original range (for more discussion see also: Yamamoto et al. (2008)).", out.width="100%"}
 knitr::include_graphics("figures/Fig_hist_om_predicted_vs_simulated.png")
 ```
 
@@ -1685,7 +1690,7 @@ str(output, max.level = 2)
 
 The interpolate function automatically chooses between: (1) kriging, 
 (2) copula methods, (3) inverse distance interpolation, 
-projected spatial gaussian process methods in the
+projected spatial gaussian process methods in the gstat
 package, (4) transGaussian kriging or Yamamoto interpolation.
 
 ```{block2, type="rmdnote"}
@@ -1699,7 +1704,7 @@ The same idea of automated model fitting and prediction has been
 implemented in the GSIF package. Some examples of automated
 soil mapping have been already shown previously.
 
-```{r scheme-statmodels, echo=FALSE, fig.cap="A modern workflow of predictive soil mapping. This often includes state-of-the-art Machine Learning Algorithms.", out.width="60%"}
+```{r scheme-statmodels, echo=FALSE, fig.cap="A modern workflow of predictive soil mapping. This often includes state-of-the-art Machine Learning Algorithms. Image source: Hengl et al. (2017) doi: 10.1371/journal.pone.0169748.", out.width="60%"}
 knitr::include_graphics("figures/Fig_statmodels.png")
 ```
 
@@ -1771,7 +1776,7 @@ mFit3 <- caret::train(om~dist+soil+ffreq, data=meuse.ov, method="ranger",
 This will run repeated Cross-validation with 50% : 50% splits training and validation, 
 which means that, in each iteration, models will be refitted from scratch. Next we can compare performance of the three models by using:
 
-```{r bwplot-meuse, fig.width=6, fig.cap="Comparison of spatial prediction accuracy (RMSE at cross-validation points) for simple averaging (Mean), GLM with only soil map as covariate (Soilmap), GLM and random forest (RF) models with all possible covariates. Error bars indicate range of RMSE values for repeated CV."}
+```{r bwplot-meuse, fig.width=5, fig.cap="Comparison of spatial prediction accuracy (RMSE at cross-validation points) for simple averaging (Mean), GLM with only soil map as covariate (Soilmap), GLM and random forest (RF) models with all possible covariates. Error bars indicate range of RMSE values for repeated CV."}
 resamps <- resamples(list(Mean=mFit0, Soilmap=mFit1, GLM=mFit2, RF=mFit3))
 bwplot(resamps, layout = c(2, 1), metric=c("RMSE","Rsquared"), 
        fill="grey", scales = list(relation = "free"))
@@ -1940,7 +1945,7 @@ some cases soil mappers have to use methods that can work with
 extents, resolution and uncertainty. Here by *multiscale data* we imply
 covariates used for geostatistical mapping that are available at two or
 more (distinctly different) resolutions, but that cover the same area of
-interest (see also: `RasterStack` class in the package). In the case of
+interest (see also: `RasterStack` class in the raster package). In the case of
 the *multisource data*, covariates can be of any scale, they can have a
 variable extent, and variable accuracy
 (Fig. \@ref(fig:multiscale-vs-multisource)b). In other words, when
@@ -2118,7 +2123,7 @@ There are three possibilities for estimating the $\it{RMSE}$
     areas produced at much higher accuracy, usually also at much finer
     level of detail*.
 
-```{r cross-validation-types, echo=FALSE, fig.cap="General types of validation procedures for evaluating accuracy of spatial prediction models.", out.width="70%"}
+```{r cross-validation-types, echo=FALSE, fig.cap="General types of validation procedures for evaluating accuracy of spatial prediction models.", out.width="60%"}
 knitr::include_graphics("figures/Fig_cross_validation_types.png")
 ```
 
@@ -2161,7 +2166,7 @@ probability sampling to avoid any kind of bias).
 ```
 
 Both $k$–fold and the leave-one-out cross validation are implemented in
-the e.g. package (`krige.cv` methods), which makes this type of
+the e.g. gstat package (`krige.cv` methods), which makes this type of
 assessment convenient to implement. Note also that cross-validation is
 not necessarily independent — points used for cross-validation are a
 subset of the original sampling design, hence if the original design is
@@ -2196,7 +2201,7 @@ of the mean value. It might sound confusing but, in geostatistics, one
 can also validate the *uncertainty of uncertainty* i.e. derive the 
 *error of the estimation error*. In the case of the Meuse data set:
 
-```{r z-scores-histogram, fig.width=6, fig.cap="Z-scores for the cross-validation of the soil organic carbon model."}
+```{r z-scores-histogram, fig.width=4.5, fig.cap="Z-scores for the cross-validation of the soil organic carbon model."}
 om.rk.cv <- krige.cv(log1p(om)~dist+soil, meuse.s, vr.fit)
 hist(om.rk.cv$zscore, main="Z-scores histogram", 
        xlab="z-score value", col="grey", breaks=25)
@@ -2231,7 +2236,7 @@ that are both accurate and realistic; or at least realistic. For a review of met
 for assessment of uncertainty in soil maps refer
 to @goovaerts2001geostatistical [pp.3–26] and/or @Brus2011EJSS.
 
-```{r difference-accuracy-reliability, echo=FALSE, fig.cap="Mapping accuracy and model reliability (accuracy of the prediction intervals vs actual intervals). Although a method can be accurate in predicting the mean values, it could fail in predicting the prediction intervals i.e. the associated uncertainty.", out.width="85%"}
+```{r difference-accuracy-reliability, echo=FALSE, fig.cap="Mapping accuracy and model reliability (accuracy of the prediction intervals vs actual intervals). Although a method can be accurate in predicting the mean values, it could fail in predicting the prediction intervals i.e. the associated uncertainty.", out.width="75%"}
 knitr::include_graphics("figures/Fig_difference_accuracy_reliability.png")
 ```
 
@@ -2454,7 +2459,7 @@ pure nugget effect), which is a proof that there is no spatial bias in predictio
 Likewise, nominal vs coverage probabilities in the target variable should also ideally 
 be on a 1:1 line.
 
-So in summary, four universal measures to access predicitive success of 
+So in summary, universal measures to access predicitive success of 
 any spatial prediction method are [@Hengl2018RFsp]:
 
 * **Concordance Correlation Coefficient** (0–1): showing predictive success 
