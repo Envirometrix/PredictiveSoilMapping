@@ -30,9 +30,11 @@ Software (required):
 
 *  Google Earth or Google Earth Pro; 
 
+*  [QGIS](https://qgis.org/en/site/forusers/download.html);
+
 *  [GDAL v2.x](https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries) for Windows machines use e.g. ["gdal-*-1800-x64-core.msi"](http://download.gisinternals.com/sdk/downloads/);
 
-R script used in this tutorial can be downloaded from the **[github](https://github.com/envirometrix/PredictiveSoilMapping)**. As a gentle introduction to the R programming language and to soil classes in R we recommend the chapter on importing and using soil data. Some more examples of SAGA GIS + R usage can be found in the soil covariates chapter. To visualize spatial predictions in a web-browser or Google Earth you could also consider following the soil web-maps tutorial. As a gentle introduction to the R programming language and spatial classes in R we recommend following [the Geocomputation with R book](https://geocompr.robinlovelace.net/). Obtaining also the [R reference card](https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf) is highly recommended.
+R script used in this tutorial can be downloaded from the **[github](https://github.com/envirometrix/PredictiveSoilMapping)**. As a gentle introduction to the R programming language and to soil classes in R we recommend the chapter on importing and using soil data. Some more examples of SAGA GIS + R usage can be found in the soil covariates chapter. To visualize spatial predictions in a web-browser or Google Earth you can try using plotKML package [@Hengl2014plotKML]. As a gentle introduction to the R programming language and spatial classes in R we recommend following [the Geocomputation with R book](https://geocompr.robinlovelace.net/). Obtaining also the [R reference card](https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf) is highly recommended.
 
 ## Installing software on Ubuntu OS
 
@@ -79,13 +81,13 @@ sessionInfo()
 #> [1] stats     graphics  grDevices utils     datasets  methods   base     
 #> 
 #> other attached packages:
-#> [1] microbenchmark_1.4-6
+#> [1] knitr_1.21           microbenchmark_1.4-6
 #> 
 #> loaded via a namespace (and not attached):
 #>  [1] compiler_3.5.2   magrittr_1.5     bookdown_0.9     tools_3.5.2     
 #>  [5] htmltools_0.3.6  yaml_2.2.0       Rcpp_1.0.0       codetools_0.2-15
-#>  [9] stringi_1.2.4    rmarkdown_1.11   highr_0.7        knitr_1.21      
-#> [13] stringr_1.3.1    xfun_0.4         digest_0.6.18    evaluate_0.12
+#>  [9] stringi_1.2.4    rmarkdown_1.11   highr_0.7        stringr_1.3.1   
+#> [13] xfun_0.4         digest_0.6.18    evaluate_0.12
 system("gdalinfo --version")
 #> Warning in system("gdalinfo --version"): error in running command
 ```
@@ -105,9 +107,9 @@ sudo rm rstudio-1.1.447-amd64.deb
 Again, RStudio is constantly updated so you might have to obtain the most recent rstudio version and distribution.
 To learn more about doing first steps in R and RStudio and to learn to improve your scripting skills more efficiently, consider studying the following tutorials:
 
-* Grolemund, G., (2014) [**Hands-On Programming with R**](https://rstudio-education.github.io/hopr/). O’Reilly, ISBN: 9781449359010, 236 pages.
+* Grolemund, G., (2014) [**Hands-On Programming with R**](https://rstudio-education.github.io/hopr/). O’Reilly, 236 pages.
 
-* Gillespie, C., Lovelace, R., (2016) [**Efficient R programming**](https://csgillespie.github.io/efficientR/). O’Reilly, ISBN: 9781491950753, 222 pages.
+* Gillespie, C., Lovelace, R., (2016) [**Efficient R programming**](https://csgillespie.github.io/efficientR/). O’Reilly, 222 pages.
 
 * Wilke, C.O., (2019) [**Fundamentals of Data Visualization**](https://serialmentor.com/dataviz/). O’Reilly, in press.
 
@@ -214,7 +216,7 @@ ls <- c("rgdal", "raster", "sf", "GSIF", "plotKML",
         "randomForestSRC", "ggRandomForests", "scales",
         "xgboost", "parallel", "doParallel", "caret", 
         "gam", "glmnet", "matrixStats", "SuperLearner",
-        "quantregForest", "LITAP", "intamap", "fasterize")
+        "quantregForest", "intamap", "fasterize")
 new.packages <- ls[!(ls %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
 ```
@@ -422,4 +424,4 @@ The following books are highly recommended for improving programming skills in R
 
 * Bivand, R., Pebesma, E., Rubio, V., (2013) [**Applied Spatial Data Analysis with R**](http://www.asdar-book.org/). Use R Series, Springer, Heidelberg, 2nd Ed. 400 pages.
 
-* Lovelace, R., Nowosad, J., Muenchow, J., (2018) [**Geocomputation with R**](https://geocompr.robinlovelace.net/). R Series, CRC Press, ISBN: 9781138304512, 338 pages.
+* Lovelace, R., Nowosad, J., Muenchow, J., (2018) [**Geocomputation with R**](https://geocompr.robinlovelace.net/). R Series, CRC Press, 338 pages.

@@ -5,16 +5,16 @@
 
 ## Introduction
 
-This chapter was prepared as supplementary material for the @sanderman2018soil article. It explains how to map Soil Organic Carbon Stocks (OCS) using soil samples (point data). It also demonstrates derivation of values at both the site level (per profile) and by using raster calculus (per pixel). We then illustrate how to estimate total OCS for any area of interest (which can be a field plot, farm and/or administrative region). For an introduction to soil mapping using Machine Learning Algorithms refer to section \@ref(soilmapping-using-mla). To access the ISRIC global compilation of soil profiles referenced here please refer to: [http://www.isric.org/explore/wosis](http://www.isric.org/explore/wosis).
+This chapter was prepared as supplementary material for the @sanderman2018soil article. It explains how to map Soil Organic Carbon Stocks (OCS) using soil samples (point data). It also demonstrates derivation of values at both the site level (per profile) and by using raster calculus (per pixel). We then illustrate how to estimate total OCS for any area of interest (which can be a field plot, farm and/or administrative region). For an introduction to soil mapping using Machine Learning Algorithms refer to chapter \@ref(soilmapping-using-mla). To access the ISRIC global compilation of soil profiles referenced here please refer to: [http://www.isric.org/explore/wosis](http://www.isric.org/explore/wosis).
 
 ## Measurement and derivation of soil organic carbon
 
 Carbon below ground can be organic or non-organic/ mineral (usually carbonates and bicarbonates) i.e. CaCO$_3$ in the rocks. Organic carbon stocks below ground (0–2 m) in terrestrial ecosystems consist of two major components:
 
- 1.  Living organism biomass i.e. mainly:
-    * Plant roots,
-    * Microbial biomass [@xu2013global],
- 2.  Plant and animal residues at various stages of decomposition (organic matter).
+1. Living organism biomass i.e. mainly:
+  - Plant roots,
+  - Microbial biomass [@xu2013global],
+2. Plant and animal residues at various stages of decomposition (organic matter).
 
 @xu2013global estimated that total global microbial biomass is about 17 Pg C, which is only about 2% of the total for organic matter. Therefore, the amounts of C in microbial biomass can reasonably be considered negligible, in comparison to the total C stock. However, if one includes all living organisms, and especially tree roots, then the portion of total C found in living organisms could be more significant, especially in areas under dense forests.
 
@@ -76,7 +76,7 @@ Land use and agriculture, in particular, have led to dramatic decreases in soil 
 
 As mentioned previously, OCS stock is most commonly derived from measurements of the organic carbon (ORC) content, soil bulk density (BLD) and the volume fraction of gravel (CRF). These are usually sampled either per soil layers or soil **horizons** (a sequence of horizons makes a soil profile), which can refer to variable soil depth intervals i.e. are non-standard. That means that, before one can determine OCS for standard fixed depth intervals (e.g. 0–30 cm or 0–100 cm), values of ORC, BLD and CRF need to be standardized so they refer to common depth intervals.
 
-Consider, for example, the following two real life examples of soil profile data for a standard agricultural soil and an organic soil. In the first example, [profile from Australia](http://www.asris.csiro.au/mapping/hyperdocs/NatSoil/399%5EEDGEROI%5Eed079.pdf), the soil profile data shows [@Karssies2011CSIRO]:
+Consider, for example, the following two real life examples of soil profile data for a standard agricultural soil and an organic soil. For example the [profile from Australia](http://www.asris.csiro.au/mapping/hyperdocs/NatSoil/399%5EEDGEROI%5Eed079.pdf) [@Karssies2011CSIRO], which is shown in Tbl. \@ref(tab:profile-edgeroi).
 
 
 Table: (\#tab:profile-edgeroi)Laboratory data for a profile 399 EDGEROI ed079 from Australia (Karssies 2011).
@@ -162,7 +162,7 @@ OCSKGM(ORC.s$var.std$`30-100 cm`,
 #> [1] "kilograms per square-meter"
 ```
 
-Note that the OCSKGM function requires soil organic carbon content in g/kg. If one has contents measured in % then first multiply the values by 10. Bulk density data should be provided in kg/m3, gravel content in %, and layer depth in cm. Running the OCSKGM function for the Edgeroi profile gives the following estimates of OCS for standard depth intervals (Fig. \@ref(fig:scheme-soc-prof1)):
+Note that the OCSKGM function requires soil organic carbon content in g/kg. If one has contents measured in % then first multiply the values by 10. Bulk density data should be provided in kg/m$^3$, gravel content in %, and layer depth in cm. Running the OCSKGM function for the Edgeroi profile gives the following estimates of OCS for standard depth intervals (Fig. \@ref(fig:scheme-soc-prof1)):
 
 *  0–30 cm: 2.9 kg / m-square
 
@@ -174,14 +174,14 @@ Values of OCS between 5–35 kg/m$^2$ for 0–100 cm are commonly reported for a
 
 \BeginKnitrBlock{rmdnote}<div class="rmdnote">Organic Carbon Stock for standard depths can be determined from legacy soil profile data either by fitting a spline function to organic carbon, bulk density values, or by aggregating data using simple conversion formulas. A standard mineral soil with 1–3% soil organic carbon for the 0–100 cm depth interval should have about 5–35 kg/m$^2$ or 50–350 tonnes/ha. An organic soil with >30% soil organic carbon may have as much as 60–90 kg/m$^2$ for the 0–100 cm depth interval.</div>\EndKnitrBlock{rmdnote}
 
-Note that the measurement error is computed from default uncertainty values (expressed in standard deviations) for organic carbon (10 g/kg), bulk density (100 kg/m3) and coarse fraction content (5%). When these are not provided by the user, the outcome should be interpreted with care. 
+Note that the measurement error is computed from default uncertainty values (expressed in standard deviations) for organic carbon (10 g/kg), bulk density (100 kg/m$^3$) and coarse fraction content (5%). When these are not provided by the user, the outcome should be interpreted with care. 
 
 <div class="figure" style="text-align: center">
 <img src="figures/fig_2_profiles_ocs_edgeroi.png" alt="Determination of soil organic carbon density and stock for standard depth intervals: example of a mineral soil profile from Australia." width="90%" />
 <p class="caption">(\#fig:scheme-soc-prof1)Determination of soil organic carbon density and stock for standard depth intervals: example of a mineral soil profile from Australia.</p>
 </div>
 
-In the second example we look at a profile from Canada (a histosol with >40% of organic carbon; @shaw2005ecosystem):
+In the second example we look at a profile from Canada (a histosol with >40% of organic carbon; @shaw2005ecosystem) which is shown in Tbl. \@ref(tab:profile-can).
 
 
 Table: (\#tab:profile-can)Laboratory data for an organic soil profile from Canada  (Shaw, Bhatti, and Sabourin 2005).
@@ -250,7 +250,7 @@ fm.BLD = as.formula(
   paste("BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +", 
         paste(names(ind.tax), collapse="+")))
 m.BLD_PTF <- ranger(fm.BLD, dfs_tbl, num.trees = 85, importance='impurity')
-#> Growing trees.. Progress: 89%. Estimated remaining time: 3 seconds.
+#> Growing trees.. Progress: 88%. Estimated remaining time: 4 seconds.
 m.BLD_PTF
 #> Ranger result
 #> 
@@ -668,9 +668,10 @@ Second, we derive averaged estimates of BLD for standard depth intervals:
 
 
 ```r
-ov.edgeroi.BLDm = data.frame(BLD.f=as.vector(sapply(2:ncol(ov.edgeroi.BLD),                                                function(i){rowMeans(ov.edgeroi.BLD[,c(i-1,i)])})),
-                    DEPTH.c=as.vector(sapply(1:5, function(i){rep(paste0("sd",i),
-                        nrow(edgeroi$sites))})), SOURCEID=rep(edgeroi$sites$SOURCEID, 5))
+ov.edgeroi.BLDm  <- data.frame(BLD.f = as.vector(sapply(2:ncol(ov.edgeroi.BLD),
+                            function(i){rowMeans(ov.edgeroi.BLD[,c(i-1,i)])})),
+                    DEPTH.c = as.vector(sapply(1:5, function(i){rep(paste0("sd",i),
+                        nrow(edgeroi$sites))})), SOURCEID = rep(edgeroi$sites$SOURCEID, 5))
 str(ov.edgeroi.BLDm)
 #> 'data.frame':	1795 obs. of  3 variables:
 #>  $ BLD.f   : num  1370 1335 1310 1500 1490 ...
@@ -684,8 +685,8 @@ Third, we match BLD values by matching horizon depths (center of horizon) with t
 ```r
 edgeroi$horizons$DEPTH = edgeroi$horizons$UHDICM +
   (edgeroi$horizons$LHDICM - edgeroi$horizons$UHDICM)/2
-edgeroi$horizons$DEPTH.c = cut(edgeroi$horizons$DEPTH, include.lowest=TRUE,
-                               breaks=c(0,10,30,60,100,1000), labels=paste0("sd",1:5))
+edgeroi$horizons$DEPTH.c = cut(edgeroi$horizons$DEPTH, include.lowest = TRUE,
+                              breaks = c(0,10,30,60,100,1000), labels = paste0("sd",1:5))
 summary(edgeroi$horizons$DEPTH.c)
 #> sd1 sd2 sd3 sd4 sd5 
 #> 391 379 408 391 769

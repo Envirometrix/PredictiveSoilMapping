@@ -15,7 +15,7 @@ differences, strengths and weaknesses of conventional soil mapping (and
 its inputs and products) relative to PSM.
 
 The universal model of soil variation presented in detail in
-Chapter \@ref(statistical-theory) is adopted as a framework for comparison of
+chapter \@ref(statistical-theory) is adopted as a framework for comparison of
 conventional soil mapping and PSM. Our aim is to show how the products
 and methods of conventional soil mapping can complement, and contribute to,
 PSM and equally, how the theories and methods of
@@ -229,7 +229,7 @@ only describe that portion of the total variation that is systematic and
 has structure and occurs over distances that are as large as, or larger
 than, the smallest area that can be feasibly portrayed and described at
 any given scale. Issues of scale and resolution are discussed in greater
-detail in chapter \@ref(downscaling-upscaling).
+detail in section \@ref(downscaling-upscaling).
 
 An important functionality of PSM is the production and distribution of
 maps depicting the spatial distribution of soils and, more specifically,
@@ -325,7 +325,7 @@ the fundamental scientific basis for soil survey.
 In the most general sense, both conventional soil mapping and PSM
 represent ways of applying the *soil-landscape paradigm* via the universal model of spatial
 variation, which is explained in greater detail in
-Chapter \@ref(statistical-theory). @Burrough1998OUP [p.133] described the
+chapter \@ref(statistical-theory). @Burrough1998OUP [p.133] described the
 universal model of soil variation as a special case of the universal
 model of spatial variation. This model distinguishes between three major
 components of soil variation: (1) a deterministic component (trend), (2)

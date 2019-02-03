@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl and Robert A. MacMillan">
 
 
-<meta name="date" content="2019-01-30">
+<meta name="date" content="2019-02-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -405,15 +405,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><em>Edited by: Hengl T. &amp; Sanderman J.</em></p>
 <div id="introduction-1" class="section level2">
 <h2><span class="header-section-number">7.1</span> Introduction</h2>
-<p>This chapter was prepared as supplementary material for the <span class="citation">Sanderman, Hengl, and Fiske (<a href="#ref-sanderman2018soil">2018</a>)</span> article. It explains how to map Soil Organic Carbon Stocks (OCS) using soil samples (point data). It also demonstrates derivation of values at both the site level (per profile) and by using raster calculus (per pixel). We then illustrate how to estimate total OCS for any area of interest (which can be a field plot, farm and/or administrative region). For an introduction to soil mapping using Machine Learning Algorithms refer to section <a href="soilmapping-using-mla.html#soilmapping-using-mla">6</a>. To access the ISRIC global compilation of soil profiles referenced here please refer to: <a href="http://www.isric.org/explore/wosis" class="uri">http://www.isric.org/explore/wosis</a>.</p>
+<p>This chapter was prepared as supplementary material for the <span class="citation">Sanderman, Hengl, and Fiske (<a href="#ref-sanderman2018soil">2018</a>)</span> article. It explains how to map Soil Organic Carbon Stocks (OCS) using soil samples (point data). It also demonstrates derivation of values at both the site level (per profile) and by using raster calculus (per pixel). We then illustrate how to estimate total OCS for any area of interest (which can be a field plot, farm and/or administrative region). For an introduction to soil mapping using Machine Learning Algorithms refer to chapter <a href="soilmapping-using-mla.html#soilmapping-using-mla">6</a>. To access the ISRIC global compilation of soil profiles referenced here please refer to: <a href="http://www.isric.org/explore/wosis" class="uri">http://www.isric.org/explore/wosis</a>.</p>
 </div>
 <div id="measurement-and-derivation-of-soil-organic-carbon" class="section level2">
 <h2><span class="header-section-number">7.2</span> Measurement and derivation of soil organic carbon</h2>
 <p>Carbon below ground can be organic or non-organic/ mineral (usually carbonates and bicarbonates) i.e. CaCO<span class="math inline">\(_3\)</span> in the rocks. Organic carbon stocks below ground (0–2 m) in terrestrial ecosystems consist of two major components:</p>
 <ol style="list-style-type: decimal">
-<li>Living organism biomass i.e. mainly:
-* Plant roots,
-* Microbial biomass <span class="citation">(Xu, Thornton, and Post <a href="#ref-xu2013global">2013</a>)</span>,</li>
+<li>Living organism biomass i.e. mainly:</li>
+</ol>
+<ul>
+<li>Plant roots,</li>
+<li>Microbial biomass <span class="citation">(Xu, Thornton, and Post <a href="#ref-xu2013global">2013</a>)</span>,</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
 <li>Plant and animal residues at various stages of decomposition (organic matter).</li>
 </ol>
 <p><span class="citation">Xu, Thornton, and Post (<a href="#ref-xu2013global">2013</a>)</span> estimated that total global microbial biomass is about 17 Pg C, which is only about 2% of the total for organic matter. Therefore, the amounts of C in microbial biomass can reasonably be considered negligible, in comparison to the total C stock. However, if one includes all living organisms, and especially tree roots, then the portion of total C found in living organisms could be more significant, especially in areas under dense forests.</p>
@@ -467,7 +471,7 @@ The average Organic Carbon Stock for the 0–100 cm depth interval for the land 
 <div id="derivation-of-ocs-and-ocd-using-soil-profile-data" class="section level2">
 <h2><span class="header-section-number">7.3</span> Derivation of OCS and OCD using soil profile data</h2>
 <p>As mentioned previously, OCS stock is most commonly derived from measurements of the organic carbon (ORC) content, soil bulk density (BLD) and the volume fraction of gravel (CRF). These are usually sampled either per soil layers or soil <strong>horizons</strong> (a sequence of horizons makes a soil profile), which can refer to variable soil depth intervals i.e. are non-standard. That means that, before one can determine OCS for standard fixed depth intervals (e.g. 0–30 cm or 0–100 cm), values of ORC, BLD and CRF need to be standardized so they refer to common depth intervals.</p>
-<p>Consider, for example, the following two real life examples of soil profile data for a standard agricultural soil and an organic soil. In the first example, <a href="http://www.asris.csiro.au/mapping/hyperdocs/NatSoil/399%5EEDGEROI%5Eed079.pdf">profile from Australia</a>, the soil profile data shows <span class="citation">(Karssies <a href="#ref-Karssies2011CSIRO">2011</a>)</span>:</p>
+<p>Consider, for example, the following two real life examples of soil profile data for a standard agricultural soil and an organic soil. For example the <a href="http://www.asris.csiro.au/mapping/hyperdocs/NatSoil/399%5EEDGEROI%5Eed079.pdf">profile from Australia</a> <span class="citation">(Karssies <a href="#ref-Karssies2011CSIRO">2011</a>)</span>, which is shown in Tbl. <a href="SOC-chapter.html#tab:profile-edgeroi">7.1</a>.</p>
 <table>
 <caption><span id="tab:profile-edgeroi">Table 7.1: </span>Laboratory data for a profile 399 EDGEROI ed079 from Australia (Karssies 2011).</caption>
 <thead>
@@ -592,7 +596,7 @@ CRF.s &lt;-<span class="st"> </span><span class="kw">mpspline</span>(prof1, <spa
 <span class="co">#&gt; [1] 9.18</span>
 <span class="co">#&gt; attr(,&quot;units&quot;)</span>
 <span class="co">#&gt; [1] &quot;kilograms per square-meter&quot;</span></code></pre>
-<p>Note that the OCSKGM function requires soil organic carbon content in g/kg. If one has contents measured in % then first multiply the values by 10. Bulk density data should be provided in kg/m3, gravel content in %, and layer depth in cm. Running the OCSKGM function for the Edgeroi profile gives the following estimates of OCS for standard depth intervals (Fig. <a href="SOC-chapter.html#fig:scheme-soc-prof1">7.2</a>):</p>
+<p>Note that the OCSKGM function requires soil organic carbon content in g/kg. If one has contents measured in % then first multiply the values by 10. Bulk density data should be provided in kg/m<span class="math inline">\(^3\)</span>, gravel content in %, and layer depth in cm. Running the OCSKGM function for the Edgeroi profile gives the following estimates of OCS for standard depth intervals (Fig. <a href="SOC-chapter.html#fig:scheme-soc-prof1">7.2</a>):</p>
 <ul>
 <li><p>0–30 cm: 2.9 kg / m-square</p></li>
 <li><p>0–100 cm: 6.5 kg / m-square</p></li>
@@ -604,14 +608,14 @@ CRF.s &lt;-<span class="st"> </span><span class="kw">mpspline</span>(prof1, <spa
 Organic Carbon Stock for standard depths can be determined from legacy soil profile data either by fitting a spline function to organic carbon, bulk density values, or by aggregating data using simple conversion formulas. A standard mineral soil with 1–3% soil organic carbon for the 0–100 cm depth interval should have about 5–35 kg/m<span class="math inline">\(^2\)</span> or 50–350 tonnes/ha. An organic soil with &gt;30% soil organic carbon may have as much as 60–90 kg/m<span class="math inline">\(^2\)</span> for the 0–100 cm depth interval.
 </div>
 
-<p>Note that the measurement error is computed from default uncertainty values (expressed in standard deviations) for organic carbon (10 g/kg), bulk density (100 kg/m3) and coarse fraction content (5%). When these are not provided by the user, the outcome should be interpreted with care.</p>
+<p>Note that the measurement error is computed from default uncertainty values (expressed in standard deviations) for organic carbon (10 g/kg), bulk density (100 kg/m<span class="math inline">\(^3\)</span>) and coarse fraction content (5%). When these are not provided by the user, the outcome should be interpreted with care.</p>
 <div class="figure" style="text-align: center"><span id="fig:scheme-soc-prof1"></span>
 <img src="figures/fig_2_profiles_ocs_edgeroi.png" alt="Determination of soil organic carbon density and stock for standard depth intervals: example of a mineral soil profile from Australia." width="90%" />
 <p class="caption">
 Figure 7.2: Determination of soil organic carbon density and stock for standard depth intervals: example of a mineral soil profile from Australia.
 </p>
 </div>
-<p>In the second example we look at a profile from Canada (a histosol with &gt;40% of organic carbon; <span class="citation">Shaw, Bhatti, and Sabourin (<a href="#ref-shaw2005ecosystem">2005</a>)</span>):</p>
+<p>In the second example we look at a profile from Canada (a histosol with &gt;40% of organic carbon; <span class="citation">Shaw, Bhatti, and Sabourin (<a href="#ref-shaw2005ecosystem">2005</a>)</span>) which is shown in Tbl. <a href="SOC-chapter.html#tab:profile-can">7.2</a>.</p>
 <table>
 <caption><span id="tab:profile-can">Table 7.2: </span>Laboratory data for an organic soil profile from Canada (Shaw, Bhatti, and Sabourin 2005).</caption>
 <thead>
@@ -715,7 +719,7 @@ fm.BLD =<span class="st"> </span><span class="kw">as.formula</span>(
   <span class="kw">paste</span>(<span class="st">&quot;BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +&quot;</span>, 
         <span class="kw">paste</span>(<span class="kw">names</span>(ind.tax), <span class="dt">collapse=</span><span class="st">&quot;+&quot;</span>)))
 m.BLD_PTF &lt;-<span class="st"> </span><span class="kw">ranger</span>(fm.BLD, dfs_tbl, <span class="dt">num.trees =</span> <span class="dv">85</span>, <span class="dt">importance=</span><span class="st">&#39;impurity&#39;</span>)
-<span class="co">#&gt; Growing trees.. Progress: 89%. Estimated remaining time: 3 seconds.</span>
+<span class="co">#&gt; Growing trees.. Progress: 88%. Estimated remaining time: 4 seconds.</span>
 m.BLD_PTF
 <span class="co">#&gt; Ranger result</span>
 <span class="co">#&gt; </span>
@@ -1047,9 +1051,10 @@ ov.edgeroi.BLD =<span class="st"> </span>ov[,<span class="kw">c</span>(<span cla
                        <span class="kw">grep</span>(<span class="st">&quot;b100..&quot;</span>, <span class="kw">names</span>(ov), 
                             <span class="dt">fixed =</span> <span class="ot">TRUE</span>), <span class="kw">grep</span>(<span class="st">&quot;b200..&quot;</span>, <span class="kw">names</span>(ov), <span class="dt">fixed =</span> <span class="ot">TRUE</span>))]</code></pre>
 <p>Second, we derive averaged estimates of BLD for standard depth intervals:</p>
-<pre class="sourceCode r"><code class="sourceCode r">ov.edgeroi.BLDm =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">BLD.f=</span><span class="kw">as.vector</span>(<span class="kw">sapply</span>(<span class="dv">2</span><span class="op">:</span><span class="kw">ncol</span>(ov.edgeroi.BLD),                                                <span class="cf">function</span>(i){<span class="kw">rowMeans</span>(ov.edgeroi.BLD[,<span class="kw">c</span>(i<span class="dv">-1</span>,i)])})),
-                    <span class="dt">DEPTH.c=</span><span class="kw">as.vector</span>(<span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="cf">function</span>(i){<span class="kw">rep</span>(<span class="kw">paste0</span>(<span class="st">&quot;sd&quot;</span>,i),
-                        <span class="kw">nrow</span>(edgeroi<span class="op">$</span>sites))})), <span class="dt">SOURCEID=</span><span class="kw">rep</span>(edgeroi<span class="op">$</span>sites<span class="op">$</span>SOURCEID, <span class="dv">5</span>))
+<pre class="sourceCode r"><code class="sourceCode r">ov.edgeroi.BLDm  &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">BLD.f =</span> <span class="kw">as.vector</span>(<span class="kw">sapply</span>(<span class="dv">2</span><span class="op">:</span><span class="kw">ncol</span>(ov.edgeroi.BLD),
+                            <span class="cf">function</span>(i){<span class="kw">rowMeans</span>(ov.edgeroi.BLD[,<span class="kw">c</span>(i<span class="dv">-1</span>,i)])})),
+                    <span class="dt">DEPTH.c =</span> <span class="kw">as.vector</span>(<span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="cf">function</span>(i){<span class="kw">rep</span>(<span class="kw">paste0</span>(<span class="st">&quot;sd&quot;</span>,i),
+                        <span class="kw">nrow</span>(edgeroi<span class="op">$</span>sites))})), <span class="dt">SOURCEID =</span> <span class="kw">rep</span>(edgeroi<span class="op">$</span>sites<span class="op">$</span>SOURCEID, <span class="dv">5</span>))
 <span class="kw">str</span>(ov.edgeroi.BLDm)
 <span class="co">#&gt; &#39;data.frame&#39;:    1795 obs. of  3 variables:</span>
 <span class="co">#&gt;  $ BLD.f   : num  1370 1335 1310 1500 1490 ...</span>
@@ -1058,8 +1063,8 @@ ov.edgeroi.BLD =<span class="st"> </span>ov[,<span class="kw">c</span>(<span cla
 <p>Third, we match BLD values by matching horizon depths (center of horizon) with the standard depth intervals <code>sd1</code> to <code>sd5</code>:</p>
 <pre class="sourceCode r"><code class="sourceCode r">edgeroi<span class="op">$</span>horizons<span class="op">$</span>DEPTH =<span class="st"> </span>edgeroi<span class="op">$</span>horizons<span class="op">$</span>UHDICM <span class="op">+</span>
 <span class="st">  </span>(edgeroi<span class="op">$</span>horizons<span class="op">$</span>LHDICM <span class="op">-</span><span class="st"> </span>edgeroi<span class="op">$</span>horizons<span class="op">$</span>UHDICM)<span class="op">/</span><span class="dv">2</span>
-edgeroi<span class="op">$</span>horizons<span class="op">$</span>DEPTH.c =<span class="st"> </span><span class="kw">cut</span>(edgeroi<span class="op">$</span>horizons<span class="op">$</span>DEPTH, <span class="dt">include.lowest=</span><span class="ot">TRUE</span>,
-                               <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">30</span>,<span class="dv">60</span>,<span class="dv">100</span>,<span class="dv">1000</span>), <span class="dt">labels=</span><span class="kw">paste0</span>(<span class="st">&quot;sd&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>))
+edgeroi<span class="op">$</span>horizons<span class="op">$</span>DEPTH.c =<span class="st"> </span><span class="kw">cut</span>(edgeroi<span class="op">$</span>horizons<span class="op">$</span>DEPTH, <span class="dt">include.lowest =</span> <span class="ot">TRUE</span>,
+                              <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">30</span>,<span class="dv">60</span>,<span class="dv">100</span>,<span class="dv">1000</span>), <span class="dt">labels =</span> <span class="kw">paste0</span>(<span class="st">&quot;sd&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>))
 <span class="kw">summary</span>(edgeroi<span class="op">$</span>horizons<span class="op">$</span>DEPTH.c)
 <span class="co">#&gt; sd1 sd2 sd3 sd4 sd5 </span>
 <span class="co">#&gt; 391 379 408 391 769</span>

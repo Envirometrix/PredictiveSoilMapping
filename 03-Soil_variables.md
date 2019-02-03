@@ -212,9 +212,9 @@ vertical and, 3–arcseconds in the horizontal dimension (ca. 100 m)
 </div>
 
 
-Table: (\#tab:globalsoilmap)The GlobalSoilMap project has selected seven primary (depth to bedrock, organic carbon content, pH, soil texture fractions, coarse fragments), three derived (effective soil depth, bulk density and available water capacity) and two optional (effective cation exchange capacity and electrical conductivity) target soil properties of interest for global soil mapping and modelling [@SSDS1993; @Burt2004SSIR].
+Table: (\#tab:globalsoilmap)The GlobalSoilMap project has selected seven primary (depth to bedrock, organic carbon content, pH, soil texture fractions, coarse fragments), three derived (effective soil depth, bulk density and available water capacity) and two optional (effective cation exchange capacity and electrical conductivity) target soil properties of interest for global soil mapping and modelling.
 
-Variable.name                            Units        Reference           
+Variable                                 Units        Reference           
 ---------------------------------------  -----------  --------------------
 Total profile depth (depth to bedrock)   cm           (SSDS, 1993; p.5)   
 Plant exploitable (effective depth)      cm           (SSDS, 1993; p.60)  
@@ -246,10 +246,7 @@ consortium include Effective Cation Exchange Capacity assessed and
 reported according to ISO11260 Barium Chloride (cmol+/kg = centi-mole+ per kilogram) 
 and Electrical conductivity in 1:1 soil–water solution (dS/m = deci-siemens per metre). 
 The list of soil properties identified for routine global soil mapping and 
-modelling is likely to grow in the years to come. Initially, 
-GSIF elected to simply accept and adopt the list of soil properties
-specified for the *GlobalSoilMap project and LandGIS then elected to extend 
-this list in consideration of other global soil initiatives.
+modelling is likely to grow in the years to come.
 
 The International Organisation for Standardisation (ISO) provides
 international standard definitions of soil properties, and of associated
@@ -258,7 +255,7 @@ methods to assess those soil properties, through `ISO TC-190` and
 required for purposes as such as multi-partner global soil mapping.
 
 In the following sections we focus our discussion on the soil properties
-that were first mapped for the [www.soilgrids.org](www.soilgrids.org) project: 
+that were first mapped for the https://soilgrids.org project: 
 depth to bedrock, occurrence of the `R` horizon, organic carbon content of the fine earth
 fraction, pH of the fine earth fraction, particle size class contents
 (sand, silt, clay) of the fine earth fraction, gravel content of the
@@ -381,7 +378,9 @@ can be linked to a unique set of metadata which should include:
 
 -   Full description;
 
--   Variable type (numeric, quantity, binary, factor etc)
+-   Variable type (numeric, quantity, binary, factor etc);
+
+-   Determination / measurement method;
 
 -   Measurement unit;
 
@@ -408,8 +407,8 @@ $\mathtt{C}$,$\ldots$ $\mathtt{Z}$. Another option is to simply use
 the US Goverment National Cooperative Soil Characterization Database column names (http://ncsslabdatamart.sc.egov.usda.gov/).
 
 Also note that the metadata can be easily separated from the code so
-that the short GSIF code (variable name) could be used as a shorthand (replacement)
-for the long description of the complete metadata. Using short GSIF
+that the short codes (variable name) can be used as a shorthand (replacement)
+for the long description of the complete metadata. Using short 
 codes is also important for programming because unique code names are
 used consistently in all scripts / functions.
 
@@ -713,12 +712,12 @@ of the distribution of soil organic carbon is shown in
 Fig. \@ref(fig:sprofs-soil-carbon).
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_sprofs_ORCDRC.png" alt="Histogram and soil-depth density distribution for a global compilation of measurements of soil organic carbon content in permilles. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/). The log-transformation is used to ensure close-to-normal distribution in the histogram." width="100%" />
+<img src="figures/Fig_sprofs_ORCDRC.png" alt="Histogram and soil-depth density distribution for a global compilation of measurements of soil organic carbon content in permilles. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/). The log-transformation is used to ensure close-to-normal distribution in the histogram." width="90%" />
 <p class="caption">(\#fig:sprofs-soil-carbon)Histogram and soil-depth density distribution for a global compilation of measurements of soil organic carbon content in permilles. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/). The log-transformation is used to ensure close-to-normal distribution in the histogram.</p>
 </div>
 
 \BeginKnitrBlock{rmdnote}<div class="rmdnote">Soil organic carbon content is most commonly expressed in weight
-percentage and for GSIF in grams per kilogram fine earth fraction or
+percentage and/or in grams per kilogram fine earth fraction or
 permilles. The standard method of determining the soil organic carbon
 content is by dry combustion method (Leco at 1000&deg;C).</div>\EndKnitrBlock{rmdnote}
 
@@ -950,7 +949,7 @@ Note that the uncertainty associated with coarse fragment content,
 propagated from the field observed class values, has significant impact
 on estimations of the volumetric totals of attributes assessed and
 mapped for the fine earth fraction (see also
-section \@ref(SOC-chapter)). Whilst a 1 meter deep
+chapter \@ref(SOC-chapter)). Whilst a 1 meter deep
 soil, with a bulk density of 1.5 tonne per cubic-metre and an organic 
 carbon content of 10 g per kg, contains 150 tonnes organic carbon. 
 A similar soil with bulk density adjusted for the
@@ -970,7 +969,7 @@ estimated global distribution of coarse fragments and soil textures is
 given in Fig. \@ref(fig:sprofs-crfvol).
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_sprofs_CRFVOL.png" alt="Histogram and soil-depth density distribution for a global compilation of measurements of coarse fragments in percent. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/). This variable in principle follows a zero inflated distribution." width="100%" />
+<img src="figures/Fig_sprofs_CRFVOL.png" alt="Histogram and soil-depth density distribution for a global compilation of measurements of coarse fragments in percent. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/). This variable in principle follows a zero inflated distribution." width="90%" />
 <p class="caption">(\#fig:sprofs-crfvol)Histogram and soil-depth density distribution for a global compilation of measurements of coarse fragments in percent. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/). This variable in principle follows a zero inflated distribution.</p>
 </div>
 
@@ -1009,30 +1008,30 @@ Particle size distribution has been defined using a number of systems.
 One of the most widely used systems is the USDA Soil Survey Laboratory
 Methods Manual [@Burt2004SSIR]. The USDA definition of particle size
 classes has also been recommended by FAO for use in the Soil Map of the
-World (Fig. \@ref(fig:texture-limits)). The standard reference method adopted by
-GSIF and LandGIS for reporting particle size classes of sand, silt and clay, is as
+World (Fig. \@ref(fig:texture-limits)). The standard reference method for 
+reporting particle size classes of sand, silt and clay, is as
 per the USDA Soil Survey Laboratory Methods Manual [@Burt2004SSIR
 p.347]. An estimated global distribution of sand, silt, and clay is
 given in Figs. \@ref(fig:sprofs-snd), \@ref(fig:sprofs-slt) and
 \@ref(fig:sprofs-cly).
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_texture_limits_Minasny2001.jpg" alt="Particle size limits used in European countries, Australia and America. Image source: Minasny and McBratney (2001) doi: 10.1071/SR00065." width="100%" />
+<img src="figures/Fig_texture_limits_Minasny2001.jpg" alt="Particle size limits used in European countries, Australia and America. Image source: Minasny and McBratney (2001) doi: 10.1071/SR00065." width="85%" />
 <p class="caption">(\#fig:texture-limits)Particle size limits used in European countries, Australia and America. Image source: Minasny and McBratney (2001) doi: 10.1071/SR00065.</p>
 </div>
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_sprofs_SNDPPT.png" alt="Histogram and soil-depth density distribution for a global compilation of measurements of sand content in percent. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/)." width="100%" />
+<img src="figures/Fig_sprofs_SNDPPT.png" alt="Histogram and soil-depth density distribution for a global compilation of measurements of sand content in percent. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/)." width="90%" />
 <p class="caption">(\#fig:sprofs-snd)Histogram and soil-depth density distribution for a global compilation of measurements of sand content in percent. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/).</p>
 </div>
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_sprofs_SLTPPT.png" alt="Histogram and soil-depth density distribution for a global compilation of measurements of silt content in percent. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/)." width="100%" />
+<img src="figures/Fig_sprofs_SLTPPT.png" alt="Histogram and soil-depth density distribution for a global compilation of measurements of silt content in percent. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/)." width="90%" />
 <p class="caption">(\#fig:sprofs-slt)Histogram and soil-depth density distribution for a global compilation of measurements of silt content in percent. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/).</p>
 </div>
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_sprofs_CLYPPT.png" alt="Histogram and soil-depth density distribution for a global compilation of measurements of clay content in percent. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/)." width="100%" />
+<img src="figures/Fig_sprofs_CLYPPT.png" alt="Histogram and soil-depth density distribution for a global compilation of measurements of clay content in percent. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/)." width="90%" />
 <p class="caption">(\#fig:sprofs-cly)Histogram and soil-depth density distribution for a global compilation of measurements of clay content in percent. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/).</p>
 </div>
 
@@ -1154,8 +1153,8 @@ by plant roots and mechanical workability of the soil using farm
 implements.
 
 Bulk density is the over-dry mass of soil material divided by the total
-volume. The standard reference method for reporting bulk density for
-GSIF and LandGIS is the core method (ISO 11272). The dry bulk density (BD) is the
+volume. The standard reference method for reporting bulk density is the core 
+method (ISO 11272): the dry bulk density (BD) is the
 ratio between the mass of oven dry soil material and the volume of the
 undisturbed fresh sample. The ISO standard defines dry bulk density as
 the ratio of the oven-dry mass of the solids to the volume (the bulk
@@ -1228,7 +1227,7 @@ frequently than bulk density for the whole soil
 (Fig. \@ref(fig:sprofs-bld)).
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_sprofs_BLD.png" alt="Histogram and soil-depth density distribution for a global compilation of measurements of bulk density (tonnes per cubic metre). Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/)." width="100%" />
+<img src="figures/Fig_sprofs_BLD.png" alt="Histogram and soil-depth density distribution for a global compilation of measurements of bulk density (tonnes per cubic metre). Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/)." width="90%" />
 <p class="caption">(\#fig:sprofs-bld)Histogram and soil-depth density distribution for a global compilation of measurements of bulk density (tonnes per cubic metre). Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/).</p>
 </div>
 
@@ -1354,8 +1353,8 @@ determine rootability or rooting depth as genetically required by the
 currently active vegetative land cover.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_available_soil_water.png" alt="Available water capacity and actual water content can be measured using soil moisture probes." width="100%" />
-<p class="caption">(\#fig:available-soil-water)Available water capacity and actual water content can be measured using soil moisture probes.</p>
+<img src="figures/Fig_available_soil_water.png" alt="Example of a soil water content plot. Actual water content can be measured using soil moisture probes i.e. automated sensor networks." width="100%" />
+<p class="caption">(\#fig:available-soil-water)Example of a soil water content plot. Actual water content can be measured using soil moisture probes i.e. automated sensor networks.</p>
 </div>
 
 The water available for root uptake also depends on the pressure head
@@ -1772,9 +1771,9 @@ interest for globla soil mapping: The USDA’s *Soil Taxonomy*
 [@agriculture2010keys], and the FAO’s *World Reference Base*
 [@FAO2006WRB]. Both KST and WRB are hierarchial, key-based morphological
 classification systems, but with increasingly more analytical data
-required to reach a specific, more refined, class. Mapping soil types,
-using WRB or KST or both, has been of interest for global soil mapping
-projects since the first development of the global classification
+required to reach a specific, more refined, class [@Krasilnikov2009handbook]. 
+Mapping soil types, using WRB or KST or both, has been of interest 
+for global soil mapping projects since the first development of the global classification
 systems. As a matter of interest, the term *“World soil map”* has been
 used exclusively for cartographic presentation of the global
 distribution of KST soil orders (12) and/or FAO WRB soil groups (32).
@@ -1811,8 +1810,8 @@ distribution of Soil Taxonomy soil suborders according to
 [USDA-NRCS World Soil Index](https://www.nrcs.usda.gov/wps/portal/nrcs/detail/soils/use/worldsoils/?cid=nrcs142p2_054010). 
 Assuming a rule of thumb that we need at least 5 and, if
 possible, 10 observations of a specific soil taxonomic entity per unique
-combination of predictor variables and observations,
-[@harrell2001regression], it is possible to estimate that the optimum number of
+combination of predictor variables and observations [@harrell2001regression], 
+it is possible to estimate that the optimum number of 
 field observations required to e.g. predict the global distribution of
 USDA soil series would be in the order of few millions of classified soil profiles
 (Fig. \@ref(fig:usda-categories)).
@@ -1899,7 +1898,7 @@ TT.classes.tbl(class.sys="USDA.TT", collapse=", ")
 #> [12,] "Sa"     "sand"            "15, 25, 20"
 ```
 
-So knowing that the soil texture classes are defined geometrically, a logical estimate of the texture fractions from a class is to take the geometric centre of each polygon in the texture triangle. To estimate where the geometric centre is, we can for example use the functionality in the sp package. We start by creating a ''SpatialPolygons'' object, for which we have to calculate coordinates in the xy space and bind polygons one by one:
+So knowing that the soil texture classes are defined geometrically, a logical estimate of the texture fractions from a class is to take the geometric centre of each polygon in the texture triangle. To estimate where the geometric centre is, we can for example use the functionality in the sp package. We start by creating a `SpatialPolygons` object, for which we have to calculate coordinates in the xy space and bind polygons one by one:
 
 
 ```r
@@ -1934,7 +1933,7 @@ poly.USDA.TT <- SpatialPolygonsDataFrame(poly.sp,
                       data.frame(ID=USDA.TT$name), match.ID=FALSE)
 ```
 
-The resulting object now contains also slots of type ''labpt'' which is exactly the geometric gravity point of the first polygon automatically derived by the ''SpatialPolygons'' function.
+The resulting object now contains also slots of type `labpt` which is exactly the geometric gravity point of the first polygon automatically derived by the `SpatialPolygons` function.
 
 
 ```r
@@ -1978,7 +1977,7 @@ USDA.TT.cnt[,c("name","SAND","SILT","CLAY")]
 #> 12            sand 0.920 0.050 0.033
 ```
 
-Now that we have created a function that converts values in the texture triangle to texture fractions, we can go further and even estimate the uncertainty of estimating each texture fraction based on the class. For this we can use simulations i.e. randomly sample 100 points within some texture class and then derive standard deviations for each texture fraction. Note that, although this sounds like a complicated operation, we can run this in two lines of code. For example to estimate uncertainty of converting the class ''Cl'' (clay) to texture fractions we can simulate 100 random points the class polygon using the ''spsample'' function from the sp package [@Bivand2013Springer]:
+Now that we have created a function that converts values in the texture triangle to texture fractions, we can go further and even estimate the uncertainty of estimating each texture fraction based on the class. For this we can use simulations i.e. randomly sample 100 points within some texture class and then derive standard deviations for each texture fraction. Note that, although this sounds like a complicated operation, we can run this in two lines of code. For example to estimate uncertainty of converting the class `Cl` (clay) to texture fractions we can simulate 100 random points the class polygon using the `spsample` function from the sp package [@Bivand2013Springer]:
 
 
 ```r
@@ -2022,7 +2021,7 @@ This shows that not all positions in the triangle have the same prior probabilit
 
 ## Converting Munsell color codes to other color systems
 
-In the next example we look at the Munsell color codes and conversion algorithms from a code to RGB and other color spaces. Munsell color codes can be matched with RGB values via the [Munsell color codes conversion table](http://www.cis.rit.edu/mcsl/online/munsell.php). You can load a table with 2350 entries from the GSIF dokuwiki:
+In the next example we look at the Munsell color codes and conversion algorithms from a code to RGB and other color spaces. Munsell color codes can be matched with RGB values via the [Munsell color codes conversion table](http://www.cis.rit.edu/mcsl/online/munsell.php). You can load a table with 2350 entries from the book repository:
 
 
 ```r
@@ -2099,7 +2098,7 @@ str(mcol)
 #>  $ LATWGS84: num  -11 -11 -11 -11 -11 ...
 ```
 
-Next we need to format all Munsell color codes to ''Hue_Saturation_Intensity'' format. We can incrementally replace the existing codes until all codes can be matched with the RGB table:
+Next we need to format all Munsell color codes to `Hue_Saturation_Intensity` format. We can incrementally replace the existing codes until all codes can be matched with the RGB table:
 
 
 ```r
@@ -2212,7 +2211,7 @@ prof1
 #> [1] "+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0"
 ```
 
-Once an object is in the format of ''SoilProfileCollection'' it can be directly plotted in Google Earth via the generic plotKML command:
+Once an object is in the format of `SoilProfileCollection` it can be directly plotted in Google Earth via the generic plotKML command:
 
 
 ```r
@@ -2435,7 +2434,7 @@ In the meantime, standardization and harmonization of legacy soil profile
 data will continue to present a challenge for global to regional PSM.
 
 One attractive option for harmonizing soil analytical data following the
-SINFER concept would be to create and maintain a Global Soil Reference
+SINFER concept would be to create and maintain a **Global Soil Reference**
 Library (GSRL). This concept is further discussed in the final chapter.
 Such a library would need to include data for a significant number of
 soils from each continent or region. Each soil would be analysed for all

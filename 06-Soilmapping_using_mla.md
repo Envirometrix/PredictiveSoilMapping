@@ -235,14 +235,14 @@ localH2O = h2o.init(startH2O=TRUE)
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         23 minutes 23 seconds 
+#>     H2O cluster uptime:         23 minutes 47 seconds 
 #>     H2O cluster timezone:       UTC 
 #>     H2O data parsing timezone:  UTC 
 #>     H2O cluster version:        3.22.1.1 
-#>     H2O cluster version age:    1 month and 2 days  
+#>     H2O cluster version age:    1 month and 6 days  
 #>     H2O cluster name:           H2O_started_from_R_travis_lqb476 
 #>     H2O cluster total nodes:    1 
-#>     H2O cluster total memory:   1.45 GB 
+#>     H2O cluster total memory:   1.47 GB 
 #>     H2O cluster total cores:    2 
 #>     H2O cluster allowed cores:  2 
 #>     H2O cluster healthy:        TRUE 
@@ -274,12 +274,12 @@ RF.m
 #> ==============
 #> 
 #> H2ORegressionModel: drf
-#> Model ID:  DRF_model_R_1548863399872_21 
+#> Model ID:  DRF_model_R_1549218286903_21 
 #> Model Summary: 
 #>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#> 1              50                       50              643341        20
+#> 1              50                       50              642314        20
 #>   max_depth mean_depth min_leaves max_leaves mean_leaves
-#> 1        20   20.00000        975       1060  1020.72000
+#> 1        20   20.00000        957       1064  1018.94000
 #> 
 #> 
 #> H2ORegressionMetrics: drf
@@ -289,7 +289,7 @@ RF.m
 #> MSE:  221
 #> RMSE:  14.9
 #> MAE:  10.1
-#> RMSLE:  0.429
+#> RMSLE:  0.431
 #> Mean Residual Deviance :  221
 ```
 
@@ -305,11 +305,10 @@ plt1 <- xyplot(m$SNDMHT_A ~ SDN.pred, asp=1,
                  plot.symbol = list(col=scales::alpha("black", 0.6), 
                  fill=scales::alpha("red", 0.6), pch=21, cex=0.8)),
                  ylab="measured", xlab="predicted (machine learning)")
-plt1
 ```
 
 <div class="figure" style="text-align: center">
-<img src="06-Soilmapping_using_mla_files/figure-html/obs-pred-snd-1.png" alt="Measured vs predicted SAND content based on the Random Forest model." width="100%" />
+<img src="figures/Measured_vs_predicted_SAND_plot.png" alt="Measured vs predicted SAND content based on the Random Forest model." width="70%" />
 <p class="caption">(\#fig:obs-pred-snd)Measured vs predicted SAND content based on the Random Forest model.</p>
 </div>
 
@@ -337,29 +336,29 @@ DL.m
 #> ==============
 #> 
 #> H2ORegressionModel: deeplearning
-#> Model ID:  DeepLearning_model_R_1548863399872_22 
+#> Model ID:  DeepLearning_model_R_1549218286903_22 
 #> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1
 #>   layer units      type dropout       l1       l2 mean_rate rate_rms
 #> 1     1    10     Input  0.00 %       NA       NA        NA       NA
-#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.015862 0.009292
-#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.132646 0.178076
-#> 4     4     1    Linear      NA 0.000000 0.000000  0.001283 0.000863
+#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.014988 0.011028
+#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.133536 0.177079
+#> 4     4     1    Linear      NA 0.000000 0.000000  0.001334 0.000856
 #>   momentum mean_weight weight_rms mean_bias bias_rms
 #> 1       NA          NA         NA        NA       NA
-#> 2 0.000000    0.004687   0.103486  0.360958 0.061754
-#> 3 0.000000   -0.018140   0.071357  0.951463 0.021192
-#> 4 0.000000    0.001030   0.047445  0.118136 0.000000
+#> 2 0.000000    0.006976   0.105046  0.363324 0.061020
+#> 3 0.000000   -0.018164   0.071010  0.955343 0.022769
+#> 4 0.000000   -0.004605   0.048893  0.115967 0.000000
 #> 
 #> 
 #> H2ORegressionMetrics: deeplearning
 #> ** Reported on training data. **
 #> ** Metrics reported on full training frame **
 #> 
-#> MSE:  265
-#> RMSE:  16.3
-#> MAE:  12.2
-#> RMSLE:  0.5
-#> Mean Residual Deviance :  265
+#> MSE:  314
+#> RMSE:  17.7
+#> MAE:  14.2
+#> RMSLE:  0.556
+#> Mean Residual Deviance :  314
 ```
 
 Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. \@ref(fig:map-snd) and Fig. \@ref(fig:map-snd-dl)).
@@ -596,22 +595,27 @@ str(test.ORC)
 #> List of 2
 #>  $ CV_residuals:'data.frame':	4972 obs. of  4 variables:
 #>   ..$ Observed : num [1:4972] 6.5 5.1 4.9 3.3 2.2 ...
-#>   ..$ Predicted: num [1:4972] 11.62 7.9 6.65 5.06 2.99 ...
+#>   ..$ Predicted: num [1:4972] 11.7 7.27 6.71 4.88 3.09 ...
 #>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" ...
 #>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ Summary     :'data.frame':	1 obs. of  6 variables:
-#>   ..$ ME          : num -0.135
-#>   ..$ MAE         : num 2.17
-#>   ..$ RMSE        : num 3.65
-#>   ..$ R.squared   : num 0.563
-#>   ..$ logRMSE     : num 0.494
-#>   ..$ logR.squared: num 0.637
+#>   ..$ ME          : num -0.127
+#>   ..$ MAE         : num 2.19
+#>   ..$ RMSE        : num 3.69
+#>   ..$ R.squared   : num 0.554
+#>   ..$ logRMSE     : num 0.497
+#>   ..$ logR.squared: num 0.631
 ```
 
 Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about $\pm 4$ g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:
 
+
+```r
+plt0 <- xyplot(test.ORC[[1]]$Observed ~ test.ORC[[1]]$Predicted, asp=1, par.settings=list(plot.symbol = list(col=scales::alpha("black", 0.6), fill=scales::alpha("red", 0.6), pch=21, cex=0.6)), scales=list(x=list(log=TRUE, equispaced.log=FALSE), y=list(log=TRUE, equispaced.log=FALSE)), ylab="measured", xlab="predicted (machine learning)")
+```
+
 <div class="figure" style="text-align: center">
-<img src="06-Soilmapping_using_mla_files/figure-html/plot-measured-predicted-1.png" alt="Predicted vs observed plot for soil organic carbon ML-based model (Edgeroi data set)." width="100%" />
+<img src="figures/Predicted_vs_observed_plot_for_SOC_edgeroi.png" alt="Predicted vs observed plot for soil organic carbon ML-based model (Edgeroi data set)." width="70%" />
 <p class="caption">(\#fig:plot-measured-predicted)Predicted vs observed plot for soil organic carbon ML-based model (Edgeroi data set).</p>
 </div>
 
@@ -667,7 +671,7 @@ perf
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 12.3716092332079
+#> Ensemble performance (MSE): 12.4139530955184
 ```
 
 which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.
@@ -767,16 +771,16 @@ perf3
 #> Base learner performance, sorted by specified metric:
 #>                    learner    MSE
 #> 1          h2o.glm.wrapper 0.2827
-#> 4 h2o.deeplearning.wrapper 0.1464
+#> 4 h2o.deeplearning.wrapper 0.1613
 #> 3          h2o.gbm.wrapper 0.0971
-#> 2 h2o.randomForest.wrapper 0.0812
+#> 2 h2o.randomForest.wrapper 0.0841
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 0.0782969439461952
+#> Ensemble performance (MSE): 0.0804027620355126
 ```
 
 In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.
@@ -860,10 +864,10 @@ sl
 #> 
 #>                  Risk    Coef
 #> SL.mean_All    0.7540 0.00000
-#> SL.xgboost_All 0.0598 0.80852
-#> SL.ksvm_All    0.1290 0.00715
-#> SL.glmnet_All  0.3072 0.00000
-#> SL.ranger_All  0.0843 0.18432
+#> SL.xgboost_All 0.0598 0.81406
+#> SL.ksvm_All    0.1292 0.00846
+#> SL.glmnet_All  0.3080 0.00000
+#> SL.ranger_All  0.0850 0.17748
 ```
 
 This shows that `SL.xgboost_All` outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by `SL.xgboost_All` is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:
@@ -883,9 +887,9 @@ sl2
 #> 
 #> 
 #>                  Risk  Coef
-#> SL.xgboost_All 0.0603 0.812
-#> SL.ranger_All  0.0835 0.188
-#> SL.ksvm_All    0.1300 0.000
+#> SL.xgboost_All 0.0603 0.821
+#> SL.ranger_All  0.0842 0.179
+#> SL.ksvm_All    0.1305 0.000
 ```
 
 again `SL.xgboost` dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where entire profiles are taken out of the training dataset:
@@ -913,10 +917,10 @@ summary(cv_sl)
 #> 
 #>       Algorithm  Ave    se   Min  Max
 #>   Super Learner 0.16 0.014 0.095 0.26
-#>     Discrete SL 0.17 0.015 0.114 0.25
+#>     Discrete SL 0.17 0.015 0.117 0.25
 #>  SL.xgboost_All 0.19 0.016 0.135 0.27
-#>   SL.ranger_All 0.17 0.015 0.103 0.25
-#>     SL.ksvm_All 0.18 0.015 0.109 0.30
+#>   SL.ranger_All 0.16 0.015 0.102 0.25
+#>     SL.ksvm_All 0.18 0.014 0.109 0.30
 ```
 
 where `V=5` specifies number of folds, and `id=rm.cookfarm$SOURCEID` enforces that entire profiles are removed from training and cross-validation. This gives a more realistic RMSE of about ±0.35. Note that this time `SL.xgboost_All` is even somewhat worse than the random forest model, and the ensemble model (`Super Learner`) is slightly better than each individual model. This matches our previous results with `h20.ensemble`. 
@@ -941,8 +945,8 @@ sl2
 #> 
 #>                 Risk  Coef
 #> SL.xgboost_All 0.215 0.000
-#> SL.ranger_All  0.164 0.481
-#> SL.ksvm_All    0.163 0.519
+#> SL.ranger_All  0.165 0.474
+#> SL.ksvm_All    0.163 0.526
 new.data <- grid10m@data
 pred.PHI <- list(NULL)
 depths = c(10,30,50,70,90)
@@ -964,7 +968,7 @@ for(j in 1:length(depths)){
 #>     buffer, rotated
 str(pred.PHI[[1]])
 #> List of 2
-#>  $ pred           : num [1:3865, 1] 4.68 4.75 4.89 4.86 4.77 ...
+#>  $ pred           : num [1:3865, 1] 4.71 4.78 4.91 4.88 4.81 ...
 #>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...
 #>   ..- attr(*, "dimnames")=List of 2
 #>   .. ..$ : NULL
@@ -1726,11 +1730,21 @@ Spatial prediction of binomial and factor-type variables is straightforward with
 
 In summary, MLA's represent an increasingly attractive option for soil mapping and soil modelling problems in general, as they often perform better than standard linear models (as previously recognized by @moran2002spatial and @Henderson2004Geoderma) Some recent comparisons of MLA's performance for operational soil mapping can be found in @nussbaum2018evaluation). MLA's often perform better than linear techniques for soil mapping; possibly for the following three reasons:
 
- 1. Non-linear relationships between soil forming factors and soil properties can be more efficiently modeled using MLA's,
- 2. Tree-based MLA's (random forest, gradient boosting, cubist) are suitable for representing *local* soil-landscape relationships, nested within a hierarchy of larger areas, which is often important for achieving accuracy of spatial prediction models,
+ 1. Non-linear relationships between soil forming factors and soil properties 
+ can be more efficiently modeled using MLA's,
+ 
+ 2. Tree-based MLA's (random forest, gradient boosting, cubist) are suitable 
+ for representing *local* soil-landscape relationships, nested within a 
+ hierarchy of larger areas, which is often important for achieving accuracy 
+ of spatial prediction models, 
+ 
  3. In the case of MLA, statistical properties such as multicolinearity and non-Gaussian distribution are dealt with inside the models, which simplifies statistical modeling steps,
 
-On the other hand, MLA's can be computationally very intensive and consequently require careful planning, especially when the number of points goes beyond a few thousand and the number of covariates beyond a dozen. Note also that some MLA's, such as for example Support Vector Machines (`svm`), are computationally very intensive and are probably not well suited for very large data sets.
+On the other hand, MLA's can be computationally very intensive and consequently 
+require careful planning, especially when the number of points goes beyond a 
+few thousand and the number of covariates beyond a dozen. Note also that some 
+MLA's, such as for example Support Vector Machines (SVM), are computationally 
+very intensive and are probably not well suited for very large data sets.
 
 Within PSM, there is increasing interest in doing ensemble predictions, 
 model averages or model stacks. Stacking models can improve upon

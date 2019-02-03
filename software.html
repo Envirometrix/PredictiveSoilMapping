@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl and Robert A. MacMillan">
 
 
-<meta name="date" content="2019-01-30">
+<meta name="date" content="2019-02-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -424,9 +424,10 @@ processing large volumes of data.</p>
 <li><p>R packages: GSIF, plotKML, aqp, ranger, caret, xgboost, plyr, raster, gstat, randomForest, ggplot2, e1071 (see: <a href="http://www.r-bloggers.com/installing-r-packages/">how to install R package</a>)</p></li>
 <li><p><a href="http://sourceforge.net/projects/saga-gis/">SAGA GIS</a> (on Windows machines run windows installer);</p></li>
 <li><p>Google Earth or Google Earth Pro;</p></li>
+<li><p><a href="https://qgis.org/en/site/forusers/download.html">QGIS</a>;</p></li>
 <li><p><a href="https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries">GDAL v2.x</a> for Windows machines use e.g. <a href="http://download.gisinternals.com/sdk/downloads/">“gdal-*-1800-x64-core.msi“</a>;</p></li>
 </ul>
-<p>R script used in this tutorial can be downloaded from the <strong><a href="https://github.com/envirometrix/PredictiveSoilMapping">github</a></strong>. As a gentle introduction to the R programming language and to soil classes in R we recommend the chapter on importing and using soil data. Some more examples of SAGA GIS + R usage can be found in the soil covariates chapter. To visualize spatial predictions in a web-browser or Google Earth you could also consider following the soil web-maps tutorial. As a gentle introduction to the R programming language and spatial classes in R we recommend following <a href="https://geocompr.robinlovelace.net/">the Geocomputation with R book</a>. Obtaining also the <a href="https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf">R reference card</a> is highly recommended.</p>
+<p>R script used in this tutorial can be downloaded from the <strong><a href="https://github.com/envirometrix/PredictiveSoilMapping">github</a></strong>. As a gentle introduction to the R programming language and to soil classes in R we recommend the chapter on importing and using soil data. Some more examples of SAGA GIS + R usage can be found in the soil covariates chapter. To visualize spatial predictions in a web-browser or Google Earth you can try using plotKML package <span class="citation">(T. Hengl, Roudier, et al. <a href="#ref-Hengl2014plotKML">2015</a>)</span>. As a gentle introduction to the R programming language and spatial classes in R we recommend following <a href="https://geocompr.robinlovelace.net/">the Geocomputation with R book</a>. Obtaining also the <a href="https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf">R reference card</a> is highly recommended.</p>
 </div>
 <div id="installing-software-on-ubuntu-os" class="section level2">
 <h2><span class="header-section-number">2.2</span> Installing software on Ubuntu OS</h2>
@@ -460,13 +461,13 @@ processing large volumes of data.</p>
 <span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; other attached packages:</span>
-<span class="co">#&gt; [1] microbenchmark_1.4-6</span>
+<span class="co">#&gt; [1] knitr_1.21           microbenchmark_1.4-6</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; loaded via a namespace (and not attached):</span>
 <span class="co">#&gt;  [1] compiler_3.5.2   magrittr_1.5     bookdown_0.9     tools_3.5.2     </span>
 <span class="co">#&gt;  [5] htmltools_0.3.6  yaml_2.2.0       Rcpp_1.0.0       codetools_0.2-15</span>
-<span class="co">#&gt;  [9] stringi_1.2.4    rmarkdown_1.11   highr_0.7        knitr_1.21      </span>
-<span class="co">#&gt; [13] stringr_1.3.1    xfun_0.4         digest_0.6.18    evaluate_0.12</span>
+<span class="co">#&gt;  [9] stringi_1.2.4    rmarkdown_1.11   highr_0.7        stringr_1.3.1   </span>
+<span class="co">#&gt; [13] xfun_0.4         digest_0.6.18    evaluate_0.12</span>
 <span class="kw">system</span>(<span class="st">&quot;gdalinfo --version&quot;</span>)
 <span class="co">#&gt; Warning in system(&quot;gdalinfo --version&quot;): error in running command</span></code></pre>
 <p>This shows, for example, that the this installation of R is based on the Ubuntu 16.* LTS and the version of GDAL is up to date. Using an optimized distribution of R (read more about <a href="https://mran.microsoft.com/documents/rro/multithread">“The Benefits of Multithreaded Performance with Microsoft R Open”</a>) is especially important if you plan to use R for production purposes i.e. to optimize computing and generation of soil maps for large numbers of pixels.</p>
@@ -478,8 +479,8 @@ processing large volumes of data.</p>
 <p>Again, RStudio is constantly updated so you might have to obtain the most recent rstudio version and distribution.
 To learn more about doing first steps in R and RStudio and to learn to improve your scripting skills more efficiently, consider studying the following tutorials:</p>
 <ul>
-<li><p>Grolemund, G., (2014) <a href="https://rstudio-education.github.io/hopr/"><strong>Hands-On Programming with R</strong></a>. O’Reilly, ISBN: 9781449359010, 236 pages.</p></li>
-<li><p>Gillespie, C., Lovelace, R., (2016) <a href="https://csgillespie.github.io/efficientR/"><strong>Efficient R programming</strong></a>. O’Reilly, ISBN: 9781491950753, 222 pages.</p></li>
+<li><p>Grolemund, G., (2014) <a href="https://rstudio-education.github.io/hopr/"><strong>Hands-On Programming with R</strong></a>. O’Reilly, 236 pages.</p></li>
+<li><p>Gillespie, C., Lovelace, R., (2016) <a href="https://csgillespie.github.io/efficientR/"><strong>Efficient R programming</strong></a>. O’Reilly, 222 pages.</p></li>
 <li><p>Wilke, C.O., (2019) <a href="https://serialmentor.com/dataviz/"><strong>Fundamentals of Data Visualization</strong></a>. O’Reilly, in press.</p></li>
 </ul>
 </div>
@@ -550,7 +551,7 @@ Figure 2.4: RStudio is a commonly used R editor written in C++.
         <span class="st">&quot;randomForestSRC&quot;</span>, <span class="st">&quot;ggRandomForests&quot;</span>, <span class="st">&quot;scales&quot;</span>,
         <span class="st">&quot;xgboost&quot;</span>, <span class="st">&quot;parallel&quot;</span>, <span class="st">&quot;doParallel&quot;</span>, <span class="st">&quot;caret&quot;</span>, 
         <span class="st">&quot;gam&quot;</span>, <span class="st">&quot;glmnet&quot;</span>, <span class="st">&quot;matrixStats&quot;</span>, <span class="st">&quot;SuperLearner&quot;</span>,
-        <span class="st">&quot;quantregForest&quot;</span>, <span class="st">&quot;LITAP&quot;</span>, <span class="st">&quot;intamap&quot;</span>, <span class="st">&quot;fasterize&quot;</span>)
+        <span class="st">&quot;quantregForest&quot;</span>, <span class="st">&quot;intamap&quot;</span>, <span class="st">&quot;fasterize&quot;</span>)
 new.packages &lt;-<span class="st"> </span>ls[<span class="op">!</span>(ls <span class="op">%in%</span><span class="st"> </span><span class="kw">installed.packages</span>()[,<span class="st">&quot;Package&quot;</span>])]
 <span class="cf">if</span>(<span class="kw">length</span>(new.packages)) <span class="kw">install.packages</span>(new.packages)</code></pre>
 <p>This will basically check if any package is installed already, then install it only if it is missing. You can put this line at the top of each R script that you share so that anybody using that script will automatically obtain all required packages.</p>
@@ -721,7 +722,7 @@ Figure 2.7: Ebergotzen DEM reprojected in geographical coordinates.
 <p>The following books are highly recommended for improving programming skills in R and specially for the purpose of geographical computing:</p>
 <ul>
 <li><p>Bivand, R., Pebesma, E., Rubio, V., (2013) <a href="http://www.asdar-book.org/"><strong>Applied Spatial Data Analysis with R</strong></a>. Use R Series, Springer, Heidelberg, 2nd Ed. 400 pages.</p></li>
-<li><p>Lovelace, R., Nowosad, J., Muenchow, J., (2018) <a href="https://geocompr.robinlovelace.net/"><strong>Geocomputation with R</strong></a>. R Series, CRC Press, ISBN: 9781138304512, 338 pages.</p></li>
+<li><p>Lovelace, R., Nowosad, J., Muenchow, J., (2018) <a href="https://geocompr.robinlovelace.net/"><strong>Geocomputation with R</strong></a>. R Series, CRC Press, 338 pages.</p></li>
 </ul>
 
 </div>
@@ -739,6 +740,9 @@ Figure 2.7: Ebergotzen DEM reprojected in geographical coordinates.
 </div>
 <div id="ref-mitchell2014geospatial">
 <p>Mitchell, T., and GDAL Developers. 2014. <em>Geospatial Power Tools: GDAL Raster &amp; Vector Commands</em>. Locate Press.</p>
+</div>
+<div id="ref-Hengl2014plotKML">
+<p>Hengl, Tomislav, Pierre Roudier, Dylan Beaudette, and Edzer Pebesma. 2015. “PlotKML: Scientific Visualization of Spatio-Temporal Data.” <em>Journal of Statistical Software</em> 63 (5):1–25. <a href="http://www.jstatsoft.org/v63/i05/" class="uri">http://www.jstatsoft.org/v63/i05/</a>.</p>
 </div>
 <div id="ref-lindsay2016whitebox">
 <p>Lindsay, John B. 2016. “Whitebox GAT: A case study in geomorphometric analysis.” <em>Computers &amp; Geosciences</em> 95. Elsevier:75–84.</p>

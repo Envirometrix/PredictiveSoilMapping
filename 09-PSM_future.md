@@ -1294,8 +1294,8 @@ classes of terrestrial landscapes. The idea may be thought of as a
 virtual network for creating and supporting ongoing, comprehensive
 terrestrial resource inventories of all kinds and their required
 supporting infrastructures. The concept adopts, and extends, many of the
-elements of the existing Global Soil Information Facilities (GSIF).
-(http://www.isric.org/content/soilgrids) and of the recently launched 
+elements of the existing Global Soil Information Facilities (GSIF)
+(http://www.isric.org/content/soilgrids), and of the recently launched 
 OpenGeoHub Foundation's LandGIS (http://landgis.opengeohub.org).
 
 <div class="figure" style="text-align: center">

@@ -34,13 +34,13 @@ Based on previously presented theory, we can summarize the usual PSM processes a
 
 6.  Updates and improvements (support).
 
-An even more comprehensive list of steps in PSM projects is given in Fig. \@ref(fig:psm-decision-tree),
-which also includes market/user-domain researcher and might be also used for soil monitoring projects. 
-
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_decisiontree_PSM_project.png" alt="General decision tree in a Predictive Soil Mapping project." width="95%" />
+<img src="figures/Fig_decisiontree_PSM_project.png" alt="General decision tree in a Predictive Soil Mapping project." width="90%" />
 <p class="caption">(\#fig:psm-decision-tree)General decision tree in a Predictive Soil Mapping project.</p>
 </div>
+
+An even more comprehensive list of steps in PSM projects is given in Fig. \@ref(fig:psm-decision-tree),
+which also includes market/user-domain researcher and might be also used for soil monitoring projects. 
 
 In principle, we recognize three main types of PSM projects:
 
@@ -94,7 +94,7 @@ sufficient training data are available in both the space and time domains e.g. a
 five measurement intervals / repetitions.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_types_of_PSM_projects.png" alt="Types of PSM projects depending on whether maps are generated for single usage, or for detecting change or soil monitoring." width="65%" />
+<img src="figures/Fig_types_of_PSM_projects.png" alt="Types of PSM projects depending on whether maps are generated for single usage, or for detecting change or soil monitoring." width="60%" />
 <p class="caption">(\#fig:psm-types-monitoring)Types of PSM projects depending on whether maps are generated for single usage, or for detecting change or soil monitoring.</p>
 </div>
 
@@ -402,7 +402,7 @@ of a soil mask can differ somewhat from the one we use, but this has
 been our practice.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_soil_mask_scheme.png" alt="Example of a soil (land) mask scheme." width="100%" />
+<img src="figures/Fig_soil_mask_scheme.png" alt="Example of a soil (land) mask scheme." width="85%" />
 <p class="caption">(\#fig:soil-mask-scheme)Example of a soil (land) mask scheme.</p>
 </div>
 
@@ -548,17 +548,17 @@ the original budget by several times [@Hengl2013JAG].
 
 To achieve efficient computing, experienced data scientists understand
 the importance of utilizing the full capacity of the available hardware
-to its maximum potential (100%). This usually implies:
+to its maximum potential (100%). This usually implies that:
 
--   that the most up-to-date software is used for all computing tasks,
+-   the most up-to-date software is used for all computing tasks,
 
--   that the software is installed in such a way that it can achieve
+-   the software is installed in such a way that it can achieve
     maximum computing capacity,
 
--   that any function, or process, that can be parallelized in theory is
+-   any function, or process, that can be parallelized in theory is
     also parallelized in practice,
 
--   that running functions on the system will not result in system
+-   running functions on the system will not result in system
     shutdowns, failures or artifacts,
 
 As mentioned previously, applying PSM for large areas at finer
@@ -691,7 +691,7 @@ General specifications of the study area include:
     - 100 m
     - 250 m
     - 1000 m
-  * G.4 Target temporal span:
+  * G.4 Target temporal span (period of interest):
     - Begin date,
     - End date,
   * G.5 Soil mask:

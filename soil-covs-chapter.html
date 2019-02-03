@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl and Robert A. MacMillan">
 
 
-<meta name="date" content="2019-01-30">
+<meta name="date" content="2019-02-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -641,7 +641,7 @@ r
 <span class="co">#&gt; values      : 159, 428  (min, max)</span></code></pre>
 <p>The <code>eberg_grids25</code> object is a <code>SpatialPixelsDataFrame</code>, which is a spatial gridded data structure of the <a href="https://cran.r-project.org/web/packages/sp/">sp package</a> package. The raster package also offers data structures for spatial (gridded) data, and stores such data as <code>RasterLayer</code> class. Gridded data can be converted from class <code>SpatialPixelsDataFrame</code> to Raster layer with the <a href="http://www.rdocumentation.org/packages/raster/functions/raster"><code>raster</code></a> command. The
 <a href="http://www.inside-r.org/packages/cran/sp/docs/CRS"><code>CRS</code></a> command of the sp package can be used to set a spatial projection.
-<a href="http://spatialreference.org/ref/epsg/31467/">EPSG projection 31467</a> is the German coordinate system (each coordinate system has an associated EPSG number that can be obtained from <a href="http://spatialreference.org/" class="uri">http://spatialreference.org/</a>.</p>
+<a href="http://spatialreference.org/ref/epsg/31467/">EPSG projection 31467</a> is the German coordinate system (each coordinate system has an associated EPSG number that can be obtained from <a href="http://spatialreference.org/" class="uri">http://spatialreference.org/</a>).</p>
 <p>Conversion from polygon to raster is now possible via the <a href="http://www.rdocumentation.org/packages/raster/functions/rasterize"><code>rasterize</code></a> command:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(eberg_zones)
 <span class="co">#&gt; [1] &quot;ZONES&quot;</span>
@@ -678,7 +678,7 @@ eberg_zones_r &lt;-<span class="st"> </span><span class="kw">fasterize</span>(eb
 }
 saga_cmd
 <span class="co">#&gt; [1] &quot;saga_cmd&quot;</span></code></pre>
-<p>and finally use the module <a href="http://saga-gis.org/saga_module_doc/2.2.7/grid_gridding_0.html">‘’grid_gridding’’</a> to convert the shapefile to a grid:</p>
+<p>and finally use the module <a href="http://saga-gis.org/saga_module_doc/2.2.7/grid_gridding_0.html">grid_gridding</a> to convert the shapefile to a grid:</p>
 <pre class="sourceCode r"><code class="sourceCode r">pix =<span class="st"> </span><span class="dv">25</span>
 <span class="kw">system</span>(<span class="kw">paste0</span>(saga_cmd, <span class="st">&#39; grid_gridding 0 -INPUT </span><span class="ch">\&quot;</span><span class="st">extdata/eberg_zones.shp</span><span class="ch">\&quot;</span><span class="st"> &#39;</span>,
       <span class="st">&#39;-FIELD </span><span class="ch">\&quot;</span><span class="st">ZONES_int</span><span class="ch">\&quot;</span><span class="st"> -GRID </span><span class="ch">\&quot;</span><span class="st">extdata/eberg_zones.sgrd</span><span class="ch">\&quot;</span><span class="st"> -GRID_TYPE 0 &#39;</span>,
@@ -701,9 +701,9 @@ eberg_zones_r2<span class="op">$</span>ZONES &lt;-<span class="st"> </span><span
 <span class="co">#&gt;  Clay_and_loess Clayey_derivats  Sandy_material   Silt_and_sand </span>
 <span class="co">#&gt;           28667           35992           21971           73370</span></code></pre>
 <div class="figure" style="text-align: center"><span id="fig:eberg-zones-rasterized"></span>
-<img src="figures/eberg_zones_rasterized.png" alt="Eberg zones rasterized to 25 m resolution." width="70%" />
+<img src="figures/eberg_zones_rasterized.png" alt="Ebergotzen zones rasterized to 25 m resolution." width="65%" />
 <p class="caption">
-Figure 4.3: Eberg zones rasterized to 25 m resolution.
+Figure 4.3: Ebergotzen zones rasterized to 25 m resolution.
 </p>
 </div>
 </div>
@@ -826,7 +826,7 @@ Figure 4.5: Original TWI vs aggregated map from 100 m to 250 m.
 Figure 4.6: Some standard DEM derivatives calculated using SAGA GIS.
 </p>
 </div>
-<p>This function can now be used with any DEM to derive a standard set of 7-8 DEM parameters consisting of slope and curvature, TWI and MrVBF, positive and negative openess, valley depth and deviation from mean value. You could easily add more parameters to this function and then test if some of the other DEM derivatives can help improve mapping soil properties and classes. Note that SAGA GIS will by default optimize computing of DEM derivatives by using most of the available cores to compute (parallelization is turned on automatically).</p>
+<p>This function can now be used with any DEM to derive a standard set of 7–8 DEM parameters consisting of slope and curvature, TWI and MrVBF, positive and negative openess, valley depth and deviation from mean value. You could easily add more parameters to this function and then test if some of the other DEM derivatives can help improve mapping soil properties and classes. Note that SAGA GIS will by default optimize computing of DEM derivatives by using most of the available cores to compute (parallelization is turned on automatically).</p>
 </div>
 <div id="filtering-out-missing-pixels-and-artifacts" class="section level3">
 <h3><span class="header-section-number">4.2.4</span> Filtering out missing pixels and artifacts</h3>
@@ -841,7 +841,7 @@ Figure 4.6: Some standard DEM derivatives calculated using SAGA GIS.
 <span class="kw">image</span>(<span class="kw">raster</span>(eberg_grid[<span class="st">&quot;test&quot;</span>]), <span class="dt">col=</span>SAGA_pal[[<span class="dv">1</span>]], <span class="dt">zlim=</span>zlim, <span class="dt">main=</span><span class="st">&quot;Original&quot;</span>, <span class="dt">asp=</span><span class="dv">1</span>)
 <span class="kw">image</span>(<span class="kw">raster</span>(<span class="st">&quot;test.sdat&quot;</span>), <span class="dt">col=</span>SAGA_pal[[<span class="dv">1</span>]], <span class="dt">zlim=</span>zlim, <span class="dt">main=</span><span class="st">&quot;Filtered&quot;</span>, <span class="dt">asp=</span><span class="dv">1</span>)</code></pre>
 <p>In this example we use the same input and output file for filling in gaps. There are several other gap filling possibilities in SAGA GIS including Close Gaps with Spline, Close Gaps with Stepwise Resampling and Close One Cell Gaps. Note all of these are equally applicable to all missing pixel problems, but having &lt;10% of missing pixels is often not much of a problem for soil mapping.</p>
-<p>Another elegant way to filter the missing pixels, to reduce noise and to reduce data overlap is to use <a href="http://www.rdocumentation.org/packages/stats/functions/prcomp">Principal Components</a> transformation of original data. This is available also via the GSIF function <a href="http://www.rdocumentation.org/packages/GSIF/functions/spc">‘’spc’’</a>:</p>
+<p>Another elegant way to filter the missing pixels, to reduce noise and to reduce data overlap is to use <a href="http://www.rdocumentation.org/packages/stats/functions/prcomp">Principal Components</a> transformation of original data. This is available also via the GSIF function <a href="http://www.rdocumentation.org/packages/GSIF/functions/spc">spc</a>:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(eberg_grid)
 <span class="kw">gridded</span>(eberg_grid) &lt;-<span class="st"> </span><span class="er">~</span>x<span class="op">+</span>y
 <span class="kw">proj4string</span>(eberg_grid) &lt;-<span class="st"> </span><span class="kw">CRS</span>(<span class="st">&quot;+init=epsg:31467&quot;</span>)
@@ -854,7 +854,7 @@ eberg_spc &lt;-<span class="st"> </span>GSIF<span class="op">::</span><span clas
 Figure 4.7: 11 PCs derived using eberg covariates.
 </p>
 </div>
-<p>The advantages of using the <a href="http://www.rdocumentation.org/packages/GSIF/functions/spc">‘’spc’’</a> function are:</p>
+<p>The advantages of using the <a href="http://www.rdocumentation.org/packages/GSIF/functions/spc">spc</a> function are:</p>
 <ul>
 <li><p>All output soil covariates are numeric (and not a mixture of factors and numeric),</p></li>
 <li><p>The last 1-2 PCs often contain signal noise and could be excluded from modelling,</p></li>
@@ -864,7 +864,7 @@ Figure 4.7: 11 PCs derived using eberg covariates.
 </div>
 <div id="overlaying-and-subsetting-raster-stacks-and-points" class="section level3">
 <h3><span class="header-section-number">4.2.5</span> Overlaying and subsetting raster stacks and points</h3>
-<p>Now that we have prepared all covariates (resampled them to the same grid and filtered out all problems), we can proceed with running overlays and fitting statistical models. Assuming that we deal with a large number of files, an elegant way to read all those into R is by using the raster package, especially the <a href="http://www.rdocumentation.org/packages/raster/functions/stack">‘’stack’’</a> and <a href="http://www.rdocumentation.org/packages/raster/functions/stack">‘’raster’’</a> commands. In the following example we can list all files of interest, and then read them all at once:</p>
+<p>Now that we have prepared all covariates (resampled them to the same grid and filtered out all problems), we can proceed with running overlays and fitting statistical models. Assuming that we deal with a large number of files, an elegant way to read all those into R is by using the raster package, especially the <a href="http://www.rdocumentation.org/packages/raster/functions/stack">stack</a> and <a href="http://www.rdocumentation.org/packages/raster/functions/raster">raster</a> commands. In the following example we can list all files of interest, and then read them all at once:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(raster)
 grd.lst &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="dt">pattern=</span><span class="st">&quot;25m&quot;</span>)
 grd.lst
@@ -966,14 +966,14 @@ emerge as the second-most dominant covariates. These results largely
 correspond with conventional soil survey knowledge (surveyors have been
 using relief as a key guideline to delineate soil bodies for decades).</p>
 <p>Although lithology is often not in the list of the top 15 most important
-predictors, spatial patterns of lithologic classes can often be
+predictors for PSM projects, spatial patterns of lithologic classes can often be
 distinctly recognized in the output predictions. This is especially true
 for soil texture fractions and coarse fragments. In general, for
 predicting soil chemical properties, climatic variables (especially
 precipitation) and surface reflectance seem to be the most important,
 while for soil classes and soil physical properties it is a combination
 of relief, vegetation dynamics and parent material. Investing extra time
-in preparing a better map of soil parent material is often a good idea.</p>
+in preparing a better map of soil parent material is hence often a good idea.</p>
 <p>Other potentially useful covariates for predicting soil properties and
 classes could be maps of paleo i.e. pre-historic climatic
 conditions of soil formation, e.g. glacial landscapes and processes,
@@ -986,7 +986,7 @@ dynamics of land use / changes of land cover (see e.g. HYDE data set <span clas
 through the past 1500+ years. As the spatial detail and completeness of
 such pre-historic maps increases, they will become potentially
 interesting covariates for global soil modeling.</p>
-<p>USA’s NASA and USGS, with its MODIS, Landsat and similar
+<p>USA’s NASA and USGS, with its SRTM, MODIS, Landsat, ICESat and similar
 civil-applications missions will likely
 remain the main source of spatial covariate data to support global
 and local soil mapping initiatives.</p>
