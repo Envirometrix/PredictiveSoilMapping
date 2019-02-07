@@ -351,7 +351,7 @@ edgeroi.grids$ORCDRC_5cm <- (edgeroi.grids$Random_forest*w1 +
                                edgeroi.grids$XGBoost*w3)/(w1+w2+w3)
 ```
 
-```{r maps-soc-edgeroi, echo=FALSE, fig.width=8, out.width="90%", fig.cap="Comparison of three MLA's and final ensemble prediction (ORCDRC 5cm) of soil organic carbon content for 2.5 cm depth."}
+```{r maps-soc-edgeroi, echo=FALSE, fig.width=8, out.width="90%", fig.cap="Comparison of three MLA's and the final ensemble prediction (ORCDRC 5cm) of soil organic carbon content for 2.5 cm depth."}
 edgeroi.pts = list("sp.points", edgeroi.sp, pch = 21, cex = .7, col="black")
 spplot(edgeroi.grids[c("Random_forest","Cubist","XGBoost","ORCDRC_5cm")], 
        col.regions=rev(viridis(20)), sp.layout = list(edgeroi.pts))
@@ -841,7 +841,7 @@ which demonstrates that there is a slight improvement relative to using only buf
 We can further evaluate this model to see which specific points and covariates are 
 most important for spatial predictions:
 
-```{r rf-variableImportance, fig.width=5, out.width="80%", fig.cap="Variable importance plot for mapping zinc content based on the Meuse data set."}
+```{r rf-variableImportance, fig.width=5, out.width="65%", fig.cap="Variable importance plot for mapping zinc content based on the Meuse data set."}
 xl <- as.list(ranger::importance(m1.zinc))
 par(mfrow=c(1,1),oma=c(0.7,2,0,1), mar=c(4,3.5,1,0))
 plot(vv <- t(data.frame(xl[order(unlist(xl), decreasing=TRUE)[10:1]])), 1:10, 

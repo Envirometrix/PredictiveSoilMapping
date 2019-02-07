@@ -303,7 +303,7 @@ levels(eberg_zones_r2$ZONES) <- levels(eberg_zones$ZONES)
 summary(eberg_zones_r2$ZONES)
 ```
 
-```{r eberg-zones-rasterized, echo=FALSE, fig.cap="Ebergotzen zones rasterized to 25 m resolution and with correct factor labels.", out.width="65%"}
+```{r eberg-zones-rasterized, echo=FALSE, fig.cap="Ebergotzen zones rasterized to 25 m resolution and with correct factor labels.", out.width="55%"}
 knitr::include_graphics("figures/eberg_zones_rasterized.png")
 ```
 

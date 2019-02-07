@@ -9,7 +9,7 @@ The text and code for the forthcoming Open Access book: [**Predictive Soil Mappi
 
 **Cite this as**:
 
-* Hengl, T., MacMillan, R.A., (2019). **Predictive Soil Mapping with R**. OpenGeoHub foundation, Wageningen, the Netherlands, 376 pages, www.soilmapper.org, ISBN: 978-0-359-30635-0.
+* Hengl, T., MacMillan, R.A., (2019). **Predictive Soil Mapping with R**. OpenGeoHub foundation, Wageningen, the Netherlands, 370 pages, www.soilmapper.org, ISBN: 978-0-359-30635-0.
 
 This book is constantly updated and contributions are welcome (pull requests and general comments are welcome) provided that some minimum requirements are met.
 
