@@ -728,7 +728,7 @@ fm.BLD =<span class="st"> </span><span class="kw">as.formula</span>(
   <span class="kw">paste</span>(<span class="st">&quot;BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +&quot;</span>, 
         <span class="kw">paste</span>(<span class="kw">names</span>(ind.tax), <span class="dt">collapse=</span><span class="st">&quot;+&quot;</span>)))
 m.BLD_PTF &lt;-<span class="st"> </span><span class="kw">ranger</span>(fm.BLD, dfs_tbl, <span class="dt">num.trees =</span> <span class="dv">85</span>, <span class="dt">importance=</span><span class="st">&#39;impurity&#39;</span>)
-<span class="co">#&gt; Growing trees.. Progress: 89%. Estimated remaining time: 3 seconds.</span>
+<span class="co">#&gt; Growing trees.. Progress: 95%. Estimated remaining time: 1 seconds.</span>
 m.BLD_PTF
 <span class="co">#&gt; Ranger result</span>
 <span class="co">#&gt; </span>
