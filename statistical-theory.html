@@ -375,7 +375,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.4.3" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#open-cloud-based-processing-capabilities"><i class="fa fa-check"></i><b>9.4.3</b> Open cloud-based processing capabilities</a></li>
 <li class="chapter" data-level="9.4.4" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#collaborative-production-of-inputs-and-new-outputs"><i class="fa fa-check"></i><b>9.4.4</b> Collaborative production of inputs and new outputs</a></li>
 <li class="chapter" data-level="9.4.5" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#crowdsourcing-and-voluntary-collaboration"><i class="fa fa-check"></i><b>9.4.5</b> Crowdsourcing and voluntary collaboration,</a></li>
-<li class="chapter" data-level="9.4.6" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#sponsorship-subscription-crowdfunding-and-blockchain-funding-systems"><i class="fa fa-check"></i><b>9.4.6</b> Sponsorship, subscription, crowdfunding and blockchain funding systems,</a></li>
+<li class="chapter" data-level="9.4.6" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#sponsorship-subscription-crowdfunding-and-blockchain-funding-systems"><i class="fa fa-check"></i><b>9.4.6</b> Sponsorship, subscription, crowdfunding and blockchain funding systems</a></li>
 <li class="chapter" data-level="9.4.7" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#a-proposal-for-organizing-and-managing-a-new-open-collective"><i class="fa fa-check"></i><b>9.4.7</b> A proposal for organizing and managing a new open collective</a></li>
 </ul></li>
 </ul></li>
@@ -414,7 +414,7 @@ mapping, and conclude by illustrating a proposed framework for reproducible,
 semi-automated mapping of soil variables using simple, real-world
 examples.</p>
 <p>The code and examples are provided only for illustration. More complex predictive modeling
-is described in section <a href="soilmapping-using-mla.html#soilmapping-using-mla">6</a>. To install and optimize
+is described in chapter <a href="soilmapping-using-mla.html#soilmapping-using-mla">6</a>. To install and optimize
 all packages used in this chapter please refer to section <a href="software.html#Rstudio">2.5</a>.</p>
 <div id="modelling-soil-variability" class="section level3">
 <h3><span class="header-section-number">5.1.1</span> Modelling soil variability</h3>
@@ -865,7 +865,7 @@ represented as points. Statistical aspects of sampling methods and
 approaches are discussed in detail by <span class="citation">Schabenberger and Gotway (<a href="#ref-schabenberger2005statistical">2005</a>)</span> and
 <span class="citation">de Gruijter et al. (<a href="#ref-deGruijter2006sampling">2006</a>)</span>, while some more practical suggestions for soil
 sampling can be found in <span class="citation">Pansu, Gautheyrou, and Loyer (<a href="#ref-pansu2001soil">2001</a>)</span>
-<span class="citation">Webster and Oliver (<a href="#ref-Webster2001Wiley">2001</a>)</span>, <span class="citation">Tan (<a href="#ref-tan2005soil">2005</a>)</span>, and <span class="citation">Legros (<a href="#ref-Legros2006SP">2006</a>)</span>. Some general
+<span class="citation">Webster and Oliver (<a href="#ref-Webster2001Wiley">2001</a>)</span>, <span class="citation">Tan (<a href="#ref-tan2005soil">2005</a>)</span>, <span class="citation">Legros (<a href="#ref-Legros2006SP">2006</a>)</span> and <span class="citation">Brus (<a href="#ref-BRUS2019464">2019</a>)</span>. Some general
 recommendations for soil sampling are:</p>
 <ol style="list-style-type: decimal">
 <li><p><em>Points need to cover the entire geographical area of interest and
@@ -979,15 +979,9 @@ knowledge can be subsequently utilized as manual mapping rules, provided that it
 is representative of the area, that it can be formalized through
 repeatable procedures and that it can be tested using real observations.</p>
 <div class="figure" style="text-align: center"><span id="fig:catena-maungawhau-3d"></span>
-<img src="figures/Fig_catena_Maungawhau_A.jpg" alt="A cross-section for the Maungawhau volcano dataset commonly used in R to illustrate DEM and image analysis techniques." width="80%" />
+<img src="figures/Fig_catena_Maungawhau_A.jpg" alt="A cross-section for the Maungawhau volcano dataset commonly used in R to illustrate DEM and image analysis techniques." width="60%" />
 <p class="caption">
 Figure 5.6: A cross-section for the Maungawhau volcano dataset commonly used in R to illustrate DEM and image analysis techniques.
-</p>
-</div>
-<div class="figure" style="text-align: center"><span id="fig:catena-maungawhau"></span>
-<img src="figures/Fig_catena_Maungawhau_B.png" alt="Associated values of DEM-based covariates: TWI — Topographic Wetness Index and Valley depth for the cross-section from the previous figure." width="100%" />
-<p class="caption">
-Figure 5.7: Associated values of DEM-based covariates: TWI — Topographic Wetness Index and Valley depth for the cross-section from the previous figure.
 </p>
 </div>
 <p>If relevant auxiliary information, such as a Digital Elevation Model (DEM), is
@@ -1011,6 +1005,12 @@ as follows <span class="citation">(MacMillan, Pettapiece, and Brierley <a href="
 <li><p><em>Generate soil property values for each soil class using representative observations (class centers)</em>;</p></li>
 <li><p><em>Estimate values of the target soil variable at each grid location using a weighted average of allocated soil class or membership values and central soil property values for each soil class</em>;</p></li>
 </ol>
+<div class="figure" style="text-align: center"><span id="fig:catena-maungawhau"></span>
+<img src="figures/Fig_catena_Maungawhau_B.png" alt="Associated values of DEM-based covariates: TWI — Topographic Wetness Index and Valley depth for the cross-section from the previous figure." width="90%" />
+<p class="caption">
+Figure 5.7: Associated values of DEM-based covariates: TWI — Topographic Wetness Index and Valley depth for the cross-section from the previous figure.
+</p>
+</div>
 <p>In mathematical terms, soil property prediction based on fuzzy soil
 classification values using the SOLIM approach <span class="citation">Zhu et al. (<a href="#ref-Zhu2001">2001</a>, <a href="#ref-Zhu2010Geoderma">2010</a>)</span> works as follows:</p>
 <span class="math display" id="eq:solim">\[\begin{equation}
@@ -1879,6 +1879,7 @@ om.rksim.p &lt;-<span class="st"> </span><span class="kw">predict</span>(omm, me
 <span class="co">#&gt; drawing 20 GLS realisations of beta...</span>
 <span class="co">#&gt; [using conditional Gaussian simulation]</span>
 <span class="co">#&gt; </span>
+ <span class="dv">90</span>% done
 <span class="dv">100</span>% done
 <span class="co">#&gt; Creating an object of class &quot;RasterBrickSimulations&quot;</span>
 <span class="co">#&gt; Loading required package: raster</span>
@@ -2071,7 +2072,7 @@ of a large number of geostatistical simulations will approximate the
 kriging variance (and likewise the average of a large number of
 simulations will approximate the kriging prediction map).</p>
 <div class="figure" style="text-align: center"><span id="fig:hist-om-predicted-simulated"></span>
-<img src="figures/Fig_hist_om_predicted_vs_simulated.png" alt="Histogram for the target variable (Meuse data set; log of organic matter) based on the actual observations (left), predictions at all grid nodes (middle) and simulations (right). Note that the histogram for predicted values will always show somewhat narrower distribution (smoothed), depending on the strength of the model, while the simulations should be able to reproduce the original range (for more discussion see also: Yamamoto et al. (2008))." width="100%" />
+<img src="figures/Fig_hist_om_predicted_vs_simulated.png" alt="Histogram for the target variable (Meuse data set; log of organic matter) based on the actual observations (left), predictions at all grid nodes (middle) and simulations (right). Note that the histogram for predicted values will always show somewhat narrower distribution (smoothed), depending on the strength of the model, while the simulations should be able to reproduce the original range (for more discussion see also: Yamamoto et al. (2008))." width="105%" />
 <p class="caption">
 Figure 5.15: Histogram for the target variable (Meuse data set; log of organic matter) based on the actual observations (left), predictions at all grid nodes (middle) and simulations (right). Note that the histogram for predicted values will always show somewhat narrower distribution (smoothed), depending on the strength of the model, while the simulations should be able to reproduce the original range (for more discussion see also: Yamamoto et al. (2008)).
 </p>
@@ -2099,6 +2100,7 @@ argument:</p>
 <span class="co">#&gt; drawing 20 GLS realisations of beta...</span>
 <span class="co">#&gt; [using conditional Gaussian simulation]</span>
 <span class="co">#&gt; </span>
+ <span class="dv">47</span>% done
 <span class="dv">100</span>% done
 <span class="co">#&gt; Creating an object of class &quot;RasterBrickSimulations&quot;</span>
 <span class="kw">log1p</span>(meuse<span class="op">@</span>data[<span class="dv">1</span>,<span class="st">&quot;om&quot;</span>])
@@ -2137,13 +2139,13 @@ organic matter content using the Meuse case study:</p>
 <span class="kw">demo</span>(meuse, <span class="dt">echo=</span><span class="ot">FALSE</span>)
 meuse<span class="op">$</span>value =<span class="st"> </span>meuse<span class="op">$</span>zinc
 output &lt;-<span class="st"> </span><span class="kw">interpolate</span>(meuse, meuse.grid, <span class="kw">list</span>(<span class="dt">mean=</span><span class="ot">TRUE</span>, <span class="dt">variance=</span><span class="ot">TRUE</span>))
-<span class="co">#&gt; R 2019-02-07 15:47:29 interpolating 155 observations, 3103 prediction locations</span>
+<span class="co">#&gt; R 2019-02-07 21:39:23 interpolating 155 observations, 3103 prediction locations</span>
 <span class="co">#&gt; Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : </span>
 <span class="co">#&gt;  using standard model for estimating time. For better </span>
 <span class="co">#&gt;  platform spesific predictions, please run </span>
 <span class="co">#&gt;  timeModels &lt;- generateTimeModels()</span>
 <span class="co">#&gt;   and save the workspace</span>
-<span class="co">#&gt; [1] &quot;estimated time for  copula 156.077906902784&quot;</span>
+<span class="co">#&gt; [1] &quot;estimated time for  copula 160.032394640705&quot;</span>
 <span class="co">#&gt; Checking object ... OK</span></code></pre>
 <p>which gives the (presumably) best interpolation method for the problem
 at hand (<code>value</code> column), given the time available set with
@@ -2152,7 +2154,7 @@ at hand (<code>value</code> column), given the time available set with
 <span class="co">#&gt; List of 16</span>
 <span class="co">#&gt;  $ observations       :Formal class &#39;SpatialPointsDataFrame&#39; [package &quot;sp&quot;] with 5 slots</span>
 <span class="co">#&gt;  $ formulaString      :Class &#39;formula&#39;  language value ~ 1</span>
-<span class="co">#&gt;   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x1517daa0&gt; </span>
+<span class="co">#&gt;   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x156bb1d8&gt; </span>
 <span class="co">#&gt;  $ predictionLocations:Formal class &#39;SpatialPixelsDataFrame&#39; [package &quot;sp&quot;] with 7 slots</span>
 <span class="co">#&gt;  $ params             :List of 18</span>
 <span class="co">#&gt;   ..$ doAnisotropy     : logi TRUE</span>
@@ -2315,7 +2317,7 @@ Figure 5.17: Comparison of spatial prediction accuracy (RMSE at cross-validation
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>((<span class="dv">1</span><span class="op">-</span><span class="kw">min</span>(mFit3<span class="op">$</span>results<span class="op">$</span>RMSE)<span class="op">/</span><span class="kw">min</span>(mFit0<span class="op">$</span>results<span class="op">$</span>RMSE))<span class="op">*</span><span class="dv">100</span>)
 <span class="co">#&gt; [1] 32</span></code></pre>
 <p>There is certainly added value in using spatial covariates (in the case above: distance to water and flooding frequency maps) and in using machine learning for spatial prediction, even with smaller data sets.</p>
-<p>Note also that the assessment of spatial prediction accuracy for the three models based on the train function above is model-free, i.e. cross-validation of the models is independent of the models used because, at each cross-validation subset, fitting of the model is repeated and validation points are maintained separate from model training. Subsetting point samples is not always trivial however: in order to consider cross-validation as completely reliable, the samples ought to be representative of the study area and preferably collected using objective sampling such as simple random sampling or similar <span class="citation">(Brus, Kempen, and Heuvelink <a href="#ref-Brus2011EJSS">2011</a>)</span>. In cases where the sampling locations are clustered in geographical space i.e. if some parts of the study area are completely omitted from sampling, then also the results of cross-validation will reflect that sampling bias / poor representation. In all the following examples we will assume that cross-validation gives a reliable measure of mapping accuracy and we will use it as the basis of accuracy assessment i.e. mapping efficiency. In reality, cross-validation might be tricky to implement and could often lead to somewhat over-optimistic results if either sampling bias exists or/and if there are too few points for model validation. For example, in the case of soil profile data, it is highly recommended that entire profiles are removed from CV because soil horizons are too strongly correlated (as discussed in detail in <span class="citation">Gasch et al. (<a href="#ref-Gasch2015SPASTA">2015</a>)</span> and <span class="citation">Brenning (<a href="#ref-Brenning2012">2012</a>)</span>).</p>
+<p>Note also that the assessment of spatial prediction accuracy for the three models based on the train function above is model-free, i.e. cross-validation of the models is independent of the models used because, at each cross-validation subset, fitting of the model is repeated and validation points are maintained separate from model training. Subsetting point samples is not always trivial however: in order to consider cross-validation as completely reliable, the samples ought to be representative of the study area and preferably collected using objective sampling such as simple random sampling or similar <span class="citation">(Brus, Kempen, and Heuvelink <a href="#ref-Brus2011EJSS">2011</a>; Brus <a href="#ref-BRUS2019464">2019</a>)</span>. In cases where the sampling locations are clustered in geographical space i.e. if some parts of the study area are completely omitted from sampling, then also the results of cross-validation will reflect that sampling bias / poor representation. In all the following examples we will assume that cross-validation gives a reliable measure of mapping accuracy and we will use it as the basis of accuracy assessment i.e. mapping efficiency. In reality, cross-validation might be tricky to implement and could often lead to somewhat over-optimistic results if either sampling bias exists or/and if there are too few points for model validation. For example, in the case of soil profile data, it is highly recommended that entire profiles are removed from CV because soil horizons are too strongly correlated (as discussed in detail in <span class="citation">Gasch et al. (<a href="#ref-Gasch2015SPASTA">2015</a>)</span> and <span class="citation">Brenning (<a href="#ref-Brenning2012">2012</a>)</span>).</p>
 <p>The whole process of spatial prediction of soil properties could be summarized in 5 steps:</p>
 <ol style="list-style-type: decimal">
 <li>Initial model comparison (comparison of prediction accuracy and computing time).</li>
@@ -2371,7 +2373,7 @@ dimensions.
 </div>
 
 <div class="figure" style="text-align: center"><span id="fig:voxel-scheme"></span>
-<img src="figures/Fig_voxel_scheme.png" alt="Spatial 3D prediction locations in a gridded system (voxels). In soil mapping, we often predict for larger blocks of land e.g. 100 to 1000 m, but then for vertical depths of few tens of centimeters, so the output voxels might appear in reality as being somewhat disproportional." width="55%" />
+<img src="figures/Fig_voxel_scheme.png" alt="Spatial 3D prediction locations in a gridded system (voxels). In soil mapping, we often predict for larger blocks of land e.g. 100 to 1000 m, but then for vertical depths of few tens of centimeters, so the output voxels might appear in reality as being somewhat disproportional." width="50%" />
 <p class="caption">
 Figure 5.18: Spatial 3D prediction locations in a gridded system (voxels). In soil mapping, we often predict for larger blocks of land e.g. 100 to 1000 m, but then for vertical depths of few tens of centimeters, so the output voxels might appear in reality as being somewhat disproportional.
 </p>
@@ -2474,7 +2476,7 @@ GIS perspective, and assuming a democratic right to independently
 develop and apply spatial prediction models, merging of the multiscale
 and multisource data is likely to be inevitable.</p>
 <div class="figure" style="text-align: center"><span id="fig:multiscale-vs-multisource"></span>
-<img src="figures/Fig_multiscale_vs_multisource.png" alt="A general scheme for generating spatial predictions using multiscale and multisource data." width="90%" />
+<img src="figures/Fig_multiscale_vs_multisource.png" alt="A general scheme for generating spatial predictions using multiscale and multisource data." width="70%" />
 <p class="caption">
 Figure 5.19: A general scheme for generating spatial predictions using multiscale and multisource data.
 </p>
@@ -2680,8 +2682,8 @@ estimators of the true mapping accuracy.</p>
 Hence, also in soil mapping, accuracy assessment
 should only be considered in relative terms. Each evaluation of soil
 mapping accuracy might give somewhat different numbers, so it is often a
-good idea to repeat the evaluation multiple times. Also cross-validation
-requires enough repetition (at least &gt;1) otherwise over-positive or
+good idea to repeat the evaluation multiple times. Likewise, cross-validation
+requires enough repetition (e.g. at least 3) otherwise over-positive or
 over-negative results can be produced by chance
 (Fig. <a href="statistical-theory.html#fig:cross-validation-repetitions">5.21</a>). Many geostatisticians
 (see e.g. <code>krige.cv</code> function described in <span class="citation">Bivand, Pebesma, and Rubio (<a href="#ref-Bivand2008Springer">2008</a>, 222–23)</span>) suggest that at least 5 repetitions are needed to produce
@@ -2938,12 +2940,6 @@ predicted and observed values. CCC correctly quantifies how far the
 observed data deviate from the line of perfect concordance (1:1 line in
 Fig. <a href="statistical-theory.html#fig:validation-scheme">5.25</a>). It is usually equal to or somewhat
 lower than R–square, depending on the amount of bias in predictions.</p>
-<div class="figure" style="text-align: center"><span id="fig:validation-scheme"></span>
-<img src="figures/Fig_validation_plots.png" alt="Universal plots of predictive performance: (a) 1:1 predicted vs observed plot, (b) CCC vs standard deviation of the z-scores plot, (c) nominal vs coverage probabilities, and (d) variogram of cross-validation residuals. Image source: Hengl et al. (2018) doi: 10.7717/peerj.5518." width="80%" />
-<p class="caption">
-Figure 5.25: Universal plots of predictive performance: (a) 1:1 predicted vs observed plot, (b) CCC vs standard deviation of the z-scores plot, (c) nominal vs coverage probabilities, and (d) variogram of cross-validation residuals. Image source: Hengl et al. (2018) doi: 10.7717/peerj.5518.
-</p>
-</div>
 <p>CCC and variance or standard deviation of the z-scores are two universal /
 scale-free parameters that can be used to assign multiple spatial prediction
 algorithms to work on multiple soil variables. Two additional measures of the
@@ -2954,6 +2950,12 @@ Ideally, a variogram of the residuals should show no spatial dependence (i.e.
 pure nugget effect), which is a proof that there is no spatial bias in predictions.
 Likewise, nominal vs coverage probabilities in the target variable should also ideally
 be on a 1:1 line.</p>
+<div class="figure" style="text-align: center"><span id="fig:validation-scheme"></span>
+<img src="figures/Fig_validation_plots.png" alt="Universal plots of predictive performance: (a) 1:1 predicted vs observed plot, (b) CCC vs standard deviation of the z-scores plot, (c) nominal vs coverage probabilities, and (d) variogram of cross-validation residuals. Image source: Hengl et al. (2018) doi: 10.7717/peerj.5518." width="70%" />
+<p class="caption">
+Figure 5.25: Universal plots of predictive performance: (a) 1:1 predicted vs observed plot, (b) CCC vs standard deviation of the z-scores plot, (c) nominal vs coverage probabilities, and (d) variogram of cross-validation residuals. Image source: Hengl et al. (2018) doi: 10.7717/peerj.5518.
+</p>
+</div>
 <p>So in summary, universal measures to access predicitive success of
 any spatial prediction method are <span class="citation">(T. Hengl, Nussbaum, et al. <a href="#ref-Hengl2018RFsp">2018</a>)</span>:</p>
 <ul>
@@ -3004,9 +3006,9 @@ square-km); to map soil at 1:20 would cost about 25 EUR per ha. These
 are the all-inclusive costs that include salaries and time in the office
 needed for the work of synthesis and editing.</p>
 <div class="figure" style="text-align: center"><span id="fig:scale-costs-ratio"></span>
-<img src="figures/Fig_scale_costs_ratio.png" alt="Some basic concepts of soil survey: (a) relationship between cartographic scale and pixel size (Hengl, 2006), (b) soil survey costs and scale relationship based on the empirical data of (Legros, 2006)." width="100%" />
+<img src="figures/Fig_scale_costs_ratio.png" alt="Some basic concepts of soil survey costs: (a) relationship between cartographic scale and pixel size (Hengl, 2006), (b) soil survey costs and scale relationship based on the empirical data of (Legros, 2006)." width="85%" />
 <p class="caption">
-Figure 5.26: Some basic concepts of soil survey: (a) relationship between cartographic scale and pixel size (Hengl, 2006), (b) soil survey costs and scale relationship based on the empirical data of (Legros, 2006).
+Figure 5.26: Some basic concepts of soil survey costs: (a) relationship between cartographic scale and pixel size (Hengl, 2006), (b) soil survey costs and scale relationship based on the empirical data of (Legros, 2006).
 </p>
 </div>
 <p>Estimated standard soil survey costs per area differ from country to

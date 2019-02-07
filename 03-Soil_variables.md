@@ -64,14 +64,6 @@ Fig. \@ref(fig:soil-vars)):
 <p class="caption">(\#fig:soil-vars)Types of soil observations in relation to data usage and production costs. Descriptive soil observations (e.g. manual texture or diagnostic soil horizons) are often not directly useable by end users, who are often more interested in specific secondary soil properties (e.g. water holding capacity, erosion index, soil fertility) as inputs to their modeling. However, descriptive field observations are often orders of magnitude more affordable to obtain than laboratory analysis.</p>
 </div>
 
-\BeginKnitrBlock{rmdnote}<div class="rmdnote">Soil can be assessed quantitatively based on direct or indirect
-measurements using analytical techniques (in a laboratory or in the
-field) and qualitatively or descriptively based on observations in the
-field that adhere to some soil description guidelines. Examples of
-subjective observations are: diagnostic soil materials and horizons,
-soil classes, Munsell color classes, manual texture assessment
-(texture-by-hand), structure, compaction, root abundance and similar.</div>\EndKnitrBlock{rmdnote}
-
 Field campaigns are usually the most costly part of soil surveys. Large numbers
 of soil observations are made in the field to assess the spatial
 distribution of readily observable soil properties to provide empirical
@@ -82,6 +74,14 @@ field soil observations and brought to the laboratory for subsequent analysis.
 Ideally, every soil observation would be accompanied by corresponding soil analytical
 measurements to produce the most accurate and comprehensive soil information possible.
 
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Soil can be assessed quantitatively based on direct or indirect
+measurements using analytical techniques (in a laboratory or in the
+field) and qualitatively or descriptively based on observations in the
+field that adhere to some soil description guidelines. Examples of
+subjective observations are: diagnostic soil materials and horizons,
+soil classes, Munsell color classes, manual texture assessment
+(texture-by-hand), structure, compaction, root abundance and similar.</div>\EndKnitrBlock{rmdnote}
+
 It is important to emphasize that soil properties, and the methods used to assess
 soil properties, are two distinctly different concepts. The two can
 be defined together (functional definition) or can be defined
@@ -89,7 +89,7 @@ separately, as given by numerous national and international manuals and
 guidelines for analytical procedures and soil description: e.g. in
 @Burt2004SSIR [@carter2007soil; @food2006guidelines], and/or
 @VanReeuwijk2002. In this chapter we also make a distinction between the
-*‘target variable’* (target soil properties) and *‘paths’* (determination methods).
+*‘targeted variable’* (targeted soil properties) and *‘paths’* (determination methods).
 
 Soil analytical data obtained in a laboratory are typically an order of
 magnitude more expensive to produce than descriptive field observations
@@ -196,7 +196,7 @@ requires an extensive range of soil property data as specified in the
 procedures manual [@VanEngelen2012]. An update of the Harmonised World
 Soil Database [@FAO2012HWSD] requires a smaller range of attributes. The
 *GlobalSoilMap* project [@Arrouays201493] selected a list of only
-*twelve soil properties* considered relevant for global analyses, and
+*12 soil properties* considered relevant for global analyses, and
 feasible to map globally. This list includes seven basic attributes,
 assessed through primary observation or measurement, and three derived
 attributes which are calculated from the primary soil properties
@@ -247,11 +247,11 @@ and Electrical conductivity in 1:1 soil–water solution (dS/m = deci-siemens pe
 The list of soil properties identified for routine global soil mapping and 
 modelling is likely to grow in the years to come.
 
-The International Organisation for Standardisation (ISO) provides
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">The International Organisation for Standardisation (ISO) provides
 international standard definitions of soil properties, and of associated
 methods to assess those soil properties, through `ISO TC-190` and
 `ISO TC-345`. Such unambiguously defined international standards are
-crucial for success of the multi-partner global soil mapping projects.
+crucial for success of the multi-partner global soil mapping projects.</div>\EndKnitrBlock{rmdnote}
 
 In the following sections we focus our discussion on the soil properties
 that were first mapped for the https://soilgrids.org project: 
@@ -450,11 +450,6 @@ decomposition is not considered to be part of the soil and may be
 described separately. For organic soils, the top of any surface horizon
 identified as an `O` horizon is considered the soil surface.
 
-<div class="figure" style="text-align: center">
-<img src="figures/Fig_depth_2_bedrock.png" alt="Depth to bedrock for censored and uncensored observations. Image source: Shangguan et al. (2017) doi: 10.1002/2016MS000686." width="100%" />
-<p class="caption">(\#fig:scheme-depth-to-bedrock)Depth to bedrock for censored and uncensored observations. Image source: Shangguan et al. (2017) doi: 10.1002/2016MS000686.</p>
-</div>
-
 The *depth to bedrock* i.e. depth to the `R` horizon is measured from
 the soil surface downwards and is expressed in cm with a precision of ±1 cm.
 Depth to bedrock deeper than e.g. 2–3 m is most often not recorded. Bedrock
@@ -468,9 +463,10 @@ hard bedrock is >2 m deep so that we actually don’t know the correct
 depth to enter, other than >2 m. Rootability is physically restricted by
 the bedrock, whether hard or soft (see Fig. \@ref(fig:scheme-depth-to-bedrock)).
 
-\BeginKnitrBlock{rmdnote}<div class="rmdnote">Depth to bedrock is the mean distance to `R` horizon (layer
-impenetrable by roots or agricultural machinery). Depth to bedrock deeper
-than 2 m is most often not recorded in field survey descriptions.</div>\EndKnitrBlock{rmdnote}
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_depth_2_bedrock.png" alt="Depth to bedrock for censored and uncensored observations. Image source: Shangguan et al. (2017) doi: 10.1002/2016MS000686." width="100%" />
+<p class="caption">(\#fig:scheme-depth-to-bedrock)Depth to bedrock for censored and uncensored observations. Image source: Shangguan et al. (2017) doi: 10.1002/2016MS000686.</p>
+</div>
 
 In traditional soil characterisation, the total depth of the `O`,
 `A`, `E`, and `B` horizons is referred to as the *solum*
@@ -479,6 +475,10 @@ parent material or substratum [@SSDS1993]. Parent material can be coarse
 or fine unconsolidated deposits of e.g. alluvial, colluvial or windblown
 origin (`C` horizon) or consolidated residual hard bedrock (`R`
 horizon).
+
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Depth to bedrock is the mean distance to `R` horizon (layer
+impenetrable by roots or agricultural machinery). Depth to bedrock deeper
+than 2 m is most often not recorded in field survey descriptions.</div>\EndKnitrBlock{rmdnote}
 
 ### Effective soil depth and rooting depth
 
@@ -545,7 +545,7 @@ restrictions, such as high extractable aluminium, manganese and/or low
 extractable calcium, can also be considered but are plant-specific.
 Root-depth observations preferably should be used to make the
 generalization. If these are not available then inferences may be made
-from morphology.
+from soil morphology.
 
 As a general recommendation, it is advisable to focus first on mapping soil properties that
 limit rooting, including content of coarse fragments and the depth to
@@ -1100,8 +1100,8 @@ given improved computing power and algorithms.
 @Nemes1999 [@Nemes1999G] evaluated four different interpolation methods
 (log-linear interpolation, fitting a Gompertz curve, spline
 interpolation, and similarity method) in order to achieve compatibility
-of particle-size distributions within the *European soil hydraulic
-database HYPRES* (http://www.macaulay.ac.uk/hypres/). They introduced a new similarity procedure, which
+of particle-size distributions within the European soil hydraulic
+database HYPRES (http://www.macaulay.ac.uk/hypres/). They introduced a new similarity procedure, which
 uses an external reference data set that contains a wide variety of
 reference soil materials, each with 7 or 8 measured particle-size
 fractions. The procedure involves searching for soil samples in the
@@ -1788,7 +1788,7 @@ multinomial logistic regression could even be used to map soil taxa at
 lower taxonomic levels with hundreds of unique taxonomic entities.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_USDA_categories.png" alt="USDA classification system and approximate minimum number of observations required to fit a global multinomial regression model." width="60%" angle=0 />
+<img src="figures/Fig_USDA_categories.png" alt="USDA classification system and approximate minimum number of observations required to fit a global multinomial regression model." width="55%" angle=0 />
 <p class="caption">(\#fig:usda-categories)USDA classification system and approximate minimum number of observations required to fit a global multinomial regression model.</p>
 </div>
 
@@ -2420,8 +2420,8 @@ In the meantime, standardization and harmonization of legacy soil profile
 data will continue to present a challenge for global to regional PSM.
 
 One attractive option for harmonizing soil analytical data following the
-SINFER concept would be to create and maintain a **Global Soil Reference**
-Library (GSRL). This concept is further discussed in the final chapter.
+SINFER concept would be to create and maintain a **Global Soil Reference Library** 
+(GSRL). This concept is further discussed in the final chapter.
 Such a library would need to include data for a significant number of
 soils from each continent or region. Each soil would be analysed for all
 properties of interest using all commonly used methods of analysis.

@@ -31,26 +31,56 @@ graphics: yes
 
 This is the online version of the Open Access book: [**Predictive Soil Mapping with R**](https://envirometrix.github.io/PredictiveSoilMapping/). Pull requests and general comments are welcome. These materials are based on technical tutorials initially developed by the [ISRIC's](http://isric.org/) Global Soil Information Facilities (GSIF) development team over the period 2014–2017.
 
-<img alt="Under construction" style="border-width:0" src="images/under-construction_640.png" /><br />**This website is under construction**. For news and updates please refer to the [github issues](https://github.com/envirometrix/PredictiveSoilMapping/issues).
+**This book is continuously updated**. For news and updates please refer to the [github issues](https://github.com/envirometrix/PredictiveSoilMapping/issues).
 
-Hard copies of this book from will be made available in early 2019.
+Hard copies of this book can be ordered from www.lulu.com.
 
 **Cite this as**:
 
-* Hengl, T., MacMillan, R.A., (2019). **Predictive Soil Mapping with R**. OpenGeoHub foundation, Wageningen, the Netherlands, 420 pages, www.soilmapper.org, ISBN: 978-0-359-30635-0.
+* Hengl, T., MacMillan, R.A., (2019). **Predictive Soil Mapping with R**. OpenGeoHub foundation, Wageningen, the Netherlands, 376 pages, www.soilmapper.org, ISBN: 978-0-359-30635-0.
 
 ## Editors {-}
 
-[**Tom Hengl**](https://opengeohub.org/people/tom-hengl) is a Senior Researcher and Vice Chair of the OpenGeoHub Foundation / technical director at Envirometrix Ltd. 
-Tom has more than 20 years of experience as an environmental modeler, data scientist and spatial analyst. 
-He is a passionate advocate for, and supporter of, open data, reproducible science and career development 
+[**Tom Hengl**](https://opengeohub.org/people/tom-hengl) is a Senior Researcher 
+and Vice Chair of the OpenGeoHub Foundation / technical director at 
+Envirometrix Ltd. Tom has more than 20 years of experience as an environmental 
+modeler, data scientist and spatial analyst. He is a passionate advocate for, 
+and supporter of, open data, reproducible science and career development 
 for young scientists. He designed and implemented the global [SoilGrids](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0169748) data set, 
-partially in response to other well known open data projects such as OpenStreetMap, GBIF, GlobalForestWatch 
-and global climate mapping projects. He has taught predictive soil mapping at Wageningen University / 
-ISRIC within the “Hands-on-GSIF” block courses. Video tutorials on predictive soil mapping with R can also be 
-found at http://youtube.com/c/ISRICorg and https://www.youtube.com/c/OpenGeoHubFoundation. Tom currently leads the production of a web mapping system called “LandGIS” (https://landgis.opengeohub.org) which is envisaged as *“an OpenStreetMap-type system”* for land-related environmental data. The system hosts global, fine spatial resolution data (250 m to 1 km) including various soil classes and soil properties, which is intended for eventual integration and use at operational or farm-scales.
+partially in response to other well known open data projects such as 
+OpenStreetMap, GBIF, GlobalForestWatch and global climate mapping projects. 
+He has taught predictive soil mapping at Wageningen University / ISRIC within 
+the “Hands-on-GSIF” block courses. Video tutorials on predictive soil mapping 
+with R can also be found at http://youtube.com/c/ISRICorg and 
+https://www.youtube.com/c/OpenGeoHubFoundation. Tom currently 
+leads the production of a web mapping system called “LandGIS” 
+(https://landgis.opengeohub.org) which is envisaged as *“an OpenStreetMap-type system”* 
+for land-related environmental data. The system hosts global, fine spatial 
+resolution data (250 m to 1 km) including various soil classes and soil 
+properties, which is intended for eventual integration and use at operational 
+or farm-scales.
 
-[**Bob MacMillan**](https://opengeohub.org/people/bob-macmillan) is a retired environmental consultant with over 40 years of experience in creating, packaging, delivering and using environmental information on soils, ecosystems, landforms and hydrology. Bob spent 19 years working in public sector research with the Alberta Research Council and Agriculture and Agri-Food Canada and a second 20 years as a private sector consultant offering services in predictive soil and ecological mapping. Since retiring, Bob has remained an active supporter, promoter, advocate, mentor and technical contributor to several continental to global scale efforts to advance the science and technology of mapping soils and other ecosystem components. As Science Coordinator for the GlobalSoilMap project, Bob helped to articulate the vision for the project and led initial activities aimed at achieving this, including authoring technical specifications, promoting the project, recruiting participants/cooperators, and liaising with representatives of national and international soil agencies. Bob continues to contribute on a voluntary basis to OpenGeoHub (https://opengeohub.org) and the Africa Soil Information Servicce (AfSIS) (http://africasoils.net). Throughout his career, Bob has shared his expertise and his enthusiasm freely with dozens of younger scientists interested in learning about, and becoming, practitioners of digital soil mapping. Bob continues to support the next generation of digital soil mappers through his involvement with OpenGeoHub. 
+[**Bob MacMillan**](https://opengeohub.org/people/bob-macmillan) is a retired 
+environmental consultant with over 40 years of experience in creating, 
+packaging, delivering and using environmental information on soils, ecosystems, 
+landforms and hydrology. Bob spent 19 years working in public sector research 
+with the Alberta Research Council and Agriculture and Agri-Food Canada and a 
+second 20 years as a private sector consultant offering services in predictive 
+soil and ecological mapping. Since retiring, Bob has remained an active 
+supporter, promoter, advocate, mentor and technical contributor to several 
+continental to global scale efforts to advance the science and technology of 
+mapping soils and other ecosystem components. As Science Coordinator for the 
+GlobalSoilMap project, Bob helped to articulate the vision for the project 
+and led initial activities aimed at achieving this, including authoring 
+technical specifications, promoting the project, recruiting 
+participants/cooperators, and liaising with representatives of national 
+and international soil agencies. Bob continues to contribute on a voluntary 
+basis to OpenGeoHub and the Africa Soil Information Servicce (AfSIS) 
+(http://africasoils.net). Throughout his career, Bob has shared his 
+expertise and his enthusiasm freely with dozens of younger scientists 
+interested in learning about, and becoming, practitioners of digital soil 
+mapping. Bob continues to support the next generation of digital soil mappers 
+through his involvement with OpenGeoHub. 
 
 # Preface {-}
 
@@ -59,7 +89,7 @@ Predictive Soil Mapping (PSM) is based on applying statistical and/or machine le
 The main differences between predictive vs traditional expert-based soil mapping are that: (a) the production of maps 
 is based on using state-of-the-art statistical methods to ensure objectivity of maps (including objective uncertainty assessment vs expert judgment), and (b) PSM is driven by automation of the processes so that overall soil data production costs can be reduced and updates of maps implemented without requirements for large investments. R, in that sense, is a logical platform to develop PSM workflows and applications, especially thanks to the vibrant and productive R spatial interest group activities and also thanks to the increasingly professional soil data packages such as, for example: soiltexture, aqp, soilprofile, soilDB and similar.
 
-The book is divided into sections covering theoretical concepts, preparation of covariates, model selection and evaluation, prediction and visualization and distribution of final maps. Most of the chapters contain R code examples that try to illustrate the main processing steps and give practical instructions to developers and applied users.
+The book is divided into sections covering theoretical concepts, preparation of covariates, model selection and evaluation, prediction and final practical tips for operational PSM. Most of the chapters contain R code examples that try to illustrate the main processing steps and give practical instructions to developers and applied users.
 
 ## Connected publications {-}
 
@@ -219,7 +249,7 @@ emerging, methods of PSM and automated soil mapping. We discuss similarities and
 differences, strengths and weaknesses of conventional soil mapping (and
 its inputs and products) relative to PSM.
 
-The universal model of soil variation presented in detail in
+The universal model of soil variation presented further in detail in
 chapter \@ref(statistical-theory) is adopted as a framework for comparison of
 conventional soil mapping and PSM. Our aim is to show how the products
 and methods of conventional soil mapping can complement, and contribute to,
@@ -242,9 +272,9 @@ defined by the presence of hard rock or the lower limit of biologic
 activity [@Richter1995; @SSDS1993]. Although soil profiles up to tens
 of meters in depth can be found in some tropical areas [@Richter1995], for
 soil classification and mapping purposes, the lower limit of soil is often
-arbitrarily set to 2 m (http://soils.usda.gov/education/facts/soil.html). Soils are rarely described to depths beyond 2 m and
-many soil sampling projects put a primary focus on the upper
-(0-100 cm) depths.
+arbitrarily set to 2 m (http://soils.usda.gov/education/facts/soil.html). 
+Soils are rarely described to depths beyond 2 m and many soil sampling projects 
+put a primary focus on the upper (0–100 cm) depths.
 
 The chemical, physical and biological properties of the soil differ from
 those of unaltered (unconsolidated) parent material, from which the soil
@@ -318,9 +348,11 @@ productivity or erodibility; and maps of soil-forming factors, such as
 climate, topography, vegetation, or geologic material”* [@SSDS1993].
 
 In contrast to conventional soil mapping, PSM is primarily interested 
-in portraying, in the form of maps, the spatial distribution of *soil variables* — measurable 
+in representing the spatial distribution of *soil variables* — measurable 
 or descriptive attributes commonly collected through field sampling 
-and then either measured *in-situ* or *a posteriori* in a laboratory. Soil variables can be roughly grouped into:
+and then either measured *in-situ* or *a posteriori* in a laboratory.
+
+Soil variables can be roughly grouped into:
 
 1.  *quantities of some material* ($y \in [0 \rightarrow +\infty]$);
 
@@ -458,7 +490,7 @@ is used is increasingly important.
 In statistical terms, the main objective of soil mapping is to describe
 the spatial variability i.e. spatial complexity of soils, then represent
 this complexity using maps, summary measures, mathematical models and
-simulations. Some known sources of spatial variability in soil variables
+simulations. Some known **sources of spatial variability** in soil variables
 are:
 
 1.  *Natural spatial variability in 2D (different at various scales),
@@ -779,7 +811,7 @@ are less common but increasingly popular (see e.g.
 spatio-temporal soil data is likely to grow.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_soilmap_types.png" alt="Classification of types of soil maps based on spatial representation and variable type." width="100%" />
+<img src="figures/Fig_soilmap_types.png" alt="Classification of types of soil maps based on spatial representation and variable type." width="85%" />
 <p class="caption">(\#fig:soilmap-types)Classification of types of soil maps based on spatial representation and variable type.</p>
 </div>
 
@@ -1243,8 +1275,8 @@ space. We will see in the following chapter that this is not always the
 case.
 
 \BeginKnitrBlock{rmdnote}<div class="rmdnote">An advantage of descriptive field
-observations such as soil color, stone content, presence, size and
-abundance of roots, pores, mottles, cracks, diagnostic horizons etc. is
+observations — such as soil color, stone content, presence, size and
+abundance of roots, pores, mottles, cracks, diagnostic horizons etc — is
 that they provide much useful information at a relatively low cost,
 since there is no need to sample or transport the soil or analyze it at
 considerable cost in a distant laboratory.</div>\EndKnitrBlock{rmdnote}
@@ -1878,11 +1910,6 @@ answer soil or soil–land use specific questions. Once the data are in a
 database, one can generate maps and statistical plots by running spatial
 queries [@Beaudette2009CG].
 
-<div class="figure" style="text-align: center">
-<img src="figures/Fig_SITE_HORIZON_structure.png" alt="An example of a basic soil profile geographical database, which commonly consists of four tables: SITE, HORIZON, DESCRIPTION and NAMES tables (a). To facilitate rapid display and use of soil variables, SITE and HORIZON tables can be combined into a single (wide) table structure (b)." width="80%" />
-<p class="caption">(\#fig:site-horizon-structure)An example of a basic soil profile geographical database, which commonly consists of four tables: SITE, HORIZON, DESCRIPTION and NAMES tables (a). To facilitate rapid display and use of soil variables, SITE and HORIZON tables can be combined into a single (wide) table structure (b).</p>
-</div>
-
 A common database model used for SPDB is one where soil site, soil
 horizon data and metadata are split into separate tables
 (Fig. \@ref(fig:site-horizon-structure)a; here referred to as the
@@ -1894,6 +1921,11 @@ data. Many variations on this horizon-site database model exist, so that
 each new user of SPDB typically requires some initial training to
 understand where soil variables of interest are located and how they can
 be exported and visualized.
+
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_SITE_HORIZON_structure.png" alt="An example of a basic soil profile geographical database, which commonly consists of four tables: SITE, HORIZON, DESCRIPTION and NAMES tables (a). To facilitate rapid display and use of soil variables, SITE and HORIZON tables can be combined into a single (wide) table structure (b)." width="80%" />
+<p class="caption">(\#fig:site-horizon-structure)An example of a basic soil profile geographical database, which commonly consists of four tables: SITE, HORIZON, DESCRIPTION and NAMES tables (a). To facilitate rapid display and use of soil variables, SITE and HORIZON tables can be combined into a single (wide) table structure (b).</p>
+</div>
 
 Any horizon-site database model can be converted to a single table where each soil profile becomes
 one record (Fig. \@ref(fig:site-horizon-structure)b). The single-table
@@ -1959,7 +1991,7 @@ also contribute to construction and influence content.
 *“Web 3.0”* (read, write and execute) approaches to content creation. We also envisage that soil information will increasingly be produced using global vs local models and increasingly using distributed data and computing (Fig. \@ref(fig:automap-future)).
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_automap_future.png" alt="The future of global mapping and environmental monitoring activities is expected to be increasingly automated and distributed." width="75%" angle=0 />
+<img src="figures/Fig_automap_future.png" alt="The future of global mapping and environmental monitoring activities is expected to be increasingly automated and distributed." width="65%" angle=0 />
 <p class="caption">(\#fig:automap-future)The future of global mapping and environmental monitoring activities is expected to be increasingly automated and distributed.</p>
 </div>
 
@@ -2412,7 +2444,7 @@ sp [@pebesma2005classes], and GDAL [@mitchell2014geospatial] for reprojecting,
 mosaicking and merging tiles. GDAL and parallel packages in R are highly suitable for
 processing large volumes of data.
 
-Software (required):
+Software required to run all exercises in the book includes:
 
 *  [R](http://cran.r-project.org/bin/windows/base/) or [MRO](https://mran.microsoft.com/download/);
 
@@ -2428,7 +2460,7 @@ Software (required):
 
 *  [GDAL v2.x](https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries) for Windows machines use e.g. ["gdal-*-1800-x64-core.msi"](http://download.gisinternals.com/sdk/downloads/);
 
-R script used in this tutorial can be downloaded from **[github](https://github.com/envirometrix/PredictiveSoilMapping)**. As a gentle introduction to the R programming language and to soil classes in R we recommend the section \@ref(variables-importing) on importing and using soil data. Some more examples of SAGA GIS + R usage can be found in the soil covariates chapter. To visualize spatial predictions in a web-browser or Google Earth you can try using plotKML package [@Hengl2014plotKML]. As a gentle introduction to the R programming language and spatial classes in R we recommend following [the Geocomputation with R book](https://geocompr.robinlovelace.net/). Obtaining the [R reference card](https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf) is highly recommended.
+R script used in this tutorial can be downloaded from **[github](https://github.com/envirometrix/PredictiveSoilMapping)**. As a gentle introduction to the R programming language and to soil classes in R we recommend the section \@ref(variables-importing) on importing and using soil data. Some more examples of SAGA GIS + R usage can be found in the soil covariates chapter. To visualize spatial predictions in a web-browser or Google Earth you can try using plotKML package [@Hengl2014plotKML]. As a gentle introduction to the R programming language and spatial classes in R we recommend following [the Geocomputation with R book](https://geocompr.robinlovelace.net/). Obtaining the [R reference card](https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf) is also highly recommended.
 
 ## Installing software on Ubuntu OS
 
@@ -2896,14 +2928,6 @@ Fig. \@ref(fig:soil-vars)):
 <p class="caption">(\#fig:soil-vars)Types of soil observations in relation to data usage and production costs. Descriptive soil observations (e.g. manual texture or diagnostic soil horizons) are often not directly useable by end users, who are often more interested in specific secondary soil properties (e.g. water holding capacity, erosion index, soil fertility) as inputs to their modeling. However, descriptive field observations are often orders of magnitude more affordable to obtain than laboratory analysis.</p>
 </div>
 
-\BeginKnitrBlock{rmdnote}<div class="rmdnote">Soil can be assessed quantitatively based on direct or indirect
-measurements using analytical techniques (in a laboratory or in the
-field) and qualitatively or descriptively based on observations in the
-field that adhere to some soil description guidelines. Examples of
-subjective observations are: diagnostic soil materials and horizons,
-soil classes, Munsell color classes, manual texture assessment
-(texture-by-hand), structure, compaction, root abundance and similar.</div>\EndKnitrBlock{rmdnote}
-
 Field campaigns are usually the most costly part of soil surveys. Large numbers
 of soil observations are made in the field to assess the spatial
 distribution of readily observable soil properties to provide empirical
@@ -2914,6 +2938,14 @@ field soil observations and brought to the laboratory for subsequent analysis.
 Ideally, every soil observation would be accompanied by corresponding soil analytical
 measurements to produce the most accurate and comprehensive soil information possible.
 
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Soil can be assessed quantitatively based on direct or indirect
+measurements using analytical techniques (in a laboratory or in the
+field) and qualitatively or descriptively based on observations in the
+field that adhere to some soil description guidelines. Examples of
+subjective observations are: diagnostic soil materials and horizons,
+soil classes, Munsell color classes, manual texture assessment
+(texture-by-hand), structure, compaction, root abundance and similar.</div>\EndKnitrBlock{rmdnote}
+
 It is important to emphasize that soil properties, and the methods used to assess
 soil properties, are two distinctly different concepts. The two can
 be defined together (functional definition) or can be defined
@@ -2921,7 +2953,7 @@ separately, as given by numerous national and international manuals and
 guidelines for analytical procedures and soil description: e.g. in
 @Burt2004SSIR [@carter2007soil; @food2006guidelines], and/or
 @VanReeuwijk2002. In this chapter we also make a distinction between the
-*‘target variable’* (target soil properties) and *‘paths’* (determination methods).
+*‘targeted variable’* (targeted soil properties) and *‘paths’* (determination methods).
 
 Soil analytical data obtained in a laboratory are typically an order of
 magnitude more expensive to produce than descriptive field observations
@@ -3028,7 +3060,7 @@ requires an extensive range of soil property data as specified in the
 procedures manual [@VanEngelen2012]. An update of the Harmonised World
 Soil Database [@FAO2012HWSD] requires a smaller range of attributes. The
 *GlobalSoilMap* project [@Arrouays201493] selected a list of only
-*twelve soil properties* considered relevant for global analyses, and
+*12 soil properties* considered relevant for global analyses, and
 feasible to map globally. This list includes seven basic attributes,
 assessed through primary observation or measurement, and three derived
 attributes which are calculated from the primary soil properties
@@ -3079,11 +3111,11 @@ and Electrical conductivity in 1:1 soil–water solution (dS/m = deci-siemens pe
 The list of soil properties identified for routine global soil mapping and 
 modelling is likely to grow in the years to come.
 
-The International Organisation for Standardisation (ISO) provides
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">The International Organisation for Standardisation (ISO) provides
 international standard definitions of soil properties, and of associated
 methods to assess those soil properties, through `ISO TC-190` and
 `ISO TC-345`. Such unambiguously defined international standards are
-crucial for success of the multi-partner global soil mapping projects.
+crucial for success of the multi-partner global soil mapping projects.</div>\EndKnitrBlock{rmdnote}
 
 In the following sections we focus our discussion on the soil properties
 that were first mapped for the https://soilgrids.org project: 
@@ -3282,11 +3314,6 @@ decomposition is not considered to be part of the soil and may be
 described separately. For organic soils, the top of any surface horizon
 identified as an `O` horizon is considered the soil surface.
 
-<div class="figure" style="text-align: center">
-<img src="figures/Fig_depth_2_bedrock.png" alt="Depth to bedrock for censored and uncensored observations. Image source: Shangguan et al. (2017) doi: 10.1002/2016MS000686." width="100%" />
-<p class="caption">(\#fig:scheme-depth-to-bedrock)Depth to bedrock for censored and uncensored observations. Image source: Shangguan et al. (2017) doi: 10.1002/2016MS000686.</p>
-</div>
-
 The *depth to bedrock* i.e. depth to the `R` horizon is measured from
 the soil surface downwards and is expressed in cm with a precision of ±1 cm.
 Depth to bedrock deeper than e.g. 2–3 m is most often not recorded. Bedrock
@@ -3300,9 +3327,10 @@ hard bedrock is >2 m deep so that we actually don’t know the correct
 depth to enter, other than >2 m. Rootability is physically restricted by
 the bedrock, whether hard or soft (see Fig. \@ref(fig:scheme-depth-to-bedrock)).
 
-\BeginKnitrBlock{rmdnote}<div class="rmdnote">Depth to bedrock is the mean distance to `R` horizon (layer
-impenetrable by roots or agricultural machinery). Depth to bedrock deeper
-than 2 m is most often not recorded in field survey descriptions.</div>\EndKnitrBlock{rmdnote}
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_depth_2_bedrock.png" alt="Depth to bedrock for censored and uncensored observations. Image source: Shangguan et al. (2017) doi: 10.1002/2016MS000686." width="100%" />
+<p class="caption">(\#fig:scheme-depth-to-bedrock)Depth to bedrock for censored and uncensored observations. Image source: Shangguan et al. (2017) doi: 10.1002/2016MS000686.</p>
+</div>
 
 In traditional soil characterisation, the total depth of the `O`,
 `A`, `E`, and `B` horizons is referred to as the *solum*
@@ -3311,6 +3339,10 @@ parent material or substratum [@SSDS1993]. Parent material can be coarse
 or fine unconsolidated deposits of e.g. alluvial, colluvial or windblown
 origin (`C` horizon) or consolidated residual hard bedrock (`R`
 horizon).
+
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Depth to bedrock is the mean distance to `R` horizon (layer
+impenetrable by roots or agricultural machinery). Depth to bedrock deeper
+than 2 m is most often not recorded in field survey descriptions.</div>\EndKnitrBlock{rmdnote}
 
 ### Effective soil depth and rooting depth
 
@@ -3377,7 +3409,7 @@ restrictions, such as high extractable aluminium, manganese and/or low
 extractable calcium, can also be considered but are plant-specific.
 Root-depth observations preferably should be used to make the
 generalization. If these are not available then inferences may be made
-from morphology.
+from soil morphology.
 
 As a general recommendation, it is advisable to focus first on mapping soil properties that
 limit rooting, including content of coarse fragments and the depth to
@@ -3932,8 +3964,8 @@ given improved computing power and algorithms.
 @Nemes1999 [@Nemes1999G] evaluated four different interpolation methods
 (log-linear interpolation, fitting a Gompertz curve, spline
 interpolation, and similarity method) in order to achieve compatibility
-of particle-size distributions within the *European soil hydraulic
-database HYPRES* (http://www.macaulay.ac.uk/hypres/). They introduced a new similarity procedure, which
+of particle-size distributions within the European soil hydraulic
+database HYPRES (http://www.macaulay.ac.uk/hypres/). They introduced a new similarity procedure, which
 uses an external reference data set that contains a wide variety of
 reference soil materials, each with 7 or 8 measured particle-size
 fractions. The procedure involves searching for soil samples in the
@@ -4620,7 +4652,7 @@ multinomial logistic regression could even be used to map soil taxa at
 lower taxonomic levels with hundreds of unique taxonomic entities.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_USDA_categories.png" alt="USDA classification system and approximate minimum number of observations required to fit a global multinomial regression model." width="60%" angle=0 />
+<img src="figures/Fig_USDA_categories.png" alt="USDA classification system and approximate minimum number of observations required to fit a global multinomial regression model." width="55%" angle=0 />
 <p class="caption">(\#fig:usda-categories)USDA classification system and approximate minimum number of observations required to fit a global multinomial regression model.</p>
 </div>
 
@@ -5252,8 +5284,8 @@ In the meantime, standardization and harmonization of legacy soil profile
 data will continue to present a challenge for global to regional PSM.
 
 One attractive option for harmonizing soil analytical data following the
-SINFER concept would be to create and maintain a **Global Soil Reference**
-Library (GSRL). This concept is further discussed in the final chapter.
+SINFER concept would be to create and maintain a **Global Soil Reference Library** 
+(GSRL). This concept is further discussed in the final chapter.
 Such a library would need to include data for a significant number of
 soils from each continent or region. Each soil would be analysed for all
 properties of interest using all commonly used methods of analysis.
@@ -5340,7 +5372,7 @@ Predictive Soil Mapping:
   - standard window-based calculations e.g. slope, curvatures, standard deviation,
   - standard flow model outputs,
   - landform classes / landform class likelihoods,
-  - hydrological / soil accumulation and deposition indices — MRVBFI, MRRTFI, Wetness index, height above channel, height below ridge, horizontal distance to channel, horizontal distance to ridge,
+  - hydrological / soil accumulation and deposition indices — MRVBFI, Wetness index, height above channel, height below ridge, horizontal distance to channel, horizontal distance to ridge,
   - climatic and micro-climatic indices determined by relief e.g. incoming solar insolation and similar,
   
 4. Parent material / geologic material covariates, which include:
@@ -6100,7 +6132,7 @@ semi-automated mapping of soil variables using simple, real-world
 examples.
 
 The code and examples are provided only for illustration. More complex predictive modeling 
-is described in section \@ref(soilmapping-using-mla). To install and optimize 
+is described in chapter \@ref(soilmapping-using-mla). To install and optimize 
 all packages used in this chapter please refer to section \@ref(Rstudio).
 
 ### Modelling soil variability
@@ -6599,7 +6631,7 @@ represented as points. Statistical aspects of sampling methods and
 approaches are discussed in detail by @schabenberger2005statistical and
 @deGruijter2006sampling, while some more practical suggestions for soil
 sampling can be found in @pansu2001soil
-@Webster2001Wiley, @tan2005soil, and @Legros2006SP. Some general
+@Webster2001Wiley, @tan2005soil, @Legros2006SP and @BRUS2019464. Some general
 recommendations for soil sampling are:
 
 1.  *Points need to cover the entire geographical area of interest and
@@ -6721,13 +6753,8 @@ is representative of the area, that it can be formalized through
 repeatable procedures and that it can be tested using real observations.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_catena_Maungawhau_A.jpg" alt="A cross-section for the Maungawhau volcano dataset commonly used in R to illustrate DEM and image analysis techniques." width="80%" />
+<img src="figures/Fig_catena_Maungawhau_A.jpg" alt="A cross-section for the Maungawhau volcano dataset commonly used in R to illustrate DEM and image analysis techniques." width="60%" />
 <p class="caption">(\#fig:catena-maungawhau-3d)A cross-section for the Maungawhau volcano dataset commonly used in R to illustrate DEM and image analysis techniques.</p>
-</div>
-
-<div class="figure" style="text-align: center">
-<img src="figures/Fig_catena_Maungawhau_B.png" alt="Associated values of DEM-based covariates: TWI — Topographic Wetness Index and Valley depth for the cross-section from the previous figure." width="100%" />
-<p class="caption">(\#fig:catena-maungawhau)Associated values of DEM-based covariates: TWI — Topographic Wetness Index and Valley depth for the cross-section from the previous figure.</p>
 </div>
 
 If relevant auxiliary information, such as a Digital Elevation Model (DEM), is
@@ -6757,6 +6784,11 @@ as follows [@MacMillan2005CJSS; @MacMillan2010DSM]:
 6.  *Generate soil property values for each soil class using representative observations (class centers)*;
 
 7.  *Estimate values of the target soil variable at each grid location using a weighted average of allocated soil class or membership values and central soil property values for each soil class*;
+
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_catena_Maungawhau_B.png" alt="Associated values of DEM-based covariates: TWI — Topographic Wetness Index and Valley depth for the cross-section from the previous figure." width="90%" />
+<p class="caption">(\#fig:catena-maungawhau)Associated values of DEM-based covariates: TWI — Topographic Wetness Index and Valley depth for the cross-section from the previous figure.</p>
+</div>
 
 In mathematical terms, soil property prediction based on fuzzy soil
 classification values using the SOLIM approach @Zhu2001
@@ -7766,6 +7798,7 @@ om.rksim.p <- predict(omm, meuse.grid, nsim=20, block=c(0,0))
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
 #> 
+ 90% done
 100% done
 #> Creating an object of class "RasterBrickSimulations"
 #> Loading required package: raster
@@ -7975,7 +8008,7 @@ kriging variance (and likewise the average of a large number of
 simulations will approximate the kriging prediction map).
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_hist_om_predicted_vs_simulated.png" alt="Histogram for the target variable (Meuse data set; log of organic matter) based on the actual observations (left), predictions at all grid nodes (middle) and simulations (right). Note that the histogram for predicted values will always show somewhat narrower distribution (smoothed), depending on the strength of the model, while the simulations should be able to reproduce the original range (for more discussion see also: Yamamoto et al. (2008))." width="100%" />
+<img src="figures/Fig_hist_om_predicted_vs_simulated.png" alt="Histogram for the target variable (Meuse data set; log of organic matter) based on the actual observations (left), predictions at all grid nodes (middle) and simulations (right). Note that the histogram for predicted values will always show somewhat narrower distribution (smoothed), depending on the strength of the model, while the simulations should be able to reproduce the original range (for more discussion see also: Yamamoto et al. (2008))." width="105%" />
 <p class="caption">(\#fig:hist-om-predicted-simulated)Histogram for the target variable (Meuse data set; log of organic matter) based on the actual observations (left), predictions at all grid nodes (middle) and simulations (right). Note that the histogram for predicted values will always show somewhat narrower distribution (smoothed), depending on the strength of the model, while the simulations should be able to reproduce the original range (for more discussion see also: Yamamoto et al. (2008)).</p>
 </div>
 
@@ -8007,6 +8040,7 @@ om.rksim.p <- predict(omm, meuse.grid, block=c(0,0), nsim=20)
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
 #> 
+ 47% done
 100% done
 #> Creating an object of class "RasterBrickSimulations"
 log1p(meuse@data[1,"om"])
@@ -8055,13 +8089,13 @@ library(intamap)
 demo(meuse, echo=FALSE)
 meuse$value = meuse$zinc
 output <- interpolate(meuse, meuse.grid, list(mean=TRUE, variance=TRUE))
-#> R 2019-02-07 15:47:29 interpolating 155 observations, 3103 prediction locations
+#> R 2019-02-07 21:39:23 interpolating 155 observations, 3103 prediction locations
 #> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : 
 #>  using standard model for estimating time. For better 
 #>  platform spesific predictions, please run 
 #>  timeModels <- generateTimeModels()
 #>   and save the workspace
-#> [1] "estimated time for  copula 156.077906902784"
+#> [1] "estimated time for  copula 160.032394640705"
 #> Checking object ... OK
 ```
 
@@ -8075,7 +8109,7 @@ str(output, max.level = 2)
 #> List of 16
 #>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
 #>  $ formulaString      :Class 'formula'  language value ~ 1
-#>   .. ..- attr(*, ".Environment")=<environment: 0x1517daa0> 
+#>   .. ..- attr(*, ".Environment")=<environment: 0x156bb1d8> 
 #>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
 #>  $ params             :List of 18
 #>   ..$ doAnisotropy     : logi TRUE
@@ -8262,7 +8296,7 @@ round((1-min(mFit3$results$RMSE)/min(mFit0$results$RMSE))*100)
 
 There is certainly added value in using spatial covariates (in the case above: distance to water and flooding frequency maps) and in using machine learning for spatial prediction, even with smaller data sets. 
 
-Note also that the assessment of spatial prediction accuracy for the three models based on the train function above is model-free, i.e. cross-validation of the models is independent of the models used because, at each cross-validation subset, fitting of the model is repeated and validation points are maintained separate from model training. Subsetting point samples is not always trivial however: in order to consider cross-validation as completely reliable, the samples ought to be representative of the study area and preferably collected using objective sampling such as simple random sampling or similar [@Brus2011EJSS]. In cases where the sampling locations are clustered in geographical space i.e. if some parts of the study area are completely omitted from sampling, then also the results of cross-validation will reflect that sampling bias / poor representation. In all the following examples we will assume that cross-validation gives a reliable measure of mapping accuracy and we will use it as the basis of accuracy assessment i.e. mapping efficiency. In reality, cross-validation might be tricky to implement and could often lead to somewhat over-optimistic results if either sampling bias exists or/and if there are too few points for model validation. For example, in the case of soil profile data, it is highly recommended that entire profiles are removed from CV because soil horizons are too strongly correlated (as discussed in detail in @Gasch2015SPASTA and @Brenning2012). 
+Note also that the assessment of spatial prediction accuracy for the three models based on the train function above is model-free, i.e. cross-validation of the models is independent of the models used because, at each cross-validation subset, fitting of the model is repeated and validation points are maintained separate from model training. Subsetting point samples is not always trivial however: in order to consider cross-validation as completely reliable, the samples ought to be representative of the study area and preferably collected using objective sampling such as simple random sampling or similar [@Brus2011EJSS; @BRUS2019464]. In cases where the sampling locations are clustered in geographical space i.e. if some parts of the study area are completely omitted from sampling, then also the results of cross-validation will reflect that sampling bias / poor representation. In all the following examples we will assume that cross-validation gives a reliable measure of mapping accuracy and we will use it as the basis of accuracy assessment i.e. mapping efficiency. In reality, cross-validation might be tricky to implement and could often lead to somewhat over-optimistic results if either sampling bias exists or/and if there are too few points for model validation. For example, in the case of soil profile data, it is highly recommended that entire profiles are removed from CV because soil horizons are too strongly correlated (as discussed in detail in @Gasch2015SPASTA and @Brenning2012). 
 
 The whole process of spatial prediction of soil properties could be summarized in 5 steps:
  
@@ -8319,7 +8353,7 @@ geostatistics, as long as there are enough measurements in all spatial
 dimensions.</div>\EndKnitrBlock{rmdnote}
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_voxel_scheme.png" alt="Spatial 3D prediction locations in a gridded system (voxels). In soil mapping, we often predict for larger blocks of land e.g. 100 to 1000 m, but then for vertical depths of few tens of centimeters, so the output voxels might appear in reality as being somewhat disproportional." width="55%" />
+<img src="figures/Fig_voxel_scheme.png" alt="Spatial 3D prediction locations in a gridded system (voxels). In soil mapping, we often predict for larger blocks of land e.g. 100 to 1000 m, but then for vertical depths of few tens of centimeters, so the output voxels might appear in reality as being somewhat disproportional." width="50%" />
 <p class="caption">(\#fig:voxel-scheme)Spatial 3D prediction locations in a gridded system (voxels). In soil mapping, we often predict for larger blocks of land e.g. 100 to 1000 m, but then for vertical depths of few tens of centimeters, so the output voxels might appear in reality as being somewhat disproportional.</p>
 </div>
 
@@ -8432,7 +8466,7 @@ develop and apply spatial prediction models, merging of the multiscale
 and multisource data is likely to be inevitable.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_multiscale_vs_multisource.png" alt="A general scheme for generating spatial predictions using multiscale and multisource data." width="90%" />
+<img src="figures/Fig_multiscale_vs_multisource.png" alt="A general scheme for generating spatial predictions using multiscale and multisource data." width="70%" />
 <p class="caption">(\#fig:multiscale-vs-multisource)A general scheme for generating spatial predictions using multiscale and multisource data.</p>
 </div>
 
@@ -8650,8 +8684,8 @@ estimators of the true mapping accuracy.
 Hence, also in soil mapping, accuracy assessment
 should only be considered in relative terms. Each evaluation of soil
 mapping accuracy might give somewhat different numbers, so it is often a
-good idea to repeat the evaluation multiple times. Also cross-validation
-requires enough repetition (at least >1) otherwise over-positive or
+good idea to repeat the evaluation multiple times. Likewise, cross-validation
+requires enough repetition (e.g. at least 3) otherwise over-positive or
 over-negative results can be produced by chance
 (Fig. \@ref(fig:cross-validation-repetitions)). Many geostatisticians
 (see e.g. `krige.cv` function described in @Bivand2008Springer
@@ -8978,11 +9012,6 @@ observed data deviate from the line of perfect concordance (1:1 line in
 Fig. \@ref(fig:validation-scheme)). It is usually equal to or somewhat
 lower than R–square, depending on the amount of bias in predictions.
 
-<div class="figure" style="text-align: center">
-<img src="figures/Fig_validation_plots.png" alt="Universal plots of predictive performance: (a) 1:1 predicted vs observed plot, (b) CCC vs standard deviation of the z-scores plot, (c) nominal vs coverage probabilities, and (d) variogram of cross-validation residuals. Image source: Hengl et al. (2018) doi: 10.7717/peerj.5518." width="80%" />
-<p class="caption">(\#fig:validation-scheme)Universal plots of predictive performance: (a) 1:1 predicted vs observed plot, (b) CCC vs standard deviation of the z-scores plot, (c) nominal vs coverage probabilities, and (d) variogram of cross-validation residuals. Image source: Hengl et al. (2018) doi: 10.7717/peerj.5518.</p>
-</div>
-
 CCC and variance or standard deviation of the z-scores are two universal / 
 scale-free parameters that can be used to assign multiple spatial prediction 
 algorithms to work on multiple soil variables. Two additional measures of the 
@@ -8993,6 +9022,11 @@ Ideally, a variogram of the residuals should show no spatial dependence (i.e.
 pure nugget effect), which is a proof that there is no spatial bias in predictions. 
 Likewise, nominal vs coverage probabilities in the target variable should also ideally 
 be on a 1:1 line.
+
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_validation_plots.png" alt="Universal plots of predictive performance: (a) 1:1 predicted vs observed plot, (b) CCC vs standard deviation of the z-scores plot, (c) nominal vs coverage probabilities, and (d) variogram of cross-validation residuals. Image source: Hengl et al. (2018) doi: 10.7717/peerj.5518." width="70%" />
+<p class="caption">(\#fig:validation-scheme)Universal plots of predictive performance: (a) 1:1 predicted vs observed plot, (b) CCC vs standard deviation of the z-scores plot, (c) nominal vs coverage probabilities, and (d) variogram of cross-validation residuals. Image source: Hengl et al. (2018) doi: 10.7717/peerj.5518.</p>
+</div>
 
 So in summary, universal measures to access predicitive success of 
 any spatial prediction method are [@Hengl2018RFsp]:
@@ -9049,8 +9083,8 @@ are the all-inclusive costs that include salaries and time in the office
 needed for the work of synthesis and editing.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_scale_costs_ratio.png" alt="Some basic concepts of soil survey: (a) relationship between cartographic scale and pixel size (Hengl, 2006), (b) soil survey costs and scale relationship based on the empirical data of (Legros, 2006)." width="100%" />
-<p class="caption">(\#fig:scale-costs-ratio)Some basic concepts of soil survey: (a) relationship between cartographic scale and pixel size (Hengl, 2006), (b) soil survey costs and scale relationship based on the empirical data of (Legros, 2006).</p>
+<img src="figures/Fig_scale_costs_ratio.png" alt="Some basic concepts of soil survey costs: (a) relationship between cartographic scale and pixel size (Hengl, 2006), (b) soil survey costs and scale relationship based on the empirical data of (Legros, 2006)." width="85%" />
+<p class="caption">(\#fig:scale-costs-ratio)Some basic concepts of soil survey costs: (a) relationship between cartographic scale and pixel size (Hengl, 2006), (b) soil survey costs and scale relationship based on the empirical data of (Legros, 2006).</p>
 </div>
 
 Estimated standard soil survey costs per area differ from country to
@@ -9378,7 +9412,7 @@ TAXGRSC.rf$test$confusion[,"class.error"]
 
 Note that, by specifying `xtest` and `ytest`, we run both model fitting and cross-validation with 500 excluded points. The results show relatively high prediction error of about 60% i.e. relative classification accuracy of about 40%.
 
-We can also test some other MLA's that are suited for this data — multinom from the [nnet](https://cran.r-project.org/package=nnet) package, and svm (Support Vector Machine) from the [e1071](https://cran.r-project.org/package=e1071) package:
+We can also test some other MLA's that are suited for this data — `multinom` from the [nnet](https://cran.r-project.org/package=nnet) package, and `svm` (Support Vector Machine) from the [e1071](https://cran.r-project.org/package=e1071) package:
 
 
 ```r
@@ -9469,7 +9503,7 @@ localH2O = h2o.init(startH2O=TRUE)
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         23 minutes 43 seconds 
+#>     H2O cluster uptime:         23 minutes 54 seconds 
 #>     H2O cluster timezone:       UTC 
 #>     H2O data parsing timezone:  UTC 
 #>     H2O cluster version:        3.22.1.1 
@@ -9508,12 +9542,12 @@ RF.m
 #> ==============
 #> 
 #> H2ORegressionModel: drf
-#> Model ID:  DRF_model_R_1549553085844_21 
+#> Model ID:  DRF_model_R_1549574187630_21 
 #> Model Summary: 
 #>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#> 1              50                       50              645085        20
+#> 1              50                       50              644730        20
 #>   max_depth mean_depth min_leaves max_leaves mean_leaves
-#> 1        20   20.00000        968       1060  1023.48000
+#> 1        20   20.00000        948       1101  1022.70000
 #> 
 #> 
 #> H2ORegressionMetrics: drf
@@ -9523,7 +9557,7 @@ RF.m
 #> MSE:  221
 #> RMSE:  14.9
 #> MAE:  10.1
-#> RMSLE:  0.432
+#> RMSLE:  0.431
 #> Mean Residual Deviance :  221
 ```
 
@@ -9547,7 +9581,7 @@ plt1 <- xyplot(m$SNDMHT_A ~ SDN.pred, asp=1,
 ```
 
 <div class="figure" style="text-align: center">
-<img src="figures/Measured_vs_predicted_SAND_plot.png" alt="Measured vs predicted sand content based on the Random Forest model." width="55%" />
+<img src="figures/Measured_vs_predicted_SAND_plot.png" alt="Measured vs predicted sand content based on the Random Forest model." width="40%" />
 <p class="caption">(\#fig:obs-pred-snd)Measured vs predicted sand content based on the Random Forest model.</p>
 </div>
 
@@ -9559,7 +9593,7 @@ eberg_grid$RFx <- as.data.frame(h2o.predict(RF.m, eberg.grid, na.action=na.pass)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="06-Soilmapping_using_mla_files/figure-html/map-snd-1.png" alt="Predicted sand content based on random forest." width="100%" />
+<img src="06-Soilmapping_using_mla_files/figure-html/map-snd-1.png" alt="Predicted sand content based on random forest." width="80%" />
 <p class="caption">(\#fig:map-snd)Predicted sand content based on random forest.</p>
 </div>
 
@@ -9575,29 +9609,29 @@ DL.m
 #> ==============
 #> 
 #> H2ORegressionModel: deeplearning
-#> Model ID:  DeepLearning_model_R_1549553085844_22 
+#> Model ID:  DeepLearning_model_R_1549574187630_22 
 #> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1
 #>   layer units      type dropout       l1       l2 mean_rate rate_rms
 #> 1     1    10     Input  0.00 %       NA       NA        NA       NA
-#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.014752 0.011154
-#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.159824 0.186847
-#> 4     4     1    Linear      NA 0.000000 0.000000  0.001515 0.001017
+#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.014302 0.008282
+#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.118357 0.167490
+#> 4     4     1    Linear      NA 0.000000 0.000000  0.001268 0.000915
 #>   momentum mean_weight weight_rms mean_bias bias_rms
 #> 1       NA          NA         NA        NA       NA
-#> 2 0.000000   -0.001486   0.099189  0.308841 0.083850
-#> 3 0.000000   -0.019616   0.071129  0.944928 0.024054
-#> 4 0.000000   -0.000599   0.039802  0.079618 0.000000
+#> 2 0.000000    0.002659   0.104131  0.364830 0.061140
+#> 3 0.000000   -0.017469   0.071086  0.957606 0.021383
+#> 4 0.000000   -0.002594   0.051969  0.101572 0.000000
 #> 
 #> 
 #> H2ORegressionMetrics: deeplearning
 #> ** Reported on training data. **
 #> ** Metrics reported on full training frame **
 #> 
-#> MSE:  330
-#> RMSE:  18.2
-#> MAE:  14.8
-#> RMSLE:  0.575
-#> Mean Residual Deviance :  330
+#> MSE:  287
+#> RMSE:  17
+#> MAE:  12.8
+#> RMSLE:  0.521
+#> Mean Residual Deviance :  287
 ```
 
 Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. \@ref(fig:map-snd) and Fig. \@ref(fig:map-snd-dl)).
@@ -9609,7 +9643,7 @@ eberg_grid$DLx <- as.data.frame(h2o.predict(DL.m, eberg.grid, na.action=na.pass)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="06-Soilmapping_using_mla_files/figure-html/map-snd-dl-1.png" alt="Predicted sand content based on deep learning." width="100%" />
+<img src="06-Soilmapping_using_mla_files/figure-html/map-snd-dl-1.png" alt="Predicted sand content based on deep learning." width="80%" />
 <p class="caption">(\#fig:map-snd-dl)Predicted sand content based on deep learning.</p>
 </div>
 
@@ -9624,8 +9658,8 @@ eberg_grid$SNDMHT_A <- rowSums(cbind(eberg_grid$RFx*rf.R2,
 ```
 
 <div class="figure" style="text-align: center">
-<img src="06-Soilmapping_using_mla_files/figure-html/map-snd-ensemble-1.png" alt="Predicted SAND content based on ensemble predictions." width="80%" />
-<p class="caption">(\#fig:map-snd-ensemble)Predicted SAND content based on ensemble predictions.</p>
+<img src="06-Soilmapping_using_mla_files/figure-html/map-snd-ensemble-1.png" alt="Predicted sand content based on ensemble predictions." width="80%" />
+<p class="caption">(\#fig:map-snd-ensemble)Predicted sand content based on ensemble predictions.</p>
 </div>
 
 Indeed, the output map now shows patterns of both methods and is more likely slightly more accurate than any of the individual MLA's [@krogh1996learning].
@@ -9683,7 +9717,7 @@ hor2xyd <- function(x, U="UHDICM", L="LHDICM", treshold.T=15){
 ```
 
 <div class="figure" style="text-align: center">
-<img src="figures/horizon_depths_for_3d_modeling_scheme.png" alt="Training points assigned to a soil profile with 3 horizons. Using the function from above, we assign a total of 7 training points i.e. about 2 times more training points than there are horizons." width="75%" />
+<img src="figures/horizon_depths_for_3d_modeling_scheme.png" alt="Training points assigned to a soil profile with 3 horizons. Using the function from above, we assign a total of 7 training points i.e. about 2 times more training points than there are horizons." width="60%" />
 <p class="caption">(\#fig:hor-3d-scheme)Training points assigned to a soil profile with 3 horizons. Using the function from above, we assign a total of 7 training points i.e. about 2 times more training points than there are horizons.</p>
 </div>
 
@@ -9707,7 +9741,7 @@ Note that `DEPTH` is used as a covariate, which makes this model 3D as one can p
 library(caret)
 ctrl <- trainControl(method="repeatedcv", number=5, repeats=1)
 sel <- sample.int(nrow(mP2), 500)
-tr.ORCDRC.rf <- train(formulaStringP2, data=mP2[sel,], 
+tr.ORCDRC.rf <- train(formulaStringP2, data = mP2[sel,], 
                       method = "rf", trControl = ctrl, tuneLength = 3)
 tr.ORCDRC.rf
 #> Random Forest 
@@ -9779,7 +9813,7 @@ edgeroi.grids$ORCDRC_5cm <- (edgeroi.grids$Random_forest*w1 +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="06-Soilmapping_using_mla_files/figure-html/maps-soc-edgeroi-1.png" alt="Comparison of three MLA's and final ensemble prediction (ORCDRC 5cm) of soil organic carbon content for 2.5 cm depth." width="80%" />
+<img src="06-Soilmapping_using_mla_files/figure-html/maps-soc-edgeroi-1.png" alt="Comparison of three MLA's and final ensemble prediction (ORCDRC 5cm) of soil organic carbon content for 2.5 cm depth." width="90%" />
 <p class="caption">(\#fig:maps-soc-edgeroi)Comparison of three MLA's and final ensemble prediction (ORCDRC 5cm) of soil organic carbon content for 2.5 cm depth.</p>
 </div>
 
@@ -9834,16 +9868,16 @@ str(test.ORC)
 #> List of 2
 #>  $ CV_residuals:'data.frame':	4972 obs. of  4 variables:
 #>   ..$ Observed : num [1:4972] 6.5 5.1 4.9 3.3 2.2 ...
-#>   ..$ Predicted: num [1:4972] 12.25 7.15 6.61 5.11 2.79 ...
+#>   ..$ Predicted: num [1:4972] 12.48 7.54 6.48 4.85 2.93 ...
 #>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" ...
 #>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ Summary     :'data.frame':	1 obs. of  6 variables:
-#>   ..$ ME          : num -0.136
-#>   ..$ MAE         : num 2.19
-#>   ..$ RMSE        : num 3.68
-#>   ..$ R.squared   : num 0.557
-#>   ..$ logRMSE     : num 0.496
-#>   ..$ logR.squared: num 0.634
+#>   ..$ ME          : num -0.151
+#>   ..$ MAE         : num 2.17
+#>   ..$ RMSE        : num 3.66
+#>   ..$ R.squared   : num 0.561
+#>   ..$ logRMSE     : num 0.493
+#>   ..$ logR.squared: num 0.639
 ```
 
 Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about $\pm 4$ g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:
@@ -9857,7 +9891,7 @@ plt0 <- xyplot(test.ORC[[1]]$Observed ~ test.ORC[[1]]$Predicted, asp=1,
 ```
 
 <div class="figure" style="text-align: center">
-<img src="figures/Predicted_vs_observed_plot_for_SOC_edgeroi.png" alt="Predicted vs observed plot for soil organic carbon ML-based model (Edgeroi data set)." width="55%" />
+<img src="figures/Predicted_vs_observed_plot_for_SOC_edgeroi.png" alt="Predicted vs observed plot for soil organic carbon ML-based model (Edgeroi data set)." width="40%" />
 <p class="caption">(\#fig:plot-measured-predicted)Predicted vs observed plot for soil organic carbon ML-based model (Edgeroi data set).</p>
 </div>
 
@@ -9905,7 +9939,7 @@ perf
 #> 
 #> Base learner performance, sorted by specified metric:
 #>                    learner  MSE
-#> 1 h2o.randomForest.wrapper 12.9
+#> 1 h2o.randomForest.wrapper 13.1
 #> 2          h2o.gbm.wrapper 12.8
 #> 
 #> 
@@ -9913,7 +9947,7 @@ perf
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 12.4761778111082
+#> Ensemble performance (MSE): 12.4950143273141
 ```
 
 which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.
@@ -10013,16 +10047,16 @@ perf3
 #> Base learner performance, sorted by specified metric:
 #>                    learner    MSE
 #> 1          h2o.glm.wrapper 0.2827
-#> 4 h2o.deeplearning.wrapper 0.1328
+#> 4 h2o.deeplearning.wrapper 0.1561
 #> 3          h2o.gbm.wrapper 0.0971
-#> 2 h2o.randomForest.wrapper 0.0832
+#> 2 h2o.randomForest.wrapper 0.0837
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 0.0790833756299966
+#> Ensemble performance (MSE): 0.0772638638284431
 ```
 
 In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.
@@ -10104,12 +10138,12 @@ sl
 #>     SL.library = sl.l) 
 #> 
 #> 
-#>                  Risk   Coef
-#> SL.mean_All    0.7540 0.0000
-#> SL.xgboost_All 0.0598 0.8186
-#> SL.ksvm_All    0.1289 0.0139
-#> SL.glmnet_All  0.3080 0.0000
-#> SL.ranger_All  0.0856 0.1675
+#>                  Risk    Coef
+#> SL.mean_All    0.7540 0.00000
+#> SL.xgboost_All 0.0598 0.81304
+#> SL.ksvm_All    0.1289 0.00914
+#> SL.glmnet_All  0.3077 0.00000
+#> SL.ranger_All  0.0851 0.17782
 ```
 
 This shows that `SL.xgboost_All` outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by `SL.xgboost_All` is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:
@@ -10129,9 +10163,9 @@ sl2
 #> 
 #> 
 #>                  Risk  Coef
-#> SL.xgboost_All 0.0603 0.808
-#> SL.ranger_All  0.0829 0.192
-#> SL.ksvm_All    0.1300 0.000
+#> SL.xgboost_All 0.0603 0.823
+#> SL.ranger_All  0.0841 0.177
+#> SL.ksvm_All    0.1301 0.000
 ```
 
 again `SL.xgboost` dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where entire profiles are taken out of the training dataset:
@@ -10159,10 +10193,10 @@ summary(cv_sl)
 #> 
 #>       Algorithm  Ave    se   Min  Max
 #>   Super Learner 0.16 0.014 0.094 0.25
-#>     Discrete SL 0.17 0.014 0.115 0.25
+#>     Discrete SL 0.16 0.014 0.104 0.25
 #>  SL.xgboost_All 0.19 0.016 0.135 0.27
 #>   SL.ranger_All 0.16 0.014 0.104 0.25
-#>     SL.ksvm_All 0.18 0.014 0.109 0.30
+#>     SL.ksvm_All 0.18 0.014 0.110 0.29
 ```
 
 where `V=5` specifies number of folds, and `id=rm.cookfarm$SOURCEID` enforces that entire profiles are removed from training and cross-validation. This gives a more realistic RMSE of about ±0.35. Note that this time `SL.xgboost_All` is even somewhat worse than the random forest model, and the ensemble model (`Super Learner`) is slightly better than each individual model. This matches our previous results with `h20.ensemble`. 
@@ -10187,8 +10221,8 @@ sl2
 #> 
 #>                 Risk  Coef
 #> SL.xgboost_All 0.215 0.000
-#> SL.ranger_All  0.166 0.467
-#> SL.ksvm_All    0.163 0.533
+#> SL.ranger_All  0.166 0.461
+#> SL.ksvm_All    0.163 0.539
 new.data <- grid10m@data
 pred.PHI <- list(NULL)
 depths = c(10,30,50,70,90)
@@ -10210,7 +10244,7 @@ for(j in 1:length(depths)){
 #>     buffer, rotated
 str(pred.PHI[[1]])
 #> List of 2
-#>  $ pred           : num [1:3865, 1] 4.63 4.7 4.84 4.81 4.74 ...
+#>  $ pred           : num [1:3865, 1] 4.66 4.73 4.89 4.85 4.78 ...
 #>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...
 #>   ..- attr(*, "dimnames")=List of 2
 #>   .. ..$ : NULL
@@ -10418,7 +10452,7 @@ library(ranger)
 #>     combine
 ```
 
-If no other information is available, we can use buffer distances to all points as covariates to predict values of some continuous or categorical variable in the RFsp framework. These can be derived with the help of the [raster](https://cran.r-project.org/package=raster) package [@raster]. Consider for example the meuse data set from the [gstat](https://github.com/edzer/gstat) package:
+If no other information is available, we can use buffer distances to all points as covariates to predict values of some continuous or categorical variable in the RFsp framework. These can be derived with the help of the [raster](https://cran.r-project.org/package=raster) package [@raster]. Consider for example the meuse data set from the sp package:
 
 
 ```r
@@ -10678,10 +10712,10 @@ xl <- as.list(ranger::importance(m1.zinc))
 par(mfrow=c(1,1),oma=c(0.7,2,0,1), mar=c(4,3.5,1,0))
 plot(vv <- t(data.frame(xl[order(unlist(xl), decreasing=TRUE)[10:1]])), 1:10, 
      type = "n", ylab = "", yaxt = "n", xlab = "Variable Importance (Node Impurity)",
-     cex.axis = .7, cex.main = .7, cex.lab = .7)
+     cex.axis = .7, cex.lab = .7)
 abline(h = 1:10, lty = "dotted", col = "grey60")
 points(vv, 1:10)
-axis(2, 1:10, labels = dimnames(vv)[[1]], las = 2)
+axis(2, 1:10, labels = dimnames(vv)[[1]], las = 2, cex.axis = .7)
 ```
 
 <div class="figure" style="text-align: center">
@@ -11083,9 +11117,17 @@ In summary, there are four main variables used to represent soil organic carbon:
  3.  **Soil Organic Carbon Stock** (OCS) in kg/m$^2$ or in tons/ha and for the given soil depth interval,
  4.  **Total Soil Organic Carbon Stock** (TOCS) in million tonnes or Pg i.e. OCS multiplied by surface area,
 
-Global estimates of the total soil organic carbon stock are highly variable [@Scharlemann2014CM]. Current estimates of the present total soil organic carbon stock range between 800–2100 Pg C (for 0–100 cm), with a median estimate of about 1500 Pg C (for 0–100 cm). This means that the average OCS for the 0–100 cm depth interval for the global land mask (148,940,000 km$^2$) is about 11 kg/m$^2$ or 110 tons/ha, and that average soil organic carbon density (OCD) is about 11 kg/m$^3$ (compare to the standard bulk density of fine earth of 1250 kg/m$^3$); standard OCS for 0–30 cm depth interval is 7 kg/m$^2$ i.e. the average OCD is about 13 kg/m$^3$. 
+Global estimates of the total soil organic carbon stock are highly variable
+[@Scharlemann2014CM]. Current estimates of the present total soil organic 
+carbon stock (excluding peatlands) range between 800–2100 Pg C (for 0–100 cm), 
+with a median estimate of about 1500 Pg C (for 0–100 cm). This means that the 
+average OCS for the 0–100 cm depth interval for the global land mask 
+(148,940,000 km$^2$) is about 11 kg/m$^2$ or 110 tons/ha, and that average 
+soil organic carbon density (OCD) is about 11 kg/m$^3$ (compare to the 
+standard bulk density of fine earth of 1250 kg/m$^3$); standard OCS for 
+0–30 cm depth interval is 7 kg/m$^2$ i.e. the average OCD is about 13 kg/m$^3$. 
 
-\BeginKnitrBlock{rmdnote}<div class="rmdnote">The average Organic Carbon Stock for the 0–100 cm depth interval for the land mask (148,940,000 km$^2$) is about 11 kg/m$^2$ or 110 tons/ha. The average soil Organic Carbon Density (OCD) is about 11 kg/m$^3$ (compared to the standard bulk density of fine earth of 1250 kg/m$^3$). Standard Organic Carbon Stock for 0–30 cm depth interval is 7 kg/m$^2$ i.e. the average OCD is about 13 kg/m$^3$.</div>\EndKnitrBlock{rmdnote}
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">The average Organic Carbon Stock for the 0–100 cm depth interval (mineral soils) is about 11 kg/m$^2$ or 110 tons/ha. The average soil Organic Carbon Density (OCD) is about 11 kg/m$^3$ (compared to the standard bulk density of fine earth of 1250 kg/m$^3$). Standard Organic Carbon Stock for 0–30 cm depth interval is 7 kg/m$^2$ i.e. the average OCD is about 13 kg/m$^3$.</div>\EndKnitrBlock{rmdnote}
 
 The distribution of soil organic carbon in the world is, however, highly patchy with large areas with OCS $\ll 100$ tons/ha, and then some *pockets* of accumulated organic material i.e. organic soil types (histosols) with OCS up to 850tons/ha (for 0–30 cm depth interval). The world's soil organic matter accumulation areas are usually found in the following biomes / land cover classes: wetlands and peatlands, mangroves, tundras and taigas. 
 
@@ -11095,7 +11137,7 @@ Land use and agriculture, in particular, have led to dramatic decreases in soil 
 
 As mentioned previously, OCS stock is most commonly derived from measurements of the organic carbon (ORC) content, soil bulk density (BLD) and the volume fraction of gravel (CRF). These are usually sampled either per soil layers or soil **horizons** (a sequence of horizons makes a soil profile), which can refer to variable soil depth intervals i.e. are non-standard. That means that, before one can determine OCS for standard fixed depth intervals (e.g. 0–30 cm or 0–100 cm), values of ORC, BLD and CRF need to be standardized so they refer to common depth intervals.
 
-Consider, for example, the following two real life examples of soil profile data for a standard agricultural soil and an organic soil. For example the [profile from Australia](http://www.asris.csiro.au/mapping/hyperdocs/NatSoil/399%5EEDGEROI%5Eed079.pdf) [@Karssies2011CSIRO], which is shown in Tbl. \@ref(tab:profile-edgeroi).
+Consider, for example, the following two real life examples of soil profile data for a standard agricultural soil and an organic soil. For example the [profile from Australia](http://www.asris.csiro.au/mapping/hyperdocs/NatSoil/399%5EEDGEROI%5Eed079.pdf) [@Karssies2011CSIRO], which is shown in Tbl. \@ref(tab:profile-edgeroi). Note the original soil profile description / laboratory data indicates that no BLD were recorded for this profile. In the absence of measured field BLD we can substitute BLD estimated using LandGIS data. It (unfortunately) commonly happens that soil profile observations lack BLD measurements, and consequently BLD needs to be generated using a Pedo-Transfer function or estimated from soil maps.
 
 
 Table: (\#tab:profile-edgeroi)Laboratory data for a profile 399 EDGEROI ed079 from Australia (Karssies 2011).
@@ -11107,8 +11149,6 @@ Table: (\#tab:profile-edgeroi)Laboratory data for a profile 399 EDGEROI ed079 fr
           20            55              6.1           1382    7    3.0
           55            90              3.3           1433    8    1.7
           90           116              1.6           1465    8    0.6
-
-Note that BLD data were not given for the described horizons (the original soil profile description / laboratory data indicates that no BLD were recorded for this profile). In the absence of measured field BLD we can substitute BLD estimated using LandGIS data. It (unfortunately) commonly happens that soil profile observations lack BLD measurements, and consequently BLD needs to be generated using a Pedo-Transfer function or estimated from soil maps.
 
 To determine OCS for standard depth intervals 0–30, 0–100 and 0–200 cm, we first fit a mass-preserving spline [@Malone2009Geoderma]:
 
@@ -11126,6 +11166,8 @@ library(aqp)
 #>     union
 library(sp)
 library(plyr)
+library(viridis)
+#> Loading required package: viridisLite
 lon = 149.73; lat = -30.09; 
 id = "399_EDGEROI_ed079"; TIMESTRR = "1987-01-05"
 top = c(0, 10, 20, 55, 90) 
@@ -11205,7 +11247,7 @@ Values of OCS between 5–35 kg/m$^2$ for 0–100 cm are commonly reported for a
 
 \BeginKnitrBlock{rmdnote}<div class="rmdnote">Organic Carbon Stock for standard depths can be determined from legacy soil profile data either by fitting a spline function to organic carbon, bulk density values, or by aggregating data using simple conversion formulas. A standard mineral soil with 1–3% soil organic carbon for the 0–100 cm depth interval should have about 5–35 kg/m$^2$ or 50–350 tonnes/ha. An organic soil with >30% soil organic carbon may have as much as 60–90 kg/m$^2$ for the 0–100 cm depth interval.</div>\EndKnitrBlock{rmdnote}
 
-Note that the measurement error is computed from default uncertainty values (expressed in standard deviations) for organic carbon (10 g/kg), bulk density (100 kg/m$^3$) and coarse fraction content (5%). When these are not provided by the user, the outcome should be interpreted with care. 
+The measurement error is computed from default uncertainty values (expressed in standard deviations) for organic carbon (10 g/kg), bulk density (100 kg/m$^3$) and coarse fraction content (5%). When these are not provided by the user, the outcome should be interpreted with care. 
 
 <div class="figure" style="text-align: center">
 <img src="figures/fig_2_profiles_ocs_edgeroi.png" alt="Determination of soil organic carbon density and stock for standard depth intervals: example of a mineral soil profile from Australia." width="80%" />
@@ -11254,7 +11296,7 @@ We can again fit mass-preserving splines and determine OCS for standard depth in
 <p class="caption">(\#fig:scheme-soc-prof2)Determination of soil organic carbon density and stock for standard depth intervals: example of an organic soil profile from Canada.</p>
 </div>
 
-Note that only 3–4% of the total soil profiles in the world have organic carbon content above 8% (soils with ORC >12% are classified as organic soils or histosols in USDA and/or WRB classifications and are even less frequent), hence soil-depth functions of organic carbon content and derivation of OCS for organic soils are specific for patches of organic soils. On the other hand, organic soils carry much more total OCS. Precise processing and mapping of organic soils is, therefore, often crucial for accurate estimation of total OCS for large areas. Therefore, it is fairly important to use a good PTF to fill in missing values for BLD for organic soils. As a rule of thumb, organic soil will rarely exhibit a density greater than some minimum value e.g. 120 kg/m$^3$ because even though SOC content can be >50%, bulk density of such soil gets proportionally lower and bulk density is physically bound with how material is organized in soil (unless soils is artificially compacted). Also, using correct estimates for coarse fragments is important as otherwise, if CRF is ignored, total stock will be over-estimated [@poeplau2017soil].
+Only 3–4% of the total soil profiles in the world have organic carbon content above 8% (soils with ORC >12% are classified as organic soils or histosols in USDA and/or WRB classifications and are even less frequent), hence soil-depth functions of organic carbon content and derivation of OCS for organic soils are specific for patches of organic soils. On the other hand, organic soils carry much more total OCS. Precise processing and mapping of organic soils is, therefore, often crucial for accurate estimation of total OCS for large areas. Therefore, it is fairly important to use a good PTF to fill in missing values for BLD for organic soils. As a rule of thumb, organic soil will rarely exhibit a density greater than some minimum value e.g. 120 kg/m$^3$ because even though SOC content can be >50%, bulk density of such soil gets proportionally lower and bulk density is physically bound with how material is organized in soil (unless soils is artificially compacted). Also, using correct estimates for coarse fragments is important as otherwise, if CRF is ignored, total stock will be over-estimated [@poeplau2017soil].
 
 A somewhat more straightforward way to estimate OCS for a list of soil profiles vs spline fitting is:
 
@@ -11281,7 +11323,7 @@ fm.BLD = as.formula(
   paste("BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +", 
         paste(names(ind.tax), collapse="+")))
 m.BLD_PTF <- ranger(fm.BLD, dfs_tbl, num.trees = 85, importance='impurity')
-#> Growing trees.. Progress: 88%. Estimated remaining time: 4 seconds.
+#> Growing trees.. Progress: 89%. Estimated remaining time: 3 seconds.
 m.BLD_PTF
 #> Ranger result
 #> 
@@ -11629,6 +11671,11 @@ sum(COSha30.pr$COSha30map_RF*30^2/1e4, na.rm=TRUE)
 
 In the following example, we will demonstrate, using a well known data set, ([Edgeroi](http://gsif.r-forge.r-project.org/edgeroi.html), from Australia) which has been well documented in the literature [@Malone2009Geoderma], how to derive OCS in t/ha using soil profile data and a 3D approach to spatial prediction based on mapping the Organic Carbon Density (OCD) in kg/m-cubic. The Edgeroi data set is a typical example of a soil profile data set that is relatively comprehensive, but still missing BLD measurements. 
 
+<div class="figure" style="text-align: center">
+<img src="figures/edgeroi_overview.jpeg" alt="Edgeroi data set: locations of soil profiles and Australian soil classification codes. For more details see Malone et al. (2009)." width="100%" />
+<p class="caption">(\#fig:edgeroi-overview)Edgeroi data set: locations of soil profiles and Australian soil classification codes. For more details see Malone et al. (2009).</p>
+</div>
+
 The Edgeroi data set can be loaded from the GSIF package:
 
 
@@ -11661,12 +11708,7 @@ edgeroi.spc = spc(edgeroi.grids, ~DEMSRT5+TWISRT5+PMTGEO5+EV1MOD5+EV2MOD5+EV3MOD
 #> Converting covariates to principal components...
 ```
 
-<div class="figure" style="text-align: center">
-<img src="figures/edgeroi_overview.jpeg" alt="Edgeroi data set: locations of soil profiles and Australian soil classification codes. For more details see Malone et al. (2009)." width="100%" />
-<p class="caption">(\#fig:edgeroi-overview)Edgeroi data set: locations of soil profiles and Australian soil classification codes. For more details see Malone et al. (2009).</p>
-</div>
-
-Note that Edgeroi completely lacks any BLD values, therefore before we can compute OCD values, we need to estimate BLD values for each corresponding horizon. Here the easiest option is probably to use BLD values sourced from LandGIS predictions (and which you can download from https://landgis.opengeohub.org). 
+The Edgeroi completely lacks any BLD values, therefore before we can compute OCD values, we need to estimate BLD values for each corresponding horizon. Here the easiest option is probably to use BLD values sourced from LandGIS predictions (and which you can download from https://landgis.opengeohub.org). 
 
 
 ```r
@@ -11805,21 +11847,21 @@ so that the final Organic carbon stocks in t/ha is:
 
 
 ```
-#> 
-#> Attaching package: 'raster'
-#> The following objects are masked from 'package:aqp':
-#> 
-#>     metadata, metadata<-
 #>    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 #>    20.3    39.1    48.0    48.8    57.6   112.1
 ```
 
 <div class="figure" style="text-align: center">
-<img src="07-Soil_organic_carbon_files/figure-html/plot-edgeroi-ocd-1.png" alt="Predicted organic carbon stock for 0–30 cm depth and error map for the Edgeroi data set. All values expressed in tons/ha." width="90%" />
-<p class="caption">(\#fig:plot-edgeroi-ocd)Predicted organic carbon stock for 0–30 cm depth and error map for the Edgeroi data set. All values expressed in tons/ha.</p>
+<img src="07-Soil_organic_carbon_files/figure-html/plot-edgeroi-ocd-1.png" alt="Predicted organic carbon stock for 0–30 cm depth for the Edgeroi data set. All values expressed in tons/ha." width="70%" />
+<p class="caption">(\#fig:plot-edgeroi-ocd)Predicted organic carbon stock for 0–30 cm depth for the Edgeroi data set. All values expressed in tons/ha.</p>
 </div>
 
-Note that deriving the error map in the ranger package can be computationally intensive, especially if the number of covariates is high.  It is therefore not yet recommended for large rasters.
+<div class="figure" style="text-align: center">
+<img src="07-Soil_organic_carbon_files/figure-html/plot-edgeroi-ocd-error-1.png" alt="The prediction error map for the Edgeroi data set." width="70%" />
+<p class="caption">(\#fig:plot-edgeroi-ocd-error)The prediction error map for the Edgeroi data set.</p>
+</div>
+
+Note that deriving the error map in the ranger package can be computationally intensive, especially if the number of covariates is high, and is therefore not yet recommended for large rasters.
 
 Next, we can derive the total soil organic carbon stock per [land use class](http://data.environment.nsw.gov.au/dataset/nsw-landuseac11c) (2007). For this we can use the aggregation function from the plyr package:
 
@@ -11893,7 +11935,7 @@ hist(OCD_stN$YEAR, xlab="Year", main="", col="darkgrey", cex.axis = .7, cex.main
 ```
 
 <div class="figure" style="text-align: center">
-<img src="07-Soil_organic_carbon_files/figure-html/thist-usa48-1.png" alt="Distribution of soil observations based on sampling year." width="85%" />
+<img src="07-Soil_organic_carbon_files/figure-html/thist-usa48-1.png" alt="Distribution of soil observations based on sampling year." width="75%" />
 <p class="caption">(\#fig:thist-usa48)Distribution of soil observations based on sampling year.</p>
 </div>
 
@@ -11934,7 +11976,7 @@ xl <- as.list(ranger::importance(rf0.OCD_st))
 print(t(data.frame(xl[order(unlist(xl), decreasing=TRUE)[1:10]])))
 ```
 
-which shows that the most important soil covariate by far is soil depth, followed by elevation, grazing, MODIS cloud fraction images, cropland and similar. For a full description of codes please refer to @sanderman2018soil (also available in [this table](https://github.com/whrc/Soil-Carbon-Debt/blob/master/SOCS/WHRC_soilcarbon_list_of_covariates.csv)).
+which shows that the most important soil covariate by far is soil depth, followed by elevation, grazing, MODIS cloud fraction images, cropland and similar. For a full description of codes please refer to @sanderman2018soil.
 
 Finally, based on this model, we can generate predictions for 3–4 specific time periods and for some arbitrary depth e.g. 10 cm. The maps below clearly show that ca 8% of soil organic carbon has been lost in the last 90 years, most likely due to increases in grazing and croplands. The maps also show, however, that some areas in the northern latitudes are experiencing an increase in SOC, possibly due to higher rainfall i.e. based on the CRU data set.
 
@@ -13367,8 +13409,8 @@ systematize field descriptions and field sampling can make it much more
 affordable and feasible to collect new field data through new field
 sampling programs.
 
-@BRUS2019464 provides a systematic overview of sampling techniques and how
-to implement them in R (https://github.com/DickBrus/TutorialSampling4DSM). 
+@BRUS2019464 provides a systematic overview of sampling techniques and [how
+to implement them in R](https://github.com/DickBrus/TutorialSampling4DSM). 
 The author also recongizes that *“further research is recommended on sampling 
 designs for mapping with machine learning techniques, designs that are robust 
 against deviations of modeling assumptions”*.
@@ -13744,8 +13786,7 @@ and user oriented data.
 
 Future soil inventory projects based on application of predictive soil
 modelling will also benefit from adopting the following principles of
-OPEN Data based on the Sunlight Foundation's “Ten Principles for Opening
-up Government Information”
+OPEN Data based on the Sunlight Foundation's *“Ten Principles for Opening up Government Information”* 
 (https://open.canada.ca/en/open-data-principles#toc95):
 
 **1. Completeness**\
@@ -14016,7 +14057,7 @@ opportunities to engage citizen volunteers in collecting field
 observations and measurements to extend what PSM is able to accomplish
 now using data collected data by professionals.
 
-### Sponsorship, subscription, crowdfunding and blockchain funding systems,
+### Sponsorship, subscription, crowdfunding and blockchain funding systems
 
 Someone has to pay to finance the collection of new field and laboratory
 point data, the assembly, storage and distribution of databases of

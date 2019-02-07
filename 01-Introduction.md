@@ -14,7 +14,7 @@ emerging, methods of PSM and automated soil mapping. We discuss similarities and
 differences, strengths and weaknesses of conventional soil mapping (and
 its inputs and products) relative to PSM.
 
-The universal model of soil variation presented in detail in
+The universal model of soil variation presented further in detail in
 chapter \@ref(statistical-theory) is adopted as a framework for comparison of
 conventional soil mapping and PSM. Our aim is to show how the products
 and methods of conventional soil mapping can complement, and contribute to,
@@ -37,9 +37,9 @@ defined by the presence of hard rock or the lower limit of biologic
 activity [@Richter1995; @SSDS1993]. Although soil profiles up to tens
 of meters in depth can be found in some tropical areas [@Richter1995], for
 soil classification and mapping purposes, the lower limit of soil is often
-arbitrarily set to 2 m (http://soils.usda.gov/education/facts/soil.html). Soils are rarely described to depths beyond 2 m and
-many soil sampling projects put a primary focus on the upper
-(0-100 cm) depths.
+arbitrarily set to 2 m (http://soils.usda.gov/education/facts/soil.html). 
+Soils are rarely described to depths beyond 2 m and many soil sampling projects 
+put a primary focus on the upper (0–100 cm) depths.
 
 The chemical, physical and biological properties of the soil differ from
 those of unaltered (unconsolidated) parent material, from which the soil
@@ -113,9 +113,11 @@ productivity or erodibility; and maps of soil-forming factors, such as
 climate, topography, vegetation, or geologic material”* [@SSDS1993].
 
 In contrast to conventional soil mapping, PSM is primarily interested 
-in portraying, in the form of maps, the spatial distribution of *soil variables* — measurable 
+in representing the spatial distribution of *soil variables* — measurable 
 or descriptive attributes commonly collected through field sampling 
-and then either measured *in-situ* or *a posteriori* in a laboratory. Soil variables can be roughly grouped into:
+and then either measured *in-situ* or *a posteriori* in a laboratory.
+
+Soil variables can be roughly grouped into:
 
 1.  *quantities of some material* ($y \in [0 \rightarrow +\infty]$);
 
@@ -253,7 +255,7 @@ is used is increasingly important.
 In statistical terms, the main objective of soil mapping is to describe
 the spatial variability i.e. spatial complexity of soils, then represent
 this complexity using maps, summary measures, mathematical models and
-simulations. Some known sources of spatial variability in soil variables
+simulations. Some known **sources of spatial variability** in soil variables
 are:
 
 1.  *Natural spatial variability in 2D (different at various scales),
@@ -574,7 +576,7 @@ are less common but increasingly popular (see e.g.
 spatio-temporal soil data is likely to grow.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_soilmap_types.png" alt="Classification of types of soil maps based on spatial representation and variable type." width="100%" />
+<img src="figures/Fig_soilmap_types.png" alt="Classification of types of soil maps based on spatial representation and variable type." width="85%" />
 <p class="caption">(\#fig:soilmap-types)Classification of types of soil maps based on spatial representation and variable type.</p>
 </div>
 
@@ -1038,8 +1040,8 @@ space. We will see in the following chapter that this is not always the
 case.
 
 \BeginKnitrBlock{rmdnote}<div class="rmdnote">An advantage of descriptive field
-observations such as soil color, stone content, presence, size and
-abundance of roots, pores, mottles, cracks, diagnostic horizons etc. is
+observations — such as soil color, stone content, presence, size and
+abundance of roots, pores, mottles, cracks, diagnostic horizons etc — is
 that they provide much useful information at a relatively low cost,
 since there is no need to sample or transport the soil or analyze it at
 considerable cost in a distant laboratory.</div>\EndKnitrBlock{rmdnote}
@@ -1673,11 +1675,6 @@ answer soil or soil–land use specific questions. Once the data are in a
 database, one can generate maps and statistical plots by running spatial
 queries [@Beaudette2009CG].
 
-<div class="figure" style="text-align: center">
-<img src="figures/Fig_SITE_HORIZON_structure.png" alt="An example of a basic soil profile geographical database, which commonly consists of four tables: SITE, HORIZON, DESCRIPTION and NAMES tables (a). To facilitate rapid display and use of soil variables, SITE and HORIZON tables can be combined into a single (wide) table structure (b)." width="80%" />
-<p class="caption">(\#fig:site-horizon-structure)An example of a basic soil profile geographical database, which commonly consists of four tables: SITE, HORIZON, DESCRIPTION and NAMES tables (a). To facilitate rapid display and use of soil variables, SITE and HORIZON tables can be combined into a single (wide) table structure (b).</p>
-</div>
-
 A common database model used for SPDB is one where soil site, soil
 horizon data and metadata are split into separate tables
 (Fig. \@ref(fig:site-horizon-structure)a; here referred to as the
@@ -1689,6 +1686,11 @@ data. Many variations on this horizon-site database model exist, so that
 each new user of SPDB typically requires some initial training to
 understand where soil variables of interest are located and how they can
 be exported and visualized.
+
+<div class="figure" style="text-align: center">
+<img src="figures/Fig_SITE_HORIZON_structure.png" alt="An example of a basic soil profile geographical database, which commonly consists of four tables: SITE, HORIZON, DESCRIPTION and NAMES tables (a). To facilitate rapid display and use of soil variables, SITE and HORIZON tables can be combined into a single (wide) table structure (b)." width="80%" />
+<p class="caption">(\#fig:site-horizon-structure)An example of a basic soil profile geographical database, which commonly consists of four tables: SITE, HORIZON, DESCRIPTION and NAMES tables (a). To facilitate rapid display and use of soil variables, SITE and HORIZON tables can be combined into a single (wide) table structure (b).</p>
+</div>
 
 Any horizon-site database model can be converted to a single table where each soil profile becomes
 one record (Fig. \@ref(fig:site-horizon-structure)b). The single-table
@@ -1754,7 +1756,7 @@ also contribute to construction and influence content.
 *“Web 3.0”* (read, write and execute) approaches to content creation. We also envisage that soil information will increasingly be produced using global vs local models and increasingly using distributed data and computing (Fig. \@ref(fig:automap-future)).
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_automap_future.png" alt="The future of global mapping and environmental monitoring activities is expected to be increasingly automated and distributed." width="75%" angle=0 />
+<img src="figures/Fig_automap_future.png" alt="The future of global mapping and environmental monitoring activities is expected to be increasingly automated and distributed." width="65%" angle=0 />
 <p class="caption">(\#fig:automap-future)The future of global mapping and environmental monitoring activities is expected to be increasingly automated and distributed.</p>
 </div>
 

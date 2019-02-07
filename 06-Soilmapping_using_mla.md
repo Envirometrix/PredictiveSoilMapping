@@ -146,7 +146,7 @@ TAXGRSC.rf$test$confusion[,"class.error"]
 
 Note that, by specifying `xtest` and `ytest`, we run both model fitting and cross-validation with 500 excluded points. The results show relatively high prediction error of about 60% i.e. relative classification accuracy of about 40%.
 
-We can also test some other MLA's that are suited for this data — multinom from the [nnet](https://cran.r-project.org/package=nnet) package, and svm (Support Vector Machine) from the [e1071](https://cran.r-project.org/package=e1071) package:
+We can also test some other MLA's that are suited for this data — `multinom` from the [nnet](https://cran.r-project.org/package=nnet) package, and `svm` (Support Vector Machine) from the [e1071](https://cran.r-project.org/package=e1071) package:
 
 
 ```r
@@ -237,7 +237,7 @@ localH2O = h2o.init(startH2O=TRUE)
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         23 minutes 43 seconds 
+#>     H2O cluster uptime:         23 minutes 54 seconds 
 #>     H2O cluster timezone:       UTC 
 #>     H2O data parsing timezone:  UTC 
 #>     H2O cluster version:        3.22.1.1 
@@ -276,12 +276,12 @@ RF.m
 #> ==============
 #> 
 #> H2ORegressionModel: drf
-#> Model ID:  DRF_model_R_1549553085844_21 
+#> Model ID:  DRF_model_R_1549574187630_21 
 #> Model Summary: 
 #>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#> 1              50                       50              645085        20
+#> 1              50                       50              644730        20
 #>   max_depth mean_depth min_leaves max_leaves mean_leaves
-#> 1        20   20.00000        968       1060  1023.48000
+#> 1        20   20.00000        948       1101  1022.70000
 #> 
 #> 
 #> H2ORegressionMetrics: drf
@@ -291,7 +291,7 @@ RF.m
 #> MSE:  221
 #> RMSE:  14.9
 #> MAE:  10.1
-#> RMSLE:  0.432
+#> RMSLE:  0.431
 #> Mean Residual Deviance :  221
 ```
 
@@ -315,7 +315,7 @@ plt1 <- xyplot(m$SNDMHT_A ~ SDN.pred, asp=1,
 ```
 
 <div class="figure" style="text-align: center">
-<img src="figures/Measured_vs_predicted_SAND_plot.png" alt="Measured vs predicted sand content based on the Random Forest model." width="55%" />
+<img src="figures/Measured_vs_predicted_SAND_plot.png" alt="Measured vs predicted sand content based on the Random Forest model." width="40%" />
 <p class="caption">(\#fig:obs-pred-snd)Measured vs predicted sand content based on the Random Forest model.</p>
 </div>
 
@@ -327,7 +327,7 @@ eberg_grid$RFx <- as.data.frame(h2o.predict(RF.m, eberg.grid, na.action=na.pass)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="06-Soilmapping_using_mla_files/figure-html/map-snd-1.png" alt="Predicted sand content based on random forest." width="100%" />
+<img src="06-Soilmapping_using_mla_files/figure-html/map-snd-1.png" alt="Predicted sand content based on random forest." width="80%" />
 <p class="caption">(\#fig:map-snd)Predicted sand content based on random forest.</p>
 </div>
 
@@ -343,29 +343,29 @@ DL.m
 #> ==============
 #> 
 #> H2ORegressionModel: deeplearning
-#> Model ID:  DeepLearning_model_R_1549553085844_22 
+#> Model ID:  DeepLearning_model_R_1549574187630_22 
 #> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1
 #>   layer units      type dropout       l1       l2 mean_rate rate_rms
 #> 1     1    10     Input  0.00 %       NA       NA        NA       NA
-#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.014752 0.011154
-#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.159824 0.186847
-#> 4     4     1    Linear      NA 0.000000 0.000000  0.001515 0.001017
+#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.014302 0.008282
+#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.118357 0.167490
+#> 4     4     1    Linear      NA 0.000000 0.000000  0.001268 0.000915
 #>   momentum mean_weight weight_rms mean_bias bias_rms
 #> 1       NA          NA         NA        NA       NA
-#> 2 0.000000   -0.001486   0.099189  0.308841 0.083850
-#> 3 0.000000   -0.019616   0.071129  0.944928 0.024054
-#> 4 0.000000   -0.000599   0.039802  0.079618 0.000000
+#> 2 0.000000    0.002659   0.104131  0.364830 0.061140
+#> 3 0.000000   -0.017469   0.071086  0.957606 0.021383
+#> 4 0.000000   -0.002594   0.051969  0.101572 0.000000
 #> 
 #> 
 #> H2ORegressionMetrics: deeplearning
 #> ** Reported on training data. **
 #> ** Metrics reported on full training frame **
 #> 
-#> MSE:  330
-#> RMSE:  18.2
-#> MAE:  14.8
-#> RMSLE:  0.575
-#> Mean Residual Deviance :  330
+#> MSE:  287
+#> RMSE:  17
+#> MAE:  12.8
+#> RMSLE:  0.521
+#> Mean Residual Deviance :  287
 ```
 
 Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. \@ref(fig:map-snd) and Fig. \@ref(fig:map-snd-dl)).
@@ -377,7 +377,7 @@ eberg_grid$DLx <- as.data.frame(h2o.predict(DL.m, eberg.grid, na.action=na.pass)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="06-Soilmapping_using_mla_files/figure-html/map-snd-dl-1.png" alt="Predicted sand content based on deep learning." width="100%" />
+<img src="06-Soilmapping_using_mla_files/figure-html/map-snd-dl-1.png" alt="Predicted sand content based on deep learning." width="80%" />
 <p class="caption">(\#fig:map-snd-dl)Predicted sand content based on deep learning.</p>
 </div>
 
@@ -392,8 +392,8 @@ eberg_grid$SNDMHT_A <- rowSums(cbind(eberg_grid$RFx*rf.R2,
 ```
 
 <div class="figure" style="text-align: center">
-<img src="06-Soilmapping_using_mla_files/figure-html/map-snd-ensemble-1.png" alt="Predicted SAND content based on ensemble predictions." width="80%" />
-<p class="caption">(\#fig:map-snd-ensemble)Predicted SAND content based on ensemble predictions.</p>
+<img src="06-Soilmapping_using_mla_files/figure-html/map-snd-ensemble-1.png" alt="Predicted sand content based on ensemble predictions." width="80%" />
+<p class="caption">(\#fig:map-snd-ensemble)Predicted sand content based on ensemble predictions.</p>
 </div>
 
 Indeed, the output map now shows patterns of both methods and is more likely slightly more accurate than any of the individual MLA's [@krogh1996learning].
@@ -451,7 +451,7 @@ hor2xyd <- function(x, U="UHDICM", L="LHDICM", treshold.T=15){
 ```
 
 <div class="figure" style="text-align: center">
-<img src="figures/horizon_depths_for_3d_modeling_scheme.png" alt="Training points assigned to a soil profile with 3 horizons. Using the function from above, we assign a total of 7 training points i.e. about 2 times more training points than there are horizons." width="75%" />
+<img src="figures/horizon_depths_for_3d_modeling_scheme.png" alt="Training points assigned to a soil profile with 3 horizons. Using the function from above, we assign a total of 7 training points i.e. about 2 times more training points than there are horizons." width="60%" />
 <p class="caption">(\#fig:hor-3d-scheme)Training points assigned to a soil profile with 3 horizons. Using the function from above, we assign a total of 7 training points i.e. about 2 times more training points than there are horizons.</p>
 </div>
 
@@ -475,7 +475,7 @@ Note that `DEPTH` is used as a covariate, which makes this model 3D as one can p
 library(caret)
 ctrl <- trainControl(method="repeatedcv", number=5, repeats=1)
 sel <- sample.int(nrow(mP2), 500)
-tr.ORCDRC.rf <- train(formulaStringP2, data=mP2[sel,], 
+tr.ORCDRC.rf <- train(formulaStringP2, data = mP2[sel,], 
                       method = "rf", trControl = ctrl, tuneLength = 3)
 tr.ORCDRC.rf
 #> Random Forest 
@@ -547,7 +547,7 @@ edgeroi.grids$ORCDRC_5cm <- (edgeroi.grids$Random_forest*w1 +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="06-Soilmapping_using_mla_files/figure-html/maps-soc-edgeroi-1.png" alt="Comparison of three MLA's and final ensemble prediction (ORCDRC 5cm) of soil organic carbon content for 2.5 cm depth." width="80%" />
+<img src="06-Soilmapping_using_mla_files/figure-html/maps-soc-edgeroi-1.png" alt="Comparison of three MLA's and final ensemble prediction (ORCDRC 5cm) of soil organic carbon content for 2.5 cm depth." width="90%" />
 <p class="caption">(\#fig:maps-soc-edgeroi)Comparison of three MLA's and final ensemble prediction (ORCDRC 5cm) of soil organic carbon content for 2.5 cm depth.</p>
 </div>
 
@@ -602,16 +602,16 @@ str(test.ORC)
 #> List of 2
 #>  $ CV_residuals:'data.frame':	4972 obs. of  4 variables:
 #>   ..$ Observed : num [1:4972] 6.5 5.1 4.9 3.3 2.2 ...
-#>   ..$ Predicted: num [1:4972] 12.25 7.15 6.61 5.11 2.79 ...
+#>   ..$ Predicted: num [1:4972] 12.48 7.54 6.48 4.85 2.93 ...
 #>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" ...
 #>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ Summary     :'data.frame':	1 obs. of  6 variables:
-#>   ..$ ME          : num -0.136
-#>   ..$ MAE         : num 2.19
-#>   ..$ RMSE        : num 3.68
-#>   ..$ R.squared   : num 0.557
-#>   ..$ logRMSE     : num 0.496
-#>   ..$ logR.squared: num 0.634
+#>   ..$ ME          : num -0.151
+#>   ..$ MAE         : num 2.17
+#>   ..$ RMSE        : num 3.66
+#>   ..$ R.squared   : num 0.561
+#>   ..$ logRMSE     : num 0.493
+#>   ..$ logR.squared: num 0.639
 ```
 
 Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about $\pm 4$ g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:
@@ -625,7 +625,7 @@ plt0 <- xyplot(test.ORC[[1]]$Observed ~ test.ORC[[1]]$Predicted, asp=1,
 ```
 
 <div class="figure" style="text-align: center">
-<img src="figures/Predicted_vs_observed_plot_for_SOC_edgeroi.png" alt="Predicted vs observed plot for soil organic carbon ML-based model (Edgeroi data set)." width="55%" />
+<img src="figures/Predicted_vs_observed_plot_for_SOC_edgeroi.png" alt="Predicted vs observed plot for soil organic carbon ML-based model (Edgeroi data set)." width="40%" />
 <p class="caption">(\#fig:plot-measured-predicted)Predicted vs observed plot for soil organic carbon ML-based model (Edgeroi data set).</p>
 </div>
 
@@ -673,7 +673,7 @@ perf
 #> 
 #> Base learner performance, sorted by specified metric:
 #>                    learner  MSE
-#> 1 h2o.randomForest.wrapper 12.9
+#> 1 h2o.randomForest.wrapper 13.1
 #> 2          h2o.gbm.wrapper 12.8
 #> 
 #> 
@@ -681,7 +681,7 @@ perf
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 12.4761778111082
+#> Ensemble performance (MSE): 12.4950143273141
 ```
 
 which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.
@@ -781,16 +781,16 @@ perf3
 #> Base learner performance, sorted by specified metric:
 #>                    learner    MSE
 #> 1          h2o.glm.wrapper 0.2827
-#> 4 h2o.deeplearning.wrapper 0.1328
+#> 4 h2o.deeplearning.wrapper 0.1561
 #> 3          h2o.gbm.wrapper 0.0971
-#> 2 h2o.randomForest.wrapper 0.0832
+#> 2 h2o.randomForest.wrapper 0.0837
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 0.0790833756299966
+#> Ensemble performance (MSE): 0.0772638638284431
 ```
 
 In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.
@@ -872,12 +872,12 @@ sl
 #>     SL.library = sl.l) 
 #> 
 #> 
-#>                  Risk   Coef
-#> SL.mean_All    0.7540 0.0000
-#> SL.xgboost_All 0.0598 0.8186
-#> SL.ksvm_All    0.1289 0.0139
-#> SL.glmnet_All  0.3080 0.0000
-#> SL.ranger_All  0.0856 0.1675
+#>                  Risk    Coef
+#> SL.mean_All    0.7540 0.00000
+#> SL.xgboost_All 0.0598 0.81304
+#> SL.ksvm_All    0.1289 0.00914
+#> SL.glmnet_All  0.3077 0.00000
+#> SL.ranger_All  0.0851 0.17782
 ```
 
 This shows that `SL.xgboost_All` outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by `SL.xgboost_All` is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:
@@ -897,9 +897,9 @@ sl2
 #> 
 #> 
 #>                  Risk  Coef
-#> SL.xgboost_All 0.0603 0.808
-#> SL.ranger_All  0.0829 0.192
-#> SL.ksvm_All    0.1300 0.000
+#> SL.xgboost_All 0.0603 0.823
+#> SL.ranger_All  0.0841 0.177
+#> SL.ksvm_All    0.1301 0.000
 ```
 
 again `SL.xgboost` dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where entire profiles are taken out of the training dataset:
@@ -927,10 +927,10 @@ summary(cv_sl)
 #> 
 #>       Algorithm  Ave    se   Min  Max
 #>   Super Learner 0.16 0.014 0.094 0.25
-#>     Discrete SL 0.17 0.014 0.115 0.25
+#>     Discrete SL 0.16 0.014 0.104 0.25
 #>  SL.xgboost_All 0.19 0.016 0.135 0.27
 #>   SL.ranger_All 0.16 0.014 0.104 0.25
-#>     SL.ksvm_All 0.18 0.014 0.109 0.30
+#>     SL.ksvm_All 0.18 0.014 0.110 0.29
 ```
 
 where `V=5` specifies number of folds, and `id=rm.cookfarm$SOURCEID` enforces that entire profiles are removed from training and cross-validation. This gives a more realistic RMSE of about ±0.35. Note that this time `SL.xgboost_All` is even somewhat worse than the random forest model, and the ensemble model (`Super Learner`) is slightly better than each individual model. This matches our previous results with `h20.ensemble`. 
@@ -955,8 +955,8 @@ sl2
 #> 
 #>                 Risk  Coef
 #> SL.xgboost_All 0.215 0.000
-#> SL.ranger_All  0.166 0.467
-#> SL.ksvm_All    0.163 0.533
+#> SL.ranger_All  0.166 0.461
+#> SL.ksvm_All    0.163 0.539
 new.data <- grid10m@data
 pred.PHI <- list(NULL)
 depths = c(10,30,50,70,90)
@@ -978,7 +978,7 @@ for(j in 1:length(depths)){
 #>     buffer, rotated
 str(pred.PHI[[1]])
 #> List of 2
-#>  $ pred           : num [1:3865, 1] 4.63 4.7 4.84 4.81 4.74 ...
+#>  $ pred           : num [1:3865, 1] 4.66 4.73 4.89 4.85 4.78 ...
 #>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...
 #>   ..- attr(*, "dimnames")=List of 2
 #>   .. ..$ : NULL
@@ -1186,7 +1186,7 @@ library(ranger)
 #>     combine
 ```
 
-If no other information is available, we can use buffer distances to all points as covariates to predict values of some continuous or categorical variable in the RFsp framework. These can be derived with the help of the [raster](https://cran.r-project.org/package=raster) package [@raster]. Consider for example the meuse data set from the [gstat](https://github.com/edzer/gstat) package:
+If no other information is available, we can use buffer distances to all points as covariates to predict values of some continuous or categorical variable in the RFsp framework. These can be derived with the help of the [raster](https://cran.r-project.org/package=raster) package [@raster]. Consider for example the meuse data set from the sp package:
 
 
 ```r
@@ -1446,10 +1446,10 @@ xl <- as.list(ranger::importance(m1.zinc))
 par(mfrow=c(1,1),oma=c(0.7,2,0,1), mar=c(4,3.5,1,0))
 plot(vv <- t(data.frame(xl[order(unlist(xl), decreasing=TRUE)[10:1]])), 1:10, 
      type = "n", ylab = "", yaxt = "n", xlab = "Variable Importance (Node Impurity)",
-     cex.axis = .7, cex.main = .7, cex.lab = .7)
+     cex.axis = .7, cex.lab = .7)
 abline(h = 1:10, lty = "dotted", col = "grey60")
 points(vv, 1:10)
-axis(2, 1:10, labels = dimnames(vv)[[1]], las = 2)
+axis(2, 1:10, labels = dimnames(vv)[[1]], las = 2, cex.axis = .7)
 ```
 
 <div class="figure" style="text-align: center">

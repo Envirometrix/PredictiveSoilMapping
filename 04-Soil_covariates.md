@@ -31,7 +31,7 @@ Predictive Soil Mapping:
   - standard window-based calculations e.g. slope, curvatures, standard deviation,
   - standard flow model outputs,
   - landform classes / landform class likelihoods,
-  - hydrological / soil accumulation and deposition indices — MRVBFI, MRRTFI, Wetness index, height above channel, height below ridge, horizontal distance to channel, horizontal distance to ridge,
+  - hydrological / soil accumulation and deposition indices — MRVBFI, Wetness index, height above channel, height below ridge, horizontal distance to channel, horizontal distance to ridge,
   - climatic and micro-climatic indices determined by relief e.g. incoming solar insolation and similar,
   
 4. Parent material / geologic material covariates, which include:

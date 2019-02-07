@@ -64,9 +64,17 @@ In summary, there are four main variables used to represent soil organic carbon:
  3.  **Soil Organic Carbon Stock** (OCS) in kg/m$^2$ or in tons/ha and for the given soil depth interval,
  4.  **Total Soil Organic Carbon Stock** (TOCS) in million tonnes or Pg i.e. OCS multiplied by surface area,
 
-Global estimates of the total soil organic carbon stock are highly variable [@Scharlemann2014CM]. Current estimates of the present total soil organic carbon stock range between 800–2100 Pg C (for 0–100 cm), with a median estimate of about 1500 Pg C (for 0–100 cm). This means that the average OCS for the 0–100 cm depth interval for the global land mask (148,940,000 km$^2$) is about 11 kg/m$^2$ or 110 tons/ha, and that average soil organic carbon density (OCD) is about 11 kg/m$^3$ (compare to the standard bulk density of fine earth of 1250 kg/m$^3$); standard OCS for 0–30 cm depth interval is 7 kg/m$^2$ i.e. the average OCD is about 13 kg/m$^3$. 
+Global estimates of the total soil organic carbon stock are highly variable
+[@Scharlemann2014CM]. Current estimates of the present total soil organic 
+carbon stock (excluding peatlands) range between 800–2100 Pg C (for 0–100 cm), 
+with a median estimate of about 1500 Pg C (for 0–100 cm). This means that the 
+average OCS for the 0–100 cm depth interval for the global land mask 
+(148,940,000 km$^2$) is about 11 kg/m$^2$ or 110 tons/ha, and that average 
+soil organic carbon density (OCD) is about 11 kg/m$^3$ (compare to the 
+standard bulk density of fine earth of 1250 kg/m$^3$); standard OCS for 
+0–30 cm depth interval is 7 kg/m$^2$ i.e. the average OCD is about 13 kg/m$^3$. 
 
-\BeginKnitrBlock{rmdnote}<div class="rmdnote">The average Organic Carbon Stock for the 0–100 cm depth interval for the land mask (148,940,000 km$^2$) is about 11 kg/m$^2$ or 110 tons/ha. The average soil Organic Carbon Density (OCD) is about 11 kg/m$^3$ (compared to the standard bulk density of fine earth of 1250 kg/m$^3$). Standard Organic Carbon Stock for 0–30 cm depth interval is 7 kg/m$^2$ i.e. the average OCD is about 13 kg/m$^3$.</div>\EndKnitrBlock{rmdnote}
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">The average Organic Carbon Stock for the 0–100 cm depth interval (mineral soils) is about 11 kg/m$^2$ or 110 tons/ha. The average soil Organic Carbon Density (OCD) is about 11 kg/m$^3$ (compared to the standard bulk density of fine earth of 1250 kg/m$^3$). Standard Organic Carbon Stock for 0–30 cm depth interval is 7 kg/m$^2$ i.e. the average OCD is about 13 kg/m$^3$.</div>\EndKnitrBlock{rmdnote}
 
 The distribution of soil organic carbon in the world is, however, highly patchy with large areas with OCS $\ll 100$ tons/ha, and then some *pockets* of accumulated organic material i.e. organic soil types (histosols) with OCS up to 850tons/ha (for 0–30 cm depth interval). The world's soil organic matter accumulation areas are usually found in the following biomes / land cover classes: wetlands and peatlands, mangroves, tundras and taigas. 
 
@@ -76,7 +84,7 @@ Land use and agriculture, in particular, have led to dramatic decreases in soil 
 
 As mentioned previously, OCS stock is most commonly derived from measurements of the organic carbon (ORC) content, soil bulk density (BLD) and the volume fraction of gravel (CRF). These are usually sampled either per soil layers or soil **horizons** (a sequence of horizons makes a soil profile), which can refer to variable soil depth intervals i.e. are non-standard. That means that, before one can determine OCS for standard fixed depth intervals (e.g. 0–30 cm or 0–100 cm), values of ORC, BLD and CRF need to be standardized so they refer to common depth intervals.
 
-Consider, for example, the following two real life examples of soil profile data for a standard agricultural soil and an organic soil. For example the [profile from Australia](http://www.asris.csiro.au/mapping/hyperdocs/NatSoil/399%5EEDGEROI%5Eed079.pdf) [@Karssies2011CSIRO], which is shown in Tbl. \@ref(tab:profile-edgeroi).
+Consider, for example, the following two real life examples of soil profile data for a standard agricultural soil and an organic soil. For example the [profile from Australia](http://www.asris.csiro.au/mapping/hyperdocs/NatSoil/399%5EEDGEROI%5Eed079.pdf) [@Karssies2011CSIRO], which is shown in Tbl. \@ref(tab:profile-edgeroi). Note the original soil profile description / laboratory data indicates that no BLD were recorded for this profile. In the absence of measured field BLD we can substitute BLD estimated using LandGIS data. It (unfortunately) commonly happens that soil profile observations lack BLD measurements, and consequently BLD needs to be generated using a Pedo-Transfer function or estimated from soil maps.
 
 
 Table: (\#tab:profile-edgeroi)Laboratory data for a profile 399 EDGEROI ed079 from Australia (Karssies 2011).
@@ -88,8 +96,6 @@ Table: (\#tab:profile-edgeroi)Laboratory data for a profile 399 EDGEROI ed079 fr
           20            55              6.1           1382    7    3.0
           55            90              3.3           1433    8    1.7
           90           116              1.6           1465    8    0.6
-
-Note that BLD data were not given for the described horizons (the original soil profile description / laboratory data indicates that no BLD were recorded for this profile). In the absence of measured field BLD we can substitute BLD estimated using LandGIS data. It (unfortunately) commonly happens that soil profile observations lack BLD measurements, and consequently BLD needs to be generated using a Pedo-Transfer function or estimated from soil maps.
 
 To determine OCS for standard depth intervals 0–30, 0–100 and 0–200 cm, we first fit a mass-preserving spline [@Malone2009Geoderma]:
 
@@ -107,6 +113,8 @@ library(aqp)
 #>     union
 library(sp)
 library(plyr)
+library(viridis)
+#> Loading required package: viridisLite
 lon = 149.73; lat = -30.09; 
 id = "399_EDGEROI_ed079"; TIMESTRR = "1987-01-05"
 top = c(0, 10, 20, 55, 90) 
@@ -174,7 +182,7 @@ Values of OCS between 5–35 kg/m$^2$ for 0–100 cm are commonly reported for a
 
 \BeginKnitrBlock{rmdnote}<div class="rmdnote">Organic Carbon Stock for standard depths can be determined from legacy soil profile data either by fitting a spline function to organic carbon, bulk density values, or by aggregating data using simple conversion formulas. A standard mineral soil with 1–3% soil organic carbon for the 0–100 cm depth interval should have about 5–35 kg/m$^2$ or 50–350 tonnes/ha. An organic soil with >30% soil organic carbon may have as much as 60–90 kg/m$^2$ for the 0–100 cm depth interval.</div>\EndKnitrBlock{rmdnote}
 
-Note that the measurement error is computed from default uncertainty values (expressed in standard deviations) for organic carbon (10 g/kg), bulk density (100 kg/m$^3$) and coarse fraction content (5%). When these are not provided by the user, the outcome should be interpreted with care. 
+The measurement error is computed from default uncertainty values (expressed in standard deviations) for organic carbon (10 g/kg), bulk density (100 kg/m$^3$) and coarse fraction content (5%). When these are not provided by the user, the outcome should be interpreted with care. 
 
 <div class="figure" style="text-align: center">
 <img src="figures/fig_2_profiles_ocs_edgeroi.png" alt="Determination of soil organic carbon density and stock for standard depth intervals: example of a mineral soil profile from Australia." width="80%" />
@@ -223,7 +231,7 @@ We can again fit mass-preserving splines and determine OCS for standard depth in
 <p class="caption">(\#fig:scheme-soc-prof2)Determination of soil organic carbon density and stock for standard depth intervals: example of an organic soil profile from Canada.</p>
 </div>
 
-Note that only 3–4% of the total soil profiles in the world have organic carbon content above 8% (soils with ORC >12% are classified as organic soils or histosols in USDA and/or WRB classifications and are even less frequent), hence soil-depth functions of organic carbon content and derivation of OCS for organic soils are specific for patches of organic soils. On the other hand, organic soils carry much more total OCS. Precise processing and mapping of organic soils is, therefore, often crucial for accurate estimation of total OCS for large areas. Therefore, it is fairly important to use a good PTF to fill in missing values for BLD for organic soils. As a rule of thumb, organic soil will rarely exhibit a density greater than some minimum value e.g. 120 kg/m$^3$ because even though SOC content can be >50%, bulk density of such soil gets proportionally lower and bulk density is physically bound with how material is organized in soil (unless soils is artificially compacted). Also, using correct estimates for coarse fragments is important as otherwise, if CRF is ignored, total stock will be over-estimated [@poeplau2017soil].
+Only 3–4% of the total soil profiles in the world have organic carbon content above 8% (soils with ORC >12% are classified as organic soils or histosols in USDA and/or WRB classifications and are even less frequent), hence soil-depth functions of organic carbon content and derivation of OCS for organic soils are specific for patches of organic soils. On the other hand, organic soils carry much more total OCS. Precise processing and mapping of organic soils is, therefore, often crucial for accurate estimation of total OCS for large areas. Therefore, it is fairly important to use a good PTF to fill in missing values for BLD for organic soils. As a rule of thumb, organic soil will rarely exhibit a density greater than some minimum value e.g. 120 kg/m$^3$ because even though SOC content can be >50%, bulk density of such soil gets proportionally lower and bulk density is physically bound with how material is organized in soil (unless soils is artificially compacted). Also, using correct estimates for coarse fragments is important as otherwise, if CRF is ignored, total stock will be over-estimated [@poeplau2017soil].
 
 A somewhat more straightforward way to estimate OCS for a list of soil profiles vs spline fitting is:
 
@@ -250,7 +258,7 @@ fm.BLD = as.formula(
   paste("BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +", 
         paste(names(ind.tax), collapse="+")))
 m.BLD_PTF <- ranger(fm.BLD, dfs_tbl, num.trees = 85, importance='impurity')
-#> Growing trees.. Progress: 88%. Estimated remaining time: 4 seconds.
+#> Growing trees.. Progress: 89%. Estimated remaining time: 3 seconds.
 m.BLD_PTF
 #> Ranger result
 #> 
@@ -598,6 +606,11 @@ sum(COSha30.pr$COSha30map_RF*30^2/1e4, na.rm=TRUE)
 
 In the following example, we will demonstrate, using a well known data set, ([Edgeroi](http://gsif.r-forge.r-project.org/edgeroi.html), from Australia) which has been well documented in the literature [@Malone2009Geoderma], how to derive OCS in t/ha using soil profile data and a 3D approach to spatial prediction based on mapping the Organic Carbon Density (OCD) in kg/m-cubic. The Edgeroi data set is a typical example of a soil profile data set that is relatively comprehensive, but still missing BLD measurements. 
 
+<div class="figure" style="text-align: center">
+<img src="figures/edgeroi_overview.jpeg" alt="Edgeroi data set: locations of soil profiles and Australian soil classification codes. For more details see Malone et al. (2009)." width="100%" />
+<p class="caption">(\#fig:edgeroi-overview)Edgeroi data set: locations of soil profiles and Australian soil classification codes. For more details see Malone et al. (2009).</p>
+</div>
+
 The Edgeroi data set can be loaded from the GSIF package:
 
 
@@ -630,12 +643,7 @@ edgeroi.spc = spc(edgeroi.grids, ~DEMSRT5+TWISRT5+PMTGEO5+EV1MOD5+EV2MOD5+EV3MOD
 #> Converting covariates to principal components...
 ```
 
-<div class="figure" style="text-align: center">
-<img src="figures/edgeroi_overview.jpeg" alt="Edgeroi data set: locations of soil profiles and Australian soil classification codes. For more details see Malone et al. (2009)." width="100%" />
-<p class="caption">(\#fig:edgeroi-overview)Edgeroi data set: locations of soil profiles and Australian soil classification codes. For more details see Malone et al. (2009).</p>
-</div>
-
-Note that Edgeroi completely lacks any BLD values, therefore before we can compute OCD values, we need to estimate BLD values for each corresponding horizon. Here the easiest option is probably to use BLD values sourced from LandGIS predictions (and which you can download from https://landgis.opengeohub.org). 
+The Edgeroi completely lacks any BLD values, therefore before we can compute OCD values, we need to estimate BLD values for each corresponding horizon. Here the easiest option is probably to use BLD values sourced from LandGIS predictions (and which you can download from https://landgis.opengeohub.org). 
 
 
 ```r
@@ -774,21 +782,21 @@ so that the final Organic carbon stocks in t/ha is:
 
 
 ```
-#> 
-#> Attaching package: 'raster'
-#> The following objects are masked from 'package:aqp':
-#> 
-#>     metadata, metadata<-
 #>    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 #>    20.3    39.1    48.0    48.8    57.6   112.1
 ```
 
 <div class="figure" style="text-align: center">
-<img src="07-Soil_organic_carbon_files/figure-html/plot-edgeroi-ocd-1.png" alt="Predicted organic carbon stock for 0–30 cm depth and error map for the Edgeroi data set. All values expressed in tons/ha." width="90%" />
-<p class="caption">(\#fig:plot-edgeroi-ocd)Predicted organic carbon stock for 0–30 cm depth and error map for the Edgeroi data set. All values expressed in tons/ha.</p>
+<img src="07-Soil_organic_carbon_files/figure-html/plot-edgeroi-ocd-1.png" alt="Predicted organic carbon stock for 0–30 cm depth for the Edgeroi data set. All values expressed in tons/ha." width="70%" />
+<p class="caption">(\#fig:plot-edgeroi-ocd)Predicted organic carbon stock for 0–30 cm depth for the Edgeroi data set. All values expressed in tons/ha.</p>
 </div>
 
-Note that deriving the error map in the ranger package can be computationally intensive, especially if the number of covariates is high.  It is therefore not yet recommended for large rasters.
+<div class="figure" style="text-align: center">
+<img src="07-Soil_organic_carbon_files/figure-html/plot-edgeroi-ocd-error-1.png" alt="The prediction error map for the Edgeroi data set." width="70%" />
+<p class="caption">(\#fig:plot-edgeroi-ocd-error)The prediction error map for the Edgeroi data set.</p>
+</div>
+
+Note that deriving the error map in the ranger package can be computationally intensive, especially if the number of covariates is high, and is therefore not yet recommended for large rasters.
 
 Next, we can derive the total soil organic carbon stock per [land use class](http://data.environment.nsw.gov.au/dataset/nsw-landuseac11c) (2007). For this we can use the aggregation function from the plyr package:
 
@@ -862,7 +870,7 @@ hist(OCD_stN$YEAR, xlab="Year", main="", col="darkgrey", cex.axis = .7, cex.main
 ```
 
 <div class="figure" style="text-align: center">
-<img src="07-Soil_organic_carbon_files/figure-html/thist-usa48-1.png" alt="Distribution of soil observations based on sampling year." width="85%" />
+<img src="07-Soil_organic_carbon_files/figure-html/thist-usa48-1.png" alt="Distribution of soil observations based on sampling year." width="75%" />
 <p class="caption">(\#fig:thist-usa48)Distribution of soil observations based on sampling year.</p>
 </div>
 
@@ -903,7 +911,7 @@ xl <- as.list(ranger::importance(rf0.OCD_st))
 print(t(data.frame(xl[order(unlist(xl), decreasing=TRUE)[1:10]])))
 ```
 
-which shows that the most important soil covariate by far is soil depth, followed by elevation, grazing, MODIS cloud fraction images, cropland and similar. For a full description of codes please refer to @sanderman2018soil (also available in [this table](https://github.com/whrc/Soil-Carbon-Debt/blob/master/SOCS/WHRC_soilcarbon_list_of_covariates.csv)).
+which shows that the most important soil covariate by far is soil depth, followed by elevation, grazing, MODIS cloud fraction images, cropland and similar. For a full description of codes please refer to @sanderman2018soil.
 
 Finally, based on this model, we can generate predictions for 3–4 specific time periods and for some arbitrary depth e.g. 10 cm. The maps below clearly show that ca 8% of soil organic carbon has been lost in the last 90 years, most likely due to increases in grazing and croplands. The maps also show, however, that some areas in the northern latitudes are experiencing an increase in SOC, possibly due to higher rainfall i.e. based on the CRU data set.
 

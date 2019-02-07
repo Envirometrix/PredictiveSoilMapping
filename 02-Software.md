@@ -18,7 +18,7 @@ sp [@pebesma2005classes], and GDAL [@mitchell2014geospatial] for reprojecting,
 mosaicking and merging tiles. GDAL and parallel packages in R are highly suitable for
 processing large volumes of data.
 
-Software (required):
+Software required to run all exercises in the book includes:
 
 *  [R](http://cran.r-project.org/bin/windows/base/) or [MRO](https://mran.microsoft.com/download/);
 
@@ -34,7 +34,7 @@ Software (required):
 
 *  [GDAL v2.x](https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries) for Windows machines use e.g. ["gdal-*-1800-x64-core.msi"](http://download.gisinternals.com/sdk/downloads/);
 
-R script used in this tutorial can be downloaded from **[github](https://github.com/envirometrix/PredictiveSoilMapping)**. As a gentle introduction to the R programming language and to soil classes in R we recommend the section \@ref(variables-importing) on importing and using soil data. Some more examples of SAGA GIS + R usage can be found in the soil covariates chapter. To visualize spatial predictions in a web-browser or Google Earth you can try using plotKML package [@Hengl2014plotKML]. As a gentle introduction to the R programming language and spatial classes in R we recommend following [the Geocomputation with R book](https://geocompr.robinlovelace.net/). Obtaining the [R reference card](https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf) is highly recommended.
+R script used in this tutorial can be downloaded from **[github](https://github.com/envirometrix/PredictiveSoilMapping)**. As a gentle introduction to the R programming language and to soil classes in R we recommend the section \@ref(variables-importing) on importing and using soil data. Some more examples of SAGA GIS + R usage can be found in the soil covariates chapter. To visualize spatial predictions in a web-browser or Google Earth you can try using plotKML package [@Hengl2014plotKML]. As a gentle introduction to the R programming language and spatial classes in R we recommend following [the Geocomputation with R book](https://geocompr.robinlovelace.net/). Obtaining the [R reference card](https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf) is also highly recommended.
 
 ## Installing software on Ubuntu OS
 
