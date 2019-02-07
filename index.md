@@ -2,7 +2,7 @@
 ---
 title: "Predictive Soil Mapping with R"
 author: ["Tomislav Hengl and Robert A. MacMillan"]
-date: "2019-02-03"
+date: "2019-02-07"
 knit: bookdown::render_book
 site: bookdown::bookdown_site
 documentclass: svmono
@@ -48,16 +48,16 @@ for young scientists. He designed and implemented the global [SoilGrids](http://
 partially in response to other well known open data projects such as OpenStreetMap, GBIF, GlobalForestWatch 
 and global climate mapping projects. He has taught predictive soil mapping at Wageningen University / 
 ISRIC within the “Hands-on-GSIF” block courses. Video tutorials on predictive soil mapping with R can also be 
-found at http://youtube.com/c/ISRICorg and https://www.youtube.com/c/OpenGeoHubFoundation. Tom currently leads production of a web mapping system called “LandGIS” (https://landgis.opengeohub.org) which is envisaged as *“an OpenStreetMap-type system”* for land-related environmental data. The system hosts global, fine spatial resolution data (250 m to 1 km) including various soil classes and soil properties, which is intended for eventual integration annd use at operational or farm-scales.
+found at http://youtube.com/c/ISRICorg and https://www.youtube.com/c/OpenGeoHubFoundation. Tom currently leads the production of a web mapping system called “LandGIS” (https://landgis.opengeohub.org) which is envisaged as *“an OpenStreetMap-type system”* for land-related environmental data. The system hosts global, fine spatial resolution data (250 m to 1 km) including various soil classes and soil properties, which is intended for eventual integration and use at operational or farm-scales.
 
 [**Bob MacMillan**](https://opengeohub.org/people/bob-macmillan) is a retired environmental consultant with over 40 years of experience in creating, packaging, delivering and using environmental information on soils, ecosystems, landforms and hydrology. Bob spent 19 years working in public sector research with the Alberta Research Council and Agriculture and Agri-Food Canada and a second 20 years as a private sector consultant offering services in predictive soil and ecological mapping. Since retiring, Bob has remained an active supporter, promoter, advocate, mentor and technical contributor to several continental to global scale efforts to advance the science and technology of mapping soils and other ecosystem components. As Science Coordinator for the GlobalSoilMap project, Bob helped to articulate the vision for the project and led initial activities aimed at achieving this, including authoring technical specifications, promoting the project, recruiting participants/cooperators, and liaising with representatives of national and international soil agencies. Bob continues to contribute on a voluntary basis to OpenGeoHub (https://opengeohub.org) and the Africa Soil Information Servicce (AfSIS) (http://africasoils.net). Throughout his career, Bob has shared his expertise and his enthusiasm freely with dozens of younger scientists interested in learning about, and becoming, practitioners of digital soil mapping. Bob continues to support the next generation of digital soil mappers through his involvement with OpenGeoHub. 
 
 # Preface {-}
 
-Predictive Soil Mapping (PSM) is based on applying statistical and/or machine learning techniques to fit models for the purpose of producing spatial and/or spatiotemporal predictions of soil variables i.e. maps of soil properties and classes at different resolutions. It is a multidisciplinary field combining statistics, data science, soil science, physical geography, remote sensing, geoinformation science and a number of other sciences [@Scul01; @MCBRATNEY20033; @Henderson2004Geoderma; @Boettinger2010Springer; @Zhu2015PSM]. *Predictive Soil Mapping with R* is about understanding the main concepts behind soil mapping, mastering R packages that can be used to produce high quality soil maps, and about optimizing all processes involved so that production costs can also be reduced.
+Predictive Soil Mapping (PSM) is based on applying statistical and/or machine learning techniques to fit models for the purpose of producing spatial and/or spatiotemporal predictions of soil variables, i.e. maps of soil properties and classes at different resolutions. It is a multidisciplinary field combining statistics, data science, soil science, physical geography, remote sensing, geoinformation science and a number of other sciences [@Scul01; @MCBRATNEY20033; @Henderson2004Geoderma; @Boettinger2010Springer; @Zhu2015PSM]. *Predictive Soil Mapping with R* is about understanding the main concepts behind soil mapping, mastering R packages that can be used to produce high quality soil maps, and about optimizing all processes involved so that production costs can also be reduced.
 
 The main differences between predictive vs traditional expert-based soil mapping are that: (a) the production of maps 
-is based on using state-of-the-art statistical methods to ensure objectivity of maps (including objective uncertainty assessment vs expert judgment), and (b) PSM is driven by automation of the processes so that overall soil data production costs can be reduced and updates of maps implemented without requirements for large investments. R, in that sense, is a logical platform to develop PSM workflows and applications, especially thanks to the vibrant and productive R spatial interest group activities and also thanks to the increasingly professional soil data packages such as, for example: the soiltexture, aqp, soilprofile, soilDB and similar.
+is based on using state-of-the-art statistical methods to ensure objectivity of maps (including objective uncertainty assessment vs expert judgment), and (b) PSM is driven by automation of the processes so that overall soil data production costs can be reduced and updates of maps implemented without requirements for large investments. R, in that sense, is a logical platform to develop PSM workflows and applications, especially thanks to the vibrant and productive R spatial interest group activities and also thanks to the increasingly professional soil data packages such as, for example: soiltexture, aqp, soilprofile, soilDB and similar.
 
 The book is divided into sections covering theoretical concepts, preparation of covariates, model selection and evaluation, prediction and visualization and distribution of final maps. Most of the chapters contain R code examples that try to illustrate the main processing steps and give practical instructions to developers and applied users.
 
@@ -89,17 +89,17 @@ Most of methods described in this book are based on the following publications:
 
 Some other relevant publications / books on the subject of Predictive Soil Mapping and Data Science in general include:
 
-* Malone, B.P, Minasny, B., McBratney, A.B., (2016) [Using R for Digital Soil Mapping](https://www.springer.com/gp/book/9783319443256). Progress in Soil Science
+* Malone, B.P, Minasny, B., McBratney, A.B., (2016) [**Using R for Digital Soil Mapping**](https://www.springer.com/gp/book/9783319443256). Progress in Soil Science
 ISBN: 9783319443270, 262 pages.
 
-* Hengl, T., & MacMillan, R. A. (2009). [Geomorphometry—a key to landscape mapping and modelling](https://doi.org/10.1016/S0166-2481(08)00019-6). Developments in Soil Science, 33, 433–460. 
+* Hengl, T., & MacMillan, R. A. (2009). [**Geomorphometry—a key to landscape mapping and modelling**](https://doi.org/10.1016/S0166-2481(08)00019-6). Developments in Soil Science, 33, 433–460. 
 
-* California Soil Resource Lab, (2017) [Open Source Software Tools for Soil Scientists](https://casoilresource.lawr.ucdavis.edu/software/), UC Davis.
+* California Soil Resource Lab, (2017) [**Open Source Software Tools for Soil Scientists**](https://casoilresource.lawr.ucdavis.edu/software/), UC Davis.
 
-* McBratney, A.B., Minasny, B., Stockmann, U. (Eds) (2018) [Pedometrics](https://www.springer.com/gp/book/9783319634371). Progress in Soil Science
+* McBratney, A.B., Minasny, B., Stockmann, U. (Eds) (2018) [**Pedometrics**](https://www.springer.com/gp/book/9783319634371). Progress in Soil Science
 ISBN: 9783319634395, 720 pages.
 
-* FAO, (2018) [Soil Organic Carbon Mapping Cookbook](https://github.com/FAO-GSP/SOC-Mapping-Cookbook). 2nd edt. ISBN: 9789251304402
+* FAO, (2018) [**Soil Organic Carbon Mapping Cookbook**](https://github.com/FAO-GSP/SOC-Mapping-Cookbook). 2nd edt. ISBN: 9789251304402
 
 Readers are also encouraged to obtain and study the following R books before following some of the more complex exercises in this book:
 
@@ -115,13 +115,15 @@ Readers are also encouraged to obtain and study the following R books before fol
 
 * Reimann, C., Filzmoser, P., Garrett, R., Dutter, R., (2008) [**Statistical Data Analysis Explained Applied Environmental Statistics with R**](https://onlinelibrary.wiley.com/doi/book/10.1002/9780470987605). Wiley, Chichester, 337 pages.
 
-* Wilke, C.O., (2019) [**Fundamentals of Data Visualization**](https://serialmentor.com/dataviz/). O’Reilly, in press. 
+* Wilke, C.O., (2019) [**Fundamentals of Data Visualization**](https://serialmentor.com/dataviz/). O’Reilly, in press.
+
+* Wikle, C.K., Zammit-Mangion, A., and Cressie, N. (2019). [**Spatio-Temporal Statistics with R**](https://spacetimewithr.org). Chapman & Hall/CRC, Boca Raton, FL.
 
 For the most recent developments in the R-spatial community refer to https://r-spatial.github.io, the R-sig-geo mailing list and/or https://opengeohub.org.
 
 ## Contributions {-}
 
-This book is deigned to be constantly updated and contributions are always welcome (through pull requests, but also through adding new chapters) provided that some minimum requirements are met. To contribute a complete new chapter please contact the editors first. Some minimum requirements to contribute a chapter are:
+This book is designed to be constantly updated and contributions are always welcome (through pull requests, but also through adding new chapters) provided that some minimum requirements are met. To contribute a new chapter please contact the editors first. Some minimum requirements to contribute a chapter are:
 
 1. The data needs to be available for the majority of tutorials presented in a chapter. It is best if this is via some R package or web-source.
 2. A chapter should ideally focus on implementing some computing in R (it should be written as an R tutorial).
@@ -130,7 +132,7 @@ This book is deigned to be constantly updated and contributions are always welco
 5. A chapter should consist of at least 1500 words and at most 3500 words.
 6. The topic of the chapter must be closely connected to the theme of soil mapping, soil geographical databases, methods for processing spatial soil data and similar.
 
-In principle, all submitted chapters should also follow closely the [five pillars of Wikipedia](https://en.wikipedia.org/wiki/Wikipedia:Five_pillars), especially: Verifiability, Reproducibility, No original research, Neutral point of view, Good faith, No conflict of interest, and no personal attacks.
+In principle, all submitted chapters should follow closely also the [five pillars of Wikipedia](https://en.wikipedia.org/wiki/Wikipedia:Five_pillars), especially: Verifiability, Reproducibility, No original research, Neutral point of view, Good faith, No conflict of interest, and No personal attacks.
 
 ## Reproducibility {-}
 
@@ -189,7 +191,7 @@ We are especially grateful to [Jakub Nowosad](https://nowosad.github.io/) for he
 
 OpenGeoHub is a not-for-profit research foundation with headquarters in Wageningen, the Netherlands (Stichting OpenGeoHub, KvK 71844570). The main goal of the OpenGeoHub is to promote publishing and sharing of Open Geographical and Geoscientific Data and using and developing of Open Source Software. We believe that the key measure of quality of research in all sciences (and especially in geographical information sciences) is in transparency and reproducibility of the computer code used to generate results. Transparency and reproducibility increase trust in information so that it is eventually also the fastest path to optimal decision making.
 
-Every effort has been made to trace copyright holders of the materials used in this publication. Should we, despite all our efforts have overlooked contributors please contact the author and we shall correct this unintentional omission without any delay and will acknowledge any overlooked contributions and contributors in future updates. 
+Every effort has been made to trace copyright holders of the materials used in this publication. Should we, despite all our efforts, have overlooked contributors please contact the author and we shall correct this unintentional omission without any delay and will acknowledge any overlooked contributions and contributors in future updates. 
 
 ---
 

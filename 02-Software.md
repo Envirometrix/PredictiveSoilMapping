@@ -8,7 +8,7 @@ This section contains instructions on how to install and use software to run pre
 ## List of software in use
 
 <div class="figure" style="text-align: center">
-<img src="figures/software_triangle.png" alt="Software combination used in this book." width="60%" />
+<img src="figures/software_triangle.png" alt="Software combination used in this book." width="55%" />
 <p class="caption">(\#fig:software-triangle)Software combination used in this book.</p>
 </div>
 
@@ -34,7 +34,7 @@ Software (required):
 
 *  [GDAL v2.x](https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries) for Windows machines use e.g. ["gdal-*-1800-x64-core.msi"](http://download.gisinternals.com/sdk/downloads/);
 
-R script used in this tutorial can be downloaded from the **[github](https://github.com/envirometrix/PredictiveSoilMapping)**. As a gentle introduction to the R programming language and to soil classes in R we recommend the chapter on importing and using soil data. Some more examples of SAGA GIS + R usage can be found in the soil covariates chapter. To visualize spatial predictions in a web-browser or Google Earth you can try using plotKML package [@Hengl2014plotKML]. As a gentle introduction to the R programming language and spatial classes in R we recommend following [the Geocomputation with R book](https://geocompr.robinlovelace.net/). Obtaining also the [R reference card](https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf) is highly recommended.
+R script used in this tutorial can be downloaded from **[github](https://github.com/envirometrix/PredictiveSoilMapping)**. As a gentle introduction to the R programming language and to soil classes in R we recommend the section \@ref(variables-importing) on importing and using soil data. Some more examples of SAGA GIS + R usage can be found in the soil covariates chapter. To visualize spatial predictions in a web-browser or Google Earth you can try using plotKML package [@Hengl2014plotKML]. As a gentle introduction to the R programming language and spatial classes in R we recommend following [the Geocomputation with R book](https://geocompr.robinlovelace.net/). Obtaining the [R reference card](https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf) is highly recommended.
 
 ## Installing software on Ubuntu OS
 
@@ -42,11 +42,11 @@ On Ubuntu (often the preferred standard for the GIS community) the main required
 
 
 ```bash
-sudo apt-get install libgdal-dev libproj-dev libjasper-dev
+sudo apt-get install libgdal-dev libproj-dev
 sudo apt-get install gdal-bin python-gdal
 ```
 
-Next, we install R and RStudio. For R studio you can use the CRAN distribution or the optimized distribution provided by (the former REvolution company; now Microsoft):
+Next, we install R and RStudio. For R studio you can use the CRAN distribution or the optimized distribution provided by the former REvolution company (now owned by Microsoft):
 
 
 ```bash
@@ -56,7 +56,7 @@ cd microsoft-r-open/
 sudo ./install.sh
 ```
 
-Note that R versions are constantly being updated so you will need to replace the URL above based on the most current information provided on the home page (http://mran.microsoft.com). Once you run ```install.sh``` you will have to accept the license terms twice before the installation can be completed. If everything completes successfully, you can get the session info by:
+Note that R versions are constantly being updated so you will need to replace the URL above based on the most current information provided on the home page (http://mran.microsoft.com). Once you run ```install.sh``` you will have to accept the license terms twice before the installation can be completed. If everything completes successfully, you can get the session info by typing:
 
 
 ```r
@@ -88,11 +88,18 @@ sessionInfo()
 #>  [5] htmltools_0.3.6  yaml_2.2.0       Rcpp_1.0.0       codetools_0.2-15
 #>  [9] stringi_1.2.4    rmarkdown_1.11   highr_0.7        stringr_1.3.1   
 #> [13] xfun_0.4         digest_0.6.18    evaluate_0.12
-system("gdalinfo --version")
-#> Warning in system("gdalinfo --version"): error in running command
 ```
 
-This shows, for example, that the this installation of R is based on the Ubuntu 16.* LTS and the version of GDAL is up to date. Using an optimized distribution of R (read more about ["The Benefits of Multithreaded Performance with Microsoft R Open"](https://mran.microsoft.com/documents/rro/multithread)) is especially important if you plan to use R for production purposes i.e. to optimize computing and generation of soil maps for large numbers of pixels.
+
+```r
+system("gdalinfo --version")
+```
+
+This shows, for example, that the this installation of R is based on the Ubuntu 16.* LTS operating system
+and the version of GDAL is up to date. Using an optimized distribution of R 
+(read more about ["The Benefits of Multithreaded Performance with Microsoft R Open"](https://mran.microsoft.com/documents/rro/multithread)) is especially 
+important if you plan to use R for production purposes i.e. to optimize computing 
+and generation of soil maps for large numbers of pixels.
 
 To install RStudio we can run:
 
@@ -104,7 +111,7 @@ sudo gdebi rstudio-1.1.447-amd64.deb
 sudo rm rstudio-1.1.447-amd64.deb
 ```
 
-Again, RStudio is constantly updated so you might have to obtain the most recent rstudio version and distribution.
+Again, RStudio is constantly updated so you might have to obtain the most recent RStudio version and distribution.
 To learn more about doing first steps in R and RStudio and to learn to improve your scripting skills more efficiently, consider studying the following tutorials:
 
 * Grolemund, G., (2014) [**Hands-On Programming with R**](https://rstudio-education.github.io/hopr/). O’Reilly, 236 pages.
@@ -117,7 +124,7 @@ To learn more about doing first steps in R and RStudio and to learn to improve y
 
 Predictive soil mapping is about making maps, and working with maps requires use of GIS software to open, view overlay and analyze the data spatially. GIS software recommended in this book for soil mapping consists of SAGA GIS, QGIS, GRASS GIS and Google Earth. QGIS comes with an [extensive literature](https://www.qgis.org/en/docs/) and can be used to publish maps and combine layers served by various organizations. 
 SAGA GIS, being implemented in C++, is highly suited for running geoprocessing on large data sets. 
-To, install SAGA GIS on Ubuntu we can use:
+To install SAGA GIS on Ubuntu we can use:
 
 
 ```bash
@@ -143,7 +150,7 @@ sudo apt-get update
 sudo apt-get install qgis python-qgis qgis-plugin-grass
 ```
 
-Other utility software that you might need include `htop` that allows you to track processing progress:
+Other utility software that you might need include `htop` program that allows you to track processing progress:
 
 
 ```bash
@@ -208,7 +215,7 @@ To install all required R packages used in this tutorial at once, you can use:
 
 
 ```r
-ls <- c("rgdal", "raster", "sf", "GSIF", "plotKML", 
+ls <- c("reshape", "Hmisc", "rgdal", "raster", "sf", "GSIF", "plotKML", 
         "nnet", "plyr", "ROCR", "randomForest", "quantregForest", 
         "psych", "mda", "h2o", "h2oEnsemble", "dismo", "grDevices", 
         "snowfall", "hexbin", "lattice", "ranger", 
@@ -216,14 +223,14 @@ ls <- c("rgdal", "raster", "sf", "GSIF", "plotKML",
         "randomForestSRC", "ggRandomForests", "scales",
         "xgboost", "parallel", "doParallel", "caret", 
         "gam", "glmnet", "matrixStats", "SuperLearner",
-        "quantregForest", "intamap", "fasterize")
+        "quantregForest", "intamap", "fasterize", "viridis")
 new.packages <- ls[!(ls %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
 ```
 
 This will basically check if any package is installed already, then install it only if it is missing. You can put this line at the top of each R script that you share so that anybody using that script will automatically obtain all required packages.
 
-The h2o package requires Java libraries, so you should first install Java by using e.g.:
+Note that the h2o package requires Java libraries, so you will also have to install Java by using e.g.:
 
 
 ```bash
@@ -248,7 +255,7 @@ if(!require(GSIF)){
 #> URL: http://gsif.r-forge.r-project.org/
 ```
 
-A copy of the most-up-to-date and stable versions of plotKML and GSIF is also available on [github](https://github.com/cran/GSIF). To run only some specific function from the GSIF package you could do for example:
+A copy of the most-up-to-date and stable versions of plotKML and GSIF is also available on [github](https://github.com/cran/GSIF). To run only some specific function from the GSIF package you can do e.g.:
 
 
 ```r
@@ -325,8 +332,8 @@ om.rk
 ```
 
 <div class="figure" style="text-align: center">
-<img src="figures/ge_preview.jpg" alt="Example of plotKML output." width="90%" />
-<p class="caption">(\#fig:ge-preview)Example of plotKML output.</p>
+<img src="figures/ge_preview.jpg" alt="Example of a plotKML output for geostatistical model and prediction." width="90%" />
+<p class="caption">(\#fig:ge-preview)Example of a plotKML output for geostatistical model and prediction.</p>
 </div>
 
 ## Connecting R and SAGA GIS
@@ -339,7 +346,7 @@ R to SAGA GIS by using the ```saga_cmd``` command line interface:
 
 
 ```r
-if(!Sys.info()['sysname']=="Linux"){
+if(Sys.info()['sysname']=="Windows"){
   saga_cmd = "C:/Progra~1/SAGA-GIS/saga_cmd.exe"
 } else {
   saga_cmd = "saga_cmd"

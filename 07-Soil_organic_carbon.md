@@ -5,7 +5,7 @@
 
 ## Introduction
 
-This chapter was prepared as supplementary material for the @sanderman2018soil article. It explains how to map Soil Organic Carbon Stocks (OCS) using soil samples (point data). It also demonstrates derivation of values at both the site level (per profile) and by using raster calculus (per pixel). We then illustrate how to estimate total OCS for any area of interest (which can be a field plot, farm and/or administrative region). For an introduction to soil mapping using Machine Learning Algorithms refer to chapter \@ref(soilmapping-using-mla). To access the ISRIC global compilation of soil profiles referenced here please refer to: [http://www.isric.org/explore/wosis](http://www.isric.org/explore/wosis).
+This chapter was prepared as supplementary material for the @sanderman2018soil article. It explains how to map Soil Organic Carbon Stocks (OCS) using soil samples (point data). It also demonstrates derivation of values at both the site level (per profile) and by using raster calculus (per pixel). We then illustrate how to estimate total OCS for any area of interest (which can be a field plot, farm and/or administrative region). For an introduction to soil mapping using Machine Learning Algorithms refer to chapter \@ref(soilmapping-using-mla). To access the ISRIC global compilation of soil profiles referenced here please refer to: http://www.isric.org/explore/wosis
 
 ## Measurement and derivation of soil organic carbon
 
@@ -177,7 +177,7 @@ Values of OCS between 5–35 kg/m$^2$ for 0–100 cm are commonly reported for a
 Note that the measurement error is computed from default uncertainty values (expressed in standard deviations) for organic carbon (10 g/kg), bulk density (100 kg/m$^3$) and coarse fraction content (5%). When these are not provided by the user, the outcome should be interpreted with care. 
 
 <div class="figure" style="text-align: center">
-<img src="figures/fig_2_profiles_ocs_edgeroi.png" alt="Determination of soil organic carbon density and stock for standard depth intervals: example of a mineral soil profile from Australia." width="90%" />
+<img src="figures/fig_2_profiles_ocs_edgeroi.png" alt="Determination of soil organic carbon density and stock for standard depth intervals: example of a mineral soil profile from Australia." width="80%" />
 <p class="caption">(\#fig:scheme-soc-prof1)Determination of soil organic carbon density and stock for standard depth intervals: example of a mineral soil profile from Australia.</p>
 </div>
 
@@ -219,7 +219,7 @@ We can again fit mass-preserving splines and determine OCS for standard depth in
 *  0–200 cm: 114.5 kg / m-square (1145 tonnes / ha)
 
 <div class="figure" style="text-align: center">
-<img src="figures/fig_2_profiles_ocs_organic.png" alt="Determination of soil organic carbon density and stock for standard depth intervals: example of an organic soil profile from Canada." width="90%" />
+<img src="figures/fig_2_profiles_ocs_organic.png" alt="Determination of soil organic carbon density and stock for standard depth intervals: example of an organic soil profile from Canada." width="80%" />
 <p class="caption">(\#fig:scheme-soc-prof2)Determination of soil organic carbon density and stock for standard depth intervals: example of an organic soil profile from Canada.</p>
 </div>
 
@@ -233,7 +233,7 @@ A somewhat more straightforward way to estimate OCS for a list of soil profiles 
 4. Aggregate non-standard horizon depth values using some simple rules (Fig. \@ref(fig:scheme-profiles-ocs)).
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_standard_soil_profiles_SOC_calc.png" alt="Estimation of OCS values 0–30 cm using some typical soil profile data without fitting splines." width="95%" />
+<img src="figures/Fig_standard_soil_profiles_SOC_calc.png" alt="Estimation of OCS values 0–30 cm using some typical soil profile data without fitting splines." width="90%" />
 <p class="caption">(\#fig:scheme-profiles-ocs)Estimation of OCS values 0–30 cm using some typical soil profile data without fitting splines.</p>
 </div>
 
@@ -345,7 +345,7 @@ In principle, there are three main approaches to estimating total OCS for an are
 \BeginKnitrBlock{rmdnote}<div class="rmdnote">Soil Organic Carbon stock can be mapped by using at least three different approaches: (1) the 2D approach where estimation of OCS is done at the site level, (2) the 3D approach where soil organic carbon content, bulk density and coarse fragments are mapped separately, then used to derive OCS for standard depths at each grid cell, and (3) the 3D approach based on mapping Organic Carbon Density, then converting to stocks.</div>\EndKnitrBlock{rmdnote}
 
 <div class="figure" style="text-align: center">
-<img src="figures/fig_derivation_socs_scheme.png" alt="Three main computational paths (2D and 3D) to producing maps of organic carbon stock." width="100%" />
+<img src="figures/fig_derivation_socs_scheme.png" alt="Three main computational paths (2D and 3D) to producing maps of organic carbon stock." width="90%" />
 <p class="caption">(\#fig:ocs-three-approaches)Three main computational paths (2D and 3D) to producing maps of organic carbon stock.</p>
 </div>
 
@@ -396,7 +396,7 @@ str(COSha30map@data)
 which shows predictions and kriging variances for `COSha30`.
 
 <div class="figure" style="text-align: center">
-<img src="figures/fig_la_libertad_research_center_socs.jpg" alt="Example of a data set with OCS samples (for 2D prediction). Case study in Colombia available via the geospt package (https://cran.r-project.org/package=geospt)." width="75%" />
+<img src="figures/fig_la_libertad_research_center_socs.jpg" alt="Example of a data set with OCS samples (for 2D prediction). Case study in Colombia available via the geospt package (https://cran.r-project.org/package=geospt)." width="65%" />
 <p class="caption">(\#fig:libertad-soc)Example of a data set with OCS samples (for 2D prediction). Case study in Colombia available via the geospt package (https://cran.r-project.org/package=geospt).</p>
 </div>
 
@@ -572,7 +572,7 @@ This example illustrates that no significant spatial prediction models (with an 
 Note that the absolute values of our predictions of OCS are somewhat different than those produced by the [geospt package](https://cran.r-project.org/package=geospt) authors, although the main patterns are comparable.
 
 <div class="figure" style="text-align: center">
-<img src="07-Soil_organic_carbon_files/figure-html/plot-cosha30map-rf-1.png" alt="Comparison of predictions generated using ordinary kriging (left) and machine learning with the help of 30 m resolution covariates and buffer distances (right)." width="100%" />
+<img src="07-Soil_organic_carbon_files/figure-html/plot-cosha30map-rf-1.png" alt="Comparison of predictions generated using ordinary kriging (left) and machine learning with the help of 30 m resolution covariates and buffer distances (right)." width="75%" />
 <p class="caption">(\#fig:plot-cosha30map-rf)Comparison of predictions generated using ordinary kriging (left) and machine learning with the help of 30 m resolution covariates and buffer distances (right).</p>
 </div>
 
@@ -784,7 +784,7 @@ so that the final Organic carbon stocks in t/ha is:
 ```
 
 <div class="figure" style="text-align: center">
-<img src="07-Soil_organic_carbon_files/figure-html/plot-edgeroi-ocd-1.png" alt="Predicted organic carbon stock for 0–30 cm depth and error map for the Edgeroi data set. All values expressed in tons/ha." width="100%" />
+<img src="07-Soil_organic_carbon_files/figure-html/plot-edgeroi-ocd-1.png" alt="Predicted organic carbon stock for 0–30 cm depth and error map for the Edgeroi data set. All values expressed in tons/ha." width="90%" />
 <p class="caption">(\#fig:plot-edgeroi-ocd)Predicted organic carbon stock for 0–30 cm depth and error map for the Edgeroi data set. All values expressed in tons/ha.</p>
 </div>
 
@@ -858,11 +858,11 @@ This data shows that there are actually sufficient observations spread through t
 
 
 ```r
-hist(OCD_stN$YEAR, xlab="Year", main="", col="darkgrey")
+hist(OCD_stN$YEAR, xlab="Year", main="", col="darkgrey", cex.axis = .7, cex.main = .7, cex.lab = .7)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="07-Soil_organic_carbon_files/figure-html/thist-usa48-1.png" alt="Distribution of soil observations based on sampling year." width="100%" />
+<img src="07-Soil_organic_carbon_files/figure-html/thist-usa48-1.png" alt="Distribution of soil observations based on sampling year." width="85%" />
 <p class="caption">(\#fig:thist-usa48)Distribution of soil observations based on sampling year.</p>
 </div>
 
@@ -908,12 +908,12 @@ which shows that the most important soil covariate by far is soil depth, followe
 Finally, based on this model, we can generate predictions for 3–4 specific time periods and for some arbitrary depth e.g. 10 cm. The maps below clearly show that ca 8% of soil organic carbon has been lost in the last 90 years, most likely due to increases in grazing and croplands. The maps also show, however, that some areas in the northern latitudes are experiencing an increase in SOC, possibly due to higher rainfall i.e. based on the CRU data set.
 
 <div class="figure" style="text-align: center">
-<img src="figures/usa48_ocd_10cm_year2014.png" alt="Predicted OCD (in kg/cubic-m) at 10 cm depth for the year 2014. Blue colors indicate low values, red high values." width="100%" />
+<img src="figures/usa48_ocd_10cm_year2014.png" alt="Predicted OCD (in kg/cubic-m) at 10 cm depth for the year 2014. Blue colors indicate low values, red high values." width="90%" />
 <p class="caption">(\#fig:usa48-ocd-2014)Predicted OCD (in kg/cubic-m) at 10 cm depth for the year 2014. Blue colors indicate low values, red high values.</p>
 </div>
 
 <div class="figure" style="text-align: center">
-<img src="figures/usa48_ocd_10cm_year1925.png" alt="Predicted OCD (in kg/cubic-m) at 10 cm depth for the year 1925." width="100%" />
+<img src="figures/usa48_ocd_10cm_year1925.png" alt="Predicted OCD (in kg/cubic-m) at 10 cm depth for the year 1925." width="90%" />
 <p class="caption">(\#fig:usa48-ocd-1925)Predicted OCD (in kg/cubic-m) at 10 cm depth for the year 1925.</p>
 </div>
 

@@ -98,7 +98,7 @@ terrestrial inventory agencies would suggest that an expert in making
 the maps was required to assist users in interpretation and use of any
 map.
 
-### Is there a future for conventional terrestrial inventory programs ?
+### Is there a future for conventional terrestrial inventory programs?
 
 We have asked ourselves, *“can conventional comprehensive soil and similar terrestrial inventory programs be saved or renewed?”* 
 The short answer is: probably no, at least not in their present format.

@@ -330,14 +330,14 @@ estimation errors. If estimates are treated as if these were
 observations then an important source of error is ignored, which may
 jeopardize the quality of the final soil predictions and in particular
 the associated uncertainty (see further
-Section \@ref(accuracy-assessment)). This problem can be avoided 
+section \@ref(accuracy-assessment)). This problem can be avoided 
 by taking, for example, a 3D modelling approach
 [@poggio2014national; @Hengl2015AfSoilGrids250m], in which model
 calibration and spatial interpolation are based on the original soil
 observations directly (although proper use of this requires that the
 differences in vertical support between measurements are taken into
 account also). We will address this also in later sections of this
-chapter, among others in Section \@ref(prediction-3D).
+chapter, among others in section \@ref(prediction-3D).
 
 \BeginKnitrBlock{rmdnote}<div class="rmdnote">Soil property-depth relationships are commonly modelled using various
 types of mathematical functions. Mass-preserving splines, which ensure
@@ -456,7 +456,7 @@ prediction) and produces three main outputs:
 2.  Predictions at new locations, i.e. a **prediction map**;
 
 3.  Estimate of uncertainty associated with the predictions, i.e. a
-    **prediction error variance map**.
+    **prediction error map**.
 
 It is clear from Fig. \@ref(fig:general-sp-process) that
 the key steps in the mapping procedure are: (a) *choice of the sampling scheme* (e.g. @Ng2018 and @BRUS2019464), 
@@ -766,8 +766,7 @@ portable solutions. Some examples of diverse geostatistical models are
 given in @Brown2014JSS.
 
 The basic geostatistical model treats the soil property of interest as
-the sum of a deterministic trend and a stochastic residual
-(Eq.\@ref(eq:ukm)):
+the sum of a deterministic trend and a stochastic residual:
 
 \begin{equation}
 Z({s}) = m({s}) + \varepsilon({s})
@@ -804,11 +803,11 @@ use a stochastic simulation approach and derive the predictions and
 associated uncertainty (i.e. the conditional probability distribution)
 using numerical simulations.
 
-Model-based geostatistics is based on using an explicitly declared
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">Model-based geostatistics is based on using an explicitly declared
 stochastic model of the data generating mechanism. One basic
 geostatistical model of soil variation is to treat the soil property of
 interest as the sum of a deterministic trend (modelled via some
-regression function) and a zero-mean stochastic residual.
+regression function) and a zero-mean stochastic residual.</div>\EndKnitrBlock{rmdnote}
 
 The trend part of Eq.\@ref(eq:ukm-gstat) (i.e. $m$) can take many forms.
 In the simplest case it would be a constant but usually it is taken as
@@ -871,7 +870,7 @@ between the dependent and covariates. Examples of these so-called
 
 -   *random forests* [@breiman2001random; @meinshausen2006quantile],
 
-Statistical treatment of many of these methods is given in @hastie2009elements.
+Statistical treatment of many of these methods is given in @hastie2009elements and @kuhn2013applied.
 Care needs to be taken when using machine learning techniques, such as random forest, 
 because such techniques are more sensitive to noise and blunders in the data.
 
@@ -1125,6 +1124,7 @@ External Drift, the prediction error is computed as
 {{c}}_{{0}} } \right)^{{T}}  \cdot \left( {{{X}}^{{T}}
 \cdot {{C}}^{ - {{1}}} \cdot {{X}}} \right)^{{{ - 1}}} \cdot \left( {{{X}}_{{0}}  - {{X}}^{{T}}  \cdot
 {{C}}^{ - {{1}}} \cdot {{c}}_{{0}} } \right)
+(\#eq:UKvar2)
 \end{equation}
 
 where $C_0 + C_1$ is the sill variation (variogram parameters), ${C}$
@@ -1132,7 +1132,7 @@ is the covariance matrix of the residuals, and ${{c}}_0$ is the
 vector of covariances of residuals at the unvisited location.
 
 Ignoring the mixed component of the prediction variance in
-Eq.\@ref(eq:UKvar), one can also derive a simplified regression-kriging
+Eq.\@ref(eq:UKvar2), one can also derive a simplified regression-kriging
 variance i.e. as a sum of the kriging variance and the standard error of
 estimating the regression mean:
 
@@ -1142,8 +1142,6 @@ estimating the regression mean:
 {{c}}_{{0}} + {\it{SEM}}^2
 (\#eq:RKvar-simple)
 \end{equation}
-
-which is the general approach used in the GSIF package.
 
 Note that there will always be a small difference between results of
 Eq.\@ref(eq:UKvar) and Eq.\@ref(eq:RKvar-simple), and this is a major
@@ -1848,7 +1846,7 @@ predictions (again point locations or blocks of land).</div>\EndKnitrBlock{rmdno
 
 In statistical terms, the assessment of the uncertainty of produced maps
 is equally important as the prediction of values at all locations. As
-shown in the previous Section, uncertainty of soil variables can be
+shown in the previous section, uncertainty of soil variables can be
 assessed in several ways. Three aspects, however, appear to be important
 for any type of spatial prediction model:
 
@@ -1967,13 +1965,13 @@ library(intamap)
 demo(meuse, echo=FALSE)
 meuse$value = meuse$zinc
 output <- interpolate(meuse, meuse.grid, list(mean=TRUE, variance=TRUE))
-#> R 2019-02-03 18:47:36 interpolating 155 observations, 3103 prediction locations
+#> R 2019-02-07 15:47:29 interpolating 155 observations, 3103 prediction locations
 #> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : 
 #>  using standard model for estimating time. For better 
 #>  platform spesific predictions, please run 
 #>  timeModels <- generateTimeModels()
 #>   and save the workspace
-#> [1] "estimated time for  copula 155.297934180019"
+#> [1] "estimated time for  copula 156.077906902784"
 #> Checking object ... OK
 ```
 
@@ -1987,7 +1985,7 @@ str(output, max.level = 2)
 #> List of 16
 #>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
 #>  $ formulaString      :Class 'formula'  language value ~ 1
-#>   .. ..- attr(*, ".Environment")=<environment: 0x14bca428> 
+#>   .. ..- attr(*, ".Environment")=<environment: 0x1517daa0> 
 #>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
 #>  $ params             :List of 18
 #>   ..$ doAnisotropy     : logi TRUE
@@ -2089,7 +2087,7 @@ automated mapping is typically a three-stage process (Fig. \@ref(fig:scheme-stat
     significant? etc).
 
 2.  *Review the results of spatial prediction and fine-tune some parameters* 
-    if necessary / filter and/or adjust the input maps.
+    and if necessary filter and/or adjust the input maps.
 
 3.  *Re-run the prediction process and publish the final maps*.
 
@@ -2155,11 +2153,12 @@ which means that, in each iteration, models will be refitted from scratch. Next 
 ```r
 resamps <- resamples(list(Mean=mFit0, Soilmap=mFit1, GLM=mFit2, RF=mFit3))
 bwplot(resamps, layout = c(2, 1), metric=c("RMSE","Rsquared"), 
-       fill="grey", scales = list(relation = "free"))
+       fill="grey", scales = list(relation = "free", cex = .7), 
+       cex.main = .7, cex.axis = .7)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="05-Statistical_theory_files/figure-html/bwplot-meuse-1.png" alt="Comparison of spatial prediction accuracy (RMSE at cross-validation points) for simple averaging (Mean), GLM with only soil map as covariate (Soilmap), GLM and random forest (RF) models with all possible covariates. Error bars indicate range of RMSE values for repeated CV." width="100%" />
+<img src="05-Statistical_theory_files/figure-html/bwplot-meuse-1.png" alt="Comparison of spatial prediction accuracy (RMSE at cross-validation points) for simple averaging (Mean), GLM with only soil map as covariate (Soilmap), GLM and random forest (RF) models with all possible covariates. Error bars indicate range of RMSE values for repeated CV." width="60%" />
 <p class="caption">(\#fig:bwplot-meuse)Comparison of spatial prediction accuracy (RMSE at cross-validation points) for simple averaging (Mean), GLM with only soil map as covariate (Soilmap), GLM and random forest (RF) models with all possible covariates. Error bars indicate range of RMSE values for repeated CV.</p>
 </div>
 
@@ -2230,7 +2229,7 @@ geostatistics, as long as there are enough measurements in all spatial
 dimensions.</div>\EndKnitrBlock{rmdnote}
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_voxel_scheme.png" alt="Spatial 3D prediction locations in a gridded system (voxels). In soil mapping, we often predict for larger blocks of land e.g. 100 to 1000 m, but then for vertical depths of few tens of centimeters, so the output voxels might appear in reality as being somewhat disproportional." width="60%" />
+<img src="figures/Fig_voxel_scheme.png" alt="Spatial 3D prediction locations in a gridded system (voxels). In soil mapping, we often predict for larger blocks of land e.g. 100 to 1000 m, but then for vertical depths of few tens of centimeters, so the output voxels might appear in reality as being somewhat disproportional." width="55%" />
 <p class="caption">(\#fig:voxel-scheme)Spatial 3D prediction locations in a gridded system (voxels). In soil mapping, we often predict for larger blocks of land e.g. 100 to 1000 m, but then for vertical depths of few tens of centimeters, so the output voxels might appear in reality as being somewhat disproportional.</p>
 </div>
 
@@ -2585,12 +2584,13 @@ can also validate the *uncertainty of uncertainty* i.e. derive the
 
 ```r
 om.rk.cv <- krige.cv(log1p(om)~dist+soil, meuse.s, vr.fit)
-hist(om.rk.cv$zscore, main="Z-scores histogram", 
-       xlab="z-score value", col="grey", breaks=25)
+hist(om.rk.cv$zscore, main = "Z-scores histogram", 
+     xlab = "z-score value", col = "grey", breaks = 25, 
+     cex.axis = .7, cex.main = .7, cex.lab = .7)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="05-Statistical_theory_files/figure-html/z-scores-histogram-1.png" alt="Z-scores for the cross-validation of the soil organic carbon model." width="100%" />
+<img src="05-Statistical_theory_files/figure-html/z-scores-histogram-1.png" alt="Z-scores for the cross-validation of the soil organic carbon model." width="65%" />
 <p class="caption">(\#fig:z-scores-histogram)Z-scores for the cross-validation of the soil organic carbon model.</p>
 </div>
 
@@ -2618,8 +2618,8 @@ actual uncertainty, or accurate but *‘overoptimistic’* if the reported
 confidence limits are too narrow
 (Fig. \@ref(fig:difference-accuracy-reliability)). 
 
-Ideally, we aim to produce prediction, and prediction error, maps 
-that are both accurate and realistic; or at least realistic. For a review of methods 
+Ideally, we aim to produce prediction and prediction error maps 
+that are both accurate and realistic (or at least realistic). For a review of methods 
 for assessment of uncertainty in soil maps refer
 to @goovaerts2001geostatistical [pp.3–26] and/or @Brus2011EJSS.
 
@@ -2730,15 +2730,17 @@ par(mfrow=c(1,2))
 boxplot(om~ffreq, omm@regModel$data, col="grey",
     xlab="Flooding frequency classes",
     ylab="Organic matter in %",
-    main="Sampled (N = 153)", ylim=c(0,20))
+    main="Sampled (N = 153)", ylim=c(0,20),
+    cex.axis = .7, cex.main = .7, cex.lab = .7)
 boxplot(om.sim1~ffreq, meuse.grid, col="grey",
     xlab="Flooding frequency classes",
     ylab="Organic matter in %",
-    main="Predicted (spatial simulations)", ylim=c(0,20))
+    main="Predicted (spatial simulations)", ylim=c(0,20),
+    cex.axis = .7, cex.main = .7, cex.lab = .7)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="05-Statistical_theory_files/figure-html/confidence-limits-boxplot-1.png" alt="Prediction intervals for three flooding frequency classes for sampled and predicted soil organic matter. The grey boxes show 1st and 3rd quantiles i.e. range where of data falls." width="90%" />
+<img src="05-Statistical_theory_files/figure-html/confidence-limits-boxplot-1.png" alt="Prediction intervals for three flooding frequency classes for sampled and predicted soil organic matter. The grey boxes show 1st and 3rd quantiles i.e. range where of data falls." width="80%" />
 <p class="caption">(\#fig:confidence-limits-boxplot)Prediction intervals for three flooding frequency classes for sampled and predicted soil organic matter. The grey boxes show 1st and 3rd quantiles i.e. range where of data falls.</p>
 </div>
 
@@ -3102,7 +3104,7 @@ effective, pedometric method for an area of interest and a list of
 target variables.
 
 <div class="figure" style="text-align: center">
-<img src="figures/Fig_costs_RMSE_scheme-2.png" alt="An schematic example of a performance plot (‘predictogram’) for comparing spatial prediction models. For more details see: Hengl et al. (2013) doi: 10.1016/j.jag.2012.02.005." width="80%" />
+<img src="figures/Fig_costs_RMSE_scheme-2.png" alt="An schematic example of a performance plot (‘predictogram’) for comparing spatial prediction models. For more details see: Hengl et al. (2013) doi: 10.1016/j.jag.2012.02.005." width="65%" />
 <p class="caption">(\#fig:cost-methods-scheme)An schematic example of a performance plot (‘predictogram’) for comparing spatial prediction models. For more details see: Hengl et al. (2013) doi: 10.1016/j.jag.2012.02.005.</p>
 </div>
 

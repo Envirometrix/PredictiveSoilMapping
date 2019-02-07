@@ -10,40 +10,46 @@
 Soils (and vegetation + ecosystems) form under complex interactions between climate, living organism and anthropogenic influences, modified by relief and hydrological processes and operating over long periods of time. 
 This has been clearly identified first by @jenny1994factors with his CLORPT factors of soil formation and subsequently extended by @MCBRATNEY20033 with the SCORPAN formulation (see section \@ref(soil-mapping-theory)).
 
-In general, the following covariates are commonly considered for use in Predictive Soil Mapping:
+The following groups of covariates are commonly considered for use in 
+Predictive Soil Mapping:
 
-1. Climate related covariates include:
+1. Climate related covariates, which include:
   - temperature maps,
   - precipitation maps,
   - snow cover maps,
   - potential evapotranspiration,
   - cloud fraction and other atmospheric images,
-2. Vegetation and Living Organisms include:
+  
+2. Vegetation and living organisms, which include:
   - vegetation indices e.g. FAPAR (mean, median), NDVI, EVI,
   - biomass, Leaf Area Index, 
   - land cover type maps,
   - vegetation types and communities (if mapped at high accuracy),
   - land cover,
-3. Relief and Topography covariates include:
+  
+3. Relief and topography-related covariates, which include:
   - standard window-based calculations e.g. slope, curvatures, standard deviation,
   - standard flow model outputs,
   - landform classes / landform class likelihoods,
   - hydrological / soil accumulation and deposition indices — MRVBFI, MRRTFI, Wetness index, height above channel, height below ridge, horizontal distance to channel, horizontal distance to ridge,
-  - climatic and micro-climatic indices determined by relief — incoming solar insolation and similar,
-4. Parent material / geologic material covariates include:
+  - climatic and micro-climatic indices determined by relief e.g. incoming solar insolation and similar,
+  
+4. Parent material / geologic material covariates, which include:
   - bedrock type and age,
   - bedrock mineralogy (acid, basic),
   - surface material type, texture, age, mineralogy, thickness,
   - volcanic activity, historic earthquake density,
   - seismic activity level,
-  - gamma Ray Spectroscopy grids,
+  - gamma ray spectroscopy grids,
   - gravity measurements,
   - electrical conductivity/resistance,
-5. Estimated geological age of surface:
+  
+5. Estimated geological age of surface, which include:
   - bedrock age / surface material age,
   - recent disturbance age,
-6. Spatial position or spatial context
-  - Latitude and Longitude,
+  
+6. Spatial position or spatial context, which include:
+  - latitude and longitude,
   - distance to nearest large ocean
   - Northing — distance to north pole,
   - Southing — distance to south pole,
@@ -53,7 +59,8 @@ In general, the following covariates are commonly considered for use in Predicti
   - distance to nearest high mountain,
   - distance to nearest moderate hill,
   - distance to nearest major river,
-7. Human or Anthropogenic Influences
+  
+7. Human or Anthropogenic Influences, which include:
   - land use / land management maps,
   - probability / intensity of agricultural land use,
   - probability / intensity of pasture or grazing use,
@@ -84,9 +91,15 @@ The most relevant (global) publicly available remote sensing-based covariates th
 
 *  [JAXA's ALOS](http://www.eorc.jaxa.jp/ALOS/en/dataset/dataset_index.htm) (PALSAR/PALSAR-2) radar images at 20 m resolution [@shimada2014new]; radar images, bands HH: -27.7 (5.3) dB and HV: -35.8 (3.0) dB, from the JAXA's ALOS project are especially interesting for mapping rock outcrops and exposed bedrock but are also used to distinguish between bare soil and dense vegetation;
 
-Note that the download time for 30 m global RS data can be significant if the data are needed for a larger area (hence you might consider using some RS data processing hub such as [Sentinel hub](http://www.sentinel-hub.com), [Google Earth Engine](https://earthengine.google.com) and/or [Amazon Web Services](https://aws.amazon.com/public-datasets/) instead of trying to download large mosaics yourself). 
+Note that the required download time for 30 m global RS data can be significant 
+if the data are needed for a larger area (hence you might consider using some 
+RS data processing hub such as [Sentinel hub](http://www.sentinel-hub.com), 
+[Google Earth Engine](https://earthengine.google.com) and/or 
+[Amazon Web Services](https://aws.amazon.com/public-datasets/) instead of trying 
+to download large mosaics yourself). 
 
-Most recently soil mappers can also use more advanced (commercial) remote sensing products often available at finer spatial resolution which include:
+Most recently soil mappers can also use more advanced (commercial) remote 
+sensing products often available at finer spatial resolution which include:
 
 *  WorldDEM (https://worlddem-database.terrasar.com) at 12 m resolution multiband elevation products,
 
@@ -153,7 +166,7 @@ SoilGrids250m predictions, most of which were based on remote sensing data:
 
 -   Average soil and sedimentary-deposit thickness in meters [@Pelletier2016].
 
-These covariates were selected to represent factors of soil formation
+The covariates above were selected to represent factors of soil formation
 according to @jenny1994factors: climate, relief, living organisms,
 water dynamics and parent material. Of the five main factors, water
 dynamics and living organisms (especially vegetation dynamics) are not
@@ -182,8 +195,8 @@ and filter sizes. Some physical and chemical processes of soil formation
 or vegetation distribution might not be effective or obvious at finer aggregation
 levels, but these can become very visible at coarser aggregation levels. In
 fact, it seems that spatial dependencies and interactions of the
-covariates can often be explained better simply by a aggregating DEM and its
-derivatives.
+covariates can often be explained better simply by aggregating DEM and its
+derivatives [@Behrens2018128].
 
 ## Preparing soil covariate layers
 
@@ -197,7 +210,7 @@ Before we are able to fit spatial prediction models and generate soil maps, a si
 
 *  Overlaying and subsetting raster stacks and points,
 
-The following examples should provide some ideas about how to program these steps using the most concise possible syntax running the fastest and most robust algorithms. Raster data can often be very large (e.g. millions of pixels) so processing large stacks of remote sensing scenes in R needs to be planned carefully. The complete R tutorial you can download from the **[github repository](https://github.com/envirometrix/PredictiveSoilMapping)**. Instructions on how to install and set-up all software used in this example can be found in the software installation chapter \@ref(software).
+The following examples should provide some ideas about how to program these steps using the most concise possible syntax running the fastest and most robust algorithms. Raster data can often be very large (e.g. millions of pixels) so processing large stacks of remote sensing scenes in R needs to be planned carefully. The complete R tutorial can be downloaded from the [github repository](https://github.com/envirometrix/PredictiveSoilMapping). Instructions on how to install and set-up all software used in this example can be found in the software installation chapter \@ref(software).
 
 ### Converting polygon maps to rasters
 
@@ -219,6 +232,8 @@ library(raster)
 library(plotKML)
 #> plotKML version 0.5-9 (2019-01-04)
 #> URL: http://plotkml.r-forge.r-project.org/
+library(viridis)
+#> Loading required package: viridisLite
 data(eberg_zones)
 spplot(eberg_zones[1])
 ```
@@ -248,7 +263,7 @@ r
 #> values      : 159, 428  (min, max)
 ```
 
-The `eberg_grids25` object is a `SpatialPixelsDataFrame`, which is a spatial gridded data structure of the [sp package](https://cran.r-project.org/web/packages/sp/) package. The raster package also offers data structures for spatial (gridded) data, and stores such data as `RasterLayer` class. Gridded data can be converted from class `SpatialPixelsDataFrame` to Raster layer with the [`raster`](http://www.rdocumentation.org/packages/raster/functions/raster) command. The 
+The `eberg_grids25` object is a `SpatialPixelsDataFrame`, which is a spatial gridded data structure of the [sp package](https://cran.r-project.org/web/packages/sp/) package. The raster package also offers data structures for spatial (gridded) data, and stores such data as `RasterLayer` class. Gridded data can be converted from class `SpatialPixelsDataFrame` to a `Raster` layer with the [`raster`](http://www.rdocumentation.org/packages/raster/functions/raster) command. The 
 [`CRS`](http://www.inside-r.org/packages/cran/sp/docs/CRS) command of the sp package can be used to set a spatial projection. 
 [EPSG projection 31467](http://spatialreference.org/ref/epsg/31467/) is the German coordinate system (each coordinate system has an associated EPSG number that can be obtained from http://spatialreference.org/).
 
@@ -263,8 +278,8 @@ plot(eberg_zones_r)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-Soil_covariates_files/figure-html/eberg-zones-grid-1.png" alt="Ebergotzen parent material polygon map rasterized." width="70%" />
-<p class="caption">(\#fig:eberg-zones-grid)Ebergotzen parent material polygon map rasterized.</p>
+<img src="04-Soil_covariates_files/figure-html/eberg-zones-grid-1.png" alt="Ebergotzen parent material polygon map rasterized to 25 m spatial resolution." width="70%" />
+<p class="caption">(\#fig:eberg-zones-grid)Ebergotzen parent material polygon map rasterized to 25 m spatial resolution.</p>
 </div>
 
 Converting large polygons in R using the raster package can be very time-consuming. To speed up the rasterization of polygons we highly recommend using instead the `fasterize` function:
@@ -283,9 +298,9 @@ eberg_zones_sf <- as(eberg_zones, "sf")
 eberg_zones_r <- fasterize(eberg_zones_sf, r, field="ZONES")
 ```
 
-`fasterize` function is an order of magnitude faster and hence more suitable for operational work. Note also that it only works with Simple Feature (sf) objects.
+`fasterize` function is an order of magnitude faster and hence more suitable for operational work; it only works with Simple Feature (sf) objects, however, so the `sp` polygon object needs to be first coerced to an `sf` object.
 
-Another efficient approach to rasterize polygons is to use SAGA GIS as this can handle large data and is easy to run in parallel. First, you need to export the polygon map to shapefile format which can be done with commands of the [rgdal package](https://cran.r-project.org/web/packages/rgdal/) package:
+Another efficient approach to rasterize polygons is to use SAGA GIS, which can handle large data and is easy to run in parallel. First, you need to export the polygon map to shapefile format which can be done with commands of the [rgdal package](https://cran.r-project.org/web/packages/rgdal/) package:
 
 
 ```r
@@ -309,7 +324,7 @@ saga_cmd
 #> [1] "saga_cmd"
 ```
 
-and finally use the module [grid_gridding](http://saga-gis.org/saga_module_doc/2.2.7/grid_gridding_0.html) to convert the shapefile to a grid:
+and finally use the module `grid_gridding` to convert the shapefile to a grid:
 
 
 ```r
@@ -329,7 +344,7 @@ eberg_zones_r2 <- readGDAL("extdata/eberg_zones.sdat")
 
 With the `system()` command we can invoke an operating system (OS) command, here we use it to run the `saga_cmd.exe` file from R. The paste0 function is used to paste together a string that is passed to the `system()` command. The string starts with the OS command we would like to invoke (here `saga_cmd.exe`) followed by input required for the running the OS command.
 
-Note that the bounding box (in SAGA GIS) needs to be defined using the center of the corner pixel and not the corners, hence we take half of the pixel size for extent coordinates from raster package. Also note that the class names have been lost during rasterization (we work with integers in SAGA GIS), but we can attach them back by using e.g.:
+Note that the bounding box (in SAGA GIS) needs to be defined using the center of the corner pixel and not the corners, hence we take half of the pixel size for extent coordinates from the raster package. Also note that the class names have been lost during rasterization (we work with integers in SAGA GIS), but we can attach them back by using e.g.:
 
 
 ```r
@@ -343,8 +358,8 @@ summary(eberg_zones_r2$ZONES)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="figures/eberg_zones_rasterized.png" alt="Ebergotzen zones rasterized to 25 m resolution." width="65%" />
-<p class="caption">(\#fig:eberg-zones-rasterized)Ebergotzen zones rasterized to 25 m resolution.</p>
+<img src="figures/eberg_zones_rasterized.png" alt="Ebergotzen zones rasterized to 25 m resolution and with correct factor labels." width="65%" />
+<p class="caption">(\#fig:eberg-zones-rasterized)Ebergotzen zones rasterized to 25 m resolution and with correct factor labels.</p>
 </div>
 
 ### Downscaling or upscaling (aggregating) rasters {#downscaling-upscaling}
@@ -374,7 +389,7 @@ system(paste0('gdalwarp extdata/eberg_grid_TWISRT6.tif',
 #> running command
 ```
 
-The writeGDAL command writes the TWISRT6 grid, that is stored in the eberg_grid grid stack, to a TIFF file. This TIFF is subsequently read by the `gdalwarp` function and resampled to a 25 m TIFF file using `cubicspline`, which will fill in values between original grid nodes using smooth surfaces. Note that the paste0 function in the `system()` command pastes together the following string: 
+The `writeGDAL` command writes the TWISRT6 grid, that is stored in the eberg_grid grid stack, to a TIFF file. This TIFF is subsequently read by the `gdalwarp` function and resampled to a 25 m TIFF file using `cubicspline`, which will fill in values between original grid nodes using smooth surfaces. Note that the paste0 function in the `system()` command pastes together the following string: 
 
 
 ```bash
@@ -459,7 +474,7 @@ saga_DEM_derivatives <- function(INPUT, MASK=NULL,
                                          gsub(".sgrd", "_vdepth.sgrd", 
                                               INPUT), '\"') ) ) )
   }
-  ## Openess:
+  ## Openness:
   if(any(sel %in% "OPN")){
     try( suppressWarnings( system(paste0(saga_cmd, 
                                          ' ta_lighting 5 -DEM=\"', 
@@ -488,12 +503,12 @@ writeGDAL(eberg_grid["DEMSRT6"], "extdata/DEMSRT6.sdat", "SAGA")
 saga_DEM_derivatives("DEMSRT6.sgrd")
 ```
 
-which derives all DEM derivatives in a single operation:
+which processes all DEM derivatives at once. We can plot them using:
 
 
 ```r
-dem.lst <- list.files(pattern=glob2rx("^DEMSRT6_*.sdat"))
-plot(stack(dem.lst), col=SAGA_pal[[1]])
+dem.lst <- list.files("extdata", pattern=glob2rx("^DEMSRT6_*.sdat"), full.names = TRUE)
+plot(raster::stack(dem.lst), col=rev(magma(10, alpha = 0.8)))
 ```
 
 <div class="figure" style="text-align: center">
@@ -501,7 +516,7 @@ plot(stack(dem.lst), col=SAGA_pal[[1]])
 <p class="caption">(\#fig:dem-derivatives-plot)Some standard DEM derivatives calculated using SAGA GIS.</p>
 </div>
 
-This function can now be used with any DEM to derive a standard set of 7–8 DEM parameters consisting of slope and curvature, TWI and MrVBF, positive and negative openess, valley depth and deviation from mean value. You could easily add more parameters to this function and then test if some of the other DEM derivatives can help improve mapping soil properties and classes. Note that SAGA GIS will by default optimize computing of DEM derivatives by using most of the available cores to compute (parallelization is turned on automatically).
+This function can now be used with any DEM to derive a standard set of 7–8 DEM parameters consisting of slope and curvature, TWI and MrVBF, positive and negative openness, valley depth and deviation from mean value. You could easily add more parameters to this function and then test if some of the other DEM derivatives can help improve mapping soil properties and classes. Note that SAGA GIS will by default optimize computing of DEM derivatives by using most of the available cores to compute (parallelization is turned on automatically).
 
 ### Filtering out missing pixels and artifacts
 
@@ -522,9 +537,9 @@ image(raster(eberg_grid["test"]), col=SAGA_pal[[1]], zlim=zlim, main="Original",
 image(raster("test.sdat"), col=SAGA_pal[[1]], zlim=zlim, main="Filtered", asp=1)
 ```
 
-In this example we use the same input and output file for filling in gaps. There are several other gap filling possibilities in SAGA GIS including Close Gaps with Spline, Close Gaps with Stepwise Resampling and Close One Cell Gaps. Note all of these are equally applicable to all missing pixel problems, but having <10% of missing pixels is often not much of a problem for soil mapping.
+In this example we use the same input and output file for filling in gaps. There are several other gap filling possibilities in SAGA GIS including Close Gaps with Spline, Close Gaps with Stepwise Resampling and Close One Cell Gaps. Not all of these are equally applicable to all missing pixel problems, but having <10% of missing pixels is often not much of a problem for soil mapping.
 
-Another elegant way to filter the missing pixels, to reduce noise and to reduce data overlap is to use [Principal Components](http://www.rdocumentation.org/packages/stats/functions/prcomp) transformation of original data. This is available also via the GSIF function [spc](http://www.rdocumentation.org/packages/GSIF/functions/spc):
+Another elegant way to filter the missing pixels, to reduce noise and to reduce data overlap is to use [Principal Components](http://www.rdocumentation.org/packages/stats/functions/prcomp) transformation of original data. This is available also via the GSIF function `spc`:
 
 
 ```r
@@ -539,11 +554,11 @@ names(eberg_spc@predicted) # 11 components on the end;
 
 
 <div class="figure" style="text-align: center">
-<img src="figures/eberg_spc_11_plot.png" alt="11 PCs derived using eberg covariates." width="100%" />
-<p class="caption">(\#fig:eberg-spc-11-plot)11 PCs derived using eberg covariates.</p>
+<img src="figures/eberg_spc_11_plot.png" alt="11 PCs derived using input Ebergotzen covariates." width="100%" />
+<p class="caption">(\#fig:eberg-spc-11-plot)11 PCs derived using input Ebergotzen covariates.</p>
 </div>
 
-The advantages of using the [spc](http://www.rdocumentation.org/packages/GSIF/functions/spc) function are:
+The advantages of using the `spc` function are:
 
 *  All output soil covariates are numeric (and not a mixture of factors and numeric),
 
@@ -555,7 +570,7 @@ A disadvantage of using SPCs (spatial predictive components) is that these compo
 
 ### Overlaying and subsetting raster stacks and points
 
-Now that we have prepared all covariates (resampled them to the same grid and filtered out all problems), we can proceed with running overlays and fitting statistical models. Assuming that we deal with a large number of files, an elegant way to read all those into R is by using the raster package, especially the [stack](http://www.rdocumentation.org/packages/raster/functions/stack) and [raster](http://www.rdocumentation.org/packages/raster/functions/raster) commands. In the following example we can list all files of interest, and then read them all at once:
+Now that we have prepared all covariates (resampled them to the same grid and filtered out all problems), we can proceed with running overlays and fitting statistical models. Assuming that we deal with a large number of files, an elegant way to read all those into R is by using the raster package, especially the [`stack`](http://www.rdocumentation.org/packages/raster/functions/stack) and [`raster`](http://www.rdocumentation.org/packages/raster/functions/raster) commands. In the following example we can list all files of interest, and then read them all at once:
 
 
 ```r
@@ -567,7 +582,7 @@ grid25m <- as(grid25m, "SpatialGridDataFrame")
 str(grid25m)
 ```
 
-One could now save all the prepared covariates stored in SpatialGridDataFrame as an RDS data object for future use.
+One could now save all the prepared covariates stored in `SpatialGridDataFrame` as an RDS data object for future use.
 
 
 ```r
@@ -582,7 +597,7 @@ library(sp)
 data(eberg)
 coordinates(eberg) <- ~X+Y
 proj4string(eberg) <- CRS("+init=epsg:31467")
-ov = as.data.frame(extract(stack(grd.lst), eberg))
+ov <- as.data.frame(extract(stack(grd.lst), eberg))
 str(ov[complete.cases(ov),])
 ```
 
@@ -590,7 +605,7 @@ If the raster layers can not be stacked and if each layer is available in a diff
 
 
 ```r
-overlay.fun = function(i, y){
+overlay.fun <- function(i, y){
   raster::extract(raster(i), na.rm=FALSE, 
       spTransform(y, proj4string(raster(i))))}
 ```
@@ -599,15 +614,15 @@ which can also be run in parallel for example by using the parallel package:
 
 
 ```r
-ov = data.frame(mclapply(grd.lst, FUN=overlay.fun, y=eberg))
-names(ov) = basename(grd.lst)
+ov  <- data.frame(mclapply(grd.lst, FUN=overlay.fun, y=eberg))
+names(ov) <- basename(grd.lst)
 ```
 
 In a similar way, one could also make wrapper functions that downscale/upscale grids, then filter missing values and stack all data together so that it becomes available in the working memory (sp grid or pixels object). Overlay and model fitting is also implemented directly in the GSIF package, so any attempt to fit models will automatically perform overlay.
 
 ### Working with large(r) rasters
 
-As R is often inefficient in handling large objects in memory (such as large raster images), a good strategy to run raster processing in R is to consider using for example the ```clusterR``` function from the [raster](https://cran.r-project.org/package=raster) package, which automatically parallelizes use of raster functions. To have full control over parallelization, you can alternatively tile large rasters using the ```getSpatialTiles``` function from the GSIF package and process them as separate objects in parallel. The following examples show how to run a simple function in parallel on tiles and then mosaic these tiles after all processing has been completed. Consider for example the GeoTiff from the rgdal package:
+As R is often inefficient in handling large objects in memory (such as large raster images), a good strategy to run raster processing in R is to consider using for example the `clusterR` function from the [raster](https://cran.r-project.org/package=raster) package, which automatically parallelizes use of raster functions. To have full control over parallelization, you can alternatively tile large rasters using the `getSpatialTiles` function from the GSIF package and process them as separate objects in parallel. The following examples show how to run a simple function in parallel on tiles and then mosaic these tiles after all processing has been completed. Consider for example the sample GeoTiff from the rgdal package:
 
 
 ```r
@@ -628,11 +643,11 @@ lines(tile.pol, lwd=2)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="figures/rplot_large_raster_tiles.png" alt="Example of a tiling system derived using the `GSIF::getSpatialTiles` function." width="60%" />
-<p class="caption">(\#fig:rplot-large-raster-tiles)Example of a tiling system derived using the `GSIF::getSpatialTiles` function.</p>
+<img src="figures/rplot_large_raster_tiles.png" alt="Example of a tiling system derived using the GSIF::getSpatialTiles function." width="60%" />
+<p class="caption">(\#fig:rplot-large-raster-tiles)Example of a tiling system derived using the GSIF::getSpatialTiles function.</p>
 </div>
 
-rgdal further allows us to read only a single tile of the GeoTiff by using the ```offset``` and ```region.dim``` arguments:
+rgdal further allows us to read only a single tile of the GeoTiff by using the `offset` and `region.dim` arguments:
 
 
 ```r
@@ -643,8 +658,8 @@ spplot(x)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="figures/sp27gtif_tile.png" alt="A tile produced for a satellite image in the example above." width="60%" />
-<p class="caption">(\#fig:sp27gtif-tile)A tile produced for a satellite image in the example above.</p>
+<img src="figures/sp27gtif_tile.png" alt="A tile produced from a satellite image in the example in the previous figure." width="60%" />
+<p class="caption">(\#fig:sp27gtif-tile)A tile produced from a satellite image in the example in the previous figure.</p>
 </div>
 
 We would like to run a function on this raster in parallel, for example a simple function that converts values to 0/1 values based on a threshold:
@@ -665,14 +680,14 @@ fun_mask <- function(i, tiles, dir="./tiled/", threshold=190){
 }
 ```
 
-This can now be run through `mclapply` function from the parallel package (which automatically employs all available cores):
+This can now be run through the `mclapply` function from the parallel package (which automatically employs all available cores):
 
 
 ```r
 x0 <- mclapply(1:nrow(tiles), FUN=fun_mask, tiles=tiles)
 ```
 
-We can look in the the tiles folder, and this should show 35 newly produced GeoTiffs. These can be further used to construct a virtual mosaic by using:
+If we look in the tiles folder, this should show 35 newly produced GeoTiffs. These can be further used to construct a virtual mosaic by using:
 
 
 ```r
@@ -684,16 +699,33 @@ system('gdalwarp SP27GTIF.vrt SP27GTIF_mask.tif -ot \"Byte\"',
   ' -dstnodata 255 -co \"BIGTIFF=YES\" -r \"near\" -overwrite -co \"COMPRESS=DEFLATE\"')
 ```
 
-Note we use a few important settings here for GDAL e.g. `-overwrite -co "COMPRESS=DEFLATE"` to overwrite the GeoTiff and internally compress it to save space and `-r "near"` basically no resampling just binding tiles together. Also, if the output GeoTiff is HUGE, you will most likely have to turn on `-co "BIGTIFF=YES"` otherwise `gdalwarp` would not run through. The output mosaic looks like this:
+Note we use a few important settings here for GDAL e.g. 
+`-overwrite -co "COMPRESS=DEFLATE"` to overwrite the GeoTiff and internally 
+compress it to save space, and `-r "near"` basically specifies that 
+no resampling is applied, just binding of tiles together. Also, if the 
+output GeoTiff is HUGE, you will most likely have to turn on `-co "BIGTIFF=YES"` 
+otherwise `gdalwarp` would not run through. The output mosaic looks like this:
 
 <div class="figure" style="text-align: center">
 <img src="figures/sp27gtif_mask.png" alt="Final processed output." width="60%" />
 <p class="caption">(\#fig:sp27gtif-mask)Final processed output.</p>
 </div>
 
-This demonstrates that R can be used to compute with large rasters provided that these operations can be parallelized. Suggested best practice for this is to: (1) design a tiling system that optimizes use of RAM and read/write speed of a disk, (2) prepare and test a function that can then be run in parallel, and (3) stitch back all tiles to create a single large raster using `gdalwarp`.
+This demonstrates that R can be used to compute with large rasters, provided 
+that these operations can be parallelized. Suggested best practice for this 
+is to: (1) design a tiling system that optimizes use of RAM and read/write 
+speed of a disk, (2) prepare and test a function that can then be run in 
+parallel, and (3) stitch back all tiles to create a single large raster 
+using `gdalwarp`.
 
-Note that Tiling and and stitching can not be applied universally to all problems e.g. functions that require global geographical search or all data in the raster. In such cases tiling should be applied with overlap (to minimize boundary effects) or to irregular tiling systems (e.g. per watershed). Once an optimal tiling system and function is prepared, R is no longer limited to running efficient computing, but only dependent on how much RAM and how many cores you have available i.e. it becomes more a hardware than a software problem.
+Note that such *tiling* and *stitching* can not be applied universally to all 
+problems e.g. functions that require global geographical search or all data 
+in the raster. In such cases tiling should be applied with overlap 
+(to minimize boundary effects) or to irregular tiling systems 
+(e.g. per watershed). Once an optimal tiling system and function is prepared, 
+R is no longer limited to running efficient computing, but only dependent on 
+how much RAM and how many cores you have available i.e. it becomes more of a 
+hardware than a software problem.
 
 ## Summary points
 
