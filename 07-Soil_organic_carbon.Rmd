@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This chapter was prepared as supplementary material for the @sanderman2018soil article. It explains how to map Soil Organic Carbon Stocks (OCS) using soil samples (point data). It also demonstrates derivation of values at both the site level (per profile) and by using raster calculus (per pixel). We then illustrate how to estimate total OCS for any area of interest (which can be a field plot, farm and/or administrative region). For an introduction to soil mapping using Machine Learning Algorithms refer to chapter \@ref(soilmapping-using-mla). To access the ISRIC global compilation of soil profiles referenced here please refer to: [http://www.isric.org/explore/wosis](http://www.isric.org/explore/wosis).
+This chapter was prepared as supplementary material for the @sanderman2018soil article. It explains how to map Soil Organic Carbon Stocks (OCS) using soil samples (point data). It also demonstrates derivation of values at both the site level (per profile) and by using raster calculus (per pixel). We then illustrate how to estimate total OCS for any area of interest (which can be a field plot, farm and/or administrative region). For an introduction to soil mapping using Machine Learning Algorithms refer to chapter \@ref(soilmapping-using-mla). To access the ISRIC global compilation of soil profiles referenced here please refer to: http://www.isric.org/explore/wosis
 
 ## Measurement and derivation of soil organic carbon
 
@@ -145,7 +145,7 @@ Organic Carbon Stock for standard depths can be determined from legacy soil prof
 
 Note that the measurement error is computed from default uncertainty values (expressed in standard deviations) for organic carbon (10 g/kg), bulk density (100 kg/m$^3$) and coarse fraction content (5%). When these are not provided by the user, the outcome should be interpreted with care. 
 
-```{r scheme-soc-prof1, echo=FALSE, fig.cap="Determination of soil organic carbon density and stock for standard depth intervals: example of a mineral soil profile from Australia.", out.width="90%"}
+```{r scheme-soc-prof1, echo=FALSE, fig.cap="Determination of soil organic carbon density and stock for standard depth intervals: example of a mineral soil profile from Australia.", out.width="80%"}
 knitr::include_graphics("figures/fig_2_profiles_ocs_edgeroi.png")
 ```
 
@@ -182,7 +182,7 @@ We can again fit mass-preserving splines and determine OCS for standard depth in
 
 *  0–200 cm: 114.5 kg / m-square (1145 tonnes / ha)
 
-```{r scheme-soc-prof2, echo=FALSE, fig.cap="Determination of soil organic carbon density and stock for standard depth intervals: example of an organic soil profile from Canada.", out.width="90%"}
+```{r scheme-soc-prof2, echo=FALSE, fig.cap="Determination of soil organic carbon density and stock for standard depth intervals: example of an organic soil profile from Canada.", out.width="80%"}
 knitr::include_graphics("figures/fig_2_profiles_ocs_organic.png")
 ```
 
@@ -195,7 +195,7 @@ A somewhat more straightforward way to estimate OCS for a list of soil profiles 
 3. Use information on CRF to correct stocks for stony / skeletoidal component,
 4. Aggregate non-standard horizon depth values using some simple rules (Fig. \@ref(fig:scheme-profiles-ocs)).
 
-```{r scheme-profiles-ocs, echo=FALSE, fig.cap="Estimation of OCS values 0–30 cm using some typical soil profile data without fitting splines.", out.width="95%"}
+```{r scheme-profiles-ocs, echo=FALSE, fig.cap="Estimation of OCS values 0–30 cm using some typical soil profile data without fitting splines.", out.width="90%"}
 knitr::include_graphics("figures/Fig_standard_soil_profiles_SOC_calc.png")
 ```
 
@@ -284,7 +284,7 @@ In principle, there are three main approaches to estimating total OCS for an are
 Soil Organic Carbon stock can be mapped by using at least three different approaches: (1) the 2D approach where estimation of OCS is done at the site level, (2) the 3D approach where soil organic carbon content, bulk density and coarse fragments are mapped separately, then used to derive OCS for standard depths at each grid cell, and (3) the 3D approach based on mapping Organic Carbon Density, then converting to stocks.
 ```
 
-```{r ocs-three-approaches, echo=FALSE, fig.cap="Three main computational paths (2D and 3D) to producing maps of organic carbon stock.", out.width="100%"}
+```{r ocs-three-approaches, echo=FALSE, fig.cap="Three main computational paths (2D and 3D) to producing maps of organic carbon stock.", out.width="90%"}
 knitr::include_graphics("figures/fig_derivation_socs_scheme.png")
 ```
 
@@ -318,7 +318,7 @@ str(COSha30map@data)
 
 which shows predictions and kriging variances for `COSha30`.
 
-```{r libertad-soc, echo=FALSE, fig.cap="Example of a data set with OCS samples (for 2D prediction). Case study in Colombia available via the geospt package (https://cran.r-project.org/package=geospt).", out.width="75%"}
+```{r libertad-soc, echo=FALSE, fig.cap="Example of a data set with OCS samples (for 2D prediction). Case study in Colombia available via the geospt package (https://cran.r-project.org/package=geospt).", out.width="65%"}
 knitr::include_graphics("figures/fig_la_libertad_research_center_socs.jpg")
 ```
 
@@ -383,7 +383,7 @@ This example illustrates that no significant spatial prediction models (with an 
 
 Note that the absolute values of our predictions of OCS are somewhat different than those produced by the [geospt package](https://cran.r-project.org/package=geospt) authors, although the main patterns are comparable.
 
-```{r plot-cosha30map-rf, echo=FALSE, fig.width=7, fig.cap="Comparison of predictions generated using ordinary kriging (left) and machine learning with the help of 30 m resolution covariates and buffer distances (right)."}
+```{r plot-cosha30map-rf, echo=FALSE, fig.width=7, out.width="75%", fig.cap="Comparison of predictions generated using ordinary kriging (left) and machine learning with the help of 30 m resolution covariates and buffer distances (right)."}
 COSha30.pr = covs30m["COSha30map_var1pred_"]
 COSha30.pr@data[,"COSha30map_RF"] = predict(mFit1, covs30m.spc@predicted@data)
 spplot(COSha30.pr, col.regions=plotKML::SAGA_pal[[1]], 
@@ -552,7 +552,7 @@ for(i in c(0,30)){
 
 so that the final Organic carbon stocks in t/ha is:
 
-```{r plot-edgeroi-ocd, echo=FALSE, fig.width=9, fig.cap="Predicted organic carbon stock for 0–30 cm depth and error map for the Edgeroi data set. All values expressed in tons/ha."}
+```{r plot-edgeroi-ocd, echo=FALSE, fig.width=9, out.width="90%", fig.cap="Predicted organic carbon stock for 0–30 cm depth and error map for the Edgeroi data set. All values expressed in tons/ha."}
 library(raster)
 edgeroi.grids$OCS.30cm = rowMeans(edgeroi.grids@data[,paste0("OCD.", c(0,30), "cm")]) * 0.3 * 10
 summary(edgeroi.grids$OCS.30cm)
@@ -597,8 +597,8 @@ dim(OCD_stN)
 
 This data shows that there are actually sufficient observations spread through time (last 60+ years) to fit a spatiotemporal model:
 
-```{r thist-usa48, fig.width=5.5, fig.cap="Distribution of soil observations based on sampling year."}
-hist(OCD_stN$YEAR, xlab="Year", main="", col="darkgrey")
+```{r thist-usa48, fig.width=5.5, out.width="85%", fig.cap="Distribution of soil observations based on sampling year."}
+hist(OCD_stN$YEAR, xlab="Year", main="", col="darkgrey", cex.axis = .7, cex.main = .7, cex.lab = .7)
 ```
 
 In fact, because the data set above represents values of OCD at variable depths, we can use this data to fit a full 3D+T spatiotemporal model in the form:
@@ -640,11 +640,11 @@ which shows that the most important soil covariate by far is soil depth, followe
 
 Finally, based on this model, we can generate predictions for 3–4 specific time periods and for some arbitrary depth e.g. 10 cm. The maps below clearly show that ca 8% of soil organic carbon has been lost in the last 90 years, most likely due to increases in grazing and croplands. The maps also show, however, that some areas in the northern latitudes are experiencing an increase in SOC, possibly due to higher rainfall i.e. based on the CRU data set.
 
-```{r usa48-ocd-2014, echo=FALSE, fig.cap="Predicted OCD (in kg/cubic-m) at 10 cm depth for the year 2014. Blue colors indicate low values, red high values.", out.width="100%"}
+```{r usa48-ocd-2014, echo=FALSE, fig.cap="Predicted OCD (in kg/cubic-m) at 10 cm depth for the year 2014. Blue colors indicate low values, red high values.", out.width="90%"}
 knitr::include_graphics("figures/usa48_ocd_10cm_year2014.png")
 ```
 
-```{r usa48-ocd-1925, echo=FALSE, fig.cap="Predicted OCD (in kg/cubic-m) at 10 cm depth for the year 1925.", out.width="100%"}
+```{r usa48-ocd-1925, echo=FALSE, fig.cap="Predicted OCD (in kg/cubic-m) at 10 cm depth for the year 1925.", out.width="90%"}
 knitr::include_graphics("figures/usa48_ocd_10cm_year1925.png")
 ```
 

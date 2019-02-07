@@ -2,8 +2,8 @@
 
 *Edited by: Hengl T., MacMillan R.A. and Leenaars J.G.B.*
 
-This chapter identifies, and provides comprehensive definitions and
-descriptions for, a standardized set of soil properties (and classes) that are
+This chapter identifies and provides comprehensive definitions and
+descriptions for a standardized set of soil properties (and classes), which are
 commonly predicted using PSM. We first discuss the complexity of measuring and standardizing (or harmonizing) soil attributes, then focus on the key soil properties and classes of interest for global soil
 mapping. The purpose of this chapter is to serve as a reference, and background, for other
 chapters where the focus is on generating soil maps, interpreting
@@ -88,9 +88,8 @@ be defined together (functional definition) or can be defined
 separately, as given by numerous national and international manuals and
 guidelines for analytical procedures and soil description: e.g. in
 @Burt2004SSIR [@carter2007soil; @food2006guidelines], and/or
-@VanReeuwijk2002. Also in this chapter we make a distinction between the
-*‘target variable’* (i.e. target soil properties) and *‘paths’* (i.e.
-determination methods).
+@VanReeuwijk2002. In this chapter we also make a distinction between the
+*‘target variable’* (target soil properties) and *‘paths’* (determination methods).
 
 Soil analytical data obtained in a laboratory are typically an order of
 magnitude more expensive to produce than descriptive field observations
@@ -121,7 +120,7 @@ surveyors consistently recognize similar soil horizons and assign similar codes 
 comparable upper and lower boundaries so as to produce similar
 descriptions and classifications for any observed soil.
 
-```{r soi-var-depth, echo=FALSE, fig.cap="Soil observations can refer to genetic horizons (left), fixed depths i.e. point support (center) and/or can be aggregate values for the complete profile (right).", out.width="70%"}
+```{r soi-var-depth, echo=FALSE, fig.cap="Soil observations can refer to genetic horizons (left), fixed depths i.e. point support (center) and/or can refer to aggregate values for the complete profile (right).", out.width="70%"}
 knitr::include_graphics("figures/Fig_soi_var_depth.png")
 ```
 
@@ -136,7 +135,7 @@ depth (or depth interval), which is either 3D or refers to the whole solum. The 
 (longitude, latitude, depth) position implies that the property varies
 not only in geographic space, but also with depth. Soil properties that
 describe an entire site are by implication 2D, as are soil properties
-that summarise or refer to the soil profile as a whole (2D). For
+that summarise or refer to the soil profile as a whole entity. For
 example, soil type does not change with depth. Also rock outcrops, depth
 to bedrock and depth to ground water table are single attributes that apply to an entire profile.
 
@@ -171,13 +170,13 @@ attributes was a logical consequence of the fact that it could take years
 to produce a single soil map and decades to complete mapping for an entire 
 area of interest. Consequently, for maps to be relevant, and to remain
 relevant and useful for their anticipated lifetime of use, they had to
-restrict themselves to trying to describe the variation in space only (not time)
+restrict themselves to trying to describe the variation in only space (not time)
 of properties that could be considered stable and static.
 
 The idea that soil properties could be assumed to remain relatively stable
 through time was partially based on an assumption that most soils had
-achieved a relatively stable condition that was in equilibruim with their
-current environment. If a soil is in equilibruim with its enviromment, it
+achieved a relatively stable condition that was in equilibrium with their
+current environment. If a soil is in equilibrium with its environment, it
 can be assumed that it will retain its present attributes, since there are
 no strong drivers for change. This may well apply to undisturbed soils in
 their natural environment, but it is not valid for disturbed or managed soils.
@@ -186,7 +185,7 @@ alter some key soil properties, such as pH, organic matter and topsoil thickness
 Most conventional soil maps recognized, and reported on, differences in
 soil properties, such as pH or organic matter, between natural soils and
 managed soils. However, it was never a common practice to name, map and
-characterize managed soils seperately from natural soils. 
+characterize managed soils separately from natural soils. 
 
 Local or national soil survey projects are of direct
 relevance to global soil mapping initiatives if the range of data
@@ -196,16 +195,16 @@ requires an extensive range of soil property data as specified in the
 procedures manual [@VanEngelen2012]. An update of the Harmonised World
 Soil Database [@FAO2012HWSD] requires a smaller range of attributes. The
 *GlobalSoilMap* project [@Arrouays201493] selected a list of only
-*twelve soil properties* considered relevant for global analyses and
+*twelve soil properties* considered relevant for global analyses, and
 feasible to map globally. This list includes seven basic attributes,
 assessed through primary observation or measurement, and three derived
 attributes which are calculated from the primary soil properties
-(Tbl. \@ref(tab:globalsoilmap)). These attributes are being mapped (as and
-where possible) at a fine resolution of six depth intervals in the
+(Tbl. \@ref(tab:globalsoilmap)). These attributes are being mapped 
+(where possible) at a fine resolution of six depth intervals in the
 vertical and, 3–arcseconds in the horizontal dimension (ca. 100 m)
 (Fig. \@ref(fig:scheme-solum)).
 
-```{r scheme-solum, echo=FALSE, fig.cap="Standard soil horizons, solum thickness and depth to bedrock (left), six standard depths used in the GlobalSoilMap project (right).", out.width="75%"}
+```{r scheme-solum, echo=FALSE, fig.cap="Standard soil horizons, solum thickness and depth to bedrock (left) vs six standard depths used in the GlobalSoilMap project (right).", out.width="75%"}
 knitr::include_graphics("figures/Fig_scheme_solum.png")
 ```
 
@@ -221,8 +220,8 @@ knitr::kable(
 A pragmatic solution to ensuring efficient exchange, sharing and interpretation of global soil data
 is to establish reference methods for soil measurement and description. The
 *GlobalSoilMap* project agreed that their target soil properties would be
-assessed and reported relative to specific, designated *reference
-methods*. For example, soil organic carbon content of the fine earth
+assessed and reported relative to specific, designated *reference methods*. 
+For example, soil organic carbon content of the fine earth
 fraction is to be assessed and reported according to ISO10694 dry
 combustion method [@Sleutel2007CSSPA]. Values for pH are to be be
 reported for a 1:5 suspension of soil in water or using the CaCl$_2$
@@ -241,7 +240,7 @@ The International Organisation for Standardisation (ISO) provides
 international standard definitions of soil properties, and of associated
 methods to assess those soil properties, through `ISO TC-190` and
 `ISO TC-345`. Such unambiguously defined international standards are
-required for purposes as such as multi-partner global soil mapping.
+crucial for success of the multi-partner global soil mapping projects.
 
 In the following sections we focus our discussion on the soil properties
 that were first mapped for the https://soilgrids.org project: 
@@ -258,9 +257,9 @@ following will be discussed:
     reflect, why is it of interest, considerations; in general terms)*;
 
 -   *Definition of the soil feature related to the soil property and
-    it’s spatial domain (2D, 3D)*;
+    its spatial domain (2D, 3D)*;
 
--   *Definition of the reference method to assess the soil property
+-   *Definition of the reference methods used to assess the soil property
     value*;
 
 -   *Definition of the convention used to express the soil property value
@@ -268,8 +267,8 @@ following will be discussed:
 
 -   *Review of the variation in soil property definitions and in methods
     to assess the attribute, including listings of several of the most
-    widely used conversion functions cited from literature and with
-    emphasis on harmonisation or conversion to the reference method*.
+    widely used conversion functions cited from literature, and with
+    emphasis on harmonization or conversion to the reference method*.
 
 We also identify, and review, a number of other widely used measurement
 methods, in addition to our selected standard methods. We describe if and
@@ -291,22 +290,21 @@ str(soil.legends)
 which illustrates the referent cumulative probabilities (`CPROB`) and
 appropriate color legend (`COLOR`; coded as a six-digit, three-byte
 hexadecimal number) for the values of the target soil variables. The cumulative
-probabilities were derived using the collection of records in the World
-Soil Profiles repository and can be considered as an estimate of global prior
-probabilities for soil pH (see further for example
-Fig. ).
+probabilities were derived using the collection of records in the WoSIS 
+repository [@Batjes2017ESSD], and can be considered as an estimate of global prior
+probabilities for soil pH (see further Fig. \@ref(fig:sprops-phiho5)).
 
-A general intention is to maintain a *Global Soil Data
-Registry* so that a short variable name (in further text *“GSIF code”*)
+A general intention is to maintain a *Global Soil Data Registry* so that 
+a short variable name (in further text *“variable code”*)
 can be linked to a unique set of metadata which should include:
 
--   Full description;
+-   Full description (text);
 
 -   Variable type (numeric, quantity, binary, factor etc);
 
--   Determination / measurement method;
+-   Determination / measurement method (unique code);
 
--   Measurement unit;
+-   Measurement unit (following the International System of Units);
 
 -   Biblio reference (URL or DOI);
 
@@ -314,19 +312,19 @@ can be linked to a unique set of metadata which should include:
 
 -   Physical limits (lower / upper);
 
--   Detection limit i.e. numeric resolution;
+-   Detection limit (i.e. numeric resolution);
 
 -   Priority level (required, suggested or optional);
 
 Note that MySQL has some restrictions considering column names: special
-characters, those outside the set of alphanumeric characters from the
+characters, such as those outside the set of alphanumeric characters from the
 current character set, can not be used in the column names. Proposed
 abbreviations for standard method names are $\mathtt{VOL}$ — volume
 fraction, $\mathtt{ABU}$ — abundance or relative area cover,
 $\mathtt{PCT}$ — mass percentage, $\mathtt{ICM}$ — thickness in cm,
 $\mathtt{MHT}$ — texture by-hand or manual hand texture and
 $\mathtt{MNS}$ — Munsell color codes, horizon sequence is coded with the
-capital ASCII letters — $\mathtt{A}$, $\mathtt{B}$,
+capital ASCII letters e.g. $\mathtt{A}$, $\mathtt{B}$,
 $\mathtt{C}$,$\ldots$ $\mathtt{Z}$. Another option is to simply use
 the US Goverment National Cooperative Soil Characterization Database column names (http://ncsslabdatamart.sc.egov.usda.gov/).
 
@@ -358,7 +356,7 @@ standard (via the `altitudeMode` tag) allow one to specify if the
 vertical dimension refers to actual altitude (vertical distance from the
 land surface) or to distance from the sea level (`absolute`). In this
 case soil depths can be represented using `clampToGround` and negative
-values. For example, depth of 30 cm can be expressed as [@OGCKML2008]:
+values. For example, a depth of 30 cm can be expressed as [@OGCKML2008]:
 
 ```{bash, eval=FALSE}
 <Placemark> <Point>
@@ -375,7 +373,7 @@ decomposition is not considered to be part of the soil and may be
 described separately. For organic soils, the top of any surface horizon
 identified as an `O` horizon is considered the soil surface.
 
-```{r scheme-depth-to-bedrock, echo=FALSE, fig.cap="Depth to bedrock for censured and uncensured observations. Image source: Shangguan et al. (2017) doi: 10.1002/2016MS000686.", out.width="100%"}
+```{r scheme-depth-to-bedrock, echo=FALSE, fig.cap="Depth to bedrock for censored and uncensored observations. Image source: Shangguan et al. (2017) doi: 10.1002/2016MS000686.", out.width="100%"}
 knitr::include_graphics("figures/Fig_depth_2_bedrock.png")
 ```
 
@@ -393,13 +391,13 @@ depth to enter, other than >2 m. Rootability is physically restricted by
 the bedrock, whether hard or soft (see Fig. \@ref(fig:scheme-depth-to-bedrock)).
 
 ```{block2, type="rmdnote"}
-Depth to bedrock is the mean distance to `R` horizon which is the layer
-impenetrable by roots or agricultural machinery. Depth to bedrock deeper
+Depth to bedrock is the mean distance to `R` horizon (layer
+impenetrable by roots or agricultural machinery). Depth to bedrock deeper
 than 2 m is most often not recorded in field survey descriptions.
 ```
 
 In traditional soil characterisation, the total depth of the `O`,
-`A`,`E`, and `B` horizons is referred to as the *solum*
+`A`, `E`, and `B` horizons is referred to as the *solum*
 [@harpstead2001soil], while the underlaying layer is referred to as
 parent material or substratum [@SSDS1993]. Parent material can be coarse
 or fine unconsolidated deposits of e.g. alluvial, colluvial or windblown
@@ -435,11 +433,11 @@ organisms living in soil. The root restricting i.e. plant accessible
 depth, is the depth at which root penetration is strongly inhibited
 because of physical (including soil temperature), chemical or
 hydrological characteristics [@SSDS1993 p.60]. Restriction means the
-inability to support more than a very few fine or few very fine roots if
+inability to support more than a very few fine (or few very fine roots) if
 depth from the soil surface and water state, other than the occurrence
 of frozen water, are not limiting. For some crops like cotton plants or
 soybeans, and possibly other crops with less abundant roots than the
-grasses, the very few class is used instead of the few class. The
+grasses, the “very few” class is used instead of the “few” class. The
 restriction may be below where plant roots normally occur because of
 limitations in water state, temperatures, or depth from the surface.
 This evaluation can be based on the specific plants that are important
@@ -458,7 +456,7 @@ any thickness; or a zone >10 cm thick that when very moist or wet is
 massive, platy, or has weak structure of any type for a vertical repeat
 distance of >10 cm and while very moist or wet is very firm (firm, if
 sandy), extremely firm, or has a large penetration resistance. Chemical
-restrictions, such as high extractable aluminum, manganese and/or low
+restrictions, such as high extractable aluminium, manganese and/or low
 extractable calcium, can also be considered but are plant-specific.
 Root-depth observations preferably should be used to make the
 generalization. If these are not available then inferences may be made
@@ -470,7 +468,7 @@ bedrock, and then define effective soil depth *a posteriori* using
 distinct analytical rules. A similar approach has also been promoted by
 @rijsberman1985effect and @driessen1992land who refer to it as the
 *Soil-productivity Index* — a product of soil-water sufficiency, soil pH
-sufficiency and soil bulk density sufficiency. Here we consider somewhat
+sufficiency and soil bulk density sufficiency. Here we consider a somewhat
 wider range of soil properties that can affect rooting depth, such as:
 
 -   coarse fragments,
@@ -532,7 +530,7 @@ concentration in permille or g/kg, `ECN` is the electrical conductivity in dS/m,
 `CEC` is the Cation Exchange Capacity in cmol/kg (centi-mol per kilogram), `ENA` is the exchangable Na
 in cmol/kg, `EACKCL` is the exchangeable acidity in cmol/kg, `EXB` is the exchangeable
 bases in cmol/kg, `PHIHOX` is the soil pH in water suspension, `CRB` is the
-CaCO$_3$ (carbonates) in g/kg, `GYP` is the CaSO$_4$ (gypsum) in and `tetaS`
+CaCO$_3$ (carbonates) in g/kg, `GYP` is the CaSO$_4$ (gypsum) in g/kg, and `tetaS`
 is the volumetric percentage of water.
 
 For this specific profile, the most limiting soil property is `tetaS`, but
@@ -544,7 +542,7 @@ maize; see also Fig. \@ref(fig:lri-scheme)), and can be adjusted via the
 `thresholds` argument. The computation is done per list of soil layers
 (minimum three) to account for textural changes i.e. sudden changes in
 sand and clay content and for the limiting layers such as layer
-saturated with water. To determine futher the effective rooting depth we can run:
+saturated with water. To determine further the effective rooting depth we can run:
 
 ```{r}
 sel <- x==FALSE
@@ -580,11 +578,11 @@ greatest current interest and utility from the point of view of global
 mapping, and interpretation, of soil properties.
 
 ```{block2, type="rmdnote"}
-Soil Organic Carbon is one the key measures of soil health.
+Soil Organic Carbon is one of the key measures of soil health.
 The standard reference method for assessing and reporting soil organic
 carbon content of the fine earth fraction is by dry combustion to at
 least 1000&deg;C (ISO 10694). Values of organic carbon content are typically reported in
-(permilles) with integer precision over a range of 0–1000.
+permilles (0–1000) with integer precision.
 ```
 
 The *dry combustion method* (Leco at 1000&deg;C) is based on thermal oxidation of
@@ -592,27 +590,20 @@ both mineral carbon (IC) and organic carbon by means of a furnace.
 It is a reliable method for the determination of the soil organic carbon when IC is
 removed through combustion at low temperature prior to combustion at
 high temperature. Dry combustion is considered to ensure oxidation of
-all ORC and is considered an accurate method which has been used in many
+all organic carbon, and is considered an accurate method which has been used in many
 studies as a reference method against which to calibrate other methods
 [@Grewal1991JSS; @Meersmans2009SUM; @Bisutti2004TAC]. A global estimate
-of the distribution of soil organic carbon is shown in
+of the probability distribution of soil organic carbon is shown in
 Fig. \@ref(fig:sprofs-soil-carbon).
 
-```{r sprofs-soil-carbon, echo=FALSE, fig.cap="Histogram and soil-depth density distribution for a global compilation of measurements of soil organic carbon content in permilles. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/). The log-transformation is used to ensure close-to-normal distribution in the histogram.", out.width="90%"}
+```{r sprofs-soil-carbon, echo=FALSE, fig.cap="Histogram and soil-depth density distribution for a global compilation of measurements of soil organic carbon content (ORCDRC) in permilles. Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/). The log-transformation is used to ensure close-to-normal distribution in the histogram.", out.width="90%"}
 knitr::include_graphics("figures/Fig_sprofs_ORCDRC.png")
 ```
 
-```{block2, type="rmdnote"}
-Soil organic carbon content is most commonly expressed in weight
-percentage and/or in grams per kilogram fine earth fraction or
-permilles. The standard method of determining the soil organic carbon
-content is by dry combustion method (Leco at 1000&deg;C).
-```
-
 Total organic carbon can be determined directly or indirectly. Direct determination
-consists of previous removal of any carbonates present by treating the
+includes removal of any carbonates present by treating the
 soil with hydrochloric acid. Indirect determination consists of applying
-an empirical correction to the total carbon content to account for for
+an empirical correction to the total carbon content to account for
 the inorganic carbonates present.
 
 Examples of studies that have used dry combustion for calibrating other
@@ -620,25 +611,25 @@ methods of analyzing organic carbon include @Kalembasa1973JSFA
 [@Grewal1991JSS; @Soon1991CSSPA; @Wang1996AJSR; @Konen2002SSSAJ; @Brye2003CSSPA; @Mikhailova2003CSSPA; @Bisutti2004TAC; @Jankauskas2006CSSPA; @DeVos2007SUM]
 and @Meersmans2009SUM. It is possible to produce
 regression equations to permit conversion of results for organic carbon
-produced by one method into equivalent values in a specified reference
+produced by one method into equivalent values into a specified reference
 method (generally dry combustion). However, local calibration 
-equations that reflect differences in
-soils on a regional basis are usually needed. It is not possible to
-provide a single universal equation suitable for use everywhere to
-convert organic carbon values produced using other methods of analysis
-to equivalent values in the reference method of dry combustion.
+equations that reflect differences in soils on a regional basis are 
+usually needed. It is not possible to provide a single universal equation 
+suitable for use everywhere to convert organic carbon values produced 
+using other methods of analysis to equivalent values in the reference 
+method of dry combustion.
 
 ### Soil pH
 
-PH is of interest for global soil mapping because it is one of the more
+Soil pH is of interest for global soil mapping because it is one of the more
 widely available and easily interpreted chemical measures of the health
 and productivity of the soil. pH provides an indication of base status
 of the soil which influences nutrient availability, mobility of both
 beneficial and detrimental ions and the ecology of micro-organisms
 within the soil. For most crops and agricultural uses, a pH in the range
-of 5.5 to 7.5 is optimum (considering the agricultural productivity of
+of 5.5 to 7.5 is optimal (considering the agricultural productivity of
 soil). Low pH is associated with acidic conditions and with increased
-mobility of toxic ions such as aluminum iron and even acid sulphates.
+mobility of toxic ions such as aluminium iron and even acid sulphates.
 High pH is associated with reduced availability of phosphorus and at
 higher levels with alkaline conditions that impede water uptake by
 plants. A global estimate of the distribution of the soil pH is shown in
@@ -682,13 +673,13 @@ increasing the pH with a decrease in the soil/water ratio. @Davis1943SS
 has shown that decreasing the soil/water ratio from 10:1 to 1:10
 resulted in an increase of 0.40 pH units. Values for pH computed using
 methods with a lower ratio of soil to water (e.g. 1:1 or 1:2.5) will
-generally be lower than equivalent values for pH in 1:5 water and will
-need to be adjusted higher. Several authors have demonstrated that
-fitting quadratic or curvilinear functions to soil pH data produces
-regression equations with higher coefficients of determination than
-those obtained from a linear fit [@Aitken1991AJSR; @Miller2010SSSAJ].
-For example, @Brennan1998 have estimated that (at least in Southwestern Australia) 
-pH in CaCl$_2$ can be estimated from the pH 1:5 water by using a simple conversion:
+generally be lower than equivalent values for pH in 1:5 water. 
+Several authors have demonstrated that fitting quadratic or curvilinear 
+functions to soil pH data produces regression equations with higher 
+coefficients of determination than those obtained from a linear fit 
+[@Aitken1991AJSR; @Miller2010SSSAJ]. For example, @Brennan1998 have estimated 
+that (at least in Southwestern Australia) pH in CaCl$_2$ can be estimated 
+from the pH 1:5 water by using a simple conversion:
 
 ```{r}
 ph_h2o = 7.2
@@ -699,8 +690,8 @@ This model fitted explains 94% of variation in the values of pH CaCl$_2$ (R-squa
 
 ```{block2, type="rmdnote"}
 Soil pH is negative decimal logarithm of the hydrogen ion activity in a
-soil suspension. Soil pH values are usually in the range 3–11 and are
-recorded with a precision of ±0.1 pH in the range of 5.5 to 7.5 is
+soil suspension. Soil pH values are usually in the range 3–11, and are
+recorded with a precision of ±0.1. Soil pH in the range of 5.5 to 7.5 is
 optimal for growing crops.
 ```
 
@@ -713,8 +704,8 @@ specified range (e.g. ±0.3 units) may not be meaningful in the
 context of predictions made using noisy legacy soils data analyzed using
 a variety of different analytical methods. Consequently, it is not
 necessary or beneficial to report pH with a precision greater than
-±0.1 unit. Natural variation of pH in soils is over a range of 2 to
-11 with a standard deviation of 1.4. Note also that pH follows
+±0.1 unit. Natural variation of pH in soils is over a range of 2–11 with 
+a standard deviation of 1.4. Note also that pH follows
 a close-to-normal distribution, although it is often argued that, locally,
 it can show bimodal or even trimodal peaks
 (Fig. \@ref(fig:color-legend-phi)).
@@ -723,13 +714,13 @@ it can show bimodal or even trimodal peaks
 
 Nutrients are chemical elements or substances essential for the growth
 of plants. The most essential elements important for the growth of
-plants are, in fact, carbon, hydrogen and oxygen. Other essential elements
+plants are carbon, hydrogen and oxygen. Other essential elements
 can be separated into macro-nutrients (>100 $\mu$g or >100 ppm) and micro-nutrients
 (<100 ppm), although there is no strict border between the two
 [@harpstead2001soil; @hengl2017soil]. Some macro-nutrients of global importance for soil
 management and protection are (http://en.wikipedia.org/wiki/Plant_nutrition):
 
--   *Nitrogen* (N) — It is often considered synonymous with
+-   *Nitrogen* (N) — Nitrogen is often considered synonymous with
     soil fertility. Controls leafy growth. Occurs in soil as
     nitrates (e.g. NO$_3$, NO$_2$).
 
@@ -791,17 +782,17 @@ common subdivision of soil granulometry is [@Shirazi2001SSSAJ]:
 
 1.  Fine earth (<2 m)
 
-    1.  sand (coarser particles in the fine earth),
+    1.1  sand (coarser particles in the fine earth),
 
-    2.  silt (medium size particles),
+    1.2  silt (medium size particles),
 
-    3.  clay (fine particles <2 $\mu$m),
+    1.3  clay (fine particles <2 $\mu$m),
 
 2.  Coarse fragments (>2 mm)
 
-    1.  gravel (2 mm to 8 cm)
+    2.1  gravel (2 mm to 8 cm),
 
-    2.  stones or boulders (>8 cm)
+    2.2  stones or boulders (>8 cm),
 
 Coarse fragments occupy volume in the soil matrix, reducing water and
 nutrient availability as well as influencing rooting depth and
@@ -838,11 +829,11 @@ on estimations of the volumetric totals of attributes assessed and
 mapped for the fine earth fraction (see also
 chapter \@ref(SOC-chapter)). Whilst a 1 meter deep
 soil, with a bulk density of 1.5 tonne per cubic-metre and an organic 
-carbon content of 10 g per kg, contains 150 tonnes organic carbon. 
-A similar soil with bulk density adjusted for the
-presence of *‘frequent stones’* contains 90–127.5 tonnes organic carbon. Despite the
-inaccuracy of the data for field observed coarse fragments content, it is
-strongly recommended to collect and compile these data as completely as
+carbon content of 10 g per kg, contains 150 tonnes organic carbon, 
+a similar soil with bulk density adjusted for the
+presence of *‘frequent stones’* contains only 90–127.5 tonnes organic carbon. 
+Despite the inaccuracy of the data for field observed coarse fragments content, 
+it is strongly recommended to collect and compile these data as completely as
 possible because of their relevance for estimating whole soil bulk
 density, total volume and volume of the fine earth fraction alone.
 
@@ -876,7 +867,7 @@ widely reported soil properties.
 
 The size of particles in the soil varies greatly from less than a 2 $\mu$m to
 several cm’s and occasionally even meters (boulders). This represents a
-range from to 1 $\mu$m to 1 million $\mu$m. Generally, particle size distribution has been
+range from 1 $\mu$m to 1 million $\mu$m. Generally, particle size distribution has been
 simplified through aggregation or classification. The fine earth
 fraction (<2 mm) is the soil considered for laboratory analyses. This fine
 earth is further subdivided into particle size classes including,
@@ -1023,8 +1014,8 @@ volumetric concentrations of materials such as organic carbon, water or
 nutrients.
 
 In practice, we need to be able to make estimates of two different types
-of bulk density, namely the bulk density of the whole soil and the *bulk
-density of the fine earth fraction* (particles <2 mm) only. Calculations
+of bulk density, namely the bulk density of the whole soil and the 
+*bulk density of the fine earth fraction* (particles <2 mm) only. Calculations
 such as those for total stocks of carbon are first applied using the
 bulk density of the fine earth fraction only but this value is then
 reduced in accordance with the volume proportion of the soil that is
@@ -1042,7 +1033,7 @@ undisturbed fresh sample. The ISO standard defines dry bulk density as
 the ratio of the oven-dry mass of the solids to the volume (the bulk
 volume includes the volume of the solids and of the pore space) of the
 soil. The recommended ISO method (core method) uses steel cylinders of
-known volume (100 cubic cm, 400 cubic cm) that are driven into the soil vertically or
+known volume (100 cm$^3$ and/or 400 cm$^3$) that are driven into the soil vertically or
 horizontally by percussion. Sampling large volumes results in smaller
 relative errors but requires heavy equipment. The method cannot be used
 if stones or large roots are present or when the soil is too dry or too
@@ -1071,8 +1062,7 @@ soil. Experience has shown that organic carbon and texture or clay
 content predominately influence soil bulk density, even though the
 nature of the clay (mineralogy) is as important as the percentage
 content of the clay. Organic carbon and texture information is often
-available in soil survey reports, while bulk density is often not as
-frequently reported.
+available in soil survey reports, while bulk density is often not reported.
 
 Many attempts have therefore been made to estimate soil bulk densities
 through pedo-transfer functions (PTFs) based on soil organic carbon and
@@ -1083,19 +1073,19 @@ predict oven-dried bulk density from soil properties using the NRCS
 National Soil Survey Characterization Data. The database included both
 subsoil and topsoil samples. An overall regression equation for
 predicting oven-dried bulk density from soil properties ($R^2=0.45$,
-$P<0.001$) was developed using almost 47,000 soil samples. Partitioning
-the database by soil suborders improved regression relationships
+$P<0.001$) was developed using almost 47,000 soil samples. Further partitioning
+of the database by soil suborders improved regression relationships
 ($R^2=0.62$, $P<0.001$). Of the soil properties considered, the stepwise
 multiple regression indicated that organic C content was the strongest
-contributor to bulk density prediction. Other significant variables
-included clay content, water content and to a lesser extent, silt
-content, and depth.
+contributor to bulk density prediction [@Heuscher2005SSSAJ]. 
+Other significant variables included clay content, water content and to 
+a lesser extent, silt content, and depth.
 
 ```{block2, type="rmdnote"}
 Bulk density is the oven-dry mass of soil material divided by the total
-volume and typically ranges from 0.7 to 1.8 t/kg$^3$. The average bulk density of
-the fine earth fraction of soil is about 1.3 t/kg$^3$; soils with a bulk density higher
-than 1.6 t/kg$^3$ tend to restrict root growth. Different values for bulk density
+volume and typically ranges from 0.7 to 1.8 t/m$^3$. The average bulk density of
+the fine earth fraction of soil is about 1.3 t/m$^3$; soils with a bulk density higher
+than 1.6 t/m$^3$ tend to restrict root growth. Different values for bulk density
 typically apply for different soils with different soil genesis as
 reflected by different materials and mineralogy, e.g. Histosols
 (organic), Arenosols (sandy), Andosols (allophanic clay), Acrisols (low
@@ -1104,11 +1094,10 @@ activity clays) and Vertisols (high activity clays).
 
 Bulk density tends to be measured and reported less frequently in legacy
 data bases and reports than most other commonly measured soil analytical
-properties. Such values as are reported are most often based on field
-measurements of in-situ bulk density using the core method. Bulk density
-of the fine earth fraction alone is measured and reported even less
-frequently than bulk density for the whole soil
-(Fig. \@ref(fig:sprofs-bld)).
+properties. Bulk density is often based on field measurements of in-situ 
+bulk density using the core method. Bulk density of the fine earth fraction 
+alone is measured and reported even less frequently than bulk density 
+for the whole soil (Fig. \@ref(fig:sprofs-bld)).
 
 ```{r sprofs-bld, echo=FALSE, fig.cap="Histogram and soil-depth density distribution for a global compilation of measurements of bulk density (tonnes per cubic metre). Based on the records from WOSIS (http://www.earth-syst-sci-data.net/9/1/2017/).", out.width="90%"}
 knitr::include_graphics("figures/Fig_sprofs_BLD.png")
@@ -1137,7 +1126,7 @@ the whole soil, in situ, is generally of greater use and interest for
 assessing hydrological behaviours and properties, such as hydraulic
 conductivity and moisture holding capacity.
 
-@Tranter2007SUM proposed a conceptual model that incorporated a priori
+@Tranter2007SUM proposed a conceptual model that incorporated *a priori*
 knowledge for predicting soil bulk density from other, more regularly
 measured, properties. The model considers soil bulk density to be a
 function of soil mineral packing structures ($\rho_m$) and soil
@@ -1151,7 +1140,7 @@ from a by-mass to a by-volume basis and vice versa based on bulk density
 data. This nomogram facilitates conversion of data on rock fragment
 content expressed in different units. Most PTFs for predicting bulk
 density, except those developed by @Rawls1983SS and @Bernoux1998SSSAJ,
-are a function only of organic matter i.e. organic carbon content.
+are a function of organic matter i.e. organic carbon content.
 Although studies conducted by @Saini1966N and @Jeffrey1970JE have shown
 that organic matter has a dominating effect on soil bulk density and
 that it can be used alone as a good predictor of soil bulk density, it
@@ -1213,7 +1202,7 @@ A more robust way to estimate the propagated uncertainty of deriving
 error from a large number of realizations (e.g. >100) that incorporate
 spatial and vertical correlations. Because, in the case of soil mapping,
 we are often dealing with massive data sets, running geostatistical
-simulations for millions of pixels is current not yet a feasible option.
+simulations for millions of pixels is currently not a feasible option.
 
 ### Available Water Capacity
 
@@ -1227,7 +1216,7 @@ The water available for root uptake depends on the soil properties that
 determine rootability or rooting depth as genetically required by the
 currently active vegetative land cover.
 
-```{r available-soil-water, echo=FALSE, fig.cap="Example of a soil water content plot. Actual water content can be measured using soil moisture probes i.e. automated sensor networks.", out.width="100%"}
+```{r available-soil-water, echo=FALSE, fig.cap="Example of a soil-water plot. Actual water content can be measured using soil moisture probes i.e. automated sensor networks.", out.width="100%"}
 knitr::include_graphics("figures/Fig_available_soil_water.png")
 ```
 
@@ -1245,12 +1234,14 @@ runoff with increased chances of erosion and flooding. Models of crop
 growth, runoff, erosion and flooding all have requirements for
 location-specific information about available water capacity.
 
+```{block2 type="rmdnote"}
 The AWC is expressed in mm (which equals mm water/cm soil depth, or
 water/soil volume). This volume of water depends on the volume of soil
 (influenced by depth interval and by volumetric gravel content) and the
 volumetric fraction of water that is contained by the soil between field
 capacity and wilting point. AWC is typically reported to a precision of 1 mm
 and a maximum range of 0–2000 mm.
+```
 
 Values for AWC are preferably assessed for the fine earth fraction per
 depth interval and expressed as volumetric fraction. This value can be
@@ -1259,7 +1250,7 @@ over the interval. Preferably, the values for volumetric AWC of the fine
 earth fraction per depth interval are derived from values for water
 content at specific water tensions (e.g. at pF 0.1, 2, 2.5, 3, 4.2,
 4.5). For pragmatic reasons though the permanent wilting point is set at
--1500 kPa (or 15,000cm, 15 bar, 15 atmosphere or pF 4.2).
+-1500 kPa (or pF 4.2).
 
 The standard reference method adopted by GSIF and LandGIS for reporting available
 water capacity is as per the USDA Soil Survey Laboratory Methods Manual
@@ -1281,10 +1272,9 @@ soil depth) can be estimated based on the Water Retention Difference
 including gravel, that is retained between -1500 kPa suction and an upper limit of 33 kPa suction.
 ```
 
-*“The development of hydraulic PTFs has become a boom industry, mostly
-in the US and Europe”* [@Minasny2007JITL]. Results of such research have
-been reported widely, including in the USA [@Rawls1991AA], UK, the
-Netherlands [@Wosten1995G], and Germany. Research has attempted to
+*“The development of hydraulic PTFs has become an industry”* [@Minasny2007JITL]. 
+Results of such research have been reported widely, including in the 
+USA [@Rawls1991AA], UK, the Netherlands [@Wosten1995G], and Germany. Research has attempted to
 correlate particle size distribution, bulk density and organic matter
 content with water content at field capacity (FC, $\theta$ at -33 kPa),
 permanent wilting point (PWP, $\theta$ at -1500 kPa), and available water content
@@ -1292,15 +1282,14 @@ permanent wilting point (PWP, $\theta$ at -1500 kPa), and available water conten
 *“many PTFs for estimating soil hydraulic properties have been published
 already”* (see overviews by @Rawls1991AA, @Timlin1996AS and
 @Wosten2001JH). @Timlin1996AS reported 49 methods and estimated that
-this covers only about 30% of the total. @Gijsman2007CEA compared eight
+these cover only about 30% of the total. @Gijsman2007CEA compared eight
 methods for all the soil classes that make up the texture triangle. They
 went through the triangle in steps of sand, silt and clay and determined
-the estimated values of wilting point or lower limit of *plant
-extractable water* (LL), *field capacity* or the drained upper limit
-(DUL), and soil saturation (SAT). They finally concluded that none of
-the methods were universally good. The best method in the comparison of
-@Gijsman2007CEA was @Saxton1986SSSAJ, closely followed by
-@Rawls1982JIDDASCE.
+the estimated values of wilting point or lower limit of *plant extractable water* 
+(LL), *field capacity* or the drained upper limit (DUL), and soil saturation (SAT). 
+They finally concluded that none of the methods were universally good. 
+The best method in the comparison of @Gijsman2007CEA was @Saxton1986SSSAJ, 
+closely followed by @Rawls1982JIDDASCE.
 
 Alterra institute in collaboration with ISRIC validated the PTF
 developed by @hodnett2002marked on the basis of the data present in
@@ -1350,7 +1339,7 @@ the WRD from more easily available parameters as:
 @Zacharias2007SSSAJ concluded that approach (1) has the disadvantage
 that it uses a large number of regression parameters depending on the
 number of WRD sampling points, which makes its use in the mathematical
-modeling more difficult; while for approach 2 very detailed information
+modeling more difficult; while for approach (2) very detailed information
 about the particle size distribution is required. They therefore
 preferred use of (3) the parameter estimation methods.
 
@@ -1376,7 +1365,7 @@ data) using artificial neural network modeling including a PTF that uses
 soil texture and bulk density only.
 
 @Zacharias2007SSSAJ developed two different regression equations
-depending upon the percentage of sand in a soil as follows:
+largely based on the percentage of sand in a soil as follows:
 
 \begin{equation}
 \begin{cases}
@@ -1400,9 +1389,7 @@ those reported by @Vereecken1989SS (i.e.
 $\theta_s  = 0.81 + 0.001 \cdot {\mathtt{clay}} - 0.283 \cdot D_b$) for
 a different data set, adding further credibility to their general
 applicability. @Zacharias2007SSSAJ recommended using the PTFs of
-@Vereecken1989SS if data on soil organic matter were available but felt
-that their proposed equations were suitable for use where soil organic
-matter data were not available.
+@Vereecken1989SS if data on soil organic matter were available.
 
 Empirical equations developed by @Williams1992 for the prediction of the
 constants $A$ and $B$ in the Campbell function have been widely used in
@@ -1474,16 +1461,16 @@ attr(x, "coef")
 
 where `SNDPPT`, `SLTPPT` and `CLYPPT` are the measured sand, silt and
 clay content in percent, `ORCDRC` is the soil organic carbon
-concentration in permille or , `BLD` is the bulk density in , `CEC` is
-the Cation Exchange Capacity in , and `PHIHOX` is the soil pH in water
+concentration in permille, `BLD` is the bulk density in kg/m$^3$, `CEC` is
+the Cation Exchange Capacity, and `PHIHOX` is the soil pH in water
 suspension. The output `AWCh1`, `AWCh2`, `AWCh3` are the available soil
 water capacity (volumetric fraction) for pF 2.0, 2.3 and 2.5, `WWP` is
 the soil water capacity (volumetric fraction) until wilting point, and
 `tetaS` is the saturated water content, respectively.
 
-## Harmonisation of soil data and pedo-transfer functions
+## Harmonization of soil data and pedo-transfer functions
 
-### Basic concepts of harmonisation of soil property values
+### Basic concepts of harmonization of soil property values
 
 A well known issue with legacy soils data is the use of different
 methods for analyzing soils in the laboratory or describing them in the
@@ -1516,7 +1503,7 @@ predictions.
 The process of conversion of values measured by an original method to
 values roughly equivalent to those measured by an agreed-upon standard
 reference method is referred to as data harmonization. Examples of
-harmonisation would be converting values assessed by e.g. pH in 1:2
+harmonization would be converting values assessed by e.g. pH in 1:2
 water to values as if assessed by pH in 1:5 water, or organic carbon by
 *Walkley-Black* into organic carbon by *dry combustion*.
 
@@ -1541,7 +1528,7 @@ Neither the *GlobalSoilMap* project nor GSIF has yet identified and
 selected specific functions to use to harmonize data produced using
 different analytical methods for any of the soil properties that are to
 be predicted and mapped. It is possible that a single
-globally-applicable default harmonisation function could potentially be
+globally-applicable default harmonization function could potentially be
 identified for each of the methods of analysis for each of the soil
 properties selected for global analysis. However, this would require the
 current multitude of method definitions to be unambiguously defined and
@@ -1549,17 +1536,17 @@ uniquely identified (IDx), and possibly grouped into aggregate classes,
 for subsequent conversion from IDx to IDy.
 
 ```{block2, type="rmdnote"}
-Soil observations, such as observation of texture by hand class, are
+Soil observations, such as observation of texture-by-hand class, are
 often inexpensive, but rely on good expert knowledge skills. Statistical frameworks are needed that can use both highly precise and quick-and-inaccurate observations to generate better soil maps.
 ```
 
-We have previously noted that locally-specific harmonisation functions
+We have previously noted that locally-specific harmonization functions
 have consistently proven to be more effective than global ones and there
 is widespread agreement that there is generally no universal equation
 for converting from one method to another in all instances
 [@Konen2002SSSAJ; @Meersmans2009SUM; @Jankauskas2006CSSPA; @Jolivet1998CSSPA; @DeVos2007SUM].
 Consequently, there will likely be a need to develop locally relevant
-harmonisation functions at the continental or regional level that apply
+harmonization functions at the continental or regional level that apply
 to restricted soil-landscape domains.
 
 @McBratney2002Geoderma proposed the concept of a *soil inference system*
@@ -1568,7 +1555,7 @@ prediction equations. The proposed system was intended to implement two
 major functions, namely:
 
 1.  Predict all soil properties using all possible (known) combinations
-    of inputs and harmonisation functions.
+    of inputs and harmonization functions.
 
 2.  Select the combination that leads to a prediction with the
     minimum variance.
@@ -1595,17 +1582,17 @@ approaches to soil classification [@eswaran2010soil; @buol2011soil]:
 3.  *Numerical or statistical classification of soils* — This is purely
     data-driven soil classification which can result in significant
     groupings of soil properties, but that then do not have any
-    cognitive name and are difficult to visualize.
+    cognitive name and are difficult to memorize.
 
 Soil classification or soil taxonomy supports the transfer of soil
 information from one place, or individual, to another. Classifying soils
 can also often be very cost effective — if we identify the soil class
-correctly it is highly likely that we will be able to predict multiple
-additional soil properties that co-vary by soil type that would
+correctly, it is highly likely that we will be able to predict multiple
+additional soil properties that co-vary by soil type, and that would
 otherwise require significant resources to measure in the lab.
 
 There are two major international soil taxonomic systems of primary
-interest for globla soil mapping: The USDA’s *Soil Taxonomy*
+interest for global soil mapping: The USDA’s *Soil Taxonomy*
 [@agriculture2010keys], and the FAO’s *World Reference Base*
 [@FAO2006WRB]. Both KST and WRB are hierarchial, key-based morphological
 classification systems, but with increasingly more analytical data
@@ -1617,10 +1604,10 @@ used exclusively for cartographic presentation of the global
 distribution of KST soil orders (12) and/or FAO WRB soil groups (32).
 
 ```{block2, type="rmdnote"}
-USDA's Soil Taxonomy is probably the most developed soil classification system in the world. Using it for producing soil data is highly recommended also because all documents, databases and guidelines are publicly available.
+USDA's Soil Taxonomy is probably the most developed soil classification system in the world. Its use is highly recommended also because all documents, databases and guidelines are publicly available without restrictions.
 ```
 
-```{r worldmap-suborders, echo=FALSE, fig.cap="The USDA-NRCS map of the Keys to Soil Taxonomy soil suborders of the world at 20 km. The map shows the distribution of 12 soil orders. The original map contains assumed distributions also for suborders e.g. Histels, Udolls, Calcids, and similar. Projected in the Robinson projection commonly used to display world maps.", out.width="100%"}
+```{r worldmap-suborders, echo=FALSE, fig.cap="The USDA-NRCS map of the Keys to Soil Taxonomy soil suborders of the world at 20 km. The map shows the distribution of 12 soil orders. The original map also contains assumed distributions for suborders e.g. Histels, Udolls, Calcids, and similar. Projected in the Robinson projection commonly used to display world maps.", out.width="100%"}
 knitr::include_graphics("figures/Fig_worldmap_suborders.png")
 ```
 
@@ -1638,7 +1625,7 @@ and an adequate spatial distribution of field observed classes,
 multinomial logistic regression could even be used to map soil taxa at
 lower taxonomic levels with hundreds of unique taxonomic entities.
 
-```{r usda-categories, echo=FALSE, fig.cap="USDA classification system and approximate minimum required number of observations to fit a global multinomial regression model.", out.width="60%", out.extra="angle=0"}
+```{r usda-categories, echo=FALSE, fig.cap="USDA classification system and approximate minimum number of observations required to fit a global multinomial regression model.", out.width="60%", out.extra="angle=0"}
 knitr::include_graphics("figures/Fig_USDA_categories.png")
 ```
 
@@ -1694,14 +1681,13 @@ algorithm. The other technical problem is the amount of storage required to save
 share all the produced predictions. Each category of a soil categorical
 variable must be mapped separately, which can lead to hundreds of grids.
 The global land cover map for example contains only some 35 categories,
-so that it is relatively easy to distribute and use that GIS layer.
+so that it is relatively easy to distribute and use it inside a GIS.
 
-
-## Importing and formatting soil data in R
+## Importing and formatting soil data in R {#variables-importing}
 
 ### Converting texture-by-hand classes to fractions
 
-In the following example we look at how to convert texture-by-hand estimated classes to texture fractions i.e. sand, silt and clay content in %. We focus on the USDA texture-by-hand classes. There classes are embedded in the [soiltexture package](http://cran.r-project.org/web/packages/soiltexture/) kindly contributed by Julien Moeys. The USDA texture triangle can be accessed by:
+In the following example we look at how to convert texture-by-hand estimated classes to texture fractions i.e. sand, silt and clay content in %. We focus on the USDA texture-by-hand classes, which are embedded in the [soiltexture package](http://cran.r-project.org/web/packages/soiltexture/), kindly contributed by Julien Moeys. The USDA texture triangle can be accessed by:
 
 ```{r plot-tt-triangle,fig.height=8, fig.width=8, out.width="70%", fig.cap="Soil texture triangle based on the USDA system. Generated using the soiltexture package (http://cran.r-project.org/web/packages/soiltexture/)."}
 library(soiltexture)
@@ -1746,7 +1732,7 @@ poly.USDA.TT <- SpatialPolygonsDataFrame(poly.sp,
                       data.frame(ID=USDA.TT$name), match.ID=FALSE)
 ```
 
-The resulting object now contains also slots of type `labpt` which is exactly the geometric gravity point of the first polygon automatically derived by the `SpatialPolygons` function.
+The resulting object now also contains *slots* of type `labpt` which is exactly the geometric gravity point of the first polygon automatically derived by the `SpatialPolygons` function.
 
 ```{r}
 slot(slot(poly.USDA.TT, "polygons")[[1]], "labpt")
@@ -1763,7 +1749,7 @@ get.TF.from.XY <- function(df, xcoord, ycoord) {
 }
 ```
 
-and now everything is ready to estimate the soil fractions based on a system of classes. For the case of the USDA classifications system we get:
+Now everything is ready to estimate the soil fractions based on a system of classes. For the case of the USDA classifications system we get:
 
 ```{r}
 USDA.TT.cnt <- data.frame(t(sapply(slot(poly.USDA.TT, "polygons"), slot, "labpt")))
@@ -1797,7 +1783,7 @@ for(i in c("CLYPPT", "SLTPPT", "SNDPPT")) { tdf[,i] <- tdf[,i]/tdf$Sum * 100 }
 names(tdf)[1:3] <- c("CLAY", "SILT", "SAND")
 ```
 
-```{r plot-tt-afsis, fig.height=8, fig.width=8, out.width="70%", fig.cap="Distribution of observed soil textures for the Africa Soil Profiles (http://gsif.r-forge.r-project.org/afsp.html)."}
+```{r plot-tt-afsis, fig.height=8, fig.width=8, out.width="70%", fig.cap="Distribution of observed soil textures for the Africa Soil Profiles."}
 TT.plot(class.sys = "USDA.TT", tri.data = tdf, 
         grid.show = FALSE, pch="+", cex=.4, col="red")
 ```
@@ -1820,9 +1806,9 @@ as(colorspace::RGB(R=munsell.rgb[1007,"R"]/255,
                    B=munsell.rgb[1007,"B"]/255), "HSV")
 ```
 
-This shows that, for any given Munsell color code, it is relatively easy to convert them to any other color system available in R.
+This shows that, for any given Munsell color code, it is relatively easy to convert it to any other color system available in R.
 
-Within the R [package aqp](http://casoilresource.lawr.ucdavis.edu/drupal/node/201) one can directly transform Munsell color codes to some color classes in R [@Beaudette2013CompGeo]. For example, to convert the Munsell color code to RGB values from the example above we would run:
+Within the R [package aqp](http://casoilresource.lawr.ucdavis.edu/drupal/node/201) one can directly transform Munsell color codes to standard color classes in R [@Beaudette2013CompGeo]. For example, to convert the Munsell color code to RGB values from the example above we would run:
 
 ```{r}
 aqp::munsell2rgb(the_hue = "10B", the_value = 2, the_chroma = 12)
@@ -1840,14 +1826,14 @@ The hex triplet format is also very similar to the color format used in the [KML
 plotKML::col2kml("#003A7CFF")
 ```
 
-To plot the actual colors based on an actual soil profile data base we often need to prepare the color codes before we can run the conversion [@VISCARRAROSSEL2006320]. In the case of the [Africa Soil Profile Database](http://gsif.r-forge.r-project.org/afsp.html):
+To plot the actual colors based on an actual soil profile database we often need to prepare the color codes before we can run the conversion [@VISCARRAROSSEL2006320]. In the case of the [Africa Soil Profile Database](http://gsif.r-forge.r-project.org/afsp.html):
 
 ```{r}
 data(afsp)
 head(afsp$horizons[!is.na(afsp$horizons$MCOMNS),"MCOMNS"])
 ```
 
-the Munsell color codes have been prepared as text. Hence we need to spend some effort to separate hue from saturation and intensity before we can derive and plot actual colors. We start by merging the tables of interest so both coordinates and Munsell color codes are available in the same table:
+Note that the Munsell color codes have been prepared as text. Hence we need to spend some effort to separate hue from saturation and intensity before we can derive and plot actual colors. We start by merging the tables of interest so both coordinates and Munsell color codes are available in the same table:
 
 ```{r}
 mcol <- plyr::join(afsp$horizons[,c("SOURCEID","MCOMNS","UHDICM","LHDICM")],
@@ -1883,7 +1869,7 @@ mcol.RGB <- mcol.RGB[mcol.RGB$depth>0 & mcol.RGB$depth<30 & !is.na(mcol.RGB$col)
 coordinates(mcol.RGB) <- ~ LONWGS84+LATWGS84
 ```
 
-```{r plot-af-soil-cols, fig.width=5, fig.cap="Actual observed soil colors (moist) for the top soil based on the Africa Soil Profiles Database (http://gsif.r-forge.r-project.org/afsp.html)."}
+```{r plot-af-soil-cols, fig.width=5, fig.cap="Actual observed soil colors (moist) for the top soil based on the Africa Soil Profiles Database."}
 load("extdata/admin.af.rda")
 proj4string(admin.af) <- "+proj=longlat +datum=WGS84"
 country <- as(admin.af, "SpatialLines")
@@ -1928,7 +1914,7 @@ knitr::include_graphics("figures/soil_profile_plot.png")
 
 ### PTF for Bulk Density
 
-In the following examples we look at possibilities of using [Machine Learning](wiki/soilmapping_using_mla) to predict soil properties and classes from other soil properties and classes. In the first example, we try to build a Pedo-Transfer-Function (PTF) to predict bulk density using soil properties such as organic carbon content, soil texture and coarse fragments. Bulk density is often available only for a part of soil profiles, so if we could use a PTF to fill in all gaps in bulk density, then most likely we would not need to omit BD from further analysis. For testing PTFs to predict bulk density from other soil properties we will use a subset of the ISRIC WISE soil profile data set [@Batjes2009SUM], which can be loaded from:
+In the following examples we look at possibilities of using [Machine Learning](wiki/soilmapping_using_mla) to predict soil properties and classes from other soil properties and classes. In the first example, we try to build a Pedo-Transfer-Function (PTF) to predict bulk density using soil properties such as organic carbon content, soil texture and coarse fragments. Bulk density is often only available for a part of soil profiles, so if we could use a PTF to fill in all gaps in bulk density, then most likely we would not need to omit BD from further analysis. For testing PTFs to predict bulk density from other soil properties we will use a subset of the ISRIC WISE soil profile data set [@Batjes2009SUM], which can be loaded from:
 
 ```{r}
 library(randomForestSRC)
@@ -1939,7 +1925,7 @@ load("extdata/sprops.wise.rda")
 str(SPROPS.WISE)
 ```
 
-For model fitting we will use the [randomForestSRC](https://cran.r-project.org/package=randomForestSRC) package, which is a robust implementation of random forest algorithm with options for parallelization and visualization of model outputs:
+For model fitting we will use the [randomForestSRC](https://cran.r-project.org/package=randomForestSRC) package, which is a robust implementation of the random forest algorithm with options for parallelization and visualization of model outputs:
 
 ```{r}
 bd.fm = as.formula("BLD ~ ORCDRC + PHIHOX + SNDPPT + CLYPPT + CRFVOL + DEPTH")
@@ -1947,20 +1933,20 @@ rfsrc_BD <- rfsrc(bd.fm, data=SPROPS.WISE)
 rfsrc_BD
 ```
 
-which shows that the model explains about 40% with an RMSE of ±200 kg/m$^3$. Although the MSE is relatively high, it least can be used to fill in the missing values for BD which can be significant. We can plot the partial plots between the target variable and all covariates by using:
+which shows that the model explains about 40% with an RMSE of ±200 kg/m$^3$. Although the MSE is relatively high, the model can at least be used to fill-in the missing values for BD. We can plot the partial plots between the target variable and all covariates by using:
 
-```{r bulk-density-ptf, echo=FALSE, fig.cap="Bulk density as a function of organic carbon, pH, sand and clay content coarse fragments and depth.", out.width="100%"}
+```{r bulk-density-ptf, echo=FALSE, fig.cap="Bulk density as a function of organic carbon, pH, sand and clay content, coarse fragments and depth.", out.width="100%"}
 knitr::include_graphics("figures/bulk_density_ptf_plots.png")
 ```
 
-Obviously the key to explaining bulk density is soil organic carbon, while depth and pH are the 2nd and 3rd most important covariates. Using this MLA-based model we can predict bulk density for various combinations of soil properties:
+Obviously, the key to explaining bulk density is soil organic carbon, while depth and pH are the 2nd and 3rd most important covariates. Using this MLA-based model we can predict bulk density for various combinations of soil properties:
 
 ```{r}
 predict(rfsrc_BD, data.frame(ORCDRC=1.2, PHIHOX=7.6, 
                   SNDPPT=45, CLYPPT=12, CRFVOL=0, DEPTH=20))$predicted
 ```
 
-and a soil with higher organic carbon content:
+and for a soil with higher organic carbon content:
 
 ```{r}
 predict(rfsrc_BD, data.frame(ORCDRC=150, PHIHOX=4.6, 
@@ -1969,14 +1955,14 @@ predict(rfsrc_BD, data.frame(ORCDRC=150, PHIHOX=4.6,
 
 ### PTF for correlating classification systems
 
-In the second example we use ISRIC WISE to to build a correlation function to translate soil classes from one classification system to the other. The training data can be loaded from:
+In the second example we use ISRIC WISE data set to build a correlation function to translate soil classes from one classification system to the other. The training data can be loaded from:
 
 ```{r}
 load("extdata/wise_tax.rda")
 str(WISE_tax)
 ```
 
-we also need to get the *cleaned* legend for USDA classification:
+For this purpose we also need to import the *cleaned* legend for USDA classification:
 
 ```{r}
 leg <- read.csv("extdata/taxousda_greatgroups.csv")
@@ -1996,7 +1982,7 @@ WISE_tax$PHIHOX <- plyr::join(WISE_tax, x.PHIHOX, type="left")$x
 WISE_tax$CLYPPT <- plyr::join(WISE_tax, x.CLYPPT, type="left")$x
 ```
 
-After that we need to cleanup the classes so that we can focus on USDA suborders only:
+After that we need to clean-up the classes so that we can focus on USDA suborders only:
 
 ```{r}
 sel.tax = complete.cases(WISE_tax[,c("TAXNWRB","PHIHOX","CLYPPT","TAXOUSDA")])
@@ -2017,7 +2003,7 @@ TAXNUSDA.rf <- rfsrc(TAXOUSDA.f ~ TAXNWRB + PHIHOX + CLYPPT, data=WISE_tax.sites
 #TAXNUSDA.rf
 ```
 
-which shows that the average accuracy is about 45%. We can test converting some classes with the help of additional soil properties:
+This shows that the average accuracy is about 45%. We can test converting some classes with the help of additional soil properties:
 
 ```{r}
 newdata = data.frame(TAXNWRB=factor("Calcaric Cambisol", 
@@ -2027,7 +2013,7 @@ x <- data.frame(predict(TAXNUSDA.rf, newdata, type="prob")$predicted)
 x[,order(1/x)[1:2]]
 ```
 
-so for example, the two most likely classes to equate to Calcaric Cambisols seem to be Ochrepts and Orthids, which is not that much different from correlation classes reported in @Krasilnikov2009handbook.
+So for example, the two most likely classes to equate to Calcaric Cambisols seem to be Ochrepts and Orthids, which is not that much different from correlation classes reported in @Krasilnikov2009handbook.
 
 ## Summary points
 
@@ -2054,7 +2040,7 @@ existing, or legacy, soil profile data to provide the evidence used to
 construct predicton models for PSM. This emphasis reflects the reality 
 that, for most of the world, legacy soil profile data is all that we 
 have to work with, at the present time, and all that we can reasonably 
-expect to obtain for the foreseeable future. Many of the issues and 
+expect in the foreseeable future. Many of the issues and 
 challenges related to use and harmonization of legacy soil profile data
 discussed in this chapter will hopefully be of less importance as newer,
 contemporary data are collected in the field and analysed in the laboratory
@@ -2074,7 +2060,7 @@ long as data analysed by both methods were included in the GSRL) by
 developing pedo-transfer (or conversion) functions using the fully
 analysed samples in the conversion library. In particular, some
 variation of the similarity approach described by @Jagtap2004TASAE for
-avaialble water capacity and @Nemes1999G for harmonization
+available water capacity and @Nemes1999G for harmonization
 of particle size data could be implemented to harmonize all types of
 soil property values anywhere in the world. The value of the soil
 property in the desired reference method could be estimated by finding
@@ -2096,7 +2082,7 @@ individualized, locally relevant conversion or pedo-transfer functions
 in a consistent and standardized manner. Consequently, global soil
 mapping would benefit from having the best of both worlds, namely
 locally-specific harmonization functions (which are known to be most
-effective) and also ones that were computed everywhere in a single
+effective), and also ones that were computed in a single
 standardized manner using data in a single comprehensive reference
 database (which is desirable in terms of simplifying harmonization and
 maintaining a record of how any value was harmonized).

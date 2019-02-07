@@ -23,6 +23,7 @@ library(caret)
 library(Cubist)
 library(GSIF)
 library(xgboost)
+library(viridis)
 ```
 
 ```{r, include=FALSE}
@@ -86,7 +87,7 @@ m$soiltype <- as.factor(m$soiltype)
 summary(m$soiltype)
 ```
 
-We can now test fitting a MLA i.e. a random forest model using four covariate layers (parent material map, elevation, TWI and Aster thermal band):
+We can now test fitting a MLA i.e. a random forest model using four covariate layers (parent material map, elevation, TWI and ASTER thermal band):
 
 ```{r}
 ## subset to speed-up:
@@ -190,7 +191,7 @@ plt1 <- xyplot(m$SNDMHT_A ~ SDN.pred, asp=1,
                  ylab="measured", xlab="predicted (machine learning)")
 ```
 
-```{r obs-pred-snd, echo=FALSE, fig.cap="Measured vs predicted SAND content based on the Random Forest model.", out.width="70%"}
+```{r obs-pred-snd, echo=FALSE, fig.cap="Measured vs predicted sand content based on the Random Forest model.", out.width="55%"}
 knitr::include_graphics("figures/Measured_vs_predicted_SAND_plot.png")
 ```
 
@@ -201,8 +202,8 @@ eberg_grid$RFx <- as.data.frame(h2o.predict(RF.m, eberg.grid, na.action=na.pass)
 ```
 
 ```{r map-snd, echo=FALSE, fig.width=8, fig.cap="Predicted sand content based on random forest."}
-plot(raster(eberg_grid["RFx"]), col=SAGA_pal[[1]], zlim=c(10,90))
-points(eberg, pch="+", cex=.6)
+plot(raster(eberg_grid["RFx"]), col=rev(viridis(10)), zlim=c(10,90))
+points(eberg, pch=21, cex=.7)
 ```
 
 h2o has another MLA of interest for soil mapping called *deep learning* (a feed-forward multilayer artificial neural network). Fitting the model is equivalent to using random forest:
@@ -221,9 +222,9 @@ Which delivers performance comparable to the random forest model. The output pre
 eberg_grid$DLx <- as.data.frame(h2o.predict(DL.m, eberg.grid, na.action=na.pass))$predict
 ```
 
-```{r map-snd-dl, echo=FALSE, fig.width=8, fig.cap="Predicted SAND content based on deep learning."}
-plot(raster(eberg_grid["DLx"]), col=SAGA_pal[[1]], zlim=c(10,90))
-points(eberg, pch="+", cex=.6)
+```{r map-snd-dl, echo=FALSE, fig.width=8, fig.cap="Predicted sand content based on deep learning."}
+plot(raster(eberg_grid["DLx"]), col=rev(viridis(10)), zlim=c(10,90))
+points(eberg, pch=21, cex=.7)
 ```
 
 Which of the two methods should we use? Since they both have comparable performance, the most logical option is to generate ensemble (merged) predictions i.e. to produce a map that shows patterns averaged between the two methods  (note: many sophisticated MLA such as random forest, neural nets, SVM and similar will often produce comparable results i.e. they are often equally applicable and there is no clear *winner*). We can use weighted average i.e. R-square as a simple approach to produce merged predictions:
@@ -235,9 +236,9 @@ eberg_grid$SNDMHT_A <- rowSums(cbind(eberg_grid$RFx*rf.R2,
                          eberg_grid$DLx*dl.R2), na.rm=TRUE)/(rf.R2+dl.R2)
 ```
 
-```{r map-snd-ensemble, echo=FALSE, fig.width=8, fig.cap="Predicted SAND content based on ensemble predictions."}
-plot(raster(eberg_grid["SNDMHT_A"]), col=SAGA_pal[[1]], zlim=c(10,90))
-points(eberg, pch="+", cex=.6)
+```{r map-snd-ensemble, echo=FALSE, fig.width=8, out.width="80%", fig.cap="Predicted SAND content based on ensemble predictions."}
+plot(raster(eberg_grid["SNDMHT_A"]), col=rev(viridis(10)), zlim=c(10,90))
+points(eberg, pch=21, cex=.7)
 ```
 
 Indeed, the output map now shows patterns of both methods and is more likely slightly more accurate than any of the individual MLA's [@krogh1996learning].
@@ -320,7 +321,7 @@ w1 <- 100*max(tr.ORCDRC.rf$results$Rsquared)
 The variable importance plot indicates that DEPTH is by far the most important predictor:
 
 ```{r varimp-plot-edgeroi, echo=FALSE, fig.cap="Variable importance plot for predicting soil organic carbon content (ORC) in 3D.", out.width="70%"}
-varImpPlot(ORCDRC.rf$finalModel)
+varImpPlot(ORCDRC.rf$finalModel, cex.axis = .7, cex.main = .7, cex.lab = .7)
 ```
 
 We can also try fitting models using the xgboost package and the cubist packages: 
@@ -352,8 +353,8 @@ edgeroi.grids$ORCDRC_5cm <- (edgeroi.grids$Random_forest*w1 +
                                edgeroi.grids$XGBoost*w3)/(w1+w2+w3)
 ```
 
-```{r maps-soc-edgeroi, echo=FALSE, fig.width=7, fig.cap="Comparison of three MLA's and final ensemble prediction (ORCDRC 5cm) of soil organic carbon content for 2.5 cm depth."}
-plot(stack(edgeroi.grids[c("Random_forest","Cubist","XGBoost","ORCDRC_5cm")]), col=SAGA_pal[[1]], zlim=c(5,65))
+```{r maps-soc-edgeroi, echo=FALSE, fig.width=7, out.width="80%", fig.cap="Comparison of three MLA's and final ensemble prediction (ORCDRC 5cm) of soil organic carbon content for 2.5 cm depth."}
+plot(stack(edgeroi.grids[c("Random_forest","Cubist","XGBoost","ORCDRC_5cm")]), col=rev(viridis(10)), zlim=c(5,65))
 ```
 
 The final plot shows that xgboost possibly over-predicts and that cubist possibly under-predicts values of `ORCDRC`, while random forest is somewhere in-between the two. Again, merged predictions are probably the safest option considering that all three MLA's have similar measures of performance.
@@ -386,10 +387,13 @@ str(test.ORC)
 Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about $\pm 4$ g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:
 
 ```{r}
-plt0 <- xyplot(test.ORC[[1]]$Observed ~ test.ORC[[1]]$Predicted, asp=1, par.settings=list(plot.symbol = list(col=scales::alpha("black", 0.6), fill=scales::alpha("red", 0.6), pch=21, cex=0.6)), scales=list(x=list(log=TRUE, equispaced.log=FALSE), y=list(log=TRUE, equispaced.log=FALSE)), ylab="measured", xlab="predicted (machine learning)")
+plt0 <- xyplot(test.ORC[[1]]$Observed ~ test.ORC[[1]]$Predicted, asp=1, 
+            par.settings = list(plot.symbol = list(col=scales::alpha("black", 0.6), fill=scales::alpha("red", 0.6), pch=21, cex=0.6)), 
+            scales = list(x=list(log=TRUE, equispaced.log=FALSE), y=list(log=TRUE, equispaced.log=FALSE)),
+            ylab="measured", xlab="predicted (machine learning)")
 ```
 
-```{r plot-measured-predicted, echo=FALSE, fig.cap="Predicted vs observed plot for soil organic carbon ML-based model (Edgeroi data set).", out.width="70%"}
+```{r plot-measured-predicted, echo=FALSE, fig.cap="Predicted vs observed plot for soil organic carbon ML-based model (Edgeroi data set).", out.width="55%"}
 knitr::include_graphics("figures/Predicted_vs_observed_plot_for_SOC_edgeroi.png")
 ```
 
@@ -565,7 +569,7 @@ spplot(grid10m, paste0("PHI.", depths,"cm"),
 
 The second prediction matrix can be used to determine *model uncertainty*:
 
-```{r ph-cookfarm-var, echo=TRUE, fig.width=7, fig.cap="Example of variance of prediction models for soil pH."}
+```{r ph-cookfarm-var, echo=TRUE, fig.width=7, out.width="75%", fig.cap="Example of variance of prediction models for soil pH."}
 library(matrixStats)
 grid10m$PHI.10cm.sd <- rowSds(pred.PHI[[1]]$library.predict, na.rm=TRUE)
 pts = list("sp.points", cookfarm.xy, pch="+", col="black", cex=1.4)
@@ -787,7 +791,7 @@ meuse.grid$zinc_ok_range <- sqrt(zinc.ok$krige.var)
 
 in this case geoR automatically back-transforms values to the original scale, which is a recommended feature. Comparison of predictions and prediction error maps produced using geoR (ordinary kriging) and RFsp (with buffer distances and using just coordinates) is given in Fig. \@ref(fig:comparison-OK-RF-zinc-meuse).
 
-```{r comparison-OK-RF-zinc-meuse, echo=FALSE, fig.cap="Comparison of predictions based on ordinary kriging as implemented in the geoR package (left) and random forest (right) for Zinc concentrations, Meuse data set: (first row) predicted concentrations in log-scale and (second row) standard deviation of the prediction errors for OK and RF methods. Image source: Hengl et al. (2018) doi: 10.7717/peerj.5518.", out.width="100%"}
+```{r comparison-OK-RF-zinc-meuse, echo=FALSE, dpi = 300, fig.cap="Comparison of predictions based on ordinary kriging as implemented in the geoR package (left) and random forest (right) for Zinc concentrations, Meuse data set: (first row) predicted concentrations in log-scale and (second row) standard deviation of the prediction errors for OK and RF methods. Image source: Hengl et al. (2018) doi: 10.7717/peerj.5518.", out.width="100%"}
 knitr::include_graphics("figures/Fig_comparison_OK_RF_zinc_meuse.png")
 ```
 
@@ -812,7 +816,7 @@ meuse.grid$AHN = readGDAL(f2)$band1[meuse.grid@grid.index]
 to convert all covariates to numeric values and fill in all missing pixels we use Principal Component transformation:
 
 ```{r}
-grids.spc = GSIF::spc(meuse.grid, as.formula("~ SW_occurrence + AHN + ffreq + dist"))
+grids.spc <- GSIF::spc(meuse.grid, as.formula("~ SW_occurrence + AHN + ffreq + dist"))
 ```
 
 so that we can fit a ranger model using both geographical covariates (buffer distances) and environmental covariates imported previously:
@@ -837,11 +841,12 @@ which demonstrates that there is a slight improvement relative to using only buf
 We can further evaluate this model to see which specific points and covariates are 
 most important for spatial predictions:
 
-```{r rf-variableImportance, fig.width=5, fig.cap="Variable importance plot for mapping zinc content based on the Meuse data set."}
+```{r rf-variableImportance, fig.width=5, out.width="80%", fig.cap="Variable importance plot for mapping zinc content based on the Meuse data set."}
 xl <- as.list(ranger::importance(m1.zinc))
 par(mfrow=c(1,1),oma=c(0.7,2,0,1), mar=c(4,3.5,1,0))
 plot(vv <- t(data.frame(xl[order(unlist(xl), decreasing=TRUE)[10:1]])), 1:10, 
-     type = "n", ylab = "", yaxt = "n", xlab = "Variable Importance (Node Impurity)")
+     type = "n", ylab = "", yaxt = "n", xlab = "Variable Importance (Node Impurity)",
+     cex.axis = .7, cex.main = .7, cex.lab = .7)
 abline(h = 1:10, lty = "dotted", col = "grey60")
 points(vv, 1:10)
 axis(2, 1:10, labels = dimnames(vv)[[1]], las = 2)
@@ -872,7 +877,7 @@ zinc.uk <- krige.conv(zinc.geo, locations=locs, krige=KC)
 meuse.grid$zinc_UK = zinc.uk$predict
 ```
 
-```{r RF-covs-bufferdist-zinc-meuse, echo=FALSE, fig.cap="Comparison of predictions (median values) produced using random forest and covariates only (left), and random forest with combined covariates and buffer distances (right).", out.width="100%"}
+```{r RF-covs-bufferdist-zinc-meuse, echo=FALSE, dpi = 300, fig.cap="Comparison of predictions (median values) produced using random forest and covariates only (left), and random forest with combined covariates and buffer distances (right).", out.width="80%"}
 knitr::include_graphics("figures/Fig_RF_covs_bufferdist_zinc_meuse.png")
 ```
 
@@ -941,7 +946,7 @@ pred.clas <- predict(m2.s1, cbind(meuse.grid@data, grid.dist0@data), type="se")
 
 in principle, the two options to predicting the distribution of the binomial variable are mathematically equivalent and should lead to the same predictions (also shown in the map below). In practice, there can be some small differences in numbers, due to rounding effect or random start effects. 
 
-```{r comparison-uncertainty-Binomial, echo=FALSE, fig.cap="Comparison of predictions for soil class “1” produced using (left) regression and prediction of the median value, (middle) regression and prediction of response value, and (right) classification with probabilities.", out.width="90%"}
+```{r comparison-uncertainty-Binomial, echo=FALSE, dpi=300, fig.cap="Comparison of predictions for soil class “1” produced using (left) regression and prediction of the median value, (middle) regression and prediction of response value, and (right) classification with probabilities.", out.width="90%"}
 knitr::include_graphics("figures/Fig_comparison_uncertainty_Binomial_variables_meuse.png")
 ```
 
@@ -989,7 +994,7 @@ str(pred.grids@data)
 
 where `pred_soil1` is the probability of occurrence of class 1 and `se_soil1` is the standard error of prediction for the `pred_soil1` based on the Jackknife-after-Bootstrap method [@wager2014confidence]. The first column in `pred.grids` contains the existing map of `soil` with hard classes only.
 
-```{r comparison-uncertainty-Factor, echo=FALSE, fig.cap="Predictions of soil types for the meuse data set based on the RFsp: (above) probability for three soil classes, and (below) derived standard errors per class.", out.width="90%"}
+```{r comparison-uncertainty-Factor, echo=FALSE, dpi=300, fig.cap="Predictions of soil types for the meuse data set based on the RFsp: (above) probability for three soil classes, and (below) derived standard errors per class.", out.width="90%"}
 knitr::include_graphics("figures/Fig_comparison_uncertainty_Factor_variables_meuse.png")
 ```
 
