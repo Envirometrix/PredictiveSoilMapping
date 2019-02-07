@@ -506,8 +506,8 @@ systematize field descriptions and field sampling can make it much more
 affordable and feasible to collect new field data through new field
 sampling programs.
 
-@BRUS2019464 provides a systematic overview of sampling techniques and how
-to implement them in R (https://github.com/DickBrus/TutorialSampling4DSM). 
+@BRUS2019464 provides a systematic overview of sampling techniques and [how
+to implement them in R](https://github.com/DickBrus/TutorialSampling4DSM). 
 The author also recongizes that *“further research is recommended on sampling 
 designs for mapping with machine learning techniques, designs that are robust 
 against deviations of modeling assumptions”*.
@@ -882,8 +882,7 @@ and user oriented data.
 
 Future soil inventory projects based on application of predictive soil
 modelling will also benefit from adopting the following principles of
-OPEN Data based on the Sunlight Foundation's “Ten Principles for Opening
-up Government Information”
+OPEN Data based on the Sunlight Foundation's *“Ten Principles for Opening up Government Information”* 
 (https://open.canada.ca/en/open-data-principles#toc95):
 
 **1. Completeness**\
@@ -1154,7 +1153,7 @@ opportunities to engage citizen volunteers in collecting field
 observations and measurements to extend what PSM is able to accomplish
 now using data collected data by professionals.
 
-### Sponsorship, subscription, crowdfunding and blockchain funding systems,
+### Sponsorship, subscription, crowdfunding and blockchain funding systems
 
 Someone has to pay to finance the collection of new field and laboratory
 point data, the assembly, storage and distribution of databases of

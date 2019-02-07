@@ -2,7 +2,6 @@
 library("methods")
 library("microbenchmark")
 library("knitr")
-## load data sets
 
 knitr::opts_chunk$set(
   comment = "#>",
@@ -10,7 +9,6 @@ knitr::opts_chunk$set(
   cache = TRUE, 
   fig.pos = "H",
   fig.align = "center",
-  #auto_pdf = FALSE,
   fig.show = "hold",
   out.width = "100%",
   tidy = TRUE,
