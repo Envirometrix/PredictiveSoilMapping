@@ -364,7 +364,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.3.2" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#collection-of-field-observations-and-samples"><i class="fa fa-check"></i><b>9.3.2</b> Collection of field observations and samples</a></li>
 <li class="chapter" data-level="9.3.3" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#collecting-new-field-om-data"><i class="fa fa-check"></i><b>9.3.3</b> Collecting new field O&amp;M data</a></li>
 <li class="chapter" data-level="9.3.4" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#characterization-of-soils-in-the-field-and-the-laboratory"><i class="fa fa-check"></i><b>9.3.4</b> Characterization of soils in the field and the laboratory</a></li>
-<li class="chapter" data-level="9.3.5" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#creation-collation-and-distribution-of-effective-environmental-covariates"><i class="fa fa-check"></i><b>9.3.5</b> Creation, collation and distribution of effective environmental covariates,</a></li>
+<li class="chapter" data-level="9.3.5" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#creation-collation-and-distribution-of-effective-environmental-covariates"><i class="fa fa-check"></i><b>9.3.5</b> Creation, collation and distribution of effective environmental covariates</a></li>
 <li class="chapter" data-level="9.3.6" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#automated-spatial-prediction-models-psm"><i class="fa fa-check"></i><b>9.3.6</b> Automated spatial prediction models (PSM)</a></li>
 <li class="chapter" data-level="9.3.7" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#hosting-publishing-sharing-and-using-spatial-data"><i class="fa fa-check"></i><b>9.3.7</b> Hosting, publishing, sharing and using spatial data</a></li>
 <li class="chapter" data-level="9.3.8" data-path="the-future-of-predictive-soil-mapping.html"><a href="the-future-of-predictive-soil-mapping.html#new-visualization-and-data-analysis-tools"><i class="fa fa-check"></i><b>9.3.8</b> New visualization and data analysis tools</a></li>
@@ -710,7 +710,7 @@ eberg_zones_r2<span class="op">$</span>ZONES &lt;-<span class="st"> </span><span
 <span class="co">#&gt;  Clay_and_loess Clayey_derivats  Sandy_material   Silt_and_sand </span>
 <span class="co">#&gt;           28667           35992           21971           73370</span></code></pre>
 <div class="figure" style="text-align: center"><span id="fig:eberg-zones-rasterized"></span>
-<img src="figures/eberg_zones_rasterized.png" alt="Ebergotzen zones rasterized to 25 m resolution and with correct factor labels." width="65%" />
+<img src="figures/eberg_zones_rasterized.png" alt="Ebergotzen zones rasterized to 25 m resolution and with correct factor labels." width="55%" />
 <p class="caption">
 Figure 4.3: Ebergotzen zones rasterized to 25 m resolution and with correct factor labels.
 </p>
@@ -869,7 +869,7 @@ Figure 4.7: 11 PCs derived using input Ebergotzen covariates.
 <li><p>The last 1-2 PCs often contain signal noise and could be excluded from modelling,</p></li>
 <li><p>In subsequent analysis it becomes easier to remove covariates that do not help in modelling (e.g. by using step-wise selection and similar),</p></li>
 </ul>
-<p>A disadvantage of using SPCs (spatial predictive components) is that these components are often abstract so that interpretation of correlations can become difficult. Also, if one of the layers contains many factor levels, then the number of output covariates might explode, which becomes impractical as we should then have at least 10 observations per covariate to avoid overfitting.</p>
+<p>A disadvantage of using <code>spc</code> is that these components are often abstract so that interpretation of correlations can become difficult. Also, if one of the layers contains many factor levels, then the number of output covariates might explode, which becomes impractical as we should then have at least 10 observations per covariate to avoid overfitting.</p>
 </div>
 <div id="overlaying-and-subsetting-raster-stacks-and-points" class="section level3">
 <h3><span class="header-section-number">4.2.5</span> Overlaying and subsetting raster stacks and points</h3>

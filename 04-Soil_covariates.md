@@ -358,7 +358,7 @@ summary(eberg_zones_r2$ZONES)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="figures/eberg_zones_rasterized.png" alt="Ebergotzen zones rasterized to 25 m resolution and with correct factor labels." width="65%" />
+<img src="figures/eberg_zones_rasterized.png" alt="Ebergotzen zones rasterized to 25 m resolution and with correct factor labels." width="55%" />
 <p class="caption">(\#fig:eberg-zones-rasterized)Ebergotzen zones rasterized to 25 m resolution and with correct factor labels.</p>
 </div>
 
@@ -566,7 +566,7 @@ The advantages of using the `spc` function are:
 
 *  In subsequent analysis it becomes easier to remove covariates that do not help in modelling (e.g. by using step-wise selection and similar),
 
-A disadvantage of using SPCs (spatial predictive components) is that these components are often abstract so that interpretation of correlations can become difficult. Also, if one of the layers contains many factor levels, then the number of output covariates might explode, which becomes impractical as we should then have at least 10 observations per covariate to avoid overfitting.
+A disadvantage of using `spc` is that these components are often abstract so that interpretation of correlations can become difficult. Also, if one of the layers contains many factor levels, then the number of output covariates might explode, which becomes impractical as we should then have at least 10 observations per covariate to avoid overfitting.
 
 ### Overlaying and subsetting raster stacks and points
 

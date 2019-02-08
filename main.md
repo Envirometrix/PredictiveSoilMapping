@@ -37,7 +37,7 @@ Hard copies of this book can be ordered from www.lulu.com.
 
 **Cite this as**:
 
-* Hengl, T., MacMillan, R.A., (2019). **Predictive Soil Mapping with R**. OpenGeoHub foundation, Wageningen, the Netherlands, 376 pages, www.soilmapper.org, ISBN: 978-0-359-30635-0.
+* Hengl, T., MacMillan, R.A., (2019). **Predictive Soil Mapping with R**. OpenGeoHub foundation, Wageningen, the Netherlands, 370 pages, www.soilmapper.org, ISBN: 978-0-359-30635-0.
 
 ## Editors {-}
 
@@ -5699,7 +5699,7 @@ summary(eberg_zones_r2$ZONES)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="figures/eberg_zones_rasterized.png" alt="Ebergotzen zones rasterized to 25 m resolution and with correct factor labels." width="65%" />
+<img src="figures/eberg_zones_rasterized.png" alt="Ebergotzen zones rasterized to 25 m resolution and with correct factor labels." width="55%" />
 <p class="caption">(\#fig:eberg-zones-rasterized)Ebergotzen zones rasterized to 25 m resolution and with correct factor labels.</p>
 </div>
 
@@ -5907,7 +5907,7 @@ The advantages of using the `spc` function are:
 
 *  In subsequent analysis it becomes easier to remove covariates that do not help in modelling (e.g. by using step-wise selection and similar),
 
-A disadvantage of using SPCs (spatial predictive components) is that these components are often abstract so that interpretation of correlations can become difficult. Also, if one of the layers contains many factor levels, then the number of output covariates might explode, which becomes impractical as we should then have at least 10 observations per covariate to avoid overfitting.
+A disadvantage of using `spc` is that these components are often abstract so that interpretation of correlations can become difficult. Also, if one of the layers contains many factor levels, then the number of output covariates might explode, which becomes impractical as we should then have at least 10 observations per covariate to avoid overfitting.
 
 ### Overlaying and subsetting raster stacks and points
 
@@ -7789,6 +7789,7 @@ om.rk.p <- predict(omm, meuse.grid, block=c(0,0))
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
+  6% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -8087,13 +8088,13 @@ library(intamap)
 demo(meuse, echo=FALSE)
 meuse$value = meuse$zinc
 output <- interpolate(meuse, meuse.grid, list(mean=TRUE, variance=TRUE))
-#> R 2019-02-07 22:20:18 interpolating 155 observations, 3103 prediction locations
+#> R 2019-02-08 00:00:01 interpolating 155 observations, 3103 prediction locations
 #> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : 
 #>  using standard model for estimating time. For better 
 #>  platform spesific predictions, please run 
 #>  timeModels <- generateTimeModels()
 #>   and save the workspace
-#> [1] "estimated time for  copula 162.670211238683"
+#> [1] "estimated time for  copula 160.750141657523"
 #> Checking object ... OK
 ```
 
@@ -8107,7 +8108,7 @@ str(output, max.level = 2)
 #> List of 16
 #>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
 #>  $ formulaString      :Class 'formula'  language value ~ 1
-#>   .. ..- attr(*, ".Environment")=<environment: 0x13d247f0> 
+#>   .. ..- attr(*, ".Environment")=<environment: 0x14ebeee8> 
 #>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
 #>  $ params             :List of 18
 #>   ..$ doAnisotropy     : logi TRUE
@@ -9498,25 +9499,17 @@ In the following example we look at mapping sand content for the upper horizons.
 ```r
 library(h2o)
 localH2O = h2o.init(startH2O=TRUE)
-#> 
-#> H2O is not running yet, starting it now...
-#> 
-#> Note:  In case of errors look at the following log files:
-#>     /tmp/RtmpDEc2xO/h2o_travis_started_from_r.out
-#>     /tmp/RtmpDEc2xO/h2o_travis_started_from_r.err
-#> 
-#> 
-#> Starting H2O JVM and connecting: .. Connection successful!
+#>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         2 seconds 407 milliseconds 
+#>     H2O cluster uptime:         24 minutes 1 seconds 
 #>     H2O cluster timezone:       UTC 
 #>     H2O data parsing timezone:  UTC 
 #>     H2O cluster version:        3.22.1.1 
 #>     H2O cluster version age:    1 month and 10 days  
 #>     H2O cluster name:           H2O_started_from_R_travis_lqb476 
 #>     H2O cluster total nodes:    1 
-#>     H2O cluster total memory:   1.62 GB 
+#>     H2O cluster total memory:   1.47 GB 
 #>     H2O cluster total cores:    2 
 #>     H2O cluster allowed cores:  2 
 #>     H2O cluster healthy:        TRUE 
@@ -9548,23 +9541,23 @@ RF.m
 #> ==============
 #> 
 #> H2ORegressionModel: drf
-#> Model ID:  DRF_model_R_1549578076780_1 
+#> Model ID:  DRF_model_R_1549582619404_21 
 #> Model Summary: 
 #>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#> 1              50                       50              646276        20
+#> 1              50                       50              641590        20
 #>   max_depth mean_depth min_leaves max_leaves mean_leaves
-#> 1        20   20.00000        963       1076  1025.36000
+#> 1        20   20.00000        909       1077  1017.62000
 #> 
 #> 
 #> H2ORegressionMetrics: drf
 #> ** Reported on training data. **
 #> ** Metrics reported on Out-Of-Bag training samples **
 #> 
-#> MSE:  222
+#> MSE:  223
 #> RMSE:  14.9
 #> MAE:  10.1
-#> RMSLE:  0.43
-#> Mean Residual Deviance :  222
+#> RMSLE:  0.431
+#> Mean Residual Deviance :  223
 ```
 
 This shows that the model fitting R-square is about 50%. This is also indicated by the predicted vs observed plot:
@@ -9615,29 +9608,29 @@ DL.m
 #> ==============
 #> 
 #> H2ORegressionModel: deeplearning
-#> Model ID:  DeepLearning_model_R_1549578076780_2 
+#> Model ID:  DeepLearning_model_R_1549582619404_22 
 #> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1
 #>   layer units      type dropout       l1       l2 mean_rate rate_rms
 #> 1     1    10     Input  0.00 %       NA       NA        NA       NA
-#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.015800 0.009962
-#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.150273 0.203374
-#> 4     4     1    Linear      NA 0.000000 0.000000  0.001355 0.000942
+#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.014446 0.008205
+#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.125214 0.173470
+#> 4     4     1    Linear      NA 0.000000 0.000000  0.001346 0.000976
 #>   momentum mean_weight weight_rms mean_bias bias_rms
 #> 1       NA          NA         NA        NA       NA
-#> 2 0.000000   -0.001287   0.105878  0.371168 0.060268
-#> 3 0.000000   -0.017784   0.070821  0.957397 0.015009
-#> 4 0.000000    0.002667   0.054112  0.138827 0.000000
+#> 2 0.000000    0.000677   0.102952  0.367481 0.062052
+#> 3 0.000000   -0.018428   0.071154  0.955848 0.018625
+#> 4 0.000000    0.001581   0.051216  0.098634 0.000000
 #> 
 #> 
 #> H2ORegressionMetrics: deeplearning
 #> ** Reported on training data. **
 #> ** Metrics reported on full training frame **
 #> 
-#> MSE:  248
-#> RMSE:  15.7
-#> MAE:  11.8
-#> RMSLE:  0.481
-#> Mean Residual Deviance :  248
+#> MSE:  258
+#> RMSE:  16.1
+#> MAE:  12.2
+#> RMSLE:  0.493
+#> Mean Residual Deviance :  258
 ```
 
 Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. \@ref(fig:map-snd) and Fig. \@ref(fig:map-snd-dl)).
@@ -9757,13 +9750,13 @@ tr.ORCDRC.rf
 #> 
 #> No pre-processing
 #> Resampling: Cross-Validated (5 fold, repeated 1 times) 
-#> Summary of sample sizes: 399, 401, 399, 401, 400 
+#> Summary of sample sizes: 400, 400, 400, 401, 399 
 #> Resampling results across tuning parameters:
 #> 
 #>   mtry  RMSE  Rsquared  MAE 
-#>    2    4.36  0.525     2.83
-#>    7    4.17  0.552     2.45
-#>   12    4.36  0.527     2.51
+#>    2    3.58  0.580     2.41
+#>    7    3.14  0.630     2.04
+#>   12    3.21  0.609     2.06
 #> 
 #> RMSE was used to select the optimal model using the smallest value.
 #> The final value used for the model was mtry = 7.
@@ -9801,7 +9794,7 @@ w2 <- 100*max(tr.ORCDRC.cb$results$Rsquared)
 ORCDRC.gb <- train(formulaStringP2, data=mP2, method = "xgbTree", trControl=ctrl)
 w3 <- 100*max(ORCDRC.gb$results$Rsquared)
 c(w1, w2, w3)
-#> [1] 55.2 54.9 69.4
+#> [1] 63.0 65.9 66.6
 ```
 
 At the end of the statistical modelling process, we can merge the predictions by using the CV R-square estimates:
@@ -9819,8 +9812,8 @@ edgeroi.grids$ORCDRC_5cm <- (edgeroi.grids$Random_forest*w1 +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="06-Soilmapping_using_mla_files/figure-html/maps-soc-edgeroi-1.png" alt="Comparison of three MLA's and final ensemble prediction (ORCDRC 5cm) of soil organic carbon content for 2.5 cm depth." width="90%" />
-<p class="caption">(\#fig:maps-soc-edgeroi)Comparison of three MLA's and final ensemble prediction (ORCDRC 5cm) of soil organic carbon content for 2.5 cm depth.</p>
+<img src="06-Soilmapping_using_mla_files/figure-html/maps-soc-edgeroi-1.png" alt="Comparison of three MLA's and the final ensemble prediction (ORCDRC 5cm) of soil organic carbon content for 2.5 cm depth." width="90%" />
+<p class="caption">(\#fig:maps-soc-edgeroi)Comparison of three MLA's and the final ensemble prediction (ORCDRC 5cm) of soil organic carbon content for 2.5 cm depth.</p>
 </div>
 
 The final plot shows that xgboost possibly over-predicts and that cubist possibly under-predicts values of `ORCDRC`, while random forest is somewhere in-between the two. Again, merged predictions are probably the safest option considering that all three MLA's have similar measures of performance.
@@ -9873,17 +9866,17 @@ test.ORC <- cv_numeric(formulaStringP2, rmatrix=mP2,
 str(test.ORC)
 #> List of 2
 #>  $ CV_residuals:'data.frame':	4972 obs. of  4 variables:
-#>   ..$ Observed : num [1:4972] 14.5 13.6 10.1 12.1 7.1 ...
-#>   ..$ Predicted: num [1:4972] 13.86 10.26 9.04 5.8 3.11 ...
-#>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" "399_EDGEROI_ed017_1" ...
+#>   ..$ Observed : num [1:4972] 6.5 5.1 4.9 3.3 2.2 ...
+#>   ..$ Predicted: num [1:4972] 11.34 7.61 6.54 4.95 2.96 ...
+#>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" ...
 #>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ Summary     :'data.frame':	1 obs. of  6 variables:
-#>   ..$ ME          : num -0.112
-#>   ..$ MAE         : num 2.11
-#>   ..$ RMSE        : num 3.59
-#>   ..$ R.squared   : num 0.577
-#>   ..$ logRMSE     : num 0.479
-#>   ..$ logR.squared: num 0.658
+#>   ..$ ME          : num -0.143
+#>   ..$ MAE         : num 2.18
+#>   ..$ RMSE        : num 3.66
+#>   ..$ R.squared   : num 0.562
+#>   ..$ logRMSE     : num 0.495
+#>   ..$ logR.squared: num 0.636
 ```
 
 Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about $\pm 4$ g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:
@@ -9945,15 +9938,15 @@ perf
 #> 
 #> Base learner performance, sorted by specified metric:
 #>                    learner  MSE
-#> 2          h2o.gbm.wrapper 9.81
-#> 1 h2o.randomForest.wrapper 8.52
+#> 2          h2o.gbm.wrapper 12.8
+#> 1 h2o.randomForest.wrapper 12.5
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 8.47733607719894
+#> Ensemble performance (MSE): 12.1307351659618
 ```
 
 which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.
@@ -10053,16 +10046,16 @@ perf3
 #> Base learner performance, sorted by specified metric:
 #>                    learner    MSE
 #> 1          h2o.glm.wrapper 0.2827
-#> 4 h2o.deeplearning.wrapper 0.1456
+#> 4 h2o.deeplearning.wrapper 0.1446
 #> 3          h2o.gbm.wrapper 0.0971
-#> 2 h2o.randomForest.wrapper 0.0830
+#> 2 h2o.randomForest.wrapper 0.0835
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 0.079964920687803
+#> Ensemble performance (MSE): 0.0789594456643771
 ```
 
 In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.
@@ -10071,7 +10064,6 @@ In this case Ensemble performance (MSE) seems to be *as bad* as the single best 
 ```r
 h2o.shutdown()
 #> Are you sure you want to shutdown the H2O instance running at http://localhost:54321/ (Y/N)?
-#> [1] TRUE
 ```
 
 ### Ensemble predictions using SuperLearner package
@@ -10145,12 +10137,12 @@ sl
 #>     SL.library = sl.l) 
 #> 
 #> 
-#>                  Risk    Coef
-#> SL.mean_All    0.7540 0.00000
-#> SL.xgboost_All 0.0598 0.80938
-#> SL.ksvm_All    0.1297 0.00536
-#> SL.glmnet_All  0.3077 0.00000
-#> SL.ranger_All  0.0846 0.18526
+#>                  Risk   Coef
+#> SL.mean_All    0.7540 0.0000
+#> SL.xgboost_All 0.0598 0.8275
+#> SL.ksvm_All    0.1293 0.0192
+#> SL.glmnet_All  0.3072 0.0000
+#> SL.ranger_All  0.0865 0.1534
 ```
 
 This shows that `SL.xgboost_All` outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by `SL.xgboost_All` is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:
@@ -10170,8 +10162,8 @@ sl2
 #> 
 #> 
 #>                  Risk  Coef
-#> SL.xgboost_All 0.0603 0.814
-#> SL.ranger_All  0.0832 0.186
+#> SL.xgboost_All 0.0603 0.809
+#> SL.ranger_All  0.0828 0.191
 #> SL.ksvm_All    0.1311 0.000
 ```
 
@@ -10199,10 +10191,10 @@ summary(cv_sl)
 #> All risk estimates are based on V =  5 
 #> 
 #>       Algorithm  Ave    se   Min  Max
-#>   Super Learner 0.16 0.014 0.094 0.25
-#>     Discrete SL 0.17 0.014 0.115 0.25
+#>   Super Learner 0.16 0.014 0.095 0.26
+#>     Discrete SL 0.16 0.015 0.102 0.25
 #>  SL.xgboost_All 0.19 0.016 0.135 0.27
-#>   SL.ranger_All 0.16 0.014 0.104 0.25
+#>   SL.ranger_All 0.16 0.015 0.102 0.25
 #>     SL.ksvm_All 0.18 0.014 0.109 0.30
 ```
 
@@ -10228,8 +10220,8 @@ sl2
 #> 
 #>                 Risk  Coef
 #> SL.xgboost_All 0.215 0.000
-#> SL.ranger_All  0.166 0.469
-#> SL.ksvm_All    0.163 0.531
+#> SL.ranger_All  0.167 0.463
+#> SL.ksvm_All    0.163 0.537
 new.data <- grid10m@data
 pred.PHI <- list(NULL)
 depths = c(10,30,50,70,90)
@@ -10251,7 +10243,7 @@ for(j in 1:length(depths)){
 #>     buffer, rotated
 str(pred.PHI[[1]])
 #> List of 2
-#>  $ pred           : num [1:3865, 1] 4.63 4.7 4.84 4.8 4.74 ...
+#>  $ pred           : num [1:3865, 1] 4.64 4.7 4.85 4.85 4.77 ...
 #>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...
 #>   ..- attr(*, "dimnames")=List of 2
 #>   .. ..$ : NULL
@@ -10726,7 +10718,7 @@ axis(2, 1:10, labels = dimnames(vv)[[1]], las = 2, cex.axis = .7)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="06-Soilmapping_using_mla_files/figure-html/rf-variableImportance-1.png" alt="Variable importance plot for mapping zinc content based on the Meuse data set." width="80%" />
+<img src="06-Soilmapping_using_mla_files/figure-html/rf-variableImportance-1.png" alt="Variable importance plot for mapping zinc content based on the Meuse data set." width="65%" />
 <p class="caption">(\#fig:rf-variableImportance)Variable importance plot for mapping zinc content based on the Meuse data set.</p>
 </div>
 
@@ -11277,14 +11269,14 @@ Table: (\#tab:profile-can)Laboratory data for an organic soil profile from Canad
 Here also BLD values were not provided and so had to be estimated. To estimate BLD, we use a simple Pedo-Transfer rule e.g. from @kochy2015global:
 
 \begin{equation}
-BLD.f = (-0.31 \cdot log(ORC/10) + 1.38) \cdot 1000
+{\rm BLD.f} = (-0.31 \cdot log({\rm ORC}/10) + 1.38) \cdot 1000
 (\#eq:bldf)
 \end{equation}
 
 We divide the organic carbon content here by 10 to convert the organic carbon content from g/kg to % as required by the PTF. Note that one might want to use different PTFs for different soil layers. For mineral soils the bulk density of subsoil layers is often somewhat higher than for topsoil layers. For organic soils this typically is the inverse. For instance, @kochy2015global propose the following PTF for the subsoil (for layers with SOC > 3%): 
 
 \begin{equation}
-BLD = -0.32 * log({\rm ORC}[\%]) + 1.38
+{\rm BLD} = -0.32 \cdot log({\rm ORC}[\%]) + 1.38
 (\#eq:kochy)
 \end{equation}
 
@@ -11330,7 +11322,7 @@ fm.BLD = as.formula(
   paste("BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +", 
         paste(names(ind.tax), collapse="+")))
 m.BLD_PTF <- ranger(fm.BLD, dfs_tbl, num.trees = 85, importance='impurity')
-#> Growing trees.. Progress: 95%. Estimated remaining time: 1 seconds.
+#> Growing trees.. Progress: 88%. Estimated remaining time: 4 seconds.
 m.BLD_PTF
 #> Ranger result
 #> 
@@ -13461,7 +13453,7 @@ reproducibility is a game changer. It makes it, once again, feasible and
 affordable to consider taking new field soil samples and analyzing them
 in the laboratory.
 
-### Creation, collation and distribution of effective environmental covariates,
+### Creation, collation and distribution of effective environmental covariates
 
 Any future soil inventory activities will inevitably be largely based on
 development and application of automated predictive soil mapping (PSM)

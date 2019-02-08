@@ -552,7 +552,7 @@ reproducibility is a game changer. It makes it, once again, feasible and
 affordable to consider taking new field soil samples and analyzing them
 in the laboratory.
 
-### Creation, collation and distribution of effective environmental covariates,
+### Creation, collation and distribution of effective environmental covariates
 
 Any future soil inventory activities will inevitably be largely based on
 development and application of automated predictive soil mapping (PSM)

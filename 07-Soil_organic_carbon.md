@@ -205,14 +205,14 @@ Table: (\#tab:profile-can)Laboratory data for an organic soil profile from Canad
 Here also BLD values were not provided and so had to be estimated. To estimate BLD, we use a simple Pedo-Transfer rule e.g. from @kochy2015global:
 
 \begin{equation}
-BLD.f = (-0.31 \cdot log(ORC/10) + 1.38) \cdot 1000
+{\rm BLD.f} = (-0.31 \cdot log({\rm ORC}/10) + 1.38) \cdot 1000
 (\#eq:bldf)
 \end{equation}
 
 We divide the organic carbon content here by 10 to convert the organic carbon content from g/kg to % as required by the PTF. Note that one might want to use different PTFs for different soil layers. For mineral soils the bulk density of subsoil layers is often somewhat higher than for topsoil layers. For organic soils this typically is the inverse. For instance, @kochy2015global propose the following PTF for the subsoil (for layers with SOC > 3%): 
 
 \begin{equation}
-BLD = -0.32 * log({\rm ORC}[\%]) + 1.38
+{\rm BLD} = -0.32 \cdot log({\rm ORC}[\%]) + 1.38
 (\#eq:kochy)
 \end{equation}
 
@@ -258,7 +258,7 @@ fm.BLD = as.formula(
   paste("BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +", 
         paste(names(ind.tax), collapse="+")))
 m.BLD_PTF <- ranger(fm.BLD, dfs_tbl, num.trees = 85, importance='impurity')
-#> Growing trees.. Progress: 95%. Estimated remaining time: 1 seconds.
+#> Growing trees.. Progress: 88%. Estimated remaining time: 4 seconds.
 m.BLD_PTF
 #> Ranger result
 #> 
