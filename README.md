@@ -5,13 +5,13 @@
 
 The text and code for the forthcoming Open Access book: [**Predictive Soil Mapping with R**](https://envirometrix.github.io/PredictiveSoilMapping/). Pull requests and general comments are welcome.
 
-**This book is continuously updated**. For news and updates please refer to the [github issues](https://github.com/envirometrix/PredictiveSoilMapping/issues).
+**This book is continuously updated** and contributions are welcome (pull requests and general comments are welcome) provided that some minimum requirements are met. For news and updates please refer to the [github issues](https://github.com/envirometrix/PredictiveSoilMapping/issues). Older versions of the book can be found at: https://doi.org/10.5281/zenodo.2561034
 
 **Cite this as**:
 
 * Hengl, T., MacMillan, R.A., (2019). **Predictive Soil Mapping with R**. OpenGeoHub foundation, Wageningen, the Netherlands, 370 pages, www.soilmapper.org, ISBN: 978-0-359-30635-0.
 
-This book is constantly updated and contributions are welcome (pull requests and general comments are welcome) provided that some minimum requirements are met.
+Hard copies of this book can be ordered from [www.lulu.com](http://www.lulu.com/shop/tomislav-hengl-and-robert-a-macmillan/predictive-soil-mapping-with-r/paperback/product-23977071.html). By purchasing a hard copy of this book from Lulu you donate \$12 to the OpenGeoHub foundation.
 
 **Copyright**: &copy; 2019 Authors.
 
