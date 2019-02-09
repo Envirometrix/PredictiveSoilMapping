@@ -2,7 +2,7 @@
 ---
 title: "Predictive Soil Mapping with R"
 author: ["Tomislav Hengl and Robert A. MacMillan"]
-date: "2019-02-07"
+date: "2019-02-09"
 knit: bookdown::render_book
 site: bookdown::bookdown_site
 documentclass: svmono
@@ -33,7 +33,7 @@ This is the online version of the Open Access book: [**Predictive Soil Mapping w
 
 **This book is continuously updated**. For news and updates please refer to the [github issues](https://github.com/envirometrix/PredictiveSoilMapping/issues).
 
-Hard copies of this book can be ordered from www.lulu.com.
+Hard copies of this book can be ordered from [www.lulu.com](http://www.lulu.com/shop/tomislav-hengl-and-robert-a-macmillan/predictive-soil-mapping-with-r/paperback/product-23977071.html). By purchasing a hard copy of this book from Lulu you donate \$12 to the OpenGeoHub foundation.
 
 **Cite this as**:
 
