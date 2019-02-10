@@ -2,12 +2,12 @@
 ---
 title: "Predictive Soil Mapping with R"
 author: ["Tomislav Hengl and Robert A. MacMillan"]
-date: "2019-02-09"
+date: "2019-02-10"
 knit: bookdown::render_book
 site: bookdown::bookdown_site
 documentclass: svmono
 classoption: graybox,natbib,nospthms
-geometry: "paperwidth=18.90cm, paperheight=24.58cm, top=2.1cm, bottom=2.1cm, inner=2cm, outer=2cm,"
+geometry: "paperwidth=18.90cm, paperheight=24.58cm, top=2.1cm, bottom=2.1cm, inner=2cm, outer=2cm"
 #geometry: "top=1.6cm, bottom=2cm, left=1cm, right=1cm"
 monofont: "Source Code Pro"
 monofontoptions: "Scale=0.7"
@@ -33,7 +33,7 @@ This is the online version of the Open Access book: [**Predictive Soil Mapping w
 
 **This book is continuously updated**. For news and updates please refer to the [github issues](https://github.com/envirometrix/PredictiveSoilMapping/issues).
 
-Hard copies of this book can be ordered from [www.lulu.com](http://www.lulu.com/shop/tomislav-hengl-and-robert-a-macmillan/predictive-soil-mapping-with-r/paperback/product-23977071.html). By purchasing a hard copy of this book from Lulu you donate \$12 to the OpenGeoHub foundation.
+Hard copies of this book can be ordered from [www.lulu.com](http://www.lulu.com/spotlight/t_hengl). By purchasing a hard copy of this book from Lulu you donate \$12 to the OpenGeoHub foundation.
 
 **Cite this as**:
 
@@ -80,16 +80,37 @@ basis to OpenGeoHub and the Africa Soil Information Servicce (AfSIS)
 expertise and his enthusiasm freely with dozens of younger scientists 
 interested in learning about, and becoming, practitioners of digital soil 
 mapping. Bob continues to support the next generation of digital soil mappers 
-through his involvement with OpenGeoHub. 
+through his involvement with OpenGeoHub.
 
 # Preface {-}
 
-Predictive Soil Mapping (PSM) is based on applying statistical and/or machine learning techniques to fit models for the purpose of producing spatial and/or spatiotemporal predictions of soil variables, i.e. maps of soil properties and classes at different resolutions. It is a multidisciplinary field combining statistics, data science, soil science, physical geography, remote sensing, geoinformation science and a number of other sciences [@Scul01; @MCBRATNEY20033; @Henderson2004Geoderma; @Boettinger2010Springer; @Zhu2015PSM]. *Predictive Soil Mapping with R* is about understanding the main concepts behind soil mapping, mastering R packages that can be used to produce high quality soil maps, and about optimizing all processes involved so that production costs can also be reduced.
+Predictive Soil Mapping (PSM) is based on applying statistical and/or machine 
+learning techniques to fit models for the purpose of producing spatial and/or 
+spatiotemporal predictions of soil variables, i.e. maps of soil properties and 
+classes at different resolutions. It is a multidisciplinary field combining 
+statistics, data science, soil science, physical geography, remote sensing, 
+geoinformation science and a number of other sciences [@Scul01; @MCBRATNEY20033; @Henderson2004Geoderma; @Boettinger2010Springer; @Zhu2015PSM]. *Predictive Soil Mapping with R* 
+is about understanding the main concepts behind soil mapping, mastering R 
+packages that can be used to produce high quality soil maps, and about 
+optimizing all processes involved so that production costs can also be reduced.
 
-The main differences between predictive vs traditional expert-based soil mapping are that: (a) the production of maps 
-is based on using state-of-the-art statistical methods to ensure objectivity of maps (including objective uncertainty assessment vs expert judgment), and (b) PSM is driven by automation of the processes so that overall soil data production costs can be reduced and updates of maps implemented without requirements for large investments. R, in that sense, is a logical platform to develop PSM workflows and applications, especially thanks to the vibrant and productive R spatial interest group activities and also thanks to the increasingly professional soil data packages such as, for example: soiltexture, aqp, soilprofile, soilDB and similar.
+The main differences between predictive vs traditional expert-based soil 
+mapping are that: (a) the production of maps 
+is based on using state-of-the-art statistical methods to ensure objectivity of 
+maps (including objective uncertainty assessment vs expert judgment), and (b) 
+PSM is driven by automation of the processes so that overall soil data 
+production costs can be reduced and updates of maps implemented without 
+requirements for large investments. R, in that sense, is a logical platform 
+to develop PSM workflows and applications, especially thanks to the vibrant 
+and productive R spatial interest group activities and also thanks to the 
+increasingly professional soil data packages such as, for example: soiltexture, 
+aqp, soilprofile, soilDB and similar.
 
-The book is divided into sections covering theoretical concepts, preparation of covariates, model selection and evaluation, prediction and final practical tips for operational PSM. Most of the chapters contain R code examples that try to illustrate the main processing steps and give practical instructions to developers and applied users.
+The book is divided into sections covering theoretical concepts, preparation 
+of covariates, model selection and evaluation, prediction and final practical 
+tips for operational PSM. Most of the chapters contain R code examples that 
+try to illustrate the main processing steps and give practical instructions to 
+developers and applied users.
 
 ## Connected publications {-}
 
@@ -153,9 +174,13 @@ For the most recent developments in the R-spatial community refer to https://r-s
 
 ## Contributions {-}
 
-This book is designed to be constantly updated and contributions are always welcome (through pull requests, but also through adding new chapters) provided that some minimum requirements are met. To contribute a new chapter please contact the editors first. Some minimum requirements to contribute a chapter are:
+This book is designed to be constantly updated and contributions are always 
+welcome (through pull requests, but also through adding new chapters) provided 
+that some minimum requirements are met. To contribute a new chapter please 
+contact the editors first. Some minimum requirements to contribute a chapter are:
 
-1. The data needs to be available for the majority of tutorials presented in a chapter. It is best if this is via some R package or web-source.
+1. The data needs to be available for the majority of tutorials presented in a 
+chapter. It is best if this is via some R package or web-source.
 2. A chapter should ideally focus on implementing some computing in R (it should be written as an R tutorial).
 3. All examples should be computationally efficient requiring not more than 30 secs of computing time per process on a single core system.
 4. The theoretical basis for methods and interpretation of results should be based on peer-review publications. This book is not intended to report on primary research / experimental results, but only to supplement existing research publications.
@@ -166,7 +191,9 @@ In principle, all submitted chapters should follow closely also the [five pillar
 
 ## Reproducibility {-}
 
-To reproduce the book, you need a recent version of [R](https://cran.r-project.org), and [RStudio](http://www.rstudio.com/products/RStudio/) and up-to-date packages, which can be installed with the following command (which requires [**devtools**](https://github.com/hadley/devtools)):
+To reproduce the book, you need a recent version of [R](https://cran.r-project.org), 
+and [RStudio](http://www.rstudio.com/products/RStudio/) and up-to-date packages, 
+which can be installed with the following command (which requires [**devtools**](https://github.com/hadley/devtools)):
 
 
 ```r
@@ -183,7 +210,20 @@ browseURL("docs/index.html") # to view it
 
 ## Acknowledgements {-}
 
-The authors are grateful for numerous contributions from colleagues around the world, especially for contributions by current and former ISRIC — World Soil Information colleagues and guest researchers: Gerard Heuvelink, Johan Leenaars, Jorge Mendes de Jesus, Wei Shangguan, David G. Rossiter, and many others. The authors are also grateful to Dutch and European citizens for financing ISRIC and Wageningen University, where work on this book was initially started. The authors acknowledge support received from the [AfSIS project](http://africasoils.net), which was funded by the Bill and Melinda Gates Foundation (BMGF) and the Alliance for a Green Revolution in Africa (AGRA). Many soil data processing examples in the book are based on R code developed by Dylan Beuadette, Pierre Roudier, Alessandro Samuel Rosa, Marcos E. Angelini, Guillermo Federico Olmedo, Julian Moeys, Brandon Malone, and many other developers. The authors are also grateful to comments and suggestions for improvements to the methods presented in the book by Travis Nauman, Amanda Ramcharan, David G. Rossiter and [Julian Moeys](http://julienmoeys.info). 
+The authors are grateful for numerous contributions from colleagues around the 
+world, especially for contributions by current and former ISRIC — World Soil 
+Information colleagues and guest researchers: Gerard Heuvelink, Johan Leenaars, 
+Jorge Mendes de Jesus, Wei Shangguan, David G. Rossiter, and many others. The 
+authors are also grateful to Dutch and European citizens for financing ISRIC 
+and Wageningen University, where work on this book was initially started. The 
+authors acknowledge support received from the [AfSIS project](http://africasoils.net), 
+which was funded by the Bill and Melinda Gates Foundation (BMGF) and the 
+Alliance for a Green Revolution in Africa (AGRA). Many soil data processing 
+examples in the book are based on R code developed by Dylan Beuadette, Pierre 
+Roudier, Alessandro Samuel Rosa, Marcos E. Angelini, Guillermo Federico Olmedo, 
+Julian Moeys, Brandon Malone, and many other developers. The authors are also 
+grateful to comments and suggestions for improvements to the methods presented 
+in the book by Travis Nauman, Amanda Ramcharan, David G. Rossiter and [Julian Moeys](http://julienmoeys.info). 
 
 LandGIS and SoilGrids are based on using numerous soil profile data sets 
 kindly made available by various national and international agencies: the
@@ -215,13 +255,31 @@ land products and elevation data), and to the Open Source software developers
 of the packages rgdal, sp, raster, caret, mlr, ranger, SuperLearner, h2o and similar, 
 and without which predictive soil mapping would most likely not be possible.
 
-This book has been inspired by [the Geocomputation with R book](https://geocompr.robinlovelace.net), an Open Access book edited by Robin Lovelace, Jakub Nowosad and Jannes Muenchow. Many thanks to Robin Lovelace for helping with rmarkdown and for giving some initial tips for compiling and organizing this book. The authors are also grateful to the numerous software/package developers, especially Edzer Pebesma, Roger Bivand, Robert Hijmans, Markus Neteler, Tim Appelhans, and Hadley Wickham, whose contributions have enabled a generation of researchers and applied projects. 
+This book has been inspired by [the Geocomputation with R book](https://geocompr.robinlovelace.net), 
+an Open Access book edited by Robin Lovelace, Jakub Nowosad and Jannes Muenchow. 
+Many thanks to Robin Lovelace for helping with rmarkdown and for giving some 
+initial tips for compiling and organizing this book. The authors are also 
+grateful to the numerous software/package developers, especially Edzer Pebesma, 
+Roger Bivand, Robert Hijmans, Markus Neteler, Tim Appelhans, and Hadley Wickham, 
+whose contributions have enabled a generation of researchers and applied projects. 
 
 We are especially grateful to [Jakub Nowosad](https://nowosad.github.io/) for helping with preparing this publication for press and with setting up all code so that it passes automatic checks.
 
-OpenGeoHub is a not-for-profit research foundation with headquarters in Wageningen, the Netherlands (Stichting OpenGeoHub, KvK 71844570). The main goal of the OpenGeoHub is to promote publishing and sharing of Open Geographical and Geoscientific Data and using and developing of Open Source Software. We believe that the key measure of quality of research in all sciences (and especially in geographical information sciences) is in transparency and reproducibility of the computer code used to generate results. Transparency and reproducibility increase trust in information so that it is eventually also the fastest path to optimal decision making.
+OpenGeoHub is a not-for-profit research foundation with headquarters in 
+Wageningen, the Netherlands (Stichting OpenGeoHub, KvK 71844570). The main goal 
+of the OpenGeoHub is to promote publishing and sharing of Open Geographical and 
+Geoscientific Data and using and developing of Open Source Software. We believe 
+that the key measure of quality of research in all sciences (and especially in 
+geographical information sciences) is in transparency and reproducibility of 
+the computer code used to generate results. Transparency and reproducibility 
+increase trust in information so that it is eventually also the fastest path to 
+optimal decision making.
 
-Every effort has been made to trace copyright holders of the materials used in this publication. Should we, despite all our efforts, have overlooked contributors please contact the author and we shall correct this unintentional omission without any delay and will acknowledge any overlooked contributions and contributors in future updates. 
+Every effort has been made to trace copyright holders of the materials used in 
+this publication. Should we, despite all our efforts, have overlooked 
+contributors please contact the author and we shall correct this unintentional 
+omission without any delay and will acknowledge any overlooked contributions 
+and contributors in future updates. 
 
 ---
 
@@ -7789,7 +7847,7 @@ om.rk.p <- predict(omm, meuse.grid, block=c(0,0))
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
- 72% done
+ 25% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -8040,6 +8098,7 @@ om.rksim.p <- predict(omm, meuse.grid, block=c(0,0), nsim=20)
 #> drawing 20 GLS realisations of beta...
 #> [using conditional Gaussian simulation]
 #> 
+ 59% done
 100% done
 #> Creating an object of class "RasterBrickSimulations"
 log1p(meuse@data[1,"om"])
@@ -8088,13 +8147,13 @@ library(intamap)
 demo(meuse, echo=FALSE)
 meuse$value = meuse$zinc
 output <- interpolate(meuse, meuse.grid, list(mean=TRUE, variance=TRUE))
-#> R 2019-02-09 16:49:37 interpolating 155 observations, 3103 prediction locations
+#> R 2019-02-10 11:32:11 interpolating 155 observations, 3103 prediction locations
 #> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : 
 #>  using standard model for estimating time. For better 
 #>  platform spesific predictions, please run 
 #>  timeModels <- generateTimeModels()
 #>   and save the workspace
-#> [1] "estimated time for  copula 160.726340988662"
+#> [1] "estimated time for  copula 161.433160218718"
 #> Checking object ... OK
 ```
 
@@ -8108,7 +8167,7 @@ str(output, max.level = 2)
 #> List of 16
 #>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
 #>  $ formulaString      :Class 'formula'  language value ~ 1
-#>   .. ..- attr(*, ".Environment")=<environment: 0x14eed908> 
+#>   .. ..- attr(*, ".Environment")=<environment: 0x14602f68> 
 #>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
 #>  $ params             :List of 18
 #>   ..$ doAnisotropy     : logi TRUE
@@ -8798,6 +8857,7 @@ om.rk <- predict(omm, meuse.grid)
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
 #> 
+ 47% done
 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
@@ -9502,7 +9562,7 @@ localH2O = h2o.init(startH2O=TRUE)
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         23 minutes 33 seconds 
+#>     H2O cluster uptime:         23 minutes 16 seconds 
 #>     H2O cluster timezone:       UTC 
 #>     H2O data parsing timezone:  UTC 
 #>     H2O cluster version:        3.22.1.1 
@@ -9541,23 +9601,23 @@ RF.m
 #> ==============
 #> 
 #> H2ORegressionModel: drf
-#> Model ID:  DRF_model_R_1549729623319_21 
+#> Model ID:  DRF_model_R_1549796992918_21 
 #> Model Summary: 
 #>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#> 1              50                       50              646884        20
+#> 1              50                       50              640068        20
 #>   max_depth mean_depth min_leaves max_leaves mean_leaves
-#> 1        20   20.00000        972       1072  1026.32000
+#> 1        20   20.00000        965       1077  1015.52000
 #> 
 #> 
 #> H2ORegressionMetrics: drf
 #> ** Reported on training data. **
 #> ** Metrics reported on Out-Of-Bag training samples **
 #> 
-#> MSE:  220
+#> MSE:  219
 #> RMSE:  14.8
 #> MAE:  10.1
-#> RMSLE:  0.431
-#> Mean Residual Deviance :  220
+#> RMSLE:  0.43
+#> Mean Residual Deviance :  219
 ```
 
 This shows that the model fitting R-square is about 50%. This is also indicated by the predicted vs observed plot:
@@ -9608,29 +9668,29 @@ DL.m
 #> ==============
 #> 
 #> H2ORegressionModel: deeplearning
-#> Model ID:  DeepLearning_model_R_1549729623319_22 
+#> Model ID:  DeepLearning_model_R_1549796992918_22 
 #> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1
 #>   layer units      type dropout       l1       l2 mean_rate rate_rms
 #> 1     1    10     Input  0.00 %       NA       NA        NA       NA
-#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.014408 0.007812
-#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.126922 0.187099
-#> 4     4     1    Linear      NA 0.000000 0.000000  0.001367 0.001027
+#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.014451 0.008415
+#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.116143 0.169818
+#> 4     4     1    Linear      NA 0.000000 0.000000  0.001217 0.000888
 #>   momentum mean_weight weight_rms mean_bias bias_rms
 #> 1       NA          NA         NA        NA       NA
-#> 2 0.000000    0.001971   0.103654  0.376966 0.060341
-#> 3 0.000000   -0.017537   0.070841  0.960167 0.015416
-#> 4 0.000000   -0.001880   0.050986  0.124494 0.000000
+#> 2 0.000000    0.001731   0.101998  0.356771 0.070143
+#> 3 0.000000   -0.018371   0.071257  0.956277 0.021380
+#> 4 0.000000    0.001110   0.052713  0.095478 0.000000
 #> 
 #> 
 #> H2ORegressionMetrics: deeplearning
 #> ** Reported on training data. **
 #> ** Metrics reported on full training frame **
 #> 
-#> MSE:  250
-#> RMSE:  15.8
-#> MAE:  12.1
-#> RMSLE:  0.485
-#> Mean Residual Deviance :  250
+#> MSE:  272
+#> RMSE:  16.5
+#> MAE:  12.6
+#> RMSLE:  0.508
+#> Mean Residual Deviance :  272
 ```
 
 Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. \@ref(fig:map-snd) and Fig. \@ref(fig:map-snd-dl)).
@@ -9867,16 +9927,16 @@ str(test.ORC)
 #> List of 2
 #>  $ CV_residuals:'data.frame':	4972 obs. of  4 variables:
 #>   ..$ Observed : num [1:4972] 6.5 5.1 4.9 3.3 2.2 ...
-#>   ..$ Predicted: num [1:4972] 11.7 7.09 6.83 4.92 3.23 ...
+#>   ..$ Predicted: num [1:4972] 11.17 6.84 6.71 4.85 2.96 ...
 #>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" ...
 #>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ Summary     :'data.frame':	1 obs. of  6 variables:
-#>   ..$ ME          : num -0.12
-#>   ..$ MAE         : num 2.19
-#>   ..$ RMSE        : num 3.67
-#>   ..$ R.squared   : num 0.559
-#>   ..$ logRMSE     : num 0.497
-#>   ..$ logR.squared: num 0.631
+#>   ..$ ME          : num -0.133
+#>   ..$ MAE         : num 2.18
+#>   ..$ RMSE        : num 3.68
+#>   ..$ R.squared   : num 0.558
+#>   ..$ logRMSE     : num 0.496
+#>   ..$ logR.squared: num 0.633
 ```
 
 Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about $\pm 4$ g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:
@@ -9938,15 +9998,15 @@ perf
 #> 
 #> Base learner performance, sorted by specified metric:
 #>                    learner  MSE
-#> 1 h2o.randomForest.wrapper 13.1
 #> 2          h2o.gbm.wrapper 12.8
+#> 1 h2o.randomForest.wrapper 12.5
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 12.5429743709391
+#> Ensemble performance (MSE): 12.1100800676156
 ```
 
 which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.
@@ -10046,16 +10106,16 @@ perf3
 #> Base learner performance, sorted by specified metric:
 #>                    learner    MSE
 #> 1          h2o.glm.wrapper 0.2827
-#> 4 h2o.deeplearning.wrapper 0.1623
+#> 4 h2o.deeplearning.wrapper 0.1437
 #> 3          h2o.gbm.wrapper 0.0971
-#> 2 h2o.randomForest.wrapper 0.0842
+#> 2 h2o.randomForest.wrapper 0.0812
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 0.0820110376531499
+#> Ensemble performance (MSE): 0.0799476403836892
 ```
 
 In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.
@@ -10139,10 +10199,10 @@ sl
 #> 
 #>                  Risk   Coef
 #> SL.mean_All    0.7540 0.0000
-#> SL.xgboost_All 0.0598 0.8261
-#> SL.ksvm_All    0.1292 0.0214
-#> SL.glmnet_All  0.3076 0.0000
-#> SL.ranger_All  0.0859 0.1526
+#> SL.xgboost_All 0.0598 0.8041
+#> SL.ksvm_All    0.1282 0.0064
+#> SL.glmnet_All  0.3072 0.0000
+#> SL.ranger_All  0.0841 0.1895
 ```
 
 This shows that `SL.xgboost_All` outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by `SL.xgboost_All` is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:
@@ -10162,9 +10222,9 @@ sl2
 #> 
 #> 
 #>                  Risk  Coef
-#> SL.xgboost_All 0.0603 0.824
-#> SL.ranger_All  0.0843 0.176
-#> SL.ksvm_All    0.1299 0.000
+#> SL.xgboost_All 0.0603 0.811
+#> SL.ranger_All  0.0830 0.189
+#> SL.ksvm_All    0.1308 0.000
 ```
 
 again `SL.xgboost` dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where entire profiles are taken out of the training dataset:
@@ -10194,7 +10254,7 @@ summary(cv_sl)
 #>   Super Learner 0.16 0.014 0.094 0.25
 #>     Discrete SL 0.17 0.014 0.109 0.25
 #>  SL.xgboost_All 0.19 0.016 0.135 0.27
-#>   SL.ranger_All 0.16 0.014 0.102 0.25
+#>   SL.ranger_All 0.16 0.014 0.104 0.25
 #>     SL.ksvm_All 0.18 0.014 0.109 0.30
 ```
 
@@ -10220,8 +10280,8 @@ sl2
 #> 
 #>                 Risk  Coef
 #> SL.xgboost_All 0.215 0.000
-#> SL.ranger_All  0.164 0.477
-#> SL.ksvm_All    0.162 0.523
+#> SL.ranger_All  0.166 0.482
+#> SL.ksvm_All    0.164 0.518
 new.data <- grid10m@data
 pred.PHI <- list(NULL)
 depths = c(10,30,50,70,90)
@@ -10243,7 +10303,7 @@ for(j in 1:length(depths)){
 #>     buffer, rotated
 str(pred.PHI[[1]])
 #> List of 2
-#>  $ pred           : num [1:3865, 1] 4.73 4.81 4.95 4.89 4.83 ...
+#>  $ pred           : num [1:3865, 1] 4.66 4.74 4.88 4.86 4.77 ...
 #>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...
 #>   ..- attr(*, "dimnames")=List of 2
 #>   .. ..$ : NULL
@@ -11322,7 +11382,7 @@ fm.BLD = as.formula(
   paste("BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +", 
         paste(names(ind.tax), collapse="+")))
 m.BLD_PTF <- ranger(fm.BLD, dfs_tbl, num.trees = 85, importance='impurity')
-#> Growing trees.. Progress: 93%. Estimated remaining time: 2 seconds.
+#> Growing trees.. Progress: 89%. Estimated remaining time: 3 seconds.
 m.BLD_PTF
 #> Ranger result
 #> 
