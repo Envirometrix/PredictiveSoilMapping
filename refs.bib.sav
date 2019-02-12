@@ -679,9 +679,10 @@ author = "Brus, D.J.",
   Author                   = {Thorsten Behrens and A-Xing Zhu and Karsten Schmidt and Thomas Scholten},
   Journal                  = {Geoderma },
   Year                     = {2010},
-  Number                   = {3-4},
+  Number                   = {3?4},
   Pages                    = {175 - 185},
   Volume                   = {155},
+
   Doi                      = {http://dx.doi.org/10.1016/j.geoderma.2009.07.010},
   ISSN                     = {0016-7061}
 }
@@ -798,6 +799,7 @@ author = "Brus, D.J.",
   Booktitle                = {Environmental Soil-Landscape Modeling: Geographic Information Technologies and Pedometrics},
   Publisher                = {CRC Press},
   Year                     = {2005},
+
   Address                  = {Boca Raton, Florida},
   Editor                   = {Grunwald, S.},
   Pages                    = {185-213}
@@ -818,9 +820,11 @@ author = "Brus, D.J.",
   Author                   = {Bivand, R. and Pebesma, E. and Rubio, V.},
   Publisher                = {Springer},
   Year                     = {2013},
+
   Address                  = {Heidelberg},
   Edition                  = {2nd},
   Series                   = {Use R Series},
+
   Pages                    = {401}
 }
 
@@ -829,8 +833,10 @@ author = "Brus, D.J.",
   Author                   = {Bivand, R. and Pebesma, E. and Rubio, V.},
   Publisher                = {Springer},
   Year                     = {2008},
+
   Address                  = {Heidelberg},
   Series                   = {Use R Series},
+
   Pages                    = {400}
 }
 
@@ -847,6 +853,7 @@ author = "Brus, D.J.",
   Author                   = {Borda, M.},
   Publisher                = {Springer Berlin Heidelberg},
   Year                     = {2011},
+
   ISBN                     = {9783642203473},
   Lccn                     = {2011925863}
 }
@@ -856,10 +863,12 @@ author = "Brus, D.J.",
   Author                   = {Bosworth, Adam},
   Journal                  = {Queue},
   Year                     = {2005},
+
   Month                    = oct,
   Number                   = {8},
   Pages                    = {26--32},
   Volume                   = {3},
+
   Acmid                    = {1103833},
   Address                  = {New York, NY, USA},
   Doi                      = {10.1145/1103822.1103833},
@@ -1610,7 +1619,7 @@ author = "Brus, D.J.",
 
 @Article{DAvello1998SSH,
   Title                    = {Why are those lines placed where they are? An investigation of soil map recompilation methods},
-  Author                   = {{D'Avello}, T.P. and McLeese, R.L.},
+  Author                   = {D'Avello, T.P. and McLeese, R.L.},
   Journal                  = {Soil Survey Horiz.},
   Year                     = {1998},
   Pages                    = {119-126},
@@ -1792,7 +1801,7 @@ author = "Brus, D.J.",
 }
 
 @Article{Drechsel2001,
-  Title                    = {{Soil Nutrient Depletion and Population Growth in Sub-Saharan Africa: A Malthusian Nexus?}},
+  Title                    = {Soil Nutrient Depletion and Population Growth in Sub-Saharan Africa: A Malthusian Nexus?},
   Author                   = {Drechsel, Pay and Kunze, Dagmar and de Vries, Frits Penning},
   Journal                  = {Population and Environment},
   Year                     = {2001},
@@ -1924,7 +1933,7 @@ author = "Brus, D.J.",
 
 @Article{Elith2011DD,
   Title                    = {{A statistical explanation of MaxEnt for ecologists}},
-  Author                   = {Elith, Jane and Phillips, Steven J. and Hastie, Trevor and Dudik, Miroslav and Chee, Yung En and Yates, Colin J.},
+  Author                   = {Elith, Jane and Phillips, Steven J. and Hastie, Trevor and Dud?k, Miroslav and Chee, Yung En and Yates, Colin J.},
   Journal                  = {Diversity and Distributions},
   Year                     = {2011},
   Number                   = {1},
@@ -2077,7 +2086,7 @@ author = "Brus, D.J.",
   Author                   = {Finke, Peter A. and Hutson, John L.},
   Journal                  = {Geoderma},
   Year                     = {2008},
-  Number                   = {3-4},
+  Number                   = {3?4},
   Pages                    = {462 - 479},
   Volume                   = {145},
   Doi                      = {10.1016/j.geoderma.2008.01.017},
@@ -4861,6 +4870,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {6},
   Pages                    = {533--549},
   Volume                   = {16},
+
   Publisher                = {Taylor \& Francis}
 }
 
@@ -4870,9 +4880,11 @@ DOI = {10.3390/rs8070613}
   Booktitle                = {Encyclopedia of Soils in the Environment},
   Publisher                = {Elsevier},
   Year                     = {2005},
+
   Address                  = {Oxford},
   Editor                   = {Daniel Hillel},
   Pages                    = {202 - 208},
+
   Doi                      = {10.1016/B0-12-348530-4/00305-2},
   ISBN                     = {978-0-12-348530-4}
 }
@@ -4883,6 +4895,7 @@ DOI = {10.3390/rs8070613}
   Journal                  = {International Journal of Climatology},
   Year                     = {2013},
   Pages                    = {n/a--n/a},
+
   Doi                      = {10.1002/joc.3829},
   ISSN                     = {1097-0088},
   Publisher                = {John Wiley \& Sons, Ltd}
@@ -4896,6 +4909,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {2},
   Pages                    = {131 - 143},
   Volume                   = {97},
+
   Doi                      = {10.1016/j.biosystemseng.2007.03.023}
 }
 
@@ -4904,6 +4918,7 @@ DOI = {10.3390/rs8070613}
   Author                   = {Mowrer, H.~T. and Congalton, R.G.},
   Publisher                = {Ann Arbor Press},
   Year                     = {2000},
+
   ISBN                     = {9781575041315},
   Pages                    = {350}
 }
@@ -4915,6 +4930,7 @@ DOI = {10.3390/rs8070613}
   Year                     = {2016},
   Pages                    = {16--34},
   Volume                   = {263},
+
   Publisher                = {Elsevier}
 }
 
@@ -4945,7 +4961,10 @@ DOI = {10.3390/rs8070613}
   Publisher                = {CSIRO Publishing},
   Year                     = {2009},
   Series                   = {Australian soil and land survey handbook},
-  ISBN                     = {9780643093959}
+
+  ISBN                     = {9780643093959},
+  Lccn                     = {2012397488},
+  Url                      = {http://books.google.nl/books?id=zywc39z4LgAC}
 }
 
 @Book{NRCS2011fieldbook,
@@ -4954,6 +4973,7 @@ DOI = {10.3390/rs8070613}
   Editor                   = {Schoeneberger, P.J. and Wysocki, D.A. and Benham, E.C. and Broderson, W.D.},
   Publisher                = {U.S. Department of Agriculture},
   Year                     = {2011},
+
   Address                  = {Lincoln, Nebraska},
   Edition                  = {3rd}
 }
@@ -4986,6 +5006,7 @@ DOI = {10.3390/rs8070613}
   Publisher                = {United States Department of Agriculture},
   Year                     = {2004},
   Series                   = {Soil Survey Investigations Report No. 42},
+
   Pages                    = {700}
 }
 
@@ -4997,6 +5018,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {5},
   Pages                    = {295-295},
   Volume                   = {3},
+
   Doi                      = {10.1038/ngeo867}
 }
 
@@ -5006,6 +5028,7 @@ DOI = {10.3390/rs8070613}
   Booktitle                = {Methods of soil analysis, Part 2},
   Publisher                = {ASA and SSSA},
   Year                     = {1982},
+
   Address                  = {Madison, WI},
   Edition                  = {2nd},
   Editor                   = {Page, A.L. and Miller, R.H. and Keeney, D.R.},
@@ -5021,6 +5044,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {3},
   Pages                    = {417--430},
   Volume                   = {62},
+
   Doi                      = {10.1111/j.1365-2389.2011.01365.x},
   ISSN                     = {1365-2389},
   Publisher                = {Blackwell Publishing Ltd}
@@ -5031,6 +5055,7 @@ DOI = {10.3390/rs8070613}
   Author                   = {Nemes, A. and Schaap, M.G. and Leij, F.J.},
   Publisher                = {US Salinity Laboratory},
   Year                     = {1999},
+
   Address                  = {Riverside, CA}
 }
 
@@ -5059,6 +5084,7 @@ DOI = {10.3390/rs8070613}
   Year                     = {2014},
   Pages                    = {10-11},
   Volume                   = {21},
+
   Doi                      = {10.1111/gcb.12632},
   Issue                    = {1},
   Publisher                = {Wiley Online Library}
@@ -5121,6 +5147,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {1-2},
   Pages                    = {30 - 37},
   Volume                   = {163},
+
   Doi                      = {10.1016/j.geoderma.2011.03.013},
   ISSN                     = {0016-7061}
 }
@@ -5133,6 +5160,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {1-2},
   Pages                    = {38 - 44},
   Volume                   = {163},
+
   Doi                      = {10.1016/j.geoderma.2011.03.014},
   ISSN                     = {0016-7061}
 }
@@ -5145,6 +5173,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {3},
   Pages                    = {313--332},
   Volume                   = {4},
+
   Publisher                = {Taylor \& Francis}
 }
 
@@ -5156,6 +5185,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {Supplement C},
   Pages                    = {56--69},
   Volume                   = {113},
+
   Doi                      = {https://doi.org/10.1016/j.catena.2013.09.006},
   ISSN                     = {0341-8162},
   Keywords                 = {Geostatistics, Sampling, Variogram, Model fitting, Trend, Kriging},
@@ -5182,8 +5212,10 @@ DOI = {10.3390/rs8070613}
   Author                   = {Omuto, C. and Nachtergaele, F. and Vargas Rojas, R.},
   Publisher                = {FAO},
   Year                     = {2012},
+
   Address                  = {Rome},
   Series                   = {Global Soil Partnership technical report},
+
   Pages                    = {66}
 }
 
@@ -5204,6 +5236,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {5147},
   Pages                    = {641-646},
   Volume                   = {263},
+
   Doi                      = {10.1126/science.263.5147.641}
 }
 
@@ -5215,6 +5248,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {4},
   Pages                    = {853--862},
   Volume                   = {81},
+
   Publisher                = {The Soil Science Society of America, Inc.}
 }
 
@@ -5235,6 +5269,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {0},
   Pages                    = {439 - 450},
   Volume                   = {24},
+
   Doi                      = {10.1016/j.ecolind.2012.07.020},
   ISSN                     = {1470-160X}
 }
@@ -5244,6 +5279,7 @@ DOI = {10.3390/rs8070613}
   Author                   = {Pansu, M. and Gautheyrou, J. and Loyer, J.Y.},
   Publisher                = {A.A. Balkema Publishers},
   Year                     = {2001},
+
   ISBN                     = {9789054107163}
 }
 
@@ -5289,6 +5325,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {7},
   Pages                    = {683-691},
   Volume                   = {30},
+
   Publisher                = {Elsevier}
 }
 
@@ -5297,6 +5334,7 @@ DOI = {10.3390/rs8070613}
   Author                   = {Pebesma, Edzer J.},
   Publisher                = {Dept. of Physical Geography, Utrecht University},
   Year                     = {1999},
+
   Pages                    = {96},
   Url                      = {http://www.gstat.org}
 }
@@ -5318,6 +5356,7 @@ DOI = {10.3390/rs8070613}
   Year                     = {2016},
   Pages                    = {418--422},
   Volume                   = {504},
+
   Publisher                = {Nature Research}
 }
 
@@ -5327,6 +5366,7 @@ DOI = {10.3390/rs8070613}
   Journal                  = {Journal of Advances in Modeling Earth Systems},
   Year                     = {2016},
   Volume                   = {8},
+
   Doi                      = {10.1002/2015MS000526}
 }
 
@@ -5335,6 +5375,7 @@ DOI = {10.3390/rs8070613}
   Author                   = {Persits, F. and Ahlbrandt, T. and Tuttle, M. and Charpentier, R. and Brownfield, M. and Takahashi, K.},
   Publisher                = {U.S. Geological Survey},
   Year                     = {2002},
+
   Address                  = {Denver CO},
   Series                   = {Open File Report 97-470A}
 }
@@ -5347,6 +5388,7 @@ DOI = {10.3390/rs8070613}
   Year                     = {2010},
   Editor                   = {Bahn, M.},
   Pages                    = {245-256},
+
   Doi                      = {10.1017/CBO9780511711794.014}
 }
 
@@ -5355,6 +5397,7 @@ DOI = {10.3390/rs8070613}
   Author                   = {Peverill, K.I. and Sparrow, L.A. and Reuter, D.J.},
   Publisher                = {CSIRO Publishing},
   Year                     = {1999},
+
   ISBN                     = {9780643063761}
 }
 
@@ -5366,6 +5409,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {1},
   Pages                    = {119-137},
   Volume                   = {8},
+
   Doi                      = {10.1007/s10668-005-1262-8},
   ISSN                     = {1387-585X},
   Publisher                = {Kluwer Academic Publishers}
@@ -5377,6 +5421,7 @@ DOI = {10.3390/rs8070613}
   Publisher                = {Springer},
   Year                     = {2009},
   Series                   = {Statistics and Computing},
+
   ISBN                     = {9781441903174},
   Lccn                     = {99053566}
 }
@@ -5389,6 +5434,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {7},
   Pages                    = {1844--1863},
   Volume                   = {2},
+
   Doi                      = {10.3390/rs2071844},
   ISSN                     = {2072-4292}
 }
@@ -5398,6 +5444,7 @@ DOI = {10.3390/rs8070613}
   Author                   = {Pleijsier, L.K.},
   Publisher                = {International Soil Reference and Information Centre},
   Year                     = {1986},
+
   Address                  = {Wageningen},
   Series                   = {Interim report on the Exchange Round 85-2}
 }
@@ -5407,6 +5454,7 @@ DOI = {10.3390/rs8070613}
   Author                   = {Pleijsier, L.K.},
   Publisher                = {International Soil Reference and Information Centre},
   Year                     = {1984},
+
   Address                  = {Wageningen}
 }
 
@@ -5418,6 +5466,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {1},
   Pages                    = {61},
   Volume                   = {3},
+
   Publisher                = {Copernicus GmbH}
 }
 
@@ -5428,6 +5477,7 @@ DOI = {10.3390/rs8070613}
   Year                     = {2014},
   Pages                    = {284--299},
   Volume                   = {232},
+
   Publisher                = {Elsevier}
 }
 
@@ -5439,6 +5489,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {1},
   Pages                    = {37--43},
   Volume                   = {29},
+
   Publisher                = {Elsevier}
 }
 
@@ -5450,6 +5501,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {2},
   Pages                    = {181--199},
   Volume                   = {9},
+
   Publisher                = {Springer}
 }
 
@@ -5475,6 +5527,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {3-4},
   Pages                    = {774 - 787},
   Volume                   = {136},
+
   Doi                      = {10.1016/j.geoderma.2006.06.001},
   ISSN                     = {0016-7061}
 }
@@ -5484,6 +5537,7 @@ DOI = {10.3390/rs8070613}
   Author                   = {Qi-guo, Zhao and Zi-tong, Gong},
   Publisher                = {Science Press},
   Year                     = {1989},
+
   Address                  = {Beijing}
 }
 
@@ -5505,6 +5559,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {4},
   Pages                    = {241 - 262},
   Volume                   = {57},
+
   Doi                      = {10.1016/S0924-2716(02)00124-7},
   ISSN                     = {0924-2716}
 }
@@ -5517,6 +5572,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {9},
   Pages                    = {1407-1410},
   Volume                   = {33},
+
   Doi                      = {10.1093/bioinformatics/btw765}
 }
 
@@ -5548,6 +5604,7 @@ DOI = {10.3390/rs8070613}
   Year                     = {2018},
   Pages                    = {186-201},
   Volume                   = {82},
+
   Publisher                = {The Soil Science Society of America, Inc.}
 }
 
@@ -5559,6 +5616,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {1},
   Pages                    = {101--110},
   Volume                   = {56},
+
   Publisher                = {Elsevier}
 }
 
@@ -5577,6 +5635,7 @@ DOI = {10.3390/rs8070613}
   Booktitle                = {{Unsaturated flow in hydrologic modeling; theory and practice}},
   Publisher                = {Kluwer Acad. Publ.},
   Year                     = {1989},
+
   Address                  = {Dordrecht, the Netherlands},
   Editor                   = {Morel-Seytoux, H.J.},
   Pages                    = {275-300},
@@ -5615,9 +5674,11 @@ DOI = {10.3390/rs8070613}
   Author                   = {Refsgaard, Jens Christian and van der Sluijs, Jeroen P. and H{\o}jberg, Anker Lajer and Vanrolleghem, Peter A.},
   Journal                  = {Environ. Model. Softw.},
   Year                     = {2007},
+
   Month                    = {November},
   Pages                    = {1543--1556},
   Volume                   = {22},
+
   Doi                      = {10.1016/j.envsoft.2007.02.004},
   ISSN                     = {1364-8152},
   Issue                    = {11},
@@ -5629,6 +5690,7 @@ DOI = {10.3390/rs8070613}
   Author                   = {Reimann, C. and Filzmoser, P. and Garrett, R. and Dutter, R.},
   Publisher                = {Wiley},
   Year                     = {2011},
+
   ISBN                     = {9781119965282}
 }
 
@@ -5663,6 +5725,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {4},
   Pages                    = {349--354},
   Volume                   = {40},
+
   Publisher                = {Soil and Water Conservation Society}
 }
 
@@ -5674,6 +5737,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {6148},
   Pages                    = {866-868},
   Volume                   = {341},
+
   Doi                      = {10.1126/science.1237484},
   Url                      = {http://www.sciencemag.org/content/341/6148/866.abstract}
 }
@@ -5686,6 +5750,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {10},
   Pages                    = {1--22},
   Volume                   = {48},
+
   Doi                      = {10.1029/2011WR011518},
   ISSN                     = {1944-7973}
 }
@@ -5709,6 +5774,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {3},
   Pages                    = {320 - 337},
   Volume                   = {133},
+
   Doi                      = {https://doi.org/10.1016/j.geoderma.2005.07.017},
   ISSN                     = {0016-7061}
 }
@@ -5793,6 +5859,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {5},
   Pages                    = {451--464},
   Volume                   = {5},
+
   Publisher                = {Springer}
 }
 
@@ -5803,6 +5870,7 @@ DOI = {10.3390/rs8070613}
   Year                     = {2006},
   Series                   = {Fertilizer and Plant Nutrition Bulletin},
   Volume                   = {16},
+
   Pages                    = {368}
 }
 
@@ -5814,6 +5882,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {3},
   Pages                    = {545--554},
   Volume                   = {3},
+
   Doi                      = {10.1111/j.2041-210X.2011.00182.x},
   ISSN                     = {2041-210X},
   Publisher                = {Blackwell Publishing Ltd}
@@ -5824,6 +5893,7 @@ DOI = {10.3390/rs8070613}
   Author                   = {Ruesch, Aaron and Gibbs, Holly K.},
   Publisher                = {Carbon Dioxide Information Analysis Center},
   Year                     = {2008},
+
   Address                  = {Oak Ridge National Laboratory, Tennessee}
 }
 
@@ -5835,6 +5905,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {7306},
   Pages                    = {558--560},
   Volume                   = {466},
+
   Publisher                = {Nature Publishing Group}
 }
 
@@ -5891,7 +5962,9 @@ DOI = {10.3390/rs8070613}
   Author                   = {Santos, R. D. and Lemos, R. C. and Santos, H. G. and Ker, J. C. and Anjos, L. H.},
   Publisher                = {Sociedade Brasileira de Ci\^{e}ncia do Solo},
   Year                     = {2005},
+
   Address                  = {Vi\c{c}osa},
+
   Pages                    = {92}
 }
 
@@ -5903,6 +5976,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {4},
   Pages                    = {710-714},
   Volume                   = {34},
+
   Doi                      = {10.1016/j.asr.2004.03.012}
 }
 
@@ -5920,6 +5994,7 @@ DOI = {10.3390/rs8070613}
   Author                   = {Sayre, Roger and Dangermond, Jack and Frye, Charlie and Vaughan, Randy and Aniello, Peter and Breyer, Sean and Cribbs, Douglas and Hopkins, Dabney and Nauman, Richard and Derrenbacher, William and others},
   Publisher                = {USGS / Association of American Geographers},
   Year                     = {2014},
+
   Address                  = {Washington, DC}
 }
 
@@ -5929,6 +6004,7 @@ DOI = {10.3390/rs8070613}
   Publisher                = {Chapman \& Hall/CRC},
   Year                     = {2005},
   Series                   = {Texts in statistical science},
+
   ISBN                     = {9781584883227},
   Lccn                     = {04043107}
 }
@@ -5938,10 +6014,12 @@ DOI = {10.3390/rs8070613}
   Author                   = {Scharlemann, J\"{o}rn P.~W. and Tanner, Edmund V.~J. and Hiederer, Roland and Kapos, Valerie},
   Journal                  = {Carbon Management},
   Year                     = {2014},
+
   Month                    = jan,
   Number                   = {1},
   Pages                    = {81--91},
   Volume                   = {5},
+
   Booktitle                = {Carbon Management},
   Doi                      = {10.4155/cmt.13.77},
   ISSN                     = {1758-3004},
@@ -5956,6 +6034,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {1},
   Pages                    = {e1408},
   Volume                   = {3},
+
   Publisher                = {Public Library of Science}
 }
 
@@ -5967,6 +6046,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {3},
   Pages                    = {165-193},
   Volume                   = {4},
+
   Doi                      = {10.1016/0016-7061(70)90002-9},
   ISSN                     = {0016-7061}
 }
@@ -5976,6 +6056,7 @@ DOI = {10.3390/rs8070613}
   Author                   = {Schoeneberger, P.J. and Wysocki, D.A. and Benham, E.C. and Broderson, W.D.},
   Publisher                = {Natural Resources Conservation Service, USDA, National Soil Survey Centre},
   Year                     = {1998},
+
   Address                  = {Lincoln, Nebraska}
 }
 
@@ -5996,6 +6077,7 @@ DOI = {10.3390/rs8070613}
   Year                     = {2015},
   Month                    = Nov,
   Type                     = {Theses},
+
   Hal_id                   = {tel-01250221},
   Hal_version              = {v2},
   Number                   = {2015PA066533},
@@ -6029,6 +6111,7 @@ DOI = {10.3390/rs8070613}
   Journal                  = {GlobalSoilMap: Basis of the global spatial soil information system},
   Year                     = {2014},
   Pages                    = {127},
+
   Publisher                = {CRC Press}
 }
 
@@ -6041,6 +6124,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {3},
   Pages                    = {801 - 811},
   Volume                   = {53},
+
   Doi                      = {10.1016/j.csda.2008.08.007},
   ISSN                     = {0167-9473}
 }
@@ -6053,6 +6137,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {5},
   Pages                    = {427--448},
   Volume                   = {6},
+
   Doi                      = {10.1080/17538947.2013.786146}
 }
 
@@ -6064,6 +6149,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {2},
   Pages                    = {212--224},
   Volume                   = {5},
+
   Doi                      = {10.1002/jame.20026},
   ISSN                     = {1942-2466}
 }
@@ -6075,6 +6161,7 @@ DOI = {10.3390/rs8070613}
   Year                     = {2007},
   Number                   = {8},
   Volume                   = {43},
+
   Publisher                = {Wiley Online Library}
 }
 
@@ -6086,6 +6173,7 @@ DOI = {10.3390/rs8070613}
   Number                   = {1},
   Pages                    = {10--21},
   Volume                   = {37},
+
   Publisher                = {IEEE}
 }
 
@@ -6121,6 +6209,7 @@ DOI = {10.3390/rs8070613}
   Author                   = {Shepherd, Keith D.},
   Booktitle                = {19th World Congress of Soil Science},
   Year                     = {2010},
+
   Address                  = {Brisbane, Australia},
   Pages                    = {NA}
 }
@@ -6132,6 +6221,7 @@ DOI = {10.3390/rs8070613}
   Year                     = {2015},
   Pages                    = {93-106},
   Volume                   = {132},
+
   Doi                      = {10.1016/j.agsy.2014.09.002},
   ISSN                     = {0308-521X}
 }
@@ -6177,6 +6267,7 @@ DOI = {10.3390/s18040993}
   Number                   = {3},
   Pages                    = {988--998},
   Volume                   = {66},
+
   Publisher                = {Soil Science Society}
 }
 
@@ -6235,6 +6326,7 @@ DOI = {10.3390/s18040993}
   Pages                    = {1 - 47},
   Series                   = {Advances in Agronomy},
   Volume                   = {20},
+
   Doi                      = {10.1016/S0065-2113(08)60853-6}
 }
 
@@ -6254,6 +6346,7 @@ DOI = {10.3390/s18040993}
   Number                   = {20},
   Pages                    = {3940--3941},
   Volume                   = {21},
+
   Publisher                = {Oxford Univ Press}
 }
 
@@ -6299,8 +6392,10 @@ DOI = {10.3390/s18040993}
   Author                   = {Smith, G.D.},
   Publisher                = {Soil Management Support Services, USDA},
   Year                     = {1986},
+
   Address                  = {Cornell University},
   Series                   = {SMSS Technical Monograph No.11},
+
   Pages                    = {227}
 }
 
@@ -6322,6 +6417,7 @@ DOI = {10.3390/s18040993}
   Number                   = {2},
   Pages                    = {212--218},
   Volume                   = {20},
+
   Doi                      = {10.1111/j.1475-2743.2004.tb00361.x},
   ISSN                     = {1475-2743},
   Publisher                = {Blackwell Publishing Ltd}
@@ -6343,6 +6439,7 @@ DOI = {10.3390/s18040993}
   Number                   = {3},
   Pages                    = {253--271},
   Volume                   = {112},
+
   Publisher                = {Elsevier}
 }
 
@@ -6351,6 +6448,7 @@ DOI = {10.3390/s18040993}
   Author                   = {{Soil survey Division staff}},
   Publisher                = {United States Department of Agriculture},
   Year                     = {1993},
+
   Address                  = {Washington},
   Volume                   = {Handbook 18}
 }
@@ -6360,6 +6458,7 @@ DOI = {10.3390/s18040993}
   Author                   = {{Soil Survey Staff}},
   Publisher                = {United States Agriculture, USDA},
   Year                     = {1983},
+
   Address                  = {Washington},
   Edition                  = {rev.},
   Volume                   = {Handbook 18}
@@ -6392,6 +6491,7 @@ DOI = {10.3390/s18040993}
   Number                   = {3},
   Pages                    = {335--352},
   Volume                   = {18},
+
   Publisher                = {Springer}
 }
 
@@ -6400,9 +6500,10 @@ DOI = {10.3390/s18040993}
   Author                   = {Sommer, M. and Gerke, H.H. and Deumlich, D.},
   Journal                  = {Geoderma},
   Year                     = {2008},
-  Number                   = {3-4},
+  Number                   = {3?4},
   Pages                    = {480 - 493},
   Volume                   = {145},
+
   Doi                      = {10.1016/j.geoderma.2008.01.012},
   ISSN                     = {0016-7061}
 }
@@ -6421,18 +6522,16 @@ DOI = {10.3390/s18040993}
   Author                   = {Sponagel, H.},
   Publisher                = {Schweizerbart Sche Vlgsb.},
   Year                     = {2005},
-  ISBN                     = {9783510959204}
+
+  ISBN                     = {9783510959204},
+  Url                      = {http://books.google.nl/books?id=eNQFRAAACAAJ}
 }
 
 @Article{Stasch2013EMS,
-title = "Meaningful spatial prediction and aggregation",
-journal = "Environmental Modelling \& Software",
-volume = "51",
-pages = "149 - 165",
-year = "2014",
-issn = "1364-8152",
-doi = "10.1016/j.envsoft.2013.09.006",
-author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn",
+  Title                    = {Meaningful Spatial Prediction and Aggregation},
+  Author                   = {Stasch, Christoph and Scheider, Simon and Pebesma, Edzer and Kuhn, Werner},
+  Journal                  = {Environmental Modelling \& Software},
+  Year                     = {2013?}
 }
 
 @Article{Statnikov2008,
@@ -6473,18 +6572,20 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Author                   = {Stein, M.~L.},
   Publisher                = {Springer},
   Year                     = {1999},
+
   Address                  = {New York},
   Series                   = {Series in Statistics},
+
   Pages                    = {247}
 }
 
 @Article{SteinigerBocher2009IJGIS,
-  title={An overview on current free and open source desktop GIS developments},
-  author={Stefan Steiniger and Erwan Bocher},
-  journal={International Journal of Geographical Information Science},
-  year={2009},
-  volume={23},
-  pages={1345-1370}
+  Title                    = {{An Overview on Current Free and Open Source Desktop GIS Developments}},
+  Author                   = {Steiniger, S. and Bocher, E.},
+  Journal                  = {International Journal of Geographical Information Science},
+  Year                     = {2009},
+  Pages                    = {NA},
+  Volume                   = {in press}
 }
 
 @Article{Antoine2013PLOSOne,
@@ -6492,10 +6593,12 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Author                   = {Stevens, Antoine and Nocita, Marco and T\'{o}th, Gergely and Montanarella, Luca and van Wesemael, Bas},
   Journal                  = {PLoS ONE},
   Year                     = {2013},
+
   Month                    = {06},
   Number                   = {6},
   Pages                    = {e66409},
   Volume                   = {8},
+
   Doi                      = {10.1371/journal.pone.0066409},
   Publisher                = {Public Library of Science}
 }
@@ -6508,6 +6611,7 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Number                   = {1},
   Pages                    = {395--404},
   Volume                   = {144},
+
   Publisher                = {Elsevier}
 }
 
@@ -6519,6 +6623,7 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Number                   = {0},
   Pages                    = {48 - 61},
   Volume                   = {216},
+
   Doi                      = {10.1016/j.geoderma.2013.10.007},
   ISSN                     = {0016-7061}
 }
@@ -6530,6 +6635,7 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Year                     = {2015},
   Pages                    = {9--16},
   Volume                   = {6},
+
   Doi                      = {http://dx.doi.org/10.1016/j.gfs.2015.07.001},
   ISSN                     = {2211-9124}
 }
@@ -6542,6 +6648,7 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Number                   = {Supplement C},
   Pages                    = {9-16},
   Volume                   = {6},
+
   Keywords                 = {Soil organic carbon assessment Soil organic carbon sequestration Soil security Food security Global change Digital soil mapping}
 }
 
@@ -6550,6 +6657,7 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Author                   = {Stolbovoi, V. and McCallum, I.},
   Publisher                = {IIASA and RAS},
   Year                     = {2002},
+
   Address                  = {Vienna}
 }
 
@@ -6569,6 +6677,7 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Number                   = {1},
   Pages                    = {25},
   Volume                   = {8},
+
   Publisher                = {BioMed Central}
 }
 
@@ -6580,6 +6689,7 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Number                   = {4},
   Pages                    = {323},
   Volume                   = {14},
+
   Publisher                = {American Psychological Association}
 }
 
@@ -6606,6 +6716,7 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Publisher                = {Taylor \& Francis/CRC Press},
   Year                     = {2005},
   Series                   = {Books in Soils, Plants, and the Environment},
+
   ISBN                     = {9780849334993},
   Lccn                     = {2005041311}
 }
@@ -6618,6 +6729,7 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Number                   = {1},
   Pages                    = {57 - 70},
   Volume                   = {19},
+
   Doi                      = {http://dx.doi.org/10.1016/S0169-2070(01)00123-6},
   ISSN                     = {0169-2070}
 }
@@ -6630,6 +6742,7 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Number                   = {5},
   Pages                    = {1792--1799},
   Volume                   = {74},
+
   Publisher                = {Soil Science Society}
 }
 
@@ -6638,8 +6751,10 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Author                   = {{The Montpellier Panel}},
   Publisher                = {{Agriculture for Impact}},
   Year                     = {2014},
+
   Address                  = {London},
   Month                    = {December},
+
   Url                      = {http://www.ag4impact.org}
 }
 
@@ -6660,6 +6775,7 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Number                   = {3},
   Pages                    = {1717--1736},
   Volume                   = {10},
+
   Publisher                = {Copernicus GmbH}
 }
 
@@ -6668,8 +6784,10 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Author                   = {Tomppo, E. and Czaplewski, R.L. and M\"{a}kisara, K.},
   Publisher                = {FAO},
   Year                     = {2002},
+
   Address                  = {Rome},
   Series                   = {Forest Resources Assessment Programme Working paper 61},
+
   Pages                    = {72}
 }
 
@@ -6678,9 +6796,11 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Author                   = {Topan, H. and Maktav, D. and Jacobsen, K. and Buyuksalih, G.},
   Journal                  = {Int. J. Remote Sens.},
   Year                     = {2009},
+
   Month                    = {January},
   Pages                    = {1819--1827},
   Volume                   = {30},
+
   Acmid                    = {1541737},
   Address                  = {Bristol, PA, USA},
   Doi                      = {10.1080/01431160802642271},
@@ -6707,6 +6827,7 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Year                     = {2015},
   Pages                    = {157--168},
   Volume                   = {5},
+
   Publisher                = {Elsevier}
 }
 
@@ -6724,6 +6845,7 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Publisher                = {U.S. Government Printing Office},
   Year                     = {2014},
   Edition                  = {12th},
+
   ISBN                     = {9780160854279}
 }
 
@@ -6734,6 +6856,7 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Year                     = {2009},
   Pages                    = {201},
   Volume                   = {35},
+
   Publisher                = {HeinOnline}
 }
 
@@ -6742,7 +6865,9 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Author                   = {{UN Food and Agriculture Organisation}},
   Journal                  = {News archive},
   Year                     = {2013},
+
   Month                    = {December},
+
   Publisher                = {{UN Food and Agriculture Organisation}}
 }
 
@@ -6751,8 +6876,10 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Author                   = {V{\aa}gen, T. and Shepherd, K. D. and Walsh, M. G. and Winowiecki, L. and Desta, L. T. and Tondoh, J. E.},
   Publisher                = {World Agroforestry Centre},
   Year                     = {2010},
+
   Address                  = {Nairobi, Kenya},
   Series                   = {Africa Soil Information Service (AfSIS)},
+
   Pages                    = {76}
 }
 
@@ -6764,6 +6891,7 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Number                   = {1},
   Pages                    = {015011},
   Volume                   = {8},
+
   Publisher                = {IOP Publishing}
 }
 
@@ -6774,6 +6902,7 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Year                     = {2016},
   Pages                    = {216--225},
   Volume                   = {263},
+
   Publisher                = {Elsevier}
 }
 
@@ -6795,6 +6924,7 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Number                   = {5},
   Pages                    = {892--898},
   Volume                   = {44},
+
   Publisher                = {Soil Science Society of America}
 }
 
@@ -6813,6 +6943,7 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Booktitle                = {Proceedings of 5th International Classification Workshop},
   Publisher                = {ISRIC},
   Year                     = {1982},
+
   Address                  = {Khartoum, Sudan}
 }
 
@@ -6824,6 +6955,7 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Number                   = {3},
   Pages                    = {465-471},
   Volume                   = {86},
+
   Doi                      = {10.4141/S05-106}
 }
 
@@ -6844,6 +6976,7 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Number                   = {1},
   Pages                    = {34--46},
   Volume                   = {116},
+
   Publisher                = {Elsevier}
 }
 
@@ -6855,6 +6988,7 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Number                   = {1},
   Pages                    = {37--45},
   Volume                   = {157},
+
   Publisher                = {Elsevier}
 }
 
@@ -6884,8 +7018,10 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Author                   = {Venables, W.~N. and Ripley, B.~D.},
   Publisher                = {Springer-Verlag},
   Year                     = {2002},
+
   Address                  = {New York},
   Edition                  = {4th},
+
   Pages                    = {481}
 }
 
@@ -7088,6 +7224,7 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   Author                   = {Walsh, M.G. and Ahamed, S. and Hartemink, A.~E. and Huising, J. and Okoth, P. and Palm, C.A. and Sanchez, P.~A. and Sanginga, N. and Shepherd, K.D. and V{\aa}gen, T.-G. and Winowiecki, L.A.},
   Booktitle                = {Proceedings 9th International Conference of the East and Southeast Asia Federation of Soil Science Societies},
   Year                     = {2009},
+
   Address                  = {Seoul, Korea},
   Publisher                = {KSSSF-RDA}
 }
@@ -7584,3 +7721,5 @@ author = "Christoph Stasch and Simon Scheider and Edzer Pebesma and Werner Kuhn"
   isbn      = {9780470376959},
   doi       = {10.1002/9780470376959.app1},
 }
+
+@Comment{jabref-meta: databaseType:bibtex;}
