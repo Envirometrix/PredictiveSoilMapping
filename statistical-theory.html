@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl and Robert A. MacMillan">
 
 
-<meta name="date" content="2019-02-10">
+<meta name="date" content="2019-02-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -454,7 +454,7 @@ the amount of variance explained by the regression itself. The residual
 variation can subsequently be analysed on spatial structure through a
 variogram analysis. If there is spatial structure, then kriging the
 residual and incorporating the result of this in mapping can improve the
-accuracy of soil predictions <span class="citation">(T. Hengl, Heuvelink, and Rossiter <a href="#ref-hengl2007regression">2007</a>)</span>.</p>
+accuracy of soil predictions <span class="citation">(Hengl, Heuvelink, and Rossiter <a href="#ref-hengl2007regression">2007</a>)</span>.</p>
 </div>
 <div id="umsv" class="section level3">
 <h3><span class="header-section-number">5.1.2</span> Universal model of soil variation</h3>
@@ -697,7 +697,7 @@ jeopardize the quality of the final soil predictions and in particular
 the associated uncertainty (see further
 section <a href="statistical-theory.html#accuracy-assessment">5.3</a>). This problem can be avoided
 by taking, for example, a 3D modelling approach
-<span class="citation">(Poggio and Gimona <a href="#ref-poggio2014national">2014</a>; G. B. A. K. Hengl Tomislav AND Heuvelink <a href="#ref-Hengl2015AfSoilGrids250m">2015</a>)</span>, in which model
+<span class="citation">(Poggio and Gimona <a href="#ref-poggio2014national">2014</a>; Hengl, Heuvelink, et al. <a href="#ref-Hengl2015AfSoilGrids250m">2015</a>)</span>, in which model
 calibration and spatial interpolation are based on the original soil
 observations directly (although proper use of this requires that the
 differences in vertical support between measurements are taken into
@@ -1077,7 +1077,7 @@ large areas <span class="citation">(Hengl, Mendes de Jesus, et al. <a href="#ref
 <p>Note also that geostatistical mapping is often restricted to
 quantitative soil properties. Soil prediction models that predict
 categorical soil variables such as soil type or soil colour class are
-often quite complex (see e.g. <span class="citation">T. Hengl, Toomanian, et al. (<a href="#ref-Hengl2007Geoderma">2007</a>)</span> and <span class="citation">Kempen et al. (<a href="#ref-Kempen2009Geoderma">2009</a>)</span>
+often quite complex (see e.g. <span class="citation">Hengl, Toomanian, et al. (<a href="#ref-Hengl2007Geoderma">2007</a>)</span> and <span class="citation">Kempen et al. (<a href="#ref-Kempen2009Geoderma">2009</a>)</span>
 for a discussion). Most large scale soil mapping projects also require
 predictions in 3D, or at least 2D predictions (layers) for several depth
 intervals. This can be done by treating each layer separately in a 2D
@@ -1261,7 +1261,7 @@ prior to kriging i.e. to <em>universal kriging</em> or <em>kriging with externa
 computational approaches — regression-kriging, kriging with external
 drift or universal kriging — yield exactly the same predictions if run
 using the same inputs and assuming the same (global) geostatistical
-model <span class="citation">(T. Hengl, Heuvelink, and Rossiter <a href="#ref-hengl2007regression">2007</a>)</span>.
+model <span class="citation">(Hengl, Heuvelink, and Rossiter <a href="#ref-hengl2007regression">2007</a>)</span>.
 </div>
 
 <p>The optimal spatial prediction in the case of a model
@@ -1442,7 +1442,7 @@ advantage of running separate regression and kriging predictions is
 often worth the sacrifice as the computing time is an order of magnitude
 shorter and we have more flexibility to combine different types of
 regression models with kriging when regression is run separately from
-kriging <span class="citation">(T. Hengl, Heuvelink, and Rossiter <a href="#ref-hengl2007regression">2007</a>)</span>.</p>
+kriging <span class="citation">(Hengl, Heuvelink, and Rossiter <a href="#ref-hengl2007regression">2007</a>)</span>.</p>
 </div>
 <div id="regression-kriging-examples" class="section level3">
 <h3><span class="header-section-number">5.2.8</span> Regression-kriging examples</h3>
@@ -1503,7 +1503,7 @@ spatial auto-correlation. The nugget variation is about 1/3rd of the sill
 variation.</p>
 <p>Using the gstat package <span class="citation">(Pebesma <a href="#ref-Pebesma2004CG">2004</a>; Bivand, Pebesma, and Rubio <a href="#ref-Bivand2013Springer">2013</a>)</span>, regression and
 kriging can be combined by running universal kriging or kriging with
-external drift <span class="citation">(T. Hengl, Heuvelink, and Rossiter <a href="#ref-hengl2007regression">2007</a>)</span>. First, the variogram of the
+external drift <span class="citation">(Hengl, Heuvelink, and Rossiter <a href="#ref-hengl2007regression">2007</a>)</span>. First, the variogram of the
 residuals is calculated:</p>
 <pre class="sourceCode r"><code class="sourceCode r">v.s &lt;-<span class="st"> </span><span class="kw">variogram</span>(<span class="kw">log1p</span>(om)<span class="op">~</span>dist<span class="op">+</span>soil, meuse.s)
 vr.fit &lt;-<span class="st"> </span><span class="kw">fit.variogram</span>(v.s, <span class="kw">vgm</span>(<span class="dv">1</span>, <span class="st">&quot;Exp&quot;</span>, <span class="dv">300</span>, <span class="dv">1</span>))
@@ -1594,6 +1594,7 @@ for plotting, (4) spatial locations of observations used to fit the model. To pr
 <span class="co">#&gt; Generating predictions using the trend model (RK method)...</span>
 <span class="co">#&gt; [using ordinary kriging]</span>
 <span class="co">#&gt; </span>
+ <span class="dv">22</span>% done
 <span class="dv">100</span>% done
 <span class="co">#&gt; Running 5-fold cross validation using &#39;krige.cv&#39;...</span>
 <span class="co">#&gt; Creating an object of class &quot;SpatialPredictions&quot;</span>
@@ -1663,6 +1664,7 @@ om.rk2 &lt;-<span class="st"> </span><span class="kw">predict</span>(omm2, meuse
 <span class="co">#&gt; Generating predictions using the trend model (RK method)...</span>
 <span class="co">#&gt; [using ordinary kriging]</span>
 <span class="co">#&gt; </span>
+  <span class="dv">4</span>% done
 <span class="dv">100</span>% done
 <span class="co">#&gt; Running 5-fold cross validation using &#39;krige.cv&#39;...</span>
 <span class="co">#&gt; Creating an object of class &quot;SpatialPredictions&quot;</span></code></pre>
@@ -1870,7 +1872,6 @@ om.rk.p &lt;-<span class="st"> </span><span class="kw">predict</span>(omm, meuse
 <span class="co">#&gt; Generating predictions using the trend model (RK method)...</span>
 <span class="co">#&gt; [using ordinary kriging]</span>
 <span class="co">#&gt; </span>
- <span class="dv">25</span>% done
 <span class="dv">100</span>% done
 <span class="co">#&gt; Running 5-fold cross validation using &#39;krige.cv&#39;...</span>
 <span class="co">#&gt; Creating an object of class &quot;SpatialPredictions&quot;</span>
@@ -2100,7 +2101,6 @@ argument:</p>
 <span class="co">#&gt; drawing 20 GLS realisations of beta...</span>
 <span class="co">#&gt; [using conditional Gaussian simulation]</span>
 <span class="co">#&gt; </span>
- <span class="dv">59</span>% done
 <span class="dv">100</span>% done
 <span class="co">#&gt; Creating an object of class &quot;RasterBrickSimulations&quot;</span>
 <span class="kw">log1p</span>(meuse<span class="op">@</span>data[<span class="dv">1</span>,<span class="st">&quot;om&quot;</span>])
@@ -2139,13 +2139,13 @@ organic matter content using the Meuse case study:</p>
 <span class="kw">demo</span>(meuse, <span class="dt">echo=</span><span class="ot">FALSE</span>)
 meuse<span class="op">$</span>value =<span class="st"> </span>meuse<span class="op">$</span>zinc
 output &lt;-<span class="st"> </span><span class="kw">interpolate</span>(meuse, meuse.grid, <span class="kw">list</span>(<span class="dt">mean=</span><span class="ot">TRUE</span>, <span class="dt">variance=</span><span class="ot">TRUE</span>))
-<span class="co">#&gt; R 2019-02-10 11:32:11 interpolating 155 observations, 3103 prediction locations</span>
+<span class="co">#&gt; R 2019-02-12 09:42:34 interpolating 155 observations, 3103 prediction locations</span>
 <span class="co">#&gt; Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : </span>
 <span class="co">#&gt;  using standard model for estimating time. For better </span>
 <span class="co">#&gt;  platform spesific predictions, please run </span>
 <span class="co">#&gt;  timeModels &lt;- generateTimeModels()</span>
 <span class="co">#&gt;   and save the workspace</span>
-<span class="co">#&gt; [1] &quot;estimated time for  copula 161.433160218718&quot;</span>
+<span class="co">#&gt; [1] &quot;estimated time for  copula 162.125650302054&quot;</span>
 <span class="co">#&gt; Checking object ... OK</span></code></pre>
 <p>which gives the (presumably) best interpolation method for the problem
 at hand (<code>value</code> column), given the time available set with
@@ -2154,7 +2154,7 @@ at hand (<code>value</code> column), given the time available set with
 <span class="co">#&gt; List of 16</span>
 <span class="co">#&gt;  $ observations       :Formal class &#39;SpatialPointsDataFrame&#39; [package &quot;sp&quot;] with 5 slots</span>
 <span class="co">#&gt;  $ formulaString      :Class &#39;formula&#39;  language value ~ 1</span>
-<span class="co">#&gt;   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x14602f68&gt; </span>
+<span class="co">#&gt;   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x14177da8&gt; </span>
 <span class="co">#&gt;  $ predictionLocations:Formal class &#39;SpatialPixelsDataFrame&#39; [package &quot;sp&quot;] with 7 slots</span>
 <span class="co">#&gt;  $ params             :List of 18</span>
 <span class="co">#&gt;   ..$ doAnisotropy     : logi TRUE</span>
@@ -2775,7 +2775,7 @@ which can now be used to generate predictions:</p>
 <span class="co">#&gt; Generating predictions using the trend model (RK method)...</span>
 <span class="co">#&gt; [using ordinary kriging]</span>
 <span class="co">#&gt; </span>
- <span class="dv">47</span>% done
+ <span class="dv">82</span>% done
 <span class="dv">100</span>% done
 <span class="co">#&gt; Running 5-fold cross validation using &#39;krige.cv&#39;...</span>
 <span class="co">#&gt; Creating an object of class &quot;SpatialPredictions&quot;</span></code></pre>
@@ -2958,7 +2958,7 @@ Figure 5.25: Universal plots of predictive performance: (a) 1:1 predicted vs obs
 </p>
 </div>
 <p>So in summary, universal measures to access predicitive success of
-any spatial prediction method are <span class="citation">(T. Hengl, Nussbaum, et al. <a href="#ref-Hengl2018RFsp">2018</a>)</span>:</p>
+any spatial prediction method are <span class="citation">(Hengl, Nussbaum, et al. <a href="#ref-Hengl2018RFsp">2018</a>)</span>:</p>
 <ul>
 <li><strong>Concordance Correlation Coefficient</strong> (0–1): showing predictive success
 of a method on a 1:1 predictions vs observations plot,</li>
@@ -3093,7 +3093,7 @@ due to advances in software for statistical computing and growing
 processing speed and computing capacity. Fully automated geostatistical
 mapping, i.e. generation of spatial predictions with little to no human
 interaction, is today a growing field of geoinformation science
-<span class="citation">(Pebesma et al. <a href="#ref-Pebesma2011CompGeoSci">2011</a>; P. E. Brown <a href="#ref-Brown2014JSS">2015</a>; Hengl <a href="#ref-Hengl2014SoilGrids1km">2014</a>)</span>. Some
+<span class="citation">(Pebesma et al. <a href="#ref-Pebesma2011CompGeoSci">2011</a>; P. E. Brown <a href="#ref-Brown2014JSS">2015</a>; Hengl et al. <a href="#ref-Hengl2014SoilGrids1km">2014</a>)</span>. Some
 key advantages of using automated soil mapping versus more conventional,
 traditional expert-based soil mapping are
 <span class="citation">(Heuvelink et al. <a href="#ref-heuvelink2010implications">2010</a>; Bivand, Pebesma, and Rubio <a href="#ref-Bivand2013Springer">2013</a>)</span>:</p>
@@ -3185,19 +3185,19 @@ alternatives.</p>
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-Finke2008462">
-<p>Finke, Peter A., and John L. Hutson. 2008. “Modelling Soil Genesis in Calcareous Loess.” <em>Geoderma</em> 145 (3?4):462–79. <a href="https://doi.org/10.1016/j.geoderma.2008.01.017" class="uri">https://doi.org/10.1016/j.geoderma.2008.01.017</a>.</p>
+<p>Finke, Peter A., and John L. Hutson. 2008. “Modelling Soil Genesis in Calcareous Loess.” <em>Geoderma</em> 145 (3-4):462–79. <a href="https://doi.org/10.1016/j.geoderma.2008.01.017" class="uri">https://doi.org/10.1016/j.geoderma.2008.01.017</a>.</p>
 </div>
 <div id="ref-Sommer2008480">
-<p>Sommer, M., H.H. Gerke, and D. Deumlich. 2008. “Modelling Soil Landscape Genesis — a ‘Time Split’ Approach for Hummocky Agricultural Landscapes.” <em>Geoderma</em> 145 (3?4):480–93. <a href="https://doi.org/10.1016/j.geoderma.2008.01.012" class="uri">https://doi.org/10.1016/j.geoderma.2008.01.012</a>.</p>
+<p>Sommer, M., H.H. Gerke, and D. Deumlich. 2008. “Modelling Soil Landscape Genesis — a ‘Time Split’ Approach for Hummocky Agricultural Landscapes.” <em>Geoderma</em> 145 (3-4):480–93. <a href="https://doi.org/10.1016/j.geoderma.2008.01.012" class="uri">https://doi.org/10.1016/j.geoderma.2008.01.012</a>.</p>
 </div>
 <div id="ref-Minasny2008140">
-<p>Minasny, Budiman, Alex B. McBratney, and S. Salvador-Blanes. 2008. “Quantitative Models for Pedogenesis — a Review.” <em>Geoderma</em> 144 (1?2):140–57. <a href="https://doi.org/10.1016/j.geoderma.2007.12.013" class="uri">https://doi.org/10.1016/j.geoderma.2007.12.013</a>.</p>
+<p>Minasny, Budiman, Alex B. McBratney, and S. Salvador-Blanes. 2008. “Quantitative Models for Pedogenesis — a Review.” <em>Geoderma</em> 144 (1-2):140–57. <a href="https://doi.org/10.1016/j.geoderma.2007.12.013" class="uri">https://doi.org/10.1016/j.geoderma.2007.12.013</a>.</p>
 </div>
 <div id="ref-vanwalleghem2010spatial">
 <p>Vanwalleghem, Tom, Jean Poesen, A McBratney, and J Deckers. 2010. “Spatial Variability of Soil Horizon Depth in Natural Loess-Derived Soils.” <em>Geoderma</em> 157 (1). Elsevier:37–45.</p>
 </div>
 <div id="ref-hengl2007regression">
-<p>Hengl, Tomislav, Gerard Heuvelink, and David G Rossiter. 2007. “About Regression-Kriging: From Equations to Case Studies.” <em>Computers &amp; Geosciences</em> 33 (10). Elsevier:1301–15.</p>
+<p>Hengl, T., G.B.M. Heuvelink, and D.G. Rossiter. 2007. “About Regression-Kriging: From Equations to Case Studies.” <em>Computers &amp; Geosciences</em> 33 (10). Elsevier:1301–15.</p>
 </div>
 <div id="ref-Burrough1998OUP">
 <p>Burrough, P. A., and R. A. McDonnell. 1998. <em>Principles of Geographical Information Systems</em>. 2nd ed. Oxford: Oxford University Press.</p>
@@ -3236,7 +3236,7 @@ alternatives.</p>
 <p>Poggio, Laura, and Alessandro Gimona. 2014. “National scale 3D modelling of soil organic carbon stocks with uncertainty propagation — An example from Scotland.” <em>Geoderma</em> 232. Elsevier:284–99.</p>
 </div>
 <div id="ref-Hengl2015AfSoilGrids250m">
-<p>Hengl, Gerard B.M. AND Kempen, Tomislav AND Heuvelink. 2015. “Mapping Soil Properties of Africa at 250 m Resolution: Random Forests Significantly Improve Current Predictions.” <em>PLoS ONE</em> 10 (e0125814). Public Library of Science. <a href="https://doi.org/10.1371/journal.pone.0125814" class="uri">https://doi.org/10.1371/journal.pone.0125814</a>.</p>
+<p>Hengl, Tomislav, Gerard B.M. Heuvelink, Bas Kempen, Johan G.B. Leenaars, Markus G. Walsh, Keith D. Shepherd, Andrew Sila, et al. 2015. “Mapping Soil Properties of Africa at 250 m Resolution: Random Forests Significantly Improve Current Predictions.” <em>PLoS ONE</em> 10 (e0125814). Public Library of Science. <a href="https://doi.org/10.1371/journal.pone.0125814" class="uri">https://doi.org/10.1371/journal.pone.0125814</a>.</p>
 </div>
 <div id="ref-Conant2010">
 <p>Conant, Richard T, Stephen M Ogle, Eldor A Paul, and Keith Paustian. 2010. “Measuring and Monitoring Soil Organic Carbon Stocks in Agricultural Lands for Climate Mitigation.” <em>Frontiers in Ecology and the Environment</em> 9 (3). Ecological Society of America:169–73. <a href="http://dx.doi.org/10.1890/090153" class="uri">http://dx.doi.org/10.1890/090153</a>.</p>
@@ -3302,7 +3302,7 @@ alternatives.</p>
 <p>Liu, Jian, and A-Xing Zhu. 2009. “Mapping with words: A new approach to automated digital soil survey.” <em>International Journal of Intelligent Systems</em> 24 (3). Wiley Subscription Services, Inc., A Wiley Company:293–311. <a href="https://doi.org/10.1002/int.20337" class="uri">https://doi.org/10.1002/int.20337</a>.</p>
 </div>
 <div id="ref-MacMillan2010DSM">
-<p>MacMillan, R. A., D.E. Moon, R. A. Coupé, and N. Phillips. 2010. “Predictive Ecosystem Mapping (Pem) for 8.2 Million Ha of Forestland,British Columbia, Canada.” In <em>Digital Soil Mapping: Bridging Research, Environmental Application, and Operation</em>, edited by J. L. Boettinger et al., 2:335–54. Progress in Soil Science. Springer. <a href="https://doi.org/10.1007/978-90-481-8863-5_27" class="uri">https://doi.org/10.1007/978-90-481-8863-5_27</a>.</p>
+<p>MacMillan, R.A., D.E. Moon, R.A. Coupé, and N. Phillips. 2010. “Predictive Ecosystem Mapping (Pem) for 8.2 Million Ha of Forestland,British Columbia, Canada.” In <em>Digital Soil Mapping: Bridging Research, Environmental Application, and Operation</em>, edited by J.L. Boettinger et al., 2:335–54. Progress in Soil Science. Springer. <a href="https://doi.org/10.1007/978-90-481-8863-5_27" class="uri">https://doi.org/10.1007/978-90-481-8863-5_27</a>.</p>
 </div>
 <div id="ref-Simonson1968AA">
 <p>Simonson, Roy W. 1968. “Concept of Soil.” In <em>Prepared Under the Auspices of the American Society of Agronomy</em>, edited by A.G. Norman, 20:1–47. Advances in Agronomy. Academic Press. <a href="https://doi.org/10.1016/S0065-2113(08)60853-6" class="uri">https://doi.org/10.1016/S0065-2113(08)60853-6</a>.</p>
@@ -3386,7 +3386,7 @@ alternatives.</p>
 <p>Kanevski, M., V. Timonin, and A. Pozdnukhov. 2009. <em>Machine Learning for Spatial Environmental Data: Theory, Applications, and Software</em>. Environmental Sciences. EFPL Press.</p>
 </div>
 <div id="ref-lark2003fitting">
-<p>Lark, R. M., and A. Papritz. 2003. “Fitting a Linear Model of Coregionalization for Soil Properties Using Simulated Annealing.” <em>Geoderma</em> 115 (3). Elsevier:245–60.</p>
+<p>Lark, R.M., and A. Papritz. 2003. “Fitting a Linear Model of Coregionalization for Soil Properties Using Simulated Annealing.” <em>Geoderma</em> 115 (3). Elsevier:245–60.</p>
 </div>
 <div id="ref-Stein1999Springer">
 <p>Stein, M. L. 1999. <em>Interpolation of Spatial Data: Some Theory for Kriging</em>. Series in Statistics. New York: Springer.</p>
@@ -3473,7 +3473,7 @@ alternatives.</p>
 <p>Goovaerts, Pierre. 1999. “Geostatistics in Soil Science: State-of-the-Art and Perspectives.” <em>Geoderma</em> 89 (1). Elsevier:1–45.</p>
 </div>
 <div id="ref-Hengl2018RFsp">
-<p>Hengl, Tomislav, Madlene Nussbaum, Marvin N Wright, Gerard B.M. Heuvelink, and Benedikt Gräler. 2018. “Random Forest as a Generic Framework for Predictive Modeling of Spatial and Spatio-Temporal Variables.” <em>PeerJ</em> 6 (August):e5518. <a href="https://doi.org/10.7717/peerj.5518" class="uri">https://doi.org/10.7717/peerj.5518</a>.</p>
+<p>Hengl, T., M. Nussbaum, M.N. Wright, G.B.M. Heuvelink, and B. Gräler. 2018. “Random Forest as a Generic Framework for Predictive Modeling of Spatial and Spatio-Temporal Variables.” <em>PeerJ</em> 6 (August):e5518. <a href="https://doi.org/10.7717/peerj.5518" class="uri">https://doi.org/10.7717/peerj.5518</a>.</p>
 </div>
 <div id="ref-Burrough1971">
 <p>Burrough, P. A., P.H. T. Beckett, and M.G. Jarvis. 1971. “The Relation Between Cost and Utility in Soil Survey (I–Iii).” <em>Journal of Soil Science</em> 22 (3). Blackwell Publishing Ltd:359–94. <a href="https://doi.org/10.1111/j.1365-2389.1971.tb01624.x" class="uri">https://doi.org/10.1111/j.1365-2389.1971.tb01624.x</a>.</p>
@@ -3497,7 +3497,7 @@ alternatives.</p>
 <p>Pimentel, David. 2006. “Soil Erosion: A Food and Environmental Threat.” <em>Environment, Development and Sustainability</em> 8 (1). Kluwer Academic Publishers:119–37. <a href="https://doi.org/10.1007/s10668-005-1262-8" class="uri">https://doi.org/10.1007/s10668-005-1262-8</a>.</p>
 </div>
 <div id="ref-Hengl2014SoilGrids1km">
-<p>Hengl, Jorge AND MacMillan, Tomislav AND Mendes de Jesus. 2014. “SoilGrids1km — Global Soil Information Based on Automated Mapping.” <em>PLoS ONE</em> 9 (e105992). Public Library of Science. <a href="https://doi.org/10.1371/journal.pone.0105992" class="uri">https://doi.org/10.1371/journal.pone.0105992</a>.</p>
+<p>Hengl, Tomislav, Jorge Mendes de Jesus, Robert A. MacMillan, Niels H. Batjes, Gerard B.M. Heuvelink, Eloi Ribeiro, Alessandro Samuel-Rosa, et al. 2014. “SoilGrids1km — Global Soil Information Based on Automated Mapping.” <em>PLoS ONE</em> 9 (e105992). Public Library of Science. <a href="https://doi.org/10.1371/journal.pone.0105992" class="uri">https://doi.org/10.1371/journal.pone.0105992</a>.</p>
 </div>
 <div id="ref-heuvelink2010implications">
 <p>Heuvelink, GBM, DJ Brus, F De Vries, R Vašát, DJJ Walvoort, B Kempen, and M Knotters. 2010. “Implications of Digital Soil Mapping for Soil Information Systems.” In <em>4th Global Workshop on Digital Soil Mapping, Rome</em>, 24–26.</p>

@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl and Robert A. MacMillan">
 
 
-<meta name="date" content="2019-02-10">
+<meta name="date" content="2019-02-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -728,7 +728,7 @@ fm.BLD =<span class="st"> </span><span class="kw">as.formula</span>(
   <span class="kw">paste</span>(<span class="st">&quot;BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +&quot;</span>, 
         <span class="kw">paste</span>(<span class="kw">names</span>(ind.tax), <span class="dt">collapse=</span><span class="st">&quot;+&quot;</span>)))
 m.BLD_PTF &lt;-<span class="st"> </span><span class="kw">ranger</span>(fm.BLD, dfs_tbl, <span class="dt">num.trees =</span> <span class="dv">85</span>, <span class="dt">importance=</span><span class="st">&#39;impurity&#39;</span>)
-<span class="co">#&gt; Growing trees.. Progress: 89%. Estimated remaining time: 3 seconds.</span>
+<span class="co">#&gt; Growing trees.. Progress: 87%. Estimated remaining time: 4 seconds.</span>
 m.BLD_PTF
 <span class="co">#&gt; Ranger result</span>
 <span class="co">#&gt; </span>
@@ -872,7 +872,7 @@ Figure 7.8: Example of a data set with OCS samples (for 2D prediction). Case stu
 <span class="co">#&gt; [16] &quot;GlobalSurfaceWater_extent&quot;                </span>
 <span class="co">#&gt; [17] &quot;GlobalSurfaceWater_occurrence&quot;            </span>
 <span class="co">#&gt; [18] &quot;Landsat_bare2010&quot;</span></code></pre>
-<p>This contains a number of covariates from SRTM DEM derivatives, to Global Surface Water occurrence values and similar (see section <a href="soil-covs-chapter.html#soil-covs-30m">4.1.2</a> for more details). All these could potentially prove useful for mapping OCS. We can also derive buffer distances from observations points and use these (as measures of spatial context) to improve predictions <span class="citation">(T. Hengl, Nussbaum, et al. <a href="#ref-Hengl2018RFsp">2018</a>)</span>:</p>
+<p>This contains a number of covariates from SRTM DEM derivatives, to Global Surface Water occurrence values and similar (see section <a href="soil-covs-chapter.html#soil-covs-30m">4.1.2</a> for more details). All these could potentially prove useful for mapping OCS. We can also derive buffer distances from observations points and use these (as measures of spatial context) to improve predictions <span class="citation">(Hengl, Nussbaum, et al. <a href="#ref-Hengl2018RFsp">2018</a>)</span>:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">proj4string</span>(COSha30map) =<span class="st"> &quot;+proj=utm +zone=18 +ellps=WGS84 +datum=WGS84 +units=m +no_defs&quot;</span>
 <span class="kw">coordinates</span>(COSha30) =<span class="st"> </span><span class="er">~</span><span class="st"> </span>x<span class="op">+</span>y
 <span class="kw">proj4string</span>(COSha30) =<span class="st"> </span><span class="kw">proj4string</span>(COSha30map)
@@ -1357,7 +1357,7 @@ Figure 7.17: Predicted slope of change of soil organic carbon density for Texas 
 <p>Lobsey, CR, and RA Viscarra Rossel. 2016. “Sensing of Soil Bulk Density for More Accurate Carbon Accounting.” <em>European Journal of Soil Science</em> 67 (4). Wiley Online Library:504–13.</p>
 </div>
 <div id="ref-Hengl2018RFsp">
-<p>Hengl, Tomislav, Madlene Nussbaum, Marvin N Wright, Gerard B.M. Heuvelink, and Benedikt Gräler. 2018. “Random Forest as a Generic Framework for Predictive Modeling of Spatial and Spatio-Temporal Variables.” <em>PeerJ</em> 6 (August):e5518. <a href="https://doi.org/10.7717/peerj.5518" class="uri">https://doi.org/10.7717/peerj.5518</a>.</p>
+<p>Hengl, T., M. Nussbaum, M.N. Wright, G.B.M. Heuvelink, and B. Gräler. 2018. “Random Forest as a Generic Framework for Predictive Modeling of Spatial and Spatio-Temporal Variables.” <em>PeerJ</em> 6 (August):e5518. <a href="https://doi.org/10.7717/peerj.5518" class="uri">https://doi.org/10.7717/peerj.5518</a>.</p>
 </div>
 <div id="ref-wright2017ranger">
 <p>Wright, Marvin N, and Andreas Ziegler. 2017. “ranger: A Fast Implementation of Random Forests for High Dimensional Data in C++ and R.” <em>Journal of Statistical Software</em> 77 (1):1–17.</p>
