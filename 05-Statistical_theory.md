@@ -1350,7 +1350,7 @@ om.rk <- predict(omm, meuse.grid)
 #> Subsetting observations to fit the prediction domain in 2D...
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
-#>  22% done100% done
+#> 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
 om.rk
@@ -1422,7 +1422,7 @@ om.rk2 <- predict(omm2, meuse.grid)
 #> Subsetting observations to fit the prediction domain in 2D...
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
-#>   4% done100% done
+#> 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
 ```
@@ -1965,13 +1965,13 @@ library(intamap)
 demo(meuse, echo=FALSE)
 meuse$value = meuse$zinc
 output <- interpolate(meuse, meuse.grid, list(mean=TRUE, variance=TRUE))
-#> R 2019-02-12 09:42:34 interpolating 155 observations, 3103 prediction locations
+#> R 2019-02-14 22:02:25 interpolating 155 observations, 3103 prediction locations
 #> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : 
 #>  using standard model for estimating time. For better 
 #>  platform spesific predictions, please run 
 #>  timeModels <- generateTimeModels()
 #>   and save the workspace
-#> [1] "estimated time for  copula 162.125650302054"
+#> [1] "estimated time for  copula 154.260927034186"
 #> Checking object ... OK
 ```
 
@@ -1985,7 +1985,7 @@ str(output, max.level = 2)
 #> List of 16
 #>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
 #>  $ formulaString      :Class 'formula'  language value ~ 1
-#>   .. ..- attr(*, ".Environment")=<environment: 0x14177da8> 
+#>   .. ..- attr(*, ".Environment")=<environment: 0x1399ff60> 
 #>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
 #>  $ params             :List of 18
 #>   ..$ doAnisotropy     : logi TRUE
@@ -2674,7 +2674,7 @@ om.rk <- predict(omm, meuse.grid)
 #> Subsetting observations to fit the prediction domain in 2D...
 #> Generating predictions using the trend model (RK method)...
 #> [using ordinary kriging]
-#>  82% done100% done
+#> 100% done
 #> Running 5-fold cross validation using 'krige.cv'...
 #> Creating an object of class "SpatialPredictions"
 ```
