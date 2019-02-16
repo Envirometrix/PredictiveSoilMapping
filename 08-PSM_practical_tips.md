@@ -148,7 +148,7 @@ spatio-temporal reference, which typically includes:
 
 -   Support size or referent soil volume (or voxel) i.e. the horizontal
     sampling area multiplied by the thickness of the sampling
-    block e.g. 30 ✕ 30 ✕ 0.3 m.
+    block e.g. 30 $\times$ 30 $\times$ 0.3 m.
 
 -   Temporal reference i.e. a begin and an end date/time of the period
     of measurements/estimations. Specifying exact spatial and temporal
