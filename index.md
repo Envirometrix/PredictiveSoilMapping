@@ -2,7 +2,7 @@
 ---
 title: "Predictive Soil Mapping with R"
 author: ["Tomislav Hengl and Robert A. MacMillan"]
-date: "2019-02-16"
+date: "2019-02-19"
 knit: bookdown::render_book
 site: bookdown::bookdown_site
 documentclass: svmono
@@ -221,9 +221,9 @@ which was funded by the Bill and Melinda Gates Foundation (BMGF) and the
 Alliance for a Green Revolution in Africa (AGRA). Many soil data processing 
 examples in the book are based on R code developed by Dylan Beuadette, Pierre 
 Roudier, Alessandro Samuel Rosa, Marcos E. Angelini, Guillermo Federico Olmedo, 
-Julian Moeys, Brandon Malone, and many other developers. The authors are also 
+Julian Moeys, Brendan Malone, and many other developers. The authors are also 
 grateful to comments and suggestions for improvements to the methods presented 
-in the book by Travis Nauman, Amanda Ramcharan, David G. Rossiter and [Julian Moeys](http://julienmoeys.info). 
+in the book by Travis Nauman, Amanda Ramcharan, David G. Rossiter and [Julian Moeys](http://julienmoeys.info).
 
 LandGIS and SoilGrids are based on using numerous soil profile data sets 
 kindly made available by various national and international agencies: the
