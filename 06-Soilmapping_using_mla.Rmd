@@ -4,11 +4,25 @@
 
 ## Spatial prediction of soil properties and classes using MLA's
 
-This chapter reviews some common Machine learning algorithms (MLA's) that have demonstrated potential for soil mapping projects i.e. for generating spatial predictions [@brungard2015machine; @heung2016overview; @behrens2018multi]. In this tutorial we especially focus on using tree-based algorithms such as [random forest](https://en.wikipedia.org/wiki/Random_forest), [gradient boosting](https://en.wikipedia.org/wiki/Gradient_boosting) and [Cubist](https://cran.r-project.org/package=Cubist). For a more in-depth overview of machine learning algorithms used in statistics refer to the CRAN Task View on [Machine Learning & Statistical Learning](https://cran.r-project.org/web/views/MachineLearning.html). Some other examples of how MLA's can be used to fit Pedo-Transfer-Functions can be found in section \@ref(mla-ptfs).
+This chapter reviews some common Machine learning algorithms (MLA's) that have 
+demonstrated potential for soil mapping projects i.e. for generating spatial 
+predictions [@brungard2015machine; @heung2016overview; @behrens2018multi]. 
+In this tutorial we especially focus on using tree-based algorithms such as [random forest](https://en.wikipedia.org/wiki/Random_forest), [gradient boosting](https://en.wikipedia.org/wiki/Gradient_boosting) and [Cubist](https://cran.r-project.org/package=Cubist). 
+For a more in-depth overview of machine learning algorithms used in statistics 
+refer to the CRAN Task View on [Machine Learning & Statistical Learning](https://cran.r-project.org/web/views/MachineLearning.html). 
+As a gentle introduction to Machine and Statistical Learning we recommend:
+
+* Irizarry, R.A., (2018) [**Introduction to Data Science: Data Analysis and Prediction Algorithms with R**](https://rafalab.github.io/dsbook/). HarvardX Data Science Series.
+
+* Kuhn, M., Johnson, K. (2013) [**Applied Predictive Modeling**](http://appliedpredictivemodeling.com). Springer Science, ISBN: 9781461468493, 600 pages.
+
+* Molnar, C. (2019) [**Interpretable Machine Learning: A Guide for Making Black Box Models Explainable**](https://christophm.github.io/interpretable-ml-book/), Leanpub, 251 pages.
+
+Some other examples of how MLA's can be used to fit Pedo-Transfer-Functions can be found in section \@ref(mla-ptfs).
 
 ### Loading the packages and data
 
-We start by loading all required packages:
+We use the following packages:
 
 ```{r}
 library(plotKML)

@@ -388,7 +388,7 @@ both more affordable and more effective.
 
     -   Model based sampling schemes:
 
-        -   Conditioned Latin Hypercube (cLHC) sampling,
+        -   Conditioned Latin Hypercube (cLHC) sampling [@Malone2019PeerJ],
 
         -   Multi-stage sampling at locations of maximum uncertainty,
 
@@ -455,7 +455,8 @@ of distribution of properties or classes of interest. Conditioned Latin
 Hypercube (cLHC) sampling is based on first identifying all significant
 combinations of environmental conditions that occur in an area based on
 overlay and intersection of grid maps that depict the spatial
-distribution of environmental covariates [@stumpf2016incorporating]. Potential point sample
+distribution of environmental covariates 
+[@stumpf2016incorporating; @Malone2019PeerJ]. Potential point sample
 locations are then identified and selected in such a way that they
 represent all significant combinations of environmental conditions in an
 area. Point samples are typically selected so that the numbers of

@@ -260,7 +260,7 @@ general observations on how to maximize efficiency of O&M:
     and reproducible.
 
 -   They should be collected using some kind of unbiased sampling design
-    that supports reproducibility and return sampling.
+    that supports reproducibility and return sampling [@BRUS2019464; @Malone2019PeerJ].
 
 -   They should be located as accurately as possible in both
     space (geolocation) and time (temporal location).
