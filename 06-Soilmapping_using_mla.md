@@ -5,11 +5,25 @@
 
 ## Spatial prediction of soil properties and classes using MLA's
 
-This chapter reviews some common Machine learning algorithms (MLA's) that have demonstrated potential for soil mapping projects i.e. for generating spatial predictions [@brungard2015machine; @heung2016overview; @behrens2018multi]. In this tutorial we especially focus on using tree-based algorithms such as [random forest](https://en.wikipedia.org/wiki/Random_forest), [gradient boosting](https://en.wikipedia.org/wiki/Gradient_boosting) and [Cubist](https://cran.r-project.org/package=Cubist). For a more in-depth overview of machine learning algorithms used in statistics refer to the CRAN Task View on [Machine Learning & Statistical Learning](https://cran.r-project.org/web/views/MachineLearning.html). Some other examples of how MLA's can be used to fit Pedo-Transfer-Functions can be found in section \@ref(mla-ptfs).
+This chapter reviews some common Machine learning algorithms (MLA's) that have 
+demonstrated potential for soil mapping projects i.e. for generating spatial 
+predictions [@brungard2015machine; @heung2016overview; @behrens2018multi]. 
+In this tutorial we especially focus on using tree-based algorithms such as [random forest](https://en.wikipedia.org/wiki/Random_forest), [gradient boosting](https://en.wikipedia.org/wiki/Gradient_boosting) and [Cubist](https://cran.r-project.org/package=Cubist). 
+For a more in-depth overview of machine learning algorithms used in statistics 
+refer to the CRAN Task View on [Machine Learning & Statistical Learning](https://cran.r-project.org/web/views/MachineLearning.html). 
+As a gentle introduction to Machine and Statistical Learning we recommend:
+
+* Irizarry, R.A., (2018) [**Introduction to Data Science: Data Analysis and Prediction Algorithms with R**](https://rafalab.github.io/dsbook/). HarvardX Data Science Series.
+
+* Kuhn, M., Johnson, K. (2013) [**Applied Predictive Modeling**](http://appliedpredictivemodeling.com). Springer Science, ISBN: 9781461468493, 600 pages.
+
+* Molnar, C. (2019) [**Interpretable Machine Learning: A Guide for Making Black Box Models Explainable**](https://christophm.github.io/interpretable-ml-book/), Leanpub, 251 pages.
+
+Some other examples of how MLA's can be used to fit Pedo-Transfer-Functions can be found in section \@ref(mla-ptfs).
 
 ### Loading the packages and data
 
-We start by loading all required packages:
+We use the following packages:
 
 
 ```r
@@ -237,14 +251,14 @@ localH2O = h2o.init(startH2O=TRUE)
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         23 minutes 23 seconds 
+#>     H2O cluster uptime:         24 minutes 6 seconds 
 #>     H2O cluster timezone:       UTC 
 #>     H2O data parsing timezone:  UTC 
 #>     H2O cluster version:        3.22.1.1 
-#>     H2O cluster version age:    1 month and 21 days  
+#>     H2O cluster version age:    1 month and 28 days  
 #>     H2O cluster name:           H2O_started_from_R_travis_lqb476 
 #>     H2O cluster total nodes:    1 
-#>     H2O cluster total memory:   1.47 GB 
+#>     H2O cluster total memory:   1.44 GB 
 #>     H2O cluster total cores:    2 
 #>     H2O cluster allowed cores:  2 
 #>     H2O cluster healthy:        TRUE 
@@ -276,12 +290,12 @@ RF.m
 #> ==============
 #> 
 #> H2ORegressionModel: drf
-#> Model ID:  DRF_model_R_1550573092458_21 
+#> Model ID:  DRF_model_R_1551187385825_21 
 #> Model Summary: 
 #>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#> 1              50                       50              644393        20
+#> 1              50                       50              643195        20
 #>   max_depth mean_depth min_leaves max_leaves mean_leaves
-#> 1        20   20.00000        941       1088  1022.58000
+#> 1        20   20.00000        955       1074  1020.48000
 #> 
 #> 
 #> H2ORegressionMetrics: drf
@@ -343,29 +357,29 @@ DL.m
 #> ==============
 #> 
 #> H2ORegressionModel: deeplearning
-#> Model ID:  DeepLearning_model_R_1550573092458_22 
+#> Model ID:  DeepLearning_model_R_1551187385825_22 
 #> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1
 #>   layer units      type dropout       l1       l2 mean_rate rate_rms
 #> 1     1    10     Input  0.00 %       NA       NA        NA       NA
-#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.014108 0.008450
-#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.154577 0.199673
-#> 4     4     1    Linear      NA 0.000000 0.000000  0.001439 0.001135
+#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.014099 0.008682
+#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.148238 0.203063
+#> 4     4     1    Linear      NA 0.000000 0.000000  0.001430 0.000973
 #>   momentum mean_weight weight_rms mean_bias bias_rms
 #> 1       NA          NA         NA        NA       NA
-#> 2 0.000000    0.002290   0.103551  0.352646 0.061856
-#> 3 0.000000   -0.018518   0.071183  0.949381 0.022835
-#> 4 0.000000    0.001095   0.047442  0.111806 0.000000
+#> 2 0.000000    0.003560   0.101666  0.355258 0.070047
+#> 3 0.000000   -0.018743   0.072104  0.955166 0.021772
+#> 4 0.000000    0.004558   0.048899  0.105727 0.000000
 #> 
 #> 
 #> H2ORegressionMetrics: deeplearning
 #> ** Reported on training data. **
 #> ** Metrics reported on full training frame **
 #> 
-#> MSE:  284
-#> RMSE:  16.9
-#> MAE:  12.8
-#> RMSLE:  0.52
-#> Mean Residual Deviance :  284
+#> MSE:  302
+#> RMSE:  17.4
+#> MAE:  13.3
+#> RMSLE:  0.535
+#> Mean Residual Deviance :  302
 ```
 
 Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. \@ref(fig:map-snd) and Fig. \@ref(fig:map-snd-dl)).
@@ -602,16 +616,16 @@ str(test.ORC)
 #> List of 2
 #>  $ CV_residuals:'data.frame':	4972 obs. of  4 variables:
 #>   ..$ Observed : num [1:4972] 6.5 5.1 4.9 3.3 2.2 ...
-#>   ..$ Predicted: num [1:4972] 12.26 7.4 6.7 5.3 2.86 ...
+#>   ..$ Predicted: num [1:4972] 12.2 7.23 6.95 4.89 2.92 ...
 #>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" ...
 #>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ Summary     :'data.frame':	1 obs. of  6 variables:
-#>   ..$ ME          : num -0.133
-#>   ..$ MAE         : num 2.18
-#>   ..$ RMSE        : num 3.67
-#>   ..$ R.squared   : num 0.559
-#>   ..$ logRMSE     : num 0.496
-#>   ..$ logR.squared: num 0.634
+#>   ..$ ME          : num -0.124
+#>   ..$ MAE         : num 2.19
+#>   ..$ RMSE        : num 3.68
+#>   ..$ R.squared   : num 0.557
+#>   ..$ logRMSE     : num 0.495
+#>   ..$ logR.squared: num 0.632
 ```
 
 Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about $\pm 4$ g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:
@@ -673,15 +687,15 @@ perf
 #> 
 #> Base learner performance, sorted by specified metric:
 #>                    learner  MSE
+#> 1 h2o.randomForest.wrapper 12.9
 #> 2          h2o.gbm.wrapper 12.8
-#> 1 h2o.randomForest.wrapper 12.8
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 12.2824079281012
+#> Ensemble performance (MSE): 12.2534777079711
 ```
 
 which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.
@@ -781,16 +795,16 @@ perf3
 #> Base learner performance, sorted by specified metric:
 #>                    learner    MSE
 #> 1          h2o.glm.wrapper 0.2827
-#> 4 h2o.deeplearning.wrapper 0.1733
+#> 4 h2o.deeplearning.wrapper 0.1372
 #> 3          h2o.gbm.wrapper 0.0971
-#> 2 h2o.randomForest.wrapper 0.0789
+#> 2 h2o.randomForest.wrapper 0.0861
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 0.0775655557791507
+#> Ensemble performance (MSE): 0.0816346848766531
 ```
 
 In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.
@@ -872,12 +886,12 @@ sl
 #>     SL.library = sl.l) 
 #> 
 #> 
-#>                  Risk   Coef
-#> SL.mean_All    0.7540 0.0000
-#> SL.xgboost_All 0.0598 0.8199
-#> SL.ksvm_All    0.1286 0.0168
-#> SL.glmnet_All  0.3076 0.0000
-#> SL.ranger_All  0.0854 0.1634
+#>                  Risk    Coef
+#> SL.mean_All    0.7540 0.00000
+#> SL.xgboost_All 0.0598 0.80825
+#> SL.ksvm_All    0.1291 0.00585
+#> SL.glmnet_All  0.3076 0.00000
+#> SL.ranger_All  0.0843 0.18590
 ```
 
 This shows that `SL.xgboost_All` outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by `SL.xgboost_All` is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:
@@ -897,9 +911,9 @@ sl2
 #> 
 #> 
 #>                  Risk  Coef
-#> SL.xgboost_All 0.0603 0.814
-#> SL.ranger_All  0.0833 0.186
-#> SL.ksvm_All    0.1304 0.000
+#> SL.xgboost_All 0.0603 0.799
+#> SL.ranger_All  0.0818 0.201
+#> SL.ksvm_All    0.1301 0.000
 ```
 
 again `SL.xgboost` dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where entire profiles are taken out of the training dataset:
@@ -927,9 +941,9 @@ summary(cv_sl)
 #> 
 #>       Algorithm  Ave    se   Min  Max
 #>   Super Learner 0.16 0.014 0.094 0.26
-#>     Discrete SL 0.17 0.014 0.116 0.25
+#>     Discrete SL 0.17 0.014 0.112 0.25
 #>  SL.xgboost_All 0.19 0.016 0.135 0.27
-#>   SL.ranger_All 0.16 0.014 0.103 0.25
+#>   SL.ranger_All 0.16 0.014 0.105 0.25
 #>     SL.ksvm_All 0.18 0.014 0.109 0.30
 ```
 
@@ -955,8 +969,8 @@ sl2
 #> 
 #>                 Risk  Coef
 #> SL.xgboost_All 0.215 0.000
-#> SL.ranger_All  0.165 0.469
-#> SL.ksvm_All    0.163 0.531
+#> SL.ranger_All  0.165 0.477
+#> SL.ksvm_All    0.163 0.523
 new.data <- grid10m@data
 pred.PHI <- list(NULL)
 depths = c(10,30,50,70,90)
@@ -978,7 +992,7 @@ for(j in 1:length(depths)){
 #>     buffer, rotated
 str(pred.PHI[[1]])
 #> List of 2
-#>  $ pred           : num [1:3865, 1] 4.64 4.71 4.84 4.81 4.75 ...
+#>  $ pred           : num [1:3865, 1] 4.66 4.74 4.85 4.82 4.75 ...
 #>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...
 #>   ..- attr(*, "dimnames")=List of 2
 #>   .. ..$ : NULL

@@ -2,7 +2,7 @@
 ---
 title: "Predictive Soil Mapping with R"
 author: ["Tomislav Hengl and Robert A. MacMillan"]
-date: "2019-02-19"
+date: "2019-02-26"
 knit: bookdown::render_book
 site: bookdown::bookdown_site
 documentclass: svmono
@@ -161,6 +161,8 @@ Readers are also encouraged to obtain and study the following R books before fol
 * Kabacoff, R.I., (2011) [**R in Action: Data Analysis and Graphics with R**](http://www.manning.com/kabacoff/). Manning publications, ISBN: 9781935182399, 472 pages.
 
 * Kuhn, M., Johnson, K. (2013) [**Applied Predictive Modeling**](http://appliedpredictivemodeling.com). Springer Science, ISBN: 9781461468493, 600 pages.
+
+* Molnar, C. (2019) [**Interpretable Machine Learning: A Guide for Making Black Box Models Explainable**](https://christophm.github.io/interpretable-ml-book/), Leanpub, 251 pages.
 
 * Lovelace, R., Nowosad, J., Muenchow, J., (2018) [**Geocomputation with R**](https://geocompr.robinlovelace.net). R Series, CRC Press, ISBN: 9781138304512, 338 pages.
 
