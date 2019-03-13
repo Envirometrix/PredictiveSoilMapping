@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl and Robert A. MacMillan">
 
 
-<meta name="date" content="2019-02-26">
+<meta name="date" content="2019-03-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -720,7 +720,7 @@ Figure 7.4: Estimation of OCS values 0–30 cm using some typical soil profile d
 </div>
 <div id="estimation-of-bulk-density-using-a-globally-calibrated-ptf" class="section level2">
 <h2><span class="header-section-number">7.4</span> Estimation of Bulk Density using a globally-calibrated PTF</h2>
-<p>Where values for bulk density are missing, and no local PTF exists, WoSIS points (global compilation of soil profiles) can be used to fit a PTF that can fill-in gaps in bulk density measurements globally. A regression matrix extracted on 15th of May 2017 (and which contains harmonized values for BD, organic carbon content, pH, sand and clay content, depth of horizon and USDA soil type at some 20,000 soil profiles world-wide), can be fitted using a random forest model (see also <span class="citation">Ramcharan et al. (<a href="#ref-ramcharan2017soil">2018</a><a href="#ref-ramcharan2017soil">b</a>)</span>):</p>
+<p>Where values for bulk density are missing, and no local PTF exists, WoSIS points (global compilation of soil profiles) can be used to fit a PTF that can fill-in gaps in bulk density measurements globally. A regression matrix extracted on 15th of May 2017 (and which contains harmonized values for BD, organic carbon content, pH, sand and clay content, depth of horizon and USDA soil type at some 20,000 soil profiles world-wide), can be fitted using a random forest model (see also <span class="citation">Ramcharan et al. (<a href="#ref-Ramcharan2017">2017</a>)</span>):</p>
 <pre class="sourceCode r"><code class="sourceCode r">dfs_tbl =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;extdata/wosis_tbl.rds&quot;</span>)
 ind.tax =<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;extdata/ov_taxousda.rds&quot;</span>)
 <span class="kw">library</span>(ranger)
@@ -728,7 +728,7 @@ fm.BLD =<span class="st"> </span><span class="kw">as.formula</span>(
   <span class="kw">paste</span>(<span class="st">&quot;BLD ~ ORCDRC + CLYPPT + SNDPPT + PHIHOX + DEPTH.f +&quot;</span>, 
         <span class="kw">paste</span>(<span class="kw">names</span>(ind.tax), <span class="dt">collapse=</span><span class="st">&quot;+&quot;</span>)))
 m.BLD_PTF &lt;-<span class="st"> </span><span class="kw">ranger</span>(fm.BLD, dfs_tbl, <span class="dt">num.trees =</span> <span class="dv">85</span>, <span class="dt">importance=</span><span class="st">&#39;impurity&#39;</span>)
-<span class="co">#&gt; Growing trees.. Progress: 84%. Estimated remaining time: 6 seconds.</span>
+<span class="co">#&gt; Growing trees.. Progress: 86%. Estimated remaining time: 5 seconds.</span>
 m.BLD_PTF
 <span class="co">#&gt; Ranger result</span>
 <span class="co">#&gt; </span>
@@ -1301,7 +1301,7 @@ Figure 7.17: Predicted slope of change of soil organic carbon density for Texas 
 <li>Publicly available RS-based covariates (SRTM / ALOS DEM, Landsat, Sentinel satellites) are available for improving the mapping accuracy of OCS. Improving the accuracy of OCS maps is becoming less expensive, given the increasing availability of RS data.</li>
 <li>PT (Pedo-Transfer) rules can be used to fill in (estimate) missing BLD values and to estimate ORC for deeper soil depths. Also global maps with predictions of BLD and CRF can be used to supply missing values, if there are no other alternatives.</li>
 <li>Machine learning techniques such as Random Forest, neural nets, gradient boosting and similar, can be used to predict soil organic carbon in 2D, 3D and in spatiotemporal modeling frameworks. The accuracy of these predictions is improved relative to linear statistical models, especially where the relationship between soil organic carbon distribution and climatic, land cover, hydrological, relief and similar covariates is complex (i.e. non-linear).</li>
-<li>Global estimates of ORC, BLD and CRF can be used as covariates so that consistent predictions can be produced (as explained in <span class="citation">Ramcharan et al. (<a href="#ref-ramcharan2018soil">2018</a><a href="#ref-ramcharan2018soil">a</a>)</span>).</li>
+<li>Global estimates of ORC, BLD and CRF can be used as covariates so that consistent predictions can be produced (as explained in <span class="citation">Ramcharan et al. (<a href="#ref-ramcharan2018soil">2018</a>)</span>).</li>
 <li>By producing spatial predictions of OCS for specific time periods, one can derive estimates of OCS change (loss or gain).</li>
 <li>Most of the statistical / analytical tools required for running spatial analysis, time series analysis, export and visualization of soil carbon data are available in R, especially thanks to the contributed packages: aqp, caret, ranger, xgboost, GSIF, greenbrown and similar.</li>
 <li>Accurate measurements of bulk density (BLD) by horizon or depth interval for described soil profiles are critical for producing accurate calculations of soil carbon stock. Unfortunately, BLD data are often missing or not reported for many legacy soil profile descriptions and are frequently unreliable even when reported. Future efforts to sample and describe soil profiles should emphasise the collection and publication of accurate measurements of BLD by horizon or depth interval for all described soil profiles.</li>
@@ -1350,8 +1350,8 @@ Figure 7.17: Predicted slope of change of soil organic carbon density for Texas 
 <div id="ref-hossain2015bulk">
 <p>Hossain, MF, W Chen, and Yu Zhang. 2015. “Bulk Density of Mineral and Organic Soils in the Canada’s Arctic and Sub-Arctic.” <em>Information Processing in Agriculture</em> 2 (3-4). Elsevier:183–90.</p>
 </div>
-<div id="ref-ramcharan2017soil">
-<p>Ramcharan, Amanda, Tomislav Hengl, Travis Nauman, Colby Brungard, Sharon Waltman, Skye Wills, and James Thompson. 2018b. “Soil Property and Class Maps of the Conterminous Us at 100 Meter Spatial Resolution Based on a Compilation of National Soil Point Observations and Machine Learning.” <em>Soil Science Society of America Journal</em> 82:186–201. <a href="https://doi.org/10.2136/sssaj2017.04.0122" class="uri">https://doi.org/10.2136/sssaj2017.04.0122</a>.</p>
+<div id="ref-Ramcharan2017">
+<p>Ramcharan, Amanda, Tomislav Hengl, Dylan Beaudette, and Skye Wills. 2017. “A Soil Bulk Density Pedotransfer Function Based on Machine Learning: A Case Study with the NCSS Soil Characterization Database.” <em>Soil Science Society of America Journal</em> 81 (6):1279–87.</p>
 </div>
 <div id="ref-lobsey2016sensing">
 <p>Lobsey, CR, and RA Viscarra Rossel. 2016. “Sensing of Soil Bulk Density for More Accurate Carbon Accounting.” <em>European Journal of Soil Science</em> 67 (4). Wiley Online Library:504–13.</p>
@@ -1378,7 +1378,7 @@ Figure 7.17: Predicted slope of change of soil organic carbon density for Texas 
 <p>Forkel, Matthias, Mirco Migliavacca, Kirsten Thonicke, Markus Reichstein, Sibyll Schaphoff, Ulrich Weber, and Nuno Carvalhais. 2015. “Codominant Water Control on Global Interannual Variability and Trends in Land Surface Phenology and Greenness.” <em>Global Change Biology</em> 21 (9). Wiley Online Library:3414–35.</p>
 </div>
 <div id="ref-ramcharan2018soil">
-<p>Ramcharan, Amanda, Tomislav Hengl, Travis Nauman, Colby Brungard, Sharon Waltman, Skye Wills, and James Thompson. 2018a. “Soil Property and Class Maps of the Conterminous United States at 100-Meter Spatial Resolution.” <em>Soil Science Society of America Journal</em> 82. The Soil Science Society of America, Inc.:186–201.</p>
+<p>Ramcharan, Amanda, Tomislav Hengl, Travis Nauman, Colby Brungard, Sharon Waltman, Skye Wills, and James Thompson. 2018. “Soil Property and Class Maps of the Conterminous United States at 100-Meter Spatial Resolution.” <em>Soil Science Society of America Journal</em> 82. The Soil Science Society of America, Inc.:186–201. <a href="https://doi.org/10.2136/sssaj2017.04.0122" class="uri">https://doi.org/10.2136/sssaj2017.04.0122</a>.</p>
 </div>
 </div>
 <div id="disqus_thread"></div>

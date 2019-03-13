@@ -87,7 +87,7 @@ sessionInfo()
 #>  [1] compiler_3.5.2   magrittr_1.5     bookdown_0.9     tools_3.5.2     
 #>  [5] htmltools_0.3.6  yaml_2.2.0       Rcpp_1.0.0       codetools_0.2-15
 #>  [9] stringi_1.2.4    rmarkdown_1.11   highr_0.7        stringr_1.3.1   
-#> [13] xfun_0.4         digest_0.6.18    evaluate_0.12
+#> [13] xfun_0.5         digest_0.6.18    evaluate_0.12
 ```
 
 
