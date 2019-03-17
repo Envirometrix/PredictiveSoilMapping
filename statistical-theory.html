@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl and Robert A. MacMillan">
 
 
-<meta name="date" content="2019-03-13">
+<meta name="date" content="2019-03-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -240,13 +240,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.7" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#variables-importing"><i class="fa fa-check"></i><b>3.7</b> Importing and formatting soil data in R</a><ul>
 <li class="chapter" data-level="3.7.1" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#converting-texture-by-hand-classes-to-fractions"><i class="fa fa-check"></i><b>3.7.1</b> Converting texture-by-hand classes to fractions</a></li>
+<li class="chapter" data-level="3.7.2" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#converting-munsell-color-codes-to-other-color-systems"><i class="fa fa-check"></i><b>3.7.2</b> Converting Munsell color codes to other color systems</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#converting-munsell-color-codes-to-other-color-systems"><i class="fa fa-check"></i><b>3.8</b> Converting Munsell color codes to other color systems</a></li>
-<li class="chapter" data-level="3.9" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#mla-ptfs"><i class="fa fa-check"></i><b>3.9</b> Using Machine Learning to build Pedo-Transfer-Functions</a><ul>
-<li class="chapter" data-level="3.9.1" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#ptf-for-bulk-density"><i class="fa fa-check"></i><b>3.9.1</b> PTF for Bulk Density</a></li>
-<li class="chapter" data-level="3.9.2" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#ptf-for-correlating-classification-systems"><i class="fa fa-check"></i><b>3.9.2</b> PTF for correlating classification systems</a></li>
+<li class="chapter" data-level="3.8" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#mla-ptfs"><i class="fa fa-check"></i><b>3.8</b> Using Machine Learning to build Pedo-Transfer-Functions</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#ptf-for-bulk-density"><i class="fa fa-check"></i><b>3.8.1</b> PTF for Bulk Density</a></li>
+<li class="chapter" data-level="3.8.2" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#ptf-for-correlating-classification-systems"><i class="fa fa-check"></i><b>3.8.2</b> PTF for correlating classification systems</a></li>
 </ul></li>
-<li class="chapter" data-level="3.10" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#summary-points"><i class="fa fa-check"></i><b>3.10</b> Summary points</a></li>
+<li class="chapter" data-level="3.9" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#summary-points"><i class="fa fa-check"></i><b>3.9</b> Summary points</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html"><i class="fa fa-check"></i><b>4</b> Preparation of soil covariates for soil mapping</a><ul>
 <li class="chapter" data-level="4.1" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#soil-covariate-data-sources"><i class="fa fa-check"></i><b>4.1</b> Soil covariate data sources</a><ul>
@@ -849,7 +849,7 @@ the underlying statistical model of spatial variation, although this
 model is not always made explicit and different methods may use the same
 statistical model. A review of currently used digital soil mapping
 methods is given, for example, in <span class="citation">McBratney et al. (<a href="#ref-McBratney2011HSS">2011</a>)</span>, while the most
-extensive review can be found in <span class="citation">A. B. McBratney, Mendoça Santos, and Minasny (<a href="#ref-McBratney2003Geoderma">2003</a>)</span> and <span class="citation">McBratney, Minasny, and Stockmann (<a href="#ref-mcbratney2018pedometrics">2018</a>)</span>. <span class="citation">Li and Heap (<a href="#ref-LiHeap2010EI">2010</a>)</span> list 40+ spatial prediction / spatial interpolation
+extensive review can be found in <span class="citation">McBratney, Mendonça Santos, and Minasny (<a href="#ref-McBratney2003Geoderma">2003</a>)</span> and <span class="citation">McBratney, Minasny, and Stockmann (<a href="#ref-mcbratney2018pedometrics">2018</a>)</span>. <span class="citation">Li and Heap (<a href="#ref-LiHeap2010EI">2010</a>)</span> list 40+ spatial prediction / spatial interpolation
 techniques. Many spatial prediction methods are often
 just different names for essentially the same thing.<br />
 What is often known under a single name, in the statistical,
@@ -1200,7 +1200,7 @@ variable from the covariates <span class="citation">(Statnikov, Wang, and Alifer
 <p>The trend (<span class="math inline">\(m\)</span>) relates covariates to soil properties and for this it
 uses a soil-environment correlation model — the so-called <em>CLORPT
 model</em>, which was formulated by Jenny in 1941 (a <span class="citation">(<a href="#ref-jenny1994factors">1994</a>)</span>
-reprint from that book is also available). <span class="citation">A. B. McBratney, Mendoça Santos, and Minasny (<a href="#ref-McBratney2003Geoderma">2003</a>)</span>
+reprint from that book is also available). <span class="citation">McBratney, Mendonça Santos, and Minasny (<a href="#ref-McBratney2003Geoderma">2003</a>)</span>
 further formulated an extension of the CLORPT model
 known as the <em>“SCORPAN”</em> model.</p>
 <p>The CLORPT model may be written as <span class="citation">(Jenny <a href="#ref-jenny1994factors">1994</a>; Florinsky <a href="#ref-Florinsky2012Dokuchaev">2012</a>)</span>:</p>
@@ -2137,13 +2137,13 @@ organic matter content using the Meuse case study:</p>
 <span class="kw">demo</span>(meuse, <span class="dt">echo=</span><span class="ot">FALSE</span>)
 meuse<span class="op">$</span>value =<span class="st"> </span>meuse<span class="op">$</span>zinc
 output &lt;-<span class="st"> </span><span class="kw">interpolate</span>(meuse, meuse.grid, <span class="kw">list</span>(<span class="dt">mean=</span><span class="ot">TRUE</span>, <span class="dt">variance=</span><span class="ot">TRUE</span>))
-<span class="co">#&gt; R 2019-03-13 16:20:41 interpolating 155 observations, 3103 prediction locations</span>
+<span class="co">#&gt; R 2019-03-17 17:05:16 interpolating 155 observations, 3103 prediction locations</span>
 <span class="co">#&gt; Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : </span>
 <span class="co">#&gt;  using standard model for estimating time. For better </span>
 <span class="co">#&gt;  platform spesific predictions, please run </span>
 <span class="co">#&gt;  timeModels &lt;- generateTimeModels()</span>
 <span class="co">#&gt;   and save the workspace</span>
-<span class="co">#&gt; [1] &quot;estimated time for  copula 154.505736191836&quot;</span>
+<span class="co">#&gt; [1] &quot;estimated time for  copula 155.265554328003&quot;</span>
 <span class="co">#&gt; Checking object ... OK</span></code></pre>
 <p>which gives the (presumably) best interpolation method for the problem
 at hand (<code>value</code> column), given the time available set with
@@ -2152,7 +2152,7 @@ at hand (<code>value</code> column), given the time available set with
 <span class="co">#&gt; List of 16</span>
 <span class="co">#&gt;  $ observations       :Formal class &#39;SpatialPointsDataFrame&#39; [package &quot;sp&quot;] with 5 slots</span>
 <span class="co">#&gt;  $ formulaString      :Class &#39;formula&#39;  language value ~ 1</span>
-<span class="co">#&gt;   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x155952b8&gt; </span>
+<span class="co">#&gt;   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x14e195e8&gt; </span>
 <span class="co">#&gt;  $ predictionLocations:Formal class &#39;SpatialPixelsDataFrame&#39; [package &quot;sp&quot;] with 7 slots</span>
 <span class="co">#&gt;  $ params             :List of 18</span>
 <span class="co">#&gt;   ..$ doAnisotropy     : logi TRUE</span>
@@ -3263,7 +3263,7 @@ alternatives.</p>
 <p>McBratney, A. B., B. Minasny, R. A. MacMillan, and F. Carré. 2011. “Digital Soil Mapping.” In <em>Handbook of Soil Science</em>, edited by H. Li and M.E. Sumner, 37:1–45. CRC Press.</p>
 </div>
 <div id="ref-McBratney2003Geoderma">
-<p>McBratney, A. B., M. L. Mendoça Santos, and B. Minasny. 2003. “On digital soil mapping.” <em>Geoderma</em> 117 (1-2):3–52.</p>
+<p>McBratney, A.B, M.L Mendonça Santos, and B Minasny. 2003. “On Digital Soil Mapping.” <em>Geoderma</em> 117 (1):3–52. <a href="https://doi.org/10.1016/S0016-7061(03)00223-4" class="uri">https://doi.org/10.1016/S0016-7061(03)00223-4</a>.</p>
 </div>
 <div id="ref-mcbratney2018pedometrics">
 <p>McBratney, A.B., B. Minasny, and U. Stockmann. 2018. <em>Pedometrics</em>. Progress in Soil Science. Springer International Publishing.</p>

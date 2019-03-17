@@ -2005,7 +2005,7 @@ TT.plot(class.sys = "USDA.TT", tri.data = tdf,
 
 This shows that not all positions in the triangle have the same prior probability. So probably a more sensitive way to estimate uncertainty of converting soil texture classes to fractions would be to run simulations using a density image showing the actual distribution of classes and then, by using the `rpoint` function in the [spatstat package](http://spatstat.org), we could also derive even more realistic conversions from texture-by-hand classes to texture fractions.
 
-## Converting Munsell color codes to other color systems
+### Converting Munsell color codes to other color systems
 
 In the next example we look at the Munsell color codes and conversion algorithms from a code to RGB and other color spaces. Munsell color codes can be matched with RGB values via the [Munsell color codes conversion table](http://www.cis.rit.edu/mcsl/online/munsell.php). You can load a table with 2350 entries from the book repository:
 

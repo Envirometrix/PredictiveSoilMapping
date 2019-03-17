@@ -2,7 +2,7 @@
 ---
 title: "Predictive Soil Mapping with R"
 author: ["Tomislav Hengl and Robert A. MacMillan"]
-date: "2019-03-13"
+date: "2019-03-17"
 knit: bookdown::render_book
 site: bookdown::bookdown_site
 documentclass: svmono
@@ -89,7 +89,7 @@ learning techniques to fit models for the purpose of producing spatial and/or
 spatiotemporal predictions of soil variables, i.e. maps of soil properties and 
 classes at different resolutions. It is a multidisciplinary field combining 
 statistics, data science, soil science, physical geography, remote sensing, 
-geoinformation science and a number of other sciences [@Scul01; @MCBRATNEY20033; @Henderson2004Geoderma; @Boettinger2010Springer; @Zhu2015PSM]. *Predictive Soil Mapping with R* 
+geoinformation science and a number of other sciences [@Scul01; @McBratney2003Geoderma; @Henderson2004Geoderma; @Boettinger2010Springer; @Zhu2015PSM]. *Predictive Soil Mapping with R* 
 is about understanding the main concepts behind soil mapping, mastering R 
 packages that can be used to produce high quality soil maps, and about 
 optimizing all processes involved so that production costs can also be reduced.
@@ -662,7 +662,7 @@ $o$ for organisms (including humans), $r$ is relief, $p$ is parent
 material or geology and $t$ is time. The Eq. \@ref(eq:clorpt) is the
 CLORPT model originally presented by Jenny [-@jenny1994factors].
 
-@MCBRATNEY20033 re-conceptualized and extended the CLORPT model via the
+@McBratney2003Geoderma re-conceptualized and extended the CLORPT model via the
 *“scorpan”* model in which soil properties are modeled as a function of:
 
 -   (auxiliary) **s**oil classes or properties,
@@ -4929,7 +4929,7 @@ TT.plot(class.sys = "USDA.TT", tri.data = tdf,
 
 This shows that not all positions in the triangle have the same prior probability. So probably a more sensitive way to estimate uncertainty of converting soil texture classes to fractions would be to run simulations using a density image showing the actual distribution of classes and then, by using the `rpoint` function in the [spatstat package](http://spatstat.org), we could also derive even more realistic conversions from texture-by-hand classes to texture fractions.
 
-## Converting Munsell color codes to other color systems
+### Converting Munsell color codes to other color systems
 
 In the next example we look at the Munsell color codes and conversion algorithms from a code to RGB and other color spaces. Munsell color codes can be matched with RGB values via the [Munsell color codes conversion table](http://www.cis.rit.edu/mcsl/online/munsell.php). You can load a table with 2350 entries from the book repository:
 
@@ -5408,8 +5408,12 @@ data easier and more consistent.
 
 ### Types of soil covariates
 
-Soils (and vegetation + ecosystems) form under complex interactions between climate, living organism and anthropogenic influences, modified by relief and hydrological processes and operating over long periods of time. 
-This has been clearly identified first by @jenny1994factors with his CLORPT factors of soil formation and subsequently extended by @MCBRATNEY20033 with the SCORPAN formulation (see section \@ref(soil-mapping-theory)).
+Soils (and vegetation + ecosystems) form under complex interactions between 
+climate, living organism and anthropogenic influences, modified by relief and 
+hydrological processes and operating over long periods of time. 
+This has been clearly identified first by @jenny1994factors with his CLORPT 
+factors of soil formation and subsequently extended by @McBratney2003Geoderma 
+with the SCORPAN formulation (see section \@ref(soil-mapping-theory)).
 
 The following groups of covariates are commonly considered for use in 
 Predictive Soil Mapping:
@@ -8147,13 +8151,13 @@ library(intamap)
 demo(meuse, echo=FALSE)
 meuse$value = meuse$zinc
 output <- interpolate(meuse, meuse.grid, list(mean=TRUE, variance=TRUE))
-#> R 2019-03-13 16:20:41 interpolating 155 observations, 3103 prediction locations
+#> R 2019-03-17 17:05:16 interpolating 155 observations, 3103 prediction locations
 #> Warning in predictTime(nObs = dim(observations)[1], nPred = nPred, formulaString = formulaString, : 
 #>  using standard model for estimating time. For better 
 #>  platform spesific predictions, please run 
 #>  timeModels <- generateTimeModels()
 #>   and save the workspace
-#> [1] "estimated time for  copula 154.505736191836"
+#> [1] "estimated time for  copula 155.265554328003"
 #> Checking object ... OK
 ```
 
@@ -8167,7 +8171,7 @@ str(output, max.level = 2)
 #> List of 16
 #>  $ observations       :Formal class 'SpatialPointsDataFrame' [package "sp"] with 5 slots
 #>  $ formulaString      :Class 'formula'  language value ~ 1
-#>   .. ..- attr(*, ".Environment")=<environment: 0x155952b8> 
+#>   .. ..- attr(*, ".Environment")=<environment: 0x14e195e8> 
 #>  $ predictionLocations:Formal class 'SpatialPixelsDataFrame' [package "sp"] with 7 slots
 #>  $ params             :List of 18
 #>   ..$ doAnisotropy     : logi TRUE
@@ -9575,11 +9579,11 @@ localH2O = h2o.init(startH2O=TRUE)
 #>  Connection successful!
 #> 
 #> R is connected to the H2O cluster: 
-#>     H2O cluster uptime:         23 minutes 54 seconds 
+#>     H2O cluster uptime:         23 minutes 43 seconds 
 #>     H2O cluster timezone:       UTC 
 #>     H2O data parsing timezone:  UTC 
 #>     H2O cluster version:        3.22.1.1 
-#>     H2O cluster version age:    2 months and 13 days  
+#>     H2O cluster version age:    2 months and 17 days  
 #>     H2O cluster name:           H2O_started_from_R_travis_lqb476 
 #>     H2O cluster total nodes:    1 
 #>     H2O cluster total memory:   1.40 GB 
@@ -9614,23 +9618,23 @@ RF.m
 #> ==============
 #> 
 #> H2ORegressionModel: drf
-#> Model ID:  DRF_model_R_1552492665822_21 
+#> Model ID:  DRF_model_R_1552840950825_21 
 #> Model Summary: 
 #>   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-#> 1              50                       50              644080        20
+#> 1              50                       50              647929        20
 #>   max_depth mean_depth min_leaves max_leaves mean_leaves
-#> 1        20   20.00000        928       1078  1021.88000
+#> 1        20   20.00000        969       1083  1027.90000
 #> 
 #> 
 #> H2ORegressionMetrics: drf
 #> ** Reported on training data. **
 #> ** Metrics reported on Out-Of-Bag training samples **
 #> 
-#> MSE:  220
-#> RMSE:  14.8
-#> MAE:  10.1
-#> RMSLE:  0.432
-#> Mean Residual Deviance :  220
+#> MSE:  216
+#> RMSE:  14.7
+#> MAE:  10
+#> RMSLE:  0.426
+#> Mean Residual Deviance :  216
 ```
 
 This shows that the model fitting R-square is about 50%. This is also indicated by the predicted vs observed plot:
@@ -9681,29 +9685,29 @@ DL.m
 #> ==============
 #> 
 #> H2ORegressionModel: deeplearning
-#> Model ID:  DeepLearning_model_R_1552492665822_22 
+#> Model ID:  DeepLearning_model_R_1552840950825_22 
 #> Status of Neuron Layers: predicting SNDMHT_A, regression, gaussian distribution, Quadratic loss, 42,601 weights/biases, 508.3 KB, 25,520 training samples, mini-batch size 1
 #>   layer units      type dropout       l1       l2 mean_rate rate_rms
 #> 1     1    10     Input  0.00 %       NA       NA        NA       NA
-#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.014281 0.009322
-#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.145253 0.182669
-#> 4     4     1    Linear      NA 0.000000 0.000000  0.001509 0.001260
+#> 2     2   200 Rectifier  0.00 % 0.000000 0.000000  0.014556 0.009009
+#> 3     3   200 Rectifier  0.00 % 0.000000 0.000000  0.138473 0.184169
+#> 4     4     1    Linear      NA 0.000000 0.000000  0.001368 0.000909
 #>   momentum mean_weight weight_rms mean_bias bias_rms
 #> 1       NA          NA         NA        NA       NA
-#> 2 0.000000    0.003256   0.100437  0.346362 0.069459
-#> 3 0.000000   -0.018368   0.071034  0.953001 0.018705
-#> 4 0.000000   -0.004844   0.044452  0.093990 0.000000
+#> 2 0.000000   -0.001292   0.102565  0.352788 0.067968
+#> 3 0.000000   -0.018166   0.070974  0.953664 0.021549
+#> 4 0.000000    0.000102   0.046915  0.134803 0.000000
 #> 
 #> 
 #> H2ORegressionMetrics: deeplearning
 #> ** Reported on training data. **
 #> ** Metrics reported on full training frame **
 #> 
-#> MSE:  284
-#> RMSE:  16.9
-#> MAE:  12.9
-#> RMSLE:  0.523
-#> Mean Residual Deviance :  284
+#> MSE:  283
+#> RMSE:  16.8
+#> MAE:  12.7
+#> RMSLE:  0.518
+#> Mean Residual Deviance :  283
 ```
 
 Which delivers performance comparable to the random forest model. The output prediction map does show somewhat different patterns than the random forest predictions (compare Fig. \@ref(fig:map-snd) and Fig. \@ref(fig:map-snd-dl)).
@@ -9940,16 +9944,16 @@ str(test.ORC)
 #> List of 2
 #>  $ CV_residuals:'data.frame':	4972 obs. of  4 variables:
 #>   ..$ Observed : num [1:4972] 6.5 5.1 4.9 3.3 2.2 ...
-#>   ..$ Predicted: num [1:4972] 12.1 7.32 6.88 5.06 3.1 ...
+#>   ..$ Predicted: num [1:4972] 12.22 7.5 6.47 4.98 3.2 ...
 #>   ..$ SOURCEID : chr [1:4972] "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" "399_EDGEROI_ed005_1" ...
 #>   ..$ fold     : int [1:4972] 1 1 1 1 1 1 1 1 1 1 ...
 #>  $ Summary     :'data.frame':	1 obs. of  6 variables:
-#>   ..$ ME          : num -0.123
+#>   ..$ ME          : num -0.0971
 #>   ..$ MAE         : num 2.18
-#>   ..$ RMSE        : num 3.66
-#>   ..$ R.squared   : num 0.562
-#>   ..$ logRMSE     : num 0.493
-#>   ..$ logR.squared: num 0.638
+#>   ..$ RMSE        : num 3.68
+#>   ..$ R.squared   : num 0.557
+#>   ..$ logRMSE     : num 0.492
+#>   ..$ logR.squared: num 0.636
 ```
 
 Which shows that the R-squared based on cross-validation is about 65% i.e. the average error of predicting soil organic carbon content using ensemble method is about $\pm 4$ g/kg. The final observed-vs-predict plot shows that the model is unbiased and that the predictions generally match cross-validation points:
@@ -10011,15 +10015,15 @@ perf
 #> 
 #> Base learner performance, sorted by specified metric:
 #>                    learner  MSE
+#> 1 h2o.randomForest.wrapper 13.0
 #> 2          h2o.gbm.wrapper 12.8
-#> 1 h2o.randomForest.wrapper 12.6
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 12.1988761992698
+#> Ensemble performance (MSE): 12.5019850661684
 ```
 
 which shows that, in this specific case, the ensemble model is only slightly better than a single model. Note that we would need to repeat testing the ensemble modeling several times until we can be certain any actual actual gain in accuracy.
@@ -10119,16 +10123,16 @@ perf3
 #> Base learner performance, sorted by specified metric:
 #>                    learner    MSE
 #> 1          h2o.glm.wrapper 0.2827
-#> 4 h2o.deeplearning.wrapper 0.1436
+#> 4 h2o.deeplearning.wrapper 0.1509
 #> 3          h2o.gbm.wrapper 0.0971
-#> 2 h2o.randomForest.wrapper 0.0800
+#> 2 h2o.randomForest.wrapper 0.0799
 #> 
 #> 
 #> H2O Ensemble Performance on <newdata>:
 #> ----------------
 #> Family: gaussian
 #> 
-#> Ensemble performance (MSE): 0.0776844618433529
+#> Ensemble performance (MSE): 0.075237150148056
 ```
 
 In this case Ensemble performance (MSE) seems to be *as bad* as the single best spatial predictor (random forest in this case). This illustrates that ensemble predictions are sometimes not beneficial.
@@ -10212,10 +10216,10 @@ sl
 #> 
 #>                  Risk   Coef
 #> SL.mean_All    0.7540 0.0000
-#> SL.xgboost_All 0.0598 0.8163
-#> SL.ksvm_All    0.1277 0.0149
-#> SL.glmnet_All  0.3076 0.0000
-#> SL.ranger_All  0.0854 0.1688
+#> SL.xgboost_All 0.0598 0.8213
+#> SL.ksvm_All    0.1295 0.0152
+#> SL.glmnet_All  0.3080 0.0000
+#> SL.ranger_All  0.0858 0.1636
 ```
 
 This shows that `SL.xgboost_All` outperforms the competition by a large margin. Since this is a relatively small data set, RMSE produced by `SL.xgboost_All` is probably unrealistically small. If we only use the top three models (XGboost, ranger and ksvm) in comparison we get:
@@ -10235,9 +10239,9 @@ sl2
 #> 
 #> 
 #>                  Risk  Coef
-#> SL.xgboost_All 0.0603 0.812
-#> SL.ranger_All  0.0833 0.188
-#> SL.ksvm_All    0.1303 0.000
+#> SL.xgboost_All 0.0603 0.805
+#> SL.ranger_All  0.0826 0.195
+#> SL.ksvm_All    0.1301 0.000
 ```
 
 again `SL.xgboost` dominates the ensemble model, which is most likely unrealistic because most of the training data is spatially clustered and hence XGboost is probably over-fitting. To estimate actual accuracy of predicting soil pH using these two techniques we can run cross-validation where entire profiles are taken out of the training dataset:
@@ -10264,11 +10268,11 @@ summary(cv_sl)
 #> All risk estimates are based on V =  5 
 #> 
 #>       Algorithm  Ave    se   Min  Max
-#>   Super Learner 0.16 0.014 0.094 0.26
-#>     Discrete SL 0.17 0.015 0.114 0.25
+#>   Super Learner 0.16 0.014 0.094 0.25
+#>     Discrete SL 0.17 0.014 0.109 0.25
 #>  SL.xgboost_All 0.19 0.016 0.135 0.27
-#>   SL.ranger_All 0.17 0.015 0.104 0.25
-#>     SL.ksvm_All 0.18 0.014 0.108 0.30
+#>   SL.ranger_All 0.16 0.014 0.104 0.25
+#>     SL.ksvm_All 0.18 0.015 0.109 0.30
 ```
 
 where `V=5` specifies number of folds, and `id=rm.cookfarm$SOURCEID` enforces that entire profiles are removed from training and cross-validation. This gives a more realistic RMSE of about ±0.35. Note that this time `SL.xgboost_All` is even somewhat worse than the random forest model, and the ensemble model (`Super Learner`) is slightly better than each individual model. This matches our previous results with `h20.ensemble`. 
@@ -10293,8 +10297,8 @@ sl2
 #> 
 #>                 Risk  Coef
 #> SL.xgboost_All 0.215 0.000
-#> SL.ranger_All  0.164 0.474
-#> SL.ksvm_All    0.162 0.526
+#> SL.ranger_All  0.165 0.484
+#> SL.ksvm_All    0.164 0.516
 new.data <- grid10m@data
 pred.PHI <- list(NULL)
 depths = c(10,30,50,70,90)
@@ -10316,7 +10320,7 @@ for(j in 1:length(depths)){
 #>     buffer, rotated
 str(pred.PHI[[1]])
 #> List of 2
-#>  $ pred           : num [1:3865, 1] 4.67 4.74 4.88 4.85 4.79 ...
+#>  $ pred           : num [1:3865, 1] 4.68 4.75 4.9 4.86 4.8 ...
 #>  $ library.predict: num [1:3865, 1:3] 4.15 4.11 4.45 4.75 4.78 ...
 #>   ..- attr(*, "dimnames")=List of 2
 #>   .. ..$ : NULL

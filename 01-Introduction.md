@@ -367,7 +367,7 @@ $o$ for organisms (including humans), $r$ is relief, $p$ is parent
 material or geology and $t$ is time. The Eq. \@ref(eq:clorpt) is the
 CLORPT model originally presented by Jenny [-@jenny1994factors].
 
-@MCBRATNEY20033 re-conceptualized and extended the CLORPT model via the
+@McBratney2003Geoderma re-conceptualized and extended the CLORPT model via the
 *“scorpan”* model in which soil properties are modeled as a function of:
 
 -   (auxiliary) **s**oil classes or properties,

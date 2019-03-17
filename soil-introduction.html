@@ -25,7 +25,7 @@
 <meta name="author" content="Tomislav Hengl and Robert A. MacMillan">
 
 
-<meta name="date" content="2019-03-13">
+<meta name="date" content="2019-03-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -240,13 +240,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.7" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#variables-importing"><i class="fa fa-check"></i><b>3.7</b> Importing and formatting soil data in R</a><ul>
 <li class="chapter" data-level="3.7.1" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#converting-texture-by-hand-classes-to-fractions"><i class="fa fa-check"></i><b>3.7.1</b> Converting texture-by-hand classes to fractions</a></li>
+<li class="chapter" data-level="3.7.2" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#converting-munsell-color-codes-to-other-color-systems"><i class="fa fa-check"></i><b>3.7.2</b> Converting Munsell color codes to other color systems</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#converting-munsell-color-codes-to-other-color-systems"><i class="fa fa-check"></i><b>3.8</b> Converting Munsell color codes to other color systems</a></li>
-<li class="chapter" data-level="3.9" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#mla-ptfs"><i class="fa fa-check"></i><b>3.9</b> Using Machine Learning to build Pedo-Transfer-Functions</a><ul>
-<li class="chapter" data-level="3.9.1" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#ptf-for-bulk-density"><i class="fa fa-check"></i><b>3.9.1</b> PTF for Bulk Density</a></li>
-<li class="chapter" data-level="3.9.2" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#ptf-for-correlating-classification-systems"><i class="fa fa-check"></i><b>3.9.2</b> PTF for correlating classification systems</a></li>
+<li class="chapter" data-level="3.8" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#mla-ptfs"><i class="fa fa-check"></i><b>3.8</b> Using Machine Learning to build Pedo-Transfer-Functions</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#ptf-for-bulk-density"><i class="fa fa-check"></i><b>3.8.1</b> PTF for Bulk Density</a></li>
+<li class="chapter" data-level="3.8.2" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#ptf-for-correlating-classification-systems"><i class="fa fa-check"></i><b>3.8.2</b> PTF for correlating classification systems</a></li>
 </ul></li>
-<li class="chapter" data-level="3.10" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#summary-points"><i class="fa fa-check"></i><b>3.10</b> Summary points</a></li>
+<li class="chapter" data-level="3.9" data-path="soil-variables-chapter.html"><a href="soil-variables-chapter.html#summary-points"><i class="fa fa-check"></i><b>3.9</b> Summary points</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html"><i class="fa fa-check"></i><b>4</b> Preparation of soil covariates for soil mapping</a><ul>
 <li class="chapter" data-level="4.1" data-path="soil-covs-chapter.html"><a href="soil-covs-chapter.html#soil-covariate-data-sources"><i class="fa fa-check"></i><b>4.1</b> Soil covariate data sources</a><ul>
@@ -523,7 +523,7 @@ and presented on a map in PSM. Some soil variables are
 normally described as discrete entities (or classes), but classes can also be
 depicted as continuous quantities on a map in the form of
 probabilities or memberships
-<span class="citation">(de Gruijter, Walvoort, and Gaans <a href="#ref-DeGruijter1997Geoderma">1997</a>; A. B. McBratney, Mendoça Santos, and Minasny <a href="#ref-McBratney2003Geoderma">2003</a>; Kempen et al. <a href="#ref-Kempen2009Geoderma">2009</a>; Odgers, McBratney, and Minasny <a href="#ref-Odgers201130">2011</a>)</span>.
+<span class="citation">(de Gruijter, Walvoort, and Gaans <a href="#ref-DeGruijter1997Geoderma">1997</a>; McBratney, Mendonça Santos, and Minasny <a href="#ref-McBratney2003Geoderma">2003</a>; Kempen et al. <a href="#ref-Kempen2009Geoderma">2009</a>; Odgers, McBratney, and Minasny <a href="#ref-Odgers201130">2011</a>)</span>.
 For example, a binary soil variable (e.g. the presence/absence of a
 specific layer or horizon) can be modeled as a binomial random variable
 with a logistic regression model. Spatial prediction (mapping) with this
@@ -736,7 +736,7 @@ S = f (cl, o, r, p, t)
 <span class="math inline">\(o\)</span> for organisms (including humans), <span class="math inline">\(r\)</span> is relief, <span class="math inline">\(p\)</span> is parent
 material or geology and <span class="math inline">\(t\)</span> is time. The Eq. <a href="soil-introduction.html#eq:clorpt">(1.2)</a> is the
 CLORPT model originally presented by Jenny <span class="citation">(<a href="#ref-jenny1994factors">1994</a>)</span>.</p>
-<p><span class="citation">A. McBratney, Mendonça Santos, and Minasny (<a href="#ref-MCBRATNEY20033">2003</a>)</span> re-conceptualized and extended the CLORPT model via the
+<p><span class="citation">McBratney, Mendonça Santos, and Minasny (<a href="#ref-McBratney2003Geoderma">2003</a>)</span> re-conceptualized and extended the CLORPT model via the
 <em>“scorpan”</em> model in which soil properties are modeled as a function of:</p>
 <ul>
 <li><p>(auxiliary) <strong>s</strong>oil classes or properties,</p></li>
@@ -821,7 +821,7 @@ Figure 1.3: Typical soil survey phases and intermediate and final products.
 </div>
 <p>Conventional (traditional) manual soil mapping typically adheres to the
 following sequence of steps, with minor variations
-<span class="citation">(A. B. McBratney, Mendoça Santos, and Minasny <a href="#ref-McBratney2003Geoderma">2003</a>)</span>:</p>
+<span class="citation">(McBratney, Mendonça Santos, and Minasny <a href="#ref-McBratney2003Geoderma">2003</a>)</span>:</p>
 <ol style="list-style-type: decimal">
 <li><p><em>Specify the objective(s) to be served by the soil survey and
 resulting map</em>;</p></li>
@@ -999,7 +999,7 @@ observed soil occurrences. The whole process is amenable to complete
 automation and documentation so that it allows for <em>reproducible
 research</em> (<a href="http://en.wikipedia.org/wiki/Reproducibility" class="uri">http://en.wikipedia.org/wiki/Reproducibility</a>).</p>
 <p>Pedometric soil mapping typically follows six steps as outlined by
-<span class="citation">A. B. McBratney, Mendoça Santos, and Minasny (<a href="#ref-McBratney2003Geoderma">2003</a>)</span>:</p>
+<span class="citation">McBratney, Mendonça Santos, and Minasny (<a href="#ref-McBratney2003Geoderma">2003</a>)</span>:</p>
 <ol style="list-style-type: decimal">
 <li><p><em>Select soil variables (or classes) of interest and suitable
 measurement techniques (decide what to map and describe)</em>;</p></li>
@@ -1834,7 +1834,7 @@ conditions</em>.</p></li>
 knowledge un-expressed and uncaptured. Modern methods of digital soil
 mapping often represent attempts to capture expert knowledge in a
 systematic and formal way
-<span class="citation">(Zhu et al. <a href="#ref-Zhu2001">2001</a>; A. B. McBratney, Mendoça Santos, and Minasny <a href="#ref-McBratney2003Geoderma">2003</a>; Bui <a href="#ref-Bui2004Geoderma">2004</a>; MacMillan, Pettapiece, and Brierley <a href="#ref-MacMillan2005CJSS">2005</a>)</span>.</p>
+<span class="citation">(Zhu et al. <a href="#ref-Zhu2001">2001</a>; McBratney, Mendonça Santos, and Minasny <a href="#ref-McBratney2003Geoderma">2003</a>; Bui <a href="#ref-Bui2004Geoderma">2004</a>; MacMillan, Pettapiece, and Brierley <a href="#ref-MacMillan2005CJSS">2005</a>)</span>.</p>
 <p>Integration of expert pedological knowledge into soil mapping methods
 provides the opportunity of potentially improving both the predictions
 themselves and understanding of the reasons or rationale for the success
@@ -2484,7 +2484,7 @@ collected data.</p>
 <p>de Gruijter, J. J., D. J. J. Walvoort, and P. F. M. van Gaans. 1997. “Continuous Soil Maps — a Fuzzy Set Approach to Bridge the Gap Between Aggregation Levels of Process and Distribution Models.” <em>Geoderma</em> 77 (2-4):169–95.</p>
 </div>
 <div id="ref-McBratney2003Geoderma">
-<p>McBratney, A. B., M. L. Mendoça Santos, and B. Minasny. 2003. “On digital soil mapping.” <em>Geoderma</em> 117 (1-2):3–52.</p>
+<p>McBratney, A.B, M.L Mendonça Santos, and B Minasny. 2003. “On Digital Soil Mapping.” <em>Geoderma</em> 117 (1):3–52. <a href="https://doi.org/10.1016/S0016-7061(03)00223-4" class="uri">https://doi.org/10.1016/S0016-7061(03)00223-4</a>.</p>
 </div>
 <div id="ref-Kempen2009Geoderma">
 <p>Kempen, B., D.J. Brus, G.B.M. Heuvelink, and J.J. Stoorvogel. 2009. “Updating the 1:50,000 Dutch soil map using legacy soil data: A multinomial logistic regression approach.” <em>Geoderma</em> 151 (3-4):311–26. <a href="https://doi.org/10.1016/j.geoderma.2009.04.023" class="uri">https://doi.org/10.1016/j.geoderma.2009.04.023</a>.</p>
@@ -2521,9 +2521,6 @@ collected data.</p>
 </div>
 <div id="ref-jenny1994factors">
 <p>Jenny, H. 1994. <em>Factors of Soil Formation: A System of Quantitative Pedology</em>. Dover Books on Earth Sciences. Dover Publications.</p>
-</div>
-<div id="ref-MCBRATNEY20033">
-<p>McBratney, A.B, M.L Mendonça Santos, and B Minasny. 2003. “On Digital Soil Mapping.” <em>Geoderma</em> 117 (1):3–52. <a href="https://doi.org/10.1016/S0016-7061(03)00223-4" class="uri">https://doi.org/10.1016/S0016-7061(03)00223-4</a>.</p>
 </div>
 <div id="ref-hengl2007regression">
 <p>Hengl, T., G.B.M. Heuvelink, and D.G. Rossiter. 2007. “About Regression-Kriging: From Equations to Case Studies.” <em>Computers &amp; Geosciences</em> 33 (10). Elsevier:1301–15.</p>
