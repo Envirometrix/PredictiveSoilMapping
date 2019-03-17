@@ -93,7 +93,7 @@ learning techniques to fit models for the purpose of producing spatial and/or
 spatiotemporal predictions of soil variables, i.e. maps of soil properties and 
 classes at different resolutions. It is a multidisciplinary field combining 
 statistics, data science, soil science, physical geography, remote sensing, 
-geoinformation science and a number of other sciences [@Scul01; @MCBRATNEY20033; @Henderson2004Geoderma; @Boettinger2010Springer; @Zhu2015PSM]. *Predictive Soil Mapping with R* 
+geoinformation science and a number of other sciences [@Scul01; @McBratney2003Geoderma; @Henderson2004Geoderma; @Boettinger2010Springer; @Zhu2015PSM]. *Predictive Soil Mapping with R* 
 is about understanding the main concepts behind soil mapping, mastering R 
 packages that can be used to produce high quality soil maps, and about 
 optimizing all processes involved so that production costs can also be reduced.
