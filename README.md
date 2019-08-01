@@ -1,5 +1,6 @@
 ## Predictive Soil Mapping with R by T. (Tom) Hengl and R.A. (Bob) MacMillan
 [![Build Status](https://travis-ci.org/Envirometrix/PredictiveSoilMapping.png?branch=master)](https://travis-ci.org/Envirometrix/PredictiveSoilMapping) 
+[![DOI](https://zenodo.org/badge/136352570.svg)](https://zenodo.org/badge/latestdoi/136352570)
 
 ![alt text](figures/f0_front_scale.png)
 
